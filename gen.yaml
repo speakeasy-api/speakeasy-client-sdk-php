@@ -1,5 +1,5 @@
 php:
   version: 0.0.1
   packagename: speakeasy-api/speakeasy-client-sdk-php
-  namespace: Speakeasy\SpeakeasyClientSdkPhp
+  namespace: Speakeasy\SpeakeasyClientSDK
 telemetryenabled: true

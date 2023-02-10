@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 
 
 class DeleteVersionMetadataRequest
 {
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\DeleteVersionMetadataPathParams $pathParams;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\DeleteVersionMetadataPathParams $pathParams;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\DeleteVersionMetadataPathParams();
+		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\models\operations\DeleteVersionMetadataPathParams();
 	}
 }

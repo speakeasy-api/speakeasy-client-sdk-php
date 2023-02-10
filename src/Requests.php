@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp;
+namespace Speakeasy\SpeakeasyClientSDK;
 
 class Requests 
 {
@@ -29,7 +29,7 @@ class Requests
      * Generates a Postman collection for a particular request. 
      * Allowing it to be replayed with the same inputs that were captured by the SDK.
     */
-    public function generateRequestPostmanCollection(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\GenerateRequestPostmanCollectionRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GenerateRequestPostmanCollectionResponse
+    public function generateRequestPostmanCollection(\Speakeasy\SpeakeasyClientSDK\models\operations\GenerateRequestPostmanCollectionRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GenerateRequestPostmanCollectionResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/eventlog/{requestID}/generate/postman', $request->pathParams);
@@ -44,7 +44,7 @@ class Requests
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GenerateRequestPostmanCollectionResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GenerateRequestPostmanCollectionResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
@@ -56,7 +56,7 @@ class Requests
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -66,7 +66,7 @@ class Requests
     /**
      * getRequestFromEventLog - Get information about a particular request.
     */
-    public function getRequestFromEventLog(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetRequestFromEventLogRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetRequestFromEventLogResponse
+    public function getRequestFromEventLog(\Speakeasy\SpeakeasyClientSDK\models\operations\GetRequestFromEventLogRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GetRequestFromEventLogResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/eventlog/{requestID}', $request->pathParams);
@@ -81,20 +81,20 @@ class Requests
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetRequestFromEventLogResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetRequestFromEventLogResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->unboundedRequest = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\UnboundedRequest', 'json');
+                $res->unboundedRequest = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\UnboundedRequest', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -107,7 +107,7 @@ class Requests
      * Supports retrieving a list of request captured by the SDK for this workspace.
      * Allows the filtering of requests on a number of criteria such as ApiID, VersionID, Path, Method, etc.
     */
-    public function queryEventLog(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\QueryEventLogRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\QueryEventLogResponse
+    public function queryEventLog(\Speakeasy\SpeakeasyClientSDK\models\operations\QueryEventLogRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\QueryEventLogResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/eventlog/query');
@@ -123,20 +123,20 @@ class Requests
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\QueryEventLogResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\QueryEventLogResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->boundedRequests = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSdkPhp\models\shared\BoundedRequest>', 'json');
+                $res->boundedRequests = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSDK\models\shared\BoundedRequest>', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 

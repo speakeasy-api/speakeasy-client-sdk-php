@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 
 
@@ -10,7 +10,7 @@ class ValidateApiKeyResponse
 {
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
     
     public int $statusCode;
     

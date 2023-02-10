@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 
 
 class GetSchemaRevisionRequest
 {
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemaRevisionPathParams $pathParams;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemaRevisionPathParams $pathParams;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemaRevisionPathParams();
+		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemaRevisionPathParams();
 	}
 }

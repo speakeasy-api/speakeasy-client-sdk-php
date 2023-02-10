@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp;
+namespace Speakeasy\SpeakeasyClientSDK;
 
 class Schemas 
 {
@@ -26,7 +26,7 @@ class Schemas
     /**
      * deleteSchema - Delete a particular schema revision for an Api.
     */
-    public function deleteSchema(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\DeleteSchemaRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\DeleteSchemaResponse
+    public function deleteSchema(\Speakeasy\SpeakeasyClientSDK\models\operations\DeleteSchemaRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\DeleteSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', $request->pathParams);
@@ -41,7 +41,7 @@ class Schemas
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\DeleteSchemaResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\DeleteSchemaResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
@@ -50,7 +50,7 @@ class Schemas
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -60,7 +60,7 @@ class Schemas
     /**
      * downloadSchema - Download the latest schema for a particular apiID.
     */
-    public function downloadSchema(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\DownloadSchemaRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\DownloadSchemaResponse
+    public function downloadSchema(\Speakeasy\SpeakeasyClientSDK\models\operations\DownloadSchemaRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\DownloadSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/download', $request->pathParams);
@@ -75,7 +75,7 @@ class Schemas
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\DownloadSchemaResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\DownloadSchemaResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
@@ -91,7 +91,7 @@ class Schemas
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -101,7 +101,7 @@ class Schemas
     /**
      * downloadSchemaRevision - Download a particular schema revision for an Api.
     */
-    public function downloadSchemaRevision(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\DownloadSchemaRevisionRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\DownloadSchemaRevisionResponse
+    public function downloadSchemaRevision(\Speakeasy\SpeakeasyClientSDK\models\operations\DownloadSchemaRevisionRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\DownloadSchemaRevisionResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}/download', $request->pathParams);
@@ -116,7 +116,7 @@ class Schemas
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\DownloadSchemaRevisionResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\DownloadSchemaRevisionResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
@@ -132,7 +132,7 @@ class Schemas
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -145,7 +145,7 @@ class Schemas
      * Returns information about the last uploaded schema for a particular API version. 
      * This won't include the schema itself, that can be retrieved via the downloadSchema operation.
     */
-    public function getSchema(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemaRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemaResponse
+    public function getSchema(\Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemaRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', $request->pathParams);
@@ -160,20 +160,20 @@ class Schemas
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemaResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemaResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->schema = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Schema', 'json');
+                $res->schema = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Schema', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -183,7 +183,7 @@ class Schemas
     /**
      * getSchemaDiff - Get a diff of two schema revisions for an Api.
     */
-    public function getSchemaDiff(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemaDiffRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemaDiffResponse
+    public function getSchemaDiff(\Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemaDiffRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemaDiffResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{baseRevisionID}/diff/{targetRevisionID}', $request->pathParams);
@@ -198,20 +198,20 @@ class Schemas
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemaDiffResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemaDiffResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->schemaDiff = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\SchemaDiff', 'json');
+                $res->schemaDiff = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\SchemaDiff', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -224,7 +224,7 @@ class Schemas
      * Returns information about the last uploaded schema for a particular schema revision. 
      * This won't include the schema itself, that can be retrieved via the downloadSchema operation.
     */
-    public function getSchemaRevision(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemaRevisionRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemaRevisionResponse
+    public function getSchemaRevision(\Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemaRevisionRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemaRevisionResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', $request->pathParams);
@@ -239,20 +239,20 @@ class Schemas
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemaRevisionResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemaRevisionResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->schema = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Schema', 'json');
+                $res->schema = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Schema', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -265,7 +265,7 @@ class Schemas
      * Returns information the schemas associated with a particular apiID. 
      * This won't include the schemas themselves, they can be retrieved via the downloadSchema operation.
     */
-    public function getSchemas(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemasRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemasResponse
+    public function getSchemas(\Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemasRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemasResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schemas', $request->pathParams);
@@ -280,20 +280,20 @@ class Schemas
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemasResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemasResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->schemata = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSdkPhp\models\shared\Schema>', 'json');
+                $res->schemata = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSDK\models\shared\Schema>', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -306,7 +306,7 @@ class Schemas
      * Allows uploading a schema for a particular API version.
      * This will be used to populate ApiEndpoints and used as a base for any schema generation if present.
     */
-    public function registerSchema(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\RegisterSchemaRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\RegisterSchemaResponse
+    public function registerSchema(\Speakeasy\SpeakeasyClientSDK\models\operations\RegisterSchemaRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\RegisterSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', $request->pathParams);
@@ -326,7 +326,7 @@ class Schemas
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\RegisterSchemaResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\RegisterSchemaResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
@@ -335,7 +335,7 @@ class Schemas
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 

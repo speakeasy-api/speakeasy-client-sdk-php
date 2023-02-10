@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 
 
@@ -11,11 +11,11 @@ class GetValidEmbedAccessTokensResponse
     public string $contentType;
     
     /**
-     * @var ?array<\Speakeasy\SpeakeasyClientSdkPhp\models\shared\EmbedToken>
+     * @var ?array<\Speakeasy\SpeakeasyClientSDK\models\shared\EmbedToken>
      */
     public ?array $embedTokens;
     
-    public ?\Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
     
     public int $statusCode;
     

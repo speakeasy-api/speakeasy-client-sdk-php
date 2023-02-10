@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\shared;
+namespace Speakeasy\SpeakeasyClientSDK\models\shared;
 
 
 /**
@@ -12,10 +12,10 @@ namespace Speakeasy\SpeakeasyClientSdkPhp\models\shared;
 class Filters
 {
     /**
-     * @var array<\Speakeasy\SpeakeasyClientSdkPhp\models\shared\Filter>
+     * @var array<\Speakeasy\SpeakeasyClientSDK\models\shared\Filter>
      */
     #[\JMS\Serializer\Annotation\SerializedName('filters')]
-    #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSdkPhp\models\shared\Filter>')]
+    #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\models\shared\Filter>')]
     public array $filters;
     
     #[\JMS\Serializer\Annotation\SerializedName('limit')]

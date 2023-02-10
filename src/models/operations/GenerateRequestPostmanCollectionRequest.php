@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 
 
 class GenerateRequestPostmanCollectionRequest
 {
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GenerateRequestPostmanCollectionPathParams $pathParams;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\GenerateRequestPostmanCollectionPathParams $pathParams;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GenerateRequestPostmanCollectionPathParams();
+		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\models\operations\GenerateRequestPostmanCollectionPathParams();
 	}
 }

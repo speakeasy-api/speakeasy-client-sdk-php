@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp;
+namespace Speakeasy\SpeakeasyClientSDK;
 
 class Plugins 
 {
@@ -26,7 +26,7 @@ class Plugins
     /**
      * getPlugins - Get all plugins for the current workspace.
     */
-    public function getPlugins(): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetPluginsResponse
+    public function getPlugins(): \Speakeasy\SpeakeasyClientSDK\models\operations\GetPluginsResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/plugins');
@@ -41,20 +41,20 @@ class Plugins
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetPluginsResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetPluginsResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->plugins = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSdkPhp\models\shared\Plugin>', 'json');
+                $res->plugins = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSDK\models\shared\Plugin>', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -64,7 +64,7 @@ class Plugins
     /**
      * runPlugin - Run a plugin
     */
-    public function runPlugin(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\RunPluginRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\RunPluginResponse
+    public function runPlugin(\Speakeasy\SpeakeasyClientSDK\models\operations\RunPluginRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\RunPluginResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/plugins/{pluginID}', $request->pathParams);
@@ -80,20 +80,20 @@ class Plugins
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\RunPluginResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\RunPluginResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->boundedRequests = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSdkPhp\models\shared\BoundedRequest>', 'json');
+                $res->boundedRequests = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSDK\models\shared\BoundedRequest>', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -103,7 +103,7 @@ class Plugins
     /**
      * upsertPlugin - Upsert a plugin
     */
-    public function upsertPlugin(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\UpsertPluginRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\UpsertPluginResponse
+    public function upsertPlugin(\Speakeasy\SpeakeasyClientSDK\models\operations\UpsertPluginRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\UpsertPluginResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/plugins');
@@ -123,20 +123,20 @@ class Plugins
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\UpsertPluginResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\UpsertPluginResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->plugin = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Plugin', 'json');
+                $res->plugin = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Plugin', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 

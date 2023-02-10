@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 
 
 class GetAllApiVersionsRequest
 {
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetAllApiVersionsPathParams $pathParams;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\GetAllApiVersionsPathParams $pathParams;
     
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetAllApiVersionsQueryParams $queryParams;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\GetAllApiVersionsQueryParams $queryParams;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetAllApiVersionsPathParams();
-		$this->queryParams = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetAllApiVersionsQueryParams();
+		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetAllApiVersionsPathParams();
+		$this->queryParams = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetAllApiVersionsQueryParams();
 	}
 }

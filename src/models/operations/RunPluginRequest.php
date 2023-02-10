@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 
 
 class RunPluginRequest
 {
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\RunPluginPathParams $pathParams;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\RunPluginPathParams $pathParams;
     
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\RunPluginQueryParams $queryParams;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\RunPluginQueryParams $queryParams;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\RunPluginPathParams();
-		$this->queryParams = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\RunPluginQueryParams();
+		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\models\operations\RunPluginPathParams();
+		$this->queryParams = new \Speakeasy\SpeakeasyClientSDK\models\operations\RunPluginQueryParams();
 	}
 }

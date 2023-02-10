@@ -3,7 +3,7 @@
   "type": "library",
   "autoload": {
     "psr-4": {
-      "Speakeasy\\SpeakeasyClientSdkPhp\\": "src/"
+      "Speakeasy\\SpeakeasyClientSDK\\": "src/"
     }
   },
   "require": {

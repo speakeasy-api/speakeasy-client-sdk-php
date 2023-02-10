@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\shared;
+namespace Speakeasy\SpeakeasyClientSDK\models\shared;
 
 
 /**
@@ -26,10 +26,10 @@ class SchemaDiff
     public array $deletions;
     
     /**
-     * @var array<string, \Speakeasy\SpeakeasyClientSdkPhp\models\shared\SchemaDiffValueChange>
+     * @var array<string, \Speakeasy\SpeakeasyClientSDK\models\shared\SchemaDiffValueChange>
      */
     #[\JMS\Serializer\Annotation\SerializedName('modifications')]
-    #[\JMS\Serializer\Annotation\Type('array<string, Speakeasy\SpeakeasyClientSdkPhp\models\shared\SchemaDiffValueChange>')]
+    #[\JMS\Serializer\Annotation\Type('array<string, Speakeasy\SpeakeasyClientSDK\models\shared\SchemaDiffValueChange>')]
     public array $modifications;
     
 	public function __construct()

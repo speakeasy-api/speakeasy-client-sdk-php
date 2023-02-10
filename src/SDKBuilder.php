@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp;
+namespace Speakeasy\SpeakeasyClientSDK;
 
 class SDKBuilder
 {

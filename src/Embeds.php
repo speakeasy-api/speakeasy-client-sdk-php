@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp;
+namespace Speakeasy\SpeakeasyClientSDK;
 
 class Embeds 
 {
@@ -29,7 +29,7 @@ class Embeds
      * Returns an embed access token for the current workspace. This can be used to authenticate access to externally embedded content.
      * Filters can be applied allowing views to be filtered to things like particular customerIds.
     */
-    public function getEmbedAccessToken(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetEmbedAccessTokenRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetEmbedAccessTokenResponse
+    public function getEmbedAccessToken(\Speakeasy\SpeakeasyClientSDK\models\operations\GetEmbedAccessTokenRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GetEmbedAccessTokenResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/workspace/embed-access-token');
@@ -45,20 +45,20 @@ class Embeds
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetEmbedAccessTokenResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetEmbedAccessTokenResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->embedAccessTokenResponse = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\EmbedAccessTokenResponse', 'json');
+                $res->embedAccessTokenResponse = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\EmbedAccessTokenResponse', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -68,7 +68,7 @@ class Embeds
     /**
      * getValidEmbedAccessTokens - Get all valid embed access tokens for the current workspace.
     */
-    public function getValidEmbedAccessTokens(): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetValidEmbedAccessTokensResponse
+    public function getValidEmbedAccessTokens(): \Speakeasy\SpeakeasyClientSDK\models\operations\GetValidEmbedAccessTokensResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/workspace/embed-access-tokens/valid');
@@ -83,20 +83,20 @@ class Embeds
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetValidEmbedAccessTokensResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetValidEmbedAccessTokensResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->embedTokens = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSdkPhp\models\shared\EmbedToken>', 'json');
+                $res->embedTokens = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSDK\models\shared\EmbedToken>', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -106,7 +106,7 @@ class Embeds
     /**
      * revokeEmbedAccessToken - Revoke an embed access EmbedToken.
     */
-    public function revokeEmbedAccessToken(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\RevokeEmbedAccessTokenRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\RevokeEmbedAccessTokenResponse
+    public function revokeEmbedAccessToken(\Speakeasy\SpeakeasyClientSDK\models\operations\RevokeEmbedAccessTokenRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\RevokeEmbedAccessTokenResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/workspace/embed-access-tokens/{tokenID}', $request->pathParams);
@@ -121,7 +121,7 @@ class Embeds
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\RevokeEmbedAccessTokenResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\RevokeEmbedAccessTokenResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
@@ -130,7 +130,7 @@ class Embeds
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 

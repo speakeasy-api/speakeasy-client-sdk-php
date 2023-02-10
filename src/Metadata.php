@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp;
+namespace Speakeasy\SpeakeasyClientSDK;
 
 class Metadata 
 {
@@ -26,7 +26,7 @@ class Metadata
     /**
      * deleteVersionMetadata - Delete metadata for a particular apiID and versionID.
     */
-    public function deleteVersionMetadata(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\DeleteVersionMetadataRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\DeleteVersionMetadataResponse
+    public function deleteVersionMetadata(\Speakeasy\SpeakeasyClientSDK\models\operations\DeleteVersionMetadataRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\DeleteVersionMetadataResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}', $request->pathParams);
@@ -41,7 +41,7 @@ class Metadata
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\DeleteVersionMetadataResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\DeleteVersionMetadataResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
@@ -50,7 +50,7 @@ class Metadata
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -60,7 +60,7 @@ class Metadata
     /**
      * getVersionMetadata - Get all metadata for a particular apiID and versionID.
     */
-    public function getVersionMetadata(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetVersionMetadataRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetVersionMetadataResponse
+    public function getVersionMetadata(\Speakeasy\SpeakeasyClientSDK\models\operations\GetVersionMetadataRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GetVersionMetadataResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', $request->pathParams);
@@ -75,20 +75,20 @@ class Metadata
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetVersionMetadataResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetVersionMetadataResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->versionMetadata = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSdkPhp\models\shared\VersionMetadata>', 'json');
+                $res->versionMetadata = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSDK\models\shared\VersionMetadata>', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -98,7 +98,7 @@ class Metadata
     /**
      * insertVersionMetadata - Insert metadata for a particular apiID and versionID.
     */
-    public function insertVersionMetadata(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\InsertVersionMetadataRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\InsertVersionMetadataResponse
+    public function insertVersionMetadata(\Speakeasy\SpeakeasyClientSDK\models\operations\InsertVersionMetadataRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\InsertVersionMetadataResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', $request->pathParams);
@@ -118,20 +118,20 @@ class Metadata
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\InsertVersionMetadataResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\InsertVersionMetadataResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->versionMetadata = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\VersionMetadata', 'json');
+                $res->versionMetadata = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\VersionMetadata', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 

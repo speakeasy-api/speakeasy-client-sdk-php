@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\shared;
+namespace Speakeasy\SpeakeasyClientSDK\models\shared;
 
 
 

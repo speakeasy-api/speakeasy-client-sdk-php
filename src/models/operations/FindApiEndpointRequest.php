@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 
 
 class FindApiEndpointRequest
 {
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\FindApiEndpointPathParams $pathParams;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\FindApiEndpointPathParams $pathParams;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\FindApiEndpointPathParams();
+		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\models\operations\FindApiEndpointPathParams();
 	}
 }

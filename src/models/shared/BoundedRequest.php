@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\shared;
+namespace Speakeasy\SpeakeasyClientSDK\models\shared;
 
 
 /**
@@ -32,10 +32,10 @@ class BoundedRequest
     public int $latency;
     
     /**
-     * @var ?array<\Speakeasy\SpeakeasyClientSdkPhp\models\shared\RequestMetadata>
+     * @var ?array<\Speakeasy\SpeakeasyClientSDK\models\shared\RequestMetadata>
      */
     #[\JMS\Serializer\Annotation\SerializedName('metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSdkPhp\models\shared\RequestMetadata>')]
+    #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\models\shared\RequestMetadata>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $metadata;
     

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 
 
 class GetRequestFromEventLogRequest
 {
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetRequestFromEventLogPathParams $pathParams;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\GetRequestFromEventLogPathParams $pathParams;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetRequestFromEventLogPathParams();
+		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetRequestFromEventLogPathParams();
 	}
 }

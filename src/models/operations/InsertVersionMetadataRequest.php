@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
-use \Speakeasy\SpeakeasyClientSdkPhp\utils\SpeakeasyMetadata;
+use \Speakeasy\SpeakeasyClientSDK\utils\SpeakeasyMetadata;
 
 class InsertVersionMetadataRequest
 {
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\InsertVersionMetadataPathParams $pathParams;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\InsertVersionMetadataPathParams $pathParams;
     
     #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\shared\VersionMetadataInput $request;
+    public \Speakeasy\SpeakeasyClientSDK\models\shared\VersionMetadataInput $request;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\InsertVersionMetadataPathParams();
-		$this->request = new \Speakeasy\SpeakeasyClientSdkPhp\models\shared\VersionMetadataInput();
+		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\models\operations\InsertVersionMetadataPathParams();
+		$this->request = new \Speakeasy\SpeakeasyClientSDK\models\shared\VersionMetadataInput();
 	}
 }

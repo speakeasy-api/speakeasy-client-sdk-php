@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
-use \Speakeasy\SpeakeasyClientSdkPhp\utils\SpeakeasyMetadata;
+use \Speakeasy\SpeakeasyClientSDK\utils\SpeakeasyMetadata;
 
 class UpsertApiEndpointRequest
 {
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\UpsertApiEndpointPathParams $pathParams;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\UpsertApiEndpointPathParams $pathParams;
     
     #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\shared\ApiEndpointInput $request;
+    public \Speakeasy\SpeakeasyClientSDK\models\shared\ApiEndpointInput $request;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\UpsertApiEndpointPathParams();
-		$this->request = new \Speakeasy\SpeakeasyClientSdkPhp\models\shared\ApiEndpointInput();
+		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\models\operations\UpsertApiEndpointPathParams();
+		$this->request = new \Speakeasy\SpeakeasyClientSDK\models\shared\ApiEndpointInput();
 	}
 }

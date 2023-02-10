@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
-use \Speakeasy\SpeakeasyClientSdkPhp\utils\SpeakeasyMetadata;
+use \Speakeasy\SpeakeasyClientSDK\utils\SpeakeasyMetadata;
 
 class GeneratePostmanCollectionForApiEndpointPathParams
 {

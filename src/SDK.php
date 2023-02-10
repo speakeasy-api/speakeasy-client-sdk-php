@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp;
+namespace Speakeasy\SpeakeasyClientSDK;
 
 /**
  * SDK Documentation: https://docs.speakeasyapi.dev - The Speakeasy Platform Documentation
@@ -137,7 +137,7 @@ class SDK
     /**
      * validateApiKey - Validate the current api key.
     */
-    public function validateApiKey(): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\ValidateApiKeyResponse
+    public function validateApiKey(): \Speakeasy\SpeakeasyClientSDK\models\operations\ValidateApiKeyResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/auth/validate');
@@ -152,7 +152,7 @@ class SDK
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\ValidateApiKeyResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\ValidateApiKeyResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
@@ -161,7 +161,7 @@ class SDK
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 
 
 class GetEmbedAccessTokenRequest
 {
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetEmbedAccessTokenQueryParams $queryParams;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\GetEmbedAccessTokenQueryParams $queryParams;
     
 	public function __construct()
 	{
-		$this->queryParams = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetEmbedAccessTokenQueryParams();
+		$this->queryParams = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetEmbedAccessTokenQueryParams();
 	}
 }

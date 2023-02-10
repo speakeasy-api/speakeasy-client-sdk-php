@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\utils;
+namespace Speakeasy\SpeakeasyClientSDK\utils;
 
 use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\GraphNavigator;

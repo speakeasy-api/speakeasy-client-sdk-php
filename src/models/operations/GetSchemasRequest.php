@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 
 
 class GetSchemasRequest
 {
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemasPathParams $pathParams;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemasPathParams $pathParams;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetSchemasPathParams();
+		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemasPathParams();
 	}
 }

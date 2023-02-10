@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 
 
 class DownloadSchemaRequest
 {
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\DownloadSchemaPathParams $pathParams;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\DownloadSchemaPathParams $pathParams;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\DownloadSchemaPathParams();
+		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\models\operations\DownloadSchemaPathParams();
 	}
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp;
+namespace Speakeasy\SpeakeasyClientSDK;
 
 class Apis 
 {
@@ -28,7 +28,7 @@ class Apis
      *
      * Delete a particular version of an Api. The will also delete all associated ApiEndpoints, Metadata, Schemas & Request Logs (if using a Postgres datastore).
     */
-    public function deleteApi(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\DeleteApiRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\DeleteApiResponse
+    public function deleteApi(\Speakeasy\SpeakeasyClientSDK\models\operations\DeleteApiRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\DeleteApiResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}', $request->pathParams);
@@ -43,7 +43,7 @@ class Apis
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\DeleteApiResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\DeleteApiResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
@@ -52,7 +52,7 @@ class Apis
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -65,7 +65,7 @@ class Apis
      * This endpoint will generate any missing operations in any registered OpenAPI document if the operation does not already exist in the document.
      * Returns the original document and the newly generated document allowing a diff to be performed to see what has changed.
     */
-    public function generateOpenApiSpec(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\GenerateOpenApiSpecRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GenerateOpenApiSpecResponse
+    public function generateOpenApiSpec(\Speakeasy\SpeakeasyClientSDK\models\operations\GenerateOpenApiSpecRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GenerateOpenApiSpecResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/openapi', $request->pathParams);
@@ -80,20 +80,20 @@ class Apis
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GenerateOpenApiSpecResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GenerateOpenApiSpecResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->generateOpenApiSpecDiff = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\GenerateOpenApiSpecDiff', 'json');
+                $res->generateOpenApiSpecDiff = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\GenerateOpenApiSpecDiff', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -105,7 +105,7 @@ class Apis
      *
      * Generates a postman collection containing all endpoints for a particular API. Includes variables produced for any path/query/header parameters included in the OpenAPI document.
     */
-    public function generatePostmanCollection(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\GeneratePostmanCollectionRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GeneratePostmanCollectionResponse
+    public function generatePostmanCollection(\Speakeasy\SpeakeasyClientSDK\models\operations\GeneratePostmanCollectionRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GeneratePostmanCollectionResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/postman', $request->pathParams);
@@ -120,7 +120,7 @@ class Apis
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GeneratePostmanCollectionResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GeneratePostmanCollectionResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
@@ -132,7 +132,7 @@ class Apis
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -145,7 +145,7 @@ class Apis
      * Get all Api versions for a particular ApiEndpoint.
      * Supports filtering the versions based on metadata attributes.
     */
-    public function getAllApiVersions(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetAllApiVersionsRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetAllApiVersionsResponse
+    public function getAllApiVersions(\Speakeasy\SpeakeasyClientSDK\models\operations\GetAllApiVersionsRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GetAllApiVersionsResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}', $request->pathParams);
@@ -161,20 +161,20 @@ class Apis
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetAllApiVersionsResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetAllApiVersionsResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->apis = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSdkPhp\models\shared\Api>', 'json');
+                $res->apis = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSDK\models\shared\Api>', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -187,7 +187,7 @@ class Apis
      * Get a list of all Apis and their versions for a given workspace.
      * Supports filtering the APIs based on metadata attributes.
     */
-    public function getApis(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetApisRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetApisResponse
+    public function getApis(\Speakeasy\SpeakeasyClientSDK\models\operations\GetApisRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GetApisResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis');
@@ -203,20 +203,20 @@ class Apis
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetApisResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetApisResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->apis = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSdkPhp\models\shared\Api>', 'json');
+                $res->apis = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSDK\models\shared\Api>', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 
@@ -229,7 +229,7 @@ class Apis
      * Upsert an Api. If the Api does not exist, it will be created.
      * If the Api exists, it will be updated.
     */
-    public function upsertApi(\Speakeasy\SpeakeasyClientSdkPhp\models\operations\UpsertApiRequest $request): \Speakeasy\SpeakeasyClientSdkPhp\models\operations\UpsertApiResponse
+    public function upsertApi(\Speakeasy\SpeakeasyClientSDK\models\operations\UpsertApiRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\UpsertApiResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}', $request->pathParams);
@@ -249,20 +249,20 @@ class Apis
 
         $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
 
-        $res = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\UpsertApiResponse();
+        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\UpsertApiResponse();
         $res->statusCode = $httpRes->getStatusCode();
         $res->contentType = $contentType;
         
         if ($httpRes->getStatusCode() == 200) {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->api = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Api', 'json');
+                $res->api = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Api', 'json');
             }
         }
         else {
             if (utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error', 'json');
+                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
             }
         }
 

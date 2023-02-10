@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 
 
@@ -10,9 +10,9 @@ class GetSchemaRevisionResponse
 {
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
     
-    public ?\Speakeasy\SpeakeasyClientSdkPhp\models\shared\Schema $schema;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Schema $schema;
     
     public int $statusCode;
     

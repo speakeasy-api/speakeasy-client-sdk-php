@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
-use \Speakeasy\SpeakeasyClientSdkPhp\utils\SpeakeasyMetadata;
+use \Speakeasy\SpeakeasyClientSDK\utils\SpeakeasyMetadata;
 
 class GetEmbedAccessTokenQueryParams
 {
@@ -15,7 +15,7 @@ class GetEmbedAccessTokenQueryParams
     public ?int $duration;
     
     #[SpeakeasyMetadata('queryParam:serialization=json,name=filters')]
-    public ?\Speakeasy\SpeakeasyClientSdkPhp\models\shared\Filters $filters;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Filters $filters;
     
 	public function __construct()
 	{

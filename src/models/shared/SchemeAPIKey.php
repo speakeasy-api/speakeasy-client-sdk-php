@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\shared;
+namespace Speakeasy\SpeakeasyClientSDK\models\shared;
 
-use \Speakeasy\SpeakeasyClientSdkPhp\utils\SpeakeasyMetadata;
+use \Speakeasy\SpeakeasyClientSDK\utils\SpeakeasyMetadata;
 
 class SchemeAPIKey
 {

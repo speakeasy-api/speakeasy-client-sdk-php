@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 
 
@@ -10,10 +10,10 @@ class GetSchemasResponse
 {
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSdkPhp\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
     
     /**
-     * @var ?array<\Speakeasy\SpeakeasyClientSdkPhp\models\shared\Schema>
+     * @var ?array<\Speakeasy\SpeakeasyClientSDK\models\shared\Schema>
      */
     public ?array $schemata;
     

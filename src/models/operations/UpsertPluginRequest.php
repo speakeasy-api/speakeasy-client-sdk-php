@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
-use \Speakeasy\SpeakeasyClientSdkPhp\utils\SpeakeasyMetadata;
+use \Speakeasy\SpeakeasyClientSDK\utils\SpeakeasyMetadata;
 
 class UpsertPluginRequest
 {
     #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\shared\Plugin $request;
+    public \Speakeasy\SpeakeasyClientSDK\models\shared\Plugin $request;
     
 	public function __construct()
 	{
-		$this->request = new \Speakeasy\SpeakeasyClientSdkPhp\models\shared\Plugin();
+		$this->request = new \Speakeasy\SpeakeasyClientSDK\models\shared\Plugin();
 	}
 }

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
-use \Speakeasy\SpeakeasyClientSdkPhp\utils\SpeakeasyMetadata;
+use \Speakeasy\SpeakeasyClientSDK\utils\SpeakeasyMetadata;
 
 class GetApisQueryParams
 {
@@ -15,7 +15,7 @@ class GetApisQueryParams
     public ?array $metadata;
     
     #[SpeakeasyMetadata('queryParam:style=deepObject,explode=true,name=op')]
-    public ?\Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetApisOp $op;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\operations\GetApisOp $op;
     
 	public function __construct()
 	{

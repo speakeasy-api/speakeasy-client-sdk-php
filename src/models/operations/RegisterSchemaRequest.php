@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
-use \Speakeasy\SpeakeasyClientSdkPhp\utils\SpeakeasyMetadata;
+use \Speakeasy\SpeakeasyClientSDK\utils\SpeakeasyMetadata;
 
 class RegisterSchemaRequest
 {
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\RegisterSchemaPathParams $pathParams;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\RegisterSchemaPathParams $pathParams;
     
     #[SpeakeasyMetadata('request:mediaType=multipart/form-data')]
-    public \Speakeasy\SpeakeasyClientSdkPhp\models\operations\RegisterSchemaRequestBody $request;
+    public \Speakeasy\SpeakeasyClientSDK\models\operations\RegisterSchemaRequestBody $request;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\RegisterSchemaPathParams();
-		$this->request = new \Speakeasy\SpeakeasyClientSdkPhp\models\operations\RegisterSchemaRequestBody();
+		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\models\operations\RegisterSchemaPathParams();
+		$this->request = new \Speakeasy\SpeakeasyClientSDK\models\operations\RegisterSchemaRequestBody();
 	}
 }

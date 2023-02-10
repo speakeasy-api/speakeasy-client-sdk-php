@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSdkPhp\models\operations;
+namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
-use \Speakeasy\SpeakeasyClientSdkPhp\utils\SpeakeasyMetadata;
+use \Speakeasy\SpeakeasyClientSDK\utils\SpeakeasyMetadata;
 
 class GetAllApiVersionsQueryParams
 {
@@ -15,7 +15,7 @@ class GetAllApiVersionsQueryParams
     public ?array $metadata;
     
     #[SpeakeasyMetadata('queryParam:style=deepObject,explode=true,name=op')]
-    public ?\Speakeasy\SpeakeasyClientSdkPhp\models\operations\GetAllApiVersionsOp $op;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\operations\GetAllApiVersionsOp $op;
     
 	public function __construct()
 	{
