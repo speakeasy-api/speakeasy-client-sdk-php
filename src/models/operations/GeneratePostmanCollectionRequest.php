@@ -8,7 +8,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class GeneratePostmanCollectionRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\GeneratePostmanCollectionPathParams $pathParams;
+    public GeneratePostmanCollectionPathParams $pathParams;
     
 	public function __construct()
 	{

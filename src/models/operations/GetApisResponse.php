@@ -11,11 +11,11 @@ class GetApisResponse
     /**
      * @var ?array<\Speakeasy\SpeakeasyClientSDK\models\shared\Api>
      */
-    public ?array $apis;
+    public ?array $apis = null;
     
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error = null;
     
     public int $statusCode;
     

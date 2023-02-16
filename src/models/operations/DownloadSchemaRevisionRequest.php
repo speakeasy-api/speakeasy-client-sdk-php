@@ -8,7 +8,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class DownloadSchemaRevisionRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\DownloadSchemaRevisionPathParams $pathParams;
+    public DownloadSchemaRevisionPathParams $pathParams;
     
 	public function __construct()
 	{

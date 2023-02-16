@@ -10,9 +10,9 @@ class GenerateOpenApiSpecResponse
 {
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error = null;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\GenerateOpenApiSpecDiff $generateOpenApiSpecDiff;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\GenerateOpenApiSpecDiff $generateOpenApiSpecDiff = null;
     
     public int $statusCode;
     

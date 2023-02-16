@@ -12,10 +12,10 @@ class GetApisQueryParams
      * @var ?array<string, array<string>>
      */
     #[SpeakeasyMetadata('queryParam:style=deepObject,explode=true,name=metadata')]
-    public ?array $metadata;
+    public ?array $metadata = null;
     
     #[SpeakeasyMetadata('queryParam:style=deepObject,explode=true,name=op')]
-    public ?\Speakeasy\SpeakeasyClientSDK\models\operations\GetApisOp $op;
+    public ?GetApisOp $op = null;
     
 	public function __construct()
 	{

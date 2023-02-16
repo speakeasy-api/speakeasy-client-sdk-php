@@ -10,9 +10,9 @@ class GeneratePostmanCollectionResponse
 {
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error = null;
     
-    public ?string $postmanCollection;
+    public ?string $postmanCollection = null;
     
     public int $statusCode;
     

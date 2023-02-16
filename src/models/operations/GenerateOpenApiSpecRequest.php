@@ -8,7 +8,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class GenerateOpenApiSpecRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\GenerateOpenApiSpecPathParams $pathParams;
+    public GenerateOpenApiSpecPathParams $pathParams;
     
 	public function __construct()
 	{

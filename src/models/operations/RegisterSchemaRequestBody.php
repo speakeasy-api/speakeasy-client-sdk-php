@@ -9,7 +9,7 @@ use \Speakeasy\SpeakeasyClientSDK\utils\SpeakeasyMetadata;
 class RegisterSchemaRequestBody
 {
     #[SpeakeasyMetadata('multipartForm:file=true')]
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\RegisterSchemaRequestBodyFile $file;
+    public RegisterSchemaRequestBodyFile $file;
     
 	public function __construct()
 	{

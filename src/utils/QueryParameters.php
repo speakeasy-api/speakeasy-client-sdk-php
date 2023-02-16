@@ -79,6 +79,8 @@ class QueryParameters
     {
         $queryParams = [];
 
+        $dateTimeFormat = $metadata->dateTimeFormat;
+
         switch (gettype($value)) {
             case "object":
                 foreach ($value as $field => $val) { /** @phpstan-ignore-line */
@@ -91,15 +93,16 @@ class QueryParameters
                         continue;
                     }
 
+                    $dateTimeFormat = $fieldMetaData->dateTimeFormat;
+
                     $items = [];
 
                     if (gettype($val) == "array" && array_is_list($val)) {
                         foreach ($val as $item) {
-                            $items[] = valToString($item);
-                            $queryParams[$metadata->name . "[" . $fieldMetaData->name . "]"] = valToString($item);
+                            $items[] = valToString($item, $dateTimeFormat);
                         }
                     } else {
-                        $queryParams[$metadata->name . "[" . $fieldMetaData->name . "]"] = valToString($val);
+                        $queryParams[$metadata->name . "[" . $fieldMetaData->name . "]"] = valToString($val, $dateTimeFormat);
                     }
 
                     if (count($items) > 0) {
@@ -118,10 +121,10 @@ class QueryParameters
 
                         if (gettype($val) == "array" && array_is_list($val)) {
                             foreach ($val as $item) {
-                                $items[] = valToString($item);
+                                $items[] = valToString($item, $dateTimeFormat);
                             }
                         } else {
-                            $queryParams[$metadata->name . "[" . $key . "]"] = valToString($val);
+                            $queryParams[$metadata->name . "[" . $key . "]"] = valToString($val, $dateTimeFormat);
                         }
 
                         if (count($items) > 0) {
@@ -144,6 +147,8 @@ class QueryParameters
     {
         $queryParams = [];
 
+        $dateTimeFormat = $metadata->dateTimeFormat;
+
         switch (gettype($value)) {
             case "object":
                 $items = [];
@@ -158,10 +163,12 @@ class QueryParameters
                         continue;
                     }
 
+                    $dateTimeFormat = $fieldMetaData->dateTimeFormat;
+
                     if ($metadata->explode) {
-                        $queryParams[$fieldMetaData->name] = valToString($val);
+                        $queryParams[$fieldMetaData->name] = valToString($val, $dateTimeFormat);
                     } else {
-                        $items[] = $fieldMetaData->name . "," . valToString($val);
+                        $items[] = $fieldMetaData->name . "," . valToString($val, $dateTimeFormat);
                     }
                 }
 
@@ -176,9 +183,9 @@ class QueryParameters
 
                     foreach ($value as $item) {
                         if ($metadata->explode) {
-                            $values[] = valToString($item);
+                            $values[] = valToString($item, $dateTimeFormat);
                         } else {
-                            $items[] = valToString($item);
+                            $items[] = valToString($item, $dateTimeFormat);
                         }
                     }
 
@@ -196,9 +203,9 @@ class QueryParameters
                         }
 
                         if ($metadata->explode) {
-                            $queryParams[$key] = valToString($val);
+                            $queryParams[$key] = valToString($val, $dateTimeFormat);
                         } else {
-                            $items[] = $key . "," . valToString($val);
+                            $items[] = $key . "," . valToString($val, $dateTimeFormat);
                         }
                     }
 
@@ -208,7 +215,7 @@ class QueryParameters
                 }
                 break;
             default:
-                $queryParams[$metadata->name] = valToString($value);
+                $queryParams[$metadata->name] = valToString($value, $dateTimeFormat);
         }
 
         return $this->buildQueryString($queryParams);
@@ -250,3 +257,4 @@ class QueryParameters
         return $metadata;
     }
 }
+

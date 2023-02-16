@@ -6,7 +6,7 @@
       "Speakeasy\\SpeakeasyClientSDK\\": "src/"
     }
   },
-  "license": "Apache-2.0",
+  "license": "MIT",
   "require": {
     "php": ">=8.1.0",
     "guzzlehttp/guzzle": "^7.0",

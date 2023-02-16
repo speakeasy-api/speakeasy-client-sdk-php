@@ -25,7 +25,7 @@ class ApiInput
     #[\JMS\Serializer\Annotation\SerializedName('meta_data')]
     #[\JMS\Serializer\Annotation\Type('array<string, array<string>>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?array $metaData;
+    public ?array $metaData = null;
     
     #[\JMS\Serializer\Annotation\SerializedName('version_id')]
     #[\JMS\Serializer\Annotation\Type('string')]

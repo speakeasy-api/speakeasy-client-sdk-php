@@ -10,7 +10,7 @@ class DeleteApiResponse
 {
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error = null;
     
     public int $statusCode;
     

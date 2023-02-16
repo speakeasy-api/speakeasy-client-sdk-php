@@ -8,7 +8,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class GetVersionMetadataRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\GetVersionMetadataPathParams $pathParams;
+    public GetVersionMetadataPathParams $pathParams;
     
 	public function __construct()
 	{

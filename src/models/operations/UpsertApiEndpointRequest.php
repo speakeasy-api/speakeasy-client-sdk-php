@@ -8,7 +8,7 @@ use \Speakeasy\SpeakeasyClientSDK\utils\SpeakeasyMetadata;
 
 class UpsertApiEndpointRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\UpsertApiEndpointPathParams $pathParams;
+    public UpsertApiEndpointPathParams $pathParams;
     
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public \Speakeasy\SpeakeasyClientSDK\models\shared\ApiEndpointInput $request;

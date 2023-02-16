@@ -10,12 +10,12 @@ class GetSchemasResponse
 {
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error = null;
     
     /**
      * @var ?array<\Speakeasy\SpeakeasyClientSDK\models\shared\Schema>
      */
-    public ?array $schemata;
+    public ?array $schemata = null;
     
     public int $statusCode;
     

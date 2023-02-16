@@ -12,7 +12,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\shared;
 class EmbedToken
 {
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.uP'>")]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
     
     #[\JMS\Serializer\Annotation\SerializedName('created_by')]
@@ -24,7 +24,7 @@ class EmbedToken
     public string $description;
     
     #[\JMS\Serializer\Annotation\SerializedName('expires_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.uP'>")]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $expiresAt;
     
     #[\JMS\Serializer\Annotation\SerializedName('filters')]
@@ -36,19 +36,19 @@ class EmbedToken
     public string $id;
     
     #[\JMS\Serializer\Annotation\SerializedName('last_used')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.uP'>")]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?\DateTime $lastUsed;
+    public ?\DateTime $lastUsed = null;
     
     #[\JMS\Serializer\Annotation\SerializedName('revoked_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.uP'>")]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?\DateTime $revokedAt;
+    public ?\DateTime $revokedAt = null;
     
     #[\JMS\Serializer\Annotation\SerializedName('revoked_by')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $revokedBy;
+    public ?string $revokedBy = null;
     
     #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
     #[\JMS\Serializer\Annotation\Type('string')]

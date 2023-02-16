@@ -8,7 +8,7 @@ use \Speakeasy\SpeakeasyClientSDK\utils\SpeakeasyMetadata;
 
 class InsertVersionMetadataRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\InsertVersionMetadataPathParams $pathParams;
+    public InsertVersionMetadataPathParams $pathParams;
     
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public \Speakeasy\SpeakeasyClientSDK\models\shared\VersionMetadataInput $request;

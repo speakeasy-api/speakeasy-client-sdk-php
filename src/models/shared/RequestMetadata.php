@@ -14,12 +14,12 @@ class RequestMetadata
     #[\JMS\Serializer\Annotation\SerializedName('key')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $key;
+    public ?string $key = null;
     
     #[\JMS\Serializer\Annotation\SerializedName('value')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $value;
+    public ?string $value = null;
     
 	public function __construct()
 	{

@@ -11,6 +11,7 @@ class ParamsMetadata
     public bool $explode;
     public string $name;
     public string $serialization;
+    public string $dateTimeFormat;
 
     public static function parse(string $metadata): ParamsMetadata | null
     {
@@ -27,6 +28,7 @@ class ParamsMetadata
         $explode = false;
         $name = "";
         $serialization = "";
+        $dateTimeFormat = "";
 
         switch ($type) {
             case "queryParam":
@@ -64,18 +66,22 @@ class ParamsMetadata
                 case "serialization":
                     $serialization = $parts[1];
                     break;
+                case "dateTimeFormat":
+                    $dateTimeFormat = $parts[1];
+                    break;
             }
         }
 
-        return new ParamsMetadata($type, $style, $explode, $name, $serialization);
+        return new ParamsMetadata($type, $style, $explode, $name, $serialization, $dateTimeFormat);
     }
 
-    private function __construct(string $type, string $style, bool $explode, string $name, string $serialization)
+    private function __construct(string $type, string $style, bool $explode, string $name, string $serialization, string $dateTimeFormat)
     {
         $this->type = $type;
         $this->style = $style;
         $this->explode = $explode;
         $this->name = $name;
         $this->serialization = $serialization;
+        $this->dateTimeFormat = $dateTimeFormat;
     }
 }

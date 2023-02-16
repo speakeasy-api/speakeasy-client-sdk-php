@@ -9,7 +9,7 @@ use \Speakeasy\SpeakeasyClientSDK\utils\SpeakeasyMetadata;
 class Security
 {
     #[SpeakeasyMetadata('security:scheme=true,type=apiKey,subtype=header')]
-    public \Speakeasy\SpeakeasyClientSDK\models\shared\SchemeAPIKey $apiKey;
+    public SchemeAPIKey $apiKey;
     
 	public function __construct()
 	{

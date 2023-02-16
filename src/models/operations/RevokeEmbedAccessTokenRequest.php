@@ -8,7 +8,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class RevokeEmbedAccessTokenRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\RevokeEmbedAccessTokenPathParams $pathParams;
+    public RevokeEmbedAccessTokenPathParams $pathParams;
     
 	public function __construct()
 	{

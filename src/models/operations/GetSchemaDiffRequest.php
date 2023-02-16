@@ -8,7 +8,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class GetSchemaDiffRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemaDiffPathParams $pathParams;
+    public GetSchemaDiffPathParams $pathParams;
     
 	public function __construct()
 	{

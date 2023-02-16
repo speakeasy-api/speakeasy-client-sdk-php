@@ -8,7 +8,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class GetRequestFromEventLogRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\GetRequestFromEventLogPathParams $pathParams;
+    public GetRequestFromEventLogPathParams $pathParams;
     
 	public function __construct()
 	{

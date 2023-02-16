@@ -16,14 +16,14 @@ class Plugin
     public string $code;
     
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.uP'>")]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?\DateTime $createdAt;
+    public ?\DateTime $createdAt = null;
     
     #[\JMS\Serializer\Annotation\SerializedName('eval_hash')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $evalHash;
+    public ?string $evalHash = null;
     
     #[\JMS\Serializer\Annotation\SerializedName('plugin_id')]
     #[\JMS\Serializer\Annotation\Type('string')]
@@ -34,9 +34,9 @@ class Plugin
     public string $title;
     
     #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.uP'>")]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?\DateTime $updatedAt;
+    public ?\DateTime $updatedAt = null;
     
     #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
     #[\JMS\Serializer\Annotation\Type('string')]

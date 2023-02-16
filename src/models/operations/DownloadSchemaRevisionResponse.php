@@ -10,9 +10,9 @@ class DownloadSchemaRevisionResponse
 {
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error = null;
     
-    public ?string $schema;
+    public ?string $schema = null;
     
     public int $statusCode;
     

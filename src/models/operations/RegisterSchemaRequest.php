@@ -8,10 +8,10 @@ use \Speakeasy\SpeakeasyClientSDK\utils\SpeakeasyMetadata;
 
 class RegisterSchemaRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\RegisterSchemaPathParams $pathParams;
+    public RegisterSchemaPathParams $pathParams;
     
     #[SpeakeasyMetadata('request:mediaType=multipart/form-data')]
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\RegisterSchemaRequestBody $request;
+    public RegisterSchemaRequestBody $request;
     
 	public function __construct()
 	{

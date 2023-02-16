@@ -8,7 +8,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class DeleteApiRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\DeleteApiPathParams $pathParams;
+    public DeleteApiPathParams $pathParams;
     
 	public function __construct()
 	{

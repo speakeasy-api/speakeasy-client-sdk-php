@@ -8,7 +8,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class QueryEventLogRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\QueryEventLogQueryParams $queryParams;
+    public QueryEventLogQueryParams $queryParams;
     
 	public function __construct()
 	{

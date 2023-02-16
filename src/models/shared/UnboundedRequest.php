@@ -12,7 +12,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\shared;
 class UnboundedRequest
 {
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.uP'>")]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
     
     #[\JMS\Serializer\Annotation\SerializedName('har')]

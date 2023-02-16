@@ -8,7 +8,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class DeleteVersionMetadataRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\DeleteVersionMetadataPathParams $pathParams;
+    public DeleteVersionMetadataPathParams $pathParams;
     
 	public function __construct()
 	{

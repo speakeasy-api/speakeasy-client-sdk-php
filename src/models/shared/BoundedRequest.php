@@ -20,7 +20,7 @@ class BoundedRequest
     public string $apiId;
     
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.uP'>")]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
     
     #[\JMS\Serializer\Annotation\SerializedName('customer_id')]
@@ -37,7 +37,7 @@ class BoundedRequest
     #[\JMS\Serializer\Annotation\SerializedName('metadata')]
     #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\models\shared\RequestMetadata>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?array $metadata;
+    public ?array $metadata = null;
     
     #[\JMS\Serializer\Annotation\SerializedName('method')]
     #[\JMS\Serializer\Annotation\Type('string')]
@@ -48,7 +48,7 @@ class BoundedRequest
     public string $path;
     
     #[\JMS\Serializer\Annotation\SerializedName('request_finish_time')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.uP'>")]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $requestFinishTime;
     
     #[\JMS\Serializer\Annotation\SerializedName('request_id')]
@@ -56,7 +56,7 @@ class BoundedRequest
     public string $requestId;
     
     #[\JMS\Serializer\Annotation\SerializedName('request_start_time')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.uP'>")]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $requestStartTime;
     
     #[\JMS\Serializer\Annotation\SerializedName('status')]

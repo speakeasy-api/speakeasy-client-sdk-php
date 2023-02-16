@@ -8,7 +8,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class GetEmbedAccessTokenRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\GetEmbedAccessTokenQueryParams $queryParams;
+    public GetEmbedAccessTokenQueryParams $queryParams;
     
 	public function __construct()
 	{

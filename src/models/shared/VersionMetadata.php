@@ -16,7 +16,7 @@ class VersionMetadata
     public string $apiId;
     
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.uP'>")]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
     
     #[\JMS\Serializer\Annotation\SerializedName('meta_key')]

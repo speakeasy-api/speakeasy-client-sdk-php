@@ -11,11 +11,11 @@ class QueryEventLogResponse
     /**
      * @var ?array<\Speakeasy\SpeakeasyClientSDK\models\shared\BoundedRequest>
      */
-    public ?array $boundedRequests;
+    public ?array $boundedRequests = null;
     
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error = null;
     
     public int $statusCode;
     

@@ -20,7 +20,7 @@ class ApiEndpoint
     public string $apiId;
     
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.uP'>")]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
     
     #[\JMS\Serializer\Annotation\SerializedName('description')]
@@ -34,7 +34,7 @@ class ApiEndpoint
     #[\JMS\Serializer\Annotation\SerializedName('matched')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?bool $matched;
+    public ?bool $matched = null;
     
     #[\JMS\Serializer\Annotation\SerializedName('method')]
     #[\JMS\Serializer\Annotation\Type('string')]
@@ -45,7 +45,7 @@ class ApiEndpoint
     public string $path;
     
     #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.uP'>")]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $updatedAt;
     
     #[\JMS\Serializer\Annotation\SerializedName('version_id')]

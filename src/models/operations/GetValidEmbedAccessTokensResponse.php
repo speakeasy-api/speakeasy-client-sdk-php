@@ -13,9 +13,9 @@ class GetValidEmbedAccessTokensResponse
     /**
      * @var ?array<\Speakeasy\SpeakeasyClientSDK\models\shared\EmbedToken>
      */
-    public ?array $embedTokens;
+    public ?array $embedTokens = null;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error = null;
     
     public int $statusCode;
     

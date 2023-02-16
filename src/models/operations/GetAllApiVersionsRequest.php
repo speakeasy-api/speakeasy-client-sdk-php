@@ -8,9 +8,9 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class GetAllApiVersionsRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\GetAllApiVersionsPathParams $pathParams;
+    public GetAllApiVersionsPathParams $pathParams;
     
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\GetAllApiVersionsQueryParams $queryParams;
+    public GetAllApiVersionsQueryParams $queryParams;
     
 	public function __construct()
 	{

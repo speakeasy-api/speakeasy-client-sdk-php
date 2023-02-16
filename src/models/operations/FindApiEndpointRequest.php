@@ -8,7 +8,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class FindApiEndpointRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\FindApiEndpointPathParams $pathParams;
+    public FindApiEndpointPathParams $pathParams;
     
 	public function __construct()
 	{

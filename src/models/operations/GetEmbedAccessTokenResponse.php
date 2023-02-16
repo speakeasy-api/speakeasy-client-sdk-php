@@ -10,9 +10,9 @@ class GetEmbedAccessTokenResponse
 {
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\EmbedAccessTokenResponse $embedAccessTokenResponse;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\EmbedAccessTokenResponse $embedAccessTokenResponse = null;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error = null;
     
     public int $statusCode;
     

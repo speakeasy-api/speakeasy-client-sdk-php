@@ -8,7 +8,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class GetApisRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\GetApisQueryParams $queryParams;
+    public GetApisQueryParams $queryParams;
     
 	public function __construct()
 	{

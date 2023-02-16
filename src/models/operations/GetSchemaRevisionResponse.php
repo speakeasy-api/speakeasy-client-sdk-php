@@ -10,9 +10,9 @@ class GetSchemaRevisionResponse
 {
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error = null;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Schema $schema;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Schema $schema = null;
     
     public int $statusCode;
     

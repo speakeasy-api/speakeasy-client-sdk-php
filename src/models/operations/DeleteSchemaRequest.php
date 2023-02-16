@@ -8,7 +8,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class DeleteSchemaRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\DeleteSchemaPathParams $pathParams;
+    public DeleteSchemaPathParams $pathParams;
     
 	public function __construct()
 	{

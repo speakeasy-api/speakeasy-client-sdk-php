@@ -9,7 +9,7 @@ use \Speakeasy\SpeakeasyClientSDK\utils\SpeakeasyMetadata;
 class QueryEventLogQueryParams
 {
     #[SpeakeasyMetadata('queryParam:serialization=json,name=filters')]
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Filters $filters;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Filters $filters = null;
     
 	public function __construct()
 	{

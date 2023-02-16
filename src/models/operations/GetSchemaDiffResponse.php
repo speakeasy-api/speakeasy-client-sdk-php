@@ -10,9 +10,9 @@ class GetSchemaDiffResponse
 {
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error = null;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\SchemaDiff $schemaDiff;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\SchemaDiff $schemaDiff = null;
     
     public int $statusCode;
     

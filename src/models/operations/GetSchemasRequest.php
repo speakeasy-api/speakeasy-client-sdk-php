@@ -8,7 +8,7 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class GetSchemasRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\GetSchemasPathParams $pathParams;
+    public GetSchemasPathParams $pathParams;
     
 	public function __construct()
 	{

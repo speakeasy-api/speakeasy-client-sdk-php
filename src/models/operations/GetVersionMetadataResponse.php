@@ -10,14 +10,14 @@ class GetVersionMetadataResponse
 {
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error = null;
     
     public int $statusCode;
     
     /**
      * @var ?array<\Speakeasy\SpeakeasyClientSDK\models\shared\VersionMetadata>
      */
-    public ?array $versionMetadata;
+    public ?array $versionMetadata = null;
     
 	public function __construct()
 	{

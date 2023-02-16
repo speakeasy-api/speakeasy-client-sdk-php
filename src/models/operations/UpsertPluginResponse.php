@@ -10,9 +10,9 @@ class UpsertPluginResponse
 {
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error = null;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Plugin $plugin;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Plugin $plugin = null;
     
     public int $statusCode;
     

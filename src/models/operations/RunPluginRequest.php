@@ -8,9 +8,9 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class RunPluginRequest
 {
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\RunPluginPathParams $pathParams;
+    public RunPluginPathParams $pathParams;
     
-    public \Speakeasy\SpeakeasyClientSDK\models\operations\RunPluginQueryParams $queryParams;
+    public RunPluginQueryParams $queryParams;
     
 	public function __construct()
 	{

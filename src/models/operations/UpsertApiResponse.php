@@ -8,11 +8,11 @@ namespace Speakeasy\SpeakeasyClientSDK\models\operations;
 
 class UpsertApiResponse
 {
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Api $api;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Api $api = null;
     
     public string $contentType;
     
-    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error;
+    public ?\Speakeasy\SpeakeasyClientSDK\models\shared\Error $error = null;
     
     public int $statusCode;
     
