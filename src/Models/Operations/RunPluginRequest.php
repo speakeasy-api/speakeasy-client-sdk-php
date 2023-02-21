@@ -1,0 +1,20 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
+
+
+class RunPluginRequest
+{
+    public RunPluginPathParams $pathParams;
+    
+    public RunPluginQueryParams $queryParams;
+    
+	public function __construct()
+	{
+		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginPathParams();
+		$this->queryParams = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginQueryParams();
+	}
+}

@@ -1,0 +1,20 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
+
+
+class GetAllApiVersionsRequest
+{
+    public GetAllApiVersionsPathParams $pathParams;
+    
+    public GetAllApiVersionsQueryParams $queryParams;
+    
+	public function __construct()
+	{
+		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsPathParams();
+		$this->queryParams = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsQueryParams();
+	}
+}

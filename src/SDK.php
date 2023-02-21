@@ -23,13 +23,14 @@ class SDK
   	public Requests $requests;
   	public Schemas $schemas;	
 
+	// SDK private variables namespaced with _ to avoid conflicts with API models
 	private ?\GuzzleHttp\ClientInterface $_defaultClient;
 	private ?\GuzzleHttp\ClientInterface $_securityClient;
-	private ?models\shared\Security $_security;
+	private ?Models\Shared\Security $_security;
 	private string $_serverUrl;
 	private string $_language = "php";
-	private string $_sdkVersion = "0.1.2";
-	private string $_genVersion = "1.3.3";
+	private string $_sdkVersion = "0.2.0";
+	private string $_genVersion = "1.4.2";
 
 	public static function builder(): SDKBuilder
 	{
@@ -38,32 +39,32 @@ class SDK
 
 	/**
 	 * @param \GuzzleHttp\ClientInterface|null $client	 
-	 * @param models\shared\Security|null $security
+	 * @param Models\Shared\Security|null $security
 	 * @param string $serverUrl
 	 * @param array<string, string>|null $params
 	 */
-	public function __construct(?\GuzzleHttp\ClientInterface $client, ?models\shared\Security $security, string $serverUrl, ?array $params)
+	public function __construct(?\GuzzleHttp\ClientInterface $client, ?Models\Shared\Security $security, string $serverUrl, ?array $params)
 	{
 		$this->_defaultClient = $client;
 		
-		if (is_null($this->_defaultClient)) {
+		if ($this->_defaultClient === null) {
 			$this->_defaultClient = new \GuzzleHttp\Client([
             	'timeout' => 60,
 			]);
 		}
 
 		$this->_securityClient = null;
-		if (!is_null($security)) {
+		if ($security !== null) {
 			$this->_security = $security;
-			$this->_securityClient = utils\Utils::configureSecurityClient($this->_defaultClient, $this->_security);
+			$this->_securityClient = Utils\Utils::configureSecurityClient($this->_defaultClient, $this->_security);
 		}
 		
-		if (is_null($this->_securityClient)) {
+		if ($this->_securityClient === null) {
 			$this->_securityClient = $this->_defaultClient;
 		}
 
 		if (!empty($serverUrl)) {
-			$this->_serverUrl = utils\Utils::replaceParameters($serverUrl, $params);
+			$this->_serverUrl = Utils\Utils::replaceParameters($serverUrl, $params);
 		}
 		
 		if (empty($this->_serverUrl)) {
@@ -137,34 +138,31 @@ class SDK
     /**
      * validateApiKey - Validate the current api key.
     */
-    public function validateApiKey(): \Speakeasy\SpeakeasyClientSDK\models\operations\ValidateApiKeyResponse
+    public function validateApiKey(): \Speakeasy\SpeakeasyClientSDK\Models\Operations\ValidateApiKeyResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = utils\Utils::generateURL($baseUrl, '/v1/auth/validate');
+        $url = Utils\Utils::generateURL($baseUrl, '/v1/auth/validate');
         
         $options = ['http_errors' => false];
-        
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
         
-        $client = $this->_securityClient;
+        $httpResponse = $this->_securityClient->request('GET', $url, $options);
         
-        $httpRes = $client->request('GET', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
-        $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
-
-        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\ValidateApiKeyResponse();
-        $res->statusCode = $httpRes->getStatusCode();
-        $res->contentType = $contentType;
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\ValidateApiKeyResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
         
-        if ($httpRes->getStatusCode() == 200) {
+        if ($httpResponse->getStatusCode() === 200) {
         }
         else {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
-        return $res;
+        return $response;
     }
 }

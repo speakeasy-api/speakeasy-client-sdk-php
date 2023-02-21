@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
+use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
+
+class RegisterSchemaRequest
+{
+    public RegisterSchemaPathParams $pathParams;
+    
+    #[SpeakeasyMetadata('request:mediaType=multipart/form-data')]
+    public RegisterSchemaRequestBody $request;
+    
+	public function __construct()
+	{
+		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaPathParams();
+		$this->request = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequestBody();
+	}
+}

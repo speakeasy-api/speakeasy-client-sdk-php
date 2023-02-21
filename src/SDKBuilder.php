@@ -7,7 +7,7 @@ namespace Speakeasy\SpeakeasyClientSDK;
 class SDKBuilder
 {
     private ?\GuzzleHttp\ClientInterface $client;
-    private ?models\shared\Security $security;
+    private ?Models\Shared\Security $security;
     private string $serverUrl;
     /** @var array<string, string> */
     private ?array $params;
@@ -25,7 +25,7 @@ class SDKBuilder
         return $this;
     }
     
-    public function setSecurity(models\shared\Security $security): SDKBuilder
+    public function setSecurity(Models\Shared\Security $security): SDKBuilder
     {
         $this->security = $security;
         return $this;
@@ -40,7 +40,7 @@ class SDKBuilder
     public function setServerURL(string $serverUrl, ?array $params = null): SDKBuilder
     {
         $this->serverUrl = $serverUrl;
-        if (!is_null($params)) {
+        if ($params !== null) {
             $this->params = $params;
         }
         return $this;
@@ -55,7 +55,7 @@ class SDKBuilder
     public function setServer(string $server, ?array $params = null): SDKBuilder
     {
         $this->serverUrl = SDK::SERVERS[$server];
-        if (!is_null($params)) {
+        if ($params !== null) {
             $this->params = $params;
         }
         return $this;

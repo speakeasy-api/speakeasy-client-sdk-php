@@ -6,6 +6,7 @@ namespace Speakeasy\SpeakeasyClientSDK;
 
 class Embeds 
 {
+	// SDK private variables namespaced with _ to avoid conflicts with API models
 	private \GuzzleHttp\ClientInterface $_defaultClient;
 	private \GuzzleHttp\ClientInterface $_securityClient;
 	private string $_serverUrl;
@@ -29,111 +30,102 @@ class Embeds
      * Returns an embed access token for the current workspace. This can be used to authenticate access to externally embedded content.
      * Filters can be applied allowing views to be filtered to things like particular customerIds.
     */
-    public function getEmbedAccessToken(\Speakeasy\SpeakeasyClientSDK\models\operations\GetEmbedAccessTokenRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GetEmbedAccessTokenResponse
+    public function getEmbedAccessToken(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = utils\Utils::generateURL($baseUrl, '/v1/workspace/embed-access-token');
+        $url = Utils\Utils::generateURL($baseUrl, '/v1/workspace/embed-access-token');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, utils\Utils::getQueryParams($request->queryParams));
-        
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams($request->queryParams));
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
         
-        $client = $this->_securityClient;
+        $httpResponse = $this->_securityClient->request('GET', $url, $options);
         
-        $httpRes = $client->request('GET', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
-        $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
-
-        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetEmbedAccessTokenResponse();
-        $res->statusCode = $httpRes->getStatusCode();
-        $res->contentType = $contentType;
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
         
-        if ($httpRes->getStatusCode() == 200) {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->embedAccessTokenResponse = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\EmbedAccessTokenResponse', 'json');
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->embedAccessTokenResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\EmbedAccessTokenResponse', 'json');
             }
         }
         else {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
-        return $res;
+        return $response;
     }
     
     /**
      * getValidEmbedAccessTokens - Get all valid embed access tokens for the current workspace.
     */
-    public function getValidEmbedAccessTokens(): \Speakeasy\SpeakeasyClientSDK\models\operations\GetValidEmbedAccessTokensResponse
+    public function getValidEmbedAccessTokens(): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetValidEmbedAccessTokensResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = utils\Utils::generateURL($baseUrl, '/v1/workspace/embed-access-tokens/valid');
+        $url = Utils\Utils::generateURL($baseUrl, '/v1/workspace/embed-access-tokens/valid');
         
         $options = ['http_errors' => false];
-        
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
         
-        $client = $this->_securityClient;
+        $httpResponse = $this->_securityClient->request('GET', $url, $options);
         
-        $httpRes = $client->request('GET', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
-        $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
-
-        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetValidEmbedAccessTokensResponse();
-        $res->statusCode = $httpRes->getStatusCode();
-        $res->contentType = $contentType;
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetValidEmbedAccessTokensResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
         
-        if ($httpRes->getStatusCode() == 200) {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->embedTokens = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSDK\models\shared\EmbedToken>', 'json');
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->embedTokens = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\EmbedToken>', 'json');
             }
         }
         else {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
-        return $res;
+        return $response;
     }
     
     /**
      * revokeEmbedAccessToken - Revoke an embed access EmbedToken.
     */
-    public function revokeEmbedAccessToken(\Speakeasy\SpeakeasyClientSDK\models\operations\RevokeEmbedAccessTokenRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\RevokeEmbedAccessTokenResponse
+    public function revokeEmbedAccessToken(\Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = utils\Utils::generateURL($baseUrl, '/v1/workspace/embed-access-tokens/{tokenID}', $request->pathParams);
+        $url = Utils\Utils::generateURL($baseUrl, '/v1/workspace/embed-access-tokens/{tokenID}', $request->pathParams);
         
         $options = ['http_errors' => false];
-        
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
         
-        $client = $this->_securityClient;
+        $httpResponse = $this->_securityClient->request('DELETE', $url, $options);
         
-        $httpRes = $client->request('DELETE', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
-        $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
-
-        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\RevokeEmbedAccessTokenResponse();
-        $res->statusCode = $httpRes->getStatusCode();
-        $res->contentType = $contentType;
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
         
-        if ($httpRes->getStatusCode() == 200) {
+        if ($httpResponse->getStatusCode() === 200) {
         }
         else {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
-        return $res;
+        return $response;
     }
 }

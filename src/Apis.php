@@ -6,6 +6,7 @@ namespace Speakeasy\SpeakeasyClientSDK;
 
 class Apis 
 {
+	// SDK private variables namespaced with _ to avoid conflicts with API models
 	private \GuzzleHttp\ClientInterface $_defaultClient;
 	private \GuzzleHttp\ClientInterface $_securityClient;
 	private string $_serverUrl;
@@ -28,35 +29,32 @@ class Apis
      *
      * Delete a particular version of an Api. The will also delete all associated ApiEndpoints, Metadata, Schemas & Request Logs (if using a Postgres datastore).
     */
-    public function deleteApi(\Speakeasy\SpeakeasyClientSDK\models\operations\DeleteApiRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\DeleteApiResponse
+    public function deleteApi(\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}', $request->pathParams);
+        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}', $request->pathParams);
         
         $options = ['http_errors' => false];
-        
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
         
-        $client = $this->_securityClient;
+        $httpResponse = $this->_securityClient->request('DELETE', $url, $options);
         
-        $httpRes = $client->request('DELETE', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
-        $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
-
-        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\DeleteApiResponse();
-        $res->statusCode = $httpRes->getStatusCode();
-        $res->contentType = $contentType;
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
         
-        if ($httpRes->getStatusCode() == 200) {
+        if ($httpResponse->getStatusCode() === 200) {
         }
         else {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
-        return $res;
+        return $response;
     }
     
     /**
@@ -65,39 +63,36 @@ class Apis
      * This endpoint will generate any missing operations in any registered OpenAPI document if the operation does not already exist in the document.
      * Returns the original document and the newly generated document allowing a diff to be performed to see what has changed.
     */
-    public function generateOpenApiSpec(\Speakeasy\SpeakeasyClientSDK\models\operations\GenerateOpenApiSpecRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GenerateOpenApiSpecResponse
+    public function generateOpenApiSpec(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/openapi', $request->pathParams);
+        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/openapi', $request->pathParams);
         
         $options = ['http_errors' => false];
-        
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
         
-        $client = $this->_securityClient;
+        $httpResponse = $this->_securityClient->request('GET', $url, $options);
         
-        $httpRes = $client->request('GET', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
-        $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
-
-        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GenerateOpenApiSpecResponse();
-        $res->statusCode = $httpRes->getStatusCode();
-        $res->contentType = $contentType;
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
         
-        if ($httpRes->getStatusCode() == 200) {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->generateOpenApiSpecDiff = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\GenerateOpenApiSpecDiff', 'json');
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->generateOpenApiSpecDiff = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\GenerateOpenApiSpecDiff', 'json');
             }
         }
         else {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
-        return $res;
+        return $response;
     }
     
     /**
@@ -105,38 +100,35 @@ class Apis
      *
      * Generates a postman collection containing all endpoints for a particular API. Includes variables produced for any path/query/header parameters included in the OpenAPI document.
     */
-    public function generatePostmanCollection(\Speakeasy\SpeakeasyClientSDK\models\operations\GeneratePostmanCollectionRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GeneratePostmanCollectionResponse
+    public function generatePostmanCollection(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/postman', $request->pathParams);
+        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/postman', $request->pathParams);
         
         $options = ['http_errors' => false];
-        
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
         
-        $client = $this->_securityClient;
+        $httpResponse = $this->_securityClient->request('GET', $url, $options);
         
-        $httpRes = $client->request('GET', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
-        $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
-
-        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GeneratePostmanCollectionResponse();
-        $res->statusCode = $httpRes->getStatusCode();
-        $res->contentType = $contentType;
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
         
-        if ($httpRes->getStatusCode() == 200) {
-            if (utils\Utils::matchContentType($contentType, 'application/octet-stream')) {
-                $res->postmanCollection = $httpRes->getBody()->getContents();
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/octet-stream')) {
+                $response->postmanCollection = $httpResponse->getBody()->getContents();
             }
         }
         else {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
-        return $res;
+        return $response;
     }
     
     /**
@@ -145,40 +137,37 @@ class Apis
      * Get all Api versions for a particular ApiEndpoint.
      * Supports filtering the versions based on metadata attributes.
     */
-    public function getAllApiVersions(\Speakeasy\SpeakeasyClientSDK\models\operations\GetAllApiVersionsRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GetAllApiVersionsResponse
+    public function getAllApiVersions(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}', $request->pathParams);
+        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}', $request->pathParams);
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, utils\Utils::getQueryParams($request->queryParams));
-        
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams($request->queryParams));
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
         
-        $client = $this->_securityClient;
+        $httpResponse = $this->_securityClient->request('GET', $url, $options);
         
-        $httpRes = $client->request('GET', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
-        $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
-
-        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetAllApiVersionsResponse();
-        $res->statusCode = $httpRes->getStatusCode();
-        $res->contentType = $contentType;
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
         
-        if ($httpRes->getStatusCode() == 200) {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->apis = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSDK\models\shared\Api>', 'json');
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->apis = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\Api>', 'json');
             }
         }
         else {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
-        return $res;
+        return $response;
     }
     
     /**
@@ -187,40 +176,37 @@ class Apis
      * Get a list of all Apis and their versions for a given workspace.
      * Supports filtering the APIs based on metadata attributes.
     */
-    public function getApis(\Speakeasy\SpeakeasyClientSDK\models\operations\GetApisRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\GetApisResponse
+    public function getApis(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = utils\Utils::generateURL($baseUrl, '/v1/apis');
+        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, utils\Utils::getQueryParams($request->queryParams));
-        
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams($request->queryParams));
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
         
-        $client = $this->_securityClient;
+        $httpResponse = $this->_securityClient->request('GET', $url, $options);
         
-        $httpRes = $client->request('GET', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
-        $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
-
-        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetApisResponse();
-        $res->statusCode = $httpRes->getStatusCode();
-        $res->contentType = $contentType;
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
         
-        if ($httpRes->getStatusCode() == 200) {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->apis = $serializer->deserialize($httpRes->getBody()->__toString(), 'array<Speakeasy\SpeakeasyClientSDK\models\shared\Api>', 'json');
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->apis = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\Api>', 'json');
             }
         }
         else {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
-        return $res;
+        return $response;
     }
     
     /**
@@ -229,43 +215,40 @@ class Apis
      * Upsert an Api. If the Api does not exist, it will be created.
      * If the Api exists, it will be updated.
     */
-    public function upsertApi(\Speakeasy\SpeakeasyClientSDK\models\operations\UpsertApiRequest $request): \Speakeasy\SpeakeasyClientSDK\models\operations\UpsertApiResponse
+    public function upsertApi(\Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}', $request->pathParams);
+        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}', $request->pathParams);
         
         $options = ['http_errors' => false];
-        $body = utils\Utils::serializeRequestBody($request);
-        if (is_null($body)) {
+        $body = Utils\Utils::serializeRequestBody($request);
+        if ($body === null) {
             throw new \Exception('Request body is required');
         }
         $options = array_merge_recursive($options, $body);
-        
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
         
-        $client = $this->_securityClient;
+        $httpResponse = $this->_securityClient->request('PUT', $url, $options);
         
-        $httpRes = $client->request('PUT', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
-        $contentType = $httpRes->getHeader('Content-Type')[0] ?? '';
-
-        $res = new \Speakeasy\SpeakeasyClientSDK\models\operations\UpsertApiResponse();
-        $res->statusCode = $httpRes->getStatusCode();
-        $res->contentType = $contentType;
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
         
-        if ($httpRes->getStatusCode() == 200) {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->api = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Api', 'json');
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->api = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Api', 'json');
             }
         }
         else {
-            if (utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = utils\JSON::createSerializer();
-                $res->error = $serializer->deserialize($httpRes->getBody()->__toString(), 'Speakeasy\SpeakeasyClientSDK\models\shared\Error', 'json');
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
-        return $res;
+        return $response;
     }
 }

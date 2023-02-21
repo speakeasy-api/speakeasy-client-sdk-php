@@ -1,0 +1,18 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
+
+class SchemeAPIKey
+{
+    #[SpeakeasyMetadata('security:name=x-api-key')]
+    public string $apiKey;
+    
+	public function __construct()
+	{
+		$this->apiKey = "";
+	}
+}

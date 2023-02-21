@@ -1,4 +1,4 @@
-# openapi
+# <no value>
 
 <!-- Start SDK Installation -->
 ## SDK Installation
@@ -11,32 +11,9 @@ composer require "speakeasy-api/speakeasy-client-sdk-php"
 <!-- End SDK Installation -->
 
 ## SDK Example Usage
+<!-- Start SDK Example Usage -->
 
-```php
-<?php
-require_once "vendor/autoload.php";
-
-use Speakeasy\SpeakeasyClientSDK\SDK;
-use Speakeasy\SpeakeasyClientSDK\models\shared\Security;
-
-$security = new Security();
-$security->apiKey = new \Speakeasy\SpeakeasyClientSDK\models\shared\SchemeAPIKey();
-$security->apiKey->apiKey = 'YOUR_API_KEY_HERE';
-
-$sdk = SDK::builder()
-    ->setSecurity($security)
-    ->build();
-
-$request = new \Speakeasy\SpeakeasyClientSDK\models\operations\GetApisRequest();
-
-$response = $sdk->apis->getApis($request);
-
-if ($response->statusCode == 200) {
-    print_r($response->apis);
-} else {
-    print_r($response->error);
-}
-```
+<!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
 ## SDK Available Operations
