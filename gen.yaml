@@ -7,6 +7,6 @@ generation:
     telemetryEnabled: true
     sdkClassName: SDK
 php:
-    version: 0.3.3
+    version: 0.3.4
     namespace: Speakeasy\SpeakeasyClientSDK
     packageName: speakeasy-api/speakeasy-client-sdk-php
