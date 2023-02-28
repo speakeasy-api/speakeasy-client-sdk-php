@@ -29,8 +29,8 @@ class SDK
 	private ?Models\Shared\Security $_security;
 	private string $_serverUrl;
 	private string $_language = "php";
-	private string $_sdkVersion = "0.3.7";
-	private string $_genVersion = "1.5.3";
+	private string $_sdkVersion = "0.3.8";
+	private string $_genVersion = "1.5.4";
 
 	public static function builder(): SDKBuilder
 	{
