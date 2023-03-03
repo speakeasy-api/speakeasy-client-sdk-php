@@ -14,6 +14,8 @@ class InsertVersionMetadataResponse
     
     public int $statusCode;
     
+    public ?\Psr\Http\Message\ResponseInterface $rawResponse = null;
+    
     public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadata $versionMetadata = null;
     
 	public function __construct()
@@ -21,6 +23,7 @@ class InsertVersionMetadataResponse
 		$this->contentType = "";
 		$this->error = null;
 		$this->statusCode = 0;
+		$this->rawResponse = null;
 		$this->versionMetadata = null;
 	}
 }

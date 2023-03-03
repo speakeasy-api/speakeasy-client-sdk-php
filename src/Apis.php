@@ -6,6 +6,12 @@ namespace Speakeasy\SpeakeasyClientSDK;
 
 class Apis 
 {
+	
+	
+	
+	
+	
+	
 	// SDK private variables namespaced with _ to avoid conflicts with API models
 	private \GuzzleHttp\ClientInterface $_defaultClient;
 	private \GuzzleHttp\ClientInterface $_securityClient;
@@ -29,7 +35,9 @@ class Apis
      *
      * Delete a particular version of an Api. The will also delete all associated ApiEndpoints, Metadata, Schemas & Request Logs (if using a Postgres datastore).
     */
-    public function deleteApi(\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiResponse
+    public function deleteApi(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}', $request->pathParams);
@@ -44,6 +52,7 @@ class Apis
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
         }
@@ -63,7 +72,9 @@ class Apis
      * This endpoint will generate any missing operations in any registered OpenAPI document if the operation does not already exist in the document.
      * Returns the original document and the newly generated document allowing a diff to be performed to see what has changed.
     */
-    public function generateOpenApiSpec(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecResponse
+    public function generateOpenApiSpec(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/openapi', $request->pathParams);
@@ -78,6 +89,7 @@ class Apis
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -100,7 +112,9 @@ class Apis
      *
      * Generates a postman collection containing all endpoints for a particular API. Includes variables produced for any path/query/header parameters included in the OpenAPI document.
     */
-    public function generatePostmanCollection(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionResponse
+    public function generatePostmanCollection(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/postman', $request->pathParams);
@@ -115,6 +129,7 @@ class Apis
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/octet-stream')) {
@@ -137,7 +152,9 @@ class Apis
      * Get all Api versions for a particular ApiEndpoint.
      * Supports filtering the versions based on metadata attributes.
     */
-    public function getAllApiVersions(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsResponse
+    public function getAllApiVersions(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}', $request->pathParams);
@@ -153,6 +170,7 @@ class Apis
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -176,7 +194,9 @@ class Apis
      * Get a list of all Apis and their versions for a given workspace.
      * Supports filtering the APIs based on metadata attributes.
     */
-    public function getApis(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisResponse
+    public function getApis(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis');
@@ -192,6 +212,7 @@ class Apis
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -215,7 +236,9 @@ class Apis
      * Upsert an Api. If the Api does not exist, it will be created.
      * If the Api exists, it will be updated.
     */
-    public function upsertApi(\Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiResponse
+    public function upsertApi(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}', $request->pathParams);
@@ -235,6 +258,7 @@ class Apis
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {

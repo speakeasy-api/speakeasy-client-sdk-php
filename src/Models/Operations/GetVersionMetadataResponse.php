@@ -14,6 +14,8 @@ class GetVersionMetadataResponse
     
     public int $statusCode;
     
+    public ?\Psr\Http\Message\ResponseInterface $rawResponse = null;
+    
     /**
      * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadata>
      */
@@ -24,6 +26,7 @@ class GetVersionMetadataResponse
 		$this->contentType = "";
 		$this->error = null;
 		$this->statusCode = 0;
+		$this->rawResponse = null;
 		$this->versionMetadata = null;
 	}
 }

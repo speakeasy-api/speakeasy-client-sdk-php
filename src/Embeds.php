@@ -6,6 +6,9 @@ namespace Speakeasy\SpeakeasyClientSDK;
 
 class Embeds 
 {
+	
+	
+	
 	// SDK private variables namespaced with _ to avoid conflicts with API models
 	private \GuzzleHttp\ClientInterface $_defaultClient;
 	private \GuzzleHttp\ClientInterface $_securityClient;
@@ -30,7 +33,9 @@ class Embeds
      * Returns an embed access token for the current workspace. This can be used to authenticate access to externally embedded content.
      * Filters can be applied allowing views to be filtered to things like particular customerIds.
     */
-    public function getEmbedAccessToken(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenResponse
+    public function getEmbedAccessToken(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/workspace/embed-access-token');
@@ -46,6 +51,7 @@ class Embeds
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -66,7 +72,8 @@ class Embeds
     /**
      * getValidEmbedAccessTokens - Get all valid embed access tokens for the current workspace.
     */
-    public function getValidEmbedAccessTokens(): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetValidEmbedAccessTokensResponse
+    public function getValidEmbedAccessTokens(
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetValidEmbedAccessTokensResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/workspace/embed-access-tokens/valid');
@@ -81,6 +88,7 @@ class Embeds
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetValidEmbedAccessTokensResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -101,7 +109,9 @@ class Embeds
     /**
      * revokeEmbedAccessToken - Revoke an embed access EmbedToken.
     */
-    public function revokeEmbedAccessToken(\Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenResponse
+    public function revokeEmbedAccessToken(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/workspace/embed-access-tokens/{tokenID}', $request->pathParams);
@@ -116,6 +126,7 @@ class Embeds
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
         }

@@ -14,6 +14,8 @@ class GetRequestFromEventLogResponse
     
     public int $statusCode;
     
+    public ?\Psr\Http\Message\ResponseInterface $rawResponse = null;
+    
     public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\UnboundedRequest $unboundedRequest = null;
     
 	public function __construct()
@@ -21,6 +23,7 @@ class GetRequestFromEventLogResponse
 		$this->contentType = "";
 		$this->error = null;
 		$this->statusCode = 0;
+		$this->rawResponse = null;
 		$this->unboundedRequest = null;
 	}
 }

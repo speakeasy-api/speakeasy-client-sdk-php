@@ -6,6 +6,14 @@ namespace Speakeasy\SpeakeasyClientSDK;
 
 class Schemas 
 {
+	
+	
+	
+	
+	
+	
+	
+	
 	// SDK private variables namespaced with _ to avoid conflicts with API models
 	private \GuzzleHttp\ClientInterface $_defaultClient;
 	private \GuzzleHttp\ClientInterface $_securityClient;
@@ -27,7 +35,9 @@ class Schemas
     /**
      * deleteSchema - Delete a particular schema revision for an Api.
     */
-    public function deleteSchema(\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaResponse
+    public function deleteSchema(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', $request->pathParams);
@@ -42,6 +52,7 @@ class Schemas
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
         }
@@ -58,7 +69,9 @@ class Schemas
     /**
      * downloadSchema - Download the latest schema for a particular apiID.
     */
-    public function downloadSchema(\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaResponse
+    public function downloadSchema(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/download', $request->pathParams);
@@ -73,6 +86,7 @@ class Schemas
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -96,7 +110,9 @@ class Schemas
     /**
      * downloadSchemaRevision - Download a particular schema revision for an Api.
     */
-    public function downloadSchemaRevision(\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionResponse
+    public function downloadSchemaRevision(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}/download', $request->pathParams);
@@ -111,6 +127,7 @@ class Schemas
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -137,7 +154,9 @@ class Schemas
      * Returns information about the last uploaded schema for a particular API version. 
      * This won't include the schema itself, that can be retrieved via the downloadSchema operation.
     */
-    public function getSchema(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaResponse
+    public function getSchema(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', $request->pathParams);
@@ -152,6 +171,7 @@ class Schemas
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -172,7 +192,9 @@ class Schemas
     /**
      * getSchemaDiff - Get a diff of two schema revisions for an Api.
     */
-    public function getSchemaDiff(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffResponse
+    public function getSchemaDiff(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{baseRevisionID}/diff/{targetRevisionID}', $request->pathParams);
@@ -187,6 +209,7 @@ class Schemas
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -210,7 +233,9 @@ class Schemas
      * Returns information about the last uploaded schema for a particular schema revision. 
      * This won't include the schema itself, that can be retrieved via the downloadSchema operation.
     */
-    public function getSchemaRevision(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionResponse
+    public function getSchemaRevision(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', $request->pathParams);
@@ -225,6 +250,7 @@ class Schemas
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -248,7 +274,9 @@ class Schemas
      * Returns information the schemas associated with a particular apiID. 
      * This won't include the schemas themselves, they can be retrieved via the downloadSchema operation.
     */
-    public function getSchemas(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasResponse
+    public function getSchemas(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schemas', $request->pathParams);
@@ -263,6 +291,7 @@ class Schemas
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -286,7 +315,9 @@ class Schemas
      * Allows uploading a schema for a particular API version.
      * This will be used to populate ApiEndpoints and used as a base for any schema generation if present.
     */
-    public function registerSchema(\Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaResponse
+    public function registerSchema(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', $request->pathParams);
@@ -306,6 +337,7 @@ class Schemas
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
         }

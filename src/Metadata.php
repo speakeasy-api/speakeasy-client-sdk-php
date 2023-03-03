@@ -6,6 +6,9 @@ namespace Speakeasy\SpeakeasyClientSDK;
 
 class Metadata 
 {
+	
+	
+	
 	// SDK private variables namespaced with _ to avoid conflicts with API models
 	private \GuzzleHttp\ClientInterface $_defaultClient;
 	private \GuzzleHttp\ClientInterface $_securityClient;
@@ -27,7 +30,9 @@ class Metadata
     /**
      * deleteVersionMetadata - Delete metadata for a particular apiID and versionID.
     */
-    public function deleteVersionMetadata(\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataResponse
+    public function deleteVersionMetadata(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}', $request->pathParams);
@@ -42,6 +47,7 @@ class Metadata
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
         }
@@ -58,7 +64,9 @@ class Metadata
     /**
      * getVersionMetadata - Get all metadata for a particular apiID and versionID.
     */
-    public function getVersionMetadata(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataResponse
+    public function getVersionMetadata(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', $request->pathParams);
@@ -73,6 +81,7 @@ class Metadata
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -93,7 +102,9 @@ class Metadata
     /**
      * insertVersionMetadata - Insert metadata for a particular apiID and versionID.
     */
-    public function insertVersionMetadata(\Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataResponse
+    public function insertVersionMetadata(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', $request->pathParams);
@@ -113,6 +124,7 @@ class Metadata
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {

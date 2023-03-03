@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK;
 
 /**
- * SDK Documentation: https://docs.speakeasyapi.dev - The Speakeasy Platform Documentation
+ * SDK Documentation: The Speakeasy API allows teams to manage common operations with their APIs
+ * https://docs.speakeasyapi.dev - The Speakeasy Platform Documentation
  */
 class SDK
 {
@@ -14,6 +15,7 @@ class SDK
 	public const SERVERS = [
 		SDK::SERVER_PROD => 'https://api.prod.speakeasyapi.dev',
 	];
+	
   	
   	public ApiEndpoints $apiEndpoints;
   	public Apis $apis;
@@ -29,8 +31,8 @@ class SDK
 	private ?Models\Shared\Security $_security;
 	private string $_serverUrl;
 	private string $_language = "php";
-	private string $_sdkVersion = "0.5.0";
-	private string $_genVersion = "1.7.1";
+	private string $_sdkVersion = "0.6.0";
+	private string $_genVersion = "1.8.2";
 
 	public static function builder(): SDKBuilder
 	{
@@ -64,7 +66,7 @@ class SDK
 		}
 
 		if (!empty($serverUrl)) {
-			$this->_serverUrl = Utils\Utils::replaceParameters($serverUrl, $params);
+			$this->_serverUrl = Utils\Utils::templateUrl($serverUrl, $params);
 		}
 		
 		if (empty($this->_serverUrl)) {
@@ -138,7 +140,8 @@ class SDK
     /**
      * validateApiKey - Validate the current api key.
     */
-    public function validateApiKey(): \Speakeasy\SpeakeasyClientSDK\Models\Operations\ValidateApiKeyResponse
+    public function validateApiKey(
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\ValidateApiKeyResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/auth/validate');
@@ -153,6 +156,7 @@ class SDK
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\ValidateApiKeyResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
         }

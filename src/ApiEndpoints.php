@@ -6,6 +6,14 @@ namespace Speakeasy\SpeakeasyClientSDK;
 
 class ApiEndpoints 
 {
+	
+	
+	
+	
+	
+	
+	
+	
 	// SDK private variables namespaced with _ to avoid conflicts with API models
 	private \GuzzleHttp\ClientInterface $_defaultClient;
 	private \GuzzleHttp\ClientInterface $_securityClient;
@@ -29,7 +37,9 @@ class ApiEndpoints
      *
      * Delete an ApiEndpoint. This will also delete all associated Request Logs (if using a Postgres datastore).
     */
-    public function deleteApiEndpoint(\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointResponse
+    public function deleteApiEndpoint(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}', $request->pathParams);
@@ -44,6 +54,7 @@ class ApiEndpoints
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
         }
@@ -63,7 +74,9 @@ class ApiEndpoints
      * Find an ApiEndpoint via its displayName (set by operationId from a registered OpenAPI schema).
      * This is useful for finding the ID of an ApiEndpoint to use in the /v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID} endpoints.
     */
-    public function findApiEndpoint(\Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointResponse
+    public function findApiEndpoint(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/find/{displayName}', $request->pathParams);
@@ -78,6 +91,7 @@ class ApiEndpoints
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -101,7 +115,9 @@ class ApiEndpoints
      * This endpoint will generate a new operation in any registered OpenAPI document if the operation does not already exist in the document.
      * Returns the original document and the newly generated document allowing a diff to be performed to see what has changed.
     */
-    public function generateOpenApiSpecForApiEndpoint(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointResponse
+    public function generateOpenApiSpecForApiEndpoint(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}/generate/openapi', $request->pathParams);
@@ -116,6 +132,7 @@ class ApiEndpoints
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -138,7 +155,9 @@ class ApiEndpoints
      *
      * Generates a postman collection that allows the endpoint to be called from postman variables produced for any path/query/header parameters included in the OpenAPI document.
     */
-    public function generatePostmanCollectionForApiEndpoint(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointResponse
+    public function generatePostmanCollectionForApiEndpoint(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}/generate/postman', $request->pathParams);
@@ -153,6 +172,7 @@ class ApiEndpoints
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/octet-stream')) {
@@ -172,7 +192,9 @@ class ApiEndpoints
     /**
      * getAllApiEndpoints - Get all Api endpoints for a particular apiID.
     */
-    public function getAllApiEndpoints(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsResponse
+    public function getAllApiEndpoints(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/api_endpoints', $request->pathParams);
@@ -187,6 +209,7 @@ class ApiEndpoints
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -207,7 +230,9 @@ class ApiEndpoints
     /**
      * getAllForVersionApiEndpoints - Get all ApiEndpoints for a particular apiID and versionID.
     */
-    public function getAllForVersionApiEndpoints(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsResponse
+    public function getAllForVersionApiEndpoints(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints', $request->pathParams);
@@ -222,6 +247,7 @@ class ApiEndpoints
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -242,7 +268,9 @@ class ApiEndpoints
     /**
      * getApiEndpoint - Get an ApiEndpoint.
     */
-    public function getApiEndpoint(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointResponse
+    public function getApiEndpoint(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}', $request->pathParams);
@@ -257,6 +285,7 @@ class ApiEndpoints
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -279,7 +308,9 @@ class ApiEndpoints
      *
      * Upsert an ApiEndpoint. If the ApiEndpoint does not exist it will be created, otherwise it will be updated.
     */
-    public function upsertApiEndpoint(\Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiEndpointRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiEndpointResponse
+    public function upsertApiEndpoint(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiEndpointRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiEndpointResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}', $request->pathParams);
@@ -299,6 +330,7 @@ class ApiEndpoints
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiEndpointResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {

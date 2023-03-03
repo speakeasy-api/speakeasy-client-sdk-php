@@ -6,6 +6,9 @@ namespace Speakeasy\SpeakeasyClientSDK;
 
 class Requests 
 {
+	
+	
+	
 	// SDK private variables namespaced with _ to avoid conflicts with API models
 	private \GuzzleHttp\ClientInterface $_defaultClient;
 	private \GuzzleHttp\ClientInterface $_securityClient;
@@ -30,7 +33,9 @@ class Requests
      * Generates a Postman collection for a particular request. 
      * Allowing it to be replayed with the same inputs that were captured by the SDK.
     */
-    public function generateRequestPostmanCollection(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionResponse
+    public function generateRequestPostmanCollection(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/eventlog/{requestID}/generate/postman', $request->pathParams);
@@ -45,6 +50,7 @@ class Requests
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/octet-stream')) {
@@ -64,7 +70,9 @@ class Requests
     /**
      * getRequestFromEventLog - Get information about a particular request.
     */
-    public function getRequestFromEventLog(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogResponse
+    public function getRequestFromEventLog(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/eventlog/{requestID}', $request->pathParams);
@@ -79,6 +87,7 @@ class Requests
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -102,7 +111,9 @@ class Requests
      * Supports retrieving a list of request captured by the SDK for this workspace.
      * Allows the filtering of requests on a number of criteria such as ApiID, VersionID, Path, Method, etc.
     */
-    public function queryEventLog(\Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogResponse
+    public function queryEventLog(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/eventlog/query');
@@ -118,6 +129,7 @@ class Requests
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {

@@ -6,6 +6,9 @@ namespace Speakeasy\SpeakeasyClientSDK;
 
 class Plugins 
 {
+	
+	
+	
 	// SDK private variables namespaced with _ to avoid conflicts with API models
 	private \GuzzleHttp\ClientInterface $_defaultClient;
 	private \GuzzleHttp\ClientInterface $_securityClient;
@@ -27,7 +30,8 @@ class Plugins
     /**
      * getPlugins - Get all plugins for the current workspace.
     */
-    public function getPlugins(): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetPluginsResponse
+    public function getPlugins(
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetPluginsResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/plugins');
@@ -42,6 +46,7 @@ class Plugins
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetPluginsResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -62,7 +67,9 @@ class Plugins
     /**
      * runPlugin - Run a plugin
     */
-    public function runPlugin(\Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginResponse
+    public function runPlugin(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/plugins/{pluginID}', $request->pathParams);
@@ -78,6 +85,7 @@ class Plugins
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -98,7 +106,9 @@ class Plugins
     /**
      * upsertPlugin - Upsert a plugin
     */
-    public function upsertPlugin(\Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertPluginRequest $request): \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertPluginResponse
+    public function upsertPlugin(
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertPluginRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertPluginResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/v1/plugins');
@@ -118,6 +128,7 @@ class Plugins
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertPluginResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
