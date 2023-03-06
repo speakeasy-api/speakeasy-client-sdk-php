@@ -8,6 +8,6 @@ generation:
   sdkClassName: SDK
   sdkFlattening: false
 php:
-  version: 0.6.2
+  version: 0.6.3
   namespace: Speakeasy\SpeakeasyClientSDK
   packageName: speakeasy-api/speakeasy-client-sdk-php
