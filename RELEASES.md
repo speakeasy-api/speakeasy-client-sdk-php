@@ -183,3 +183,11 @@ Based on:
 - Speakeasy CLI 1.8.6 https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [Composer v0.6.5] https://packagist.org/packages/speakeasy-api/speakeasy-client-sdk-php#v0.6.5 - .
+
+## 2023-03-09 00:12:43
+### Changes
+Based on:
+- OpenAPI Doc 0.3.0 https://docs.speakeasyapi.dev/openapi.yaml
+- Speakeasy CLI 1.8.7 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [Composer v0.6.6] https://packagist.org/packages/speakeasy-api/speakeasy-client-sdk-php#v0.6.6 - .
