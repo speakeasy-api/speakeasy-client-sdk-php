@@ -30,9 +30,9 @@ class SDK
 	private ?\GuzzleHttp\ClientInterface $_securityClient;
 	private ?Models\Shared\Security $_security;
 	private string $_serverUrl;
-	private string $_language = "php";
-	private string $_sdkVersion = "0.7.1";
-	private string $_genVersion = "1.9.2";
+	private string $_language = 'php';
+	private string $_sdkVersion = '0.8.0';
+	private string $_genVersion = '1.12.0';
 
 	public static function builder(): SDKBuilder
 	{
@@ -136,7 +136,7 @@ class SDK
 			$this->_genVersion
 		);
 	}
-    
+	
     /**
      * validateApiKey - Validate the current api key.
     */
@@ -144,7 +144,7 @@ class SDK
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\ValidateApiKeyResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/auth/validate');
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/auth/validate');
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);

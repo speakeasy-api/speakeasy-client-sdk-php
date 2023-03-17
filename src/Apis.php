@@ -6,20 +6,23 @@ namespace Speakeasy\SpeakeasyClientSDK;
 
 class Apis 
 {
-	
-	
-	
-	
-	
-	
+
 	// SDK private variables namespaced with _ to avoid conflicts with API models
 	private \GuzzleHttp\ClientInterface $_defaultClient;
 	private \GuzzleHttp\ClientInterface $_securityClient;
 	private string $_serverUrl;
 	private string $_language;
 	private string $_sdkVersion;
-	private string $_genVersion;
+	private string $_genVersion;	
 
+	/**
+	 * @param \GuzzleHttp\ClientInterface $defaultClient
+	 * @param \GuzzleHttp\ClientInterface $securityClient
+	 * @param string $serverUrl
+	 * @param string $language
+	 * @param string $sdkVersion
+	 * @param string $genVersion
+	 */
 	public function __construct(\GuzzleHttp\ClientInterface $defaultClient, \GuzzleHttp\ClientInterface $securityClient, string $serverUrl, string $language, string $sdkVersion, string $genVersion)
 	{
 		$this->_defaultClient = $defaultClient;
@@ -29,18 +32,19 @@ class Apis
 		$this->_sdkVersion = $sdkVersion;
 		$this->_genVersion = $genVersion;
 	}
-    
+	
     /**
      * deleteApi - Delete an Api.
      *
      * Delete a particular version of an Api. The will also delete all associated ApiEndpoints, Metadata, Schemas & Request Logs (if using a Postgres datastore).
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiRequest $request
     */
     public function deleteApi(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiPathParams::class, $request->pathParams);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -65,19 +69,20 @@ class Apis
 
         return $response;
     }
-    
+	
     /**
      * generateOpenApiSpec - Generate an OpenAPI specification for a particular Api.
      *
      * This endpoint will generate any missing operations in any registered OpenAPI document if the operation does not already exist in the document.
      * Returns the original document and the newly generated document allowing a diff to be performed to see what has changed.
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecRequest $request
     */
     public function generateOpenApiSpec(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/openapi', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/openapi', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecPathParams::class, $request->pathParams);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -106,18 +111,19 @@ class Apis
 
         return $response;
     }
-    
+	
     /**
      * generatePostmanCollection - Generate a Postman collection for a particular Api.
      *
      * Generates a postman collection containing all endpoints for a particular API. Includes variables produced for any path/query/header parameters included in the OpenAPI document.
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionRequest $request
     */
     public function generatePostmanCollection(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/postman', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/postman', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionPathParams::class, $request->pathParams);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -145,22 +151,23 @@ class Apis
 
         return $response;
     }
-    
+	
     /**
      * getAllApiVersions - Get all Api versions for a particular ApiEndpoint.
      *
      * Get all Api versions for a particular ApiEndpoint.
      * Supports filtering the versions based on metadata attributes.
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest $request
     */
     public function getAllApiVersions(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsPathParams::class, $request->pathParams);
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams($request->queryParams));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsQueryParams::class, $request->queryParams, null));
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
         
         $httpResponse = $this->_securityClient->request('GET', $url, $options);
@@ -187,22 +194,23 @@ class Apis
 
         return $response;
     }
-    
+	
     /**
      * getApis - Get a list of Apis for a given workspace
      *
      * Get a list of all Apis and their versions for a given workspace.
      * Supports filtering the APIs based on metadata attributes.
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisRequest $request
     */
     public function getApis(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis');
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams($request->queryParams));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisQueryParams::class, $request->queryParams, null));
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
         
         $httpResponse = $this->_securityClient->request('GET', $url, $options);
@@ -229,22 +237,23 @@ class Apis
 
         return $response;
     }
-    
+	
     /**
      * upsertApi - Upsert an Api
      *
      * Upsert an Api. If the Api does not exist, it will be created.
      * If the Api exists, it will be updated.
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiRequest $request
     */
     public function upsertApi(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiPathParams::class, $request->pathParams);
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
