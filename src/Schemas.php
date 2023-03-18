@@ -6,22 +6,23 @@ namespace Speakeasy\SpeakeasyClientSDK;
 
 class Schemas 
 {
-	
-	
-	
-	
-	
-	
-	
-	
+
 	// SDK private variables namespaced with _ to avoid conflicts with API models
 	private \GuzzleHttp\ClientInterface $_defaultClient;
 	private \GuzzleHttp\ClientInterface $_securityClient;
 	private string $_serverUrl;
 	private string $_language;
 	private string $_sdkVersion;
-	private string $_genVersion;
+	private string $_genVersion;	
 
+	/**
+	 * @param \GuzzleHttp\ClientInterface $defaultClient
+	 * @param \GuzzleHttp\ClientInterface $securityClient
+	 * @param string $serverUrl
+	 * @param string $language
+	 * @param string $sdkVersion
+	 * @param string $genVersion
+	 */
 	public function __construct(\GuzzleHttp\ClientInterface $defaultClient, \GuzzleHttp\ClientInterface $securityClient, string $serverUrl, string $language, string $sdkVersion, string $genVersion)
 	{
 		$this->_defaultClient = $defaultClient;
@@ -31,16 +32,17 @@ class Schemas
 		$this->_sdkVersion = $sdkVersion;
 		$this->_genVersion = $genVersion;
 	}
-    
+	
     /**
      * deleteSchema - Delete a particular schema revision for an Api.
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaRequest $request
     */
     public function deleteSchema(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaPathParams::class, $request->pathParams);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -65,16 +67,17 @@ class Schemas
 
         return $response;
     }
-    
+	
     /**
      * downloadSchema - Download the latest schema for a particular apiID.
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRequest $request
     */
     public function downloadSchema(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/download', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/download', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaPathParams::class, $request->pathParams);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -106,16 +109,17 @@ class Schemas
 
         return $response;
     }
-    
+	
     /**
      * downloadSchemaRevision - Download a particular schema revision for an Api.
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionRequest $request
     */
     public function downloadSchemaRevision(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}/download', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}/download', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionPathParams::class, $request->pathParams);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -147,19 +151,20 @@ class Schemas
 
         return $response;
     }
-    
+	
     /**
      * getSchema - Get information about the latest schema.
      *
      * Returns information about the last uploaded schema for a particular API version. 
      * This won't include the schema itself, that can be retrieved via the downloadSchema operation.
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRequest $request
     */
     public function getSchema(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaPathParams::class, $request->pathParams);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -188,16 +193,17 @@ class Schemas
 
         return $response;
     }
-    
+	
     /**
      * getSchemaDiff - Get a diff of two schema revisions for an Api.
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffRequest $request
     */
     public function getSchemaDiff(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{baseRevisionID}/diff/{targetRevisionID}', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{baseRevisionID}/diff/{targetRevisionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffPathParams::class, $request->pathParams);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -226,19 +232,20 @@ class Schemas
 
         return $response;
     }
-    
+	
     /**
      * getSchemaRevision - Get information about a particular schema revision for an Api.
      *
      * Returns information about the last uploaded schema for a particular schema revision. 
      * This won't include the schema itself, that can be retrieved via the downloadSchema operation.
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionRequest $request
     */
     public function getSchemaRevision(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionPathParams::class, $request->pathParams);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -267,19 +274,20 @@ class Schemas
 
         return $response;
     }
-    
+	
     /**
      * getSchemas - Get information about all schemas associated with a particular apiID.
      *
      * Returns information the schemas associated with a particular apiID. 
      * This won't include the schemas themselves, they can be retrieved via the downloadSchema operation.
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasRequest $request
     */
     public function getSchemas(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schemas', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schemas', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasPathParams::class, $request->pathParams);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -308,22 +316,23 @@ class Schemas
 
         return $response;
     }
-    
+	
     /**
      * registerSchema - Register a schema.
      *
      * Allows uploading a schema for a particular API version.
      * This will be used to populate ApiEndpoints and used as a base for any schema generation if present.
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequest $request
     */
     public function registerSchema(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaPathParams::class, $request->pathParams);
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "multipart");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
