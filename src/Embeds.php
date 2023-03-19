@@ -6,17 +6,23 @@ namespace Speakeasy\SpeakeasyClientSDK;
 
 class Embeds 
 {
-	
-	
-	
+
 	// SDK private variables namespaced with _ to avoid conflicts with API models
 	private \GuzzleHttp\ClientInterface $_defaultClient;
 	private \GuzzleHttp\ClientInterface $_securityClient;
 	private string $_serverUrl;
 	private string $_language;
 	private string $_sdkVersion;
-	private string $_genVersion;
+	private string $_genVersion;	
 
+	/**
+	 * @param \GuzzleHttp\ClientInterface $defaultClient
+	 * @param \GuzzleHttp\ClientInterface $securityClient
+	 * @param string $serverUrl
+	 * @param string $language
+	 * @param string $sdkVersion
+	 * @param string $genVersion
+	 */
 	public function __construct(\GuzzleHttp\ClientInterface $defaultClient, \GuzzleHttp\ClientInterface $securityClient, string $serverUrl, string $language, string $sdkVersion, string $genVersion)
 	{
 		$this->_defaultClient = $defaultClient;
@@ -26,22 +32,23 @@ class Embeds
 		$this->_sdkVersion = $sdkVersion;
 		$this->_genVersion = $genVersion;
 	}
-    
+	
     /**
      * getEmbedAccessToken - Get an embed access token for the current workspace.
      *
      * Returns an embed access token for the current workspace. This can be used to authenticate access to externally embedded content.
      * Filters can be applied allowing views to be filtered to things like particular customerIds.
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenRequest $request
     */
     public function getEmbedAccessToken(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/workspace/embed-access-token');
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/embed-access-token');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams($request->queryParams));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenQueryParams::class, $request->queryParams, null));
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
         
         $httpResponse = $this->_securityClient->request('GET', $url, $options);
@@ -68,7 +75,7 @@ class Embeds
 
         return $response;
     }
-    
+	
     /**
      * getValidEmbedAccessTokens - Get all valid embed access tokens for the current workspace.
     */
@@ -76,7 +83,7 @@ class Embeds
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetValidEmbedAccessTokensResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/workspace/embed-access-tokens/valid');
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/embed-access-tokens/valid');
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -105,16 +112,17 @@ class Embeds
 
         return $response;
     }
-    
+	
     /**
      * revokeEmbedAccessToken - Revoke an embed access EmbedToken.
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenRequest $request
     */
     public function revokeEmbedAccessToken(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/v1/workspace/embed-access-tokens/{tokenID}', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/embed-access-tokens/{tokenID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenPathParams::class, $request->pathParams);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
