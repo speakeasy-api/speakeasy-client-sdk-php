@@ -19,12 +19,24 @@ class SDKBuilder
         $this->params = null;
     }
 
+    /**
+     * setClient allows setting a custom Guzzle client for the SDK to make requests with.
+     *
+     * @param \GuzzleHttp\ClientInterface $client
+     * @return SDKBuilder
+     */
     public function setClient(\GuzzleHttp\ClientInterface $client): SDKBuilder
     {
         $this->client = $client;
         return $this;
     }
     
+    /**
+     * setSecurity is used to configure the security required for the SDK.
+     *
+     * @param Models\Shared\Security $security
+     * @return SDKBuilder
+     */
     public function setSecurity(Models\Shared\Security $security): SDKBuilder
     {
         $this->security = $security;
@@ -32,12 +44,13 @@ class SDKBuilder
     }
     
     /**
-    * Set the server URL and any parameters to interpolate into the URL.
-    * @param string $serverUrl
-    * @param array<string, string> $params
-    * @return SDKBuilder
-    */
-    public function setServerURL(string $serverUrl, ?array $params = null): SDKBuilder
+     * setServerUrl is used to configure the server URL for the SDK, and optionally template any parameters in the URL.
+     *
+     * @param string $serverUrl
+     * @param array<string, string> $params
+     * @return SDKBuilder
+     */
+    public function setServerUrl(string $serverUrl, ?array $params = null): SDKBuilder
     {
         $this->serverUrl = $serverUrl;
         if ($params !== null) {
@@ -47,11 +60,12 @@ class SDKBuilder
     }
     
     /**
-    * Set the server and any parameters to interpolate into the chosen server URL.
-    * @param string $server
-    * @param array<string, string> $params
-    * @return SDKBuilder
-    */
+     * setServer is used to configure the server for the SDK, and optionally template any parameters in the URL.
+     *
+     * @param string $server
+     * @param array<string, string> $params
+     * @return SDKBuilder
+     */
     public function setServer(string $server, ?array $params = null): SDKBuilder
     {
         $this->serverUrl = SDK::SERVERS[$server];
@@ -61,6 +75,11 @@ class SDKBuilder
         return $this;
     }
     
+    /**
+     * build is used to build the SDK with any of the configured options.
+     *
+     * @return SDK
+     */
     public function build(): SDK
     {
         return new SDK($this->client, $this->security, $this->serverUrl, $this->params);
