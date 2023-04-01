@@ -11,20 +11,25 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class UpsertApiRequest
 {
-	
-    public UpsertApiPathParams $pathParams;
-    
     /**
      * A JSON representation of the Api to upsert
      * 
-     * @var \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput $request
+     * @var \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput $apiInput
      */
 	#[SpeakeasyMetadata('request:mediaType=application/json')]
-    public \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput $request;
+    public \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput $apiInput;
+    
+    /**
+     * The ID of the Api to upsert.
+     * 
+     * @var string $apiID
+     */
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=apiID')]
+    public string $apiID;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiPathParams();
-		$this->request = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput();
+		$this->apiInput = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput();
+		$this->apiID = "";
 	}
 }

@@ -11,20 +11,34 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class InsertVersionMetadataRequest
 {
-	
-    public InsertVersionMetadataPathParams $pathParams;
-    
     /**
      * A JSON representation of the metadata to insert.
      * 
-     * @var \Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadataInput $request
+     * @var \Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadataInput $versionMetadataInput
      */
 	#[SpeakeasyMetadata('request:mediaType=application/json')]
-    public \Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadataInput $request;
+    public \Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadataInput $versionMetadataInput;
+    
+    /**
+     * The ID of the Api to insert metadata for.
+     * 
+     * @var string $apiID
+     */
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=apiID')]
+    public string $apiID;
+    
+    /**
+     * The version ID of the Api to insert metadata for.
+     * 
+     * @var string $versionID
+     */
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=versionID')]
+    public string $versionID;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataPathParams();
-		$this->request = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadataInput();
+		$this->versionMetadataInput = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadataInput();
+		$this->apiID = "";
+		$this->versionID = "";
 	}
 }

@@ -8,14 +8,37 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-
+use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class GetEmbedAccessTokenRequest
 {
-	
-    public GetEmbedAccessTokenQueryParams $queryParams;
+    /**
+     * The description of the embed access token.
+     * 
+     * @var ?string $description
+     */
+	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=description')]
+    public ?string $description = null;
+    
+    /**
+     * The duration (in minutes) of the embed access token.
+     * 
+     * @var ?int $duration
+     */
+	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=duration')]
+    public ?int $duration = null;
+    
+    /**
+     * The filter to apply to the query.
+     * 
+     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Filters $filters
+     */
+	#[SpeakeasyMetadata('queryParam:serialization=json,name=filters')]
+    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Filters $filters = null;
     
 	public function __construct()
 	{
-		$this->queryParams = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenQueryParams();
+		$this->description = null;
+		$this->duration = null;
+		$this->filters = null;
 	}
 }

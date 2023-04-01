@@ -87,10 +87,10 @@ class Plugins
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/plugins/{pluginID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginPathParams::class, $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/plugins/{pluginID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginRequest::class, $request);
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginQueryParams::class, $request->queryParams, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginRequest::class, $request, null));
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
         
         $httpResponse = $this->_securityClient->request('POST', $url, $options);
@@ -121,11 +121,11 @@ class Plugins
     /**
      * Upsert a plugin
      * 
-     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertPluginRequest $request
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Shared\Plugin $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertPluginResponse
      */
 	public function upsertPlugin(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertPluginRequest $request,
+        \Speakeasy\SpeakeasyClientSDK\Models\Shared\Plugin $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertPluginResponse
     {
         $baseUrl = $this->_serverUrl;

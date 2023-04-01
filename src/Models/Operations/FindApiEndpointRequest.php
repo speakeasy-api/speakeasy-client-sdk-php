@@ -8,14 +8,37 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-
+use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class FindApiEndpointRequest
 {
-	
-    public FindApiEndpointPathParams $pathParams;
+    /**
+     * The ID of the Api the ApiEndpoint belongs to.
+     * 
+     * @var string $apiID
+     */
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=apiID')]
+    public string $apiID;
+    
+    /**
+     * The displayName of the ApiEndpoint to find (set by operationId from OpenAPI schema).
+     * 
+     * @var string $displayName
+     */
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=displayName')]
+    public string $displayName;
+    
+    /**
+     * The version ID of the Api the ApiEndpoint belongs to.
+     * 
+     * @var string $versionID
+     */
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=versionID')]
+    public string $versionID;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointPathParams();
+		$this->apiID = "";
+		$this->displayName = "";
+		$this->versionID = "";
 	}
 }

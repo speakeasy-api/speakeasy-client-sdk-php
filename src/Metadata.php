@@ -48,7 +48,7 @@ class Metadata
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataPathParams::class, $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -85,7 +85,7 @@ class Metadata
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataPathParams::class, $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -126,10 +126,10 @@ class Metadata
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataPathParams::class, $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataRequest::class, $request);
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
+        $body = Utils\Utils::serializeRequestBody($request, "versionMetadataInput", "json");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }

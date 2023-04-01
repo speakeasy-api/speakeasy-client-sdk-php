@@ -8,14 +8,37 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-
+use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class DeleteApiEndpointRequest
 {
-	
-    public DeleteApiEndpointPathParams $pathParams;
+    /**
+     * The ID of the ApiEndpoint to delete.
+     * 
+     * @var string $apiEndpointID
+     */
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=apiEndpointID')]
+    public string $apiEndpointID;
+    
+    /**
+     * The ID of the Api the ApiEndpoint belongs to.
+     * 
+     * @var string $apiID
+     */
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=apiID')]
+    public string $apiID;
+    
+    /**
+     * The version ID of the Api the ApiEndpoint belongs to.
+     * 
+     * @var string $versionID
+     */
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=versionID')]
+    public string $versionID;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointPathParams();
+		$this->apiEndpointID = "";
+		$this->apiID = "";
+		$this->versionID = "";
 	}
 }

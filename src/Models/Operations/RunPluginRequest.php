@@ -8,18 +8,28 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-
+use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class RunPluginRequest
 {
-	
-    public RunPluginPathParams $pathParams;
+    /**
+     * The filter to apply to the query.
+     * 
+     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Filters $filters
+     */
+	#[SpeakeasyMetadata('queryParam:serialization=json,name=filters')]
+    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Filters $filters = null;
     
-	
-    public RunPluginQueryParams $queryParams;
+    /**
+     * The ID of the plugin to run.
+     * 
+     * @var string $pluginID
+     */
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=pluginID')]
+    public string $pluginID;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginPathParams();
-		$this->queryParams = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginQueryParams();
+		$this->filters = null;
+		$this->pluginID = "";
 	}
 }

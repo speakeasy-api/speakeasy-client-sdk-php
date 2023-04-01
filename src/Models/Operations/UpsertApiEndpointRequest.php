@@ -11,20 +11,43 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class UpsertApiEndpointRequest
 {
-	
-    public UpsertApiEndpointPathParams $pathParams;
-    
     /**
      * A JSON representation of the ApiEndpoint to upsert.
      * 
-     * @var \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiEndpointInput $request
+     * @var \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiEndpointInput $apiEndpointInput
      */
 	#[SpeakeasyMetadata('request:mediaType=application/json')]
-    public \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiEndpointInput $request;
+    public \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiEndpointInput $apiEndpointInput;
+    
+    /**
+     * The ID of the ApiEndpoint to upsert.
+     * 
+     * @var string $apiEndpointID
+     */
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=apiEndpointID')]
+    public string $apiEndpointID;
+    
+    /**
+     * The ID of the Api the ApiEndpoint belongs to.
+     * 
+     * @var string $apiID
+     */
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=apiID')]
+    public string $apiID;
+    
+    /**
+     * The version ID of the Api the ApiEndpoint belongs to.
+     * 
+     * @var string $versionID
+     */
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=versionID')]
+    public string $versionID;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiEndpointPathParams();
-		$this->request = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiEndpointInput();
+		$this->apiEndpointInput = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiEndpointInput();
+		$this->apiEndpointID = "";
+		$this->apiID = "";
+		$this->versionID = "";
 	}
 }

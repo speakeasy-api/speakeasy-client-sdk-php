@@ -48,7 +48,7 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaPathParams::class, $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -85,7 +85,7 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/download', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaPathParams::class, $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/download', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -129,7 +129,7 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}/download', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionPathParams::class, $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}/download', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -176,7 +176,7 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaPathParams::class, $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -217,7 +217,7 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{baseRevisionID}/diff/{targetRevisionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffPathParams::class, $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{baseRevisionID}/diff/{targetRevisionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -261,7 +261,7 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionPathParams::class, $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -305,7 +305,7 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schemas', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasPathParams::class, $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schemas', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
@@ -349,10 +349,10 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaPathParams::class, $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequest::class, $request);
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, "request", "multipart");
+        $body = Utils\Utils::serializeRequestBody($request, "requestBody", "multipart");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
