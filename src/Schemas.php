@@ -101,8 +101,7 @@ class Schemas
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->schema = $serializer->deserialize((string)$httpResponse->getBody(), 'string', 'json');
+                $response->schema = $httpResponse->getBody()->getContents();
             }
             if (Utils\Utils::matchContentType($contentType, 'application/x-yaml')) {
                 $response->schema = $httpResponse->getBody()->getContents();
@@ -145,8 +144,7 @@ class Schemas
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->schema = $serializer->deserialize((string)$httpResponse->getBody(), 'string', 'json');
+                $response->schema = $httpResponse->getBody()->getContents();
             }
             if (Utils\Utils::matchContentType($contentType, 'application/x-yaml')) {
                 $response->schema = $httpResponse->getBody()->getContents();
