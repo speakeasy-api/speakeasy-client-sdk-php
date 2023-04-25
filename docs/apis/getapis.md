@@ -1,4 +1,10 @@
-<!-- Start SDK Example Usage -->
+# getApis
+Available in: `apis`
+
+Get a list of all Apis and their versions for a given workspace.
+Supports filtering the APIs based on metadata attributes.
+
+## Example Usage
 ```php
 <?php
 
@@ -16,20 +22,14 @@ $sdk = SDK::builder()
 try {
     $request = new GetApisRequest();
     $request->metadata = [
-        'provident' => [
-            'quibusdam',
-            'unde',
-            'nulla',
+        'esse' => [
+            'excepturi',
         ],
-        'corrupti' => [
-            'vel',
-            'error',
-            'deserunt',
-            'suscipit',
+        'aspernatur' => [
+            'ad',
         ],
-        'iure' => [
-            'debitis',
-            'ipsa',
+        'natus' => [
+            'iste',
         ],
     ];
     $request->op = new GetApisOp();
@@ -44,4 +44,3 @@ try {
     // handle exception
 }
 ```
-<!-- End SDK Example Usage -->
