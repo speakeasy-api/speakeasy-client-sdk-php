@@ -43,7 +43,8 @@ class Metadata
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataResponse
      */
-	public function deleteVersionMetadata(
+	
+    public function deleteVersionMetadata(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataResponse
     {
@@ -80,7 +81,8 @@ class Metadata
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataResponse
      */
-	public function getVersionMetadata(
+	
+    public function getVersionMetadata(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataResponse
     {
@@ -121,7 +123,8 @@ class Metadata
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataResponse
      */
-	public function insertVersionMetadata(
+	
+    public function insertVersionMetadata(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataResponse
     {

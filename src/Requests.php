@@ -46,7 +46,8 @@ class Requests
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionResponse
      */
-	public function generateRequestPostmanCollection(
+	
+    public function generateRequestPostmanCollection(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionResponse
     {
@@ -86,7 +87,8 @@ class Requests
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogResponse
      */
-	public function getRequestFromEventLog(
+	
+    public function getRequestFromEventLog(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogResponse
     {
@@ -130,7 +132,8 @@ class Requests
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogResponse
      */
-	public function queryEventLog(
+	
+    public function queryEventLog(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogResponse
     {

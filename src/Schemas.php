@@ -43,7 +43,8 @@ class Schemas
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaResponse
      */
-	public function deleteSchema(
+	
+    public function deleteSchema(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaResponse
     {
@@ -80,7 +81,8 @@ class Schemas
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaResponse
      */
-	public function downloadSchema(
+	
+    public function downloadSchema(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaResponse
     {
@@ -123,7 +125,8 @@ class Schemas
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionResponse
      */
-	public function downloadSchemaRevision(
+	
+    public function downloadSchemaRevision(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionResponse
     {
@@ -169,7 +172,8 @@ class Schemas
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaResponse
      */
-	public function getSchema(
+	
+    public function getSchema(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaResponse
     {
@@ -210,7 +214,8 @@ class Schemas
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffResponse
      */
-	public function getSchemaDiff(
+	
+    public function getSchemaDiff(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffResponse
     {
@@ -254,7 +259,8 @@ class Schemas
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionResponse
      */
-	public function getSchemaRevision(
+	
+    public function getSchemaRevision(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionResponse
     {
@@ -298,7 +304,8 @@ class Schemas
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasResponse
      */
-	public function getSchemas(
+	
+    public function getSchemas(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasResponse
     {
@@ -342,7 +349,8 @@ class Schemas
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaResponse
      */
-	public function registerSchema(
+	
+    public function registerSchema(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaResponse
     {

@@ -45,7 +45,8 @@ class ApiEndpoints
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointResponse
      */
-	public function deleteApiEndpoint(
+	
+    public function deleteApiEndpoint(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointResponse
     {
@@ -85,7 +86,8 @@ class ApiEndpoints
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointResponse
      */
-	public function findApiEndpoint(
+	
+    public function findApiEndpoint(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointResponse
     {
@@ -129,7 +131,8 @@ class ApiEndpoints
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointResponse
      */
-	public function generateOpenApiSpecForApiEndpoint(
+	
+    public function generateOpenApiSpecForApiEndpoint(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointResponse
     {
@@ -172,7 +175,8 @@ class ApiEndpoints
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointResponse
      */
-	public function generatePostmanCollectionForApiEndpoint(
+	
+    public function generatePostmanCollectionForApiEndpoint(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointResponse
     {
@@ -212,7 +216,8 @@ class ApiEndpoints
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsResponse
      */
-	public function getAllApiEndpoints(
+	
+    public function getAllApiEndpoints(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsResponse
     {
@@ -253,7 +258,8 @@ class ApiEndpoints
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsResponse
      */
-	public function getAllForVersionApiEndpoints(
+	
+    public function getAllForVersionApiEndpoints(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsResponse
     {
@@ -294,7 +300,8 @@ class ApiEndpoints
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointResponse
      */
-	public function getApiEndpoint(
+	
+    public function getApiEndpoint(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointResponse
     {
@@ -337,7 +344,8 @@ class ApiEndpoints
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiEndpointRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiEndpointResponse
      */
-	public function upsertApiEndpoint(
+	
+    public function upsertApiEndpoint(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiEndpointRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiEndpointResponse
     {
