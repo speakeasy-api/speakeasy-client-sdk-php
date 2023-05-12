@@ -45,8 +45,7 @@ class Apis
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiResponse
      */
-	
-    public function deleteApi(
+	public function deleteApi(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiResponse
     {
@@ -86,8 +85,7 @@ class Apis
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecResponse
      */
-	
-    public function generateOpenApiSpec(
+	public function generateOpenApiSpec(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecResponse
     {
@@ -130,8 +128,7 @@ class Apis
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionResponse
      */
-	
-    public function generatePostmanCollection(
+	public function generatePostmanCollection(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionResponse
     {
@@ -174,8 +171,7 @@ class Apis
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsResponse
      */
-	
-    public function getAllApiVersions(
+	public function getAllApiVersions(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsResponse
     {
@@ -220,8 +216,7 @@ class Apis
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisResponse
      */
-	
-    public function getApis(
+	public function getApis(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisResponse
     {
@@ -266,8 +261,7 @@ class Apis
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiResponse
      */
-	
-    public function upsertApi(
+	public function upsertApi(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiResponse
     {

@@ -42,8 +42,7 @@ class Plugins
      * 
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetPluginsResponse
      */
-	
-    public function getPlugins(
+	public function getPlugins(
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetPluginsResponse
     {
         $baseUrl = $this->_serverUrl;
@@ -83,8 +82,7 @@ class Plugins
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginRequest $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginResponse
      */
-	
-    public function runPlugin(
+	public function runPlugin(
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginResponse
     {
@@ -126,8 +124,7 @@ class Plugins
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Shared\Plugin $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertPluginResponse
      */
-	
-    public function upsertPlugin(
+	public function upsertPlugin(
         \Speakeasy\SpeakeasyClientSDK\Models\Shared\Plugin $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertPluginResponse
     {
