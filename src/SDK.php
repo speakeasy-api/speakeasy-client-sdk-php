@@ -80,8 +80,8 @@ class SDK
 	private ?Models\Shared\Security $_security;
 	private string $_serverUrl;
 	private string $_language = 'php';
-	private string $_sdkVersion = '0.17.0';
-	private string $_genVersion = '2.27.0';
+	private string $_sdkVersion = '0.18.0';
+	private string $_genVersion = '2.31.0';
 
 	/**
 	 * Returns a new instance of the SDK builder used to configure and create the SDK instance.
@@ -203,6 +203,7 @@ class SDK
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/auth/validate');
         
         $options = ['http_errors' => false];
+        $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
         
         $httpResponse = $this->_securityClient->request('GET', $url, $options);
