@@ -74,14 +74,7 @@ class SDK
      */
 	public Schemas $schemas;
 		
-	// SDK private variables namespaced with _ to avoid conflicts with API models
-	private ?\GuzzleHttp\ClientInterface $_defaultClient;
-	private ?\GuzzleHttp\ClientInterface $_securityClient;
-	private ?Models\Shared\Security $_security;
-	private string $_serverUrl;
-	private string $_language = 'php';
-	private string $_sdkVersion = '0.19.0';
-	private string $_genVersion = '2.34.2';
+	private SDKConfiguration $sdkConfiguration;
 
 	/**
 	 * Returns a new instance of the SDK builder used to configure and create the SDK instance.
@@ -94,101 +87,25 @@ class SDK
 	}
 
 	/**
-	 * @param \GuzzleHttp\ClientInterface|null $client	 
-	 * @param Models\Shared\Security|null $security
-	 * @param string $serverUrl
-	 * @param array<string, string>|null $params
+	 * @param SDKConfiguration $sdkConfiguration
 	 */
-	public function __construct(?\GuzzleHttp\ClientInterface $client, ?Models\Shared\Security $security, string $serverUrl, ?array $params)
+	public function __construct(SDKConfiguration $sdkConfiguration)
 	{
-		$this->_defaultClient = $client;
+		$this->sdkConfiguration = $sdkConfiguration;
 		
-		if ($this->_defaultClient === null) {
-			$this->_defaultClient = new \GuzzleHttp\Client([
-				'timeout' => 60,
-			]);
-		}
-
-		$this->_securityClient = null;
-		if ($security !== null) {
-			$this->_security = $security;
-			$this->_securityClient = Utils\Utils::configureSecurityClient($this->_defaultClient, $this->_security);
-		}
+		$this->apiEndpoints = new ApiEndpoints($this->sdkConfiguration);
 		
-		if ($this->_securityClient === null) {
-			$this->_securityClient = $this->_defaultClient;
-		}
-
-		if (!empty($serverUrl)) {
-			$this->_serverUrl = Utils\Utils::templateUrl($serverUrl, $params);
-		}
+		$this->apis = new Apis($this->sdkConfiguration);
 		
-		if (empty($this->_serverUrl)) {
-			$this->_serverUrl = $this::SERVERS[SDK::SERVER_PROD];
-		}
+		$this->embeds = new Embeds($this->sdkConfiguration);
 		
-		$this->apiEndpoints = new ApiEndpoints(
-			$this->_defaultClient,
-			$this->_securityClient,
-			$this->_serverUrl,
-			$this->_language,
-			$this->_sdkVersion,
-			$this->_genVersion
-		);
+		$this->metadata = new Metadata($this->sdkConfiguration);
 		
-		$this->apis = new Apis(
-			$this->_defaultClient,
-			$this->_securityClient,
-			$this->_serverUrl,
-			$this->_language,
-			$this->_sdkVersion,
-			$this->_genVersion
-		);
+		$this->plugins = new Plugins($this->sdkConfiguration);
 		
-		$this->embeds = new Embeds(
-			$this->_defaultClient,
-			$this->_securityClient,
-			$this->_serverUrl,
-			$this->_language,
-			$this->_sdkVersion,
-			$this->_genVersion
-		);
+		$this->requests = new Requests($this->sdkConfiguration);
 		
-		$this->metadata = new Metadata(
-			$this->_defaultClient,
-			$this->_securityClient,
-			$this->_serverUrl,
-			$this->_language,
-			$this->_sdkVersion,
-			$this->_genVersion
-		);
-		
-		$this->plugins = new Plugins(
-			$this->_defaultClient,
-			$this->_securityClient,
-			$this->_serverUrl,
-			$this->_language,
-			$this->_sdkVersion,
-			$this->_genVersion
-		);
-		
-		$this->requests = new Requests(
-			$this->_defaultClient,
-			$this->_securityClient,
-			$this->_serverUrl,
-			$this->_language,
-			$this->_sdkVersion,
-			$this->_genVersion
-		);
-		
-		$this->schemas = new Schemas(
-			$this->_defaultClient,
-			$this->_securityClient,
-			$this->_serverUrl,
-			$this->_language,
-			$this->_sdkVersion,
-			$this->_genVersion
-		);
+		$this->schemas = new Schemas($this->sdkConfiguration);
 	}
 	
     /**
@@ -199,14 +116,14 @@ class SDK
 	public function validateApiKey(
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\ValidateApiKeyResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/auth/validate');
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_securityClient->request('GET', $url, $options);
+        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 

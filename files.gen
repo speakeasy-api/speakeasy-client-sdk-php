@@ -1,3 +1,4 @@
+src/SDKConfiguration.php
 src/ApiEndpoints.php
 src/Apis.php
 src/Embeds.php

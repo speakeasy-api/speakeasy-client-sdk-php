@@ -11,30 +11,14 @@ namespace Speakeasy\SpeakeasyClientSDK;
 class Embeds 
 {
 
-	// SDK private variables namespaced with _ to avoid conflicts with API models
-	private \GuzzleHttp\ClientInterface $_defaultClient;
-	private \GuzzleHttp\ClientInterface $_securityClient;
-	private string $_serverUrl;
-	private string $_language;
-	private string $_sdkVersion;
-	private string $_genVersion;	
+	private SDKConfiguration $sdkConfiguration;
 
 	/**
-	 * @param \GuzzleHttp\ClientInterface $defaultClient
-	 * @param \GuzzleHttp\ClientInterface $securityClient
-	 * @param string $serverUrl
-	 * @param string $language
-	 * @param string $sdkVersion
-	 * @param string $genVersion
+	 * @param SDKConfiguration $sdkConfig
 	 */
-	public function __construct(\GuzzleHttp\ClientInterface $defaultClient, \GuzzleHttp\ClientInterface $securityClient, string $serverUrl, string $language, string $sdkVersion, string $genVersion)
+	public function __construct(SDKConfiguration $sdkConfig)
 	{
-		$this->_defaultClient = $defaultClient;
-		$this->_securityClient = $securityClient;
-		$this->_serverUrl = $serverUrl;
-		$this->_language = $language;
-		$this->_sdkVersion = $sdkVersion;
-		$this->_genVersion = $genVersion;
+		$this->sdkConfiguration = $sdkConfig;
 	}
 	
     /**
@@ -50,15 +34,15 @@ class Embeds
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/embed-access-token');
         
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenRequest::class, $request, null));
         $options['headers']['Accept'] = 'application/json;q=1, application/json;q=0';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_securityClient->request('GET', $url, $options);
+        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -91,14 +75,14 @@ class Embeds
 	public function getValidEmbedAccessTokens(
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetValidEmbedAccessTokensResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/embed-access-tokens/valid');
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json;q=1, application/json;q=0';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_securityClient->request('GET', $url, $options);
+        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -133,14 +117,14 @@ class Embeds
         \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/embed-access-tokens/{tokenID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_securityClient->request('DELETE', $url, $options);
+        $httpResponse = $this->sdkConfiguration->securityClient->request('DELETE', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
