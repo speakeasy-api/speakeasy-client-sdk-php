@@ -2,14 +2,14 @@ configVersion: 1.0.0
 management:
   docChecksum: 2bba3b8f9d211b02569b3f9aff0d34b4
   docVersion: 0.3.0
-  speakeasyVersion: 1.42.2
-  generationVersion: 2.35.2
+  speakeasyVersion: 1.44.2
+  generationVersion: 2.35.9
 generation:
   sdkClassName: SDK
   singleTagPerOp: false
   telemetryEnabled: true
 php:
-  version: 0.20.0
+  version: 0.20.1
   maxMethodParams: 0
   namespace: Speakeasy\SpeakeasyClientSDK
   packageName: speakeasy-api/speakeasy-client-sdk-php

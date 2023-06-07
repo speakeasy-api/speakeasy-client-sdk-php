@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK;
 
 /**
- * SDK - The Speakeasy API allows teams to manage common operations with their APIs
+ * SDK - Speakeasy API: The Speakeasy API allows teams to manage common operations with their APIs
  * 
  * https://docs.speakeasyapi.dev - The Speakeasy Platform Documentation
  * 
