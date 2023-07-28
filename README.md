@@ -12,6 +12,8 @@ composer require "speakeasy-api/speakeasy-client-sdk-php"
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
+
+
 ```php
 <?php
 
