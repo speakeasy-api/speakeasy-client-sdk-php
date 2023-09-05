@@ -30,7 +30,7 @@ class Apis
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiResponse
      */
 	public function deleteApi(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -71,7 +71,7 @@ class Apis
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecResponse
      */
 	public function generateOpenApiSpec(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -115,7 +115,7 @@ class Apis
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionResponse
      */
 	public function generatePostmanCollection(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -159,7 +159,7 @@ class Apis
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsResponse
      */
 	public function getAllApiVersions(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -205,7 +205,7 @@ class Apis
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisResponse
      */
 	public function getApis(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();

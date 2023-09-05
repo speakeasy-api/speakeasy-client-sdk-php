@@ -31,7 +31,7 @@ class Embeds
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenResponse
      */
 	public function getEmbedAccessToken(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -114,7 +114,7 @@ class Embeds
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenResponse
      */
 	public function revokeEmbedAccessToken(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();

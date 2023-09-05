@@ -28,7 +28,7 @@ class Metadata
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataResponse
      */
 	public function deleteVersionMetadata(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -66,7 +66,7 @@ class Metadata
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataResponse
      */
 	public function getVersionMetadata(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();

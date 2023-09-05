@@ -28,7 +28,7 @@ class Schemas
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaResponse
      */
 	public function deleteSchema(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -66,7 +66,7 @@ class Schemas
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaResponse
      */
 	public function downloadSchema(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -110,7 +110,7 @@ class Schemas
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionResponse
      */
 	public function downloadSchemaRevision(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -157,7 +157,7 @@ class Schemas
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaResponse
      */
 	public function getSchema(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -199,7 +199,7 @@ class Schemas
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffResponse
      */
 	public function getSchemaDiff(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -244,7 +244,7 @@ class Schemas
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionResponse
      */
 	public function getSchemaRevision(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -289,7 +289,7 @@ class Schemas
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasResponse
      */
 	public function getSchemas(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();

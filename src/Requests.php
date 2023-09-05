@@ -31,7 +31,7 @@ class Requests
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionResponse
      */
 	public function generateRequestPostmanCollection(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -72,7 +72,7 @@ class Requests
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogResponse
      */
 	public function getRequestFromEventLog(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -117,7 +117,7 @@ class Requests
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogResponse
      */
 	public function queryEventLog(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();

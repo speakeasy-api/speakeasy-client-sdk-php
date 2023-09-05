@@ -68,7 +68,7 @@ class Plugins
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginResponse
      */
 	public function runPlugin(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();

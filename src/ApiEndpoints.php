@@ -30,7 +30,7 @@ class ApiEndpoints
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointResponse
      */
 	public function deleteApiEndpoint(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -71,7 +71,7 @@ class ApiEndpoints
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointResponse
      */
 	public function findApiEndpoint(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -116,7 +116,7 @@ class ApiEndpoints
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointResponse
      */
 	public function generateOpenApiSpecForApiEndpoint(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -160,7 +160,7 @@ class ApiEndpoints
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointResponse
      */
 	public function generatePostmanCollectionForApiEndpoint(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -201,7 +201,7 @@ class ApiEndpoints
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsResponse
      */
 	public function getAllApiEndpoints(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -243,7 +243,7 @@ class ApiEndpoints
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsResponse
      */
 	public function getAllForVersionApiEndpoints(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -285,7 +285,7 @@ class ApiEndpoints
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointResponse
      */
 	public function getApiEndpoint(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointRequest $request,
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
