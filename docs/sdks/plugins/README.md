@@ -71,13 +71,11 @@ try {
     $request->filters = new Filters();
     $request->filters->filters = [
         new Filter(),
-        new Filter(),
-        new Filter(),
     ];
-    $request->filters->limit = 208876;
-    $request->filters->offset = 635059;
-    $request->filters->operator = 'consequuntur';
-    $request->pluginID = 'repellat';
+    $request->filters->limit = 774234;
+    $request->filters->offset = 736918;
+    $request->filters->operator = 'esse';
+    $request->pluginID = 'ipsum';
 
     $response = $sdk->plugins->runPlugin($request);
 
@@ -122,13 +120,13 @@ $sdk = SDK::builder()
 
 try {
     $request = new Plugin();
-    $request->code = 'mollitia';
-    $request->createdAt = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2022-06-30T02:19:51.375Z');
-    $request->evalHash = 'commodi';
-    $request->pluginId = 'quam';
-    $request->title = 'Ms.';
-    $request->updatedAt = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2022-05-18T10:03:04.921Z');
-    $request->workspaceId = 'quia';
+    $request->code = 'excepturi';
+    $request->createdAt = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2022-12-25T03:24:03.949Z');
+    $request->evalHash = 'ad';
+    $request->pluginId = 'natus';
+    $request->title = 'Mr.';
+    $request->updatedAt = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2022-07-22T16:55:44.795Z');
+    $request->workspaceId = 'natus';
 
     $response = $sdk->plugins->upsertPlugin($request);
 

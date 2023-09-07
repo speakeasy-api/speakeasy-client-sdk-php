@@ -36,9 +36,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new DeleteApiEndpointRequest();
-    $request->apiEndpointID = 'delectus';
-    $request->apiID = 'tempora';
-    $request->versionID = 'suscipit';
+    $request->apiEndpointID = 'distinctio';
+    $request->apiID = 'quibusdam';
+    $request->versionID = 'unde';
 
     $response = $sdk->apiEndpoints->deleteApiEndpoint($request);
 
@@ -84,9 +84,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new FindApiEndpointRequest();
-    $request->apiID = 'molestiae';
-    $request->displayName = 'minus';
-    $request->versionID = 'placeat';
+    $request->apiID = 'nulla';
+    $request->displayName = 'corrupti';
+    $request->versionID = 'illum';
 
     $response = $sdk->apiEndpoints->findApiEndpoint($request);
 
@@ -132,9 +132,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GenerateOpenApiSpecForApiEndpointRequest();
-    $request->apiEndpointID = 'voluptatum';
-    $request->apiID = 'iusto';
-    $request->versionID = 'excepturi';
+    $request->apiEndpointID = 'vel';
+    $request->apiID = 'error';
+    $request->versionID = 'deserunt';
 
     $response = $sdk->apiEndpoints->generateOpenApiSpecForApiEndpoint($request);
 
@@ -179,9 +179,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GeneratePostmanCollectionForApiEndpointRequest();
-    $request->apiEndpointID = 'nisi';
-    $request->apiID = 'recusandae';
-    $request->versionID = 'temporibus';
+    $request->apiEndpointID = 'suscipit';
+    $request->apiID = 'iure';
+    $request->versionID = 'magnam';
 
     $response = $sdk->apiEndpoints->generatePostmanCollectionForApiEndpoint($request);
 
@@ -226,7 +226,7 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetAllApiEndpointsRequest();
-    $request->apiID = 'ab';
+    $request->apiID = 'debitis';
 
     $response = $sdk->apiEndpoints->getAllApiEndpoints($request);
 
@@ -271,8 +271,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetAllForVersionApiEndpointsRequest();
-    $request->apiID = 'quis';
-    $request->versionID = 'veritatis';
+    $request->apiID = 'ipsa';
+    $request->versionID = 'delectus';
 
     $response = $sdk->apiEndpoints->getAllForVersionApiEndpoints($request);
 
@@ -317,9 +317,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetApiEndpointRequest();
-    $request->apiEndpointID = 'deserunt';
-    $request->apiID = 'perferendis';
-    $request->versionID = 'ipsam';
+    $request->apiEndpointID = 'tempora';
+    $request->apiID = 'suscipit';
+    $request->versionID = 'molestiae';
 
     $response = $sdk->apiEndpoints->getApiEndpoint($request);
 
@@ -366,15 +366,15 @@ $sdk = SDK::builder()
 try {
     $request = new UpsertApiEndpointRequest();
     $request->apiEndpointInput = new ApiEndpointInput();
-    $request->apiEndpointInput->apiEndpointId = 'repellendus';
-    $request->apiEndpointInput->description = 'sapiente';
-    $request->apiEndpointInput->displayName = 'quo';
-    $request->apiEndpointInput->method = 'odit';
-    $request->apiEndpointInput->path = 'at';
-    $request->apiEndpointInput->versionId = 'at';
-    $request->apiEndpointID = 'maiores';
-    $request->apiID = 'molestiae';
-    $request->versionID = 'quod';
+    $request->apiEndpointInput->apiEndpointId = 'minus';
+    $request->apiEndpointInput->description = 'placeat';
+    $request->apiEndpointInput->displayName = 'voluptatum';
+    $request->apiEndpointInput->method = 'iusto';
+    $request->apiEndpointInput->path = 'excepturi';
+    $request->apiEndpointInput->versionId = 'nisi';
+    $request->apiEndpointID = 'recusandae';
+    $request->apiID = 'temporibus';
+    $request->versionID = 'ab';
 
     $response = $sdk->apiEndpoints->upsertApiEndpoint($request);
 

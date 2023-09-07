@@ -32,7 +32,7 @@ $sdk = SDK::builder()
 
 try {
     $request = new GenerateRequestPostmanCollectionRequest();
-    $request->requestID = 'quis';
+    $request->requestID = 'laboriosam';
 
     $response = $sdk->requests->generateRequestPostmanCollection($request);
 
@@ -77,7 +77,7 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetRequestFromEventLogRequest();
-    $request->requestID = 'vitae';
+    $request->requestID = 'hic';
 
     $response = $sdk->requests->getRequestFromEventLog($request);
 
@@ -128,12 +128,10 @@ try {
     $request->filters = new Filters();
     $request->filters->filters = [
         new Filter(),
-        new Filter(),
-        new Filter(),
     ];
-    $request->filters->limit = 656330;
-    $request->filters->offset = 317202;
-    $request->filters->operator = 'odit';
+    $request->filters->limit = 902599;
+    $request->filters->offset = 681820;
+    $request->filters->operator = 'in';
 
     $response = $sdk->requests->queryEventLog($request);
 

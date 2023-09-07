@@ -36,9 +36,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new DeleteSchemaRequest();
-    $request->apiID = 'quo';
-    $request->revisionID = 'sequi';
-    $request->versionID = 'tenetur';
+    $request->apiID = 'corporis';
+    $request->revisionID = 'iste';
+    $request->versionID = 'iure';
 
     $response = $sdk->schemas->deleteSchema($request);
 
@@ -83,8 +83,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new DownloadSchemaRequest();
-    $request->apiID = 'ipsam';
-    $request->versionID = 'id';
+    $request->apiID = 'saepe';
+    $request->versionID = 'quidem';
 
     $response = $sdk->schemas->downloadSchema($request);
 
@@ -129,9 +129,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new DownloadSchemaRevisionRequest();
-    $request->apiID = 'possimus';
-    $request->revisionID = 'aut';
-    $request->versionID = 'quasi';
+    $request->apiID = 'architecto';
+    $request->revisionID = 'ipsa';
+    $request->versionID = 'reiciendis';
 
     $response = $sdk->schemas->downloadSchemaRevision($request);
 
@@ -177,8 +177,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetSchemaRequest();
-    $request->apiID = 'error';
-    $request->versionID = 'temporibus';
+    $request->apiID = 'est';
+    $request->versionID = 'mollitia';
 
     $response = $sdk->schemas->getSchema($request);
 
@@ -224,9 +224,9 @@ $sdk = SDK::builder()
 try {
     $request = new GetSchemaDiffRequest();
     $request->apiID = 'laborum';
-    $request->baseRevisionID = 'quasi';
-    $request->targetRevisionID = 'reiciendis';
-    $request->versionID = 'voluptatibus';
+    $request->baseRevisionID = 'dolores';
+    $request->targetRevisionID = 'dolorem';
+    $request->versionID = 'corporis';
 
     $response = $sdk->schemas->getSchemaDiff($request);
 
@@ -272,9 +272,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetSchemaRevisionRequest();
-    $request->apiID = 'vero';
-    $request->revisionID = 'nihil';
-    $request->versionID = 'praesentium';
+    $request->apiID = 'explicabo';
+    $request->revisionID = 'nobis';
+    $request->versionID = 'enim';
 
     $response = $sdk->schemas->getSchemaRevision($request);
 
@@ -320,8 +320,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetSchemasRequest();
-    $request->apiID = 'voluptatibus';
-    $request->versionID = 'ipsa';
+    $request->apiID = 'omnis';
+    $request->versionID = 'nemo';
 
     $response = $sdk->schemas->getSchemas($request);
 
@@ -371,10 +371,10 @@ try {
     $request = new RegisterSchemaRequest();
     $request->requestBody = new RegisterSchemaRequestBody();
     $request->requestBody->file = new RegisterSchemaRequestBodyFile();
-    $request->requestBody->file->content = 'omnis';
-    $request->requestBody->file->file = 'voluptate';
-    $request->apiID = 'cum';
-    $request->versionID = 'perferendis';
+    $request->requestBody->file->content = 'minima';
+    $request->requestBody->file->file = 'excepturi';
+    $request->apiID = 'accusantium';
+    $request->versionID = 'iure';
 
     $response = $sdk->schemas->registerSchema($request);
 

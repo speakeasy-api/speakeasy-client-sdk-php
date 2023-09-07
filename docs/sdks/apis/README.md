@@ -34,8 +34,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new DeleteApiRequest();
-    $request->apiID = 'quod';
-    $request->versionID = 'esse';
+    $request->apiID = 'quis';
+    $request->versionID = 'veritatis';
 
     $response = $sdk->apis->deleteApi($request);
 
@@ -81,8 +81,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GenerateOpenApiSpecRequest();
-    $request->apiID = 'totam';
-    $request->versionID = 'porro';
+    $request->apiID = 'deserunt';
+    $request->versionID = 'perferendis';
 
     $response = $sdk->apis->generateOpenApiSpec($request);
 
@@ -127,8 +127,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GeneratePostmanCollectionRequest();
-    $request->apiID = 'dolorum';
-    $request->versionID = 'dicta';
+    $request->apiID = 'ipsam';
+    $request->versionID = 'repellendus';
 
     $response = $sdk->apis->generatePostmanCollection($request);
 
@@ -175,19 +175,10 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetAllApiVersionsRequest();
-    $request->apiID = 'nam';
+    $request->apiID = 'sapiente';
     $request->metadata = [
-        'occaecati' => [
-            'deleniti',
-        ],
-        'hic' => [
-            'totam',
-            'beatae',
-            'commodi',
-            'molestiae',
-        ],
-        'modi' => [
-            'impedit',
+        'quo' => [
+            'odit',
         ],
     ];
     $request->op = new GetAllApiVersionsOp();
@@ -239,14 +230,8 @@ $sdk = SDK::builder()
 try {
     $request = new GetApisRequest();
     $request->metadata = [
-        'esse' => [
-            'excepturi',
-        ],
-        'aspernatur' => [
-            'ad',
-        ],
-        'natus' => [
-            'iste',
+        'at' => [
+            'at',
         ],
     ];
     $request->op = new GetApisOp();
@@ -298,24 +283,15 @@ $sdk = SDK::builder()
 try {
     $request = new UpsertApiRequest();
     $request->apiInput = new ApiInput();
-    $request->apiInput->apiId = 'dolor';
-    $request->apiInput->description = 'natus';
+    $request->apiInput->apiId = 'maiores';
+    $request->apiInput->description = 'molestiae';
     $request->apiInput->metaData = [
-        'hic' => [
-            'fuga',
-            'in',
-            'corporis',
-            'iste',
-        ],
-        'iure' => [
-            'quidem',
-            'architecto',
-            'ipsa',
-            'reiciendis',
+        'quod' => [
+            'quod',
         ],
     ];
-    $request->apiInput->versionId = 'est';
-    $request->apiID = 'mollitia';
+    $request->apiInput->versionId = 'esse';
+    $request->apiID = 'totam';
 
     $response = $sdk->apis->upsertApi($request);
 

@@ -34,15 +34,15 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetEmbedAccessTokenRequest();
-    $request->description = 'laborum';
-    $request->duration = 170909;
+    $request->description = 'porro';
+    $request->duration = 678880;
     $request->filters = new Filters();
     $request->filters->filters = [
         new Filter(),
     ];
-    $request->filters->limit = 358152;
-    $request->filters->offset = 128926;
-    $request->filters->operator = 'nobis';
+    $request->filters->limit = 118274;
+    $request->filters->offset = 720633;
+    $request->filters->operator = 'officia';
 
     $response = $sdk->embeds->getEmbedAccessToken($request);
 
@@ -122,7 +122,7 @@ $sdk = SDK::builder()
 
 try {
     $request = new RevokeEmbedAccessTokenRequest();
-    $request->tokenID = 'enim';
+    $request->tokenID = 'occaecati';
 
     $response = $sdk->embeds->revokeEmbedAccessToken($request);
 

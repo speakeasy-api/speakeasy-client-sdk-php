@@ -18,20 +18,8 @@ $sdk = SDK::builder()
 try {
     $request = new GetApisRequest();
     $request->metadata = [
-        'provident' => [
-            'quibusdam',
-            'unde',
-            'nulla',
-        ],
         'corrupti' => [
-            'vel',
-            'error',
-            'deserunt',
-            'suscipit',
-        ],
-        'iure' => [
-            'debitis',
-            'ipsa',
+            'provident',
         ],
     ];
     $request->op = new GetApisOp();

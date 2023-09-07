@@ -31,10 +31,10 @@ $sdk = SDK::builder()
 
 try {
     $request = new DeleteVersionMetadataRequest();
-    $request->apiID = 'omnis';
-    $request->metaKey = 'nemo';
-    $request->metaValue = 'minima';
-    $request->versionID = 'excepturi';
+    $request->apiID = 'fugit';
+    $request->metaKey = 'deleniti';
+    $request->metaValue = 'hic';
+    $request->versionID = 'optio';
 
     $response = $sdk->metadata->deleteVersionMetadata($request);
 
@@ -79,8 +79,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetVersionMetadataRequest();
-    $request->apiID = 'accusantium';
-    $request->versionID = 'iure';
+    $request->apiID = 'totam';
+    $request->versionID = 'beatae';
 
     $response = $sdk->metadata->getVersionMetadata($request);
 
@@ -127,10 +127,10 @@ $sdk = SDK::builder()
 try {
     $request = new InsertVersionMetadataRequest();
     $request->versionMetadataInput = new VersionMetadataInput();
-    $request->versionMetadataInput->metaKey = 'culpa';
-    $request->versionMetadataInput->metaValue = 'doloribus';
-    $request->apiID = 'sapiente';
-    $request->versionID = 'architecto';
+    $request->versionMetadataInput->metaKey = 'commodi';
+    $request->versionMetadataInput->metaValue = 'molestiae';
+    $request->apiID = 'modi';
+    $request->versionID = 'qui';
 
     $response = $sdk->metadata->insertVersionMetadata($request);
 
