@@ -9,12 +9,6 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
-/**
- * GenerateOpenApiSpecDiff - OK
- * 
- * @package Speakeasy\SpeakeasyClientSDK\Models\Shared
- * @access public
- */
 class GenerateOpenApiSpecDiff
 {
 	#[\JMS\Serializer\Annotation\SerializedName('current_schema')]

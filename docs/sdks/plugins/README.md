@@ -1,4 +1,4 @@
-# plugins
+# Plugins
 
 ## Overview
 
@@ -72,10 +72,10 @@ try {
     $request->filters->filters = [
         new Filter(),
     ];
-    $request->filters->limit = 774234;
-    $request->filters->offset = 736918;
-    $request->filters->operator = 'esse';
-    $request->pluginID = 'ipsum';
+    $request->filters->limit = 456150;
+    $request->filters->offset = 216550;
+    $request->filters->operator = 'excepturi';
+    $request->pluginID = 'aspernatur';
 
     $response = $sdk->plugins->runPlugin($request);
 
@@ -120,13 +120,13 @@ $sdk = SDK::builder()
 
 try {
     $request = new Plugin();
-    $request->code = 'excepturi';
-    $request->createdAt = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2022-12-25T03:24:03.949Z');
-    $request->evalHash = 'ad';
-    $request->pluginId = 'natus';
-    $request->title = 'Mr.';
-    $request->updatedAt = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2022-07-22T16:55:44.795Z');
-    $request->workspaceId = 'natus';
+    $request->code = 'perferendis';
+    $request->createdAt = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2022-05-20T13:30:46.463Z');
+    $request->evalHash = 'sed';
+    $request->pluginId = 'iste';
+    $request->title = 'Mrs.';
+    $request->updatedAt = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2022-03-24T20:42:46.563Z');
+    $request->workspaceId = 'hic';
 
     $response = $sdk->plugins->upsertPlugin($request);
 

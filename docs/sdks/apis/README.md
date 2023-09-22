@@ -1,4 +1,4 @@
-# apis
+# Apis
 
 ## Overview
 
@@ -34,8 +34,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new DeleteApiRequest();
-    $request->apiID = 'quis';
-    $request->versionID = 'veritatis';
+    $request->apiID = 'deserunt';
+    $request->versionID = 'perferendis';
 
     $response = $sdk->apis->deleteApi($request);
 
@@ -81,8 +81,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GenerateOpenApiSpecRequest();
-    $request->apiID = 'deserunt';
-    $request->versionID = 'perferendis';
+    $request->apiID = 'ipsam';
+    $request->versionID = 'repellendus';
 
     $response = $sdk->apis->generateOpenApiSpec($request);
 
@@ -127,8 +127,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GeneratePostmanCollectionRequest();
-    $request->apiID = 'ipsam';
-    $request->versionID = 'repellendus';
+    $request->apiID = 'sapiente';
+    $request->versionID = 'quo';
 
     $response = $sdk->apis->generatePostmanCollection($request);
 
@@ -175,10 +175,10 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetAllApiVersionsRequest();
-    $request->apiID = 'sapiente';
+    $request->apiID = 'odit';
     $request->metadata = [
-        'quo' => [
-            'odit',
+        'at' => [
+            'at',
         ],
     ];
     $request->op = new GetAllApiVersionsOp();
@@ -230,8 +230,8 @@ $sdk = SDK::builder()
 try {
     $request = new GetApisRequest();
     $request->metadata = [
-        'at' => [
-            'at',
+        'maiores' => [
+            'molestiae',
         ],
     ];
     $request->op = new GetApisOp();
@@ -283,15 +283,15 @@ $sdk = SDK::builder()
 try {
     $request = new UpsertApiRequest();
     $request->apiInput = new ApiInput();
-    $request->apiInput->apiId = 'maiores';
-    $request->apiInput->description = 'molestiae';
+    $request->apiInput->apiId = 'quod';
+    $request->apiInput->description = 'quod';
     $request->apiInput->metaData = [
-        'quod' => [
-            'quod',
+        'esse' => [
+            'totam',
         ],
     ];
-    $request->apiInput->versionId = 'esse';
-    $request->apiID = 'totam';
+    $request->apiInput->versionId = 'porro';
+    $request->apiID = 'dolorum';
 
     $response = $sdk->apis->upsertApi($request);
 

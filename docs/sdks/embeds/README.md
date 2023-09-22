@@ -1,4 +1,4 @@
-# embeds
+# Embeds
 
 ## Overview
 
@@ -34,15 +34,15 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetEmbedAccessTokenRequest();
-    $request->description = 'porro';
-    $request->duration = 678880;
+    $request->description = 'dicta';
+    $request->duration = 720633;
     $request->filters = new Filters();
     $request->filters->filters = [
         new Filter(),
     ];
-    $request->filters->limit = 118274;
-    $request->filters->offset = 720633;
-    $request->filters->operator = 'officia';
+    $request->filters->limit = 639921;
+    $request->filters->offset = 582020;
+    $request->filters->operator = 'fugit';
 
     $response = $sdk->embeds->getEmbedAccessToken($request);
 
@@ -122,7 +122,7 @@ $sdk = SDK::builder()
 
 try {
     $request = new RevokeEmbedAccessTokenRequest();
-    $request->tokenID = 'occaecati';
+    $request->tokenID = 'deleniti';
 
     $response = $sdk->embeds->revokeEmbedAccessToken($request);
 
