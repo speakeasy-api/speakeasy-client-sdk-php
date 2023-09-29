@@ -1,4 +1,5 @@
 # Schemas
+(*schemas*)
 
 ## Overview
 
@@ -36,9 +37,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new DeleteSchemaRequest();
-    $request->apiID = 'iure';
-    $request->revisionID = 'saepe';
-    $request->versionID = 'quidem';
+    $request->apiID = 'Hybrid';
+    $request->revisionID = 'Funk Garden Specialist';
+    $request->versionID = 'male';
 
     $response = $sdk->schemas->deleteSchema($request);
 
@@ -83,8 +84,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new DownloadSchemaRequest();
-    $request->apiID = 'architecto';
-    $request->versionID = 'ipsa';
+    $request->apiID = 'Specialist correctly';
+    $request->versionID = 'customer Exclusive oof';
 
     $response = $sdk->schemas->downloadSchema($request);
 
@@ -129,9 +130,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new DownloadSchemaRevisionRequest();
-    $request->apiID = 'reiciendis';
-    $request->revisionID = 'est';
-    $request->versionID = 'mollitia';
+    $request->apiID = 'Belarus hacking firewall';
+    $request->revisionID = 'Coupe affidavit Cheese';
+    $request->versionID = 'pink deposit';
 
     $response = $sdk->schemas->downloadSchemaRevision($request);
 
@@ -177,8 +178,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetSchemaRequest();
-    $request->apiID = 'laborum';
-    $request->versionID = 'dolores';
+    $request->apiID = 'Assistant';
+    $request->versionID = 'banter Cotton withdrawal';
 
     $response = $sdk->schemas->getSchema($request);
 
@@ -223,10 +224,10 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetSchemaDiffRequest();
-    $request->apiID = 'dolorem';
-    $request->baseRevisionID = 'corporis';
-    $request->targetRevisionID = 'explicabo';
-    $request->versionID = 'nobis';
+    $request->apiID = 'Tuna';
+    $request->baseRevisionID = 'South Van';
+    $request->targetRevisionID = 'whoever';
+    $request->versionID = 'henry Tulare';
 
     $response = $sdk->schemas->getSchemaDiff($request);
 
@@ -272,9 +273,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetSchemaRevisionRequest();
-    $request->apiID = 'enim';
-    $request->revisionID = 'omnis';
-    $request->versionID = 'nemo';
+    $request->apiID = 'Mauritius';
+    $request->revisionID = 'West Rustic Plastic';
+    $request->versionID = 'Yttrium Loan';
 
     $response = $sdk->schemas->getSchemaRevision($request);
 
@@ -320,8 +321,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetSchemasRequest();
-    $request->apiID = 'minima';
-    $request->versionID = 'excepturi';
+    $request->apiID = 'white';
+    $request->versionID = 'optical round';
 
     $response = $sdk->schemas->getSchemas($request);
 
@@ -371,10 +372,10 @@ try {
     $request = new RegisterSchemaRequest();
     $request->requestBody = new RegisterSchemaRequestBody();
     $request->requestBody->file = new RegisterSchemaRequestBodyFile();
-    $request->requestBody->file->content = 'accusantium';
-    $request->requestBody->file->file = 'iure';
-    $request->apiID = 'culpa';
-    $request->versionID = 'doloribus';
+    $request->requestBody->file->content = 'mg|mf".]!\';
+    $request->requestBody->file->file = 'Bronze Table Blues';
+    $request->apiID = 'Oganesson';
+    $request->versionID = 'matrix Pennsylvania Southeast';
 
     $response = $sdk->schemas->registerSchema($request);
 

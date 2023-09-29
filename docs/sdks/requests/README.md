@@ -1,4 +1,5 @@
 # Requests
+(*requests*)
 
 ## Overview
 
@@ -32,7 +33,7 @@ $sdk = SDK::builder()
 
 try {
     $request = new GenerateRequestPostmanCollectionRequest();
-    $request->requestID = 'saepe';
+    $request->requestID = 'payment male Rustic';
 
     $response = $sdk->requests->generateRequestPostmanCollection($request);
 
@@ -77,7 +78,7 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetRequestFromEventLogRequest();
-    $request->requestID = 'fuga';
+    $request->requestID = 'Tuna Concrete North';
 
     $response = $sdk->requests->getRequestFromEventLog($request);
 
@@ -129,9 +130,9 @@ try {
     $request->filters->filters = [
         new Filter(),
     ];
-    $request->filters->limit = 449950;
-    $request->filters->offset = 359508;
-    $request->filters->operator = 'iste';
+    $request->filters->limit = 241978;
+    $request->filters->offset = 451388;
+    $request->filters->operator = 'after white';
 
     $response = $sdk->requests->queryEventLog($request);
 

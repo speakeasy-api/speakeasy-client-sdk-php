@@ -1,4 +1,5 @@
 # Embeds
+(*embeds*)
 
 ## Overview
 
@@ -34,15 +35,15 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetEmbedAccessTokenRequest();
-    $request->description = 'dicta';
-    $request->duration = 720633;
+    $request->description = 'Versatile asynchronous leverage';
+    $request->duration = 554373;
     $request->filters = new Filters();
     $request->filters->filters = [
         new Filter(),
     ];
-    $request->filters->limit = 639921;
-    $request->filters->offset = 582020;
-    $request->filters->operator = 'fugit';
+    $request->filters->limit = 263313;
+    $request->filters->offset = 411277;
+    $request->filters->operator = 'which unless to';
 
     $response = $sdk->embeds->getEmbedAccessToken($request);
 
@@ -122,7 +123,7 @@ $sdk = SDK::builder()
 
 try {
     $request = new RevokeEmbedAccessTokenRequest();
-    $request->tokenID = 'deleniti';
+    $request->tokenID = 'Small';
 
     $response = $sdk->embeds->revokeEmbedAccessToken($request);
 

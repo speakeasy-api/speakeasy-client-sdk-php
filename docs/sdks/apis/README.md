@@ -1,4 +1,5 @@
 # Apis
+(*apis*)
 
 ## Overview
 
@@ -34,8 +35,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new DeleteApiRequest();
-    $request->apiID = 'deserunt';
-    $request->versionID = 'perferendis';
+    $request->apiID = 'Applications Mercedes fuchsia';
+    $request->versionID = 'Conroe';
 
     $response = $sdk->apis->deleteApi($request);
 
@@ -81,8 +82,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GenerateOpenApiSpecRequest();
-    $request->apiID = 'ipsam';
-    $request->versionID = 'repellendus';
+    $request->apiID = 'frictionless District South';
+    $request->versionID = 'West Global';
 
     $response = $sdk->apis->generateOpenApiSpec($request);
 
@@ -127,8 +128,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GeneratePostmanCollectionRequest();
-    $request->apiID = 'sapiente';
-    $request->versionID = 'quo';
+    $request->apiID = 'extend Security';
+    $request->versionID = 'reconfirm';
 
     $response = $sdk->apis->generatePostmanCollection($request);
 
@@ -175,10 +176,10 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetAllApiVersionsRequest();
-    $request->apiID = 'odit';
+    $request->apiID = 'yum Rustic Berkshire';
     $request->metadata = [
-        'at' => [
-            'at',
+        'assumenda' => [
+            'Fresh',
         ],
     ];
     $request->op = new GetAllApiVersionsOp();
@@ -230,8 +231,8 @@ $sdk = SDK::builder()
 try {
     $request = new GetApisRequest();
     $request->metadata = [
-        'maiores' => [
-            'molestiae',
+        'aut' => [
+            'bypassing',
         ],
     ];
     $request->op = new GetApisOp();
@@ -283,15 +284,15 @@ $sdk = SDK::builder()
 try {
     $request = new UpsertApiRequest();
     $request->apiInput = new ApiInput();
-    $request->apiInput->apiId = 'quod';
-    $request->apiInput->description = 'quod';
+    $request->apiInput->apiId = 'Martinique redefine Garland';
+    $request->apiInput->description = 'Balanced 24/7 utilisation';
     $request->apiInput->metaData = [
-        'esse' => [
-            'totam',
+        'deleniti' => [
+            'male',
         ],
     ];
-    $request->apiInput->versionId = 'porro';
-    $request->apiID = 'dolorum';
+    $request->apiInput->versionId = 'Forward';
+    $request->apiID = 'Facilitator';
 
     $response = $sdk->apis->upsertApi($request);
 

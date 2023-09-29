@@ -1,4 +1,5 @@
 # Plugins
+(*plugins*)
 
 ## Overview
 
@@ -72,10 +73,10 @@ try {
     $request->filters->filters = [
         new Filter(),
     ];
-    $request->filters->limit = 456150;
-    $request->filters->offset = 216550;
-    $request->filters->operator = 'excepturi';
-    $request->pluginID = 'aspernatur';
+    $request->filters->limit = 669298;
+    $request->filters->offset = 94585;
+    $request->filters->operator = 'parse Pickup';
+    $request->pluginID = 'purple Pants';
 
     $response = $sdk->plugins->runPlugin($request);
 
@@ -120,13 +121,13 @@ $sdk = SDK::builder()
 
 try {
     $request = new Plugin();
-    $request->code = 'perferendis';
-    $request->createdAt = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2022-05-20T13:30:46.463Z');
-    $request->evalHash = 'sed';
-    $request->pluginId = 'iste';
-    $request->title = 'Mrs.';
-    $request->updatedAt = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2022-03-24T20:42:46.563Z');
-    $request->workspaceId = 'hic';
+    $request->code = 'drafty';
+    $request->createdAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2023-03-17T19:17:52.123Z');
+    $request->evalHash = 'Benin Berkshire';
+    $request->pluginId = 'Soul Kuna';
+    $request->title = 'Plastic siemens navigate';
+    $request->updatedAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2022-12-27T19:05:38.030Z');
+    $request->workspaceId = 'owlishly JSON till';
 
     $response = $sdk->plugins->upsertPlugin($request);
 

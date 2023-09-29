@@ -18,8 +18,8 @@ $sdk = SDK::builder()
 try {
     $request = new GetApisRequest();
     $request->metadata = [
-        'corrupti' => [
-            'provident',
+        'aut' => [
+            'bypassing',
         ],
     ];
     $request->op = new GetApisOp();

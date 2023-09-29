@@ -1,4 +1,5 @@
 # ApiEndpoints
+(*apiEndpoints*)
 
 ## Overview
 
@@ -36,9 +37,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new DeleteApiEndpointRequest();
-    $request->apiEndpointID = 'unde';
-    $request->apiID = 'nulla';
-    $request->versionID = 'corrupti';
+    $request->apiEndpointID = 'bus Gasoline Southwest';
+    $request->apiID = 'candela';
+    $request->versionID = 'indexing maxime bypassing';
 
     $response = $sdk->apiEndpoints->deleteApiEndpoint($request);
 
@@ -84,9 +85,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new FindApiEndpointRequest();
-    $request->apiID = 'illum';
-    $request->displayName = 'vel';
-    $request->versionID = 'error';
+    $request->apiID = 'insignificant';
+    $request->displayName = 'payment';
+    $request->versionID = 'Highland North Awesome';
 
     $response = $sdk->apiEndpoints->findApiEndpoint($request);
 
@@ -132,9 +133,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GenerateOpenApiSpecForApiEndpointRequest();
-    $request->apiEndpointID = 'deserunt';
-    $request->apiID = 'suscipit';
-    $request->versionID = 'iure';
+    $request->apiEndpointID = 'Tactics ew explicabo';
+    $request->apiID = 'gray act';
+    $request->versionID = 'bah';
 
     $response = $sdk->apiEndpoints->generateOpenApiSpecForApiEndpoint($request);
 
@@ -179,9 +180,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GeneratePostmanCollectionForApiEndpointRequest();
-    $request->apiEndpointID = 'magnam';
-    $request->apiID = 'debitis';
-    $request->versionID = 'ipsa';
+    $request->apiEndpointID = 'silver Bronze Outdoors';
+    $request->apiID = 'Virtual admirable Southeast';
+    $request->versionID = 'Northeast Bicycle mark';
 
     $response = $sdk->apiEndpoints->generatePostmanCollectionForApiEndpoint($request);
 
@@ -226,7 +227,7 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetAllApiEndpointsRequest();
-    $request->apiID = 'delectus';
+    $request->apiID = 'Director JSON candela';
 
     $response = $sdk->apiEndpoints->getAllApiEndpoints($request);
 
@@ -271,8 +272,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetAllForVersionApiEndpointsRequest();
-    $request->apiID = 'tempora';
-    $request->versionID = 'suscipit';
+    $request->apiID = 'THX Tuna sparkling';
+    $request->versionID = 'Assurance';
 
     $response = $sdk->apiEndpoints->getAllForVersionApiEndpoints($request);
 
@@ -317,9 +318,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetApiEndpointRequest();
-    $request->apiEndpointID = 'molestiae';
-    $request->apiID = 'minus';
-    $request->versionID = 'placeat';
+    $request->apiEndpointID = 'Optimized male SSD';
+    $request->apiID = 'Soul Land';
+    $request->versionID = 'Androgyne Hydrogen';
 
     $response = $sdk->apiEndpoints->getApiEndpoint($request);
 
@@ -366,15 +367,15 @@ $sdk = SDK::builder()
 try {
     $request = new UpsertApiEndpointRequest();
     $request->apiEndpointInput = new ApiEndpointInput();
-    $request->apiEndpointInput->apiEndpointId = 'voluptatum';
-    $request->apiEndpointInput->description = 'iusto';
-    $request->apiEndpointInput->displayName = 'excepturi';
-    $request->apiEndpointInput->method = 'nisi';
-    $request->apiEndpointInput->path = 'recusandae';
-    $request->apiEndpointInput->versionId = 'temporibus';
-    $request->apiEndpointID = 'ab';
-    $request->apiID = 'quis';
-    $request->versionID = 'veritatis';
+    $request->apiEndpointInput->apiEndpointId = 'Convertible Turner Cotton';
+    $request->apiEndpointInput->description = 'Triple-buffered optimal methodology';
+    $request->apiEndpointInput->displayName = 'Langosh Northwest Mabelle';
+    $request->apiEndpointInput->method = 'South';
+    $request->apiEndpointInput->path = '/rescue';
+    $request->apiEndpointInput->versionId = 'East Land viral';
+    $request->apiEndpointID = 'Electric Operations systems';
+    $request->apiID = 'Operations East Unbranded';
+    $request->versionID = 'parsing Convertible';
 
     $response = $sdk->apiEndpoints->upsertApiEndpoint($request);
 
