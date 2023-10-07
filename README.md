@@ -29,8 +29,8 @@ $sdk = SDK::builder()
 try {
     $request = new GetApisRequest();
     $request->metadata = [
-        'aut' => [
-            'bypassing',
+        'South' => [
+            'Southwest',
         ],
     ];
     $request->op = new GetApisOp();

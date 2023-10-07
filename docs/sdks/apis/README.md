@@ -178,8 +178,8 @@ try {
     $request = new GetAllApiVersionsRequest();
     $request->apiID = 'yum Rustic Berkshire';
     $request->metadata = [
-        'assumenda' => [
-            'Fresh',
+        'Dodge' => [
+            'Salad',
         ],
     ];
     $request->op = new GetAllApiVersionsOp();
@@ -231,8 +231,8 @@ $sdk = SDK::builder()
 try {
     $request = new GetApisRequest();
     $request->metadata = [
-        'aut' => [
-            'bypassing',
+        'South' => [
+            'Southwest',
         ],
     ];
     $request->op = new GetApisOp();
@@ -287,8 +287,8 @@ try {
     $request->apiInput->apiId = 'Martinique redefine Garland';
     $request->apiInput->description = 'Balanced 24/7 utilisation';
     $request->apiInput->metaData = [
-        'deleniti' => [
-            'male',
+        'pixel' => [
+            'Buckinghamshire',
         ],
     ];
     $request->apiInput->versionId = 'Forward';
