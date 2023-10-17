@@ -26,7 +26,11 @@ require_once 'vendor/autoload.php';
 use \Speakeasy\SpeakeasyClientSDK\SDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {
@@ -64,7 +68,11 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginRequest;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Filters;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Filter;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {
@@ -116,7 +124,11 @@ use \Speakeasy\SpeakeasyClientSDK\SDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Plugin;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {

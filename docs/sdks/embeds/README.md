@@ -30,7 +30,11 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenRequest;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Filters;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Filter;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {
@@ -82,7 +86,11 @@ require_once 'vendor/autoload.php';
 use \Speakeasy\SpeakeasyClientSDK\SDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {
@@ -118,7 +126,11 @@ use \Speakeasy\SpeakeasyClientSDK\SDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenRequest;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {

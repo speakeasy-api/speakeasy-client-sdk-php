@@ -11,11 +11,11 @@ namespace Speakeasy\SpeakeasyClientSDK;
 /**
  * SDK - Speakeasy API: The Speakeasy API allows teams to manage common operations with their APIs
  * 
- * https://speakeasyapi.dev/docs/ - The Speakeasy Platform Documentation
+ * /docs - The Speakeasy Platform Documentation
  * 
  * @package Speakeasy\SpeakeasyClientSDK
  * @access public
- * @see https://speakeasyapi.dev/docs/
+ * @see /docs
  */
 class SDK
 {

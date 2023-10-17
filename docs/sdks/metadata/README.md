@@ -27,7 +27,11 @@ use \Speakeasy\SpeakeasyClientSDK\SDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataRequest;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {
@@ -75,7 +79,11 @@ use \Speakeasy\SpeakeasyClientSDK\SDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataRequest;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {
@@ -122,7 +130,11 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataRequest;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadataInput;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {

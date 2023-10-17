@@ -30,7 +30,11 @@ use \Speakeasy\SpeakeasyClientSDK\SDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiRequest;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {
@@ -77,7 +81,11 @@ use \Speakeasy\SpeakeasyClientSDK\SDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecRequest;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {
@@ -123,7 +131,11 @@ use \Speakeasy\SpeakeasyClientSDK\SDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionRequest;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {
@@ -171,7 +183,11 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsOp;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {
@@ -225,7 +241,11 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisRequest;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisOp;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {
@@ -278,7 +298,11 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiRequest;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {

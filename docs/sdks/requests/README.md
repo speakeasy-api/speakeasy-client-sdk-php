@@ -28,7 +28,11 @@ use \Speakeasy\SpeakeasyClientSDK\SDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionRequest;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {
@@ -73,7 +77,11 @@ use \Speakeasy\SpeakeasyClientSDK\SDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogRequest;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {
@@ -121,7 +129,11 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogRequest;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Filters;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Filter;
 
+$security = new Security();
+$security->apiKey = '';
+
 $sdk = SDK::builder()
+    ->setSecurity($security)
     ->build();
 
 try {

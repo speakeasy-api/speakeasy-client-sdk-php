@@ -17,9 +17,9 @@ class SDKConfiguration
 	public string $server = '';
 	public string $language = 'php';
 	public string $openapiDocVersion = '0.3.0';
-	public string $sdkVersion = '0.30.0';
-	public string $genVersion = '2.150.0';
-	public string $userAgent = 'speakeasy-sdk/php 0.30.0 2.150.0 0.3.0 speakeasy-api/speakeasy-client-sdk-php';
+	public string $sdkVersion = '0.30.1';
+	public string $genVersion = '2.155.1';
+	public string $userAgent = 'speakeasy-sdk/php 0.30.1 2.155.1 0.3.0 speakeasy-api/speakeasy-client-sdk-php';
 	
 
 	public function getServerUrl(): string
