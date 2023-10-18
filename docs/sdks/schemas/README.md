@@ -41,9 +41,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new DeleteSchemaRequest();
-    $request->apiID = 'Hybrid';
-    $request->revisionID = 'Funk Garden Specialist';
-    $request->versionID = 'male';
+    $request->apiID = 'West';
+    $request->revisionID = 'Tricycle';
+    $request->versionID = 'Funk';
 
     $response = $sdk->schemas->deleteSchema($request);
 
@@ -92,8 +92,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new DownloadSchemaRequest();
-    $request->apiID = 'Specialist correctly';
-    $request->versionID = 'customer Exclusive oof';
+    $request->apiID = 'SMTP';
+    $request->versionID = 'North';
 
     $response = $sdk->schemas->downloadSchema($request);
 
@@ -142,9 +142,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new DownloadSchemaRevisionRequest();
-    $request->apiID = 'Belarus hacking firewall';
-    $request->revisionID = 'Coupe affidavit Cheese';
-    $request->versionID = 'pink deposit';
+    $request->apiID = 'Cargo';
+    $request->revisionID = 'hacking';
+    $request->versionID = 'firewall';
 
     $response = $sdk->schemas->downloadSchemaRevision($request);
 
@@ -194,8 +194,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetSchemaRequest();
-    $request->apiID = 'Assistant';
-    $request->versionID = 'banter Cotton withdrawal';
+    $request->apiID = 'Handcrafted';
+    $request->versionID = 'Hybrid';
 
     $response = $sdk->schemas->getSchema($request);
 
@@ -244,10 +244,10 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetSchemaDiffRequest();
-    $request->apiID = 'Tuna';
-    $request->baseRevisionID = 'South Van';
-    $request->targetRevisionID = 'whoever';
-    $request->versionID = 'henry Tulare';
+    $request->apiID = 'North';
+    $request->baseRevisionID = 'Central';
+    $request->targetRevisionID = 'South';
+    $request->versionID = 'Van';
 
     $response = $sdk->schemas->getSchemaDiff($request);
 
@@ -297,9 +297,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetSchemaRevisionRequest();
-    $request->apiID = 'Mauritius';
-    $request->revisionID = 'West Rustic Plastic';
-    $request->versionID = 'Yttrium Loan';
+    $request->apiID = 'City';
+    $request->revisionID = 'web';
+    $request->versionID = 'sternly';
 
     $response = $sdk->schemas->getSchemaRevision($request);
 
@@ -349,8 +349,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetSchemasRequest();
-    $request->apiID = 'white';
-    $request->versionID = 'optical round';
+    $request->apiID = 'indigo';
+    $request->versionID = 'Fantastic';
 
     $response = $sdk->schemas->getSchemas($request);
 
@@ -405,9 +405,9 @@ try {
     $request->requestBody = new RegisterSchemaRequestBody();
     $request->requestBody->file = new RegisterSchemaRequestBodyFile();
     $request->requestBody->file->content = 'mg|mf".]!\';
-    $request->requestBody->file->file = 'Bronze Table Blues';
-    $request->apiID = 'Oganesson';
-    $request->versionID = 'matrix Pennsylvania Southeast';
+    $request->requestBody->file->file = 'Avon';
+    $request->apiID = 'Pants';
+    $request->versionID = 'Table';
 
     $response = $sdk->schemas->registerSchema($request);
 

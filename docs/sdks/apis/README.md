@@ -39,8 +39,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new DeleteApiRequest();
-    $request->apiID = 'Applications Mercedes fuchsia';
-    $request->versionID = 'Conroe';
+    $request->apiID = 'plaintive';
+    $request->versionID = 'THX';
 
     $response = $sdk->apis->deleteApi($request);
 
@@ -90,8 +90,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GenerateOpenApiSpecRequest();
-    $request->apiID = 'frictionless District South';
-    $request->versionID = 'West Global';
+    $request->apiID = 'fixed';
+    $request->versionID = 'bandwidth';
 
     $response = $sdk->apis->generateOpenApiSpec($request);
 
@@ -140,8 +140,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GeneratePostmanCollectionRequest();
-    $request->apiID = 'extend Security';
-    $request->versionID = 'reconfirm';
+    $request->apiID = 'Paradigm';
+    $request->versionID = 'olive';
 
     $response = $sdk->apis->generatePostmanCollection($request);
 
@@ -192,10 +192,10 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetAllApiVersionsRequest();
-    $request->apiID = 'yum Rustic Berkshire';
+    $request->apiID = 'azure';
     $request->metadata = [
-        'Dodge' => [
-            'Salad',
+        'enhance' => [
+            'Garrison',
         ],
     ];
     $request->op = new GetAllApiVersionsOp();
@@ -308,15 +308,15 @@ $sdk = SDK::builder()
 try {
     $request = new UpsertApiRequest();
     $request->apiInput = new ApiInput();
-    $request->apiInput->apiId = 'Martinique redefine Garland';
-    $request->apiInput->description = 'Balanced 24/7 utilisation';
+    $request->apiInput->apiId = 'Van';
+    $request->apiInput->description = 'Front-line zero defect algorithm';
     $request->apiInput->metaData = [
-        'pixel' => [
-            'Buckinghamshire',
+        'Balanced' => [
+            'West',
         ],
     ];
-    $request->apiInput->versionId = 'Forward';
-    $request->apiID = 'Facilitator';
+    $request->apiInput->versionId = 'pixel';
+    $request->apiID = 'Buckinghamshire';
 
     $response = $sdk->apis->upsertApi($request);
 

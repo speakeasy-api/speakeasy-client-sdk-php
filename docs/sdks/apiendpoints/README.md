@@ -41,9 +41,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new DeleteApiEndpointRequest();
-    $request->apiEndpointID = 'bus Gasoline Southwest';
-    $request->apiID = 'candela';
-    $request->versionID = 'indexing maxime bypassing';
+    $request->apiEndpointID = 'blue';
+    $request->apiID = 'Gasoline';
+    $request->versionID = 'Southwest';
 
     $response = $sdk->apiEndpoints->deleteApiEndpoint($request);
 
@@ -93,9 +93,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new FindApiEndpointRequest();
-    $request->apiID = 'insignificant';
-    $request->displayName = 'payment';
-    $request->versionID = 'Highland North Awesome';
+    $request->apiID = 'Cotton';
+    $request->displayName = 'Chief';
+    $request->versionID = 'Wooden';
 
     $response = $sdk->apiEndpoints->findApiEndpoint($request);
 
@@ -145,9 +145,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GenerateOpenApiSpecForApiEndpointRequest();
-    $request->apiEndpointID = 'Tactics ew explicabo';
-    $request->apiID = 'gray act';
-    $request->versionID = 'bah';
+    $request->apiEndpointID = 'Mazda';
+    $request->apiID = 'web';
+    $request->versionID = 'explicabo';
 
     $response = $sdk->apiEndpoints->generateOpenApiSpecForApiEndpoint($request);
 
@@ -196,9 +196,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GeneratePostmanCollectionForApiEndpointRequest();
-    $request->apiEndpointID = 'silver Bronze Outdoors';
-    $request->apiID = 'Virtual admirable Southeast';
-    $request->versionID = 'Northeast Bicycle mark';
+    $request->apiEndpointID = 'indigo';
+    $request->apiID = 'barring';
+    $request->versionID = 'Senior';
 
     $response = $sdk->apiEndpoints->generatePostmanCollectionForApiEndpoint($request);
 
@@ -247,7 +247,7 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetAllApiEndpointsRequest();
-    $request->apiID = 'Director JSON candela';
+    $request->apiID = 'unless';
 
     $response = $sdk->apiEndpoints->getAllApiEndpoints($request);
 
@@ -296,8 +296,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetAllForVersionApiEndpointsRequest();
-    $request->apiID = 'THX Tuna sparkling';
-    $request->versionID = 'Assurance';
+    $request->apiID = 'now';
+    $request->versionID = 'Diesel';
 
     $response = $sdk->apiEndpoints->getAllForVersionApiEndpoints($request);
 
@@ -346,9 +346,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetApiEndpointRequest();
-    $request->apiEndpointID = 'Optimized male SSD';
-    $request->apiID = 'Soul Land';
-    $request->versionID = 'Androgyne Hydrogen';
+    $request->apiEndpointID = 'flog';
+    $request->apiID = 'synthesize';
+    $request->versionID = 'Barium';
 
     $response = $sdk->apiEndpoints->getApiEndpoint($request);
 
@@ -399,15 +399,15 @@ $sdk = SDK::builder()
 try {
     $request = new UpsertApiEndpointRequest();
     $request->apiEndpointInput = new ApiEndpointInput();
-    $request->apiEndpointInput->apiEndpointId = 'Convertible Turner Cotton';
-    $request->apiEndpointInput->description = 'Triple-buffered optimal methodology';
-    $request->apiEndpointInput->displayName = 'Langosh Northwest Mabelle';
-    $request->apiEndpointInput->method = 'South';
-    $request->apiEndpointInput->path = '/rescue';
-    $request->apiEndpointInput->versionId = 'East Land viral';
-    $request->apiEndpointID = 'Electric Operations systems';
-    $request->apiID = 'Operations East Unbranded';
-    $request->versionID = 'parsing Convertible';
+    $request->apiEndpointInput->apiEndpointId = 'Facilitator';
+    $request->apiEndpointInput->description = 'Cross-group bottom-line productivity';
+    $request->apiEndpointInput->displayName = 'nor';
+    $request->apiEndpointInput->method = 'Northwest';
+    $request->apiEndpointInput->path = '/private';
+    $request->apiEndpointInput->versionId = 'what';
+    $request->apiEndpointID = 'Trans';
+    $request->apiID = 'Kia';
+    $request->versionID = 'Electronic';
 
     $response = $sdk->apiEndpoints->upsertApiEndpoint($request);
 

@@ -83,8 +83,8 @@ try {
     ];
     $request->filters->limit = 669298;
     $request->filters->offset = 94585;
-    $request->filters->operator = 'parse Pickup';
-    $request->pluginID = 'purple Pants';
+    $request->filters->operator = 'payment';
+    $request->pluginID = 'sprout';
 
     $response = $sdk->plugins->runPlugin($request);
 
@@ -133,13 +133,13 @@ $sdk = SDK::builder()
 
 try {
     $request = new Plugin();
-    $request->code = 'drafty';
-    $request->createdAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2023-03-17T19:17:52.123Z');
-    $request->evalHash = 'Benin Berkshire';
-    $request->pluginId = 'Soul Kuna';
-    $request->title = 'Plastic siemens navigate';
-    $request->updatedAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2022-12-27T19:05:38.030Z');
-    $request->workspaceId = 'owlishly JSON till';
+    $request->code = 'Fish';
+    $request->createdAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2022-10-19T07:21:05.021Z');
+    $request->evalHash = 'Benin';
+    $request->pluginId = 'Berkshire';
+    $request->title = 'leverage';
+    $request->updatedAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2022-07-16T00:30:19.338Z');
+    $request->workspaceId = 'Kuna';
 
     $response = $sdk->plugins->upsertPlugin($request);
 

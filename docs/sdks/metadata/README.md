@@ -36,10 +36,10 @@ $sdk = SDK::builder()
 
 try {
     $request = new DeleteVersionMetadataRequest();
-    $request->apiID = 'East static North';
-    $request->metaKey = 'veniam';
-    $request->metaValue = 'cocoa';
-    $request->versionID = 'deposit';
+    $request->apiID = 'Hydrogen';
+    $request->metaKey = 'Cargo';
+    $request->metaValue = 'Minnetonka';
+    $request->versionID = 'communities';
 
     $response = $sdk->metadata->deleteVersionMetadata($request);
 
@@ -88,8 +88,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetVersionMetadataRequest();
-    $request->apiID = 'Games';
-    $request->versionID = 'Centralized cyan';
+    $request->apiID = 'Bronze';
+    $request->versionID = 'Buckinghamshire';
 
     $response = $sdk->metadata->getVersionMetadata($request);
 
@@ -140,10 +140,10 @@ $sdk = SDK::builder()
 try {
     $request = new InsertVersionMetadataRequest();
     $request->versionMetadataInput = new VersionMetadataInput();
-    $request->versionMetadataInput->metaKey = 'calculating';
-    $request->versionMetadataInput->metaValue = 'Bedfordshire';
-    $request->apiID = 'West Northeast';
-    $request->versionID = 'candela';
+    $request->versionMetadataInput->metaKey = 'Borders';
+    $request->versionMetadataInput->metaValue = 'Potassium';
+    $request->apiID = 'Bedfordshire';
+    $request->versionID = 'Dram';
 
     $response = $sdk->metadata->insertVersionMetadata($request);
 
