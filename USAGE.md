@@ -22,7 +22,7 @@ $sdk = SDK::builder()
 try {
     $request = new GetApisRequest();
     $request->metadata = [
-        'South' => ['Southwest'],
+        'South' => ['string'],
     ];
     $request->op = new GetApisOp();
     $request->op->and = false;

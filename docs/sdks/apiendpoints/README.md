@@ -41,9 +41,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new DeleteApiEndpointRequest();
-    $request->apiEndpointID = 'blue';
-    $request->apiID = 'Gasoline';
-    $request->versionID = 'Southwest';
+    $request->apiEndpointID = 'string';
+    $request->apiID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->apiEndpoints->deleteApiEndpoint($request);
 
@@ -93,9 +93,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new FindApiEndpointRequest();
-    $request->apiID = 'Cotton';
-    $request->displayName = 'Chief';
-    $request->versionID = 'Wooden';
+    $request->apiID = 'string';
+    $request->displayName = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->apiEndpoints->findApiEndpoint($request);
 
@@ -145,9 +145,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GenerateOpenApiSpecForApiEndpointRequest();
-    $request->apiEndpointID = 'Mazda';
-    $request->apiID = 'web';
-    $request->versionID = 'explicabo';
+    $request->apiEndpointID = 'string';
+    $request->apiID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->apiEndpoints->generateOpenApiSpecForApiEndpoint($request);
 
@@ -196,9 +196,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GeneratePostmanCollectionForApiEndpointRequest();
-    $request->apiEndpointID = 'indigo';
-    $request->apiID = 'barring';
-    $request->versionID = 'Senior';
+    $request->apiEndpointID = 'string';
+    $request->apiID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->apiEndpoints->generatePostmanCollectionForApiEndpoint($request);
 
@@ -247,7 +247,7 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetAllApiEndpointsRequest();
-    $request->apiID = 'unless';
+    $request->apiID = 'string';
 
     $response = $sdk->apiEndpoints->getAllApiEndpoints($request);
 
@@ -296,8 +296,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetAllForVersionApiEndpointsRequest();
-    $request->apiID = 'now';
-    $request->versionID = 'Diesel';
+    $request->apiID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->apiEndpoints->getAllForVersionApiEndpoints($request);
 
@@ -346,9 +346,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetApiEndpointRequest();
-    $request->apiEndpointID = 'flog';
-    $request->apiID = 'synthesize';
-    $request->versionID = 'Barium';
+    $request->apiEndpointID = 'string';
+    $request->apiID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->apiEndpoints->getApiEndpoint($request);
 
@@ -399,15 +399,15 @@ $sdk = SDK::builder()
 try {
     $request = new UpsertApiEndpointRequest();
     $request->apiEndpointInput = new ApiEndpointInput();
-    $request->apiEndpointInput->apiEndpointId = 'Facilitator';
-    $request->apiEndpointInput->description = 'Cross-group bottom-line productivity';
-    $request->apiEndpointInput->displayName = 'nor';
-    $request->apiEndpointInput->method = 'Northwest';
-    $request->apiEndpointInput->path = '/private';
-    $request->apiEndpointInput->versionId = 'what';
-    $request->apiEndpointID = 'Trans';
-    $request->apiID = 'Kia';
-    $request->versionID = 'Electronic';
+    $request->apiEndpointInput->apiEndpointId = 'string';
+    $request->apiEndpointInput->description = 'Public-key systematic attitude';
+    $request->apiEndpointInput->displayName = 'string';
+    $request->apiEndpointInput->method = 'string';
+    $request->apiEndpointInput->path = '/etc/periodic';
+    $request->apiEndpointInput->versionId = 'string';
+    $request->apiEndpointID = 'string';
+    $request->apiID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->apiEndpoints->upsertApiEndpoint($request);
 

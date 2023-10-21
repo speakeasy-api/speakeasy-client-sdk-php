@@ -37,7 +37,7 @@ $sdk = SDK::builder()
 
 try {
     $request = new GenerateRequestPostmanCollectionRequest();
-    $request->requestID = 'Architect';
+    $request->requestID = 'string';
 
     $response = $sdk->requests->generateRequestPostmanCollection($request);
 
@@ -86,7 +86,7 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetRequestFromEventLogRequest();
-    $request->requestID = 'Chevrolet';
+    $request->requestID = 'string';
 
     $response = $sdk->requests->getRequestFromEventLog($request);
 
@@ -144,7 +144,7 @@ try {
     ];
     $request->filters->limit = 241978;
     $request->filters->offset = 451388;
-    $request->filters->operator = 'Interactions';
+    $request->filters->operator = 'string';
 
     $response = $sdk->requests->queryEventLog($request);
 

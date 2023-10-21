@@ -41,9 +41,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new DeleteSchemaRequest();
-    $request->apiID = 'West';
-    $request->revisionID = 'Tricycle';
-    $request->versionID = 'Funk';
+    $request->apiID = 'string';
+    $request->revisionID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->schemas->deleteSchema($request);
 
@@ -92,8 +92,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new DownloadSchemaRequest();
-    $request->apiID = 'SMTP';
-    $request->versionID = 'North';
+    $request->apiID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->schemas->downloadSchema($request);
 
@@ -142,9 +142,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new DownloadSchemaRevisionRequest();
-    $request->apiID = 'Cargo';
-    $request->revisionID = 'hacking';
-    $request->versionID = 'firewall';
+    $request->apiID = 'string';
+    $request->revisionID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->schemas->downloadSchemaRevision($request);
 
@@ -194,8 +194,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetSchemaRequest();
-    $request->apiID = 'Handcrafted';
-    $request->versionID = 'Hybrid';
+    $request->apiID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->schemas->getSchema($request);
 
@@ -244,10 +244,10 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetSchemaDiffRequest();
-    $request->apiID = 'North';
-    $request->baseRevisionID = 'Central';
-    $request->targetRevisionID = 'South';
-    $request->versionID = 'Van';
+    $request->apiID = 'string';
+    $request->baseRevisionID = 'string';
+    $request->targetRevisionID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->schemas->getSchemaDiff($request);
 
@@ -297,9 +297,9 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetSchemaRevisionRequest();
-    $request->apiID = 'City';
-    $request->revisionID = 'web';
-    $request->versionID = 'sternly';
+    $request->apiID = 'string';
+    $request->revisionID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->schemas->getSchemaRevision($request);
 
@@ -349,8 +349,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetSchemasRequest();
-    $request->apiID = 'indigo';
-    $request->versionID = 'Fantastic';
+    $request->apiID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->schemas->getSchemas($request);
 
@@ -405,9 +405,9 @@ try {
     $request->requestBody = new RegisterSchemaRequestBody();
     $request->requestBody->file = new RegisterSchemaRequestBodyFile();
     $request->requestBody->file->content = 'mg|mf".]!\';
-    $request->requestBody->file->file = 'Avon';
-    $request->apiID = 'Pants';
-    $request->versionID = 'Table';
+    $request->requestBody->file->file = 'string';
+    $request->apiID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->schemas->registerSchema($request);
 

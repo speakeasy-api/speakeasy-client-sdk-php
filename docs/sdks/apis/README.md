@@ -39,8 +39,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new DeleteApiRequest();
-    $request->apiID = 'plaintive';
-    $request->versionID = 'THX';
+    $request->apiID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->apis->deleteApi($request);
 
@@ -90,8 +90,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GenerateOpenApiSpecRequest();
-    $request->apiID = 'fixed';
-    $request->versionID = 'bandwidth';
+    $request->apiID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->apis->generateOpenApiSpec($request);
 
@@ -140,8 +140,8 @@ $sdk = SDK::builder()
 
 try {
     $request = new GeneratePostmanCollectionRequest();
-    $request->apiID = 'Paradigm';
-    $request->versionID = 'olive';
+    $request->apiID = 'string';
+    $request->versionID = 'string';
 
     $response = $sdk->apis->generatePostmanCollection($request);
 
@@ -192,10 +192,10 @@ $sdk = SDK::builder()
 
 try {
     $request = new GetAllApiVersionsRequest();
-    $request->apiID = 'azure';
+    $request->apiID = 'string';
     $request->metadata = [
-        'enhance' => [
-            'Garrison',
+        'azure' => [
+            'string',
         ],
     ];
     $request->op = new GetAllApiVersionsOp();
@@ -252,7 +252,7 @@ try {
     $request = new GetApisRequest();
     $request->metadata = [
         'South' => [
-            'Southwest',
+            'string',
         ],
     ];
     $request->op = new GetApisOp();
@@ -308,15 +308,15 @@ $sdk = SDK::builder()
 try {
     $request = new UpsertApiRequest();
     $request->apiInput = new ApiInput();
-    $request->apiInput->apiId = 'Van';
-    $request->apiInput->description = 'Front-line zero defect algorithm';
+    $request->apiInput->apiId = 'string';
+    $request->apiInput->description = 'Synchronised 5th generation knowledge user';
     $request->apiInput->metaData = [
-        'Balanced' => [
-            'West',
+        'redefine' => [
+            'string',
         ],
     ];
-    $request->apiInput->versionId = 'pixel';
-    $request->apiID = 'Buckinghamshire';
+    $request->apiInput->versionId = 'string';
+    $request->apiID = 'string';
 
     $response = $sdk->apis->upsertApi($request);
 

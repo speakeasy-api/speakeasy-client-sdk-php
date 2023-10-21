@@ -83,8 +83,8 @@ try {
     ];
     $request->filters->limit = 669298;
     $request->filters->offset = 94585;
-    $request->filters->operator = 'payment';
-    $request->pluginID = 'sprout';
+    $request->filters->operator = 'string';
+    $request->pluginID = 'string';
 
     $response = $sdk->plugins->runPlugin($request);
 
@@ -133,13 +133,13 @@ $sdk = SDK::builder()
 
 try {
     $request = new Plugin();
-    $request->code = 'Fish';
-    $request->createdAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2022-10-19T07:21:05.021Z');
-    $request->evalHash = 'Benin';
-    $request->pluginId = 'Berkshire';
-    $request->title = 'leverage';
-    $request->updatedAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2022-07-16T00:30:19.338Z');
-    $request->workspaceId = 'Kuna';
+    $request->code = 'string';
+    $request->createdAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2021-12-29T22:47:21.364Z');
+    $request->evalHash = 'string';
+    $request->pluginId = 'string';
+    $request->title = 'string';
+    $request->updatedAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2023-08-18T05:20:47.765Z');
+    $request->workspaceId = 'string';
 
     $response = $sdk->plugins->upsertPlugin($request);
 

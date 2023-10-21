@@ -47,7 +47,7 @@ try {
     ];
     $request->filters->limit = 263313;
     $request->filters->offset = 411277;
-    $request->filters->operator = 'male';
+    $request->filters->operator = 'string';
 
     $response = $sdk->embeds->getEmbedAccessToken($request);
 
@@ -135,7 +135,7 @@ $sdk = SDK::builder()
 
 try {
     $request = new RevokeEmbedAccessTokenRequest();
-    $request->tokenID = 'Ball';
+    $request->tokenID = 'string';
 
     $response = $sdk->embeds->revokeEmbedAccessToken($request);
 
