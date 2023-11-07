@@ -28,14 +28,6 @@ class GetPluginsResponse
     public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
     
     /**
-     * OK
-     * 
-     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Plugin> $plugins
-     */
-	
-    public ?array $plugins = null;
-    
-    /**
      * HTTP response status code for this operation
      * 
      * @var int $statusCode
@@ -51,12 +43,20 @@ class GetPluginsResponse
 	
     public ?\Psr\Http\Message\ResponseInterface $rawResponse = null;
     
+    /**
+     * OK
+     * 
+     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Plugin> $classes
+     */
+	
+    public ?array $classes = null;
+    
 	public function __construct()
 	{
 		$this->contentType = "";
 		$this->error = null;
-		$this->plugins = null;
 		$this->statusCode = 0;
 		$this->rawResponse = null;
+		$this->classes = null;
 	}
 }

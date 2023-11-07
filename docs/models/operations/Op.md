@@ -1,4 +1,4 @@
-# GetAllApiVersionsOp
+# Op
 
 Configuration for filter operations
 

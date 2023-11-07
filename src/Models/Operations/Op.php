@@ -10,12 +10,12 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 /**
- * GetApisOp - Configuration for filter operations
+ * Op - Configuration for filter operations
  * 
  * @package Speakeasy\SpeakeasyClientSDK\Models\Operations
  * @access public
  */
-class GetApisOp
+class Op
 {
     /**
      * Whether to AND or OR the filters

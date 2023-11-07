@@ -14,10 +14,10 @@ class InsertVersionMetadataRequest
     /**
      * A JSON representation of the metadata to insert.
      * 
-     * @var \Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadataInput $versionMetadataInput
+     * @var \Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadataInput $versionMetadata
      */
 	#[SpeakeasyMetadata('request:mediaType=application/json')]
-    public \Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadataInput $versionMetadataInput;
+    public \Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadataInput $versionMetadata;
     
     /**
      * The ID of the Api to insert metadata for.
@@ -37,7 +37,7 @@ class InsertVersionMetadataRequest
     
 	public function __construct()
 	{
-		$this->versionMetadataInput = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadataInput();
+		$this->versionMetadata = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadataInput();
 		$this->apiID = "";
 		$this->versionID = "";
 	}

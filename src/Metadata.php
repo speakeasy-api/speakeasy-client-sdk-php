@@ -42,8 +42,10 @@ class Metadata
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
+        $statusCode = $httpResponse->getStatusCode();
+
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
+        $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
@@ -80,15 +82,17 @@ class Metadata
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
+        $statusCode = $httpResponse->getStatusCode();
+
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
+        $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->versionMetadata = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadata>', 'json');
+                $response->classes = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadata>', 'json');
             }
         }
         else {
@@ -115,7 +119,7 @@ class Metadata
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataRequest::class, $request);
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, "versionMetadataInput", "json");
+        $body = Utils\Utils::serializeRequestBody($request, "versionMetadata", "json");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -127,8 +131,10 @@ class Metadata
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
+        $statusCode = $httpResponse->getStatusCode();
+
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
+        $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         

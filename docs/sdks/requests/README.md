@@ -1,5 +1,5 @@
 # Requests
-(*requests*)
+
 
 ## Overview
 
@@ -24,19 +24,19 @@ Allowing it to be replayed with the same inputs that were captured by the SDK.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GenerateRequestPostmanCollectionRequest();
+    $request = new Operations\GenerateRequestPostmanCollectionRequest();
     $request->requestID = 'string';
 
     $response = $sdk->requests->generateRequestPostmanCollection($request);
@@ -73,19 +73,19 @@ Get information about a particular request.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GetRequestFromEventLogRequest();
+    $request = new Operations\GetRequestFromEventLogRequest();
     $request->requestID = 'string';
 
     $response = $sdk->requests->getRequestFromEventLog($request);
@@ -123,24 +123,22 @@ Allows the filtering of requests on a number of criteria such as ApiID, VersionI
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogRequest;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Filters;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Filter;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new QueryEventLogRequest();
-    $request->filters = new Filters();
+    $request = new Operations\QueryEventLogRequest();
+    $request->filters = new Shared\Filters();
     $request->filters->filters = [
-        new Filter(),
+        new Shared\Filter(),
     ];
     $request->filters->limit = 241978;
     $request->filters->offset = 451388;
@@ -148,7 +146,7 @@ try {
 
     $response = $sdk->requests->queryEventLog($request);
 
-    if ($response->boundedRequests !== null) {
+    if ($response->classes !== null) {
         // handle response
     }
 } catch (Exception $e) {

@@ -1,5 +1,5 @@
 # Plugins
-(*plugins*)
+
 
 ## Overview
 
@@ -23,20 +23,20 @@ Get all plugins for the current workspace.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
     $response = $sdk->plugins->getPlugins();
 
-    if ($response->plugins !== null) {
+    if ($response->classes !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -62,24 +62,22 @@ Run a plugin
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginRequest;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Filters;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Filter;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new RunPluginRequest();
-    $request->filters = new Filters();
+    $request = new Operations\RunPluginRequest();
+    $request->filters = new Shared\Filters();
     $request->filters->filters = [
-        new Filter(),
+        new Shared\Filter(),
     ];
     $request->filters->limit = 669298;
     $request->filters->offset = 94585;
@@ -88,7 +86,7 @@ try {
 
     $response = $sdk->plugins->runPlugin($request);
 
-    if ($response->boundedRequests !== null) {
+    if ($response->classes !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -120,19 +118,18 @@ Upsert a plugin
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Plugin;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new Plugin();
+    $request = new Shared\Plugin();
     $request->code = 'string';
     $request->createdAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2021-12-29T22:47:21.364Z');
     $request->evalHash = 'string';

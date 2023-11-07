@@ -1,5 +1,5 @@
 # ApiEndpoints
-(*apiEndpoints*)
+
 
 ## Overview
 
@@ -28,19 +28,19 @@ Delete an ApiEndpoint. This will also delete all associated Request Logs (if usi
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new DeleteApiEndpointRequest();
+    $request = new Operations\DeleteApiEndpointRequest();
     $request->apiEndpointID = 'string';
     $request->apiID = 'string';
     $request->versionID = 'string';
@@ -80,19 +80,19 @@ This is useful for finding the ID of an ApiEndpoint to use in the /v1/apis/{apiI
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new FindApiEndpointRequest();
+    $request = new Operations\FindApiEndpointRequest();
     $request->apiID = 'string';
     $request->displayName = 'string';
     $request->versionID = 'string';
@@ -132,19 +132,19 @@ Returns the original document and the newly generated document allowing a diff t
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GenerateOpenApiSpecForApiEndpointRequest();
+    $request = new Operations\GenerateOpenApiSpecForApiEndpointRequest();
     $request->apiEndpointID = 'string';
     $request->apiID = 'string';
     $request->versionID = 'string';
@@ -183,19 +183,19 @@ Generates a postman collection that allows the endpoint to be called from postma
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GeneratePostmanCollectionForApiEndpointRequest();
+    $request = new Operations\GeneratePostmanCollectionForApiEndpointRequest();
     $request->apiEndpointID = 'string';
     $request->apiID = 'string';
     $request->versionID = 'string';
@@ -234,24 +234,24 @@ Get all Api endpoints for a particular apiID.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GetAllApiEndpointsRequest();
+    $request = new Operations\GetAllApiEndpointsRequest();
     $request->apiID = 'string';
 
     $response = $sdk->apiEndpoints->getAllApiEndpoints($request);
 
-    if ($response->apiEndpoints !== null) {
+    if ($response->classes !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -283,25 +283,25 @@ Get all ApiEndpoints for a particular apiID and versionID.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GetAllForVersionApiEndpointsRequest();
+    $request = new Operations\GetAllForVersionApiEndpointsRequest();
     $request->apiID = 'string';
     $request->versionID = 'string';
 
     $response = $sdk->apiEndpoints->getAllForVersionApiEndpoints($request);
 
-    if ($response->apiEndpoints !== null) {
+    if ($response->classes !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -333,19 +333,19 @@ Get an ApiEndpoint.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GetApiEndpointRequest();
+    $request = new Operations\GetApiEndpointRequest();
     $request->apiEndpointID = 'string';
     $request->apiID = 'string';
     $request->versionID = 'string';
@@ -384,27 +384,26 @@ Upsert an ApiEndpoint. If the ApiEndpoint does not exist it will be created, oth
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiEndpointRequest;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiEndpointInput;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new UpsertApiEndpointRequest();
-    $request->apiEndpointInput = new ApiEndpointInput();
-    $request->apiEndpointInput->apiEndpointId = 'string';
-    $request->apiEndpointInput->description = 'Public-key systematic attitude';
-    $request->apiEndpointInput->displayName = 'string';
-    $request->apiEndpointInput->method = 'string';
-    $request->apiEndpointInput->path = '/etc/periodic';
-    $request->apiEndpointInput->versionId = 'string';
+    $request = new Operations\UpsertApiEndpointRequest();
+    $request->apiEndpoint = new Shared\ApiEndpointInput();
+    $request->apiEndpoint->apiEndpointId = 'string';
+    $request->apiEndpoint->description = 'Public-key systematic attitude';
+    $request->apiEndpoint->displayName = 'string';
+    $request->apiEndpoint->method = 'string';
+    $request->apiEndpoint->path = '/etc/periodic';
+    $request->apiEndpoint->versionId = 'string';
     $request->apiEndpointID = 'string';
     $request->apiID = 'string';
     $request->versionID = 'string';

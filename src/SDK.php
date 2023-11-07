@@ -26,13 +26,6 @@ class SDK
 	];
   	
     /**
-     * REST APIs for managing ApiEndpoint entities
-     * 
-     * @var ApiEndpoints $$apiEndpoints
-     */
-	public ApiEndpoints $apiEndpoints;
-	
-    /**
      * REST APIs for managing Api entities
      * 
      * @var Apis $$apis
@@ -40,11 +33,11 @@ class SDK
 	public Apis $apis;
 	
     /**
-     * REST APIs for managing embeds
+     * REST APIs for managing ApiEndpoint entities
      * 
-     * @var Embeds $$embeds
+     * @var ApiEndpoints $$apiEndpoints
      */
-	public Embeds $embeds;
+	public ApiEndpoints $apiEndpoints;
 	
     /**
      * REST APIs for managing Version Metadata entities
@@ -54,11 +47,11 @@ class SDK
 	public Metadata $metadata;
 	
     /**
-     * REST APIs for managing and running plugins
+     * REST APIs for managing Schema entities
      * 
-     * @var Plugins $$plugins
+     * @var Schemas $$schemas
      */
-	public Plugins $plugins;
+	public Schemas $schemas;
 	
     /**
      * REST APIs for retrieving request information
@@ -68,11 +61,18 @@ class SDK
 	public Requests $requests;
 	
     /**
-     * REST APIs for managing Schema entities
+     * REST APIs for managing and running plugins
      * 
-     * @var Schemas $$schemas
+     * @var Plugins $$plugins
      */
-	public Schemas $schemas;
+	public Plugins $plugins;
+	
+    /**
+     * REST APIs for managing embeds
+     * 
+     * @var Embeds $$embeds
+     */
+	public Embeds $embeds;
 		
 	private SDKConfiguration $sdkConfiguration;
 
@@ -93,19 +93,19 @@ class SDK
 	{
 		$this->sdkConfiguration = $sdkConfiguration;
 		
-		$this->apiEndpoints = new ApiEndpoints($this->sdkConfiguration);
-		
 		$this->apis = new Apis($this->sdkConfiguration);
 		
-		$this->embeds = new Embeds($this->sdkConfiguration);
+		$this->apiEndpoints = new ApiEndpoints($this->sdkConfiguration);
 		
 		$this->metadata = new Metadata($this->sdkConfiguration);
 		
-		$this->plugins = new Plugins($this->sdkConfiguration);
+		$this->schemas = new Schemas($this->sdkConfiguration);
 		
 		$this->requests = new Requests($this->sdkConfiguration);
 		
-		$this->schemas = new Schemas($this->sdkConfiguration);
+		$this->plugins = new Plugins($this->sdkConfiguration);
+		
+		$this->embeds = new Embeds($this->sdkConfiguration);
 	}
 	
     /**
@@ -127,8 +127,10 @@ class SDK
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
+        $statusCode = $httpResponse->getStatusCode();
+
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\ValidateApiKeyResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
+        $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         

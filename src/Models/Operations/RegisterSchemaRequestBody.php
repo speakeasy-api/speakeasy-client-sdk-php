@@ -18,10 +18,10 @@ use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class RegisterSchemaRequestBody
 {
 	#[SpeakeasyMetadata('multipartForm:file=true')]
-    public RegisterSchemaRequestBodyFile $file;
+    public File $file;
     
 	public function __construct()
 	{
-		$this->file = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequestBodyFile();
+		$this->file = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\File();
 	}
 }

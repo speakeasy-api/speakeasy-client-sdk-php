@@ -1,5 +1,5 @@
 # Embeds
-(*embeds*)
+
 
 ## Overview
 
@@ -24,26 +24,24 @@ Filters can be applied allowing views to be filtered to things like particular c
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenRequest;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Filters;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Filter;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GetEmbedAccessTokenRequest();
+    $request = new Operations\GetEmbedAccessTokenRequest();
     $request->description = 'Versatile asynchronous leverage';
     $request->duration = 554373;
-    $request->filters = new Filters();
+    $request->filters = new Shared\Filters();
     $request->filters->filters = [
-        new Filter(),
+        new Shared\Filter(),
     ];
     $request->filters->limit = 263313;
     $request->filters->offset = 411277;
@@ -83,20 +81,20 @@ Get all valid embed access tokens for the current workspace.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
     $response = $sdk->embeds->getValidEmbedAccessTokens();
 
-    if ($response->embedTokens !== null) {
+    if ($response->classes !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -122,19 +120,19 @@ Revoke an embed access EmbedToken.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new RevokeEmbedAccessTokenRequest();
+    $request = new Operations\RevokeEmbedAccessTokenRequest();
     $request->tokenID = 'string';
 
     $response = $sdk->embeds->revokeEmbedAccessToken($request);

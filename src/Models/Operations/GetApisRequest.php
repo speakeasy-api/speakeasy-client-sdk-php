@@ -22,10 +22,10 @@ class GetApisRequest
     /**
      * Configuration for filter operations
      * 
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisOp $op
+     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryParamOp $op
      */
 	#[SpeakeasyMetadata('queryParam:style=deepObject,explode=true,name=op')]
-    public ?GetApisOp $op = null;
+    public ?QueryParamOp $op = null;
     
 	public function __construct()
 	{

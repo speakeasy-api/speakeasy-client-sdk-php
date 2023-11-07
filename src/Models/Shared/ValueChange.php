@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
-class SchemaDiffValueChange
+class ValueChange
 {
     /**
      * Represents the previous value of the element.

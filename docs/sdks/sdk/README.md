@@ -23,18 +23,18 @@ Validate the current api key.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $response = $sdk->sdk->validateApiKey();
+    $response = $sdk->validateApiKey();
 
     if ($response->statusCode === 200) {
         // handle response

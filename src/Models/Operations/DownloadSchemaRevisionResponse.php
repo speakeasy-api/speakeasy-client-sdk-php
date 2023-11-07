@@ -12,6 +12,22 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 class DownloadSchemaRevisionResponse
 {
     /**
+     * OK
+     * 
+     * @var ?string $twoHundredApplicationJsonSchema
+     */
+	
+    public ?string $twoHundredApplicationJsonSchema = null;
+    
+    /**
+     * OK
+     * 
+     * @var ?string $twoHundredApplicationXYamlSchema
+     */
+	
+    public ?string $twoHundredApplicationXYamlSchema = null;
+    
+    /**
      * HTTP response content type for this operation
      * 
      * @var string $contentType
@@ -26,14 +42,6 @@ class DownloadSchemaRevisionResponse
      */
 	
     public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
-    
-    /**
-     * OK
-     * 
-     * @var ?string $schema
-     */
-	
-    public ?string $schema = null;
     
     /**
      * HTTP response status code for this operation
@@ -53,9 +61,10 @@ class DownloadSchemaRevisionResponse
     
 	public function __construct()
 	{
+		$this->twoHundredApplicationJsonSchema = null;
+		$this->twoHundredApplicationXYamlSchema = null;
 		$this->contentType = "";
 		$this->error = null;
-		$this->schema = null;
 		$this->statusCode = 0;
 		$this->rawResponse = null;
 	}

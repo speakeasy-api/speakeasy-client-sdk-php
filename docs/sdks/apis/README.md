@@ -1,5 +1,5 @@
 # Apis
-(*apis*)
+
 
 ## Overview
 
@@ -26,19 +26,19 @@ Delete a particular version of an Api. The will also delete all associated ApiEn
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new DeleteApiRequest();
+    $request = new Operations\DeleteApiRequest();
     $request->apiID = 'string';
     $request->versionID = 'string';
 
@@ -77,19 +77,19 @@ Returns the original document and the newly generated document allowing a diff t
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GenerateOpenApiSpecRequest();
+    $request = new Operations\GenerateOpenApiSpecRequest();
     $request->apiID = 'string';
     $request->versionID = 'string';
 
@@ -127,19 +127,19 @@ Generates a postman collection containing all endpoints for a particular API. In
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GeneratePostmanCollectionRequest();
+    $request = new Operations\GeneratePostmanCollectionRequest();
     $request->apiID = 'string';
     $request->versionID = 'string';
 
@@ -178,32 +178,31 @@ Supports filtering the versions based on metadata attributes.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsOp;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GetAllApiVersionsRequest();
+    $request = new Operations\GetAllApiVersionsRequest();
     $request->apiID = 'string';
     $request->metadata = [
         'azure' => [
             'string',
         ],
     ];
-    $request->op = new GetAllApiVersionsOp();
+    $request->op = new Operations\Op();
     $request->op->and = false;
 
     $response = $sdk->apis->getAllApiVersions($request);
 
-    if ($response->apis !== null) {
+    if ($response->classes !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -236,31 +235,30 @@ Supports filtering the APIs based on metadata attributes.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisRequest;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisOp;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GetApisRequest();
+    $request = new Operations\GetApisRequest();
     $request->metadata = [
         'South' => [
             'string',
         ],
     ];
-    $request->op = new GetApisOp();
+    $request->op = new Operations\QueryParamOp();
     $request->op->and = false;
 
     $response = $sdk->apis->getApis($request);
 
-    if ($response->apis !== null) {
+    if ($response->classes !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -293,29 +291,28 @@ If the Api exists, it will be updated.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiRequest;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new UpsertApiRequest();
-    $request->apiInput = new ApiInput();
-    $request->apiInput->apiId = 'string';
-    $request->apiInput->description = 'Synchronised 5th generation knowledge user';
-    $request->apiInput->metaData = [
+    $request = new Operations\UpsertApiRequest();
+    $request->api = new Shared\ApiInput();
+    $request->api->apiId = 'string';
+    $request->api->description = 'Synchronised 5th generation knowledge user';
+    $request->api->metaData = [
         'redefine' => [
             'string',
         ],
     ];
-    $request->apiInput->versionId = 'string';
+    $request->api->versionId = 'string';
     $request->apiID = 'string';
 
     $response = $sdk->apis->upsertApi($request);

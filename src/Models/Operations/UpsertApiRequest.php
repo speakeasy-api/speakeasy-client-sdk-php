@@ -14,10 +14,10 @@ class UpsertApiRequest
     /**
      * A JSON representation of the Api to upsert
      * 
-     * @var \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput $apiInput
+     * @var \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput $api
      */
 	#[SpeakeasyMetadata('request:mediaType=application/json')]
-    public \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput $apiInput;
+    public \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput $api;
     
     /**
      * The ID of the Api to upsert.
@@ -29,7 +29,7 @@ class UpsertApiRequest
     
 	public function __construct()
 	{
-		$this->apiInput = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput();
+		$this->api = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput();
 		$this->apiID = "";
 	}
 }

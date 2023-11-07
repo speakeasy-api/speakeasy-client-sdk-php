@@ -1,5 +1,5 @@
 # Metadata
-(*metadata*)
+
 
 ## Overview
 
@@ -23,19 +23,19 @@ Delete metadata for a particular apiID and versionID.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new DeleteVersionMetadataRequest();
+    $request = new Operations\DeleteVersionMetadataRequest();
     $request->apiID = 'string';
     $request->metaKey = 'string';
     $request->metaValue = 'string';
@@ -75,25 +75,25 @@ Get all metadata for a particular apiID and versionID.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GetVersionMetadataRequest();
+    $request = new Operations\GetVersionMetadataRequest();
     $request->apiID = 'string';
     $request->versionID = 'string';
 
     $response = $sdk->metadata->getVersionMetadata($request);
 
-    if ($response->versionMetadata !== null) {
+    if ($response->classes !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -125,23 +125,22 @@ Insert metadata for a particular apiID and versionID.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataRequest;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadataInput;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new InsertVersionMetadataRequest();
-    $request->versionMetadataInput = new VersionMetadataInput();
-    $request->versionMetadataInput->metaKey = 'string';
-    $request->versionMetadataInput->metaValue = 'string';
+    $request = new Operations\InsertVersionMetadataRequest();
+    $request->versionMetadata = new Shared\VersionMetadataInput();
+    $request->versionMetadata->metaKey = 'string';
+    $request->versionMetadata->metaValue = 'string';
     $request->apiID = 'string';
     $request->versionID = 'string';
 

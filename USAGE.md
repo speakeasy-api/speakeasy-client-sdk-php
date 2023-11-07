@@ -7,29 +7,28 @@
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use Speakeasy\SpeakeasyClientSDK\SDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisRequest;
-use Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisOp;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GetApisRequest();
+    $request = new Operations\GetApisRequest();
     $request->metadata = [
         'South' => ['string'],
     ];
-    $request->op = new GetApisOp();
+    $request->op = new Operations\QueryParamOp();
     $request->op->and = false;
 
     $response = $sdk->apis->getApis($request);
 
-    if ($response->apis !== null) {
+    if ($response->classes !== null) {
         // handle response
     }
 } catch (Exception $e) {

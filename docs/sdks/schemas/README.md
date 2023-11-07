@@ -1,5 +1,5 @@
 # Schemas
-(*schemas*)
+
 
 ## Overview
 
@@ -28,19 +28,19 @@ Delete a particular schema revision for an Api.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new DeleteSchemaRequest();
+    $request = new Operations\DeleteSchemaRequest();
     $request->apiID = 'string';
     $request->revisionID = 'string';
     $request->versionID = 'string';
@@ -79,25 +79,25 @@ Download the latest schema for a particular apiID.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new DownloadSchemaRequest();
+    $request = new Operations\DownloadSchemaRequest();
     $request->apiID = 'string';
     $request->versionID = 'string';
 
     $response = $sdk->schemas->downloadSchema($request);
 
-    if ($response->schema !== null) {
+    if ($response->twoHundredApplicationJsonSchema !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -129,26 +129,26 @@ Download a particular schema revision for an Api.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new DownloadSchemaRevisionRequest();
+    $request = new Operations\DownloadSchemaRevisionRequest();
     $request->apiID = 'string';
     $request->revisionID = 'string';
     $request->versionID = 'string';
 
     $response = $sdk->schemas->downloadSchemaRevision($request);
 
-    if ($response->schema !== null) {
+    if ($response->twoHundredApplicationJsonSchema !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -181,19 +181,19 @@ This won't include the schema itself, that can be retrieved via the downloadSche
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GetSchemaRequest();
+    $request = new Operations\GetSchemaRequest();
     $request->apiID = 'string';
     $request->versionID = 'string';
 
@@ -231,19 +231,19 @@ Get a diff of two schema revisions for an Api.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GetSchemaDiffRequest();
+    $request = new Operations\GetSchemaDiffRequest();
     $request->apiID = 'string';
     $request->baseRevisionID = 'string';
     $request->targetRevisionID = 'string';
@@ -284,19 +284,19 @@ This won't include the schema itself, that can be retrieved via the downloadSche
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GetSchemaRevisionRequest();
+    $request = new Operations\GetSchemaRevisionRequest();
     $request->apiID = 'string';
     $request->revisionID = 'string';
     $request->versionID = 'string';
@@ -336,25 +336,25 @@ This won't include the schemas themselves, they can be retrieved via the downloa
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasRequest;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new GetSchemasRequest();
+    $request = new Operations\GetSchemasRequest();
     $request->apiID = 'string';
     $request->versionID = 'string';
 
     $response = $sdk->schemas->getSchemas($request);
 
-    if ($response->schemata !== null) {
+    if ($response->classes !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -387,25 +387,23 @@ This will be used to populate ApiEndpoints and used as a base for any schema gen
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK\SDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared\Security;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequest;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequestBody;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequestBodyFile;
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKey = '';
 
-$sdk = SDK::builder()
+$sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new RegisterSchemaRequest();
-    $request->requestBody = new RegisterSchemaRequestBody();
-    $request->requestBody->file = new RegisterSchemaRequestBodyFile();
-    $request->requestBody->file->content = 'mg|mf".]!\';
-    $request->requestBody->file->file = 'string';
+    $request = new Operations\RegisterSchemaRequest();
+    $request->requestBody = new Operations\RegisterSchemaRequestBody();
+    $request->requestBody->file = new Operations\File();
+    $request->requestBody->file->content = '0xCAFCA03e0e';
+    $request->requestBody->file->fileName = 'bronze_table_blues.m2a';
     $request->apiID = 'string';
     $request->versionID = 'string';
 

@@ -1,4 +1,4 @@
-# GetApisOp
+# QueryParamOp
 
 Configuration for filter operations
 
