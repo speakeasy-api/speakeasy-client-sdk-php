@@ -59,12 +59,12 @@ try {
 
 | Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
 | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                            | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaRequest](../../models/operations/DeleteSchemaRequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
+| `$request`                                                                                                            | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaRequest](../../Models/Operations/DeleteSchemaRequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaResponse](../../models/operations/DeleteSchemaResponse.md)**
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaResponse](../../Models/Operations/DeleteSchemaResponse.md)**
 
 
 ## downloadSchema
@@ -109,12 +109,12 @@ try {
 
 | Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRequest](../../models/operations/DownloadSchemaRequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
+| `$request`                                                                                                                | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRequest](../../Models/Operations/DownloadSchemaRequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaResponse](../../models/operations/DownloadSchemaResponse.md)**
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaResponse](../../Models/Operations/DownloadSchemaResponse.md)**
 
 
 ## downloadSchemaRevision
@@ -160,12 +160,12 @@ try {
 
 | Parameter                                                                                                                                 | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               |
 | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                                | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionRequest](../../models/operations/DownloadSchemaRevisionRequest.md) | :heavy_check_mark:                                                                                                                        | The request object to use for the request.                                                                                                |
+| `$request`                                                                                                                                | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionRequest](../../Models/Operations/DownloadSchemaRevisionRequest.md) | :heavy_check_mark:                                                                                                                        | The request object to use for the request.                                                                                                |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionResponse](../../models/operations/DownloadSchemaRevisionResponse.md)**
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionResponse](../../Models/Operations/DownloadSchemaRevisionResponse.md)**
 
 
 ## getSchema
@@ -211,12 +211,12 @@ try {
 
 | Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRequest](../../models/operations/GetSchemaRequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
+| `$request`                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRequest](../../Models/Operations/GetSchemaRequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaResponse](../../models/operations/GetSchemaResponse.md)**
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaResponse](../../Models/Operations/GetSchemaResponse.md)**
 
 
 ## getSchemaDiff
@@ -263,12 +263,12 @@ try {
 
 | Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
 | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                              | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffRequest](../../models/operations/GetSchemaDiffRequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+| `$request`                                                                                                              | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffRequest](../../Models/Operations/GetSchemaDiffRequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffResponse](../../models/operations/GetSchemaDiffResponse.md)**
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffResponse](../../Models/Operations/GetSchemaDiffResponse.md)**
 
 
 ## getSchemaRevision
@@ -315,12 +315,12 @@ try {
 
 | Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionRequest](../../models/operations/GetSchemaRevisionRequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
+| `$request`                                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionRequest](../../Models/Operations/GetSchemaRevisionRequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionResponse](../../models/operations/GetSchemaRevisionResponse.md)**
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionResponse](../../Models/Operations/GetSchemaRevisionResponse.md)**
 
 
 ## getSchemas
@@ -366,12 +366,12 @@ try {
 
 | Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
 | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                        | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasRequest](../../models/operations/GetSchemasRequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+| `$request`                                                                                                        | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasRequest](../../Models/Operations/GetSchemasRequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasResponse](../../models/operations/GetSchemasResponse.md)**
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasResponse](../../Models/Operations/GetSchemasResponse.md)**
 
 
 ## registerSchema
@@ -421,10 +421,10 @@ try {
 
 | Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequest](../../models/operations/RegisterSchemaRequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
+| `$request`                                                                                                                | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequest](../../Models/Operations/RegisterSchemaRequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaResponse](../../models/operations/RegisterSchemaResponse.md)**
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaResponse](../../Models/Operations/RegisterSchemaResponse.md)**
 

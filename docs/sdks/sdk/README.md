@@ -47,5 +47,5 @@ try {
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\ValidateApiKeyResponse](../../models/operations/ValidateApiKeyResponse.md)**
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\ValidateApiKeyResponse](../../Models/Operations/ValidateApiKeyResponse.md)**
 

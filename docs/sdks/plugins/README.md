@@ -47,7 +47,7 @@ try {
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetPluginsResponse](../../models/operations/GetPluginsResponse.md)**
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetPluginsResponse](../../Models/Operations/GetPluginsResponse.md)**
 
 
 ## runPlugin
@@ -98,12 +98,12 @@ try {
 
 | Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginRequest](../../models/operations/RunPluginRequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
+| `$request`                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginRequest](../../Models/Operations/RunPluginRequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginResponse](../../models/operations/RunPluginResponse.md)**
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\RunPluginResponse](../../Models/Operations/RunPluginResponse.md)**
 
 
 ## upsertPlugin
@@ -152,10 +152,10 @@ try {
 
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `$request`                                                                          | [\Speakeasy\SpeakeasyClientSDK\Models\Shared\Plugin](../../models/shared/Plugin.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+| `$request`                                                                          | [\Speakeasy\SpeakeasyClientSDK\Models\Shared\Plugin](../../Models/Shared/Plugin.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertPluginResponse](../../models/operations/UpsertPluginResponse.md)**
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertPluginResponse](../../Models/Operations/UpsertPluginResponse.md)**
 

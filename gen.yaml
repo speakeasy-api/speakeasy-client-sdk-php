@@ -2,22 +2,22 @@ configVersion: 1.0.0
 management:
   docChecksum: ba638b2ad28966c596e28321a2003686
   docVersion: 0.3.0
-  speakeasyVersion: 1.114.1
-  generationVersion: 2.181.1
+  speakeasyVersion: 1.116.0
+  generationVersion: 2.185.0
 generation:
   comments: {}
   sdkClassName: SDK
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
 features:
   php:
-    core: 3.1.0
+    core: 3.1.1
     examples: 2.81.3
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
-    inputOutputModels: 2.81.1
+    inputOutputModels: 2.82.0
     serverIDs: 2.81.1
 php:
-  version: 0.32.0
+  version: 0.33.0
   imports:
     option: openapi
     paths:
@@ -26,9 +26,11 @@ php:
       operations: Models/Operations
       shared: Models/Shared
       webhooks: Models/Webhooks
+  inputModelSuffix: input
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
   maxMethodParams: 0
   namespace: Speakeasy\SpeakeasyClientSDK
+  outputModelSuffix: output
   packageName: speakeasy-api/speakeasy-client-sdk-php
   published: true
   repoSubDirectory: .
