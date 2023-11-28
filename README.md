@@ -1,6 +1,6 @@
 # speakeasy-api/speakeasy-client-sdk-php
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### Composer
@@ -8,10 +8,11 @@
 ```bash
 composer require "speakeasy-api/speakeasy-client-sdk-php"
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
+<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
-<!-- Start SDK Example Usage -->
+
 ### Example
 
 ```php
@@ -49,9 +50,9 @@ try {
 }
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
 ### [SDK](docs/sdks/sdk/README.md)
@@ -112,13 +113,9 @@ try {
 * [getEmbedAccessToken](docs/sdks/embeds/README.md#getembedaccesstoken) - Get an embed access token for the current workspace.
 * [getValidEmbedAccessTokens](docs/sdks/embeds/README.md#getvalidembedaccesstokens) - Get all valid embed access tokens for the current workspace.
 * [revokeEmbedAccessToken](docs/sdks/embeds/README.md#revokeembedaccesstoken) - Revoke an embed access EmbedToken.
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
 
-
-<!-- Start Dev Containers -->
-
-<!-- End Dev Containers -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
