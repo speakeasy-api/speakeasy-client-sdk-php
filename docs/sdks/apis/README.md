@@ -31,16 +31,14 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\DeleteApiRequest();
+        $request = new Operations\DeleteApiRequest();
     $request->apiID = 'string';
-    $request->versionID = 'string';
+    $request->versionID = 'string';;
 
     $response = $sdk->apis->deleteApi($request);
 
@@ -82,16 +80,14 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GenerateOpenApiSpecRequest();
+        $request = new Operations\GenerateOpenApiSpecRequest();
     $request->apiID = 'string';
-    $request->versionID = 'string';
+    $request->versionID = 'string';;
 
     $response = $sdk->apis->generateOpenApiSpec($request);
 
@@ -132,16 +128,14 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GeneratePostmanCollectionRequest();
+        $request = new Operations\GeneratePostmanCollectionRequest();
     $request->apiID = 'string';
-    $request->versionID = 'string';
+    $request->versionID = 'string';;
 
     $response = $sdk->apis->generatePostmanCollection($request);
 
@@ -183,14 +177,12 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetAllApiVersionsRequest();
+        $request = new Operations\GetAllApiVersionsRequest();
     $request->apiID = 'string';
     $request->metadata = [
         'azure' => [
@@ -198,7 +190,7 @@ try {
         ],
     ];
     $request->op = new Operations\Op();
-    $request->op->and = false;
+    $request->op->and = false;;
 
     $response = $sdk->apis->getAllApiVersions($request);
 
@@ -240,21 +232,19 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetApisRequest();
+        $request = new Operations\GetApisRequest();
     $request->metadata = [
         'South' => [
             'string',
         ],
     ];
     $request->op = new Operations\QueryParamOp();
-    $request->op->and = false;
+    $request->op->and = false;;
 
     $response = $sdk->apis->getApis($request);
 
@@ -296,14 +286,12 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\UpsertApiRequest();
+        $request = new Operations\UpsertApiRequest();
     $request->api = new Shared\ApiInput();
     $request->api->apiId = 'string';
     $request->api->description = 'Synchronised 5th generation knowledge user';
@@ -313,7 +301,7 @@ try {
         ],
     ];
     $request->api->versionId = 'string';
-    $request->apiID = 'string';
+    $request->apiID = 'string';;
 
     $response = $sdk->apis->upsertApi($request);
 

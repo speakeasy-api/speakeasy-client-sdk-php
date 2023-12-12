@@ -28,18 +28,16 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\DeleteVersionMetadataRequest();
+        $request = new Operations\DeleteVersionMetadataRequest();
     $request->apiID = 'string';
     $request->metaKey = 'string';
     $request->metaValue = 'string';
-    $request->versionID = 'string';
+    $request->versionID = 'string';;
 
     $response = $sdk->metadata->deleteVersionMetadata($request);
 
@@ -80,16 +78,14 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetVersionMetadataRequest();
+        $request = new Operations\GetVersionMetadataRequest();
     $request->apiID = 'string';
-    $request->versionID = 'string';
+    $request->versionID = 'string';;
 
     $response = $sdk->metadata->getVersionMetadata($request);
 
@@ -130,19 +126,17 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\InsertVersionMetadataRequest();
+        $request = new Operations\InsertVersionMetadataRequest();
     $request->versionMetadata = new Shared\VersionMetadataInput();
     $request->versionMetadata->metaKey = 'string';
     $request->versionMetadata->metaValue = 'string';
     $request->apiID = 'string';
-    $request->versionID = 'string';
+    $request->versionID = 'string';;
 
     $response = $sdk->metadata->insertVersionMetadata($request);
 

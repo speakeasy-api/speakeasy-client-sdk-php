@@ -29,15 +29,13 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GenerateRequestPostmanCollectionRequest();
-    $request->requestID = 'string';
+        $request = new Operations\GenerateRequestPostmanCollectionRequest();
+    $request->requestID = 'string';;
 
     $response = $sdk->requests->generateRequestPostmanCollection($request);
 
@@ -78,15 +76,13 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetRequestFromEventLogRequest();
-    $request->requestID = 'string';
+        $request = new Operations\GetRequestFromEventLogRequest();
+    $request->requestID = 'string';;
 
     $response = $sdk->requests->getRequestFromEventLog($request);
 
@@ -128,21 +124,19 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\QueryEventLogRequest();
+        $request = new Operations\QueryEventLogRequest();
     $request->filters = new Shared\Filters();
     $request->filters->filters = [
         new Shared\Filter(),
     ];
     $request->filters->limit = 241978;
     $request->filters->offset = 451388;
-    $request->filters->operator = 'string';
+    $request->filters->operator = 'string';;
 
     $response = $sdk->requests->queryEventLog($request);
 

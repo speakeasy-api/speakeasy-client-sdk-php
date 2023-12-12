@@ -29,14 +29,12 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetEmbedAccessTokenRequest();
+        $request = new Operations\GetEmbedAccessTokenRequest();
     $request->description = 'Versatile asynchronous leverage';
     $request->duration = 554373;
     $request->filters = new Shared\Filters();
@@ -45,7 +43,7 @@ try {
     ];
     $request->filters->limit = 263313;
     $request->filters->offset = 411277;
-    $request->filters->operator = 'string';
+    $request->filters->operator = 'string';;
 
     $response = $sdk->embeds->getEmbedAccessToken($request);
 
@@ -85,11 +83,9 @@ use \Speakeasy\SpeakeasyClientSDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
     $response = $sdk->embeds->getValidEmbedAccessTokens();
@@ -125,15 +121,13 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\RevokeEmbedAccessTokenRequest();
-    $request->tokenID = 'string';
+        $request = new Operations\RevokeEmbedAccessTokenRequest();
+    $request->tokenID = 'string';;
 
     $response = $sdk->embeds->revokeEmbedAccessToken($request);
 

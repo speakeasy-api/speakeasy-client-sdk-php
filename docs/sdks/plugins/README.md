@@ -27,11 +27,9 @@ use \Speakeasy\SpeakeasyClientSDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
     $response = $sdk->plugins->getPlugins();
@@ -67,14 +65,12 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\RunPluginRequest();
+        $request = new Operations\RunPluginRequest();
     $request->filters = new Shared\Filters();
     $request->filters->filters = [
         new Shared\Filter(),
@@ -82,7 +78,7 @@ try {
     $request->filters->limit = 669298;
     $request->filters->offset = 94585;
     $request->filters->operator = 'string';
-    $request->pluginID = 'string';
+    $request->pluginID = 'string';;
 
     $response = $sdk->plugins->runPlugin($request);
 
@@ -122,21 +118,19 @@ use \Speakeasy\SpeakeasyClientSDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\Plugin();
+        $request = new Shared\Plugin();
     $request->code = 'string';
     $request->createdAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2021-12-29T22:47:21.364Z');
     $request->evalHash = 'string';
     $request->pluginId = 'string';
     $request->title = 'string';
     $request->updatedAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2023-08-18T05:20:47.765Z');
-    $request->workspaceId = 'string';
+    $request->workspaceId = 'string';;
 
     $response = $sdk->plugins->upsertPlugin($request);
 

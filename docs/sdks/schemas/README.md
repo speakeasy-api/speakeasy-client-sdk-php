@@ -33,17 +33,15 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\DeleteSchemaRequest();
+        $request = new Operations\DeleteSchemaRequest();
     $request->apiID = 'string';
     $request->revisionID = 'string';
-    $request->versionID = 'string';
+    $request->versionID = 'string';;
 
     $response = $sdk->schemas->deleteSchema($request);
 
@@ -84,16 +82,14 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\DownloadSchemaRequest();
+        $request = new Operations\DownloadSchemaRequest();
     $request->apiID = 'string';
-    $request->versionID = 'string';
+    $request->versionID = 'string';;
 
     $response = $sdk->schemas->downloadSchema($request);
 
@@ -134,17 +130,15 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\DownloadSchemaRevisionRequest();
+        $request = new Operations\DownloadSchemaRevisionRequest();
     $request->apiID = 'string';
     $request->revisionID = 'string';
-    $request->versionID = 'string';
+    $request->versionID = 'string';;
 
     $response = $sdk->schemas->downloadSchemaRevision($request);
 
@@ -186,16 +180,14 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetSchemaRequest();
+        $request = new Operations\GetSchemaRequest();
     $request->apiID = 'string';
-    $request->versionID = 'string';
+    $request->versionID = 'string';;
 
     $response = $sdk->schemas->getSchema($request);
 
@@ -236,18 +228,16 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetSchemaDiffRequest();
+        $request = new Operations\GetSchemaDiffRequest();
     $request->apiID = 'string';
     $request->baseRevisionID = 'string';
     $request->targetRevisionID = 'string';
-    $request->versionID = 'string';
+    $request->versionID = 'string';;
 
     $response = $sdk->schemas->getSchemaDiff($request);
 
@@ -289,17 +279,15 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetSchemaRevisionRequest();
+        $request = new Operations\GetSchemaRevisionRequest();
     $request->apiID = 'string';
     $request->revisionID = 'string';
-    $request->versionID = 'string';
+    $request->versionID = 'string';;
 
     $response = $sdk->schemas->getSchemaRevision($request);
 
@@ -341,16 +329,14 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetSchemasRequest();
+        $request = new Operations\GetSchemasRequest();
     $request->apiID = 'string';
-    $request->versionID = 'string';
+    $request->versionID = 'string';;
 
     $response = $sdk->schemas->getSchemas($request);
 
@@ -392,20 +378,18 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKey = '';
+$security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\RegisterSchemaRequest();
+        $request = new Operations\RegisterSchemaRequest();
     $request->requestBody = new Operations\RegisterSchemaRequestBody();
     $request->requestBody->file = new Operations\File();
     $request->requestBody->file->content = '0xCAFCA03e0e';
     $request->requestBody->file->fileName = 'bronze_table_blues.m2a';
     $request->apiID = 'string';
-    $request->versionID = 'string';
+    $request->versionID = 'string';;
 
     $response = $sdk->schemas->registerSchema($request);
 
