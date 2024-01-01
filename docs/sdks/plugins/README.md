@@ -125,11 +125,11 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 try {
         $request = new Shared\Plugin();
     $request->code = 'string';
-    $request->createdAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2021-12-29T22:47:21.364Z');
+    $request->createdAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2022-12-30T06:44:39.575Z');
     $request->evalHash = 'string';
     $request->pluginId = 'string';
     $request->title = 'string';
-    $request->updatedAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2023-08-18T05:20:47.765Z');
+    $request->updatedAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2024-08-18T02:22:14.384Z');
     $request->workspaceId = 'string';;
 
     $response = $sdk->plugins->upsertPlugin($request);
