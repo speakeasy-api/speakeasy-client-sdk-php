@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: ba638b2ad28966c596e28321a2003686
-  docVersion: 0.3.0
+  docChecksum: dff663dce4f21ddf3fc2332b7d7be92b
+  docVersion: 0.4.0
   speakeasyVersion: internal
-  generationVersion: 2.237.2
-  releaseVersion: 0.35.1
-  configChecksum: cff4b242c16b8d4edc2cadf5e1bed558
+  generationVersion: 2.250.16
+  releaseVersion: 0.36.0
+  configChecksum: 2a5d41f1dad33150e8269f9ff4a4acbc
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -17,6 +17,7 @@ features:
     examples: 2.81.3
     globalSecurity: 2.81.3
     globalServerURLs: 2.82.1
+    globals: 2.81.1
     inputOutputModels: 2.83.0
     serverIDs: 2.81.1
 generatedFiles:
@@ -25,9 +26,10 @@ generatedFiles:
   - src/ApiEndpoints.php
   - src/Metadata.php
   - src/Schemas.php
+  - src/Auth.php
   - src/Requests.php
-  - src/Plugins.php
   - src/Embeds.php
+  - src/Events.php
   - src/SDK.php
   - src/SDKBuilder.php
   - composer.json
@@ -48,7 +50,6 @@ generatedFiles:
   - src/Utils/SecurityMetadata.php
   - src/Utils/SpeakeasyMetadata.php
   - src/Utils/Utils.php
-  - src/Models/Operations/ValidateApiKeyResponse.php
   - src/Models/Operations/DeleteApiRequest.php
   - src/Models/Operations/DeleteApiResponse.php
   - src/Models/Operations/GenerateOpenApiSpecRequest.php
@@ -103,21 +104,20 @@ generatedFiles:
   - src/Models/Operations/RegisterSchemaRequestBody.php
   - src/Models/Operations/RegisterSchemaRequest.php
   - src/Models/Operations/RegisterSchemaResponse.php
+  - src/Models/Operations/ValidateApiKeyResponse.php
   - src/Models/Operations/GenerateRequestPostmanCollectionRequest.php
   - src/Models/Operations/GenerateRequestPostmanCollectionResponse.php
   - src/Models/Operations/GetRequestFromEventLogRequest.php
   - src/Models/Operations/GetRequestFromEventLogResponse.php
   - src/Models/Operations/QueryEventLogRequest.php
   - src/Models/Operations/QueryEventLogResponse.php
-  - src/Models/Operations/GetPluginsResponse.php
-  - src/Models/Operations/RunPluginRequest.php
-  - src/Models/Operations/RunPluginResponse.php
-  - src/Models/Operations/UpsertPluginResponse.php
   - src/Models/Operations/GetEmbedAccessTokenRequest.php
   - src/Models/Operations/GetEmbedAccessTokenResponse.php
   - src/Models/Operations/GetValidEmbedAccessTokensResponse.php
   - src/Models/Operations/RevokeEmbedAccessTokenRequest.php
   - src/Models/Operations/RevokeEmbedAccessTokenResponse.php
+  - src/Models/Operations/PostWorkspaceEventsRequest.php
+  - src/Models/Operations/PostWorkspaceEventsResponse.php
   - src/Models/Shared/Error.php
   - src/Models/Shared/GenerateOpenApiSpecDiff.php
   - src/Models/Shared/Api.php
@@ -129,16 +129,18 @@ generatedFiles:
   - src/Models/Shared/Schema.php
   - src/Models/Shared/ValueChange.php
   - src/Models/Shared/SchemaDiff.php
+  - src/Models/Shared/ApiKeyDetails.php
   - src/Models/Shared/UnboundedRequest.php
   - src/Models/Shared/BoundedRequest.php
   - src/Models/Shared/RequestMetadata.php
   - src/Models/Shared/Filters.php
   - src/Models/Shared/Filter.php
-  - src/Models/Shared/Plugin.php
   - src/Models/Shared/EmbedAccessTokenResponse.php
   - src/Models/Shared/EmbedToken.php
+  - src/Models/Shared/GenerateBumpType.php
+  - src/Models/Shared/InteractionType.php
+  - src/Models/Shared/CliEvent.php
   - src/Models/Shared/Security.php
-  - docs/Models/Operations/ValidateApiKeyResponse.md
   - docs/Models/Operations/DeleteApiRequest.md
   - docs/Models/Operations/DeleteApiResponse.md
   - docs/Models/Operations/GenerateOpenApiSpecRequest.md
@@ -193,21 +195,20 @@ generatedFiles:
   - docs/Models/Operations/RegisterSchemaRequestBody.md
   - docs/Models/Operations/RegisterSchemaRequest.md
   - docs/Models/Operations/RegisterSchemaResponse.md
+  - docs/Models/Operations/ValidateApiKeyResponse.md
   - docs/Models/Operations/GenerateRequestPostmanCollectionRequest.md
   - docs/Models/Operations/GenerateRequestPostmanCollectionResponse.md
   - docs/Models/Operations/GetRequestFromEventLogRequest.md
   - docs/Models/Operations/GetRequestFromEventLogResponse.md
   - docs/Models/Operations/QueryEventLogRequest.md
   - docs/Models/Operations/QueryEventLogResponse.md
-  - docs/Models/Operations/GetPluginsResponse.md
-  - docs/Models/Operations/RunPluginRequest.md
-  - docs/Models/Operations/RunPluginResponse.md
-  - docs/Models/Operations/UpsertPluginResponse.md
   - docs/Models/Operations/GetEmbedAccessTokenRequest.md
   - docs/Models/Operations/GetEmbedAccessTokenResponse.md
   - docs/Models/Operations/GetValidEmbedAccessTokensResponse.md
   - docs/Models/Operations/RevokeEmbedAccessTokenRequest.md
   - docs/Models/Operations/RevokeEmbedAccessTokenResponse.md
+  - docs/Models/Operations/PostWorkspaceEventsRequest.md
+  - docs/Models/Operations/PostWorkspaceEventsResponse.md
   - docs/Models/Shared/Error.md
   - docs/Models/Shared/GenerateOpenApiSpecDiff.md
   - docs/Models/Shared/Api.md
@@ -219,22 +220,26 @@ generatedFiles:
   - docs/Models/Shared/Schema.md
   - docs/Models/Shared/ValueChange.md
   - docs/Models/Shared/SchemaDiff.md
+  - docs/Models/Shared/ApiKeyDetails.md
   - docs/Models/Shared/UnboundedRequest.md
   - docs/Models/Shared/BoundedRequest.md
   - docs/Models/Shared/RequestMetadata.md
   - docs/Models/Shared/Filters.md
   - docs/Models/Shared/Filter.md
-  - docs/Models/Shared/Plugin.md
   - docs/Models/Shared/EmbedAccessTokenResponse.md
   - docs/Models/Shared/EmbedToken.md
+  - docs/Models/Shared/GenerateBumpType.md
+  - docs/Models/Shared/InteractionType.md
+  - docs/Models/Shared/CliEvent.md
   - docs/Models/Shared/Security.md
   - docs/sdks/sdk/README.md
   - docs/sdks/apis/README.md
   - docs/sdks/apiendpoints/README.md
   - docs/sdks/metadata/README.md
   - docs/sdks/schemas/README.md
+  - docs/sdks/auth/README.md
   - docs/sdks/requests/README.md
-  - docs/sdks/plugins/README.md
   - docs/sdks/embeds/README.md
+  - docs/sdks/events/README.md
   - USAGE.md
   - .gitattributes

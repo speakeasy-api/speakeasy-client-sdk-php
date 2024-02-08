@@ -54,6 +54,13 @@ class SDK
 	public Schemas $schemas;
 	
     /**
+     * REST APIs for managing Authentication
+     * 
+     * @var Auth $$auth
+     */
+	public Auth $auth;
+	
+    /**
      * REST APIs for retrieving request information
      * 
      * @var Requests $$requests
@@ -61,18 +68,18 @@ class SDK
 	public Requests $requests;
 	
     /**
-     * REST APIs for managing and running plugins
-     * 
-     * @var Plugins $$plugins
-     */
-	public Plugins $plugins;
-	
-    /**
      * REST APIs for managing embeds
      * 
      * @var Embeds $$embeds
      */
 	public Embeds $embeds;
+	
+    /**
+     * REST APIs for capturing event data
+     * 
+     * @var Events $$events
+     */
+	public Events $events;
 		
 	private SDKConfiguration $sdkConfiguration;
 
@@ -101,48 +108,12 @@ class SDK
 		
 		$this->schemas = new Schemas($this->sdkConfiguration);
 		
+		$this->auth = new Auth($this->sdkConfiguration);
+		
 		$this->requests = new Requests($this->sdkConfiguration);
 		
-		$this->plugins = new Plugins($this->sdkConfiguration);
-		
 		$this->embeds = new Embeds($this->sdkConfiguration);
+		
+		$this->events = new Events($this->sdkConfiguration);
 	}
-	
-    /**
-     * Validate the current api key.
-     * 
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\ValidateApiKeyResponse
-     */
-	public function validateApiKey(
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\ValidateApiKeyResponse
-    {
-        $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/auth/validate');
-        
-        $options = ['http_errors' => false];
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
-        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\ValidateApiKeyResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        
-        if ($httpResponse->getStatusCode() === 200) {
-        }
-        else {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
-            }
-        }
-
-        return $response;
-    }
 }

@@ -35,7 +35,7 @@ class Requests
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/eventlog/{requestID}/generate/postman', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/eventlog/{requestID}/generate/postman', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json;q=1, application/octet-stream;q=0';
@@ -78,7 +78,7 @@ class Requests
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/eventlog/{requestID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/eventlog/{requestID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -128,7 +128,7 @@ class Requests
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/eventlog/query');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -146,7 +146,7 @@ class Requests
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->classes = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\BoundedRequest>', 'json');
+                $response->boundedRequests = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\BoundedRequest>', 'json');
             }
         }
         else {

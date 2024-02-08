@@ -12,6 +12,14 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 class ValidateApiKeyResponse
 {
     /**
+     * OK
+     * 
+     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiKeyDetails $apiKeyDetails
+     */
+	
+    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiKeyDetails $apiKeyDetails = null;
+    
+    /**
      * HTTP response content type for this operation
      * 
      * @var string $contentType
@@ -45,6 +53,7 @@ class ValidateApiKeyResponse
     
 	public function __construct()
 	{
+		$this->apiKeyDetails = null;
 		$this->contentType = "";
 		$this->error = null;
 		$this->statusCode = 0;

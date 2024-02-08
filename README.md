@@ -29,6 +29,7 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
     ->setSecurity($security)
     ->build();
 
@@ -42,7 +43,7 @@ try {
 
     $response = $sdk->apis->getApis($request);
 
-    if ($response->classes !== null) {
+    if ($response->apis !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -54,10 +55,6 @@ try {
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
-### [SDK](docs/sdks/sdk/README.md)
-
-* [validateApiKey](docs/sdks/sdk/README.md#validateapikey) - Validate the current api key.
 
 ### [Apis](docs/sdks/apis/README.md)
 
@@ -96,23 +93,25 @@ try {
 * [getSchemas](docs/sdks/schemas/README.md#getschemas) - Get information about all schemas associated with a particular apiID.
 * [registerSchema](docs/sdks/schemas/README.md#registerschema) - Register a schema.
 
+### [Auth](docs/sdks/auth/README.md)
+
+* [validateApiKey](docs/sdks/auth/README.md#validateapikey) - Validate the current api key.
+
 ### [Requests](docs/sdks/requests/README.md)
 
 * [generateRequestPostmanCollection](docs/sdks/requests/README.md#generaterequestpostmancollection) - Generate a Postman collection for a particular request.
 * [getRequestFromEventLog](docs/sdks/requests/README.md#getrequestfromeventlog) - Get information about a particular request.
 * [queryEventLog](docs/sdks/requests/README.md#queryeventlog) - Query the event log to retrieve a list of requests.
 
-### [Plugins](docs/sdks/plugins/README.md)
-
-* [getPlugins](docs/sdks/plugins/README.md#getplugins) - Get all plugins for the current workspace.
-* [runPlugin](docs/sdks/plugins/README.md#runplugin) - Run a plugin
-* [upsertPlugin](docs/sdks/plugins/README.md#upsertplugin) - Upsert a plugin
-
 ### [Embeds](docs/sdks/embeds/README.md)
 
 * [getEmbedAccessToken](docs/sdks/embeds/README.md#getembedaccesstoken) - Get an embed access token for the current workspace.
 * [getValidEmbedAccessTokens](docs/sdks/embeds/README.md#getvalidembedaccesstokens) - Get all valid embed access tokens for the current workspace.
 * [revokeEmbedAccessToken](docs/sdks/embeds/README.md#revokeembedaccesstoken) - Revoke an embed access EmbedToken.
+
+### [Events](docs/sdks/events/README.md)
+
+* [postWorkspaceEvents](docs/sdks/events/README.md#postworkspaceevents) - Post events for a specific workspace
 <!-- End Available Resources and Operations [operations] -->
 
 
@@ -136,6 +135,59 @@ You can override the default server globally by passing a server name to the `se
 
 The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 <!-- End Server Selection [server] -->
+
+<!-- Start Global Parameters [global-parameters] -->
+## Global Parameters
+
+A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
+
+For example, you can set `workspaceID` to `'string'` at SDK initialization and then you do not have to pass the same value on calls to operations like `postWorkspaceEvents`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+
+
+### Available Globals
+
+The following global parameter is available.
+
+| Name | Type | Required | Description |
+| ---- | ---- |:--------:| ----------- |
+| workspaceID | string |  | The workspaceID parameter. |
+
+
+### Example
+
+```php
+<?php
+
+declare(strict_types=1);
+require_once 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
+$security = new Shared\Security();
+$security->apiKey = '<YOUR_API_KEY_HERE>';
+
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)
+    ->build();
+
+try {
+    $request = new Operations\PostWorkspaceEventsRequest();
+    $request->requestBody = [new Shared\CliEvent()];
+
+    $response = $sdk->events->postWorkspaceEvents($request);
+
+    if ($response->statusCode === 200) {
+        // handle response
+    }
+} catch (Exception $e) {
+    // handle exception
+}
+
+```
+<!-- End Global Parameters [global-parameters] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

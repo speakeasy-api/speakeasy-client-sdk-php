@@ -1,0 +1,9 @@
+# PostWorkspaceEventsRequest
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `requestBody`                                                                                  | array<[\Speakeasy\SpeakeasyClientSDK\Models\Shared\CliEvent](../../Models/Shared/CliEvent.md)> | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `workspaceID`                                                                                  | *?string*                                                                                      | :heavy_minus_sign:                                                                             | Unique identifier of the workspace.                                                            |

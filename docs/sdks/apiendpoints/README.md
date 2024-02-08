@@ -35,7 +35,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\DeleteApiEndpointRequest();
@@ -85,7 +87,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\FindApiEndpointRequest();
@@ -135,7 +139,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GenerateOpenApiSpecForApiEndpointRequest();
@@ -184,7 +190,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GeneratePostmanCollectionForApiEndpointRequest();
@@ -233,7 +241,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetAllApiEndpointsRequest();
@@ -241,7 +251,7 @@ try {
 
     $response = $sdk->apiEndpoints->getAllApiEndpoints($request);
 
-    if ($response->classes !== null) {
+    if ($response->apiEndpoints !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -280,7 +290,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetAllForVersionApiEndpointsRequest();
@@ -289,7 +301,7 @@ try {
 
     $response = $sdk->apiEndpoints->getAllForVersionApiEndpoints($request);
 
-    if ($response->classes !== null) {
+    if ($response->apiEndpoints !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -328,7 +340,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetApiEndpointRequest();
@@ -377,7 +391,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\UpsertApiEndpointRequest();

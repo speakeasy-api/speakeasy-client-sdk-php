@@ -20,6 +20,14 @@ class GetValidEmbedAccessTokensResponse
     public string $contentType;
     
     /**
+     * OK
+     * 
+     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\EmbedToken> $embedTokens
+     */
+	
+    public ?array $embedTokens = null;
+    
+    /**
      * Default error response
      * 
      * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
@@ -43,20 +51,12 @@ class GetValidEmbedAccessTokensResponse
 	
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
     
-    /**
-     * OK
-     * 
-     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\EmbedToken> $classes
-     */
-	
-    public ?array $classes = null;
-    
 	public function __construct()
 	{
 		$this->contentType = "";
+		$this->embedTokens = null;
 		$this->error = null;
 		$this->statusCode = 0;
 		$this->rawResponse = null;
-		$this->classes = null;
 	}
 }

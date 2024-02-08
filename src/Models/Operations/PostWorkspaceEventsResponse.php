@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 
-class UpsertPluginResponse
+class PostWorkspaceEventsResponse
 {
     /**
      * HTTP response content type for this operation
@@ -18,22 +18,6 @@ class UpsertPluginResponse
      */
 	
     public string $contentType;
-    
-    /**
-     * Default error response
-     * 
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
-     */
-	
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
-    
-    /**
-     * OK
-     * 
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Plugin $plugin
-     */
-	
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Plugin $plugin = null;
     
     /**
      * HTTP response status code for this operation
@@ -54,8 +38,6 @@ class UpsertPluginResponse
 	public function __construct()
 	{
 		$this->contentType = "";
-		$this->error = null;
-		$this->plugin = null;
 		$this->statusCode = 0;
 		$this->rawResponse = null;
 	}

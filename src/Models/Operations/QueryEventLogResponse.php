@@ -12,6 +12,14 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 class QueryEventLogResponse
 {
     /**
+     * OK
+     * 
+     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\BoundedRequest> $boundedRequests
+     */
+	
+    public ?array $boundedRequests = null;
+    
+    /**
      * HTTP response content type for this operation
      * 
      * @var string $contentType
@@ -43,20 +51,12 @@ class QueryEventLogResponse
 	
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
     
-    /**
-     * OK
-     * 
-     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\BoundedRequest> $classes
-     */
-	
-    public ?array $classes = null;
-    
 	public function __construct()
 	{
+		$this->boundedRequests = null;
 		$this->contentType = "";
 		$this->error = null;
 		$this->statusCode = 0;
 		$this->rawResponse = null;
-		$this->classes = null;
 	}
 }

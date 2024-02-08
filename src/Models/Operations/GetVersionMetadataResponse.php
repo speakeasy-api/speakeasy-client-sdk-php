@@ -46,10 +46,10 @@ class GetVersionMetadataResponse
     /**
      * OK
      * 
-     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadata> $classes
+     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadata> $versionMetadata
      */
 	
-    public ?array $classes = null;
+    public ?array $versionMetadata = null;
     
 	public function __construct()
 	{
@@ -57,6 +57,6 @@ class GetVersionMetadataResponse
 		$this->error = null;
 		$this->statusCode = 0;
 		$this->rawResponse = null;
-		$this->classes = null;
+		$this->versionMetadata = null;
 	}
 }

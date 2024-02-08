@@ -34,7 +34,7 @@ class Apis
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -77,7 +77,7 @@ class Apis
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/openapi', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/openapi', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -123,7 +123,7 @@ class Apis
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/postman', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/postman', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json;q=1, application/octet-stream;q=0';
@@ -169,10 +169,10 @@ class Apis
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -190,7 +190,7 @@ class Apis
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->classes = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\Api>', 'json');
+                $response->apis = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\Api>', 'json');
             }
         }
         else {
@@ -220,7 +220,7 @@ class Apis
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -238,7 +238,7 @@ class Apis
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->classes = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\Api>', 'json');
+                $response->apis = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\Api>', 'json');
             }
         }
         else {
@@ -265,7 +265,7 @@ class Apis
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, "api", "json");

@@ -32,7 +32,7 @@ class Metadata
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -72,7 +72,7 @@ class Metadata
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -92,7 +92,7 @@ class Metadata
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->classes = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadata>', 'json');
+                $response->versionMetadata = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadata>', 'json');
             }
         }
         else {
@@ -116,7 +116,7 @@ class Metadata
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, "versionMetadata", "json");

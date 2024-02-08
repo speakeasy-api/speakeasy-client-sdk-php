@@ -35,7 +35,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\DeleteSchemaRequest();
@@ -84,7 +86,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\DownloadSchemaRequest();
@@ -132,7 +136,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\DownloadSchemaRevisionRequest();
@@ -182,7 +188,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetSchemaRequest();
@@ -230,7 +238,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetSchemaDiffRequest();
@@ -281,7 +291,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetSchemaRevisionRequest();
@@ -331,7 +343,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetSchemasRequest();
@@ -380,7 +394,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\RegisterSchemaRequest();

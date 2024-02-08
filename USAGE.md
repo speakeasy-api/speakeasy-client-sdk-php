@@ -13,6 +13,7 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
     ->setSecurity($security)
     ->build();
 
@@ -26,7 +27,7 @@ try {
 
     $response = $sdk->apis->getApis($request);
 
-    if ($response->classes !== null) {
+    if ($response->apis !== null) {
         // handle response
     }
 } catch (Exception $e) {

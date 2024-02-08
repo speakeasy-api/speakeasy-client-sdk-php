@@ -30,7 +30,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\DeleteVersionMetadataRequest();
@@ -80,7 +82,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetVersionMetadataRequest();
@@ -89,7 +93,7 @@ try {
 
     $response = $sdk->metadata->getVersionMetadata($request);
 
-    if ($response->classes !== null) {
+    if ($response->versionMetadata !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -128,7 +132,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\InsertVersionMetadataRequest();

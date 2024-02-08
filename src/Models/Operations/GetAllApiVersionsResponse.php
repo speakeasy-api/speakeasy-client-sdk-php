@@ -12,6 +12,14 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 class GetAllApiVersionsResponse
 {
     /**
+     * OK
+     * 
+     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Api> $apis
+     */
+	
+    public ?array $apis = null;
+    
+    /**
      * HTTP response content type for this operation
      * 
      * @var string $contentType
@@ -43,20 +51,12 @@ class GetAllApiVersionsResponse
 	
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
     
-    /**
-     * OK
-     * 
-     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Api> $classes
-     */
-	
-    public ?array $classes = null;
-    
 	public function __construct()
 	{
+		$this->apis = null;
 		$this->contentType = "";
 		$this->error = null;
 		$this->statusCode = 0;
 		$this->rawResponse = null;
-		$this->classes = null;
 	}
 }

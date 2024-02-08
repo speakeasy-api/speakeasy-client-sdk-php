@@ -31,7 +31,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetEmbedAccessTokenRequest();
@@ -85,12 +87,14 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
     $response = $sdk->embeds->getValidEmbedAccessTokens();
 
-    if ($response->classes !== null) {
+    if ($response->embedTokens !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -123,7 +127,9 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('string')
+    ->setSecurity($security)->build();
 
 try {
         $request = new Operations\RevokeEmbedAccessTokenRequest();

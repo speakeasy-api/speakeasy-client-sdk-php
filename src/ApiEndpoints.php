@@ -34,7 +34,7 @@ class ApiEndpoints
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiEndpointRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -77,7 +77,7 @@ class ApiEndpoints
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/find/{displayName}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/find/{displayName}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\FindApiEndpointRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -124,7 +124,7 @@ class ApiEndpoints
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}/generate/openapi', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}/generate/openapi', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecForApiEndpointRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -170,7 +170,7 @@ class ApiEndpoints
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}/generate/postman', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}/generate/postman', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionForApiEndpointRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json;q=1, application/octet-stream;q=0';
@@ -213,7 +213,7 @@ class ApiEndpoints
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/api_endpoints', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/api_endpoints', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiEndpointsRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -233,7 +233,7 @@ class ApiEndpoints
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->classes = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiEndpoint>', 'json');
+                $response->apiEndpoints = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiEndpoint>', 'json');
             }
         }
         else {
@@ -257,7 +257,7 @@ class ApiEndpoints
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllForVersionApiEndpointsRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -277,7 +277,7 @@ class ApiEndpoints
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->classes = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiEndpoint>', 'json');
+                $response->apiEndpoints = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiEndpoint>', 'json');
             }
         }
         else {
@@ -301,7 +301,7 @@ class ApiEndpoints
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApiEndpointRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -347,7 +347,7 @@ class ApiEndpoints
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiEndpointResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiEndpointRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiEndpointRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, "apiEndpoint", "json");

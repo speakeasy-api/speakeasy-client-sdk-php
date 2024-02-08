@@ -32,7 +32,7 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -72,7 +72,7 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/download', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/download', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json;q=1, application/x-yaml;q=0';
@@ -118,7 +118,7 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}/download', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}/download', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json;q=1, application/x-yaml;q=0';
@@ -167,7 +167,7 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -211,7 +211,7 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{baseRevisionID}/diff/{targetRevisionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{baseRevisionID}/diff/{targetRevisionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -258,7 +258,7 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -305,7 +305,7 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schemas', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schemas', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -352,7 +352,7 @@ class Schemas
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, "requestBody", "multipart");
