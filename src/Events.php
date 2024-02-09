@@ -42,7 +42,7 @@ class Events
             throw new \Exception('Request body is required');
         }
         $options = array_merge_recursive($options, $body);
-        $options['headers']['Accept'] = '*/*';
+        $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
         $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
@@ -56,7 +56,13 @@ class Events
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
-        if (true) { /** @phpstan-ignore-line */
+        if (($httpResponse->getStatusCode() >= 200 && $httpResponse->getStatusCode() < 300)) {
+        }
+        else if (($httpResponse->getStatusCode() >= 500 && $httpResponse->getStatusCode() < 600)) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+            }
         }
 
         return $response;

@@ -19,6 +19,9 @@ class PostWorkspaceEventsResponse
 	
     public string $contentType;
     
+	
+    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
+    
     /**
      * HTTP response status code for this operation
      * 
@@ -38,6 +41,7 @@ class PostWorkspaceEventsResponse
 	public function __construct()
 	{
 		$this->contentType = "";
+		$this->error = null;
 		$this->statusCode = 0;
 		$this->rawResponse = null;
 	}
