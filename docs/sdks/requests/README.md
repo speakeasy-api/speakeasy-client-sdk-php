@@ -44,7 +44,7 @@ try {
     if ($response->postmanCollection !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -93,7 +93,7 @@ try {
     if ($response->unboundedRequest !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -149,7 +149,7 @@ try {
     if ($response->boundedRequests !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```

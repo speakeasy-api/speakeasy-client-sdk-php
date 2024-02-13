@@ -4,16 +4,16 @@ management:
   docChecksum: 557634d4bb5964b949ae70f79f40d856
   docVersion: 0.4.0
   speakeasyVersion: internal
-  generationVersion: 2.250.22
-  releaseVersion: 0.36.1
-  configChecksum: fa10ec4e6f634bae466c20c374c52a01
+  generationVersion: 2.253.0
+  releaseVersion: 0.36.2
+  configChecksum: a42afb9fd503fa81361257f702c23c1a
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
   published: true
 features:
   php:
-    core: 3.3.0
+    core: 3.3.1
     examples: 2.81.3
     globalSecurity: 2.81.3
     globalServerURLs: 2.82.1
@@ -34,6 +34,7 @@ generatedFiles:
   - src/SDKBuilder.php
   - composer.json
   - phpstan.neon
+  - rector.php
   - src/Utils/EnumHandler.php
   - src/Utils/FormMetadata.php
   - src/Utils/Headers.php
