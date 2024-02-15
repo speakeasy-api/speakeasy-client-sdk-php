@@ -29,7 +29,7 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {

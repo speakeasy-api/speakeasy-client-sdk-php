@@ -34,13 +34,13 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\DeleteApiRequest();
-    $request->apiID = 'string';
-    $request->versionID = 'string';;
+    $request->apiID = '<value>';
+    $request->versionID = '<value>';;
 
     $response = $sdk->apis->deleteApi($request);
 
@@ -85,13 +85,13 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GenerateOpenApiSpecRequest();
-    $request->apiID = 'string';
-    $request->versionID = 'string';;
+    $request->apiID = '<value>';
+    $request->versionID = '<value>';;
 
     $response = $sdk->apis->generateOpenApiSpec($request);
 
@@ -135,13 +135,13 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GeneratePostmanCollectionRequest();
-    $request->apiID = 'string';
-    $request->versionID = 'string';;
+    $request->apiID = '<value>';
+    $request->versionID = '<value>';;
 
     $response = $sdk->apis->generatePostmanCollection($request);
 
@@ -186,15 +186,15 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetAllApiVersionsRequest();
-    $request->apiID = 'string';
+    $request->apiID = '<value>';
     $request->metadata = [
         'azure' => [
-            'string',
+            '<value>',
         ],
     ];
     $request->op = new Operations\Op();
@@ -243,14 +243,14 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetApisRequest();
     $request->metadata = [
         'South' => [
-            'string',
+            '<value>',
         ],
     ];
     $request->op = new Operations\QueryParamOp();
@@ -299,21 +299,21 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\UpsertApiRequest();
     $request->api = new Shared\ApiInput();
-    $request->api->apiId = 'string';
+    $request->api->apiId = '<value>';
     $request->api->description = 'Synchronised 5th generation knowledge user';
     $request->api->metaData = [
         'redefine' => [
-            'string',
+            '<value>',
         ],
     ];
-    $request->api->versionId = 'string';
-    $request->apiID = 'string';;
+    $request->api->versionId = '<value>';
+    $request->apiID = '<value>';;
 
     $response = $sdk->apis->upsertApi($request);
 

@@ -11,12 +11,18 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class ApiKeyDetails
 {
+	#[\JMS\Serializer\Annotation\SerializedName('generation_access_unlimited')]
+    #[\JMS\Serializer\Annotation\Type('bool')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?bool $generationAccessUnlimited = null;
+    
 	#[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $workspaceId;
     
 	public function __construct()
 	{
+		$this->generationAccessUnlimited = null;
 		$this->workspaceId = "";
 	}
 }

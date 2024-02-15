@@ -29,14 +29,14 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)
     ->build();
 
 try {
     $request = new Operations\GetApisRequest();
     $request->metadata = [
-        'South' => ['string'],
+        'South' => ['<value>'],
     ];
     $request->op = new Operations\QueryParamOp();
     $request->op->and = false;
@@ -95,6 +95,7 @@ try {
 
 ### [Auth](docs/sdks/auth/README.md)
 
+* [getWorkspaceAccess](docs/sdks/auth/README.md#getworkspaceaccess) - Get access allowances for a particular workspace
 * [validateApiKey](docs/sdks/auth/README.md#validateapikey) - Validate the current api key.
 
 ### [Requests](docs/sdks/requests/README.md)
@@ -141,7 +142,7 @@ The default server can also be overridden globally by passing a URL to the `serv
 
 A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
 
-For example, you can set `workspaceID` to `'string'` at SDK initialization and then you do not have to pass the same value on calls to operations like `postWorkspaceEvents`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+For example, you can set `workspaceID` to `'<value>'` at SDK initialization and then you do not have to pass the same value on calls to operations like `postWorkspaceEvents`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
 
 
 ### Available Globals
@@ -169,7 +170,7 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)
     ->build();
 

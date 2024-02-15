@@ -31,15 +31,15 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\DeleteVersionMetadataRequest();
-    $request->apiID = 'string';
-    $request->metaKey = 'string';
-    $request->metaValue = 'string';
-    $request->versionID = 'string';;
+    $request->apiID = '<value>';
+    $request->metaKey = '<value>';
+    $request->metaValue = '<value>';
+    $request->versionID = '<value>';;
 
     $response = $sdk->metadata->deleteVersionMetadata($request);
 
@@ -83,13 +83,13 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetVersionMetadataRequest();
-    $request->apiID = 'string';
-    $request->versionID = 'string';;
+    $request->apiID = '<value>';
+    $request->versionID = '<value>';;
 
     $response = $sdk->metadata->getVersionMetadata($request);
 
@@ -133,16 +133,16 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\InsertVersionMetadataRequest();
     $request->versionMetadata = new Shared\VersionMetadataInput();
-    $request->versionMetadata->metaKey = 'string';
-    $request->versionMetadata->metaValue = 'string';
-    $request->apiID = 'string';
-    $request->versionID = 'string';;
+    $request->versionMetadata->metaKey = '<value>';
+    $request->versionMetadata->metaValue = '<value>';
+    $request->apiID = '<value>';
+    $request->versionID = '<value>';;
 
     $response = $sdk->metadata->insertVersionMetadata($request);
 

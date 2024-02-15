@@ -13,14 +13,14 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)
     ->build();
 
 try {
     $request = new Operations\GetApisRequest();
     $request->metadata = [
-        'South' => ['string'],
+        'South' => ['<value>'],
     ];
     $request->op = new Operations\QueryParamOp();
     $request->op->and = false;

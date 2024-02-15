@@ -32,12 +32,12 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GenerateRequestPostmanCollectionRequest();
-    $request->requestID = 'string';;
+    $request->requestID = '<value>';;
 
     $response = $sdk->requests->generateRequestPostmanCollection($request);
 
@@ -81,12 +81,12 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetRequestFromEventLogRequest();
-    $request->requestID = 'string';;
+    $request->requestID = '<value>';;
 
     $response = $sdk->requests->getRequestFromEventLog($request);
 
@@ -131,7 +131,7 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
@@ -142,7 +142,7 @@ try {
     ];
     $request->filters->limit = 241978;
     $request->filters->offset = 451388;
-    $request->filters->operator = 'string';;
+    $request->filters->operator = '<value>';;
 
     $response = $sdk->requests->queryEventLog($request);
 

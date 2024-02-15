@@ -32,7 +32,7 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
@@ -45,7 +45,7 @@ try {
     ];
     $request->filters->limit = 263313;
     $request->filters->offset = 411277;
-    $request->filters->operator = 'string';;
+    $request->filters->operator = '<value>';;
 
     $response = $sdk->embeds->getEmbedAccessToken($request);
 
@@ -88,7 +88,7 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
@@ -128,12 +128,12 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\RevokeEmbedAccessTokenRequest();
-    $request->tokenID = 'string';;
+    $request->tokenID = '<value>';;
 
     $response = $sdk->embeds->revokeEmbedAccessToken($request);
 

@@ -36,14 +36,14 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\DeleteApiEndpointRequest();
-    $request->apiEndpointID = 'string';
-    $request->apiID = 'string';
-    $request->versionID = 'string';;
+    $request->apiEndpointID = '<value>';
+    $request->apiID = '<value>';
+    $request->versionID = '<value>';;
 
     $response = $sdk->apiEndpoints->deleteApiEndpoint($request);
 
@@ -88,14 +88,14 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\FindApiEndpointRequest();
-    $request->apiID = 'string';
-    $request->displayName = 'string';
-    $request->versionID = 'string';;
+    $request->apiID = '<value>';
+    $request->displayName = 'Don.Strosin';
+    $request->versionID = '<value>';;
 
     $response = $sdk->apiEndpoints->findApiEndpoint($request);
 
@@ -140,14 +140,14 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GenerateOpenApiSpecForApiEndpointRequest();
-    $request->apiEndpointID = 'string';
-    $request->apiID = 'string';
-    $request->versionID = 'string';;
+    $request->apiEndpointID = '<value>';
+    $request->apiID = '<value>';
+    $request->versionID = '<value>';;
 
     $response = $sdk->apiEndpoints->generateOpenApiSpecForApiEndpoint($request);
 
@@ -191,14 +191,14 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GeneratePostmanCollectionForApiEndpointRequest();
-    $request->apiEndpointID = 'string';
-    $request->apiID = 'string';
-    $request->versionID = 'string';;
+    $request->apiEndpointID = '<value>';
+    $request->apiID = '<value>';
+    $request->versionID = '<value>';;
 
     $response = $sdk->apiEndpoints->generatePostmanCollectionForApiEndpoint($request);
 
@@ -242,12 +242,12 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetAllApiEndpointsRequest();
-    $request->apiID = 'string';;
+    $request->apiID = '<value>';;
 
     $response = $sdk->apiEndpoints->getAllApiEndpoints($request);
 
@@ -291,13 +291,13 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetAllForVersionApiEndpointsRequest();
-    $request->apiID = 'string';
-    $request->versionID = 'string';;
+    $request->apiID = '<value>';
+    $request->versionID = '<value>';;
 
     $response = $sdk->apiEndpoints->getAllForVersionApiEndpoints($request);
 
@@ -341,14 +341,14 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetApiEndpointRequest();
-    $request->apiEndpointID = 'string';
-    $request->apiID = 'string';
-    $request->versionID = 'string';;
+    $request->apiEndpointID = '<value>';
+    $request->apiID = '<value>';
+    $request->versionID = '<value>';;
 
     $response = $sdk->apiEndpoints->getApiEndpoint($request);
 
@@ -392,21 +392,21 @@ $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('string')
+    ->setWorkspaceID('<value>')
     ->setSecurity($security)->build();
 
 try {
         $request = new Operations\UpsertApiEndpointRequest();
     $request->apiEndpoint = new Shared\ApiEndpointInput();
-    $request->apiEndpoint->apiEndpointId = 'string';
+    $request->apiEndpoint->apiEndpointId = '<value>';
     $request->apiEndpoint->description = 'Public-key systematic attitude';
-    $request->apiEndpoint->displayName = 'string';
-    $request->apiEndpoint->method = 'string';
-    $request->apiEndpoint->path = '/etc/periodic';
-    $request->apiEndpoint->versionId = 'string';
-    $request->apiEndpointID = 'string';
-    $request->apiID = 'string';
-    $request->versionID = 'string';;
+    $request->apiEndpoint->displayName = 'Camille.Schaefer11';
+    $request->apiEndpoint->method = '<value>';
+    $request->apiEndpoint->path = '/Library';
+    $request->apiEndpoint->versionId = '<value>';
+    $request->apiEndpointID = '<value>';
+    $request->apiID = '<value>';
+    $request->versionID = '<value>';;
 
     $response = $sdk->apiEndpoints->upsertApiEndpoint($request);
 
