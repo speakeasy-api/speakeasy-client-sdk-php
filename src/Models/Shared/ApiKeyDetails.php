@@ -11,6 +11,10 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class ApiKeyDetails
 {
+	#[\JMS\Serializer\Annotation\SerializedName('account_type')]
+    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType>')]
+    public AccountType $accountType;
+    
 	#[\JMS\Serializer\Annotation\SerializedName('generation_access_unlimited')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
@@ -22,6 +26,7 @@ class ApiKeyDetails
     
 	public function __construct()
 	{
+		$this->accountType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType::Free;
 		$this->generationAccessUnlimited = null;
 		$this->workspaceId = "";
 	}

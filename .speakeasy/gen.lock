@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: c81aa4e807522359d28c09ee16d252ba
+  docChecksum: 90bb5b2f880d4a86868122f9a6b08d40
   docVersion: 0.4.0
   speakeasyVersion: internal
-  generationVersion: 2.258.0
-  releaseVersion: 0.36.3
-  configChecksum: d4c9319360492bf940372b307b2fc8b0
+  generationVersion: 2.262.2
+  releaseVersion: 0.36.4
+  configChecksum: 401dd0a872af9c4d7ba4f854f3e75e11
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -133,6 +133,7 @@ generatedFiles:
   - src/Models/Shared/ValueChange.php
   - src/Models/Shared/SchemaDiff.php
   - src/Models/Shared/AccessDetails.php
+  - src/Models/Shared/AccountType.php
   - src/Models/Shared/ApiKeyDetails.php
   - src/Models/Shared/UnboundedRequest.php
   - src/Models/Shared/BoundedRequest.php
@@ -227,6 +228,7 @@ generatedFiles:
   - docs/Models/Shared/ValueChange.md
   - docs/Models/Shared/SchemaDiff.md
   - docs/Models/Shared/AccessDetails.md
+  - docs/Models/Shared/AccountType.md
   - docs/Models/Shared/ApiKeyDetails.md
   - docs/Models/Shared/UnboundedRequest.md
   - docs/Models/Shared/BoundedRequest.md
