@@ -35,7 +35,9 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
 
 try {
         $request = new Operations\GetWorkspaceAccessRequest();
-    $request->genLockId = '<value>';;
+    $request->genLockId = '<value>';
+    $request->passive = false;
+    $request->targetType = '<value>';;
 
     $response = $sdk->auth->getWorkspaceAccess($request);
 

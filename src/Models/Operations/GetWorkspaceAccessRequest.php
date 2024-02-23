@@ -19,8 +19,26 @@ class GetWorkspaceAccessRequest
 	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=genLockId')]
     public ?string $genLockId = null;
     
+    /**
+     * Skip side-effects like incrementing metrics.
+     * 
+     * @var ?bool $passive
+     */
+	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=passive')]
+    public ?bool $passive = null;
+    
+    /**
+     * The type of the generated target.
+     * 
+     * @var ?string $targetType
+     */
+	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=targetType')]
+    public ?string $targetType = null;
+    
 	public function __construct()
 	{
 		$this->genLockId = null;
+		$this->passive = null;
+		$this->targetType = null;
 	}
 }
