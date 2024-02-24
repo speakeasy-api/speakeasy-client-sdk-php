@@ -21,7 +21,8 @@ Delete metadata for a particular apiID and versionID.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Speakeasy\SpeakeasyClientSDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
@@ -73,7 +74,8 @@ Get all metadata for a particular apiID and versionID.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Speakeasy\SpeakeasyClientSDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
@@ -123,7 +125,8 @@ Insert metadata for a particular apiID and versionID.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Speakeasy\SpeakeasyClientSDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared;

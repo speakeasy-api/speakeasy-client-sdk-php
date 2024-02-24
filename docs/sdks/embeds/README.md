@@ -22,7 +22,8 @@ Filters can be applied allowing views to be filtered to things like particular c
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Speakeasy\SpeakeasyClientSDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
@@ -79,7 +80,8 @@ Get all valid embed access tokens for the current workspace.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Speakeasy\SpeakeasyClientSDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
@@ -118,7 +120,8 @@ Revoke an embed access EmbedToken.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Speakeasy\SpeakeasyClientSDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
