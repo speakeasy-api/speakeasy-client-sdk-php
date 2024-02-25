@@ -14,4 +14,9 @@ enum InteractionType: string
 {
     case CliExec = 'CLI_EXEC';
     case TargetGenerate = 'TARGET_GENERATE';
+    case Authenticate = 'AUTHENTICATE';
+    case Quickstart = 'QUICKSTART';
+    case Run = 'RUN';
+    case Configure = 'CONFIGURE';
+    case Publish = 'PUBLISH';
 }

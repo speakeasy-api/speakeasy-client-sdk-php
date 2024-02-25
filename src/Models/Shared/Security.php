@@ -12,10 +12,14 @@ use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class Security
 {
 	#[SpeakeasyMetadata('security:scheme=true,type=apiKey,subtype=header,name=x-api-key')]
-    public string $apiKey;
+    public ?string $apiKey = null;
+    
+	#[SpeakeasyMetadata('security:scheme=true,type=http,subtype=bearer,name=Authorization')]
+    public ?string $bearer = null;
     
 	public function __construct()
 	{
-		$this->apiKey = "";
+		$this->apiKey = null;
+		$this->bearer = null;
 	}
 }

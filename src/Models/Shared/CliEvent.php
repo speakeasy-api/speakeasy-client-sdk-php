@@ -80,7 +80,7 @@ class CliEvent
     public ?string $generateConfigPostRaw = null;
     
     /**
-     * Version of the generated target (post generation)
+     * The version of the customer's SDK that we just generated
      * 
      * @var ?string $generateConfigPostVersion
      */
@@ -110,7 +110,7 @@ class CliEvent
     public ?string $generateConfigPreRaw = null;
     
     /**
-     * Version of the generated target (prior to generation)
+     * The version of the customer's SDK before we generated
      * 
      * @var ?string $generateConfigPreVersion
      */
@@ -397,6 +397,46 @@ class CliEvent
     public ?string $managementDocVersion = null;
     
     /**
+     * Name of the published package.
+     * 
+     * @var ?string $publishPackageName
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('publish_package_name')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $publishPackageName = null;
+    
+    /**
+     * Name of the registry where the package was published.
+     * 
+     * @var ?string $publishPackageRegistryName
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('publish_package_registry_name')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $publishPackageRegistryName = null;
+    
+    /**
+     * URL of the published package.
+     * 
+     * @var ?string $publishPackageUrl
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('publish_package_url')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $publishPackageUrl = null;
+    
+    /**
+     * Version of the published package.
+     * 
+     * @var ?string $publishPackageVersion
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('publish_package_version')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $publishPackageVersion = null;
+    
+    /**
      * Full CLI command.
      * 
      * @var ?string $rawCommand
@@ -493,6 +533,10 @@ class CliEvent
 		$this->localStartedAt = new \DateTime();
 		$this->managementDocChecksum = null;
 		$this->managementDocVersion = null;
+		$this->publishPackageName = null;
+		$this->publishPackageRegistryName = null;
+		$this->publishPackageUrl = null;
+		$this->publishPackageVersion = null;
 		$this->rawCommand = null;
 		$this->repoLabel = null;
 		$this->speakeasyApiKeyName = "";

@@ -9,16 +9,8 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 
-class GetWorkspaceAccessResponse
+class GetWorkspaceTargetsResponse
 {
-    /**
-     * OK
-     * 
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessDetails $accessDetails
-     */
-	
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessDetails $accessDetails = null;
-    
     /**
      * HTTP response content type for this operation
      * 
@@ -26,6 +18,9 @@ class GetWorkspaceAccessResponse
      */
 	
     public string $contentType;
+    
+	
+    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
     
     /**
      * HTTP response status code for this operation
@@ -43,11 +38,20 @@ class GetWorkspaceAccessResponse
 	
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
     
+    /**
+     * Success
+     * 
+     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\TargetSDK> $targetSDKList
+     */
+	
+    public ?array $targetSDKList = null;
+    
 	public function __construct()
 	{
-		$this->accessDetails = null;
 		$this->contentType = "";
+		$this->error = null;
 		$this->statusCode = 0;
 		$this->rawResponse = null;
+		$this->targetSDKList = null;
 	}
 }

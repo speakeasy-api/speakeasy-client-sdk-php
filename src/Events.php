@@ -22,6 +22,95 @@ class Events
 	}
 	
     /**
+     * Load recent events for a particular workspace
+     * 
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsRequest $request
+     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsResponse
+     */
+	public function getWorkspaceEvents(
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspaceID}/events', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsRequest::class, $request, $this->sdkConfiguration->globals);
+        
+        $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsRequest::class, $request, $this->sdkConfiguration->globals));
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        
+        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->cliEventBatch = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\CliEvent>', 'json');
+            }
+        }
+        else if (($httpResponse->getStatusCode() >= 500 && $httpResponse->getStatusCode() < 600)) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+            }
+        }
+
+        return $response;
+    }
+	
+    /**
+     * Load targets for a particular workspace
+     * 
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceTargetsRequest $request
+     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceTargetsResponse
+     */
+	public function getWorkspaceTargets(
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceTargetsRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceTargetsResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspaceID}/events/targets', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceTargetsRequest::class, $request, $this->sdkConfiguration->globals);
+        
+        $options = ['http_errors' => false];
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        
+        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceTargetsResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->targetSDKList = $serializer->deserialize((string)$httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\TargetSDK>', 'json');
+            }
+        }
+        else if (($httpResponse->getStatusCode() >= 500 && $httpResponse->getStatusCode() < 600)) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+            }
+        }
+
+        return $response;
+    }
+	
+    /**
      * Post events for a specific workspace
      * 
      * Sends an array of events to be stored for a particular workspace.

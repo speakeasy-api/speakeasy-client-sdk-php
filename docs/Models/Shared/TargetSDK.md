@@ -1,0 +1,19 @@
+# TargetSDK
+
+
+## Fields
+
+| Field                                                         | Type                                                          | Required                                                      | Description                                                   |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `commitHead`                                                  | *?string*                                                     | :heavy_minus_sign:                                            | Remote commit ID.                                             |
+| `createdAt`                                                   | [\DateTime](https://www.php.net/manual/en/class.datetime.php) | :heavy_check_mark:                                            | Timestamp when the event was created in the database.         |
+| `generateConfigPostVersion`                                   | *?string*                                                     | :heavy_minus_sign:                                            | Version of the generated target (post generation)             |
+| `generateGenLockId`                                           | *?string*                                                     | :heavy_minus_sign:                                            | gen.lock ID (expected to be a uuid).                          |
+| `generatePublished`                                           | *?bool*                                                       | :heavy_minus_sign:                                            | Indicates whether the target was considered published.        |
+| `generateTarget`                                              | *string*                                                      | :heavy_check_mark:                                            | The target of the event.                                      |
+| `generateTargetVersion`                                       | *?string*                                                     | :heavy_minus_sign:                                            | The version of the target.                                    |
+| `gitRelativeCwd`                                              | *?string*                                                     | :heavy_minus_sign:                                            | Current working directory relative to the git root.           |
+| `gitRemoteDefaultOwner`                                       | *?string*                                                     | :heavy_minus_sign:                                            | Default owner for git remote.                                 |
+| `gitRemoteDefaultRepo`                                        | *?string*                                                     | :heavy_minus_sign:                                            | Default repository name for git remote.                       |
+| `id`                                                          | *string*                                                      | :heavy_check_mark:                                            | Unique identifier for each event.                             |
+| `success`                                                     | *?bool*                                                       | :heavy_minus_sign:                                            | Indicates whether the event was successful.                   |
