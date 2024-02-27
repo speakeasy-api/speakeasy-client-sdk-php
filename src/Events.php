@@ -80,6 +80,7 @@ class Events
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspaceID}/events/targets', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceTargetsRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceTargetsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         

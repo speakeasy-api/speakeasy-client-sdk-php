@@ -180,6 +180,10 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
 
 try {
     $request = new Operations\GetWorkspaceEventsRequest();
+    $request->afterCreatedAt = DateTime::createFromFormat(
+        'Y-m-d\TH:i:s+',
+        '2024-04-02T06:03:54.204Z',
+    );
     $request->generateGenLockId = '<value>';
 
     $response = $sdk->events->getWorkspaceEvents($request);

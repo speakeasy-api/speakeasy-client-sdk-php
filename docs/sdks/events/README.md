@@ -37,6 +37,7 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
 
 try {
         $request = new Operations\GetWorkspaceEventsRequest();
+    $request->afterCreatedAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2024-04-02T06:03:54.204Z');
     $request->generateGenLockId = '<value>';;
 
     $response = $sdk->events->getWorkspaceEvents($request);
@@ -86,7 +87,8 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)->build();
 
 try {
-        $request = new Operations\GetWorkspaceTargetsRequest();;
+        $request = new Operations\GetWorkspaceTargetsRequest();
+    $request->afterLastEventCreatedAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2024-11-24T17:59:46.647Z');;
 
     $response = $sdk->events->getWorkspaceTargets($request);
 

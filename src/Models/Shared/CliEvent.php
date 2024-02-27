@@ -320,7 +320,7 @@ class CliEvent
     public ?string $gitUserEmail = null;
     
     /**
-     * User name from git configuration.
+     * User's name from git configuration. (not GitHub username)
      * 
      * @var ?string $gitUserName
      */

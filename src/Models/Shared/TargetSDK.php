@@ -22,15 +22,6 @@ class TargetSDK
     public ?string $commitHead = null;
     
     /**
-     * Timestamp when the event was created in the database.
-     * 
-     * @var \DateTime $createdAt
-     */
-	#[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
-    public \DateTime $createdAt;
-    
-    /**
      * Version of the generated target (post generation)
      * 
      * @var ?string $generateConfigPostVersion
@@ -41,14 +32,13 @@ class TargetSDK
     public ?string $generateConfigPostVersion = null;
     
     /**
-     * gen.lock ID (expected to be a uuid).
+     * gen.lock ID (expected to be a uuid). The same as `id`. A unique identifier for the target.
      * 
-     * @var ?string $generateGenLockId
+     * @var string $generateGenLockId
      */
 	#[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_id')]
     #[\JMS\Serializer\Annotation\Type('string')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $generateGenLockId = null;
+    public string $generateGenLockId;
     
     /**
      * Indicates whether the target was considered published.
@@ -70,7 +60,7 @@ class TargetSDK
     public string $generateTarget;
     
     /**
-     * The version of the target.
+     * The version of the Speakeasy generator for this target eg v2 of the typescript generator.
      * 
      * @var ?string $generateTargetVersion
      */
@@ -78,6 +68,46 @@ class TargetSDK
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $generateTargetVersion = null;
+    
+    /**
+     * GitHub organization of the action.
+     * 
+     * @var ?string $ghActionOrganization
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('gh_action_organization')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $ghActionOrganization = null;
+    
+    /**
+     * GitHub repository of the action.
+     * 
+     * @var ?string $ghActionRepository
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('gh_action_repository')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $ghActionRepository = null;
+    
+    /**
+     * Link to the GitHub action run.
+     * 
+     * @var ?string $ghActionRunLink
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('gh_action_run_link')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $ghActionRunLink = null;
+    
+    /**
+     * Version of the GitHub action.
+     * 
+     * @var ?string $ghActionVersion
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('gh_action_version')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $ghActionVersion = null;
     
     /**
      * Current working directory relative to the git root.
@@ -110,13 +140,71 @@ class TargetSDK
     public ?string $gitRemoteDefaultRepo = null;
     
     /**
-     * Unique identifier for each event.
+     * User email from git configuration.
+     * 
+     * @var ?string $gitUserEmail
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('git_user_email')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $gitUserEmail = null;
+    
+    /**
+     * User's name from git configuration. (not GitHub username)
+     * 
+     * @var ?string $gitUserName
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('git_user_name')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $gitUserName = null;
+    
+    /**
+     * Remote hostname.
+     * 
+     * @var ?string $hostname
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('hostname')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $hostname = null;
+    
+    /**
+     * Unique identifier of the target the same as `generate_gen_lock_id`
      * 
      * @var string $id
      */
 	#[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
+    
+    /**
+     * Timestamp when the event was created in the database.
+     * 
+     * @var \DateTime $lastEventCreatedAt
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('last_event_created_at')]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
+    public \DateTime $lastEventCreatedAt;
+    
+    /**
+     * Unique identifier of the last event for the target
+     * 
+     * @var string $lastEventId
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('last_event_id')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    public string $lastEventId;
+    
+    /**
+     * Label of the git repository.
+     * 
+     * @var ?string $repoLabel
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('repo_label')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $repoLabel = null;
     
     /**
      * Indicates whether the event was successful.
@@ -131,16 +219,25 @@ class TargetSDK
 	public function __construct()
 	{
 		$this->commitHead = null;
-		$this->createdAt = new \DateTime();
 		$this->generateConfigPostVersion = null;
-		$this->generateGenLockId = null;
+		$this->generateGenLockId = "";
 		$this->generatePublished = null;
 		$this->generateTarget = "";
 		$this->generateTargetVersion = null;
+		$this->ghActionOrganization = null;
+		$this->ghActionRepository = null;
+		$this->ghActionRunLink = null;
+		$this->ghActionVersion = null;
 		$this->gitRelativeCwd = null;
 		$this->gitRemoteDefaultOwner = null;
 		$this->gitRemoteDefaultRepo = null;
+		$this->gitUserEmail = null;
+		$this->gitUserName = null;
+		$this->hostname = null;
 		$this->id = "";
+		$this->lastEventCreatedAt = new \DateTime();
+		$this->lastEventId = "";
+		$this->repoLabel = null;
 		$this->success = null;
 	}
 }
