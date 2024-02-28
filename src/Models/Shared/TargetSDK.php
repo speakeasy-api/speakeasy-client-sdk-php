@@ -51,13 +51,23 @@ class TargetSDK
     public ?bool $generatePublished = null;
     
     /**
-     * The target of the event.
+     * eg `typescript`, `terraform`, `python`
      * 
      * @var string $generateTarget
      */
 	#[\JMS\Serializer\Annotation\SerializedName('generate_target')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $generateTarget;
+    
+    /**
+     * The name of the target as defined by the user.
+     * 
+     * @var ?string $generateTargetName
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('generate_target_name')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $generateTargetName = null;
     
     /**
      * The version of the Speakeasy generator for this target eg v2 of the typescript generator.
@@ -223,6 +233,7 @@ class TargetSDK
 		$this->generateGenLockId = "";
 		$this->generatePublished = null;
 		$this->generateTarget = "";
+		$this->generateTargetName = null;
 		$this->generateTargetVersion = null;
 		$this->ghActionOrganization = null;
 		$this->ghActionRepository = null;

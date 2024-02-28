@@ -15,8 +15,13 @@ class AccessDetails
     #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $generationAllowed;
     
+	#[\JMS\Serializer\Annotation\SerializedName('message')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    public string $message;
+    
 	public function __construct()
 	{
 		$this->generationAllowed = false;
+		$this->message = "";
 	}
 }

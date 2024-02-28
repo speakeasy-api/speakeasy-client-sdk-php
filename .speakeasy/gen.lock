@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 2341dd6743191a8c0148cd7bca25811d
+  docChecksum: e7803aa801c8a80e23dbe21edbf4e9c5
   docVersion: 0.4.0
   speakeasyVersion: internal
   generationVersion: 2.272.7
-  releaseVersion: 0.36.8
-  configChecksum: 105ee59f0b4b8e2fc6c80cba266a78f6
+  releaseVersion: 0.36.9
+  configChecksum: 719548c0f6c3be7054e6f93ae7530716
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
