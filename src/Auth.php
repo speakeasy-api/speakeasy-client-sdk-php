@@ -22,6 +22,51 @@ class Auth
 	}
 	
     /**
+     * Get or refresh an access token for the current workspace.
+     * 
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAccessTokenRequest $request
+     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAccessTokenResponse
+     */
+	public function getAccessToken(
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAccessTokenRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAccessTokenResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/auth/access_token');
+        
+        $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAccessTokenRequest::class, $request, $this->sdkConfiguration->globals));
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAccessTokenResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->accessToken = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessToken', 'json');
+            }
+        }
+        else {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+            }
+        }
+
+        return $response;
+    }
+	
+    /**
      * Get access allowances for a particular workspace
      * 
      * Checks if generation is permitted for a particular run of the CLI

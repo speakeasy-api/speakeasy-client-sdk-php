@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: e7803aa801c8a80e23dbe21edbf4e9c5
+  docChecksum: 9e766720141ee71ea97dae02c573b883
   docVersion: 0.4.0
   speakeasyVersion: internal
-  generationVersion: 2.272.7
-  releaseVersion: 0.36.9
-  configChecksum: 719548c0f6c3be7054e6f93ae7530716
+  generationVersion: 2.275.4
+  releaseVersion: 0.36.10
+  configChecksum: 1f1b3462d8959b710dd4c3a188ceddc4
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -105,6 +105,8 @@ generatedFiles:
   - src/Models/Operations/RegisterSchemaRequestBody.php
   - src/Models/Operations/RegisterSchemaRequest.php
   - src/Models/Operations/RegisterSchemaResponse.php
+  - src/Models/Operations/GetAccessTokenRequest.php
+  - src/Models/Operations/GetAccessTokenResponse.php
   - src/Models/Operations/GetWorkspaceAccessRequest.php
   - src/Models/Operations/GetWorkspaceAccessResponse.php
   - src/Models/Operations/ValidateApiKeyResponse.php
@@ -136,6 +138,10 @@ generatedFiles:
   - src/Models/Shared/Schema.php
   - src/Models/Shared/ValueChange.php
   - src/Models/Shared/SchemaDiff.php
+  - src/Models/Shared/Claims.php
+  - src/Models/Shared/User.php
+  - src/Models/Shared/Workspaces.php
+  - src/Models/Shared/AccessToken.php
   - src/Models/Shared/AccessDetails.php
   - src/Models/Shared/AccountType.php
   - src/Models/Shared/ApiKeyDetails.php
@@ -205,6 +211,8 @@ generatedFiles:
   - docs/Models/Operations/RegisterSchemaRequestBody.md
   - docs/Models/Operations/RegisterSchemaRequest.md
   - docs/Models/Operations/RegisterSchemaResponse.md
+  - docs/Models/Operations/GetAccessTokenRequest.md
+  - docs/Models/Operations/GetAccessTokenResponse.md
   - docs/Models/Operations/GetWorkspaceAccessRequest.md
   - docs/Models/Operations/GetWorkspaceAccessResponse.md
   - docs/Models/Operations/ValidateApiKeyResponse.md
@@ -236,6 +244,10 @@ generatedFiles:
   - docs/Models/Shared/Schema.md
   - docs/Models/Shared/ValueChange.md
   - docs/Models/Shared/SchemaDiff.md
+  - docs/Models/Shared/Claims.md
+  - docs/Models/Shared/User.md
+  - docs/Models/Shared/Workspaces.md
+  - docs/Models/Shared/AccessToken.md
   - docs/Models/Shared/AccessDetails.md
   - docs/Models/Shared/AccountType.md
   - docs/Models/Shared/ApiKeyDetails.md

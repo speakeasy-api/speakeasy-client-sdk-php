@@ -1,0 +1,13 @@
+# AccessToken
+
+An AccessToken is a token that can be used to authenticate with the Speakeasy API.
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `accessToken`                                                                                      | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `claims`                                                                                           | [\Speakeasy\SpeakeasyClientSDK\Models\Shared\Claims](../../Models/Shared/Claims.md)                | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `user`                                                                                             | [\Speakeasy\SpeakeasyClientSDK\Models\Shared\User](../../Models/Shared/User.md)                    | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `workspaces`                                                                                       | array<[\Speakeasy\SpeakeasyClientSDK\Models\Shared\Workspaces](../../Models/Shared/Workspaces.md)> | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
