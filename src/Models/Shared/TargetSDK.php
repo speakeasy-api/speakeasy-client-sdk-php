@@ -226,6 +226,15 @@ class TargetSDK
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $success = null;
     
+    /**
+     * Total number of events for the target
+     * 
+     * @var int $totalEvents
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('total_events')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    public int $totalEvents;
+    
 	public function __construct()
 	{
 		$this->commitHead = null;
@@ -250,5 +259,6 @@ class TargetSDK
 		$this->lastEventId = "";
 		$this->repoLabel = null;
 		$this->success = null;
+		$this->totalEvents = 0;
 	}
 }
