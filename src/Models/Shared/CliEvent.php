@@ -22,6 +22,16 @@ class CliEvent
     public ?string $commitHead = null;
     
     /**
+     * Name of the CI environment.
+     * 
+     * @var ?string $continuousIntegrationEnvironment
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('continuous_integration_environment')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $continuousIntegrationEnvironment = null;
+    
+    /**
      * Timestamp when the event was created in the database.
      * 
      * @var \DateTime $createdAt
@@ -495,6 +505,7 @@ class CliEvent
 	public function __construct()
 	{
 		$this->commitHead = null;
+		$this->continuousIntegrationEnvironment = null;
 		$this->createdAt = new \DateTime();
 		$this->durationMs = null;
 		$this->executionId = "";

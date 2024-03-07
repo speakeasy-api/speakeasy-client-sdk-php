@@ -22,6 +22,16 @@ class TargetSDK
     public ?string $commitHead = null;
     
     /**
+     * Name of the CI environment.
+     * 
+     * @var ?string $continuousIntegrationEnvironment
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('continuous_integration_environment')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $continuousIntegrationEnvironment = null;
+    
+    /**
      * Version of the generated target (post generation)
      * 
      * @var ?string $generateConfigPostVersion
@@ -39,6 +49,26 @@ class TargetSDK
 	#[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $generateGenLockId;
+    
+    /**
+     * Features prior to generation
+     * 
+     * @var ?string $generateGenLockPreFeatures
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_features')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $generateGenLockPreFeatures = null;
+    
+    /**
+     * Artifact version for the Previous Generation
+     * 
+     * @var ?string $generateGenLockPreVersion
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_version')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $generateGenLockPreVersion = null;
     
     /**
      * Indicates whether the target was considered published.
@@ -226,20 +256,14 @@ class TargetSDK
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $success = null;
     
-    /**
-     * Total number of events for the target
-     * 
-     * @var int $totalEvents
-     */
-	#[\JMS\Serializer\Annotation\SerializedName('total_events')]
-    #[\JMS\Serializer\Annotation\Type('int')]
-    public int $totalEvents;
-    
 	public function __construct()
 	{
 		$this->commitHead = null;
+		$this->continuousIntegrationEnvironment = null;
 		$this->generateConfigPostVersion = null;
 		$this->generateGenLockId = "";
+		$this->generateGenLockPreFeatures = null;
+		$this->generateGenLockPreVersion = null;
 		$this->generatePublished = null;
 		$this->generateTarget = "";
 		$this->generateTargetName = null;
@@ -259,6 +283,5 @@ class TargetSDK
 		$this->lastEventId = "";
 		$this->repoLabel = null;
 		$this->success = null;
-		$this->totalEvents = 0;
 	}
 }
