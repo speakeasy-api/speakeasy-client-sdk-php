@@ -237,6 +237,15 @@ class TargetSDK
     public string $lastEventId;
     
     /**
+     * Type of interaction.
+     * 
+     * @var \Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType $lastEventInteractionType
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('last_event_interaction_type')]
+    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType>')]
+    public InteractionType $lastEventInteractionType;
+    
+    /**
      * Label of the git repository.
      * 
      * @var ?string $repoLabel
@@ -281,6 +290,7 @@ class TargetSDK
 		$this->id = "";
 		$this->lastEventCreatedAt = new \DateTime();
 		$this->lastEventId = "";
+		$this->lastEventInteractionType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType::CiExec;
 		$this->repoLabel = null;
 		$this->success = null;
 	}

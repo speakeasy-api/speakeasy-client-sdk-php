@@ -539,7 +539,7 @@ class CliEvent
 		$this->gitUserName = null;
 		$this->hostname = null;
 		$this->id = "";
-		$this->interactionType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType::CliExec;
+		$this->interactionType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType::CiExec;
 		$this->localCompletedAt = null;
 		$this->localStartedAt = new \DateTime();
 		$this->managementDocChecksum = null;

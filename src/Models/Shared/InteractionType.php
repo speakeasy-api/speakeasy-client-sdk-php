@@ -12,8 +12,10 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 /** Type of interaction. */
 enum InteractionType: string
 {
+    case CiExec = 'CI_EXEC';
     case CliExec = 'CLI_EXEC';
     case TargetGenerate = 'TARGET_GENERATE';
+    case Tombstone = 'TOMBSTONE';
     case Authenticate = 'AUTHENTICATE';
     case Quickstart = 'QUICKSTART';
     case Run = 'RUN';
