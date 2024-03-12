@@ -15,6 +15,11 @@ class AccessDetails
     #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $generationAllowed;
     
+	#[\JMS\Serializer\Annotation\SerializedName('level')]
+    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\Level>')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?Level $level = null;
+    
 	#[\JMS\Serializer\Annotation\SerializedName('message')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $message;
@@ -22,6 +27,7 @@ class AccessDetails
 	public function __construct()
 	{
 		$this->generationAllowed = false;
+		$this->level = null;
 		$this->message = "";
 	}
 }

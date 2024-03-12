@@ -67,6 +67,8 @@ class SDK
      */
 	public Requests $requests;
 	
+	public Organizations $organizations;
+	
     /**
      * REST APIs for managing embeds
      * 
@@ -110,6 +112,8 @@ class SDK
 		$this->auth = new Auth($this->sdkConfiguration);
 		
 		$this->requests = new Requests($this->sdkConfiguration);
+		
+		$this->organizations = new Organizations($this->sdkConfiguration);
 		
 		$this->embeds = new Embeds($this->sdkConfiguration);
 		

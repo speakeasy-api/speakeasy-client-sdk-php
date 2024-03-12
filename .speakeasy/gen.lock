@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 64b423d1904e6c12d31973957d033247
+  docChecksum: 3d1ffb0cc7307a0362c5389c0fa1fdb5
   docVersion: 0.4.0
-  speakeasyVersion: 1.204.1
+  speakeasyVersion: 1.205.2
   generationVersion: 2.279.1
-  releaseVersion: 0.36.13
-  configChecksum: 5194b8d3d8cf43a2cce2d99b454a595d
+  releaseVersion: 0.36.14
+  configChecksum: 02c2a812495c6173b5679248cc4c0769
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -28,6 +28,7 @@ generatedFiles:
   - src/Schemas.php
   - src/Auth.php
   - src/Requests.php
+  - src/Organizations.php
   - src/Embeds.php
   - src/Events.php
   - src/SDK.php
@@ -116,6 +117,7 @@ generatedFiles:
   - src/Models/Operations/GetRequestFromEventLogResponse.php
   - src/Models/Operations/QueryEventLogRequest.php
   - src/Models/Operations/QueryEventLogResponse.php
+  - src/Models/Operations/GetOrganizationsResponse.php
   - src/Models/Operations/GetEmbedAccessTokenRequest.php
   - src/Models/Operations/GetEmbedAccessTokenResponse.php
   - src/Models/Operations/GetValidEmbedAccessTokensResponse.php
@@ -142,6 +144,7 @@ generatedFiles:
   - src/Models/Shared/User.php
   - src/Models/Shared/Workspaces.php
   - src/Models/Shared/AccessToken.php
+  - src/Models/Shared/Level.php
   - src/Models/Shared/AccessDetails.php
   - src/Models/Shared/AccountType.php
   - src/Models/Shared/ApiKeyDetails.php
@@ -150,6 +153,8 @@ generatedFiles:
   - src/Models/Shared/RequestMetadata.php
   - src/Models/Shared/Filters.php
   - src/Models/Shared/Filter.php
+  - src/Models/Shared/OrganizationAccountType.php
+  - src/Models/Shared/Organization.php
   - src/Models/Shared/EmbedAccessTokenResponse.php
   - src/Models/Shared/EmbedToken.php
   - src/Models/Shared/GenerateBumpType.php
@@ -222,6 +227,7 @@ generatedFiles:
   - docs/Models/Operations/GetRequestFromEventLogResponse.md
   - docs/Models/Operations/QueryEventLogRequest.md
   - docs/Models/Operations/QueryEventLogResponse.md
+  - docs/Models/Operations/GetOrganizationsResponse.md
   - docs/Models/Operations/GetEmbedAccessTokenRequest.md
   - docs/Models/Operations/GetEmbedAccessTokenResponse.md
   - docs/Models/Operations/GetValidEmbedAccessTokensResponse.md
@@ -248,6 +254,7 @@ generatedFiles:
   - docs/Models/Shared/User.md
   - docs/Models/Shared/Workspaces.md
   - docs/Models/Shared/AccessToken.md
+  - docs/Models/Shared/Level.md
   - docs/Models/Shared/AccessDetails.md
   - docs/Models/Shared/AccountType.md
   - docs/Models/Shared/ApiKeyDetails.md
@@ -256,6 +263,8 @@ generatedFiles:
   - docs/Models/Shared/RequestMetadata.md
   - docs/Models/Shared/Filters.md
   - docs/Models/Shared/Filter.md
+  - docs/Models/Shared/OrganizationAccountType.md
+  - docs/Models/Shared/Organization.md
   - docs/Models/Shared/EmbedAccessTokenResponse.md
   - docs/Models/Shared/EmbedToken.md
   - docs/Models/Shared/GenerateBumpType.md
@@ -270,6 +279,7 @@ generatedFiles:
   - docs/sdks/schemas/README.md
   - docs/sdks/auth/README.md
   - docs/sdks/requests/README.md
+  - docs/sdks/organizations/README.md
   - docs/sdks/embeds/README.md
   - docs/sdks/events/README.md
   - USAGE.md

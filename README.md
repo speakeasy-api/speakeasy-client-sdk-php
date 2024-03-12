@@ -106,6 +106,10 @@ try {
 * [getRequestFromEventLog](docs/sdks/requests/README.md#getrequestfromeventlog) - Get information about a particular request.
 * [queryEventLog](docs/sdks/requests/README.md#queryeventlog) - Query the event log to retrieve a list of requests.
 
+### [Organizations](docs/sdks/organizations/README.md)
+
+* [getOrganizations](docs/sdks/organizations/README.md#getorganizations) - Get organizations for a user
+
 ### [Embeds](docs/sdks/embeds/README.md)
 
 * [getEmbedAccessToken](docs/sdks/embeds/README.md#getembedaccesstoken) - Get an embed access token for the current workspace.
