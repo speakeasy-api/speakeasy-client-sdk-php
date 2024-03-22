@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 3d1ffb0cc7307a0362c5389c0fa1fdb5
+  docChecksum: 17e2e733dfd588a7103c3c70e91b24b5
   docVersion: 0.4.0
-  speakeasyVersion: 1.205.2
-  generationVersion: 2.279.1
-  releaseVersion: 0.36.14
-  configChecksum: 02c2a812495c6173b5679248cc4c0769
+  speakeasyVersion: 1.219.2
+  generationVersion: 2.286.7
+  releaseVersion: 0.36.15
+  configChecksum: 66c04017e01dc8aa1e5e4b1c506bb837
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -15,7 +15,7 @@ features:
   php:
     core: 3.3.3
     examples: 2.81.3
-    globalSecurity: 2.81.5
+    globalSecurity: 2.81.6
     globalServerURLs: 2.82.1
     globals: 2.81.1
     inputOutputModels: 2.83.0
@@ -108,6 +108,7 @@ generatedFiles:
   - src/Models/Operations/RegisterSchemaResponse.php
   - src/Models/Operations/GetAccessTokenRequest.php
   - src/Models/Operations/GetAccessTokenResponse.php
+  - src/Models/Operations/GetUserResponse.php
   - src/Models/Operations/GetWorkspaceAccessRequest.php
   - src/Models/Operations/GetWorkspaceAccessResponse.php
   - src/Models/Operations/ValidateApiKeyResponse.php
@@ -141,9 +142,10 @@ generatedFiles:
   - src/Models/Shared/ValueChange.php
   - src/Models/Shared/SchemaDiff.php
   - src/Models/Shared/Claims.php
-  - src/Models/Shared/User.php
+  - src/Models/Shared/AccessTokenUser.php
   - src/Models/Shared/Workspaces.php
   - src/Models/Shared/AccessToken.php
+  - src/Models/Shared/User.php
   - src/Models/Shared/Level.php
   - src/Models/Shared/AccessDetails.php
   - src/Models/Shared/AccountType.php
@@ -218,6 +220,7 @@ generatedFiles:
   - docs/Models/Operations/RegisterSchemaResponse.md
   - docs/Models/Operations/GetAccessTokenRequest.md
   - docs/Models/Operations/GetAccessTokenResponse.md
+  - docs/Models/Operations/GetUserResponse.md
   - docs/Models/Operations/GetWorkspaceAccessRequest.md
   - docs/Models/Operations/GetWorkspaceAccessResponse.md
   - docs/Models/Operations/ValidateApiKeyResponse.md
@@ -251,9 +254,10 @@ generatedFiles:
   - docs/Models/Shared/ValueChange.md
   - docs/Models/Shared/SchemaDiff.md
   - docs/Models/Shared/Claims.md
-  - docs/Models/Shared/User.md
+  - docs/Models/Shared/AccessTokenUser.md
   - docs/Models/Shared/Workspaces.md
   - docs/Models/Shared/AccessToken.md
+  - docs/Models/Shared/User.md
   - docs/Models/Shared/Level.md
   - docs/Models/Shared/AccessDetails.md
   - docs/Models/Shared/AccountType.md

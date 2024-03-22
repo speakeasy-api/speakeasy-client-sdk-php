@@ -8,6 +8,7 @@ REST APIs for managing Authentication
 ### Available Operations
 
 * [getAccessToken](#getaccesstoken) - Get or refresh an access token for the current workspace.
+* [getUser](#getuser) - Get information about the current user.
 * [getWorkspaceAccess](#getworkspaceaccess) - Get access allowances for a particular workspace
 * [validateApiKey](#validateapikey) - Validate the current api key.
 
@@ -56,6 +57,46 @@ try {
 ### Response
 
 **[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAccessTokenResponse](../../Models/Operations/GetAccessTokenResponse.md)**
+
+
+## getUser
+
+Get information about the current user.
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security();
+$security->apiKey = '<YOUR_API_KEY_HERE>';
+
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('<value>')
+    ->setSecurity($security)->build();
+
+try {
+    $response = $sdk->auth->getUser();
+
+    if ($response->user !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+
+### Response
+
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetUserResponse](../../Models/Operations/GetUserResponse.md)**
 
 
 ## getWorkspaceAccess

@@ -26,8 +26,8 @@ class AccessToken
     public Claims $claims;
     
 	#[\JMS\Serializer\Annotation\SerializedName('user')]
-    #[\JMS\Serializer\Annotation\Type('Speakeasy\SpeakeasyClientSDK\Models\Shared\User')]
-    public User $user;
+    #[\JMS\Serializer\Annotation\Type('Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessTokenUser')]
+    public AccessTokenUser $user;
     
     /**
      * $workspaces
@@ -43,7 +43,7 @@ class AccessToken
 	{
 		$this->accessToken = "";
 		$this->claims = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\Claims();
-		$this->user = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\User();
+		$this->user = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessTokenUser();
 		$this->workspaces = null;
 	}
 }
