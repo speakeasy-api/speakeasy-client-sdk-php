@@ -3,10 +3,10 @@ id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
   docChecksum: 17e2e733dfd588a7103c3c70e91b24b5
   docVersion: 0.4.0
-  speakeasyVersion: 1.219.2
-  generationVersion: 2.286.7
-  releaseVersion: 0.36.15
-  configChecksum: 66c04017e01dc8aa1e5e4b1c506bb837
+  speakeasyVersion: 1.227.0
+  generationVersion: 2.291.0
+  releaseVersion: 0.37.0
+  configChecksum: cc25be5513d1fd9112b3b7b8061cc67e
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -17,7 +17,7 @@ features:
     examples: 2.81.3
     globalSecurity: 2.81.6
     globalServerURLs: 2.82.1
-    globals: 2.81.1
+    globals: 2.82.0
     inputOutputModels: 2.83.0
     serverIDs: 2.81.1
 generatedFiles:
