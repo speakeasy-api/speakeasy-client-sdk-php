@@ -53,6 +53,8 @@ class SDK
      */
 	public Schemas $schemas;
 	
+	public Artifacts $artifacts;
+	
     /**
      * REST APIs for managing Authentication
      * 
@@ -108,6 +110,8 @@ class SDK
 		$this->metadata = new Metadata($this->sdkConfiguration);
 		
 		$this->schemas = new Schemas($this->sdkConfiguration);
+		
+		$this->artifacts = new Artifacts($this->sdkConfiguration);
 		
 		$this->auth = new Auth($this->sdkConfiguration);
 		

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 17e2e733dfd588a7103c3c70e91b24b5
+  docChecksum: 5cec61dd888a82ca19ee8faa021b6fcf
   docVersion: 0.4.0
-  speakeasyVersion: 1.227.0
-  generationVersion: 2.291.0
-  releaseVersion: 0.37.0
-  configChecksum: cc25be5513d1fd9112b3b7b8061cc67e
+  speakeasyVersion: 1.250.0
+  generationVersion: 2.304.1
+  releaseVersion: 0.37.1
+  configChecksum: 21f46008fa94d6ba69a407b19367da4c
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -17,7 +17,7 @@ features:
     examples: 2.81.3
     globalSecurity: 2.81.6
     globalServerURLs: 2.82.1
-    globals: 2.82.0
+    globals: 2.82.1
     inputOutputModels: 2.83.0
     serverIDs: 2.81.1
 generatedFiles:
@@ -26,6 +26,7 @@ generatedFiles:
   - src/ApiEndpoints.php
   - src/Metadata.php
   - src/Schemas.php
+  - src/Artifacts.php
   - src/Auth.php
   - src/Requests.php
   - src/Organizations.php
@@ -106,6 +107,10 @@ generatedFiles:
   - src/Models/Operations/RegisterSchemaRequestBody.php
   - src/Models/Operations/RegisterSchemaRequest.php
   - src/Models/Operations/RegisterSchemaResponse.php
+  - src/Models/Operations/GetNamespacesResponse.php
+  - src/Models/Operations/GetRevisionsRequest.php
+  - src/Models/Operations/GetRevisionsResponse.php
+  - src/Models/Operations/PreflightResponse.php
   - src/Models/Operations/GetAccessTokenRequest.php
   - src/Models/Operations/GetAccessTokenResponse.php
   - src/Models/Operations/GetUserResponse.php
@@ -141,6 +146,11 @@ generatedFiles:
   - src/Models/Shared/Schema.php
   - src/Models/Shared/ValueChange.php
   - src/Models/Shared/SchemaDiff.php
+  - src/Models/Shared/GetNamespacesResponse.php
+  - src/Models/Shared/NamespaceT.php
+  - src/Models/Shared/GetRevisionsResponse.php
+  - src/Models/Shared/Revision.php
+  - src/Models/Shared/PreflightToken.php
   - src/Models/Shared/Claims.php
   - src/Models/Shared/AccessTokenUser.php
   - src/Models/Shared/Workspaces.php
@@ -218,6 +228,10 @@ generatedFiles:
   - docs/Models/Operations/RegisterSchemaRequestBody.md
   - docs/Models/Operations/RegisterSchemaRequest.md
   - docs/Models/Operations/RegisterSchemaResponse.md
+  - docs/Models/Operations/GetNamespacesResponse.md
+  - docs/Models/Operations/GetRevisionsRequest.md
+  - docs/Models/Operations/GetRevisionsResponse.md
+  - docs/Models/Operations/PreflightResponse.md
   - docs/Models/Operations/GetAccessTokenRequest.md
   - docs/Models/Operations/GetAccessTokenResponse.md
   - docs/Models/Operations/GetUserResponse.md
@@ -253,6 +267,11 @@ generatedFiles:
   - docs/Models/Shared/Schema.md
   - docs/Models/Shared/ValueChange.md
   - docs/Models/Shared/SchemaDiff.md
+  - docs/Models/Shared/GetNamespacesResponse.md
+  - docs/Models/Shared/NamespaceT.md
+  - docs/Models/Shared/GetRevisionsResponse.md
+  - docs/Models/Shared/Revision.md
+  - docs/Models/Shared/PreflightToken.md
   - docs/Models/Shared/Claims.md
   - docs/Models/Shared/AccessTokenUser.md
   - docs/Models/Shared/Workspaces.md
@@ -281,6 +300,7 @@ generatedFiles:
   - docs/sdks/apiendpoints/README.md
   - docs/sdks/metadata/README.md
   - docs/sdks/schemas/README.md
+  - docs/sdks/artifacts/README.md
   - docs/sdks/auth/README.md
   - docs/sdks/requests/README.md
   - docs/sdks/organizations/README.md
