@@ -96,8 +96,11 @@ try {
 
 ### [Artifacts](docs/sdks/artifacts/README.md)
 
+* [getBlob](docs/sdks/artifacts/README.md#getblob) - Get blob for a particular digest
+* [getManifest](docs/sdks/artifacts/README.md#getmanifest) - Get manifest for a particular reference
 * [getNamespaces](docs/sdks/artifacts/README.md#getnamespaces) - Each namespace contains many revisions.
 * [getRevisions](docs/sdks/artifacts/README.md#getrevisions)
+* [getTags](docs/sdks/artifacts/README.md#gettags)
 * [preflight](docs/sdks/artifacts/README.md#preflight) - Get access token for communicating with OCI distribution endpoints
 
 ### [Auth](docs/sdks/auth/README.md)

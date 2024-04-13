@@ -22,13 +22,22 @@ class NamespaceT
     public \DateTime $createdAt;
     
     /**
-     * A human readable name for the namespace.
+     * {organization_slug}/{workspace_slug}/{namespace_name}
      * 
      * @var string $id
      */
 	#[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
+    
+    /**
+     * A human-readable name for the namespace.
+     * 
+     * @var string $name
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('name')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    public string $name;
     
 	#[\JMS\Serializer\Annotation\SerializedName('updated_at')]
     #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
@@ -38,6 +47,7 @@ class NamespaceT
 	{
 		$this->createdAt = new \DateTime();
 		$this->id = "";
+		$this->name = "";
 		$this->updatedAt = new \DateTime();
 	}
 }

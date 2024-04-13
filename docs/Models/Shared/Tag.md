@@ -1,6 +1,4 @@
-# NamespaceT
-
-A namespace contains many revisions.
+# Tag
 
 
 ## Fields
@@ -8,6 +6,7 @@ A namespace contains many revisions.
 | Field                                                         | Type                                                          | Required                                                      | Description                                                   |
 | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
 | `createdAt`                                                   | [\DateTime](https://www.php.net/manual/en/class.datetime.php) | :heavy_check_mark:                                            | N/A                                                           |
-| `id`                                                          | *string*                                                      | :heavy_check_mark:                                            | {organization_slug}/{workspace_slug}/{namespace_name}         |
-| `name`                                                        | *string*                                                      | :heavy_check_mark:                                            | A human-readable name for the namespace.                      |
+| `id`                                                          | *string*                                                      | :heavy_check_mark:                                            | Human readable tag name                                       |
+| `namespaceName`                                               | *string*                                                      | :heavy_check_mark:                                            | N/A                                                           |
+| `revisionId`                                                  | *string*                                                      | :heavy_check_mark:                                            | N/A                                                           |
 | `updatedAt`                                                   | [\DateTime](https://www.php.net/manual/en/class.datetime.php) | :heavy_check_mark:                                            | N/A                                                           |

@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
-class Revision
+class Tag
 {
 	#[\JMS\Serializer\Annotation\SerializedName('created_at')]
     #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
     
     /**
-     * aka digest
+     * Human readable tag name
      * 
      * @var string $id
      */
@@ -28,14 +28,9 @@ class Revision
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $namespaceName;
     
-    /**
-     * $tags
-     * 
-     * @var array<string> $tags
-     */
-	#[\JMS\Serializer\Annotation\SerializedName('tags')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
-    public array $tags;
+	#[\JMS\Serializer\Annotation\SerializedName('revision_id')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    public string $revisionId;
     
 	#[\JMS\Serializer\Annotation\SerializedName('updated_at')]
     #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
@@ -46,7 +41,7 @@ class Revision
 		$this->createdAt = new \DateTime();
 		$this->id = "";
 		$this->namespaceName = "";
-		$this->tags = [];
+		$this->revisionId = "";
 		$this->updatedAt = new \DateTime();
 	}
 }

@@ -17,12 +17,13 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
  */
 class PreflightToken
 {
-	#[\JMS\Serializer\Annotation\SerializedName('access_token')]
+	#[\JMS\Serializer\Annotation\SerializedName('auth_token')]
     #[\JMS\Serializer\Annotation\Type('string')]
-    public string $accessToken;
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $authToken = null;
     
 	public function __construct()
 	{
-		$this->accessToken = "";
+		$this->authToken = null;
 	}
 }

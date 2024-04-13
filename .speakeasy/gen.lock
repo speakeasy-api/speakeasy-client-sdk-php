@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 5cec61dd888a82ca19ee8faa021b6fcf
+  docChecksum: 1867bd7891d65aa46bdee0032e33c25a
   docVersion: 0.4.0
-  speakeasyVersion: 1.250.0
-  generationVersion: 2.304.1
-  releaseVersion: 0.37.1
-  configChecksum: 21f46008fa94d6ba69a407b19367da4c
+  speakeasyVersion: 1.252.0
+  generationVersion: 2.306.0
+  releaseVersion: 0.37.2
+  configChecksum: 01ed276ddc7fa39b1acdf37c4d0ef9f0
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -107,9 +107,15 @@ generatedFiles:
   - src/Models/Operations/RegisterSchemaRequestBody.php
   - src/Models/Operations/RegisterSchemaRequest.php
   - src/Models/Operations/RegisterSchemaResponse.php
+  - src/Models/Operations/GetBlobRequest.php
+  - src/Models/Operations/GetBlobResponse.php
+  - src/Models/Operations/GetManifestRequest.php
+  - src/Models/Operations/GetManifestResponse.php
   - src/Models/Operations/GetNamespacesResponse.php
   - src/Models/Operations/GetRevisionsRequest.php
   - src/Models/Operations/GetRevisionsResponse.php
+  - src/Models/Operations/GetTagsRequest.php
+  - src/Models/Operations/GetTagsResponse.php
   - src/Models/Operations/PreflightResponse.php
   - src/Models/Operations/GetAccessTokenRequest.php
   - src/Models/Operations/GetAccessTokenResponse.php
@@ -146,11 +152,17 @@ generatedFiles:
   - src/Models/Shared/Schema.php
   - src/Models/Shared/ValueChange.php
   - src/Models/Shared/SchemaDiff.php
+  - src/Models/Shared/Manifest.php
+  - src/Models/Shared/V2Descriptor.php
+  - src/Models/Shared/Annotations.php
   - src/Models/Shared/GetNamespacesResponse.php
   - src/Models/Shared/NamespaceT.php
   - src/Models/Shared/GetRevisionsResponse.php
   - src/Models/Shared/Revision.php
+  - src/Models/Shared/GetTagsResponse.php
+  - src/Models/Shared/Tag.php
   - src/Models/Shared/PreflightToken.php
+  - src/Models/Shared/PreflightRequest.php
   - src/Models/Shared/Claims.php
   - src/Models/Shared/AccessTokenUser.php
   - src/Models/Shared/Workspaces.php
@@ -228,9 +240,15 @@ generatedFiles:
   - docs/Models/Operations/RegisterSchemaRequestBody.md
   - docs/Models/Operations/RegisterSchemaRequest.md
   - docs/Models/Operations/RegisterSchemaResponse.md
+  - docs/Models/Operations/GetBlobRequest.md
+  - docs/Models/Operations/GetBlobResponse.md
+  - docs/Models/Operations/GetManifestRequest.md
+  - docs/Models/Operations/GetManifestResponse.md
   - docs/Models/Operations/GetNamespacesResponse.md
   - docs/Models/Operations/GetRevisionsRequest.md
   - docs/Models/Operations/GetRevisionsResponse.md
+  - docs/Models/Operations/GetTagsRequest.md
+  - docs/Models/Operations/GetTagsResponse.md
   - docs/Models/Operations/PreflightResponse.md
   - docs/Models/Operations/GetAccessTokenRequest.md
   - docs/Models/Operations/GetAccessTokenResponse.md
@@ -267,11 +285,17 @@ generatedFiles:
   - docs/Models/Shared/Schema.md
   - docs/Models/Shared/ValueChange.md
   - docs/Models/Shared/SchemaDiff.md
+  - docs/Models/Shared/Manifest.md
+  - docs/Models/Shared/V2Descriptor.md
+  - docs/Models/Shared/Annotations.md
   - docs/Models/Shared/GetNamespacesResponse.md
   - docs/Models/Shared/NamespaceT.md
   - docs/Models/Shared/GetRevisionsResponse.md
   - docs/Models/Shared/Revision.md
+  - docs/Models/Shared/GetTagsResponse.md
+  - docs/Models/Shared/Tag.md
   - docs/Models/Shared/PreflightToken.md
+  - docs/Models/Shared/PreflightRequest.md
   - docs/Models/Shared/Claims.md
   - docs/Models/Shared/AccessTokenUser.md
   - docs/Models/Shared/Workspaces.md
