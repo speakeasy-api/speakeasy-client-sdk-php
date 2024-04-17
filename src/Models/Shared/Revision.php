@@ -15,8 +15,12 @@ class Revision
     #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
     
+	#[\JMS\Serializer\Annotation\SerializedName('digest')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    public string $digest;
+    
     /**
-     * aka digest
+     * Format {namespace_id}/{revision_digest}
      * 
      * @var string $id
      */
@@ -44,6 +48,7 @@ class Revision
 	public function __construct()
 	{
 		$this->createdAt = new \DateTime();
+		$this->digest = "";
 		$this->id = "";
 		$this->namespaceName = "";
 		$this->tags = [];

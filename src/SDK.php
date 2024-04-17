@@ -72,6 +72,13 @@ class SDK
 	public Organizations $organizations;
 	
     /**
+     * REST APIs for managing reports
+     * 
+     * @var Reports $$reports
+     */
+	public Reports $reports;
+	
+    /**
      * REST APIs for managing embeds
      * 
      * @var Embeds $$embeds
@@ -118,6 +125,8 @@ class SDK
 		$this->requests = new Requests($this->sdkConfiguration);
 		
 		$this->organizations = new Organizations($this->sdkConfiguration);
+		
+		$this->reports = new Reports($this->sdkConfiguration);
 		
 		$this->embeds = new Embeds($this->sdkConfiguration);
 		

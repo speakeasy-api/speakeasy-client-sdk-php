@@ -17,6 +17,11 @@ class GetManifestRequest
 	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=organization_slug')]
     public string $organizationSlug;
     
+    /**
+     * Tag or digest
+     * 
+     * @var string $revisionReference
+     */
 	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=revision_reference')]
     public string $revisionReference;
     

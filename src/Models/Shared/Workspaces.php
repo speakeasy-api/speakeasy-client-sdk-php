@@ -11,7 +11,31 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class Workspaces
 {
+	#[\JMS\Serializer\Annotation\SerializedName('account_type')]
+    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessTokenAccountType>')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?AccessTokenAccountType $accountType = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $id = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('name')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $name = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('updated_at')]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?\DateTime $updatedAt = null;
+    
 	public function __construct()
 	{
+		$this->accountType = null;
+		$this->id = null;
+		$this->name = null;
+		$this->updatedAt = null;
 	}
 }

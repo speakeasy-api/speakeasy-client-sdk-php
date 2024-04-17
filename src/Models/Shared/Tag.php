@@ -11,12 +11,8 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class Tag
 {
-	#[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
-    public \DateTime $createdAt;
-    
     /**
-     * Human readable tag name
+     * Format {namespace_id}/{tag}
      * 
      * @var string $id
      */
@@ -24,24 +20,28 @@ class Tag
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
     
+    /**
+     * Human readable tag name
+     * 
+     * @var string $name
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('name')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    public string $name;
+    
 	#[\JMS\Serializer\Annotation\SerializedName('namespace_name')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $namespaceName;
     
-	#[\JMS\Serializer\Annotation\SerializedName('revision_id')]
+	#[\JMS\Serializer\Annotation\SerializedName('revision_digest')]
     #[\JMS\Serializer\Annotation\Type('string')]
-    public string $revisionId;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('updated_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
-    public \DateTime $updatedAt;
+    public string $revisionDigest;
     
 	public function __construct()
 	{
-		$this->createdAt = new \DateTime();
 		$this->id = "";
+		$this->name = "";
 		$this->namespaceName = "";
-		$this->revisionId = "";
-		$this->updatedAt = new \DateTime();
+		$this->revisionDigest = "";
 	}
 }

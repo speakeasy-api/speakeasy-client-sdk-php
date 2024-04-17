@@ -19,6 +19,11 @@ class PostWorkspaceEventsResponse
 	
     public string $contentType;
     
+    /**
+     * Error
+     * 
+     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
+     */
 	
     public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
     

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 1867bd7891d65aa46bdee0032e33c25a
+  docChecksum: fb8d80dde775dc830ade2c3c3fe88d18
   docVersion: 0.4.0
-  speakeasyVersion: 1.252.0
-  generationVersion: 2.306.0
-  releaseVersion: 0.37.2
-  configChecksum: 01ed276ddc7fa39b1acdf37c4d0ef9f0
+  speakeasyVersion: 1.253.3
+  generationVersion: 2.306.3
+  releaseVersion: 0.37.3
+  configChecksum: 98623caeb3cecf011878e0dce504cc9a
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -30,6 +30,7 @@ generatedFiles:
   - src/Auth.php
   - src/Requests.php
   - src/Organizations.php
+  - src/Reports.php
   - src/Embeds.php
   - src/Events.php
   - src/SDK.php
@@ -103,7 +104,7 @@ generatedFiles:
   - src/Models/Operations/GetSchemaRevisionResponse.php
   - src/Models/Operations/GetSchemasRequest.php
   - src/Models/Operations/GetSchemasResponse.php
-  - src/Models/Operations/File.php
+  - src/Models/Operations/RegisterSchemaFile.php
   - src/Models/Operations/RegisterSchemaRequestBody.php
   - src/Models/Operations/RegisterSchemaRequest.php
   - src/Models/Operations/RegisterSchemaResponse.php
@@ -130,6 +131,13 @@ generatedFiles:
   - src/Models/Operations/QueryEventLogRequest.php
   - src/Models/Operations/QueryEventLogResponse.php
   - src/Models/Operations/GetOrganizationsResponse.php
+  - src/Models/Operations/GetLintingReportSignedUrlRequest.php
+  - src/Models/Operations/GetLintingReportSignedUrlSignedAccess.php
+  - src/Models/Operations/GetLintingReportSignedUrlResponse.php
+  - src/Models/Operations/File.php
+  - src/Models/Operations/UploadReportRequestBody.php
+  - src/Models/Operations/UploadReportUploadedReport.php
+  - src/Models/Operations/UploadReportResponse.php
   - src/Models/Operations/GetEmbedAccessTokenRequest.php
   - src/Models/Operations/GetEmbedAccessTokenResponse.php
   - src/Models/Operations/GetValidEmbedAccessTokensResponse.php
@@ -165,12 +173,14 @@ generatedFiles:
   - src/Models/Shared/PreflightRequest.php
   - src/Models/Shared/Claims.php
   - src/Models/Shared/AccessTokenUser.php
+  - src/Models/Shared/AccessTokenAccountType.php
   - src/Models/Shared/Workspaces.php
   - src/Models/Shared/AccessToken.php
   - src/Models/Shared/User.php
   - src/Models/Shared/Level.php
   - src/Models/Shared/AccessDetails.php
   - src/Models/Shared/AccountType.php
+  - src/Models/Shared/FeatureFlags.php
   - src/Models/Shared/ApiKeyDetails.php
   - src/Models/Shared/UnboundedRequest.php
   - src/Models/Shared/BoundedRequest.php
@@ -179,6 +189,8 @@ generatedFiles:
   - src/Models/Shared/Filter.php
   - src/Models/Shared/OrganizationAccountType.php
   - src/Models/Shared/Organization.php
+  - src/Models/Shared/Type.php
+  - src/Models/Shared/Report.php
   - src/Models/Shared/EmbedAccessTokenResponse.php
   - src/Models/Shared/EmbedToken.php
   - src/Models/Shared/GenerateBumpType.php
@@ -236,7 +248,7 @@ generatedFiles:
   - docs/Models/Operations/GetSchemaRevisionResponse.md
   - docs/Models/Operations/GetSchemasRequest.md
   - docs/Models/Operations/GetSchemasResponse.md
-  - docs/Models/Operations/File.md
+  - docs/Models/Operations/RegisterSchemaFile.md
   - docs/Models/Operations/RegisterSchemaRequestBody.md
   - docs/Models/Operations/RegisterSchemaRequest.md
   - docs/Models/Operations/RegisterSchemaResponse.md
@@ -263,6 +275,13 @@ generatedFiles:
   - docs/Models/Operations/QueryEventLogRequest.md
   - docs/Models/Operations/QueryEventLogResponse.md
   - docs/Models/Operations/GetOrganizationsResponse.md
+  - docs/Models/Operations/GetLintingReportSignedUrlRequest.md
+  - docs/Models/Operations/GetLintingReportSignedUrlSignedAccess.md
+  - docs/Models/Operations/GetLintingReportSignedUrlResponse.md
+  - docs/Models/Operations/File.md
+  - docs/Models/Operations/UploadReportRequestBody.md
+  - docs/Models/Operations/UploadReportUploadedReport.md
+  - docs/Models/Operations/UploadReportResponse.md
   - docs/Models/Operations/GetEmbedAccessTokenRequest.md
   - docs/Models/Operations/GetEmbedAccessTokenResponse.md
   - docs/Models/Operations/GetValidEmbedAccessTokensResponse.md
@@ -298,12 +317,14 @@ generatedFiles:
   - docs/Models/Shared/PreflightRequest.md
   - docs/Models/Shared/Claims.md
   - docs/Models/Shared/AccessTokenUser.md
+  - docs/Models/Shared/AccessTokenAccountType.md
   - docs/Models/Shared/Workspaces.md
   - docs/Models/Shared/AccessToken.md
   - docs/Models/Shared/User.md
   - docs/Models/Shared/Level.md
   - docs/Models/Shared/AccessDetails.md
   - docs/Models/Shared/AccountType.md
+  - docs/Models/Shared/FeatureFlags.md
   - docs/Models/Shared/ApiKeyDetails.md
   - docs/Models/Shared/UnboundedRequest.md
   - docs/Models/Shared/BoundedRequest.md
@@ -312,6 +333,8 @@ generatedFiles:
   - docs/Models/Shared/Filter.md
   - docs/Models/Shared/OrganizationAccountType.md
   - docs/Models/Shared/Organization.md
+  - docs/Models/Shared/Type.md
+  - docs/Models/Shared/Report.md
   - docs/Models/Shared/EmbedAccessTokenResponse.md
   - docs/Models/Shared/EmbedToken.md
   - docs/Models/Shared/GenerateBumpType.md
@@ -328,6 +351,7 @@ generatedFiles:
   - docs/sdks/auth/README.md
   - docs/sdks/requests/README.md
   - docs/sdks/organizations/README.md
+  - docs/sdks/reports/README.md
   - docs/sdks/embeds/README.md
   - docs/sdks/events/README.md
   - USAGE.md

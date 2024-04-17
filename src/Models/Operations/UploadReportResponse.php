@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 
-class GetWorkspaceTargetsResponse
+class UploadReportResponse
 {
     /**
      * HTTP response content type for this operation
@@ -18,14 +18,6 @@ class GetWorkspaceTargetsResponse
      */
 	
     public string $contentType;
-    
-    /**
-     * Error
-     * 
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
-     */
-	
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
     
     /**
      * HTTP response status code for this operation
@@ -44,19 +36,18 @@ class GetWorkspaceTargetsResponse
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
     
     /**
-     * Success
+     * OK
      * 
-     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\TargetSDK> $targetSDKList
+     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\UploadReportUploadedReport $uploadedReport
      */
 	
-    public ?array $targetSDKList = null;
+    public ?UploadReportUploadedReport $uploadedReport = null;
     
 	public function __construct()
 	{
 		$this->contentType = "";
-		$this->error = null;
 		$this->statusCode = 0;
 		$this->rawResponse = null;
-		$this->targetSDKList = null;
+		$this->uploadedReport = null;
 	}
 }
