@@ -22,6 +22,44 @@ class Reports
 	}
 	
     /**
+     * Get the signed access url for the change reports for a particular document.
+     * 
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlRequest $request
+     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlResponse
+     */
+	public function getChangesReportSignedUrl(
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/reports/changes/{documentChecksum}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlRequest::class, $request, $this->sdkConfiguration->globals);
+        
+        $options = ['http_errors' => false];
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        
+        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->signedAccess = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlSignedAccess', 'json');
+            }
+        }
+
+        return $response;
+    }
+	
+    /**
      * Get the signed access url for the linting reports for a particular document.
      * 
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetLintingReportSignedUrlRequest $request

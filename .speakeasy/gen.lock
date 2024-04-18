@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: fb8d80dde775dc830ade2c3c3fe88d18
+  docChecksum: 2b280a7f12ab57c144a654766cc34af2
   docVersion: 0.4.0
-  speakeasyVersion: 1.253.3
-  generationVersion: 2.306.3
-  releaseVersion: 0.37.3
-  configChecksum: 98623caeb3cecf011878e0dce504cc9a
+  speakeasyVersion: 1.257.1
+  generationVersion: 2.308.2
+  releaseVersion: 0.37.4
+  configChecksum: d057e38f62c139b00493fe2999846ad1
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -131,6 +131,9 @@ generatedFiles:
   - src/Models/Operations/QueryEventLogRequest.php
   - src/Models/Operations/QueryEventLogResponse.php
   - src/Models/Operations/GetOrganizationsResponse.php
+  - src/Models/Operations/GetChangesReportSignedUrlRequest.php
+  - src/Models/Operations/GetChangesReportSignedUrlSignedAccess.php
+  - src/Models/Operations/GetChangesReportSignedUrlResponse.php
   - src/Models/Operations/GetLintingReportSignedUrlRequest.php
   - src/Models/Operations/GetLintingReportSignedUrlSignedAccess.php
   - src/Models/Operations/GetLintingReportSignedUrlResponse.php
@@ -275,6 +278,9 @@ generatedFiles:
   - docs/Models/Operations/QueryEventLogRequest.md
   - docs/Models/Operations/QueryEventLogResponse.md
   - docs/Models/Operations/GetOrganizationsResponse.md
+  - docs/Models/Operations/GetChangesReportSignedUrlRequest.md
+  - docs/Models/Operations/GetChangesReportSignedUrlSignedAccess.md
+  - docs/Models/Operations/GetChangesReportSignedUrlResponse.md
   - docs/Models/Operations/GetLintingReportSignedUrlRequest.md
   - docs/Models/Operations/GetLintingReportSignedUrlSignedAccess.md
   - docs/Models/Operations/GetLintingReportSignedUrlResponse.md
