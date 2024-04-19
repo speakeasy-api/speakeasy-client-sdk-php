@@ -14,6 +14,8 @@ enum InteractionType: string
 {
     case CiExec = 'CI_EXEC';
     case CliExec = 'CLI_EXEC';
+    case Lint = 'LINT';
+    case OpenapiDiff = 'OPENAPI_DIFF';
     case TargetGenerate = 'TARGET_GENERATE';
     case Tombstone = 'TOMBSTONE';
     case Authenticate = 'AUTHENTICATE';

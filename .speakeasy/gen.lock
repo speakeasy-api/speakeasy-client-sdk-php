@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 2b280a7f12ab57c144a654766cc34af2
+  docChecksum: 95815a9501527c69c4aab613380685a5
   docVersion: 0.4.0
-  speakeasyVersion: 1.257.1
-  generationVersion: 2.308.2
-  releaseVersion: 0.37.4
-  configChecksum: d057e38f62c139b00493fe2999846ad1
+  speakeasyVersion: 1.260.6
+  generationVersion: 2.311.1
+  releaseVersion: 0.37.5
+  configChecksum: bd985c4bacb091370be68b6b46d248bd
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -197,6 +197,7 @@ generatedFiles:
   - src/Models/Shared/EmbedAccessTokenResponse.php
   - src/Models/Shared/EmbedToken.php
   - src/Models/Shared/GenerateBumpType.php
+  - src/Models/Shared/OpenapiDiffBumpType.php
   - src/Models/Shared/CliEvent.php
   - src/Models/Shared/InteractionType.php
   - src/Models/Shared/TargetSDK.php
@@ -344,6 +345,7 @@ generatedFiles:
   - docs/Models/Shared/EmbedAccessTokenResponse.md
   - docs/Models/Shared/EmbedToken.md
   - docs/Models/Shared/GenerateBumpType.md
+  - docs/Models/Shared/OpenapiDiffBumpType.md
   - docs/Models/Shared/CliEvent.md
   - docs/Models/Shared/InteractionType.md
   - docs/Models/Shared/TargetSDK.md

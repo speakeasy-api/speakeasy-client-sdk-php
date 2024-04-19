@@ -150,6 +150,16 @@ class CliEvent
     public ?string $generateGenLockPostFeatures = null;
     
     /**
+     * Blob digest of the Previous Generation
+     * 
+     * @var ?string $generateGenLockPreBlobDigest
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_blob_digest')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $generateGenLockPreBlobDigest = null;
+    
+    /**
      * Checksum of the Previous Rendered OpenAPI document (prior to generation, via gen lock)
      * 
      * @var ?string $generateGenLockPreDocChecksum
@@ -178,6 +188,26 @@ class CliEvent
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $generateGenLockPreFeatures = null;
+    
+    /**
+     * Namespace name of the Previous Generation
+     * 
+     * @var ?string $generateGenLockPreNamespaceName
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_namespace_name')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $generateGenLockPreNamespaceName = null;
+    
+    /**
+     * Revision digest of the Previous Generation
+     * 
+     * @var ?string $generateGenLockPreRevisionDigest
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_revision_digest')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $generateGenLockPreRevisionDigest = null;
     
     /**
      * Artifact version for the Previous Generation
@@ -368,6 +398,46 @@ class CliEvent
     public InteractionType $interactionType;
     
     /**
+     * The checksum of the lint report.
+     * 
+     * @var ?string $lintReportDigest
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('lint_report_digest')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $lintReportDigest = null;
+    
+    /**
+     * The number of errors in the lint report.
+     * 
+     * @var ?int $lintReportErrorCount
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('lint_report_error_count')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $lintReportErrorCount = null;
+    
+    /**
+     * The number of info messages in the lint report.
+     * 
+     * @var ?int $lintReportInfoCount
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('lint_report_info_count')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $lintReportInfoCount = null;
+    
+    /**
+     * The number of warnings in the lint report.
+     * 
+     * @var ?int $lintReportWarningCount
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('lint_report_warning_count')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $lintReportWarningCount = null;
+    
+    /**
      * Timestamp when the event completed, in local time.
      * 
      * @var ?\DateTime $localCompletedAt
@@ -405,6 +475,66 @@ class CliEvent
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $managementDocVersion = null;
+    
+    /**
+     * The blob digest of the base source.
+     * 
+     * @var ?string $openapiDiffBaseSourceBlobDigest
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('openapi_diff_base_source_blob_digest')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $openapiDiffBaseSourceBlobDigest = null;
+    
+    /**
+     * The namespace name of the base source.
+     * 
+     * @var ?string $openapiDiffBaseSourceNamespaceName
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('openapi_diff_base_source_namespace_name')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $openapiDiffBaseSourceNamespaceName = null;
+    
+    /**
+     * The revision digest of the base source.
+     * 
+     * @var ?string $openapiDiffBaseSourceRevisionDigest
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('openapi_diff_base_source_revision_digest')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $openapiDiffBaseSourceRevisionDigest = null;
+    
+    /**
+     * The number of breaking changes in the openapi diff report.
+     * 
+     * @var ?int $openapiDiffBreakingChangesCount
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('openapi_diff_breaking_changes_count')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $openapiDiffBreakingChangesCount = null;
+    
+    /**
+     * Bump type of the lock file (calculated semver delta, or a custom change (manual release))
+     * 
+     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\OpenapiDiffBumpType $openapiDiffBumpType
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('openapi_diff_bump_type')]
+    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\OpenapiDiffBumpType>')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?OpenapiDiffBumpType $openapiDiffBumpType = null;
+    
+    /**
+     * The checksum of the openapi diff report.
+     * 
+     * @var ?string $openapiDiffReportDigest
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('openapi_diff_report_digest')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $openapiDiffReportDigest = null;
     
     /**
      * Name of the published package.
@@ -467,6 +597,36 @@ class CliEvent
     public ?string $repoLabel = null;
     
     /**
+     * The blob digest of the source.
+     * 
+     * @var ?string $sourceBlobDigest
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('source_blob_digest')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $sourceBlobDigest = null;
+    
+    /**
+     * The namespace name of the source.
+     * 
+     * @var ?string $sourceNamespaceName
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('source_namespace_name')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $sourceNamespaceName = null;
+    
+    /**
+     * The revision digest of the source.
+     * 
+     * @var ?string $sourceRevisionDigest
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('source_revision_digest')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $sourceRevisionDigest = null;
+    
+    /**
      * Identifier of the Speakeasy API key.
      * 
      * @var string $speakeasyApiKeyName
@@ -518,9 +678,12 @@ class CliEvent
 		$this->generateConfigPreVersion = null;
 		$this->generateGenLockId = null;
 		$this->generateGenLockPostFeatures = null;
+		$this->generateGenLockPreBlobDigest = null;
 		$this->generateGenLockPreDocChecksum = null;
 		$this->generateGenLockPreDocVersion = null;
 		$this->generateGenLockPreFeatures = null;
+		$this->generateGenLockPreNamespaceName = null;
+		$this->generateGenLockPreRevisionDigest = null;
 		$this->generateGenLockPreVersion = null;
 		$this->generateOutputTests = null;
 		$this->generatePublished = null;
@@ -540,16 +703,29 @@ class CliEvent
 		$this->hostname = null;
 		$this->id = "";
 		$this->interactionType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType::CiExec;
+		$this->lintReportDigest = null;
+		$this->lintReportErrorCount = null;
+		$this->lintReportInfoCount = null;
+		$this->lintReportWarningCount = null;
 		$this->localCompletedAt = null;
 		$this->localStartedAt = new \DateTime();
 		$this->managementDocChecksum = null;
 		$this->managementDocVersion = null;
+		$this->openapiDiffBaseSourceBlobDigest = null;
+		$this->openapiDiffBaseSourceNamespaceName = null;
+		$this->openapiDiffBaseSourceRevisionDigest = null;
+		$this->openapiDiffBreakingChangesCount = null;
+		$this->openapiDiffBumpType = null;
+		$this->openapiDiffReportDigest = null;
 		$this->publishPackageName = null;
 		$this->publishPackageRegistryName = null;
 		$this->publishPackageUrl = null;
 		$this->publishPackageVersion = null;
 		$this->rawCommand = null;
 		$this->repoLabel = null;
+		$this->sourceBlobDigest = null;
+		$this->sourceNamespaceName = null;
+		$this->sourceRevisionDigest = null;
 		$this->speakeasyApiKeyName = "";
 		$this->speakeasyVersion = "";
 		$this->success = false;
