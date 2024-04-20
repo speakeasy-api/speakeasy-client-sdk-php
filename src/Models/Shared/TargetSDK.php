@@ -256,6 +256,36 @@ class TargetSDK
     public ?string $repoLabel = null;
     
     /**
+     * The blob digest of the source.
+     * 
+     * @var ?string $sourceBlobDigest
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('source_blob_digest')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $sourceBlobDigest = null;
+    
+    /**
+     * The namespace name of the source.
+     * 
+     * @var ?string $sourceNamespaceName
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('source_namespace_name')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $sourceNamespaceName = null;
+    
+    /**
+     * The revision digest of the source.
+     * 
+     * @var ?string $sourceRevisionDigest
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('source_revision_digest')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $sourceRevisionDigest = null;
+    
+    /**
      * Indicates whether the event was successful.
      * 
      * @var ?bool $success
@@ -292,6 +322,9 @@ class TargetSDK
 		$this->lastEventId = "";
 		$this->lastEventInteractionType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType::CiExec;
 		$this->repoLabel = null;
+		$this->sourceBlobDigest = null;
+		$this->sourceNamespaceName = null;
+		$this->sourceRevisionDigest = null;
 		$this->success = null;
 	}
 }
