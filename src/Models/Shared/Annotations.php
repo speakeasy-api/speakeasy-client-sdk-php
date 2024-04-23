@@ -17,31 +17,41 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
  */
 class Annotations
 {
+    /**
+     * The authors of the image
+     * 
+     * @var ?string $orgOpencontainersImageAuthors
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.authors')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageAuthors = null;
     
-	#[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.base.digest')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $orgOpencontainersImageBaseDigest = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.base.name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $orgOpencontainersImageBaseName = null;
-    
+    /**
+     * The time the image was created
+     * 
+     * @var ?string $orgOpencontainersImageCreated
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.created')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageCreated = null;
     
+    /**
+     * Human-readable description of the software packaged in the image
+     * 
+     * @var ?string $orgOpencontainersImageDescription
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.description')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageDescription = null;
     
+    /**
+     * The documentation URL of the image
+     * 
+     * @var ?string $orgOpencontainersImageDocumentation
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.documentation')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
@@ -52,36 +62,71 @@ class Annotations
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageLicenses = null;
     
+    /**
+     * Name of the reference for a target
+     * 
+     * @var ?string $orgOpencontainersImageRefName
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.ref.name')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageRefName = null;
     
+    /**
+     * Source control revision identifier
+     * 
+     * @var ?string $orgOpencontainersImageRevision
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.revision')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageRevision = null;
     
+    /**
+     * The URL to get source code for building the image
+     * 
+     * @var ?string $orgOpencontainersImageSource
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.source')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageSource = null;
     
+    /**
+     * Human-readable title of the image
+     * 
+     * @var ?string $orgOpencontainersImageTitle
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.title')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageTitle = null;
     
+    /**
+     * The URL of the image
+     * 
+     * @var ?string $orgOpencontainersImageUrl
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.url')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageUrl = null;
     
+    /**
+     * Name of the distributing entity, organization or individual.
+     * 
+     * @var ?string $orgOpencontainersImageVendor
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.vendor')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageVendor = null;
     
+    /**
+     * The version of the packaged software
+     * 
+     * @var ?string $orgOpencontainersImageVersion
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.version')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
@@ -90,8 +135,6 @@ class Annotations
 	public function __construct()
 	{
 		$this->orgOpencontainersImageAuthors = null;
-		$this->orgOpencontainersImageBaseDigest = null;
-		$this->orgOpencontainersImageBaseName = null;
 		$this->orgOpencontainersImageCreated = null;
 		$this->orgOpencontainersImageDescription = null;
 		$this->orgOpencontainersImageDocumentation = null;

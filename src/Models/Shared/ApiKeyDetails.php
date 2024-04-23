@@ -29,15 +29,25 @@ class ApiKeyDetails
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $generationAccessUnlimited = null;
     
+	#[\JMS\Serializer\Annotation\SerializedName('org_slug')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    public string $orgSlug;
+    
 	#[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $workspaceId;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('workspace_slug')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    public string $workspaceSlug;
     
 	public function __construct()
 	{
 		$this->accountType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType::Free;
 		$this->featureFlags = [];
 		$this->generationAccessUnlimited = null;
+		$this->orgSlug = "";
 		$this->workspaceId = "";
+		$this->workspaceSlug = "";
 	}
 }

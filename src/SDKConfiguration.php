@@ -16,10 +16,10 @@ class SDKConfiguration
 	public string $serverUrl = '';
 	public string $server = '';
 	public string $language = 'php';
-	public string $openapiDocVersion = '0.4.0';
-	public string $sdkVersion = '0.37.6';
-	public string $genVersion = '2.312.0';
-	public string $userAgent = 'speakeasy-sdk/php 0.37.6 2.312.0 0.4.0 speakeasy-api/speakeasy-client-sdk-php';
+	public string $openapiDocVersion = '0.4.0 .';
+	public string $sdkVersion = '0.37.7';
+	public string $genVersion = '2.312.1';
+	public string $userAgent = 'speakeasy-sdk/php 0.37.7 2.312.1 0.4.0 . speakeasy-api/speakeasy-client-sdk-php';
 	/** @var array<string, array<string, array<string, mixed>>> */
 	public ?array $globals = [
     	'parameters' => []

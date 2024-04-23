@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 141a9989778e09b7c6bb43e496b49905
-  docVersion: 0.4.0
-  speakeasyVersion: 1.267.0
-  generationVersion: 2.312.0
-  releaseVersion: 0.37.6
-  configChecksum: 53837e530334d33b41b020cf681f64f9
+  docChecksum: 0df832386c1fcd5f74fb87fea6d0e2b7
+  docVersion: 0.4.0 .
+  speakeasyVersion: 1.269.1
+  generationVersion: 2.312.1
+  releaseVersion: 0.37.7
+  configChecksum: 418e36c52bab3502e5950e04fb29671b
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -148,6 +148,8 @@ generatedFiles:
   - src/Models/Operations/RevokeEmbedAccessTokenResponse.php
   - src/Models/Operations/GetWorkspaceEventsRequest.php
   - src/Models/Operations/GetWorkspaceEventsResponse.php
+  - src/Models/Operations/GetWorkspaceEventsBySourceRevisionDigestRequest.php
+  - src/Models/Operations/GetWorkspaceEventsBySourceRevisionDigestResponse.php
   - src/Models/Operations/GetWorkspaceTargetsRequest.php
   - src/Models/Operations/GetWorkspaceTargetsResponse.php
   - src/Models/Operations/PostWorkspaceEventsRequest.php
@@ -296,6 +298,8 @@ generatedFiles:
   - docs/Models/Operations/RevokeEmbedAccessTokenResponse.md
   - docs/Models/Operations/GetWorkspaceEventsRequest.md
   - docs/Models/Operations/GetWorkspaceEventsResponse.md
+  - docs/Models/Operations/GetWorkspaceEventsBySourceRevisionDigestRequest.md
+  - docs/Models/Operations/GetWorkspaceEventsBySourceRevisionDigestResponse.md
   - docs/Models/Operations/GetWorkspaceTargetsRequest.md
   - docs/Models/Operations/GetWorkspaceTargetsResponse.md
   - docs/Models/Operations/PostWorkspaceEventsRequest.md
