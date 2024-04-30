@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 0df832386c1fcd5f74fb87fea6d0e2b7
+  docChecksum: e87f7661ef116d09df25c842b1032981
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.269.1
-  generationVersion: 2.312.1
-  releaseVersion: 0.37.7
-  configChecksum: 418e36c52bab3502e5950e04fb29671b
+  speakeasyVersion: 1.277.0
+  generationVersion: 2.317.0
+  releaseVersion: 0.37.8
+  configChecksum: 04bd8353287e21763e490ee2897cb5f9
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -146,14 +146,14 @@ generatedFiles:
   - src/Models/Operations/GetValidEmbedAccessTokensResponse.php
   - src/Models/Operations/RevokeEmbedAccessTokenRequest.php
   - src/Models/Operations/RevokeEmbedAccessTokenResponse.php
-  - src/Models/Operations/GetWorkspaceEventsRequest.php
-  - src/Models/Operations/GetWorkspaceEventsResponse.php
-  - src/Models/Operations/GetWorkspaceEventsBySourceRevisionDigestRequest.php
-  - src/Models/Operations/GetWorkspaceEventsBySourceRevisionDigestResponse.php
+  - src/Models/Operations/GetWorkspaceEventsByTargetRequest.php
+  - src/Models/Operations/GetWorkspaceEventsByTargetResponse.php
   - src/Models/Operations/GetWorkspaceTargetsRequest.php
   - src/Models/Operations/GetWorkspaceTargetsResponse.php
   - src/Models/Operations/PostWorkspaceEventsRequest.php
   - src/Models/Operations/PostWorkspaceEventsResponse.php
+  - src/Models/Operations/SearchWorkspaceEventsRequest.php
+  - src/Models/Operations/SearchWorkspaceEventsResponse.php
   - src/Models/Shared/Error.php
   - src/Models/Shared/GenerateOpenApiSpecDiff.php
   - src/Models/Shared/Api.php
@@ -296,14 +296,14 @@ generatedFiles:
   - docs/Models/Operations/GetValidEmbedAccessTokensResponse.md
   - docs/Models/Operations/RevokeEmbedAccessTokenRequest.md
   - docs/Models/Operations/RevokeEmbedAccessTokenResponse.md
-  - docs/Models/Operations/GetWorkspaceEventsRequest.md
-  - docs/Models/Operations/GetWorkspaceEventsResponse.md
-  - docs/Models/Operations/GetWorkspaceEventsBySourceRevisionDigestRequest.md
-  - docs/Models/Operations/GetWorkspaceEventsBySourceRevisionDigestResponse.md
+  - docs/Models/Operations/GetWorkspaceEventsByTargetRequest.md
+  - docs/Models/Operations/GetWorkspaceEventsByTargetResponse.md
   - docs/Models/Operations/GetWorkspaceTargetsRequest.md
   - docs/Models/Operations/GetWorkspaceTargetsResponse.md
   - docs/Models/Operations/PostWorkspaceEventsRequest.md
   - docs/Models/Operations/PostWorkspaceEventsResponse.md
+  - docs/Models/Operations/SearchWorkspaceEventsRequest.md
+  - docs/Models/Operations/SearchWorkspaceEventsResponse.md
   - docs/Models/Shared/Error.md
   - docs/Models/Shared/GenerateOpenApiSpecDiff.md
   - docs/Models/Shared/Api.md

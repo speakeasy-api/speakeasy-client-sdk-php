@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
-class GetWorkspaceEventsRequest
+class GetWorkspaceEventsByTargetRequest
 {
     /**
      * Filter to only return events created after this timestamp
@@ -22,10 +22,10 @@ class GetWorkspaceEventsRequest
     /**
      * Filter to only return events corresponding to a particular gen_lock_id (gen_lock_id uniquely identifies a target)
      * 
-     * @var ?string $generateGenLockId
+     * @var string $targetID
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=generate_gen_lock_id')]
-    public ?string $generateGenLockId = null;
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=targetID')]
+    public string $targetID;
     
     /**
      * Unique identifier of the workspace.
@@ -38,7 +38,7 @@ class GetWorkspaceEventsRequest
 	public function __construct()
 	{
 		$this->afterCreatedAt = null;
-		$this->generateGenLockId = null;
+		$this->targetID = "";
 		$this->workspaceID = null;
 	}
 }

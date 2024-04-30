@@ -7,12 +7,12 @@ REST APIs for capturing event data
 
 ### Available Operations
 
-* [getWorkspaceEvents](#getworkspaceevents) - Load recent events for a particular workspace
-* [getWorkspaceEventsBySourceRevisionDigest](#getworkspaceeventsbysourcerevisiondigest) - Load events for a particular workspace and source revision digest
+* [getWorkspaceEventsByTarget](#getworkspaceeventsbytarget) - Load recent events for a particular workspace
 * [getWorkspaceTargets](#getworkspacetargets) - Load targets for a particular workspace
 * [postWorkspaceEvents](#postworkspaceevents) - Post events for a specific workspace
+* [searchWorkspaceEvents](#searchworkspaceevents) - Search events for a particular workspace by any field
 
-## getWorkspaceEvents
+## getWorkspaceEventsByTarget
 
 Load recent events for a particular workspace
 
@@ -37,61 +37,11 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity($security)->build();
 
 try {
-        $request = new Operations\GetWorkspaceEventsRequest();
-    $request->afterCreatedAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2024-04-02T06:03:54.204Z');
-    $request->generateGenLockId = '<value>';;
+        $request = new Operations\GetWorkspaceEventsByTargetRequest();
+    $request->afterCreatedAt = DateTime::createFromFormat('Y-m-d\TH:i:s+', '2024-04-01T04:00:29.393Z');
+    $request->targetID = '<value>';;
 
-    $response = $sdk->events->getWorkspaceEvents($request);
-
-    if ($response->cliEventBatch !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                        | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsRequest](../../Models/Operations/GetWorkspaceEventsRequest.md) | :heavy_check_mark:                                                                                                                | The request object to use for the request.                                                                                        |
-
-
-### Response
-
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsResponse](../../Models/Operations/GetWorkspaceEventsResponse.md)**
-
-
-## getWorkspaceEventsBySourceRevisionDigest
-
-Load events for a particular workspace and source revision digest
-
-### Example Usage
-
-```php
-<?php
-
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
-
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
-
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('<value>')
-    ->setSecurity($security)->build();
-
-try {
-        $request = new Operations\GetWorkspaceEventsBySourceRevisionDigestRequest();
-    $request->sourceRevisionDigest = '<value>';;
-
-    $response = $sdk->events->getWorkspaceEventsBySourceRevisionDigest($request);
+    $response = $sdk->events->getWorkspaceEventsByTarget($request);
 
     if ($response->cliEventBatch !== null) {
         // handle response
@@ -103,14 +53,14 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                                                                     | Type                                                                                                                                                                          | Required                                                                                                                                                                      | Description                                                                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                                                                    | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsBySourceRevisionDigestRequest](../../Models/Operations/GetWorkspaceEventsBySourceRevisionDigestRequest.md) | :heavy_check_mark:                                                                                                                                                            | The request object to use for the request.                                                                                                                                    |
+| Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                                                        | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsByTargetRequest](../../Models/Operations/GetWorkspaceEventsByTargetRequest.md) | :heavy_check_mark:                                                                                                                                | The request object to use for the request.                                                                                                        |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsBySourceRevisionDigestResponse](../../Models/Operations/GetWorkspaceEventsBySourceRevisionDigestResponse.md)**
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsByTargetResponse](../../Models/Operations/GetWorkspaceEventsByTargetResponse.md)**
 
 
 ## getWorkspaceTargets
@@ -213,4 +163,56 @@ try {
 ### Response
 
 **[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\PostWorkspaceEventsResponse](../../Models/Operations/PostWorkspaceEventsResponse.md)**
+
+
+## searchWorkspaceEvents
+
+Search events for a particular workspace by any field
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
+$security = new Shared\Security();
+$security->apiKey = '<YOUR_API_KEY_HERE>';
+
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('<value>')
+    ->setSecurity($security)->build();
+
+try {
+        $request = new Operations\SearchWorkspaceEventsRequest();
+    $request->lintReportDigest = '<value>';
+    $request->openapiDiffReportDigest = '<value>';
+    $request->sourceRevisionDigest = '<value>';;
+
+    $response = $sdk->events->searchWorkspaceEvents($request);
+
+    if ($response->cliEventBatch !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                               | Type                                                                                                                                    | Required                                                                                                                                | Description                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                                              | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\SearchWorkspaceEventsRequest](../../Models/Operations/SearchWorkspaceEventsRequest.md) | :heavy_check_mark:                                                                                                                      | The request object to use for the request.                                                                                              |
+
+
+### Response
+
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\SearchWorkspaceEventsResponse](../../Models/Operations/SearchWorkspaceEventsResponse.md)**
 

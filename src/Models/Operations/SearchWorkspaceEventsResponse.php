@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 
-class GetWorkspaceEventsResponse
+class SearchWorkspaceEventsResponse
 {
     /**
      * Success
