@@ -8,6 +8,7 @@
 * [getNamespaces](#getnamespaces) - Each namespace contains many revisions.
 * [getRevisions](#getrevisions)
 * [getTags](#gettags)
+* [postTags](#posttags) - Add tags to an existing revision
 * [preflight](#preflight) - Get access token for communicating with OCI distribution endpoints
 
 ## getBlob
@@ -251,6 +252,61 @@ try {
 ### Response
 
 **[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetTagsResponse](../../Models/Operations/GetTagsResponse.md)**
+
+
+## postTags
+
+Add tags to an existing revision
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
+$security = new Shared\Security();
+$security->apiKey = '<YOUR_API_KEY_HERE>';
+
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setWorkspaceID('<value>')
+    ->setSecurity($security)->build();
+
+try {
+        $request = new Operations\PostTagsRequest();
+    $request->addTags = new Shared\AddTags();
+    $request->addTags->revisionDigest = '<value>';
+    $request->addTags->tags = [
+        '<value>',
+    ];
+    $request->namespaceName = '<value>';;
+
+    $response = $sdk->artifacts->postTags($request);
+
+    if ($response->statusCode === 200) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                    | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\PostTagsRequest](../../Models/Operations/PostTagsRequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+
+
+### Response
+
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\PostTagsResponse](../../Models/Operations/PostTagsResponse.md)**
 
 
 ## preflight

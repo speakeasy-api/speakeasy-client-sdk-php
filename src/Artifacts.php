@@ -240,6 +240,50 @@ class Artifacts
     }
 	
     /**
+     * Add tags to an existing revision
+     * 
+     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostTagsRequest $request
+     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostTagsResponse
+     */
+	public function postTags(
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\PostTagsRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostTagsResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/artifacts/namespaces/{namespace_name}/tags', \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostTagsRequest::class, $request, $this->sdkConfiguration->globals);
+        
+        $options = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request, "addTags", "json");
+        if ($body !== null) {
+            $options = array_merge_recursive($options, $body);
+        }
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        
+        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostTagsResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+        }
+        else {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+            }
+        }
+
+        return $response;
+    }
+	
+    /**
      * Get access token for communicating with OCI distribution endpoints
      * 
      * @param \Speakeasy\SpeakeasyClientSDK\Models\Shared\PreflightRequest $request
