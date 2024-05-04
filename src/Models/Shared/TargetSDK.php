@@ -32,6 +32,16 @@ class TargetSDK
     public ?string $continuousIntegrationEnvironment = null;
     
     /**
+     * Error message if the last event was not successful.
+     * 
+     * @var ?string $error
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('error')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $error = null;
+    
+    /**
      * Version of the generated target (post generation)
      * 
      * @var ?string $generateConfigPostVersion
@@ -299,6 +309,7 @@ class TargetSDK
 	{
 		$this->commitHead = null;
 		$this->continuousIntegrationEnvironment = null;
+		$this->error = null;
 		$this->generateConfigPostVersion = null;
 		$this->generateGenLockId = "";
 		$this->generateGenLockPreFeatures = null;

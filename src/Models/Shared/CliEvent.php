@@ -51,6 +51,16 @@ class CliEvent
     public ?int $durationMs = null;
     
     /**
+     * Error message if the event was not successful.
+     * 
+     * @var ?string $error
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('error')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $error = null;
+    
+    /**
      * Unique identifier for each execution of the CLI.
      * 
      * @var string $executionId
@@ -398,6 +408,16 @@ class CliEvent
     public InteractionType $interactionType;
     
     /**
+     * The last step of the event.
+     * 
+     * @var ?string $lastStep
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('last_step')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $lastStep = null;
+    
+    /**
      * The checksum of the lint report.
      * 
      * @var ?string $lintReportDigest
@@ -475,6 +495,16 @@ class CliEvent
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $managementDocVersion = null;
+    
+    /**
+     * Mermaid diagram
+     * 
+     * @var ?string $mermaidDiagram
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('mermaid_diagram')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $mermaidDiagram = null;
     
     /**
      * The blob digest of the base source.
@@ -654,6 +684,46 @@ class CliEvent
     public bool $success;
     
     /**
+     * Workflow lock file (post execution)
+     * 
+     * @var ?string $workflowLockPostRaw
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('workflow_lock_post_raw')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $workflowLockPostRaw = null;
+    
+    /**
+     * Workflow lock file (prior to execution)
+     * 
+     * @var ?string $workflowLockPreRaw
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('workflow_lock_pre_raw')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $workflowLockPreRaw = null;
+    
+    /**
+     * Workflow file (post execution)
+     * 
+     * @var ?string $workflowPostRaw
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('workflow_post_raw')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $workflowPostRaw = null;
+    
+    /**
+     * Workflow file (prior to execution)
+     * 
+     * @var ?string $workflowPreRaw
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('workflow_pre_raw')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $workflowPreRaw = null;
+    
+    /**
      * Identifier of the workspace.
      * 
      * @var string $workspaceId
@@ -668,6 +738,7 @@ class CliEvent
 		$this->continuousIntegrationEnvironment = null;
 		$this->createdAt = new \DateTime();
 		$this->durationMs = null;
+		$this->error = null;
 		$this->executionId = "";
 		$this->generateBumpType = null;
 		$this->generateConfigPostChecksum = null;
@@ -703,6 +774,7 @@ class CliEvent
 		$this->hostname = null;
 		$this->id = "";
 		$this->interactionType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType::CiExec;
+		$this->lastStep = null;
 		$this->lintReportDigest = null;
 		$this->lintReportErrorCount = null;
 		$this->lintReportInfoCount = null;
@@ -711,6 +783,7 @@ class CliEvent
 		$this->localStartedAt = new \DateTime();
 		$this->managementDocChecksum = null;
 		$this->managementDocVersion = null;
+		$this->mermaidDiagram = null;
 		$this->openapiDiffBaseSourceBlobDigest = null;
 		$this->openapiDiffBaseSourceNamespaceName = null;
 		$this->openapiDiffBaseSourceRevisionDigest = null;
@@ -729,6 +802,10 @@ class CliEvent
 		$this->speakeasyApiKeyName = "";
 		$this->speakeasyVersion = "";
 		$this->success = false;
+		$this->workflowLockPostRaw = null;
+		$this->workflowLockPreRaw = null;
+		$this->workflowPostRaw = null;
+		$this->workflowPreRaw = null;
 		$this->workspaceId = "";
 	}
 }
