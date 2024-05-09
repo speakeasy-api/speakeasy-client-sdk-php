@@ -29,9 +29,7 @@ use \Speakeasy\SpeakeasyClientSDK;
 use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('<value>')
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->build();
 
 try {
         $request = new Operations\GetAccessTokenRequest();
@@ -78,9 +76,7 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('<value>')
-    ->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
     $response = $sdk->auth->getUser();
@@ -119,9 +115,7 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('<value>')
-    ->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetWorkspaceAccessRequest();
@@ -170,9 +164,7 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('<value>')
-    ->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
     $response = $sdk->auth->validateApiKey();

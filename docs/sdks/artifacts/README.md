@@ -31,9 +31,7 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('<value>')
-    ->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetBlobRequest();
@@ -84,9 +82,7 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('<value>')
-    ->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetManifestRequest();
@@ -136,9 +132,7 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('<value>')
-    ->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
     $response = $sdk->artifacts->getNamespaces();
@@ -175,9 +169,7 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('<value>')
-    ->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetRevisionsRequest();
@@ -224,9 +216,7 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('<value>')
-    ->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
         $request = new Operations\GetTagsRequest();
@@ -274,9 +264,7 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('<value>')
-    ->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
         $request = new Operations\PostTagsRequest();
@@ -328,9 +316,7 @@ use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setWorkspaceID('<value>')
-    ->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
         $request = new Shared\PreflightRequest();

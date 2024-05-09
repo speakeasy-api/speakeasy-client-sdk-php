@@ -52,6 +52,16 @@ class TargetSDK
     public ?string $generateConfigPostVersion = null;
     
     /**
+     * Eligible feature set during generation
+     * 
+     * @var ?string $generateEligibleFeatures
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('generate_eligible_features')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $generateEligibleFeatures = null;
+    
+    /**
      * gen.lock ID (expected to be a uuid). The same as `id`. A unique identifier for the target.
      * 
      * @var string $generateGenLockId
@@ -79,6 +89,26 @@ class TargetSDK
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $generateGenLockPreVersion = null;
+    
+    /**
+     * The number of operations ignored in generation.
+     * 
+     * @var ?int $generateNumberOfOperationsIgnored
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('generate_number_of_operations_ignored')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $generateNumberOfOperationsIgnored = null;
+    
+    /**
+     * The number of operations used in generation.
+     * 
+     * @var ?int $generateNumberOfOperationsUsed
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('generate_number_of_operations_used')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $generateNumberOfOperationsUsed = null;
     
     /**
      * Indicates whether the target was considered published.
@@ -128,6 +158,16 @@ class TargetSDK
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $ghActionOrganization = null;
+    
+    /**
+     * GitHub Action ref value.
+     * 
+     * @var ?string $ghActionRef
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('gh_action_ref')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $ghActionRef = null;
     
     /**
      * GitHub repository of the action.
@@ -311,14 +351,18 @@ class TargetSDK
 		$this->continuousIntegrationEnvironment = null;
 		$this->error = null;
 		$this->generateConfigPostVersion = null;
+		$this->generateEligibleFeatures = null;
 		$this->generateGenLockId = "";
 		$this->generateGenLockPreFeatures = null;
 		$this->generateGenLockPreVersion = null;
+		$this->generateNumberOfOperationsIgnored = null;
+		$this->generateNumberOfOperationsUsed = null;
 		$this->generatePublished = null;
 		$this->generateTarget = "";
 		$this->generateTargetName = null;
 		$this->generateTargetVersion = null;
 		$this->ghActionOrganization = null;
+		$this->ghActionRef = null;
 		$this->ghActionRepository = null;
 		$this->ghActionRunLink = null;
 		$this->ghActionVersion = null;
