@@ -21,7 +21,7 @@ class Organization
     #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\OrganizationAccountType>')]
     public OrganizationAccountType $accountType;
     
-	#[\JMS\Serializer\Annotation\SerializedName('created)at')]
+	#[\JMS\Serializer\Annotation\SerializedName('created_at')]
     #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $createdAt = null;

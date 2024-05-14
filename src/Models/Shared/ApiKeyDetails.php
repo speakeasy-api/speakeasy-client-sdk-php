@@ -16,13 +16,13 @@ class ApiKeyDetails
     public AccountType $accountType;
     
     /**
-     * $featureFlags
+     * $enabledFeatures
      * 
-     * @var array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlags> $featureFlags
+     * @var array<string> $enabledFeatures
      */
-	#[\JMS\Serializer\Annotation\SerializedName('feature_flags')]
-    #[\JMS\Serializer\Annotation\Type('array<enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlags>>')]
-    public array $featureFlags;
+	#[\JMS\Serializer\Annotation\SerializedName('enabled_features')]
+    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    public array $enabledFeatures;
     
 	#[\JMS\Serializer\Annotation\SerializedName('generation_access_unlimited')]
     #[\JMS\Serializer\Annotation\Type('bool')]
@@ -44,7 +44,7 @@ class ApiKeyDetails
 	public function __construct()
 	{
 		$this->accountType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType::Free;
-		$this->featureFlags = [];
+		$this->enabledFeatures = [];
 		$this->generationAccessUnlimited = null;
 		$this->orgSlug = "";
 		$this->workspaceId = "";
