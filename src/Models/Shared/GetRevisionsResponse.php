@@ -13,20 +13,20 @@ class GetRevisionsResponse
 {
     /**
      * $items
-     * 
+     *
      * @var array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Revision> $items
      */
-	#[\JMS\Serializer\Annotation\SerializedName('items')]
+    #[\JMS\Serializer\Annotation\SerializedName('items')]
     #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\Models\Shared\Revision>')]
     public array $items;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('next_page_token')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('next_page_token')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $nextPageToken;
-    
-	public function __construct()
-	{
-		$this->items = [];
-		$this->nextPageToken = "";
-	}
+
+    public function __construct()
+    {
+        $this->items = [];
+        $this->nextPageToken = '';
+    }
 }

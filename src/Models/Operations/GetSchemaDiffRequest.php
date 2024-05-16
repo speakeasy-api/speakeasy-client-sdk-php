@@ -8,46 +8,46 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
+use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class GetSchemaDiffRequest
 {
     /**
      * The ID of the Api to retrieve schemas for.
-     * 
+     *
      * @var string $apiID
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=apiID')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=apiID')]
     public string $apiID;
-    
+
     /**
      * The base revision ID of the schema to retrieve.
-     * 
+     *
      * @var string $baseRevisionID
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=baseRevisionID')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=baseRevisionID')]
     public string $baseRevisionID;
-    
+
     /**
      * The target revision ID of the schema to retrieve.
-     * 
+     *
      * @var string $targetRevisionID
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=targetRevisionID')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=targetRevisionID')]
     public string $targetRevisionID;
-    
+
     /**
      * The version ID of the Api to delete metadata for.
-     * 
+     *
      * @var string $versionID
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=versionID')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=versionID')]
     public string $versionID;
-    
-	public function __construct()
-	{
-		$this->apiID = "";
-		$this->baseRevisionID = "";
-		$this->targetRevisionID = "";
-		$this->versionID = "";
-	}
+
+    public function __construct()
+    {
+        $this->apiID = '';
+        $this->baseRevisionID = '';
+        $this->targetRevisionID = '';
+        $this->versionID = '';
+    }
 }

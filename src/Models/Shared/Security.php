@@ -8,18 +8,18 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
+use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class Security
 {
-	#[SpeakeasyMetadata('security:scheme=true,type=apiKey,subtype=header,name=x-api-key')]
+    #[SpeakeasyMetadata('security:scheme=true,type=apiKey,subtype=header,name=x-api-key')]
     public ?string $apiKey = null;
-    
-	#[SpeakeasyMetadata('security:scheme=true,type=http,subtype=bearer,name=Authorization')]
+
+    #[SpeakeasyMetadata('security:scheme=true,type=http,subtype=bearer,name=Authorization')]
     public ?string $bearer = null;
-    
-	public function __construct()
-	{
-		$this->apiKey = null;
-		$this->bearer = null;
-	}
+
+    public function __construct()
+    {
+        $this->apiKey = null;
+        $this->bearer = null;
+    }
 }

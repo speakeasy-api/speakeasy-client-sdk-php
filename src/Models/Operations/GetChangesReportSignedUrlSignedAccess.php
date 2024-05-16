@@ -9,20 +9,15 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 
-/**
- * GetChangesReportSignedUrlSignedAccess - OK
- * 
- * @package Speakeasy\SpeakeasyClientSDK\Models\Operations
- * @access public
- */
+/** GetChangesReportSignedUrlSignedAccess - OK */
 class GetChangesReportSignedUrlSignedAccess
 {
-	#[\JMS\Serializer\Annotation\SerializedName('url')]
+    #[\JMS\Serializer\Annotation\SerializedName('url')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $url;
-    
-	public function __construct()
-	{
-		$this->url = "";
-	}
+
+    public function __construct()
+    {
+        $this->url = '';
+    }
 }

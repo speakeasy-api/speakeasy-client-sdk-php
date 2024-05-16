@@ -13,25 +13,25 @@ class ValueChange
 {
     /**
      * Represents the previous value of the element.
-     * 
+     *
      * @var string $from
      */
-	#[\JMS\Serializer\Annotation\SerializedName('From')]
+    #[\JMS\Serializer\Annotation\SerializedName('From')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $from;
-    
+
     /**
      * Represents the current value of the element.
-     * 
+     *
      * @var string $to
      */
-	#[\JMS\Serializer\Annotation\SerializedName('To')]
+    #[\JMS\Serializer\Annotation\SerializedName('To')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $to;
-    
-	public function __construct()
-	{
-		$this->from = "";
-		$this->to = "";
-	}
+
+    public function __construct()
+    {
+        $this->from = '';
+        $this->to = '';
+    }
 }

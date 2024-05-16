@@ -9,70 +9,65 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
-/**
- * Manifest - Returns the requested manifest file
- * 
- * @package Speakeasy\SpeakeasyClientSDK\Models\Shared
- * @access public
- */
+/** Manifest - Returns the requested manifest file */
 class Manifest
 {
     /**
      * Annotations
-     * 
+     *
      * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations $annotations
      */
-	#[\JMS\Serializer\Annotation\SerializedName('annotations')]
+    #[\JMS\Serializer\Annotation\SerializedName('annotations')]
     #[\JMS\Serializer\Annotation\Type('Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Annotations $annotations = null;
-    
+
     /**
      * Type of artifact
-     * 
+     *
      * @var ?string $artifactType
      */
-	#[\JMS\Serializer\Annotation\SerializedName('artifactType')]
+    #[\JMS\Serializer\Annotation\SerializedName('artifactType')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $artifactType = null;
-    
+
     /**
      * List of V2 image layer information
-     * 
+     *
      * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\V2Descriptor> $layers
      */
-	#[\JMS\Serializer\Annotation\SerializedName('layers')]
+    #[\JMS\Serializer\Annotation\SerializedName('layers')]
     #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\Models\Shared\V2Descriptor>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $layers = null;
-    
+
     /**
      * Media type usually application/vnd.docker.distribution.manifest.v2+json if this is in the accept header
-     * 
+     *
      * @var ?string $mediaType
      */
-	#[\JMS\Serializer\Annotation\SerializedName('mediaType')]
+    #[\JMS\Serializer\Annotation\SerializedName('mediaType')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $mediaType = null;
-    
+
     /**
      * Schema version
-     * 
+     *
      * @var ?int $schemaVersion
      */
-	#[\JMS\Serializer\Annotation\SerializedName('schemaVersion')]
+    #[\JMS\Serializer\Annotation\SerializedName('schemaVersion')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $schemaVersion = null;
-    
-	public function __construct()
-	{
-		$this->annotations = null;
-		$this->artifactType = null;
-		$this->layers = null;
-		$this->mediaType = null;
-		$this->schemaVersion = null;
-	}
+
+    public function __construct()
+    {
+        $this->annotations = null;
+        $this->artifactType = null;
+        $this->layers = null;
+        $this->mediaType = null;
+        $this->schemaVersion = null;
+    }
 }

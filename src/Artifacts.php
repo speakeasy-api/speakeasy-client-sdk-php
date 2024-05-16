@@ -8,38 +8,33 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK;
 
-class Artifacts 
+class Artifacts
 {
+    private SDKConfiguration $sdkConfiguration;
 
-	private SDKConfiguration $sdkConfiguration;
+    /**
+     * @param  SDKConfiguration  $sdkConfig
+     */
+    public function __construct(SDKConfiguration $sdkConfig)
+    {
+        $this->sdkConfiguration = $sdkConfig;
+    }
 
-	/**
-	 * @param SDKConfiguration $sdkConfig
-	 */
-	public function __construct(SDKConfiguration $sdkConfig)
-	{
-		$this->sdkConfiguration = $sdkConfig;
-	}
-	
     /**
      * Get blob for a particular digest
-     * 
-     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetBlobRequest $request
+     *
+     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetBlobRequest  $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetBlobResponse
      */
-	public function getBlob(
+    public function getBlob(
         ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetBlobRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetBlobResponse
-    {
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetBlobResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/oci/v2/{organization_slug}/{workspace_slug}/{namespace_name}/blobs/{digest}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetBlobRequest::class, $request, $this->sdkConfiguration->globals);
-        
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json;q=1, application/octet-stream;q=0';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -48,41 +43,35 @@ class Artifacts
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/octet-stream')) {
                 $response->blob = $httpResponse->getBody()->getContents();
             }
-        }
-        else {
+        } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Get manifest for a particular reference
-     * 
-     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetManifestRequest $request
+     *
+     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetManifestRequest  $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetManifestResponse
      */
-	public function getManifest(
+    public function getManifest(
         ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetManifestRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetManifestResponse
-    {
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetManifestResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/oci/v2/{organization_slug}/{workspace_slug}/{namespace_name}/manifests/{revision_reference}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetManifestRequest::class, $request, $this->sdkConfiguration->globals);
-        
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json;q=1, application/vnd.oci.image.manifest.v1+json;q=0';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -91,40 +80,34 @@ class Artifacts
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/vnd.oci.image.manifest.v1+json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->manifest = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Manifest', 'json');
+                $response->manifest = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Manifest', 'json');
             }
-        }
-        else {
+        } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Each namespace contains many revisions.
-     * 
+     *
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetNamespacesResponse
      */
-	public function getNamespaces(
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetNamespacesResponse
-    {
+    public function getNamespaces(
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetNamespacesResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/artifacts/namespaces');
-        
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -133,43 +116,37 @@ class Artifacts
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->getNamespacesResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\GetNamespacesResponse', 'json');
+                $response->getNamespacesResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\GetNamespacesResponse', 'json');
             }
-        }
-        else {
+        } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * getRevisions
-     * 
-     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRevisionsRequest $request
+     *
+     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRevisionsRequest  $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRevisionsResponse
      */
-	public function getRevisions(
+    public function getRevisions(
         ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRevisionsRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRevisionsResponse
-    {
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRevisionsResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/artifacts/namespaces/{namespace_name}/revisions', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRevisionsRequest::class, $request, $this->sdkConfiguration->globals);
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRevisionsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -178,42 +155,36 @@ class Artifacts
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->getRevisionsResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\GetRevisionsResponse', 'json');
+                $response->getRevisionsResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\GetRevisionsResponse', 'json');
             }
-        }
-        else {
+        } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * getTags
-     * 
-     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetTagsRequest $request
+     *
+     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetTagsRequest  $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetTagsResponse
      */
-	public function getTags(
+    public function getTags(
         ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetTagsRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetTagsResponse
-    {
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetTagsResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/artifacts/namespaces/{namespace_name}/tags', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetTagsRequest::class, $request, $this->sdkConfiguration->globals);
-        
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -222,46 +193,40 @@ class Artifacts
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->getTagsResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\GetTagsResponse', 'json');
+                $response->getTagsResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\GetTagsResponse', 'json');
             }
-        }
-        else {
+        } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Add tags to an existing revision
-     * 
-     * @param \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostTagsRequest $request
+     *
+     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostTagsRequest  $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostTagsResponse
      */
-	public function postTags(
+    public function postTags(
         ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\PostTagsRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostTagsResponse
-    {
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostTagsResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/artifacts/namespaces/{namespace_name}/tags', \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostTagsRequest::class, $request, $this->sdkConfiguration->globals);
-        
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, "addTags", "json");
+        $body = Utils\Utils::serializeRequestBody($request, 'addTags', 'json');
         if ($body !== null) {
             $options = array_merge_recursive($options, $body);
         }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
         $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -270,42 +235,36 @@ class Artifacts
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
-        }
-        else {
+        } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Get access token for communicating with OCI distribution endpoints
-     * 
-     * @param \Speakeasy\SpeakeasyClientSDK\Models\Shared\PreflightRequest $request
+     *
+     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Shared\PreflightRequest  $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\PreflightResponse
      */
-	public function preflight(
+    public function preflight(
         ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\PreflightRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\PreflightResponse
-    {
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\PreflightResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/artifacts/preflight');
-        
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
         if ($body !== null) {
             $options = array_merge_recursive($options, $body);
         }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
         $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -314,17 +273,15 @@ class Artifacts
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->preflightToken = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\PreflightToken', 'json');
+                $response->preflightToken = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\PreflightToken', 'json');
             }
-        }
-        else {
+        } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string)$httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
             }
         }
 

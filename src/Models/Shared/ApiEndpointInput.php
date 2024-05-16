@@ -9,75 +9,70 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
-/**
- * ApiEndpointInput - An ApiEndpoint is a description of an Endpoint for an API.
- * 
- * @package Speakeasy\SpeakeasyClientSDK\Models\Shared
- * @access public
- */
+/** ApiEndpointInput - An ApiEndpoint is a description of an Endpoint for an API. */
 class ApiEndpointInput
 {
     /**
      * The ID of this ApiEndpoint. This is a hash of the method and path.
-     * 
+     *
      * @var string $apiEndpointId
      */
-	#[\JMS\Serializer\Annotation\SerializedName('api_endpoint_id')]
+    #[\JMS\Serializer\Annotation\SerializedName('api_endpoint_id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $apiEndpointId;
-    
+
     /**
      * A detailed description of the ApiEndpoint.
-     * 
+     *
      * @var string $description
      */
-	#[\JMS\Serializer\Annotation\SerializedName('description')]
+    #[\JMS\Serializer\Annotation\SerializedName('description')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $description;
-    
+
     /**
      * A human-readable name for the ApiEndpoint.
-     * 
+     *
      * @var string $displayName
      */
-	#[\JMS\Serializer\Annotation\SerializedName('display_name')]
+    #[\JMS\Serializer\Annotation\SerializedName('display_name')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $displayName;
-    
+
     /**
      * HTTP verb.
-     * 
+     *
      * @var string $method
      */
-	#[\JMS\Serializer\Annotation\SerializedName('method')]
+    #[\JMS\Serializer\Annotation\SerializedName('method')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $method;
-    
+
     /**
      * Path that handles this Api.
-     * 
+     *
      * @var string $path
      */
-	#[\JMS\Serializer\Annotation\SerializedName('path')]
+    #[\JMS\Serializer\Annotation\SerializedName('path')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $path;
-    
+
     /**
      * The version ID of the Api this ApiEndpoint belongs to.
-     * 
+     *
      * @var string $versionId
      */
-	#[\JMS\Serializer\Annotation\SerializedName('version_id')]
+    #[\JMS\Serializer\Annotation\SerializedName('version_id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $versionId;
-    
-	public function __construct()
-	{
-		$this->apiEndpointId = "";
-		$this->description = "";
-		$this->displayName = "";
-		$this->method = "";
-		$this->path = "";
-		$this->versionId = "";
-	}
+
+    public function __construct()
+    {
+        $this->apiEndpointId = '';
+        $this->description = '';
+        $this->displayName = '';
+        $this->method = '';
+        $this->path = '';
+        $this->versionId = '';
+    }
 }

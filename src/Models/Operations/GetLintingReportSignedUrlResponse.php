@@ -13,41 +13,37 @@ class GetLintingReportSignedUrlResponse
 {
     /**
      * HTTP response content type for this operation
-     * 
+     *
      * @var string $contentType
      */
-	
     public string $contentType;
-    
+
     /**
      * HTTP response status code for this operation
-     * 
+     *
      * @var int $statusCode
      */
-	
     public int $statusCode;
-    
+
     /**
      * Raw HTTP response; suitable for custom response parsing
-     * 
+     *
      * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
      */
-	
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
-    
+
     /**
      * OK
-     * 
+     *
      * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetLintingReportSignedUrlSignedAccess $signedAccess
      */
-	
     public ?GetLintingReportSignedUrlSignedAccess $signedAccess = null;
-    
-	public function __construct()
-	{
-		$this->contentType = "";
-		$this->statusCode = 0;
-		$this->rawResponse = null;
-		$this->signedAccess = null;
-	}
+
+    public function __construct()
+    {
+        $this->contentType = '';
+        $this->statusCode = 0;
+        $this->rawResponse = null;
+        $this->signedAccess = null;
+    }
 }

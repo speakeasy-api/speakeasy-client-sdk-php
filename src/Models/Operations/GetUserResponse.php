@@ -13,50 +13,45 @@ class GetUserResponse
 {
     /**
      * HTTP response content type for this operation
-     * 
+     *
      * @var string $contentType
      */
-	
     public string $contentType;
-    
+
     /**
      * Default error response
-     * 
+     *
      * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
      */
-	
     public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
-    
+
     /**
      * HTTP response status code for this operation
-     * 
+     *
      * @var int $statusCode
      */
-	
     public int $statusCode;
-    
+
     /**
      * Raw HTTP response; suitable for custom response parsing
-     * 
+     *
      * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
      */
-	
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
-    
+
     /**
      * OK
-     * 
+     *
      * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\User $user
      */
-	
     public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\User $user = null;
-    
-	public function __construct()
-	{
-		$this->contentType = "";
-		$this->error = null;
-		$this->statusCode = 0;
-		$this->rawResponse = null;
-		$this->user = null;
-	}
+
+    public function __construct()
+    {
+        $this->contentType = '';
+        $this->error = null;
+        $this->statusCode = 0;
+        $this->rawResponse = null;
+        $this->user = null;
+    }
 }

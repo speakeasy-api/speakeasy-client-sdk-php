@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
+use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class GetChangesReportSignedUrlRequest
 {
     /**
      * The checksum of the document to retrieve the signed access url for.
-     * 
+     *
      * @var string $documentChecksum
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=documentChecksum')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=documentChecksum')]
     public string $documentChecksum;
-    
-	public function __construct()
-	{
-		$this->documentChecksum = "";
-	}
+
+    public function __construct()
+    {
+        $this->documentChecksum = '';
+    }
 }

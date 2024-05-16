@@ -13,50 +13,45 @@ class GetWorkspaceTargetsResponse
 {
     /**
      * HTTP response content type for this operation
-     * 
+     *
      * @var string $contentType
      */
-	
     public string $contentType;
-    
+
     /**
      * Error
-     * 
+     *
      * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
      */
-	
     public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
-    
+
     /**
      * HTTP response status code for this operation
-     * 
+     *
      * @var int $statusCode
      */
-	
     public int $statusCode;
-    
+
     /**
      * Raw HTTP response; suitable for custom response parsing
-     * 
+     *
      * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
      */
-	
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
-    
+
     /**
      * Success
-     * 
+     *
      * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\TargetSDK> $targetSDKList
      */
-	
     public ?array $targetSDKList = null;
-    
-	public function __construct()
-	{
-		$this->contentType = "";
-		$this->error = null;
-		$this->statusCode = 0;
-		$this->rawResponse = null;
-		$this->targetSDKList = null;
-	}
+
+    public function __construct()
+    {
+        $this->contentType = '';
+        $this->error = null;
+        $this->statusCode = 0;
+        $this->rawResponse = null;
+        $this->targetSDKList = null;
+    }
 }

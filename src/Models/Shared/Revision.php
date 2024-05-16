@@ -11,47 +11,47 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class Revision
 {
-	#[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
     #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('digest')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('digest')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $digest;
-    
+
     /**
      * Format {namespace_id}/{revision_digest}
-     * 
+     *
      * @var string $id
      */
-	#[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('namespace_name')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('namespace_name')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $namespaceName;
-    
+
     /**
      * $tags
-     * 
+     *
      * @var array<string> $tags
      */
-	#[\JMS\Serializer\Annotation\SerializedName('tags')]
+    #[\JMS\Serializer\Annotation\SerializedName('tags')]
     #[\JMS\Serializer\Annotation\Type('array<string>')]
     public array $tags;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('updated_at')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
     #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $updatedAt;
-    
-	public function __construct()
-	{
-		$this->createdAt = new \DateTime();
-		$this->digest = "";
-		$this->id = "";
-		$this->namespaceName = "";
-		$this->tags = [];
-		$this->updatedAt = new \DateTime();
-	}
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->digest = '';
+        $this->id = '';
+        $this->namespaceName = '';
+        $this->tags = [];
+        $this->updatedAt = new \DateTime();
+    }
 }

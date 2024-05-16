@@ -11,43 +11,54 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class ApiKeyDetails
 {
-	#[\JMS\Serializer\Annotation\SerializedName('account_type')]
+    #[\JMS\Serializer\Annotation\SerializedName('account_type')]
     #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType>')]
     public AccountType $accountType;
-    
+
     /**
      * $enabledFeatures
-     * 
-     * @var array<string> $enabledFeatures
+     *
+     * @var array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlag> $enabledFeatures
      */
-	#[\JMS\Serializer\Annotation\SerializedName('enabled_features')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\JMS\Serializer\Annotation\SerializedName('enabled_features')]
+    #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlag>')]
     public array $enabledFeatures;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('generation_access_unlimited')]
+
+    /**
+     *
+     * @var ?array<string> $featureFlags
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('feature_flags')]
+    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?array $featureFlags = null;
+
+    #[\JMS\Serializer\Annotation\SerializedName('generation_access_unlimited')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $generationAccessUnlimited = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('org_slug')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('org_slug')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $orgSlug;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $workspaceId;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('workspace_slug')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('workspace_slug')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $workspaceSlug;
-    
-	public function __construct()
-	{
-		$this->accountType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType::Free;
-		$this->enabledFeatures = [];
-		$this->generationAccessUnlimited = null;
-		$this->orgSlug = "";
-		$this->workspaceId = "";
-		$this->workspaceSlug = "";
-	}
+
+    public function __construct()
+    {
+        $this->accountType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType::Free;
+        $this->enabledFeatures = [];
+        $this->featureFlags = null;
+        $this->generationAccessUnlimited = null;
+        $this->orgSlug = '';
+        $this->workspaceId = '';
+        $this->workspaceSlug = '';
+    }
 }

@@ -9,45 +9,40 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
-/**
- * NamespaceT - A namespace contains many revisions.
- * 
- * @package Speakeasy\SpeakeasyClientSDK\Models\Shared
- * @access public
- */
+/** NamespaceT - A namespace contains many revisions. */
 class NamespaceT
 {
-	#[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
     #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
-    
+
     /**
      * {organization_slug}/{workspace_slug}/{namespace_name}
-     * 
+     *
      * @var string $id
      */
-	#[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
-    
+
     /**
      * A human-readable name for the namespace.
-     * 
+     *
      * @var string $name
      */
-	#[\JMS\Serializer\Annotation\SerializedName('name')]
+    #[\JMS\Serializer\Annotation\SerializedName('name')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $name;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('updated_at')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
     #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $updatedAt;
-    
-	public function __construct()
-	{
-		$this->createdAt = new \DateTime();
-		$this->id = "";
-		$this->name = "";
-		$this->updatedAt = new \DateTime();
-	}
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->id = '';
+        $this->name = '';
+        $this->updatedAt = new \DateTime();
+    }
 }

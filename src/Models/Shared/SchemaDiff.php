@@ -9,45 +9,40 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
-/**
- * SchemaDiff - A SchemaDiff represents a diff of two Schemas.
- * 
- * @package Speakeasy\SpeakeasyClientSDK\Models\Shared
- * @access public
- */
+/** SchemaDiff - A SchemaDiff represents a diff of two Schemas. */
 class SchemaDiff
 {
     /**
      * Holds every addition change in the diff.
-     * 
+     *
      * @var array<string> $additions
      */
-	#[\JMS\Serializer\Annotation\SerializedName('additions')]
+    #[\JMS\Serializer\Annotation\SerializedName('additions')]
     #[\JMS\Serializer\Annotation\Type('array<string>')]
     public array $additions;
-    
+
     /**
      * Holds every deletion change in the diff.
-     * 
+     *
      * @var array<string> $deletions
      */
-	#[\JMS\Serializer\Annotation\SerializedName('deletions')]
+    #[\JMS\Serializer\Annotation\SerializedName('deletions')]
     #[\JMS\Serializer\Annotation\Type('array<string>')]
     public array $deletions;
-    
+
     /**
      * Holds every modification change in the diff.
-     * 
+     *
      * @var array<string, \Speakeasy\SpeakeasyClientSDK\Models\Shared\ValueChange> $modifications
      */
-	#[\JMS\Serializer\Annotation\SerializedName('modifications')]
+    #[\JMS\Serializer\Annotation\SerializedName('modifications')]
     #[\JMS\Serializer\Annotation\Type('array<string, Speakeasy\SpeakeasyClientSDK\Models\Shared\ValueChange>')]
     public array $modifications;
-    
-	public function __construct()
-	{
-		$this->additions = [];
-		$this->deletions = [];
-		$this->modifications = [];
-	}
+
+    public function __construct()
+    {
+        $this->additions = [];
+        $this->deletions = [];
+        $this->modifications = [];
+    }
 }

@@ -8,26 +8,26 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
+use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class GetBlobRequest
 {
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=digest')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=digest')]
     public string $digest;
-    
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=namespace_name')]
+
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=namespace_name')]
     public string $namespaceName;
-    
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=organization_slug')]
+
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=organization_slug')]
     public string $organizationSlug;
-    
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspace_slug')]
+
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspace_slug')]
     public string $workspaceSlug;
-    
-	public function __construct()
-	{
-		$this->digest = "";
-		$this->namespaceName = "";
-		$this->organizationSlug = "";
-		$this->workspaceSlug = "";
-	}
+
+    public function __construct()
+    {
+        $this->digest = '';
+        $this->namespaceName = '';
+        $this->organizationSlug = '';
+        $this->workspaceSlug = '';
+    }
 }

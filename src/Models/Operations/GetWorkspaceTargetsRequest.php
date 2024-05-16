@@ -8,28 +8,28 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
+use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class GetWorkspaceTargetsRequest
 {
     /**
      * Filter to only return targets with events created after this timestamp
-     * 
+     *
      * @var ?\DateTime $afterLastEventCreatedAt
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=after_last_event_created_at,dateTimeFormat=Y-m-d\TH:i:s.up')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=after_last_event_created_at,dateTimeFormat=Y-m-d\TH:i:s.up')]
     public ?\DateTime $afterLastEventCreatedAt = null;
-    
+
     /**
      * Unique identifier of the workspace.
-     * 
+     *
      * @var ?string $workspaceID
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspaceID')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspaceID')]
     public ?string $workspaceID = null;
-    
-	public function __construct()
-	{
-		$this->afterLastEventCreatedAt = null;
-		$this->workspaceID = null;
-	}
+
+    public function __construct()
+    {
+        $this->afterLastEventCreatedAt = null;
+        $this->workspaceID = null;
+    }
 }

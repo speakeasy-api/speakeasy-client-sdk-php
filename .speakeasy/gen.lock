@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 7a88ff5ef4ad3289ab4aec22a110bb64
+  docChecksum: f3ee86ef6f2ca4b47599522e63754f76
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.286.3
-  generationVersion: 2.329.0
-  releaseVersion: 0.37.12
-  configChecksum: 154c11452f9cf1072b539b97c0fd1552
+  speakeasyVersion: 1.291.0
+  generationVersion: 2.332.4
+  releaseVersion: 0.38.0
+  configChecksum: 38f66bfe0cdb565a2e3eaf65a606319d
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -14,6 +14,7 @@ management:
 features:
   php:
     core: 3.3.4
+    deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.81.6
     globalServerURLs: 2.82.1
@@ -37,6 +38,7 @@ generatedFiles:
   - src/SDKBuilder.php
   - composer.json
   - phpstan.neon
+  - pint.json
   - rector.php
   - src/Utils/EnumHandler.php
   - src/Utils/FormMetadata.php
@@ -184,6 +186,7 @@ generatedFiles:
   - src/Models/Shared/AccessTokenAccountType.php
   - src/Models/Shared/Workspaces.php
   - src/Models/Shared/AccessToken.php
+  - src/Models/Shared/FeatureFlag.php
   - src/Models/Shared/User.php
   - src/Models/Shared/Level.php
   - src/Models/Shared/AccessDetails.php
@@ -336,6 +339,7 @@ generatedFiles:
   - docs/Models/Shared/AccessTokenAccountType.md
   - docs/Models/Shared/Workspaces.md
   - docs/Models/Shared/AccessToken.md
+  - docs/Models/Shared/FeatureFlag.md
   - docs/Models/Shared/User.md
   - docs/Models/Shared/Level.md
   - docs/Models/Shared/AccessDetails.md

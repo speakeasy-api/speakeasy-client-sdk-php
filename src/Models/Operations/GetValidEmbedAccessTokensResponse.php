@@ -13,50 +13,45 @@ class GetValidEmbedAccessTokensResponse
 {
     /**
      * HTTP response content type for this operation
-     * 
+     *
      * @var string $contentType
      */
-	
     public string $contentType;
-    
+
     /**
      * OK
-     * 
+     *
      * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\EmbedToken> $embedTokens
      */
-	
     public ?array $embedTokens = null;
-    
+
     /**
      * Default error response
-     * 
+     *
      * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
      */
-	
     public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
-    
+
     /**
      * HTTP response status code for this operation
-     * 
+     *
      * @var int $statusCode
      */
-	
     public int $statusCode;
-    
+
     /**
      * Raw HTTP response; suitable for custom response parsing
-     * 
+     *
      * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
      */
-	
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
-    
-	public function __construct()
-	{
-		$this->contentType = "";
-		$this->embedTokens = null;
-		$this->error = null;
-		$this->statusCode = 0;
-		$this->rawResponse = null;
-	}
+
+    public function __construct()
+    {
+        $this->contentType = '';
+        $this->embedTokens = null;
+        $this->error = null;
+        $this->statusCode = 0;
+        $this->rawResponse = null;
+    }
 }

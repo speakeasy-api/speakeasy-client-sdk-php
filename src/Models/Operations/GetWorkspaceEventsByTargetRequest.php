@@ -8,37 +8,37 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
+use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class GetWorkspaceEventsByTargetRequest
 {
     /**
      * Filter to only return events created after this timestamp
-     * 
+     *
      * @var ?\DateTime $afterCreatedAt
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=after_created_at,dateTimeFormat=Y-m-d\TH:i:s.up')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=after_created_at,dateTimeFormat=Y-m-d\TH:i:s.up')]
     public ?\DateTime $afterCreatedAt = null;
-    
+
     /**
      * Filter to only return events corresponding to a particular gen_lock_id (gen_lock_id uniquely identifies a target)
-     * 
+     *
      * @var string $targetID
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=targetID')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=targetID')]
     public string $targetID;
-    
+
     /**
      * Unique identifier of the workspace.
-     * 
+     *
      * @var ?string $workspaceID
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspaceID')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspaceID')]
     public ?string $workspaceID = null;
-    
-	public function __construct()
-	{
-		$this->afterCreatedAt = null;
-		$this->targetID = "";
-		$this->workspaceID = null;
-	}
+
+    public function __construct()
+    {
+        $this->afterCreatedAt = null;
+        $this->targetID = '';
+        $this->workspaceID = null;
+    }
 }

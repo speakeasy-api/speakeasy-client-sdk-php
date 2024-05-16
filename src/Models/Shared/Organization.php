@@ -9,48 +9,43 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
-/**
- * Organization - A speakeasy organization
- * 
- * @package Speakeasy\SpeakeasyClientSDK\Models\Shared
- * @access public
- */
+/** Organization - A speakeasy organization */
 class Organization
 {
-	#[\JMS\Serializer\Annotation\SerializedName('account_type')]
+    #[\JMS\Serializer\Annotation\SerializedName('account_type')]
     #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\OrganizationAccountType>')]
     public OrganizationAccountType $accountType;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('created_at')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
     #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $createdAt = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('id')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('name')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('name')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $name;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('slug')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('slug')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $slug = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('updated_at')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
     #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $updatedAt = null;
-    
-	public function __construct()
-	{
-		$this->accountType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\OrganizationAccountType::Free;
-		$this->createdAt = null;
-		$this->id = "";
-		$this->name = "";
-		$this->slug = null;
-		$this->updatedAt = null;
-	}
+
+    public function __construct()
+    {
+        $this->accountType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\OrganizationAccountType::Free;
+        $this->createdAt = null;
+        $this->id = '';
+        $this->name = '';
+        $this->slug = null;
+        $this->updatedAt = null;
+    }
 }

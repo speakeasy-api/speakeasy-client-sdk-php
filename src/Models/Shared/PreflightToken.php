@@ -9,21 +9,16 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
-/**
- * PreflightToken - A PreflightToken is a token that allows access to the OCI distribution endpoints.
- * 
- * @package Speakeasy\SpeakeasyClientSDK\Models\Shared
- * @access public
- */
+/** PreflightToken - A PreflightToken is a token that allows access to the OCI distribution endpoints. */
 class PreflightToken
 {
-	#[\JMS\Serializer\Annotation\SerializedName('auth_token')]
+    #[\JMS\Serializer\Annotation\SerializedName('auth_token')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $authToken = null;
-    
-	public function __construct()
-	{
-		$this->authToken = null;
-	}
+
+    public function __construct()
+    {
+        $this->authToken = null;
+    }
 }

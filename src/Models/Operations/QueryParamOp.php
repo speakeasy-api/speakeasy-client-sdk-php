@@ -8,25 +8,20 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use \Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
-/**
- * QueryParamOp - Configuration for filter operations
- * 
- * @package Speakeasy\SpeakeasyClientSDK\Models\Operations
- * @access public
- */
+use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
+/** QueryParamOp - Configuration for filter operations */
 class QueryParamOp
 {
     /**
      * Whether to AND or OR the filters
-     * 
+     *
      * @var bool $and
      */
-	#[SpeakeasyMetadata('queryParam:name=and')]
+    #[SpeakeasyMetadata('queryParam:name=and')]
     public bool $and;
-    
-	public function __construct()
-	{
-		$this->and = false;
-	}
+
+    public function __construct()
+    {
+        $this->and = false;
+    }
 }

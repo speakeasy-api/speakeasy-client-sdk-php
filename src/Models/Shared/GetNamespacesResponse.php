@@ -13,15 +13,15 @@ class GetNamespacesResponse
 {
     /**
      * $items
-     * 
+     *
      * @var array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\NamespaceT> $items
      */
-	#[\JMS\Serializer\Annotation\SerializedName('items')]
+    #[\JMS\Serializer\Annotation\SerializedName('items')]
     #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\Models\Shared\NamespaceT>')]
     public array $items;
-    
-	public function __construct()
-	{
-		$this->items = [];
-	}
+
+    public function __construct()
+    {
+        $this->items = [];
+    }
 }

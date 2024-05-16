@@ -9,59 +9,54 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
-/**
- * V2Descriptor - V2 descriptor
- * 
- * @package Speakeasy\SpeakeasyClientSDK\Models\Shared
- * @access public
- */
+/** V2Descriptor - V2 descriptor */
 class V2Descriptor
 {
     /**
      * Annotations
-     * 
+     *
      * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations $annotations
      */
-	#[\JMS\Serializer\Annotation\SerializedName('annotations')]
+    #[\JMS\Serializer\Annotation\SerializedName('annotations')]
     #[\JMS\Serializer\Annotation\Type('Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Annotations $annotations = null;
-    
+
     /**
      * Digest
-     * 
+     *
      * @var ?string $digest
      */
-	#[\JMS\Serializer\Annotation\SerializedName('digest')]
+    #[\JMS\Serializer\Annotation\SerializedName('digest')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $digest = null;
-    
+
     /**
      * Media type
-     * 
+     *
      * @var ?string $mediaType
      */
-	#[\JMS\Serializer\Annotation\SerializedName('mediaType')]
+    #[\JMS\Serializer\Annotation\SerializedName('mediaType')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $mediaType = null;
-    
+
     /**
      * Size
-     * 
+     *
      * @var ?int $size
      */
-	#[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\JMS\Serializer\Annotation\SerializedName('size')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $size = null;
-    
-	public function __construct()
-	{
-		$this->annotations = null;
-		$this->digest = null;
-		$this->mediaType = null;
-		$this->size = null;
-	}
+
+    public function __construct()
+    {
+        $this->annotations = null;
+        $this->digest = null;
+        $this->mediaType = null;
+        $this->size = null;
+    }
 }
