@@ -67,6 +67,8 @@ class SDK
      */
     public Requests $requests;
 
+    public Github $github;
+
     public Organizations $organizations;
 
     /**
@@ -113,6 +115,7 @@ class SDK
         $this->artifacts = new Artifacts($this->sdkConfiguration);
         $this->auth = new Auth($this->sdkConfiguration);
         $this->requests = new Requests($this->sdkConfiguration);
+        $this->github = new Github($this->sdkConfiguration);
         $this->organizations = new Organizations($this->sdkConfiguration);
         $this->reports = new Reports($this->sdkConfiguration);
         $this->embeds = new Embeds($this->sdkConfiguration);

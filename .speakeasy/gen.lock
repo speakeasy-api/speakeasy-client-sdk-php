@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: f3ee86ef6f2ca4b47599522e63754f76
+  docChecksum: 5dd84d4ef84bb4a4426881954f176d08
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.291.0
-  generationVersion: 2.332.4
-  releaseVersion: 0.38.0
-  configChecksum: 38f66bfe0cdb565a2e3eaf65a606319d
+  speakeasyVersion: 1.293.1
+  generationVersion: 2.333.3
+  releaseVersion: 0.38.1
+  configChecksum: 791a50823bdb54b2a84f4f663b578092
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -30,6 +30,7 @@ generatedFiles:
   - src/Artifacts.php
   - src/Auth.php
   - src/Requests.php
+  - src/Github.php
   - src/Organizations.php
   - src/Reports.php
   - src/Embeds.php
@@ -134,6 +135,11 @@ generatedFiles:
   - src/Models/Operations/GetRequestFromEventLogResponse.php
   - src/Models/Operations/QueryEventLogRequest.php
   - src/Models/Operations/QueryEventLogResponse.php
+  - src/Models/Operations/GithubCheckAccessRequest.php
+  - src/Models/Operations/GithubCheckAccessResponse.php
+  - src/Models/Operations/GithubConfigureTargetResponse.php
+  - src/Models/Operations/GithubTriggerActionResponse.php
+  - src/Models/Operations/GetOrganizationUsageResponse.php
   - src/Models/Operations/GetOrganizationsResponse.php
   - src/Models/Operations/GetChangesReportSignedUrlRequest.php
   - src/Models/Operations/GetChangesReportSignedUrlSignedAccess.php
@@ -197,6 +203,10 @@ generatedFiles:
   - src/Models/Shared/RequestMetadata.php
   - src/Models/Shared/Filters.php
   - src/Models/Shared/Filter.php
+  - src/Models/Shared/GithubConfigureTargetRequest.php
+  - src/Models/Shared/GithubTriggerActionRequest.php
+  - src/Models/Shared/OrganizationUsageResponse.php
+  - src/Models/Shared/OrganizationUsage.php
   - src/Models/Shared/OrganizationAccountType.php
   - src/Models/Shared/Organization.php
   - src/Models/Shared/Type.php
@@ -287,6 +297,11 @@ generatedFiles:
   - docs/Models/Operations/GetRequestFromEventLogResponse.md
   - docs/Models/Operations/QueryEventLogRequest.md
   - docs/Models/Operations/QueryEventLogResponse.md
+  - docs/Models/Operations/GithubCheckAccessRequest.md
+  - docs/Models/Operations/GithubCheckAccessResponse.md
+  - docs/Models/Operations/GithubConfigureTargetResponse.md
+  - docs/Models/Operations/GithubTriggerActionResponse.md
+  - docs/Models/Operations/GetOrganizationUsageResponse.md
   - docs/Models/Operations/GetOrganizationsResponse.md
   - docs/Models/Operations/GetChangesReportSignedUrlRequest.md
   - docs/Models/Operations/GetChangesReportSignedUrlSignedAccess.md
@@ -350,6 +365,10 @@ generatedFiles:
   - docs/Models/Shared/RequestMetadata.md
   - docs/Models/Shared/Filters.md
   - docs/Models/Shared/Filter.md
+  - docs/Models/Shared/GithubConfigureTargetRequest.md
+  - docs/Models/Shared/GithubTriggerActionRequest.md
+  - docs/Models/Shared/OrganizationUsageResponse.md
+  - docs/Models/Shared/OrganizationUsage.md
   - docs/Models/Shared/OrganizationAccountType.md
   - docs/Models/Shared/Organization.md
   - docs/Models/Shared/Type.md
@@ -370,6 +389,7 @@ generatedFiles:
   - docs/sdks/artifacts/README.md
   - docs/sdks/auth/README.md
   - docs/sdks/requests/README.md
+  - docs/sdks/github/README.md
   - docs/sdks/organizations/README.md
   - docs/sdks/reports/README.md
   - docs/sdks/embeds/README.md
