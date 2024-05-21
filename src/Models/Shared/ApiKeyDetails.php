@@ -18,10 +18,10 @@ class ApiKeyDetails
     /**
      * $enabledFeatures
      *
-     * @var array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlag> $enabledFeatures
+     * @var array<string> $enabledFeatures
      */
     #[\JMS\Serializer\Annotation\SerializedName('enabled_features')]
-    #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlag>')]
+    #[\JMS\Serializer\Annotation\Type('array<string>')]
     public array $enabledFeatures;
 
     /**
