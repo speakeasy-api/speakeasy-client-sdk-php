@@ -15,6 +15,8 @@ class SDKConfiguration
     public ?\GuzzleHttp\ClientInterface $securityClient = null;
 
     public ?Models\Shared\Security $security = null;
+    /** @var pure-Closure(): Models\Shared\Security */
+    public ?\Closure $securitySource = null;
 
     public string $serverUrl = '';
 
@@ -24,11 +26,11 @@ class SDKConfiguration
 
     public string $openapiDocVersion = '0.4.0 .';
 
-    public string $sdkVersion = '0.38.2';
+    public string $sdkVersion = '0.38.3';
 
-    public string $genVersion = '2.333.3';
+    public string $genVersion = '2.335.5';
 
-    public string $userAgent = 'speakeasy-sdk/php 0.38.2 2.333.3 0.4.0 . speakeasy-api/speakeasy-client-sdk-php';
+    public string $userAgent = 'speakeasy-sdk/php 0.38.3 2.335.5 0.4.0 . speakeasy-api/speakeasy-client-sdk-php';
     /** @var array<string, array<string, array<string, mixed>>> */
     public ?array $globals = [
         'parameters' => [],
@@ -46,5 +48,20 @@ class SDKConfiguration
         }
 
         return SDK::SERVERS[$this->server];
+    }
+    public function hasSecurity(): bool
+    {
+        return $this->security !== null || $this->securitySource !== null;
+    }
+
+    public function getSecurity(): ?Models\Shared\Security
+    {
+        if ($this->securitySource !== null) {
+            $security = $this->securitySource->call($this);
+
+            return $security;
+        } else {
+            return $this->security;
+        }
     }
 }

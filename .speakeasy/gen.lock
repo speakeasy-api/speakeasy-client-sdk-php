@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: f85cf38fea71c78f79ca43b23b176863
+  docChecksum: c1d828d0e8ecf8fac6bec9e95f0ca086
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.294.0
-  generationVersion: 2.333.3
-  releaseVersion: 0.38.2
-  configChecksum: 5d495b2820af0bcbcba182e53c474845
+  speakeasyVersion: 1.295.2
+  generationVersion: 2.335.5
+  releaseVersion: 0.38.3
+  configChecksum: c553a49e696e815c4c8d40b333cb013c
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -139,6 +139,7 @@ generatedFiles:
   - src/Models/Operations/GithubCheckAccessResponse.php
   - src/Models/Operations/GithubConfigureTargetResponse.php
   - src/Models/Operations/GithubTriggerActionResponse.php
+  - src/Models/Operations/CreateFreeTrialResponse.php
   - src/Models/Operations/GetOrganizationUsageResponse.php
   - src/Models/Operations/GetOrganizationsResponse.php
   - src/Models/Operations/GetChangesReportSignedUrlRequest.php
@@ -301,6 +302,7 @@ generatedFiles:
   - docs/Models/Operations/GithubCheckAccessResponse.md
   - docs/Models/Operations/GithubConfigureTargetResponse.md
   - docs/Models/Operations/GithubTriggerActionResponse.md
+  - docs/Models/Operations/CreateFreeTrialResponse.md
   - docs/Models/Operations/GetOrganizationUsageResponse.md
   - docs/Models/Operations/GetOrganizationsResponse.md
   - docs/Models/Operations/GetChangesReportSignedUrlRequest.md
