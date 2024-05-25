@@ -395,7 +395,7 @@ try {
     $request->requestBody = new Operations\RegisterSchemaRequestBody();
     $request->requestBody->file = new Operations\RegisterSchemaFile();
     $request->requestBody->file->content = '0xCAFCA03e0e';
-    $request->requestBody->file->fileName = 'bronze_table_blues.m2a';
+    $request->requestBody->file->fileName = 'your_file_here';
     $request->apiID = '<value>';
     $request->versionID = '<value>';;
 

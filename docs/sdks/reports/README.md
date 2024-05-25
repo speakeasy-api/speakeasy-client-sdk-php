@@ -135,7 +135,7 @@ try {
     $request->data->type = Shared\Type::Changes;
     $request->file = new Operations\File();
     $request->file->content = '0x329C0ad855';
-    $request->file->fileName = 'causal.shtml';;
+    $request->file->fileName = 'your_file_here';;
 
     $response = $sdk->reports->uploadReport($request);
 

@@ -1,0 +1,9 @@
+# Opts
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `depthStyle`                                                                                         | [?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DepthStyle](../../Models/Operations/DepthStyle.md) | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `style`                                                                                              | [?\Speakeasy\SpeakeasyClientSDK\Models\Operations\Style](../../Models/Operations/Style.md)           | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |

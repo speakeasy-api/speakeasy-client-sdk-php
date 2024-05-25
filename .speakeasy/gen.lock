@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: c1d828d0e8ecf8fac6bec9e95f0ca086
+  docChecksum: 8a861fbcf601580459816dcab1973d85
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.295.2
-  generationVersion: 2.335.5
-  releaseVersion: 0.38.3
-  configChecksum: c553a49e696e815c4c8d40b333cb013c
+  speakeasyVersion: 1.296.1
+  generationVersion: 2.338.1
+  releaseVersion: 0.38.4
+  configChecksum: 7c57ac29bab2d35d2a6bacbaaa6d690b
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -33,6 +33,7 @@ generatedFiles:
   - src/Github.php
   - src/Organizations.php
   - src/Reports.php
+  - src/Suggest.php
   - src/Embeds.php
   - src/Events.php
   - src/SDK.php
@@ -152,6 +153,13 @@ generatedFiles:
   - src/Models/Operations/UploadReportRequestBody.php
   - src/Models/Operations/UploadReportUploadedReport.php
   - src/Models/Operations/UploadReportResponse.php
+  - src/Models/Operations/DepthStyle.php
+  - src/Models/Operations/Style.php
+  - src/Models/Operations/Opts.php
+  - src/Models/Operations/Schema.php
+  - src/Models/Operations/SuggestOperationIDsRequestBody.php
+  - src/Models/Operations/SuggestOperationIDsSuggestion.php
+  - src/Models/Operations/SuggestOperationIDsResponse.php
   - src/Models/Operations/GetEmbedAccessTokenRequest.php
   - src/Models/Operations/GetEmbedAccessTokenResponse.php
   - src/Models/Operations/GetValidEmbedAccessTokensResponse.php
@@ -315,6 +323,13 @@ generatedFiles:
   - docs/Models/Operations/UploadReportRequestBody.md
   - docs/Models/Operations/UploadReportUploadedReport.md
   - docs/Models/Operations/UploadReportResponse.md
+  - docs/Models/Operations/DepthStyle.md
+  - docs/Models/Operations/Style.md
+  - docs/Models/Operations/Opts.md
+  - docs/Models/Operations/Schema.md
+  - docs/Models/Operations/SuggestOperationIDsRequestBody.md
+  - docs/Models/Operations/SuggestOperationIDsSuggestion.md
+  - docs/Models/Operations/SuggestOperationIDsResponse.md
   - docs/Models/Operations/GetEmbedAccessTokenRequest.md
   - docs/Models/Operations/GetEmbedAccessTokenResponse.md
   - docs/Models/Operations/GetValidEmbedAccessTokensResponse.md
@@ -394,6 +409,7 @@ generatedFiles:
   - docs/sdks/github/README.md
   - docs/sdks/organizations/README.md
   - docs/sdks/reports/README.md
+  - docs/sdks/suggest/README.md
   - docs/sdks/embeds/README.md
   - docs/sdks/events/README.md
   - USAGE.md

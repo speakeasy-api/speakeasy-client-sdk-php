@@ -79,6 +79,13 @@ class SDK
     public Reports $reports;
 
     /**
+     * REST APIs for managing LLM OAS suggestions
+     *
+     * @var Suggest $$suggest
+     */
+    public Suggest $suggest;
+
+    /**
      * REST APIs for managing embeds
      *
      * @var Embeds $$embeds
@@ -118,6 +125,7 @@ class SDK
         $this->github = new Github($this->sdkConfiguration);
         $this->organizations = new Organizations($this->sdkConfiguration);
         $this->reports = new Reports($this->sdkConfiguration);
+        $this->suggest = new Suggest($this->sdkConfiguration);
         $this->embeds = new Embeds($this->sdkConfiguration);
         $this->events = new Events($this->sdkConfiguration);
     }
