@@ -183,6 +183,8 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
         $request = new Operations\SearchWorkspaceEventsRequest();
+    $request->generateGenLockId = '<value>';
+    $request->interactionType = Shared\InteractionType::Run;
     $request->lintReportDigest = '<value>';
     $request->openapiDiffReportDigest = '<value>';
     $request->sourceRevisionDigest = '<value>';;

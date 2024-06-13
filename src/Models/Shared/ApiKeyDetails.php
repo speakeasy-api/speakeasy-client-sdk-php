@@ -43,6 +43,10 @@ class ApiKeyDetails
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $orgSlug;
 
+    #[\JMS\Serializer\Annotation\SerializedName('telemetry_disabled')]
+    #[\JMS\Serializer\Annotation\Type('bool')]
+    public bool $telemetryDisabled;
+
     #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $workspaceId;
@@ -58,6 +62,7 @@ class ApiKeyDetails
         $this->featureFlags = null;
         $this->generationAccessUnlimited = null;
         $this->orgSlug = '';
+        $this->telemetryDisabled = false;
         $this->workspaceId = '';
         $this->workspaceSlug = '';
     }

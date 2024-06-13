@@ -12,6 +12,22 @@ use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class SearchWorkspaceEventsRequest
 {
     /**
+     * A specific gen lock ID for the events.
+     *
+     * @var ?string $generateGenLockId
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=generate_gen_lock_id')]
+    public ?string $generateGenLockId = null;
+
+    /**
+     * Specified interaction type for events.
+     *
+     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType $interactionType
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=interaction_type')]
+    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType $interactionType = null;
+
+    /**
      * Unique identifier of the lint report digest.
      *
      * @var ?string $lintReportDigest
@@ -45,6 +61,8 @@ class SearchWorkspaceEventsRequest
 
     public function __construct()
     {
+        $this->generateGenLockId = null;
+        $this->interactionType = null;
         $this->lintReportDigest = null;
         $this->openapiDiffReportDigest = null;
         $this->sourceRevisionDigest = null;

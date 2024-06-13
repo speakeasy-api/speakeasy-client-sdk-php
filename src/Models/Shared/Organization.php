@@ -34,6 +34,10 @@ class Organization
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $slug = null;
 
+    #[\JMS\Serializer\Annotation\SerializedName('telemetry_disabled')]
+    #[\JMS\Serializer\Annotation\Type('bool')]
+    public bool $telemetryDisabled;
+
     #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
     #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
@@ -46,6 +50,7 @@ class Organization
         $this->id = '';
         $this->name = '';
         $this->slug = null;
+        $this->telemetryDisabled = false;
         $this->updatedAt = null;
     }
 }
