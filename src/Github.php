@@ -57,6 +57,46 @@ class Github
     }
 
     /**
+     * githubCheckPublishingSecrets
+     *
+     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubCheckPublishingSecretsRequest  $request
+     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubCheckPublishingSecretsResponse
+     */
+    public function githubCheckPublishingSecrets(
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubCheckPublishingSecretsRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubCheckPublishingSecretsResponse {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/publishing_secrets');
+        $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubCheckPublishingSecretsRequest::class, $request, $this->sdkConfiguration->globals));
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+
+        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubCheckPublishingSecretsResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->githubMissingPublishingSecretsResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\GithubMissingPublishingSecretsResponse', 'json');
+            }
+        } else {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+            }
+        }
+
+        return $response;
+    }
+
+    /**
      * githubConfigureTarget
      *
      * @param  \Speakeasy\SpeakeasyClientSDK\Models\Shared\GithubConfigureTargetRequest  $request
@@ -82,6 +122,46 @@ class Github
         $statusCode = $httpResponse->getStatusCode();
 
         $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubConfigureTargetResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        if ($httpResponse->getStatusCode() === 200) {
+        } else {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+            }
+        }
+
+        return $response;
+    }
+
+    /**
+     * githubStorePublishingSecrets
+     *
+     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Shared\GithubStorePublishingSecretsRequest  $request
+     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubStorePublishingSecretsResponse
+     */
+    public function githubStorePublishingSecrets(
+        \Speakeasy\SpeakeasyClientSDK\Models\Shared\GithubStorePublishingSecretsRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubStorePublishingSecretsResponse {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/publishing_secrets');
+        $options = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
+        if ($body === null) {
+            throw new \Exception('Request body is required');
+        }
+        $options = array_merge_recursive($options, $body);
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+
+        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubStorePublishingSecretsResponse();
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
