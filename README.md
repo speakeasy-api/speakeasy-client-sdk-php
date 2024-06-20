@@ -118,6 +118,7 @@ try {
 
 ### [Github](docs/sdks/github/README.md)
 
+* [fetchPublishingPRs](docs/sdks/github/README.md#fetchpublishingprs)
 * [githubCheckAccess](docs/sdks/github/README.md#githubcheckaccess)
 * [githubCheckPublishingSecrets](docs/sdks/github/README.md#githubcheckpublishingsecrets)
 * [githubConfigureTarget](docs/sdks/github/README.md#githubconfiguretarget)

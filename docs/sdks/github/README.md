@@ -3,11 +3,60 @@
 
 ### Available Operations
 
+* [fetchPublishingPRs](#fetchpublishingprs)
 * [githubCheckAccess](#githubcheckaccess)
 * [githubCheckPublishingSecrets](#githubcheckpublishingsecrets)
 * [githubConfigureTarget](#githubconfiguretarget)
 * [githubStorePublishingSecrets](#githubstorepublishingsecrets)
 * [githubTriggerAction](#githubtriggeraction)
+
+## fetchPublishingPRs
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
+$security = new Shared\Security();
+$security->apiKey = '<YOUR_API_KEY_HERE>';
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+try {
+        $request = new Operations\FetchPublishingPRsRequest();
+    $request->generateGenLockId = '<value>';
+    $request->org = '<value>';
+    $request->repo = '<value>';;
+
+    $response = $sdk->github->fetchPublishingPRs($request);
+
+    if ($response->githubPublishingPRResponse !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                                        | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\FetchPublishingPRsRequest](../../Models/Operations/FetchPublishingPRsRequest.md) | :heavy_check_mark:                                                                                                                | The request object to use for the request.                                                                                        |
+
+
+### Response
+
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\FetchPublishingPRsResponse](../../Models/Operations/FetchPublishingPRsResponse.md)**
+
 
 ## githubCheckAccess
 
