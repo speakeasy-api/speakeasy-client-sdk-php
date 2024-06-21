@@ -130,7 +130,7 @@ class TargetSDK
     public string $generateTarget;
 
     /**
-     * The name of the target as defined by the user.
+     * The workflow name of the target.
      *
      * @var ?string $generateTargetName
      */

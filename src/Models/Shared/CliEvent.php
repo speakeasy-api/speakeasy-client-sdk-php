@@ -300,6 +300,16 @@ class CliEvent
     public ?string $generateTarget = null;
 
     /**
+     * The workflow name of the target.
+     *
+     * @var ?string $generateTargetName
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('generate_target_name')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $generateTargetName = null;
+
+    /**
      * The version of the target.
      *
      * @var ?string $generateTargetVersion
@@ -803,6 +813,7 @@ class CliEvent
         $this->generatePublished = null;
         $this->generateRepoUrl = null;
         $this->generateTarget = null;
+        $this->generateTargetName = null;
         $this->generateTargetVersion = null;
         $this->generateVersion = null;
         $this->ghActionOrganization = null;
