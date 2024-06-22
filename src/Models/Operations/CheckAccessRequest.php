@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
-class GithubCheckAccessRequest
+class CheckAccessRequest
 {
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=org')]
     public string $org;

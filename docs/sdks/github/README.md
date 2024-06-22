@@ -3,12 +3,204 @@
 
 ### Available Operations
 
+* [checkAccess](#checkaccess)
+* [configureCodeSamples](#configurecodesamples)
+* [configureMintlifyRepo](#configuremintlifyrepo)
+* [configureTarget](#configuretarget)
 * [fetchPublishingPRs](#fetchpublishingprs)
-* [githubCheckAccess](#githubcheckaccess)
 * [githubCheckPublishingSecrets](#githubcheckpublishingsecrets)
-* [githubConfigureTarget](#githubconfiguretarget)
 * [githubStorePublishingSecrets](#githubstorepublishingsecrets)
-* [githubTriggerAction](#githubtriggeraction)
+* [triggerAction](#triggeraction)
+
+## checkAccess
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
+$security = new Shared\Security();
+$security->apiKey = '<YOUR_API_KEY_HERE>';
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+try {
+        $request = new Operations\CheckAccessRequest();
+    $request->org = '<value>';
+    $request->repo = '<value>';;
+
+    $response = $sdk->github->checkAccess($request);
+
+    if ($response->statusCode === 200) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                          | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\CheckAccessRequest](../../Models/Operations/CheckAccessRequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+
+
+### Response
+
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\CheckAccessResponse](../../Models/Operations/CheckAccessResponse.md)**
+
+
+## configureCodeSamples
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security();
+$security->apiKey = '<YOUR_API_KEY_HERE>';
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+try {
+        $request = new Shared\GithubConfigureCodeSamplesRequest();
+    $request->org = '<value>';
+    $request->repo = '<value>';
+    $request->targetName = '<value>';;
+
+    $response = $sdk->github->configureCodeSamples($request);
+
+    if ($response->githubConfigureCodeSamplesResponse !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                 | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                                                | [\Speakeasy\SpeakeasyClientSDK\Models\Shared\GithubConfigureCodeSamplesRequest](../../Models/Shared/GithubConfigureCodeSamplesRequest.md) | :heavy_check_mark:                                                                                                                        | The request object to use for the request.                                                                                                |
+
+
+### Response
+
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\ConfigureCodeSamplesResponse](../../Models/Operations/ConfigureCodeSamplesResponse.md)**
+
+
+## configureMintlifyRepo
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security();
+$security->apiKey = '<YOUR_API_KEY_HERE>';
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+try {
+        $request = new Shared\GithubConfigureMintlifyRepoRequest();
+    $request->input = '<value>';
+    $request->org = '<value>';
+    $request->overlays = [
+        '<value>',
+    ];
+    $request->repo = '<value>';;
+
+    $response = $sdk->github->configureMintlifyRepo($request);
+
+    if ($response->statusCode === 200) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                   | Type                                                                                                                                        | Required                                                                                                                                    | Description                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                                                  | [\Speakeasy\SpeakeasyClientSDK\Models\Shared\GithubConfigureMintlifyRepoRequest](../../Models/Shared/GithubConfigureMintlifyRepoRequest.md) | :heavy_check_mark:                                                                                                                          | The request object to use for the request.                                                                                                  |
+
+
+### Response
+
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\ConfigureMintlifyRepoResponse](../../Models/Operations/ConfigureMintlifyRepoResponse.md)**
+
+
+## configureTarget
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security();
+$security->apiKey = '<YOUR_API_KEY_HERE>';
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+try {
+        $request = new Shared\GithubConfigureTargetRequest();
+    $request->org = '<value>';
+    $request->repoName = '<value>';;
+
+    $response = $sdk->github->configureTarget($request);
+
+    if ($response->statusCode === 200) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Shared\GithubConfigureTargetRequest](../../Models/Shared/GithubConfigureTargetRequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
+
+
+### Response
+
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\ConfigureTargetResponse](../../Models/Operations/ConfigureTargetResponse.md)**
+
 
 ## fetchPublishingPRs
 
@@ -58,53 +250,6 @@ try {
 **[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\FetchPublishingPRsResponse](../../Models/Operations/FetchPublishingPRsResponse.md)**
 
 
-## githubCheckAccess
-
-### Example Usage
-
-```php
-<?php
-
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
-
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
-try {
-        $request = new Operations\GithubCheckAccessRequest();
-    $request->org = '<value>';
-    $request->repo = '<value>';;
-
-    $response = $sdk->github->githubCheckAccess($request);
-
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubCheckAccessRequest](../../Models/Operations/GithubCheckAccessRequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
-
-
-### Response
-
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubCheckAccessResponse](../../Models/Operations/GithubCheckAccessResponse.md)**
-
-
 ## githubCheckPublishingSecrets
 
 ### Example Usage
@@ -149,52 +294,6 @@ try {
 ### Response
 
 **[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubCheckPublishingSecretsResponse](../../Models/Operations/GithubCheckPublishingSecretsResponse.md)**
-
-
-## githubConfigureTarget
-
-### Example Usage
-
-```php
-<?php
-
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
-try {
-        $request = new Shared\GithubConfigureTargetRequest();
-    $request->org = '<value>';
-    $request->repoName = '<value>';;
-
-    $response = $sdk->github->githubConfigureTarget($request);
-
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Shared\GithubConfigureTargetRequest](../../Models/Shared/GithubConfigureTargetRequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
-
-
-### Response
-
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubConfigureTargetResponse](../../Models/Operations/GithubConfigureTargetResponse.md)**
 
 
 ## githubStorePublishingSecrets
@@ -245,7 +344,7 @@ try {
 **[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubStorePublishingSecretsResponse](../../Models/Operations/GithubStorePublishingSecretsResponse.md)**
 
 
-## githubTriggerAction
+## triggerAction
 
 ### Example Usage
 
@@ -271,7 +370,7 @@ try {
     $request->repoName = '<value>';
     $request->targetName = '<value>';;
 
-    $response = $sdk->github->githubTriggerAction($request);
+    $response = $sdk->github->triggerAction($request);
 
     if ($response->statusCode === 200) {
         // handle response
@@ -290,5 +389,5 @@ try {
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubTriggerActionResponse](../../Models/Operations/GithubTriggerActionResponse.md)**
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\TriggerActionResponse](../../Models/Operations/TriggerActionResponse.md)**
 

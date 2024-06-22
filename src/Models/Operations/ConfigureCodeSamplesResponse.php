@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 
-class GithubConfigureTargetResponse
+class ConfigureCodeSamplesResponse
 {
     /**
      * HTTP response content type for this operation
@@ -24,6 +24,13 @@ class GithubConfigureTargetResponse
      * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
      */
     public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
+
+    /**
+     * OK
+     *
+     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\GithubConfigureCodeSamplesResponse $githubConfigureCodeSamplesResponse
+     */
+    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\GithubConfigureCodeSamplesResponse $githubConfigureCodeSamplesResponse = null;
 
     /**
      * HTTP response status code for this operation
@@ -43,6 +50,7 @@ class GithubConfigureTargetResponse
     {
         $this->contentType = '';
         $this->error = null;
+        $this->githubConfigureCodeSamplesResponse = null;
         $this->statusCode = 0;
         $this->rawResponse = null;
     }

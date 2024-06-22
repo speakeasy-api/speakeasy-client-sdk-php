@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 
-class GithubTriggerActionResponse
+class TriggerActionResponse
 {
     /**
      * HTTP response content type for this operation

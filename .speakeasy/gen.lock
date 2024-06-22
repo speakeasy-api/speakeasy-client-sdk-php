@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: dc49a07c3d8b79e5d6468202954aaafd
+  docChecksum: a1ee1e7896ec8cc5254723b812c845c6
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.313.0
-  generationVersion: 2.347.8
-  releaseVersion: 0.38.8
-  configChecksum: e8ec9b3779c039459b55e1ebf13976ac
+  speakeasyVersion: 1.314.2
+  generationVersion: 2.349.6
+  releaseVersion: 0.38.9
+  configChecksum: 634cb97768f8b2f6f4568b5802e4d9d8
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
   published: true
 features:
   php:
-    core: 3.3.5
+    core: 3.3.6
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.81.6
@@ -136,15 +136,17 @@ generatedFiles:
   - src/Models/Operations/GetRequestFromEventLogResponse.php
   - src/Models/Operations/QueryEventLogRequest.php
   - src/Models/Operations/QueryEventLogResponse.php
+  - src/Models/Operations/CheckAccessRequest.php
+  - src/Models/Operations/CheckAccessResponse.php
+  - src/Models/Operations/ConfigureCodeSamplesResponse.php
+  - src/Models/Operations/ConfigureMintlifyRepoResponse.php
+  - src/Models/Operations/ConfigureTargetResponse.php
   - src/Models/Operations/FetchPublishingPRsRequest.php
   - src/Models/Operations/FetchPublishingPRsResponse.php
-  - src/Models/Operations/GithubCheckAccessRequest.php
-  - src/Models/Operations/GithubCheckAccessResponse.php
   - src/Models/Operations/GithubCheckPublishingSecretsRequest.php
   - src/Models/Operations/GithubCheckPublishingSecretsResponse.php
-  - src/Models/Operations/GithubConfigureTargetResponse.php
   - src/Models/Operations/GithubStorePublishingSecretsResponse.php
-  - src/Models/Operations/GithubTriggerActionResponse.php
+  - src/Models/Operations/TriggerActionResponse.php
   - src/Models/Operations/CreateFreeTrialResponse.php
   - src/Models/Operations/GetOrganizationUsageResponse.php
   - src/Models/Operations/GetOrganizationsResponse.php
@@ -217,9 +219,14 @@ generatedFiles:
   - src/Models/Shared/RequestMetadata.php
   - src/Models/Shared/Filters.php
   - src/Models/Shared/Filter.php
+  - src/Models/Shared/GithubConfigureCodeSamplesResponse.php
+  - src/Models/Shared/Auth.php
+  - src/Models/Shared/WorkflowDocument.php
+  - src/Models/Shared/GithubConfigureCodeSamplesRequest.php
+  - src/Models/Shared/GithubConfigureMintlifyRepoRequest.php
+  - src/Models/Shared/GithubConfigureTargetRequest.php
   - src/Models/Shared/GithubPublishingPRResponse.php
   - src/Models/Shared/GithubMissingPublishingSecretsResponse.php
-  - src/Models/Shared/GithubConfigureTargetRequest.php
   - src/Models/Shared/GithubStorePublishingSecretsRequest.php
   - src/Models/Shared/GithubTriggerActionRequest.php
   - src/Models/Shared/OrganizationUsageResponse.php
@@ -314,15 +321,17 @@ generatedFiles:
   - docs/Models/Operations/GetRequestFromEventLogResponse.md
   - docs/Models/Operations/QueryEventLogRequest.md
   - docs/Models/Operations/QueryEventLogResponse.md
+  - docs/Models/Operations/CheckAccessRequest.md
+  - docs/Models/Operations/CheckAccessResponse.md
+  - docs/Models/Operations/ConfigureCodeSamplesResponse.md
+  - docs/Models/Operations/ConfigureMintlifyRepoResponse.md
+  - docs/Models/Operations/ConfigureTargetResponse.md
   - docs/Models/Operations/FetchPublishingPRsRequest.md
   - docs/Models/Operations/FetchPublishingPRsResponse.md
-  - docs/Models/Operations/GithubCheckAccessRequest.md
-  - docs/Models/Operations/GithubCheckAccessResponse.md
   - docs/Models/Operations/GithubCheckPublishingSecretsRequest.md
   - docs/Models/Operations/GithubCheckPublishingSecretsResponse.md
-  - docs/Models/Operations/GithubConfigureTargetResponse.md
   - docs/Models/Operations/GithubStorePublishingSecretsResponse.md
-  - docs/Models/Operations/GithubTriggerActionResponse.md
+  - docs/Models/Operations/TriggerActionResponse.md
   - docs/Models/Operations/CreateFreeTrialResponse.md
   - docs/Models/Operations/GetOrganizationUsageResponse.md
   - docs/Models/Operations/GetOrganizationsResponse.md
@@ -395,9 +404,14 @@ generatedFiles:
   - docs/Models/Shared/RequestMetadata.md
   - docs/Models/Shared/Filters.md
   - docs/Models/Shared/Filter.md
+  - docs/Models/Shared/GithubConfigureCodeSamplesResponse.md
+  - docs/Models/Shared/Auth.md
+  - docs/Models/Shared/WorkflowDocument.md
+  - docs/Models/Shared/GithubConfigureCodeSamplesRequest.md
+  - docs/Models/Shared/GithubConfigureMintlifyRepoRequest.md
+  - docs/Models/Shared/GithubConfigureTargetRequest.md
   - docs/Models/Shared/GithubPublishingPRResponse.md
   - docs/Models/Shared/GithubMissingPublishingSecretsResponse.md
-  - docs/Models/Shared/GithubConfigureTargetRequest.md
   - docs/Models/Shared/GithubStorePublishingSecretsRequest.md
   - docs/Models/Shared/GithubTriggerActionRequest.md
   - docs/Models/Shared/OrganizationUsageResponse.md

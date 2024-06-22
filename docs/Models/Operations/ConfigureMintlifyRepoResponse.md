@@ -1,4 +1,4 @@
-# GithubTriggerActionResponse
+# ConfigureMintlifyRepoResponse
 
 
 ## Fields

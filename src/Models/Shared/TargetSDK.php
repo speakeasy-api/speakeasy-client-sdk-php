@@ -345,6 +345,26 @@ class TargetSDK
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $success = null;
 
+    /**
+     * Workflow file (post execution)
+     *
+     * @var ?string $workflowPostRaw
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('workflow_post_raw')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $workflowPostRaw = null;
+
+    /**
+     * Workflow file (prior to execution)
+     *
+     * @var ?string $workflowPreRaw
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('workflow_pre_raw')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $workflowPreRaw = null;
+
     public function __construct()
     {
         $this->commitHead = null;
@@ -381,5 +401,7 @@ class TargetSDK
         $this->sourceNamespaceName = null;
         $this->sourceRevisionDigest = null;
         $this->success = null;
+        $this->workflowPostRaw = null;
+        $this->workflowPreRaw = null;
     }
 }
