@@ -221,6 +221,46 @@ class Github
     }
 
     /**
+     * getAction
+     *
+     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetActionRequest  $request
+     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetActionResponse
+     */
+    public function getAction(
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetActionRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetActionResponse {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/action');
+        $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetActionRequest::class, $request, $this->sdkConfiguration->globals));
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+
+        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetActionResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->githubGetActionResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\GithubGetActionResponse', 'json');
+            }
+        } else {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+            }
+        }
+
+        return $response;
+    }
+
+    /**
      * githubCheckPublishingSecrets
      *
      * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GithubCheckPublishingSecretsRequest  $request

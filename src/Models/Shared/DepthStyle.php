@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
+namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
 enum DepthStyle: string

@@ -135,6 +135,45 @@ class Artifacts
     }
 
     /**
+     * getOASSummary
+     *
+     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetOASSummaryRequest  $request
+     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetOASSummaryResponse
+     */
+    public function getOASSummary(
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetOASSummaryRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetOASSummaryResponse {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/artifacts/namespaces/{namespace_name}/revisions/{revision_reference}/summary', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetOASSummaryRequest::class, $request, $this->sdkConfiguration->globals);
+        $options = ['http_errors' => false];
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+
+        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetOASSummaryResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->oasSummary = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\OASSummary', 'json');
+            }
+        } else {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+            }
+        }
+
+        return $response;
+    }
+
+    /**
      * getRevisions
      *
      * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRevisionsRequest  $request

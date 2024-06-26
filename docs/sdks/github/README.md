@@ -8,6 +8,7 @@
 * [configureMintlifyRepo](#configuremintlifyrepo)
 * [configureTarget](#configuretarget)
 * [fetchPublishingPRs](#fetchpublishingprs)
+* [getAction](#getaction)
 * [githubCheckPublishingSecrets](#githubcheckpublishingsecrets)
 * [githubStorePublishingSecrets](#githubstorepublishingsecrets)
 * [triggerAction](#triggeraction)
@@ -250,6 +251,54 @@ try {
 **[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\FetchPublishingPRsResponse](../../Models/Operations/FetchPublishingPRsResponse.md)**
 
 
+## getAction
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
+$security = new Shared\Security();
+$security->apiKey = '<YOUR_API_KEY_HERE>';
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+try {
+        $request = new Operations\GetActionRequest();
+    $request->org = '<value>';
+    $request->repo = '<value>';
+    $request->targetName = '<value>';;
+
+    $response = $sdk->github->getAction($request);
+
+    if ($response->githubGetActionResponse !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetActionRequest](../../Models/Operations/GetActionRequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
+
+
+### Response
+
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetActionResponse](../../Models/Operations/GetActionResponse.md)**
+
+
 ## githubCheckPublishingSecrets
 
 ### Example Usage
@@ -368,6 +417,7 @@ try {
     $request->genLockId = '<value>';
     $request->org = '<value>';
     $request->repoName = '<value>';
+    $request->setVersion = '<value>';
     $request->targetName = '<value>';;
 
     $response = $sdk->github->triggerAction($request);

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: a1ee1e7896ec8cc5254723b812c845c6
+  docChecksum: e4cb9ecada8b35163db080ecaaf60fe3
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.314.2
-  generationVersion: 2.349.6
-  releaseVersion: 0.38.9
-  configChecksum: 634cb97768f8b2f6f4568b5802e4d9d8
+  speakeasyVersion: 1.318.0
+  generationVersion: 2.352.0
+  releaseVersion: 0.38.10
+  configChecksum: 6be96af11e779e9c7b4a25476aa37591
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -117,6 +117,8 @@ generatedFiles:
   - src/Models/Operations/GetManifestRequest.php
   - src/Models/Operations/GetManifestResponse.php
   - src/Models/Operations/GetNamespacesResponse.php
+  - src/Models/Operations/GetOASSummaryRequest.php
+  - src/Models/Operations/GetOASSummaryResponse.php
   - src/Models/Operations/GetRevisionsRequest.php
   - src/Models/Operations/GetRevisionsResponse.php
   - src/Models/Operations/GetTagsRequest.php
@@ -143,6 +145,8 @@ generatedFiles:
   - src/Models/Operations/ConfigureTargetResponse.php
   - src/Models/Operations/FetchPublishingPRsRequest.php
   - src/Models/Operations/FetchPublishingPRsResponse.php
+  - src/Models/Operations/GetActionRequest.php
+  - src/Models/Operations/GetActionResponse.php
   - src/Models/Operations/GithubCheckPublishingSecretsRequest.php
   - src/Models/Operations/GithubCheckPublishingSecretsResponse.php
   - src/Models/Operations/GithubStorePublishingSecretsResponse.php
@@ -160,13 +164,15 @@ generatedFiles:
   - src/Models/Operations/UploadReportRequestBody.php
   - src/Models/Operations/UploadReportUploadedReport.php
   - src/Models/Operations/UploadReportResponse.php
-  - src/Models/Operations/DepthStyle.php
-  - src/Models/Operations/Style.php
-  - src/Models/Operations/Opts.php
+  - src/Models/Operations/ApplyOperationIDsRequestBody.php
+  - src/Models/Operations/ApplyOperationIDsRequest.php
+  - src/Models/Operations/ApplyOperationIDsResponse.php
   - src/Models/Operations/Schema.php
   - src/Models/Operations/SuggestOperationIDsRequestBody.php
-  - src/Models/Operations/SuggestOperationIDsSuggestion.php
+  - src/Models/Operations/SuggestOperationIDsRequest.php
   - src/Models/Operations/SuggestOperationIDsResponse.php
+  - src/Models/Operations/SuggestOperationIDsRegistryRequest.php
+  - src/Models/Operations/SuggestOperationIDsRegistryResponse.php
   - src/Models/Operations/GetEmbedAccessTokenRequest.php
   - src/Models/Operations/GetEmbedAccessTokenResponse.php
   - src/Models/Operations/GetValidEmbedAccessTokensResponse.php
@@ -196,6 +202,10 @@ generatedFiles:
   - src/Models/Shared/Annotations.php
   - src/Models/Shared/GetNamespacesResponse.php
   - src/Models/Shared/NamespaceT.php
+  - src/Models/Shared/OASSummary.php
+  - src/Models/Shared/OASOperation.php
+  - src/Models/Shared/License.php
+  - src/Models/Shared/OASInfo.php
   - src/Models/Shared/GetRevisionsResponse.php
   - src/Models/Shared/Revision.php
   - src/Models/Shared/GetTagsResponse.php
@@ -226,6 +236,7 @@ generatedFiles:
   - src/Models/Shared/GithubConfigureMintlifyRepoRequest.php
   - src/Models/Shared/GithubConfigureTargetRequest.php
   - src/Models/Shared/GithubPublishingPRResponse.php
+  - src/Models/Shared/GithubGetActionResponse.php
   - src/Models/Shared/GithubMissingPublishingSecretsResponse.php
   - src/Models/Shared/GithubStorePublishingSecretsRequest.php
   - src/Models/Shared/GithubTriggerActionRequest.php
@@ -235,6 +246,10 @@ generatedFiles:
   - src/Models/Shared/Organization.php
   - src/Models/Shared/Type.php
   - src/Models/Shared/Report.php
+  - src/Models/Shared/SuggestedOperationIDs.php
+  - src/Models/Shared/DepthStyle.php
+  - src/Models/Shared/Style.php
+  - src/Models/Shared/SuggestOperationIDsOpts.php
   - src/Models/Shared/EmbedAccessTokenResponse.php
   - src/Models/Shared/EmbedToken.php
   - src/Models/Shared/GenerateBumpType.php
@@ -302,6 +317,8 @@ generatedFiles:
   - docs/Models/Operations/GetManifestRequest.md
   - docs/Models/Operations/GetManifestResponse.md
   - docs/Models/Operations/GetNamespacesResponse.md
+  - docs/Models/Operations/GetOASSummaryRequest.md
+  - docs/Models/Operations/GetOASSummaryResponse.md
   - docs/Models/Operations/GetRevisionsRequest.md
   - docs/Models/Operations/GetRevisionsResponse.md
   - docs/Models/Operations/GetTagsRequest.md
@@ -328,6 +345,8 @@ generatedFiles:
   - docs/Models/Operations/ConfigureTargetResponse.md
   - docs/Models/Operations/FetchPublishingPRsRequest.md
   - docs/Models/Operations/FetchPublishingPRsResponse.md
+  - docs/Models/Operations/GetActionRequest.md
+  - docs/Models/Operations/GetActionResponse.md
   - docs/Models/Operations/GithubCheckPublishingSecretsRequest.md
   - docs/Models/Operations/GithubCheckPublishingSecretsResponse.md
   - docs/Models/Operations/GithubStorePublishingSecretsResponse.md
@@ -345,13 +364,15 @@ generatedFiles:
   - docs/Models/Operations/UploadReportRequestBody.md
   - docs/Models/Operations/UploadReportUploadedReport.md
   - docs/Models/Operations/UploadReportResponse.md
-  - docs/Models/Operations/DepthStyle.md
-  - docs/Models/Operations/Style.md
-  - docs/Models/Operations/Opts.md
+  - docs/Models/Operations/ApplyOperationIDsRequestBody.md
+  - docs/Models/Operations/ApplyOperationIDsRequest.md
+  - docs/Models/Operations/ApplyOperationIDsResponse.md
   - docs/Models/Operations/Schema.md
   - docs/Models/Operations/SuggestOperationIDsRequestBody.md
-  - docs/Models/Operations/SuggestOperationIDsSuggestion.md
+  - docs/Models/Operations/SuggestOperationIDsRequest.md
   - docs/Models/Operations/SuggestOperationIDsResponse.md
+  - docs/Models/Operations/SuggestOperationIDsRegistryRequest.md
+  - docs/Models/Operations/SuggestOperationIDsRegistryResponse.md
   - docs/Models/Operations/GetEmbedAccessTokenRequest.md
   - docs/Models/Operations/GetEmbedAccessTokenResponse.md
   - docs/Models/Operations/GetValidEmbedAccessTokensResponse.md
@@ -381,6 +402,10 @@ generatedFiles:
   - docs/Models/Shared/Annotations.md
   - docs/Models/Shared/GetNamespacesResponse.md
   - docs/Models/Shared/NamespaceT.md
+  - docs/Models/Shared/OASSummary.md
+  - docs/Models/Shared/OASOperation.md
+  - docs/Models/Shared/License.md
+  - docs/Models/Shared/OASInfo.md
   - docs/Models/Shared/GetRevisionsResponse.md
   - docs/Models/Shared/Revision.md
   - docs/Models/Shared/GetTagsResponse.md
@@ -411,6 +436,7 @@ generatedFiles:
   - docs/Models/Shared/GithubConfigureMintlifyRepoRequest.md
   - docs/Models/Shared/GithubConfigureTargetRequest.md
   - docs/Models/Shared/GithubPublishingPRResponse.md
+  - docs/Models/Shared/GithubGetActionResponse.md
   - docs/Models/Shared/GithubMissingPublishingSecretsResponse.md
   - docs/Models/Shared/GithubStorePublishingSecretsRequest.md
   - docs/Models/Shared/GithubTriggerActionRequest.md
@@ -420,6 +446,10 @@ generatedFiles:
   - docs/Models/Shared/Organization.md
   - docs/Models/Shared/Type.md
   - docs/Models/Shared/Report.md
+  - docs/Models/Shared/SuggestedOperationIDs.md
+  - docs/Models/Shared/DepthStyle.md
+  - docs/Models/Shared/Style.md
+  - docs/Models/Shared/SuggestOperationIDsOpts.md
   - docs/Models/Shared/EmbedAccessTokenResponse.md
   - docs/Models/Shared/EmbedToken.md
   - docs/Models/Shared/GenerateBumpType.md

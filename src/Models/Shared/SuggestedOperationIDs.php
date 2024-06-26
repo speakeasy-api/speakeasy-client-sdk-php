@@ -6,11 +6,10 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
+namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
-/** SuggestOperationIDsSuggestion - OK */
-class SuggestOperationIDsSuggestion
+class SuggestedOperationIDs
 {
     /**
      * $operationIds

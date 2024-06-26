@@ -9,14 +9,35 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 
-class SuggestOperationIDsResponse
+class ApplyOperationIDsResponse
 {
+    /**
+     * OK
+     *
+     * @var ?string $twoHundredApplicationJsonSchema
+     */
+    public ?string $twoHundredApplicationJsonSchema = null;
+
+    /**
+     * OK
+     *
+     * @var ?string $twoHundredApplicationXYamlSchema
+     */
+    public ?string $twoHundredApplicationXYamlSchema = null;
+
     /**
      * HTTP response content type for this operation
      *
      * @var string $contentType
      */
     public string $contentType;
+
+    /**
+     * Default error response
+     *
+     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
+     */
+    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
 
     /**
      * HTTP response status code for this operation
@@ -32,18 +53,13 @@ class SuggestOperationIDsResponse
      */
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
 
-    /**
-     * OK
-     *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestedOperationIDs $suggestedOperationIDs
-     */
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestedOperationIDs $suggestedOperationIDs = null;
-
     public function __construct()
     {
+        $this->twoHundredApplicationJsonSchema = null;
+        $this->twoHundredApplicationXYamlSchema = null;
         $this->contentType = '';
+        $this->error = null;
         $this->statusCode = 0;
         $this->rawResponse = null;
-        $this->suggestedOperationIDs = null;
     }
 }

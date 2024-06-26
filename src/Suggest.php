@@ -21,24 +21,78 @@ class Suggest
     }
 
     /**
+     * Apply operation ID suggestions and download result.
+     *
+     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\ApplyOperationIDsRequest  $request
+     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\ApplyOperationIDsResponse
+     */
+    public function applyOperationIDs(
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\ApplyOperationIDsRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\ApplyOperationIDsResponse {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/suggest/operation_ids/apply');
+        $options = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request, 'requestBody', 'json');
+        if ($body !== null) {
+            $options = array_merge_recursive($options, $body);
+        }
+        $options = array_merge_recursive($options, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
+        if (! array_key_exists('headers', $options)) {
+            $options['headers'] = [];
+        }
+        $options['headers']['Accept'] = 'application/json;q=1, application/x-yaml;q=0';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+
+        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\ApplyOperationIDsResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $response->twoHundredApplicationJsonSchema = $httpResponse->getBody()->getContents();
+            }
+            if (Utils\Utils::matchContentType($contentType, 'application/x-yaml')) {
+                $response->twoHundredApplicationXYamlSchema = $httpResponse->getBody()->getContents();
+            }
+        } else {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+            }
+        }
+
+        return $response;
+    }
+
+    /**
      * Generate operation ID suggestions.
      *
      * Get suggestions from an LLM model for improving the operationIDs in the provided schema.
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRequestBody  $request
+     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRequest  $request
      * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsResponse
      */
     public function suggestOperationIDs(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRequestBody $request,
+        \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRequest $request,
     ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/suggest/operation_ids');
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'request', 'multipart');
+        $body = Utils\Utils::serializeRequestBody($request, 'requestBody', 'multipart');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
         $options = array_merge_recursive($options, $body);
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRequest::class, $request, $this->sdkConfiguration->globals));
+        $options = array_merge_recursive($options, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
+        if (! array_key_exists('headers', $options)) {
+            $options['headers'] = [];
+        }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
 
@@ -54,7 +108,52 @@ class Suggest
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->suggestion = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsSuggestion', 'json');
+                $response->suggestedOperationIDs = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestedOperationIDs', 'json');
+            }
+        }
+
+        return $response;
+    }
+
+    /**
+     * Generate operation ID suggestions.
+     *
+     * Get suggestions from an LLM model for improving the operationIDs in the provided schema.
+     *
+     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryRequest  $request
+     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryResponse
+     */
+    public function suggestOperationIDsRegistry(
+        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryRequest $request,
+    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryResponse {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/suggest/operation_ids/{namespace_name}/{revision_reference}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryRequest::class, $request, $this->sdkConfiguration->globals);
+        $options = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request, 'suggestOperationIDsOpts', 'json');
+        if ($body !== null) {
+            $options = array_merge_recursive($options, $body);
+        }
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryRequest::class, $request, $this->sdkConfiguration->globals));
+        $options = array_merge_recursive($options, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
+        if (! array_key_exists('headers', $options)) {
+            $options['headers'] = [];
+        }
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+
+        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->suggestedOperationIDs = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestedOperationIDs', 'json');
             }
         }
 

@@ -6,18 +6,18 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
+namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
-class Opts
+class SuggestOperationIDsOpts
 {
     #[\JMS\Serializer\Annotation\SerializedName('depth_style')]
-    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Operations\DepthStyle>')]
+    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\DepthStyle>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?DepthStyle $depthStyle = null;
 
     #[\JMS\Serializer\Annotation\SerializedName('style')]
-    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Operations\Style>')]
+    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\Style>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Style $style = null;
 

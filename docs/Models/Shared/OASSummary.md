@@ -1,0 +1,9 @@
+# OASSummary
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `info`                                                                                                 | [\Speakeasy\SpeakeasyClientSDK\Models\Shared\OASInfo](../../Models/Shared/OASInfo.md)                  | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| `operations`                                                                                           | array<[\Speakeasy\SpeakeasyClientSDK\Models\Shared\OASOperation](../../Models/Shared/OASOperation.md)> | :heavy_check_mark:                                                                                     | N/A                                                                                                    |

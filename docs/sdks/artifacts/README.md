@@ -1,11 +1,16 @@
 # Artifacts
 
 
+## Overview
+
+REST APIs for working with Registry artifacts
+
 ### Available Operations
 
 * [getBlob](#getblob) - Get blob for a particular digest
 * [getManifest](#getmanifest) - Get manifest for a particular reference
 * [getNamespaces](#getnamespaces) - Each namespace contains many revisions.
+* [getOASSummary](#getoassummary)
 * [getRevisions](#getrevisions)
 * [getTags](#gettags)
 * [postTags](#posttags) - Add tags to an existing revision
@@ -149,6 +154,53 @@ try {
 ### Response
 
 **[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetNamespacesResponse](../../Models/Operations/GetNamespacesResponse.md)**
+
+
+## getOASSummary
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use \Speakeasy\SpeakeasyClientSDK;
+use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
+$security = new Shared\Security();
+$security->apiKey = '<YOUR_API_KEY_HERE>';
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+try {
+        $request = new Operations\GetOASSummaryRequest();
+    $request->namespaceName = '<value>';
+    $request->revisionReference = '<value>';;
+
+    $response = $sdk->artifacts->getOASSummary($request);
+
+    if ($response->oasSummary !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                              | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetOASSummaryRequest](../../Models/Operations/GetOASSummaryRequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+
+
+### Response
+
+**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetOASSummaryResponse](../../Models/Operations/GetOASSummaryResponse.md)**
 
 
 ## getRevisions

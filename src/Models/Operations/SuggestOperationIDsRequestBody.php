@@ -13,7 +13,7 @@ use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class SuggestOperationIDsRequestBody
 {
     #[SpeakeasyMetadata('multipartForm:name=opts,json=true')]
-    public ?Opts $opts = null;
+    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestOperationIDsOpts $opts = null;
 
     #[SpeakeasyMetadata('multipartForm:file=true')]
     public Schema $schema;

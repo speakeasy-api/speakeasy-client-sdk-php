@@ -51,6 +51,11 @@ class SDK
      */
     public Schemas $schemas;
 
+    /**
+     * REST APIs for working with Registry artifacts
+     *
+     * @var Artifacts $$artifacts
+     */
     public Artifacts $artifacts;
 
     /**

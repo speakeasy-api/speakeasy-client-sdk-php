@@ -40,6 +40,16 @@ class GithubTriggerActionRequest
     public string $repoName;
 
     /**
+     * A version to override the SDK too in workflow dispatch
+     *
+     * @var ?string $setVersion
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('set_version')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $setVersion = null;
+
+    /**
      * The target name for the action
      *
      * @var ?string $targetName
@@ -54,6 +64,7 @@ class GithubTriggerActionRequest
         $this->genLockId = '';
         $this->org = '';
         $this->repoName = '';
+        $this->setVersion = null;
         $this->targetName = null;
     }
 }
