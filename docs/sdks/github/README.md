@@ -133,7 +133,8 @@ try {
     $request->overlays = [
         '<value>',
     ];
-    $request->repo = '<value>';;
+    $request->repo = '<value>';
+    $request->subdirectory = '<value>';;
 
     $response = $sdk->github->configureMintlifyRepo($request);
 

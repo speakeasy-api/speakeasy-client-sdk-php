@@ -48,11 +48,22 @@ class GithubConfigureMintlifyRepoRequest
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $repo;
 
+    /**
+     * The subdirectory (location of mint.json)
+     *
+     * @var ?string $subdirectory
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('subdirectory')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $subdirectory = null;
+
     public function __construct()
     {
         $this->input = '';
         $this->org = '';
         $this->overlays = [];
         $this->repo = '';
+        $this->subdirectory = null;
     }
 }
