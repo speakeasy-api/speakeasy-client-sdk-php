@@ -84,6 +84,13 @@ class SDK
     public Reports $reports;
 
     /**
+     * REST APIs for managing short URLs
+     *
+     * @var ShortURLs $$shortURLs
+     */
+    public ShortURLs $shortURLs;
+
+    /**
      * REST APIs for managing LLM OAS suggestions
      *
      * @var Suggest $$suggest
@@ -130,6 +137,7 @@ class SDK
         $this->github = new Github($this->sdkConfiguration);
         $this->organizations = new Organizations($this->sdkConfiguration);
         $this->reports = new Reports($this->sdkConfiguration);
+        $this->shortURLs = new ShortURLs($this->sdkConfiguration);
         $this->suggest = new Suggest($this->sdkConfiguration);
         $this->embeds = new Embeds($this->sdkConfiguration);
         $this->events = new Events($this->sdkConfiguration);

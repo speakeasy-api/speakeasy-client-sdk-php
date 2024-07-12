@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: f5cf06d8d5f2ec68226ab161d7a73cba
+  docChecksum: 638dbecd668cc1d7818c3b5aefd2d3e1
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.331.0
-  generationVersion: 2.365.0
-  releaseVersion: 0.38.11
-  configChecksum: ca063f2adfdf0129113d834766c78c5c
+  speakeasyVersion: 1.332.1
+  generationVersion: 2.366.1
+  releaseVersion: 0.38.12
+  configChecksum: fb9b1de6d44ad3317be784d50d7a88f4
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -33,6 +33,7 @@ generatedFiles:
   - src/Github.php
   - src/Organizations.php
   - src/Reports.php
+  - src/ShortURLs.php
   - src/Suggest.php
   - src/Embeds.php
   - src/Events.php
@@ -164,6 +165,8 @@ generatedFiles:
   - src/Models/Operations/UploadReportRequestBody.php
   - src/Models/Operations/UploadReportUploadedReport.php
   - src/Models/Operations/UploadReportResponse.php
+  - src/Models/Operations/CreateRequestBody.php
+  - src/Models/Operations/CreateResponse.php
   - src/Models/Operations/ApplyOperationIDsRequestBody.php
   - src/Models/Operations/ApplyOperationIDsRequest.php
   - src/Models/Operations/ApplyOperationIDsResponse.php
@@ -246,6 +249,7 @@ generatedFiles:
   - src/Models/Shared/Organization.php
   - src/Models/Shared/Type.php
   - src/Models/Shared/Report.php
+  - src/Models/Shared/ShortURL.php
   - src/Models/Shared/SuggestedOperationIDs.php
   - src/Models/Shared/DepthStyle.php
   - src/Models/Shared/Style.php
@@ -364,6 +368,8 @@ generatedFiles:
   - docs/Models/Operations/UploadReportRequestBody.md
   - docs/Models/Operations/UploadReportUploadedReport.md
   - docs/Models/Operations/UploadReportResponse.md
+  - docs/Models/Operations/CreateRequestBody.md
+  - docs/Models/Operations/CreateResponse.md
   - docs/Models/Operations/ApplyOperationIDsRequestBody.md
   - docs/Models/Operations/ApplyOperationIDsRequest.md
   - docs/Models/Operations/ApplyOperationIDsResponse.md
@@ -446,6 +452,7 @@ generatedFiles:
   - docs/Models/Shared/Organization.md
   - docs/Models/Shared/Type.md
   - docs/Models/Shared/Report.md
+  - docs/Models/Shared/ShortURL.md
   - docs/Models/Shared/SuggestedOperationIDs.md
   - docs/Models/Shared/DepthStyle.md
   - docs/Models/Shared/Style.md
@@ -469,6 +476,7 @@ generatedFiles:
   - docs/sdks/github/README.md
   - docs/sdks/organizations/README.md
   - docs/sdks/reports/README.md
+  - docs/sdks/shorturls/README.md
   - docs/sdks/suggest/README.md
   - docs/sdks/embeds/README.md
   - docs/sdks/events/README.md

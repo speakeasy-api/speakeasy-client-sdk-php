@@ -141,6 +141,10 @@ try {
 * [getLintingReportSignedUrl](docs/sdks/reports/README.md#getlintingreportsignedurl) - Get the signed access url for the linting reports for a particular document.
 * [uploadReport](docs/sdks/reports/README.md#uploadreport) - Upload a report.
 
+### [ShortURLs](docs/sdks/shorturls/README.md)
+
+* [create](docs/sdks/shorturls/README.md#create) - Shorten a URL.
+
 ### [Suggest](docs/sdks/suggest/README.md)
 
 * [applyOperationIDs](docs/sdks/suggest/README.md#applyoperationids) - Apply operation ID suggestions and download result.
