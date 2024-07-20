@@ -70,7 +70,7 @@ class CliEvent
     public string $executionId;
 
     /**
-     * Bump type of the lock file (calculated semver delta, or a custom change (manual release))
+     * Bump type of the lock file (calculated semver delta, custom change (manual release), or prerelease/graduate)
      *
      * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\GenerateBumpType $generateBumpType
      */
