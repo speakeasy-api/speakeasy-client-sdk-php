@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 5b362866a3e7a85c830c6cb1f1cf4896
+  docChecksum: 312822a7ccdbf7c77dbbfeef49fb2053
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.346.0
-  generationVersion: 2.379.3
-  releaseVersion: 0.38.15
-  configChecksum: 140eb3e90ccd86ae17e741fc6a063d03
+  speakeasyVersion: 1.346.3
+  generationVersion: 2.379.6
+  releaseVersion: 0.38.16
+  configChecksum: c5381427220254106c55747bd3d61ccc
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -36,6 +36,7 @@ generatedFiles:
   - src/ShortURLs.php
   - src/Suggest.php
   - src/Embeds.php
+  - src/Workspaces.php
   - src/Events.php
   - src/SDK.php
   - src/SDKBuilder.php
@@ -153,6 +154,8 @@ generatedFiles:
   - src/Models/Operations/GithubStorePublishingSecretsResponse.php
   - src/Models/Operations/TriggerActionResponse.php
   - src/Models/Operations/CreateFreeTrialResponse.php
+  - src/Models/Operations/GetOrganizationRequest.php
+  - src/Models/Operations/GetOrganizationResponse.php
   - src/Models/Operations/GetOrganizationUsageResponse.php
   - src/Models/Operations/GetOrganizationsResponse.php
   - src/Models/Operations/GetChangesReportSignedUrlRequest.php
@@ -181,6 +184,8 @@ generatedFiles:
   - src/Models/Operations/GetValidEmbedAccessTokensResponse.php
   - src/Models/Operations/RevokeEmbedAccessTokenRequest.php
   - src/Models/Operations/RevokeEmbedAccessTokenResponse.php
+  - src/Models/Operations/GetWorkspaceRequest.php
+  - src/Models/Operations/GetWorkspaceResponse.php
   - src/Models/Operations/GetWorkspaceEventsByTargetRequest.php
   - src/Models/Operations/GetWorkspaceEventsByTargetResponse.php
   - src/Models/Operations/GetWorkspaceTargetsRequest.php
@@ -243,10 +248,10 @@ generatedFiles:
   - src/Models/Shared/GithubMissingPublishingSecretsResponse.php
   - src/Models/Shared/GithubStorePublishingSecretsRequest.php
   - src/Models/Shared/GithubTriggerActionRequest.php
-  - src/Models/Shared/OrganizationUsageResponse.php
-  - src/Models/Shared/OrganizationUsage.php
   - src/Models/Shared/OrganizationAccountType.php
   - src/Models/Shared/Organization.php
+  - src/Models/Shared/OrganizationUsageResponse.php
+  - src/Models/Shared/OrganizationUsage.php
   - src/Models/Shared/Type.php
   - src/Models/Shared/Report.php
   - src/Models/Shared/ShortURL.php
@@ -256,6 +261,7 @@ generatedFiles:
   - src/Models/Shared/SuggestOperationIDsOpts.php
   - src/Models/Shared/EmbedAccessTokenResponse.php
   - src/Models/Shared/EmbedToken.php
+  - src/Models/Shared/Workspace.php
   - src/Models/Shared/GenerateBumpType.php
   - src/Models/Shared/OpenapiDiffBumpType.php
   - src/Models/Shared/CliEvent.php
@@ -356,6 +362,8 @@ generatedFiles:
   - docs/Models/Operations/GithubStorePublishingSecretsResponse.md
   - docs/Models/Operations/TriggerActionResponse.md
   - docs/Models/Operations/CreateFreeTrialResponse.md
+  - docs/Models/Operations/GetOrganizationRequest.md
+  - docs/Models/Operations/GetOrganizationResponse.md
   - docs/Models/Operations/GetOrganizationUsageResponse.md
   - docs/Models/Operations/GetOrganizationsResponse.md
   - docs/Models/Operations/GetChangesReportSignedUrlRequest.md
@@ -384,6 +392,8 @@ generatedFiles:
   - docs/Models/Operations/GetValidEmbedAccessTokensResponse.md
   - docs/Models/Operations/RevokeEmbedAccessTokenRequest.md
   - docs/Models/Operations/RevokeEmbedAccessTokenResponse.md
+  - docs/Models/Operations/GetWorkspaceRequest.md
+  - docs/Models/Operations/GetWorkspaceResponse.md
   - docs/Models/Operations/GetWorkspaceEventsByTargetRequest.md
   - docs/Models/Operations/GetWorkspaceEventsByTargetResponse.md
   - docs/Models/Operations/GetWorkspaceTargetsRequest.md
@@ -446,10 +456,10 @@ generatedFiles:
   - docs/Models/Shared/GithubMissingPublishingSecretsResponse.md
   - docs/Models/Shared/GithubStorePublishingSecretsRequest.md
   - docs/Models/Shared/GithubTriggerActionRequest.md
-  - docs/Models/Shared/OrganizationUsageResponse.md
-  - docs/Models/Shared/OrganizationUsage.md
   - docs/Models/Shared/OrganizationAccountType.md
   - docs/Models/Shared/Organization.md
+  - docs/Models/Shared/OrganizationUsageResponse.md
+  - docs/Models/Shared/OrganizationUsage.md
   - docs/Models/Shared/Type.md
   - docs/Models/Shared/Report.md
   - docs/Models/Shared/ShortURL.md
@@ -459,6 +469,7 @@ generatedFiles:
   - docs/Models/Shared/SuggestOperationIDsOpts.md
   - docs/Models/Shared/EmbedAccessTokenResponse.md
   - docs/Models/Shared/EmbedToken.md
+  - docs/Models/Shared/Workspace.md
   - docs/Models/Shared/GenerateBumpType.md
   - docs/Models/Shared/OpenapiDiffBumpType.md
   - docs/Models/Shared/CliEvent.md
@@ -479,6 +490,7 @@ generatedFiles:
   - docs/sdks/shorturls/README.md
   - docs/sdks/suggest/README.md
   - docs/sdks/embeds/README.md
+  - docs/sdks/workspaces/README.md
   - docs/sdks/events/README.md
   - USAGE.md
   - .gitattributes

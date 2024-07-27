@@ -132,6 +132,7 @@ try {
 ### [Organizations](docs/sdks/organizations/README.md)
 
 * [createFreeTrial](docs/sdks/organizations/README.md#createfreetrial) - Create a free trial for an organization
+* [getOrganization](docs/sdks/organizations/README.md#getorganization) - Get organization
 * [getOrganizationUsage](docs/sdks/organizations/README.md#getorganizationusage) - Get billing usage summary for a particular organization
 * [getOrganizations](docs/sdks/organizations/README.md#getorganizations) - Get organizations for a user
 
@@ -156,6 +157,10 @@ try {
 * [getEmbedAccessToken](docs/sdks/embeds/README.md#getembedaccesstoken) - Get an embed access token for the current workspace.
 * [getValidEmbedAccessTokens](docs/sdks/embeds/README.md#getvalidembedaccesstokens) - Get all valid embed access tokens for the current workspace.
 * [revokeEmbedAccessToken](docs/sdks/embeds/README.md#revokeembedaccesstoken) - Revoke an embed access EmbedToken.
+
+### [Workspaces](docs/sdks/workspaces/README.md)
+
+* [getWorkspace](docs/sdks/workspaces/README.md#getworkspace) - Get workspace
 
 ### [Events](docs/sdks/events/README.md)
 
@@ -192,7 +197,7 @@ The default server can also be overridden globally by passing a URL to the `serv
 
 A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
 
-For example, you can set `workspaceID` to `'<value>'` at SDK initialization and then you do not have to pass the same value on calls to operations like `getWorkspaceEventsByTarget`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+For example, you can set `workspaceID` to `'<value>'` at SDK initialization and then you do not have to pass the same value on calls to operations like `getWorkspace`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
 
 
 ### Available Globals
@@ -225,16 +230,11 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     ->build();
 
 try {
-    $request = new Operations\GetWorkspaceEventsByTargetRequest();
-    $request->afterCreatedAt = DateTime::createFromFormat(
-        'Y-m-d\TH:i:s+',
-        '2024-04-01T04:00:29.393Z',
-    );
-    $request->targetID = '<value>';
+    $request = new Operations\GetWorkspaceRequest();
 
-    $response = $sdk->events->getWorkspaceEventsByTarget($request);
+    $response = $sdk->workspaces->getWorkspace($request);
 
-    if ($response->cliEventBatch !== null) {
+    if ($response->workspace !== null) {
         // handle response
     }
 } catch (Throwable $e) {
