@@ -13,5 +13,6 @@ enum AccountType: string
 {
     case Free = 'free';
     case ScaleUp = 'scale-up';
+    case Business = 'business';
     case Enterprise = 'enterprise';
 }

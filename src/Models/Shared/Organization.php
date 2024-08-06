@@ -13,8 +13,8 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class Organization
 {
     #[\JMS\Serializer\Annotation\SerializedName('account_type')]
-    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\OrganizationAccountType>')]
-    public OrganizationAccountType $accountType;
+    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType>')]
+    public AccountType $accountType;
 
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
     #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
@@ -50,7 +50,7 @@ class Organization
 
     public function __construct()
     {
-        $this->accountType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\OrganizationAccountType::Free;
+        $this->accountType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType::Free;
         $this->createdAt = null;
         $this->freeTrialExpiry = null;
         $this->id = '';

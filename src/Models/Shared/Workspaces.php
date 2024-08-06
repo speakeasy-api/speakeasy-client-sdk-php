@@ -12,9 +12,9 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class Workspaces
 {
     #[\JMS\Serializer\Annotation\SerializedName('account_type')]
-    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessTokenAccountType>')]
+    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?AccessTokenAccountType $accountType = null;
+    public ?AccountType $accountType = null;
 
     #[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
