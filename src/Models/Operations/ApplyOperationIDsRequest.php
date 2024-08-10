@@ -14,17 +14,25 @@ class ApplyOperationIDsRequest
     /**
      * Apply options
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\ApplyOperationIDsRequestBody $requestBody
+     * @var ?ApplyOperationIDsRequestBody $requestBody
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public ?ApplyOperationIDsRequestBody $requestBody = null;
 
+    /**
+     *
+     * @var string $xSessionId
+     */
     #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-session-id')]
     public string $xSessionId;
 
-    public function __construct()
+    /**
+     * @param  ?string  $xSessionId
+     * @param  ?ApplyOperationIDsRequestBody  $requestBody
+     */
+    public function __construct(?string $xSessionId = null, ?ApplyOperationIDsRequestBody $requestBody = null)
     {
-        $this->requestBody = null;
-        $this->xSessionId = '';
+        $this->xSessionId = $xSessionId;
+        $this->requestBody = $requestBody;
     }
 }

@@ -8,16 +8,17 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class SuggestOperationIDsRegistryRequest
 {
     /**
      * The schema file to upload provided as a multipart/form-data file segment.
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestOperationIDsOpts $suggestOperationIDsOpts
+     * @var ?Shared\SuggestOperationIDsOpts $suggestOperationIDsOpts
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestOperationIDsOpts $suggestOperationIDsOpts = null;
+    public ?Shared\SuggestOperationIDsOpts $suggestOperationIDsOpts = null;
 
     /**
      * Max number of suggestions to request
@@ -27,6 +28,10 @@ class SuggestOperationIDsRegistryRequest
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=limit')]
     public ?float $limit = null;
 
+    /**
+     *
+     * @var string $namespaceName
+     */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=namespace_name')]
     public string $namespaceName;
 
@@ -38,15 +43,26 @@ class SuggestOperationIDsRegistryRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=revision_reference')]
     public string $revisionReference;
 
+    /**
+     *
+     * @var string $xSessionId
+     */
     #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-session-id')]
     public string $xSessionId;
 
-    public function __construct()
+    /**
+     * @param  ?string  $namespaceName
+     * @param  ?string  $revisionReference
+     * @param  ?string  $xSessionId
+     * @param  ?Shared\SuggestOperationIDsOpts  $suggestOperationIDsOpts
+     * @param  ?float  $limit
+     */
+    public function __construct(?string $namespaceName = null, ?string $revisionReference = null, ?string $xSessionId = null, ?Shared\SuggestOperationIDsOpts $suggestOperationIDsOpts = null, ?float $limit = null)
     {
-        $this->suggestOperationIDsOpts = null;
-        $this->limit = null;
-        $this->namespaceName = '';
-        $this->revisionReference = '';
-        $this->xSessionId = '';
+        $this->namespaceName = $namespaceName;
+        $this->revisionReference = $revisionReference;
+        $this->xSessionId = $xSessionId;
+        $this->suggestOperationIDsOpts = $suggestOperationIDsOpts;
+        $this->limit = $limit;
     }
 }

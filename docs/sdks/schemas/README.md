@@ -23,15 +23,13 @@ Delete a particular schema revision for an Api.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -39,11 +37,11 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\DeleteSchemaRequest();
-    $request->apiID = '<value>';
-    $request->revisionID = '<value>';
-    $request->versionID = '<value>';;
-
+    $request = new Operations\DeleteSchemaRequest(
+        apiID: '<value>',
+        revisionID: '<value>',
+        versionID: '<value>',
+    );
     $response = $sdk->schemas->deleteSchema($request);
 
     if ($response->statusCode === 200) {
@@ -56,15 +54,19 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                            | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaRequest](../../Models/Operations/DeleteSchemaRequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `$request`                                                                       | [Operations\DeleteSchemaRequest](../../Models/Operations/DeleteSchemaRequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteSchemaResponse](../../Models/Operations/DeleteSchemaResponse.md)**
+**[?Operations\DeleteSchemaResponse](../../Models/Operations/DeleteSchemaResponse.md)**
+### Errors
 
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 ## downloadSchema
 
@@ -73,15 +75,13 @@ Download the latest schema for a particular apiID.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -89,10 +89,10 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\DownloadSchemaRequest();
-    $request->apiID = '<value>';
-    $request->versionID = '<value>';;
-
+    $request = new Operations\DownloadSchemaRequest(
+        apiID: '<value>',
+        versionID: '<value>',
+    );
     $response = $sdk->schemas->downloadSchema($request);
 
     if ($response->twoHundredApplicationJsonSchema !== null) {
@@ -105,15 +105,19 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRequest](../../Models/Operations/DownloadSchemaRequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `$request`                                                                           | [Operations\DownloadSchemaRequest](../../Models/Operations/DownloadSchemaRequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaResponse](../../Models/Operations/DownloadSchemaResponse.md)**
+**[?Operations\DownloadSchemaResponse](../../Models/Operations/DownloadSchemaResponse.md)**
+### Errors
 
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 ## downloadSchemaRevision
 
@@ -122,15 +126,13 @@ Download a particular schema revision for an Api.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -138,11 +140,11 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\DownloadSchemaRevisionRequest();
-    $request->apiID = '<value>';
-    $request->revisionID = '<value>';
-    $request->versionID = '<value>';;
-
+    $request = new Operations\DownloadSchemaRevisionRequest(
+        apiID: '<value>',
+        revisionID: '<value>',
+        versionID: '<value>',
+    );
     $response = $sdk->schemas->downloadSchemaRevision($request);
 
     if ($response->twoHundredApplicationJsonSchema !== null) {
@@ -155,15 +157,19 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                                 | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                                | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionRequest](../../Models/Operations/DownloadSchemaRevisionRequest.md) | :heavy_check_mark:                                                                                                                        | The request object to use for the request.                                                                                                |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                           | [Operations\DownloadSchemaRevisionRequest](../../Models/Operations/DownloadSchemaRevisionRequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DownloadSchemaRevisionResponse](../../Models/Operations/DownloadSchemaRevisionResponse.md)**
+**[?Operations\DownloadSchemaRevisionResponse](../../Models/Operations/DownloadSchemaRevisionResponse.md)**
+### Errors
 
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 ## getSchema
 
@@ -173,15 +179,13 @@ This won't include the schema itself, that can be retrieved via the downloadSche
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -189,10 +193,10 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\GetSchemaRequest();
-    $request->apiID = '<value>';
-    $request->versionID = '<value>';;
-
+    $request = new Operations\GetSchemaRequest(
+        apiID: '<value>',
+        versionID: '<value>',
+    );
     $response = $sdk->schemas->getSchema($request);
 
     if ($response->schema !== null) {
@@ -205,15 +209,19 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRequest](../../Models/Operations/GetSchemaRequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `$request`                                                                 | [Operations\GetSchemaRequest](../../Models/Operations/GetSchemaRequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaResponse](../../Models/Operations/GetSchemaResponse.md)**
+**[?Operations\GetSchemaResponse](../../Models/Operations/GetSchemaResponse.md)**
+### Errors
 
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 ## getSchemaDiff
 
@@ -222,15 +230,13 @@ Get a diff of two schema revisions for an Api.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -238,12 +244,12 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\GetSchemaDiffRequest();
-    $request->apiID = '<value>';
-    $request->baseRevisionID = '<value>';
-    $request->targetRevisionID = '<value>';
-    $request->versionID = '<value>';;
-
+    $request = new Operations\GetSchemaDiffRequest(
+        apiID: '<value>',
+        baseRevisionID: '<value>',
+        targetRevisionID: '<value>',
+        versionID: '<value>',
+    );
     $response = $sdk->schemas->getSchemaDiff($request);
 
     if ($response->schemaDiff !== null) {
@@ -256,15 +262,19 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                              | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffRequest](../../Models/Operations/GetSchemaDiffRequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `$request`                                                                         | [Operations\GetSchemaDiffRequest](../../Models/Operations/GetSchemaDiffRequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaDiffResponse](../../Models/Operations/GetSchemaDiffResponse.md)**
+**[?Operations\GetSchemaDiffResponse](../../Models/Operations/GetSchemaDiffResponse.md)**
+### Errors
 
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 ## getSchemaRevision
 
@@ -274,15 +284,13 @@ This won't include the schema itself, that can be retrieved via the downloadSche
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -290,11 +298,11 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\GetSchemaRevisionRequest();
-    $request->apiID = '<value>';
-    $request->revisionID = '<value>';
-    $request->versionID = '<value>';;
-
+    $request = new Operations\GetSchemaRevisionRequest(
+        apiID: '<value>',
+        revisionID: '<value>',
+        versionID: '<value>',
+    );
     $response = $sdk->schemas->getSchemaRevision($request);
 
     if ($response->schema !== null) {
@@ -307,15 +315,19 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionRequest](../../Models/Operations/GetSchemaRevisionRequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `$request`                                                                                 | [Operations\GetSchemaRevisionRequest](../../Models/Operations/GetSchemaRevisionRequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemaRevisionResponse](../../Models/Operations/GetSchemaRevisionResponse.md)**
+**[?Operations\GetSchemaRevisionResponse](../../Models/Operations/GetSchemaRevisionResponse.md)**
+### Errors
 
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 ## getSchemas
 
@@ -325,15 +337,13 @@ This won't include the schemas themselves, they can be retrieved via the downloa
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -341,10 +351,10 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\GetSchemasRequest();
-    $request->apiID = '<value>';
-    $request->versionID = '<value>';;
-
+    $request = new Operations\GetSchemasRequest(
+        apiID: '<value>',
+        versionID: '<value>',
+    );
     $response = $sdk->schemas->getSchemas($request);
 
     if ($response->classes !== null) {
@@ -357,15 +367,19 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                        | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasRequest](../../Models/Operations/GetSchemasRequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `$request`                                                                   | [Operations\GetSchemasRequest](../../Models/Operations/GetSchemasRequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetSchemasResponse](../../Models/Operations/GetSchemasResponse.md)**
+**[?Operations\GetSchemasResponse](../../Models/Operations/GetSchemasResponse.md)**
+### Errors
 
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 ## registerSchema
 
@@ -375,15 +389,13 @@ This will be used to populate ApiEndpoints and used as a base for any schema gen
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -391,14 +403,16 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\RegisterSchemaRequest();
-    $request->requestBody = new Operations\RegisterSchemaRequestBody();
-    $request->requestBody->file = new Operations\RegisterSchemaFile();
-    $request->requestBody->file->content = '0xCAFCA03e0e';
-    $request->requestBody->file->fileName = 'your_file_here';
-    $request->apiID = '<value>';
-    $request->versionID = '<value>';;
-
+    $request = new Operations\RegisterSchemaRequest(
+        requestBody: new Operations\RegisterSchemaRequestBody(
+            file: new Operations\RegisterSchemaFile(
+                content: '0xCAFCA03e0e',
+                fileName: 'your_file_here',
+            ),
+        ),
+        apiID: '<value>',
+        versionID: '<value>',
+    );
     $response = $sdk->schemas->registerSchema($request);
 
     if ($response->statusCode === 200) {
@@ -411,12 +425,16 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequest](../../Models/Operations/RegisterSchemaRequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `$request`                                                                           | [Operations\RegisterSchemaRequest](../../Models/Operations/RegisterSchemaRequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaResponse](../../Models/Operations/RegisterSchemaResponse.md)**
+**[?Operations\RegisterSchemaResponse](../../Models/Operations/RegisterSchemaResponse.md)**
+### Errors
 
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |

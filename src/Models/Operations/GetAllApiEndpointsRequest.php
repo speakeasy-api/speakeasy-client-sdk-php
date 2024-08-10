@@ -19,8 +19,11 @@ class GetAllApiEndpointsRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=apiID')]
     public string $apiID;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiID
+     */
+    public function __construct(?string $apiID = null)
     {
-        $this->apiID = '';
+        $this->apiID = $apiID;
     }
 }

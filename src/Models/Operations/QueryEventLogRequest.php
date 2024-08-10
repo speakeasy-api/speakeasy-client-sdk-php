@@ -8,19 +8,23 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class QueryEventLogRequest
 {
     /**
      * The filter to apply to the query.
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Filters $filters
+     * @var ?Shared\Filters $filters
      */
     #[SpeakeasyMetadata('queryParam:serialization=json,name=filters')]
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Filters $filters = null;
+    public ?Shared\Filters $filters = null;
 
-    public function __construct()
+    /**
+     * @param  ?Shared\Filters  $filters
+     */
+    public function __construct(?Shared\Filters $filters = null)
     {
-        $this->filters = null;
+        $this->filters = $filters;
     }
 }

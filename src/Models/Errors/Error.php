@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
+namespace Speakeasy\SpeakeasyClientSDK\Models\Errors;
 
 
 /** Error - The `Status` type defines a logical error model */
@@ -18,7 +18,6 @@ class Error
      * @var string $message
      */
     #[\JMS\Serializer\Annotation\SerializedName('message')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $message;
 
     /**
@@ -27,12 +26,15 @@ class Error
      * @var int $statusCode
      */
     #[\JMS\Serializer\Annotation\SerializedName('status_code')]
-    #[\JMS\Serializer\Annotation\Type('int')]
     public int $statusCode;
 
-    public function __construct()
+    /**
+     * @param  ?string  $message
+     * @param  ?int  $statusCode
+     */
+    public function __construct(?string $message = null, ?int $statusCode = null)
     {
-        $this->message = '';
-        $this->statusCode = 0;
+        $this->message = $message;
+        $this->statusCode = $statusCode;
     }
 }

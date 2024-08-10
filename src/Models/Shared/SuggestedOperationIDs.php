@@ -20,8 +20,11 @@ class SuggestedOperationIDs
     #[\JMS\Serializer\Annotation\Type('array<string, array<string>>')]
     public array $operationIds;
 
-    public function __construct()
+    /**
+     * @param  ?array<string, array<string>>  $operationIds
+     */
+    public function __construct(?array $operationIds = null)
     {
-        $this->operationIds = [];
+        $this->operationIds = $operationIds;
     }
 }

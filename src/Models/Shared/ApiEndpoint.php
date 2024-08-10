@@ -18,7 +18,6 @@ class ApiEndpoint
      * @var string $apiEndpointId
      */
     #[\JMS\Serializer\Annotation\SerializedName('api_endpoint_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $apiEndpointId;
 
     /**
@@ -27,7 +26,6 @@ class ApiEndpoint
      * @var string $apiId
      */
     #[\JMS\Serializer\Annotation\SerializedName('api_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $apiId;
 
     /**
@@ -36,7 +34,6 @@ class ApiEndpoint
      * @var \DateTime $createdAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
 
     /**
@@ -45,7 +42,6 @@ class ApiEndpoint
      * @var string $description
      */
     #[\JMS\Serializer\Annotation\SerializedName('description')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $description;
 
     /**
@@ -54,7 +50,6 @@ class ApiEndpoint
      * @var string $displayName
      */
     #[\JMS\Serializer\Annotation\SerializedName('display_name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $displayName;
 
     /**
@@ -63,7 +58,6 @@ class ApiEndpoint
      * @var ?bool $matched
      */
     #[\JMS\Serializer\Annotation\SerializedName('matched')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $matched = null;
 
@@ -73,7 +67,6 @@ class ApiEndpoint
      * @var string $method
      */
     #[\JMS\Serializer\Annotation\SerializedName('method')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $method;
 
     /**
@@ -82,7 +75,6 @@ class ApiEndpoint
      * @var string $path
      */
     #[\JMS\Serializer\Annotation\SerializedName('path')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $path;
 
     /**
@@ -91,7 +83,6 @@ class ApiEndpoint
      * @var \DateTime $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $updatedAt;
 
     /**
@@ -100,7 +91,6 @@ class ApiEndpoint
      * @var string $versionId
      */
     #[\JMS\Serializer\Annotation\SerializedName('version_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $versionId;
 
     /**
@@ -109,21 +99,33 @@ class ApiEndpoint
      * @var string $workspaceId
      */
     #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $workspaceId;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiEndpointId
+     * @param  ?string  $apiId
+     * @param  ?\DateTime  $createdAt
+     * @param  ?string  $description
+     * @param  ?string  $displayName
+     * @param  ?string  $method
+     * @param  ?string  $path
+     * @param  ?\DateTime  $updatedAt
+     * @param  ?string  $versionId
+     * @param  ?string  $workspaceId
+     * @param  ?bool  $matched
+     */
+    public function __construct(?string $apiEndpointId = null, ?string $apiId = null, ?\DateTime $createdAt = null, ?string $description = null, ?string $displayName = null, ?string $method = null, ?string $path = null, ?\DateTime $updatedAt = null, ?string $versionId = null, ?string $workspaceId = null, ?bool $matched = null)
     {
-        $this->apiEndpointId = '';
-        $this->apiId = '';
-        $this->createdAt = new \DateTime();
-        $this->description = '';
-        $this->displayName = '';
-        $this->matched = null;
-        $this->method = '';
-        $this->path = '';
-        $this->updatedAt = new \DateTime();
-        $this->versionId = '';
-        $this->workspaceId = '';
+        $this->apiEndpointId = $apiEndpointId;
+        $this->apiId = $apiId;
+        $this->createdAt = $createdAt;
+        $this->description = $description;
+        $this->displayName = $displayName;
+        $this->method = $method;
+        $this->path = $path;
+        $this->updatedAt = $updatedAt;
+        $this->versionId = $versionId;
+        $this->workspaceId = $workspaceId;
+        $this->matched = $matched;
     }
 }

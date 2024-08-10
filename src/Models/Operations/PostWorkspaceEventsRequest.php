@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class PostWorkspaceEventsRequest
 {
     /**
      * $requestBody
      *
-     * @var array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\CliEvent> $requestBody
+     * @var array<Shared\CliEvent> $requestBody
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public array $requestBody;
@@ -27,9 +28,13 @@ class PostWorkspaceEventsRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspaceID')]
     public ?string $workspaceID = null;
 
-    public function __construct()
+    /**
+     * @param  ?array<Shared\CliEvent>  $requestBody
+     * @param  ?string  $workspaceID
+     */
+    public function __construct(?array $requestBody = null, ?string $workspaceID = null)
     {
-        $this->requestBody = [];
-        $this->workspaceID = null;
+        $this->requestBody = $requestBody;
+        $this->workspaceID = $workspaceID;
     }
 }
