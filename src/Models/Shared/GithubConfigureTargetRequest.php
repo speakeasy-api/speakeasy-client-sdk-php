@@ -18,7 +18,6 @@ class GithubConfigureTargetRequest
      * @var string $org
      */
     #[\JMS\Serializer\Annotation\SerializedName('org')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $org;
 
     /**
@@ -27,12 +26,15 @@ class GithubConfigureTargetRequest
      * @var string $repoName
      */
     #[\JMS\Serializer\Annotation\SerializedName('repo_name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $repoName;
 
-    public function __construct()
+    /**
+     * @param  ?string  $org
+     * @param  ?string  $repoName
+     */
+    public function __construct(?string $org = null, ?string $repoName = null)
     {
-        $this->org = '';
-        $this->repoName = '';
+        $this->org = $org;
+        $this->repoName = $repoName;
     }
 }

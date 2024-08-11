@@ -18,15 +18,13 @@ Apply operation ID suggestions and download result.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -34,11 +32,12 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\ApplyOperationIDsRequest();
-    $request->requestBody = new Operations\ApplyOperationIDsRequestBody();
-    $request->requestBody->asOverlay = false;
-    $request->xSessionId = '<value>';;
-
+    $request = new Operations\ApplyOperationIDsRequest(
+        xSessionId: '<value>',
+        requestBody: new Operations\ApplyOperationIDsRequestBody(
+            asOverlay: false,
+        ),
+    );
     $response = $sdk->suggest->applyOperationIDs($request);
 
     if ($response->twoHundredApplicationJsonSchema !== null) {
@@ -51,15 +50,19 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\ApplyOperationIDsRequest](../../Models/Operations/ApplyOperationIDsRequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `$request`                                                                                 | [Operations\ApplyOperationIDsRequest](../../Models/Operations/ApplyOperationIDsRequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\ApplyOperationIDsResponse](../../Models/Operations/ApplyOperationIDsResponse.md)**
+**[?Operations\ApplyOperationIDsResponse](../../Models/Operations/ApplyOperationIDsResponse.md)**
+### Errors
 
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 ## suggestOperationIDs
 
@@ -68,15 +71,13 @@ Get suggestions from an LLM model for improving the operationIDs in the provided
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -84,17 +85,20 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\SuggestOperationIDsRequest();
-    $request->requestBody = new Operations\SuggestOperationIDsRequestBody();
-    $request->requestBody->opts = new Shared\SuggestOperationIDsOpts();
-    $request->requestBody->opts->depthStyle = Shared\DepthStyle::Nested;
-    $request->requestBody->opts->style = Shared\Style::Standardize;
-    $request->requestBody->schema = new Operations\Schema();
-    $request->requestBody->schema->content = '0xde88c98abc';
-    $request->requestBody->schema->fileName = 'your_file_here';
-    $request->limit = 5704.42;
-    $request->xSessionId = '<value>';;
-
+    $request = new Operations\SuggestOperationIDsRequest(
+        requestBody: new Operations\SuggestOperationIDsRequestBody(
+            schema: new Operations\Schema(
+                content: '0xb2de88c98a',
+                fileName: 'your_file_here',
+            ),
+            opts: new Shared\SuggestOperationIDsOpts(
+                depthStyle: Shared\DepthStyle::Nested,
+                style: Shared\Style::Resource,
+            ),
+        ),
+        xSessionId: '<value>',
+        limit: 5704.42,
+    );
     $response = $sdk->suggest->suggestOperationIDs($request);
 
     if ($response->suggestedOperationIDs !== null) {
@@ -107,15 +111,19 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                          | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRequest](../../Models/Operations/SuggestOperationIDsRequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `$request`                                                                                     | [Operations\SuggestOperationIDsRequest](../../Models/Operations/SuggestOperationIDsRequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsResponse](../../Models/Operations/SuggestOperationIDsResponse.md)**
+**[?Operations\SuggestOperationIDsResponse](../../Models/Operations/SuggestOperationIDsResponse.md)**
+### Errors
 
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 ## suggestOperationIDsRegistry
 
@@ -124,15 +132,13 @@ Get suggestions from an LLM model for improving the operationIDs in the provided
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -140,15 +146,16 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\SuggestOperationIDsRegistryRequest();
-    $request->suggestOperationIDsOpts = new Shared\SuggestOperationIDsOpts();
-    $request->suggestOperationIDsOpts->depthStyle = Shared\DepthStyle::Deep;
-    $request->suggestOperationIDsOpts->style = Shared\Style::Standardize;
-    $request->limit = 4536.53;
-    $request->namespaceName = '<value>';
-    $request->revisionReference = '<value>';
-    $request->xSessionId = '<value>';;
-
+    $request = new Operations\SuggestOperationIDsRegistryRequest(
+        namespaceName: '<value>',
+        revisionReference: '<value>',
+        xSessionId: '<value>',
+        suggestOperationIDsOpts: new Shared\SuggestOperationIDsOpts(
+            depthStyle: Shared\DepthStyle::Deep,
+            style: Shared\Style::Standardize,
+        ),
+        limit: 4536.53,
+    );
     $response = $sdk->suggest->suggestOperationIDsRegistry($request);
 
     if ($response->suggestedOperationIDs !== null) {
@@ -161,12 +168,16 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                                           | Type                                                                                                                                                | Required                                                                                                                                            | Description                                                                                                                                         |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                                          | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryRequest](../../Models/Operations/SuggestOperationIDsRegistryRequest.md) | :heavy_check_mark:                                                                                                                                  | The request object to use for the request.                                                                                                          |
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                     | [Operations\SuggestOperationIDsRegistryRequest](../../Models/Operations/SuggestOperationIDsRegistryRequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
 
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryResponse](../../Models/Operations/SuggestOperationIDsRegistryResponse.md)**
+**[?Operations\SuggestOperationIDsRegistryResponse](../../Models/Operations/SuggestOperationIDsRegistryResponse.md)**
+### Errors
 
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |

@@ -12,44 +12,62 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 /** AccessToken - An AccessToken is a token that can be used to authenticate with the Speakeasy API. */
 class AccessToken
 {
+    /**
+     *
+     * @var string $accessToken
+     */
     #[\JMS\Serializer\Annotation\SerializedName('access_token')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $accessToken;
 
+    /**
+     *
+     * @var Claims $claims
+     */
     #[\JMS\Serializer\Annotation\SerializedName('claims')]
-    #[\JMS\Serializer\Annotation\Type('Speakeasy\SpeakeasyClientSDK\Models\Shared\Claims')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Claims')]
     public Claims $claims;
 
     /**
      * $featureFlags
      *
-     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlag> $featureFlags
+     * @var ?array<FeatureFlag> $featureFlags
      */
     #[\JMS\Serializer\Annotation\SerializedName('feature_flags')]
-    #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlag>')]
+    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlag>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $featureFlags = null;
 
+    /**
+     *
+     * @var AccessTokenUser $user
+     */
     #[\JMS\Serializer\Annotation\SerializedName('user')]
-    #[\JMS\Serializer\Annotation\Type('Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessTokenUser')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessTokenUser')]
     public AccessTokenUser $user;
 
     /**
      * $workspaces
      *
-     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Workspaces> $workspaces
+     * @var ?array<Workspaces> $workspaces
      */
     #[\JMS\Serializer\Annotation\SerializedName('workspaces')]
-    #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\Models\Shared\Workspaces>')]
+    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Workspaces>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $workspaces = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $accessToken
+     * @param  ?Claims  $claims
+     * @param  ?AccessTokenUser  $user
+     * @param  ?array<FeatureFlag>  $featureFlags
+     * @param  ?array<Workspaces>  $workspaces
+     */
+    public function __construct(?string $accessToken = null, ?Claims $claims = null, ?AccessTokenUser $user = null, ?array $featureFlags = null, ?array $workspaces = null)
     {
-        $this->accessToken = '';
-        $this->claims = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\Claims();
-        $this->featureFlags = null;
-        $this->user = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessTokenUser();
-        $this->workspaces = null;
+        $this->accessToken = $accessToken;
+        $this->claims = $claims;
+        $this->user = $user;
+        $this->featureFlags = $featureFlags;
+        $this->workspaces = $workspaces;
     }
 }
