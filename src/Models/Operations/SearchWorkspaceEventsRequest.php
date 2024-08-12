@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class SearchWorkspaceEventsRequest
 {
@@ -22,10 +23,10 @@ class SearchWorkspaceEventsRequest
     /**
      * Specified interaction type for events.
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType $interactionType
+     * @var ?Shared\InteractionType $interactionType
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=interaction_type')]
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType $interactionType = null;
+    public ?Shared\InteractionType $interactionType = null;
 
     /**
      * Unique identifier of the lint report digest.
@@ -59,13 +60,21 @@ class SearchWorkspaceEventsRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspaceID')]
     public ?string $workspaceID = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $generateGenLockId
+     * @param  ?Shared\InteractionType  $interactionType
+     * @param  ?string  $lintReportDigest
+     * @param  ?string  $openapiDiffReportDigest
+     * @param  ?string  $sourceRevisionDigest
+     * @param  ?string  $workspaceID
+     */
+    public function __construct(?string $generateGenLockId = null, ?Shared\InteractionType $interactionType = null, ?string $lintReportDigest = null, ?string $openapiDiffReportDigest = null, ?string $sourceRevisionDigest = null, ?string $workspaceID = null)
     {
-        $this->generateGenLockId = null;
-        $this->interactionType = null;
-        $this->lintReportDigest = null;
-        $this->openapiDiffReportDigest = null;
-        $this->sourceRevisionDigest = null;
-        $this->workspaceID = null;
+        $this->generateGenLockId = $generateGenLockId;
+        $this->interactionType = $interactionType;
+        $this->lintReportDigest = $lintReportDigest;
+        $this->openapiDiffReportDigest = $openapiDiffReportDigest;
+        $this->sourceRevisionDigest = $sourceRevisionDigest;
+        $this->workspaceID = $workspaceID;
     }
 }

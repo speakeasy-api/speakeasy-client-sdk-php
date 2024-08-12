@@ -35,10 +35,15 @@ class FindApiEndpointRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=versionID')]
     public string $versionID;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiID
+     * @param  ?string  $displayName
+     * @param  ?string  $versionID
+     */
+    public function __construct(?string $apiID = null, ?string $displayName = null, ?string $versionID = null)
     {
-        $this->apiID = '';
-        $this->displayName = '';
-        $this->versionID = '';
+        $this->apiID = $apiID;
+        $this->displayName = $displayName;
+        $this->versionID = $versionID;
     }
 }

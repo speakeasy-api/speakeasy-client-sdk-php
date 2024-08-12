@@ -11,15 +11,27 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class GetOASSummaryRequest
 {
+    /**
+     *
+     * @var string $namespaceName
+     */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=namespace_name')]
     public string $namespaceName;
 
+    /**
+     *
+     * @var string $revisionReference
+     */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=revision_reference')]
     public string $revisionReference;
 
-    public function __construct()
+    /**
+     * @param  ?string  $namespaceName
+     * @param  ?string  $revisionReference
+     */
+    public function __construct(?string $namespaceName = null, ?string $revisionReference = null)
     {
-        $this->namespaceName = '';
-        $this->revisionReference = '';
+        $this->namespaceName = $namespaceName;
+        $this->revisionReference = $revisionReference;
     }
 }

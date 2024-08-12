@@ -14,7 +14,7 @@ class RegisterSchemaRequest
     /**
      * The schema file to upload provided as a multipart/form-data file segment.
      *
-     * @var \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequestBody $requestBody
+     * @var RegisterSchemaRequestBody $requestBody
      */
     #[SpeakeasyMetadata('request:mediaType=multipart/form-data')]
     public RegisterSchemaRequestBody $requestBody;
@@ -35,10 +35,15 @@ class RegisterSchemaRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=versionID')]
     public string $versionID;
 
-    public function __construct()
+    /**
+     * @param  ?RegisterSchemaRequestBody  $requestBody
+     * @param  ?string  $apiID
+     * @param  ?string  $versionID
+     */
+    public function __construct(?RegisterSchemaRequestBody $requestBody = null, ?string $apiID = null, ?string $versionID = null)
     {
-        $this->requestBody = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaRequestBody();
-        $this->apiID = '';
-        $this->versionID = '';
+        $this->requestBody = $requestBody;
+        $this->apiID = $apiID;
+        $this->versionID = $versionID;
     }
 }

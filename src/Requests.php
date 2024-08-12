@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK;
 
+use JMS\Serializer\DeserializationContext;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
 class Requests
 {
     private SDKConfiguration $sdkConfiguration;
@@ -26,78 +29,109 @@ class Requests
      * Generates a Postman collection for a particular request. 
      * Allowing it to be replayed with the same inputs that were captured by the SDK.
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionRequest  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionResponse
+     * @param  Operations\GenerateRequestPostmanCollectionRequest  $request
+     * @return Operations\GenerateRequestPostmanCollectionResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function generateRequestPostmanCollection(
-        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionResponse {
+        ?Operations\GenerateRequestPostmanCollectionRequest $request,
+    ): Operations\GenerateRequestPostmanCollectionResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/eventlog/{requestID}/generate/postman', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/eventlog/{requestID}/generate/postman', Operations\GenerateRequestPostmanCollectionRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json;q=1, application/octet-stream;q=0';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateRequestPostmanCollectionResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+        if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/octet-stream')) {
-                $response->postmanCollection = $httpResponse->getBody()->getContents();
+                $obj = $httpResponse->getBody()->getContents();
+
+                return new Operations\GenerateRequestPostmanCollectionResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    postmanCollection: $obj);
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Errors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GenerateRequestPostmanCollectionResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    error: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         }
-
-        return $response;
     }
 
     /**
      * Get information about a particular request.
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogRequest  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogResponse
+     * @param  Operations\GetRequestFromEventLogRequest  $request
+     * @return Operations\GetRequestFromEventLogResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function getRequestFromEventLog(
-        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogResponse {
+        ?Operations\GetRequestFromEventLogRequest $request,
+    ): Operations\GetRequestFromEventLogResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/eventlog/{requestID}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/eventlog/{requestID}', Operations\GetRequestFromEventLogRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetRequestFromEventLogResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+        if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->unboundedRequest = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\UnboundedRequest', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Shared\UnboundedRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetRequestFromEventLogResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    unboundedRequest: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Errors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetRequestFromEventLogResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    error: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         }
-
-        return $response;
     }
 
     /**
@@ -106,40 +140,56 @@ class Requests
      * Supports retrieving a list of request captured by the SDK for this workspace.
      * Allows the filtering of requests on a number of criteria such as ApiID, VersionID, Path, Method, etc.
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogRequest  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogResponse
+     * @param  Operations\QueryEventLogRequest  $request
+     * @return Operations\QueryEventLogResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function queryEventLog(
-        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogResponse {
+        ?Operations\QueryEventLogRequest $request,
+    ): Operations\QueryEventLogResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/eventlog/query');
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogRequest::class, $request, $this->sdkConfiguration->globals));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\QueryEventLogRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryEventLogResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+        if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->boundedRequests = $serializer->deserialize((string) $httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\BoundedRequest>', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), 'array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\BoundedRequest>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\QueryEventLogResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    boundedRequests: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Errors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\QueryEventLogResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    error: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         }
-
-        return $response;
     }
 }

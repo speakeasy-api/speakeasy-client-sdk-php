@@ -17,7 +17,6 @@ class ValueChange
      * @var string $from
      */
     #[\JMS\Serializer\Annotation\SerializedName('From')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $from;
 
     /**
@@ -26,12 +25,15 @@ class ValueChange
      * @var string $to
      */
     #[\JMS\Serializer\Annotation\SerializedName('To')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $to;
 
-    public function __construct()
+    /**
+     * @param  ?string  $from
+     * @param  ?string  $to
+     */
+    public function __construct(?string $from = null, ?string $to = null)
     {
-        $this->from = '';
-        $this->to = '';
+        $this->from = $from;
+        $this->to = $to;
     }
 }

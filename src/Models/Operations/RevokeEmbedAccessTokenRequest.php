@@ -19,8 +19,11 @@ class RevokeEmbedAccessTokenRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=tokenID')]
     public string $tokenID;
 
-    public function __construct()
+    /**
+     * @param  ?string  $tokenID
+     */
+    public function __construct(?string $tokenID = null)
     {
-        $this->tokenID = '';
+        $this->tokenID = $tokenID;
     }
 }
