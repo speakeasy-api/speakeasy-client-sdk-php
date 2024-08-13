@@ -18,7 +18,6 @@ class ApiInput
      * @var string $apiId
      */
     #[\JMS\Serializer\Annotation\SerializedName('api_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $apiId;
 
     /**
@@ -27,7 +26,6 @@ class ApiInput
      * @var string $description
      */
     #[\JMS\Serializer\Annotation\SerializedName('description')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $description;
 
     /**
@@ -46,14 +44,19 @@ class ApiInput
      * @var string $versionId
      */
     #[\JMS\Serializer\Annotation\SerializedName('version_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $versionId;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiId
+     * @param  ?string  $description
+     * @param  ?string  $versionId
+     * @param  ?array<string, array<string>>  $metaData
+     */
+    public function __construct(?string $apiId = null, ?string $description = null, ?string $versionId = null, ?array $metaData = null)
     {
-        $this->apiId = '';
-        $this->description = '';
-        $this->metaData = null;
-        $this->versionId = '';
+        $this->apiId = $apiId;
+        $this->description = $description;
+        $this->versionId = $versionId;
+        $this->metaData = $metaData;
     }
 }

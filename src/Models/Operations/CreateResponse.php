@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class CreateResponse
 {
     /**
@@ -21,9 +21,9 @@ class CreateResponse
     /**
      * OK
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\ShortURL $shortURL
+     * @var ?Shared\ShortURL $shortURL
      */
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\ShortURL $shortURL = null;
+    public ?Shared\ShortURL $shortURL = null;
 
     /**
      * HTTP response status code for this operation
@@ -35,15 +35,21 @@ class CreateResponse
     /**
      * Raw HTTP response; suitable for custom response parsing
      *
-     * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
+     * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
-    public ?\Psr\Http\Message\ResponseInterface $rawResponse;
+    public \Psr\Http\Message\ResponseInterface $rawResponse;
 
-    public function __construct()
+    /**
+     * @param  ?string  $contentType
+     * @param  ?int  $statusCode
+     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  ?Shared\ShortURL  $shortURL
+     */
+    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Shared\ShortURL $shortURL = null)
     {
-        $this->contentType = '';
-        $this->shortURL = null;
-        $this->statusCode = 0;
-        $this->rawResponse = null;
+        $this->contentType = $contentType;
+        $this->statusCode = $statusCode;
+        $this->rawResponse = $rawResponse;
+        $this->shortURL = $shortURL;
     }
 }

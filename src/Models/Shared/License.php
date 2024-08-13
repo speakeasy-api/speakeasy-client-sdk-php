@@ -11,13 +11,19 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class License
 {
+    /**
+     *
+     * @var ?string $identifier
+     */
     #[\JMS\Serializer\Annotation\SerializedName('identifier')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $identifier = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $identifier
+     */
+    public function __construct(?string $identifier = null)
     {
-        $this->identifier = null;
+        $this->identifier = $identifier;
     }
 }

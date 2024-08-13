@@ -11,23 +11,38 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class AccessDetails
 {
+    /**
+     *
+     * @var bool $generationAllowed
+     */
     #[\JMS\Serializer\Annotation\SerializedName('generation_allowed')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $generationAllowed;
 
+    /**
+     *
+     * @var ?Level $level
+     */
     #[\JMS\Serializer\Annotation\SerializedName('level')]
-    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\Level>')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Level')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Level $level = null;
 
+    /**
+     *
+     * @var string $message
+     */
     #[\JMS\Serializer\Annotation\SerializedName('message')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $message;
 
-    public function __construct()
+    /**
+     * @param  ?bool  $generationAllowed
+     * @param  ?string  $message
+     * @param  ?Level  $level
+     */
+    public function __construct(?bool $generationAllowed = null, ?string $message = null, ?Level $level = null)
     {
-        $this->generationAllowed = false;
-        $this->level = null;
-        $this->message = '';
+        $this->generationAllowed = $generationAllowed;
+        $this->message = $message;
+        $this->level = $level;
     }
 }

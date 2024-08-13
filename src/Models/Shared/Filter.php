@@ -18,7 +18,6 @@ class Filter
      * @var string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $key;
 
     /**
@@ -27,7 +26,6 @@ class Filter
      * @var string $operator
      */
     #[\JMS\Serializer\Annotation\SerializedName('operator')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $operator;
 
     /**
@@ -36,13 +34,17 @@ class Filter
      * @var string $value
      */
     #[\JMS\Serializer\Annotation\SerializedName('value')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $value;
 
-    public function __construct()
+    /**
+     * @param  ?string  $key
+     * @param  ?string  $operator
+     * @param  ?string  $value
+     */
+    public function __construct(?string $key = null, ?string $operator = null, ?string $value = null)
     {
-        $this->key = '';
-        $this->operator = '';
-        $this->value = '';
+        $this->key = $key;
+        $this->operator = $operator;
+        $this->value = $value;
     }
 }

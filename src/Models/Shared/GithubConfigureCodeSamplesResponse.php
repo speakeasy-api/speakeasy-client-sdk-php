@@ -18,7 +18,6 @@ class GithubConfigureCodeSamplesResponse
      * @var string $codeSampleOverlayRegistryURL
      */
     #[\JMS\Serializer\Annotation\SerializedName('codeSampleOverlayRegistryURL')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $codeSampleOverlayRegistryURL;
 
     /**
@@ -27,23 +26,27 @@ class GithubConfigureCodeSamplesResponse
      * @var ?string $ghActionID
      */
     #[\JMS\Serializer\Annotation\SerializedName('ghActionID')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $ghActionID = null;
 
     /**
      * A document referenced by a workflow
      *
-     * @var \Speakeasy\SpeakeasyClientSDK\Models\Shared\WorkflowDocument $source
+     * @var WorkflowDocument $source
      */
     #[\JMS\Serializer\Annotation\SerializedName('source')]
-    #[\JMS\Serializer\Annotation\Type('Speakeasy\SpeakeasyClientSDK\Models\Shared\WorkflowDocument')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\WorkflowDocument')]
     public WorkflowDocument $source;
 
-    public function __construct()
+    /**
+     * @param  ?string  $codeSampleOverlayRegistryURL
+     * @param  ?WorkflowDocument  $source
+     * @param  ?string  $ghActionID
+     */
+    public function __construct(?string $codeSampleOverlayRegistryURL = null, ?WorkflowDocument $source = null, ?string $ghActionID = null)
     {
-        $this->codeSampleOverlayRegistryURL = '';
-        $this->ghActionID = null;
-        $this->source = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\WorkflowDocument();
+        $this->codeSampleOverlayRegistryURL = $codeSampleOverlayRegistryURL;
+        $this->source = $source;
+        $this->ghActionID = $ghActionID;
     }
 }

@@ -18,7 +18,6 @@ class GithubGetActionResponse
      * @var ?string $runStatus
      */
     #[\JMS\Serializer\Annotation\SerializedName('run_status')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $runStatus = null;
 
@@ -28,13 +27,16 @@ class GithubGetActionResponse
      * @var ?string $runUrl
      */
     #[\JMS\Serializer\Annotation\SerializedName('run_url')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $runUrl = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $runStatus
+     * @param  ?string  $runUrl
+     */
+    public function __construct(?string $runStatus = null, ?string $runUrl = null)
     {
-        $this->runStatus = null;
-        $this->runUrl = null;
+        $this->runStatus = $runStatus;
+        $this->runUrl = $runUrl;
     }
 }

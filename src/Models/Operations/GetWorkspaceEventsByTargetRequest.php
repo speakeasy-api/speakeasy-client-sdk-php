@@ -35,10 +35,15 @@ class GetWorkspaceEventsByTargetRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspaceID')]
     public ?string $workspaceID = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $targetID
+     * @param  ?\DateTime  $afterCreatedAt
+     * @param  ?string  $workspaceID
+     */
+    public function __construct(?string $targetID = null, ?\DateTime $afterCreatedAt = null, ?string $workspaceID = null)
     {
-        $this->afterCreatedAt = null;
-        $this->targetID = '';
-        $this->workspaceID = null;
+        $this->targetID = $targetID;
+        $this->afterCreatedAt = $afterCreatedAt;
+        $this->workspaceID = $workspaceID;
     }
 }
