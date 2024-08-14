@@ -11,11 +11,18 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class GithubCheckPublishingSecretsRequest
 {
+    /**
+     *
+     * @var string $generateGenLockId
+     */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=generate_gen_lock_id')]
     public string $generateGenLockId;
 
-    public function __construct()
+    /**
+     * @param  ?string  $generateGenLockId
+     */
+    public function __construct(?string $generateGenLockId = null)
     {
-        $this->generateGenLockId = '';
+        $this->generateGenLockId = $generateGenLockId;
     }
 }

@@ -3,10 +3,10 @@ id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
   docChecksum: 7e5374ccd8317cf07089c151d486221b
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.352.2
-  generationVersion: 2.385.2
-  releaseVersion: 0.38.17
-  configChecksum: 9050f0fb475e53d06a5870102e1dd4dd
+  speakeasyVersion: 1.366.0
+  generationVersion: 2.396.0
+  releaseVersion: 0.39.0
+  configChecksum: 1d3afab5a3bb767530c5886072551417
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -20,6 +20,7 @@ features:
     globalServerURLs: 2.82.1
     globals: 2.82.1
     inputOutputModels: 2.83.0
+    responseFormat: 0.1.0
     serverIDs: 2.81.1
 generatedFiles:
   - src/SDKConfiguration.php
@@ -42,8 +43,13 @@ generatedFiles:
   - src/SDKBuilder.php
   - composer.json
   - phpstan.neon
+  - phpunit.xml
   - pint.json
   - rector.php
+  - src/Utils/DateHandler.php
+  - src/Utils/DateTimeHandler.php
+  - src/Utils/DefaultResponse.php
+  - src/Utils/DefaultStream.php
   - src/Utils/EnumHandler.php
   - src/Utils/FormMetadata.php
   - src/Utils/Headers.php
@@ -52,6 +58,7 @@ generatedFiles:
   - src/Utils/MultipartMetadata.php
   - src/Utils/ParamsMetadata.php
   - src/Utils/PathParameters.php
+  - src/Utils/PhpDocTypeParser.php
   - src/Utils/QueryParameters.php
   - src/Utils/RequestBodies.php
   - src/Utils/RequestMetadata.php
@@ -59,7 +66,9 @@ generatedFiles:
   - src/Utils/SecurityClient.php
   - src/Utils/SecurityMetadata.php
   - src/Utils/SpeakeasyMetadata.php
+  - src/Utils/UnionHandler.php
   - src/Utils/Utils.php
+  - src/Models/Errors/SDKException.php
   - src/Models/Operations/DeleteApiRequest.php
   - src/Models/Operations/DeleteApiResponse.php
   - src/Models/Operations/GenerateOpenApiSpecRequest.php
@@ -194,7 +203,7 @@ generatedFiles:
   - src/Models/Operations/PostWorkspaceEventsResponse.php
   - src/Models/Operations/SearchWorkspaceEventsRequest.php
   - src/Models/Operations/SearchWorkspaceEventsResponse.php
-  - src/Models/Shared/Error.php
+  - src/Models/Errors/Error.php
   - src/Models/Shared/GenerateOpenApiSpecDiff.php
   - src/Models/Shared/Api.php
   - src/Models/Shared/ApiInput.php
@@ -400,7 +409,7 @@ generatedFiles:
   - docs/Models/Operations/PostWorkspaceEventsResponse.md
   - docs/Models/Operations/SearchWorkspaceEventsRequest.md
   - docs/Models/Operations/SearchWorkspaceEventsResponse.md
-  - docs/Models/Shared/Error.md
+  - docs/Models/Errors/Error.md
   - docs/Models/Shared/GenerateOpenApiSpecDiff.md
   - docs/Models/Shared/Api.md
   - docs/Models/Shared/ApiInput.md

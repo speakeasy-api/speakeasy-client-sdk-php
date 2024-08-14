@@ -11,6 +11,7 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class Claims
 {
+
     public function __construct()
     {
     }

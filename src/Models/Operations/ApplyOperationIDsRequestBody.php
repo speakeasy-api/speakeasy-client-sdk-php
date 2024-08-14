@@ -18,12 +18,14 @@ class ApplyOperationIDsRequestBody
      * @var ?bool $asOverlay
      */
     #[\JMS\Serializer\Annotation\SerializedName('as_overlay')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $asOverlay = null;
 
-    public function __construct()
+    /**
+     * @param  ?bool  $asOverlay
+     */
+    public function __construct(?bool $asOverlay = null)
     {
-        $this->asOverlay = null;
+        $this->asOverlay = $asOverlay;
     }
 }

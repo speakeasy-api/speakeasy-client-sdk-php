@@ -17,7 +17,6 @@ class Tag
      * @var string $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
 
     /**
@@ -26,22 +25,33 @@ class Tag
      * @var string $name
      */
     #[\JMS\Serializer\Annotation\SerializedName('name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $name;
 
+    /**
+     *
+     * @var string $namespaceName
+     */
     #[\JMS\Serializer\Annotation\SerializedName('namespace_name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $namespaceName;
 
+    /**
+     *
+     * @var string $revisionDigest
+     */
     #[\JMS\Serializer\Annotation\SerializedName('revision_digest')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $revisionDigest;
 
-    public function __construct()
+    /**
+     * @param  ?string  $id
+     * @param  ?string  $name
+     * @param  ?string  $namespaceName
+     * @param  ?string  $revisionDigest
+     */
+    public function __construct(?string $id = null, ?string $name = null, ?string $namespaceName = null, ?string $revisionDigest = null)
     {
-        $this->id = '';
-        $this->name = '';
-        $this->namespaceName = '';
-        $this->revisionDigest = '';
+        $this->id = $id;
+        $this->name = $name;
+        $this->namespaceName = $namespaceName;
+        $this->revisionDigest = $revisionDigest;
     }
 }

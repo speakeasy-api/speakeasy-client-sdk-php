@@ -18,7 +18,6 @@ class GithubConfigureMintlifyRepoRequest
      * @var string $input
      */
     #[\JMS\Serializer\Annotation\SerializedName('input')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $input;
 
     /**
@@ -27,7 +26,6 @@ class GithubConfigureMintlifyRepoRequest
      * @var string $org
      */
     #[\JMS\Serializer\Annotation\SerializedName('org')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $org;
 
     /**
@@ -45,7 +43,6 @@ class GithubConfigureMintlifyRepoRequest
      * @var string $repo
      */
     #[\JMS\Serializer\Annotation\SerializedName('repo')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $repo;
 
     /**
@@ -54,16 +51,22 @@ class GithubConfigureMintlifyRepoRequest
      * @var ?string $subdirectory
      */
     #[\JMS\Serializer\Annotation\SerializedName('subdirectory')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $subdirectory = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $input
+     * @param  ?string  $org
+     * @param  ?array<string>  $overlays
+     * @param  ?string  $repo
+     * @param  ?string  $subdirectory
+     */
+    public function __construct(?string $input = null, ?string $org = null, ?array $overlays = null, ?string $repo = null, ?string $subdirectory = null)
     {
-        $this->input = '';
-        $this->org = '';
-        $this->overlays = [];
-        $this->repo = '';
-        $this->subdirectory = null;
+        $this->input = $input;
+        $this->org = $org;
+        $this->overlays = $overlays;
+        $this->repo = $repo;
+        $this->subdirectory = $subdirectory;
     }
 }

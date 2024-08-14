@@ -15,10 +15,10 @@ class Manifest
     /**
      * Annotations
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations $annotations
+     * @var ?Annotations $annotations
      */
     #[\JMS\Serializer\Annotation\SerializedName('annotations')]
-    #[\JMS\Serializer\Annotation\Type('Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Annotations $annotations = null;
 
@@ -28,17 +28,16 @@ class Manifest
      * @var ?string $artifactType
      */
     #[\JMS\Serializer\Annotation\SerializedName('artifactType')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $artifactType = null;
 
     /**
      * List of V2 image layer information
      *
-     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\V2Descriptor> $layers
+     * @var ?array<V2Descriptor> $layers
      */
     #[\JMS\Serializer\Annotation\SerializedName('layers')]
-    #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\Models\Shared\V2Descriptor>')]
+    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\V2Descriptor>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $layers = null;
 
@@ -48,7 +47,6 @@ class Manifest
      * @var ?string $mediaType
      */
     #[\JMS\Serializer\Annotation\SerializedName('mediaType')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $mediaType = null;
 
@@ -58,16 +56,22 @@ class Manifest
      * @var ?int $schemaVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('schemaVersion')]
-    #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $schemaVersion = null;
 
-    public function __construct()
+    /**
+     * @param  ?Annotations  $annotations
+     * @param  ?string  $artifactType
+     * @param  ?array<V2Descriptor>  $layers
+     * @param  ?string  $mediaType
+     * @param  ?int  $schemaVersion
+     */
+    public function __construct(?Annotations $annotations = null, ?string $artifactType = null, ?array $layers = null, ?string $mediaType = null, ?int $schemaVersion = null)
     {
-        $this->annotations = null;
-        $this->artifactType = null;
-        $this->layers = null;
-        $this->mediaType = null;
-        $this->schemaVersion = null;
+        $this->annotations = $annotations;
+        $this->artifactType = $artifactType;
+        $this->layers = $layers;
+        $this->mediaType = $mediaType;
+        $this->schemaVersion = $schemaVersion;
     }
 }

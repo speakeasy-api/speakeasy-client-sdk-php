@@ -18,7 +18,6 @@ class GithubConfigureCodeSamplesRequest
      * @var string $org
      */
     #[\JMS\Serializer\Annotation\SerializedName('org')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $org;
 
     /**
@@ -27,7 +26,6 @@ class GithubConfigureCodeSamplesRequest
      * @var string $repo
      */
     #[\JMS\Serializer\Annotation\SerializedName('repo')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $repo;
 
     /**
@@ -36,13 +34,17 @@ class GithubConfigureCodeSamplesRequest
      * @var string $targetName
      */
     #[\JMS\Serializer\Annotation\SerializedName('targetName')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $targetName;
 
-    public function __construct()
+    /**
+     * @param  ?string  $org
+     * @param  ?string  $repo
+     * @param  ?string  $targetName
+     */
+    public function __construct(?string $org = null, ?string $repo = null, ?string $targetName = null)
     {
-        $this->org = '';
-        $this->repo = '';
-        $this->targetName = '';
+        $this->org = $org;
+        $this->repo = $repo;
+        $this->targetName = $targetName;
     }
 }

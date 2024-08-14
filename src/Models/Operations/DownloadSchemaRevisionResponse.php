@@ -35,9 +35,9 @@ class DownloadSchemaRevisionResponse
     /**
      * Default error response
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
+     * @var ?Errors\Error $error
      */
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
+    public ?Errors\Error $error = null;
 
     /**
      * HTTP response status code for this operation
@@ -49,17 +49,25 @@ class DownloadSchemaRevisionResponse
     /**
      * Raw HTTP response; suitable for custom response parsing
      *
-     * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
+     * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
-    public ?\Psr\Http\Message\ResponseInterface $rawResponse;
+    public \Psr\Http\Message\ResponseInterface $rawResponse;
 
-    public function __construct()
+    /**
+     * @param  ?string  $contentType
+     * @param  ?int  $statusCode
+     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  ?string  $twoHundredApplicationJsonSchema
+     * @param  ?string  $twoHundredApplicationXYamlSchema
+     * @param  ?Errors\Error  $error
+     */
+    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?string $twoHundredApplicationJsonSchema = null, ?string $twoHundredApplicationXYamlSchema = null, ?Errors\Error $error = null)
     {
-        $this->twoHundredApplicationJsonSchema = null;
-        $this->twoHundredApplicationXYamlSchema = null;
-        $this->contentType = '';
-        $this->error = null;
-        $this->statusCode = 0;
-        $this->rawResponse = null;
+        $this->contentType = $contentType;
+        $this->statusCode = $statusCode;
+        $this->rawResponse = $rawResponse;
+        $this->twoHundredApplicationJsonSchema = $twoHundredApplicationJsonSchema;
+        $this->twoHundredApplicationXYamlSchema = $twoHundredApplicationXYamlSchema;
+        $this->error = $error;
     }
 }
