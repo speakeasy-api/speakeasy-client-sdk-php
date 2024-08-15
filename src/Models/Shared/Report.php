@@ -11,13 +11,20 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class Report
 {
+    /**
+     *
+     * @var ?Type $type
+     */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\Type>')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Type')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Type $type = null;
 
-    public function __construct()
+    /**
+     * @param  ?Type  $type
+     */
+    public function __construct(?Type $type = null)
     {
-        $this->type = null;
+        $this->type = $type;
     }
 }

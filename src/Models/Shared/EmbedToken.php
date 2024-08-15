@@ -18,7 +18,6 @@ class EmbedToken
      * @var \DateTime $createdAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
 
     /**
@@ -27,7 +26,6 @@ class EmbedToken
      * @var string $createdBy
      */
     #[\JMS\Serializer\Annotation\SerializedName('created_by')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $createdBy;
 
     /**
@@ -36,7 +34,6 @@ class EmbedToken
      * @var string $description
      */
     #[\JMS\Serializer\Annotation\SerializedName('description')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $description;
 
     /**
@@ -45,7 +42,6 @@ class EmbedToken
      * @var \DateTime $expiresAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('expires_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $expiresAt;
 
     /**
@@ -54,7 +50,6 @@ class EmbedToken
      * @var string $filters
      */
     #[\JMS\Serializer\Annotation\SerializedName('filters')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $filters;
 
     /**
@@ -63,7 +58,6 @@ class EmbedToken
      * @var string $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
 
     /**
@@ -72,7 +66,6 @@ class EmbedToken
      * @var ?\DateTime $lastUsed
      */
     #[\JMS\Serializer\Annotation\SerializedName('last_used')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $lastUsed = null;
 
@@ -82,7 +75,6 @@ class EmbedToken
      * @var ?\DateTime $revokedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('revoked_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $revokedAt = null;
 
@@ -92,7 +84,6 @@ class EmbedToken
      * @var ?string $revokedBy
      */
     #[\JMS\Serializer\Annotation\SerializedName('revoked_by')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $revokedBy = null;
 
@@ -102,20 +93,31 @@ class EmbedToken
      * @var string $workspaceId
      */
     #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $workspaceId;
 
-    public function __construct()
+    /**
+     * @param  ?\DateTime  $createdAt
+     * @param  ?string  $createdBy
+     * @param  ?string  $description
+     * @param  ?\DateTime  $expiresAt
+     * @param  ?string  $filters
+     * @param  ?string  $id
+     * @param  ?string  $workspaceId
+     * @param  ?\DateTime  $lastUsed
+     * @param  ?\DateTime  $revokedAt
+     * @param  ?string  $revokedBy
+     */
+    public function __construct(?\DateTime $createdAt = null, ?string $createdBy = null, ?string $description = null, ?\DateTime $expiresAt = null, ?string $filters = null, ?string $id = null, ?string $workspaceId = null, ?\DateTime $lastUsed = null, ?\DateTime $revokedAt = null, ?string $revokedBy = null)
     {
-        $this->createdAt = new \DateTime();
-        $this->createdBy = '';
-        $this->description = '';
-        $this->expiresAt = new \DateTime();
-        $this->filters = '';
-        $this->id = '';
-        $this->lastUsed = null;
-        $this->revokedAt = null;
-        $this->revokedBy = null;
-        $this->workspaceId = '';
+        $this->createdAt = $createdAt;
+        $this->createdBy = $createdBy;
+        $this->description = $description;
+        $this->expiresAt = $expiresAt;
+        $this->filters = $filters;
+        $this->id = $id;
+        $this->workspaceId = $workspaceId;
+        $this->lastUsed = $lastUsed;
+        $this->revokedAt = $revokedAt;
+        $this->revokedBy = $revokedBy;
     }
 }

@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class SearchWorkspaceEventsResponse
 {
     /**
      * Success
      *
-     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\CliEvent> $cliEventBatch
+     * @var ?array<Shared\CliEvent> $cliEventBatch
      */
     public ?array $cliEventBatch = null;
 
@@ -26,13 +26,6 @@ class SearchWorkspaceEventsResponse
     public string $contentType;
 
     /**
-     * Error
-     *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
-     */
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
-
-    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -42,16 +35,21 @@ class SearchWorkspaceEventsResponse
     /**
      * Raw HTTP response; suitable for custom response parsing
      *
-     * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
+     * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
-    public ?\Psr\Http\Message\ResponseInterface $rawResponse;
+    public \Psr\Http\Message\ResponseInterface $rawResponse;
 
-    public function __construct()
+    /**
+     * @param  ?string  $contentType
+     * @param  ?int  $statusCode
+     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  ?array<Shared\CliEvent>  $cliEventBatch
+     */
+    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?array $cliEventBatch = null)
     {
-        $this->cliEventBatch = null;
-        $this->contentType = '';
-        $this->error = null;
-        $this->statusCode = 0;
-        $this->rawResponse = null;
+        $this->contentType = $contentType;
+        $this->statusCode = $statusCode;
+        $this->rawResponse = $rawResponse;
+        $this->cliEventBatch = $cliEventBatch;
     }
 }

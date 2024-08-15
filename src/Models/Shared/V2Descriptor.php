@@ -15,10 +15,10 @@ class V2Descriptor
     /**
      * Annotations
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations $annotations
+     * @var ?Annotations $annotations
      */
     #[\JMS\Serializer\Annotation\SerializedName('annotations')]
-    #[\JMS\Serializer\Annotation\Type('Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Annotations $annotations = null;
 
@@ -28,7 +28,6 @@ class V2Descriptor
      * @var ?string $digest
      */
     #[\JMS\Serializer\Annotation\SerializedName('digest')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $digest = null;
 
@@ -38,7 +37,6 @@ class V2Descriptor
      * @var ?string $mediaType
      */
     #[\JMS\Serializer\Annotation\SerializedName('mediaType')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $mediaType = null;
 
@@ -48,15 +46,20 @@ class V2Descriptor
      * @var ?int $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $size = null;
 
-    public function __construct()
+    /**
+     * @param  ?Annotations  $annotations
+     * @param  ?string  $digest
+     * @param  ?string  $mediaType
+     * @param  ?int  $size
+     */
+    public function __construct(?Annotations $annotations = null, ?string $digest = null, ?string $mediaType = null, ?int $size = null)
     {
-        $this->annotations = null;
-        $this->digest = null;
-        $this->mediaType = null;
-        $this->size = null;
+        $this->annotations = $annotations;
+        $this->digest = $digest;
+        $this->mediaType = $mediaType;
+        $this->size = $size;
     }
 }

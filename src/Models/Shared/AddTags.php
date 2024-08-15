@@ -18,7 +18,6 @@ class AddTags
      * @var string $revisionDigest
      */
     #[\JMS\Serializer\Annotation\SerializedName('revision_digest')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $revisionDigest;
 
     /**
@@ -30,9 +29,13 @@ class AddTags
     #[\JMS\Serializer\Annotation\Type('array<string>')]
     public array $tags;
 
-    public function __construct()
+    /**
+     * @param  ?string  $revisionDigest
+     * @param  ?array<string>  $tags
+     */
+    public function __construct(?string $revisionDigest = null, ?array $tags = null)
     {
-        $this->revisionDigest = '';
-        $this->tags = [];
+        $this->revisionDigest = $revisionDigest;
+        $this->tags = $tags;
     }
 }

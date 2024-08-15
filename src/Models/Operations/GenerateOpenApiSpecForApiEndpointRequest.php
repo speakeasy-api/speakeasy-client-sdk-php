@@ -35,10 +35,15 @@ class GenerateOpenApiSpecForApiEndpointRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=versionID')]
     public string $versionID;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiEndpointID
+     * @param  ?string  $apiID
+     * @param  ?string  $versionID
+     */
+    public function __construct(?string $apiEndpointID = null, ?string $apiID = null, ?string $versionID = null)
     {
-        $this->apiEndpointID = '';
-        $this->apiID = '';
-        $this->versionID = '';
+        $this->apiEndpointID = $apiEndpointID;
+        $this->apiID = $apiID;
+        $this->versionID = $versionID;
     }
 }
