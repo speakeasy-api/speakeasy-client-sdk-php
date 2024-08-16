@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK;
 
+use JMS\Serializer\DeserializationContext;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
 class Events
 {
     private SDKConfiguration $sdkConfiguration;
@@ -23,81 +26,105 @@ class Events
     /**
      * Load recent events for a particular workspace
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsByTargetRequest  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsByTargetResponse
+     * @param  Operations\GetWorkspaceEventsByTargetRequest  $request
+     * @return Operations\GetWorkspaceEventsByTargetResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function getWorkspaceEventsByTarget(
-        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsByTargetRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsByTargetResponse {
+        ?Operations\GetWorkspaceEventsByTargetRequest $request,
+    ): Operations\GetWorkspaceEventsByTargetResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspaceID}/events/targets/{targetID}/events', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsByTargetRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspaceID}/events/targets/{targetID}/events', Operations\GetWorkspaceEventsByTargetRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsByTargetRequest::class, $request, $this->sdkConfiguration->globals));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\GetWorkspaceEventsByTargetRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode == 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), 'array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\CliEvent>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetWorkspaceEventsByTargetResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    cliEventBatch: $obj);
 
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceEventsByTargetResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode >= 500 && $statusCode < 600) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->cliEventBatch = $serializer->deserialize((string) $httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\CliEvent>', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Errors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif (($httpResponse->getStatusCode() >= 500 && $httpResponse->getStatusCode() < 600)) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
-            }
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
-
-        return $response;
     }
 
     /**
      * Load targets for a particular workspace
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceTargetsRequest  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceTargetsResponse
+     * @param  Operations\GetWorkspaceTargetsRequest  $request
+     * @return Operations\GetWorkspaceTargetsResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function getWorkspaceTargets(
-        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceTargetsRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceTargetsResponse {
+        ?Operations\GetWorkspaceTargetsRequest $request,
+    ): Operations\GetWorkspaceTargetsResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspaceID}/events/targets', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceTargetsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspaceID}/events/targets', Operations\GetWorkspaceTargetsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceTargetsRequest::class, $request, $this->sdkConfiguration->globals));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\GetWorkspaceTargetsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode == 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), 'array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\TargetSDK>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetWorkspaceTargetsResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    targetSDKList: $obj);
 
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetWorkspaceTargetsResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode >= 500 && $statusCode < 600) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->targetSDKList = $serializer->deserialize((string) $httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\TargetSDK>', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Errors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif (($httpResponse->getStatusCode() >= 500 && $httpResponse->getStatusCode() < 600)) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
-            }
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
-
-        return $response;
     }
 
     /**
@@ -105,14 +132,15 @@ class Events
      *
      * Sends an array of events to be stored for a particular workspace.
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostWorkspaceEventsRequest  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostWorkspaceEventsResponse
+     * @param  Operations\PostWorkspaceEventsRequest  $request
+     * @return Operations\PostWorkspaceEventsResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function postWorkspaceEvents(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostWorkspaceEventsRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostWorkspaceEventsResponse {
+        Operations\PostWorkspaceEventsRequest $request,
+    ): Operations\PostWorkspaceEventsResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspaceID}/events', \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostWorkspaceEventsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspaceID}/events', Operations\PostWorkspaceEventsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'requestBody', 'json');
         if ($body === null) {
@@ -121,64 +149,83 @@ class Events
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\PostWorkspaceEventsResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if (($httpResponse->getStatusCode() >= 200 && $httpResponse->getStatusCode() < 300)) {
-        } elseif (($httpResponse->getStatusCode() >= 500 && $httpResponse->getStatusCode() < 600)) {
+        if ($statusCode >= 200 && $statusCode < 300) {
+            return new Operations\PostWorkspaceEventsResponse(
+                statusCode: $statusCode,
+                contentType: $contentType,
+                rawResponse: $httpResponse
+            );
+        } elseif ($statusCode >= 400 && $statusCode < 500) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode >= 500 && $statusCode < 600) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Errors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
-
-        return $response;
     }
 
     /**
      * Search events for a particular workspace by any field
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\SearchWorkspaceEventsRequest  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\SearchWorkspaceEventsResponse
+     * @param  Operations\SearchWorkspaceEventsRequest  $request
+     * @return Operations\SearchWorkspaceEventsResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function searchWorkspaceEvents(
-        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\SearchWorkspaceEventsRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\SearchWorkspaceEventsResponse {
+        ?Operations\SearchWorkspaceEventsRequest $request,
+    ): Operations\SearchWorkspaceEventsResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspaceID}/events', \Speakeasy\SpeakeasyClientSDK\Models\Operations\SearchWorkspaceEventsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspaceID}/events', Operations\SearchWorkspaceEventsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\SearchWorkspaceEventsRequest::class, $request, $this->sdkConfiguration->globals));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\SearchWorkspaceEventsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode == 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), 'array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\CliEvent>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\SearchWorkspaceEventsResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    cliEventBatch: $obj);
 
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\SearchWorkspaceEventsResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode >= 500 && $statusCode < 600) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->cliEventBatch = $serializer->deserialize((string) $httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\CliEvent>', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Errors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif (($httpResponse->getStatusCode() >= 500 && $httpResponse->getStatusCode() < 600)) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
-            }
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
-
-        return $response;
     }
 }

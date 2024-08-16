@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK;
 
+use JMS\Serializer\DeserializationContext;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
 class Metadata
 {
     private SDKConfiguration $sdkConfiguration;
@@ -23,88 +26,117 @@ class Metadata
     /**
      * Delete metadata for a particular apiID and versionID.
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataRequest  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataResponse
+     * @param  Operations\DeleteVersionMetadataRequest  $request
+     * @return Operations\DeleteVersionMetadataResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function deleteVersionMetadata(
-        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataResponse {
+        ?Operations\DeleteVersionMetadataRequest $request,
+    ): Operations\DeleteVersionMetadataResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}', Operations\DeleteVersionMetadataRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('DELETE', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteVersionMetadataResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+        if ($statusCode == 200) {
+            return new Operations\DeleteVersionMetadataResponse(
+                statusCode: $statusCode,
+                contentType: $contentType,
+                rawResponse: $httpResponse
+            );
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Errors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\DeleteVersionMetadataResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    error: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         }
-
-        return $response;
     }
 
     /**
      * Get all metadata for a particular apiID and versionID.
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataRequest  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataResponse
+     * @param  Operations\GetVersionMetadataRequest  $request
+     * @return Operations\GetVersionMetadataResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function getVersionMetadata(
-        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataResponse {
+        ?Operations\GetVersionMetadataRequest $request,
+    ): Operations\GetVersionMetadataResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', Operations\GetVersionMetadataRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetVersionMetadataResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+        if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->versionMetadata = $serializer->deserialize((string) $httpResponse->getBody(), 'array<Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadata>', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), 'array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadata>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetVersionMetadataResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    versionMetadata: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Errors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetVersionMetadataResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    error: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         }
-
-        return $response;
     }
 
     /**
      * Insert metadata for a particular apiID and versionID.
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataRequest  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataResponse
+     * @param  Operations\InsertVersionMetadataRequest  $request
+     * @return Operations\InsertVersionMetadataResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function insertVersionMetadata(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataResponse {
+        Operations\InsertVersionMetadataRequest $request,
+    ): Operations\InsertVersionMetadataResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', Operations\InsertVersionMetadataRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'versionMetadata', 'json');
         if ($body === null) {
@@ -113,28 +145,43 @@ class Metadata
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\InsertVersionMetadataResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+        if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->versionMetadata = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadata', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Shared\VersionMetadata', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\InsertVersionMetadataResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    versionMetadata: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Errors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\InsertVersionMetadataResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    error: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         }
-
-        return $response;
     }
 }

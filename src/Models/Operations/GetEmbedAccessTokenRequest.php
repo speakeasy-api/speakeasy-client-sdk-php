@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class GetEmbedAccessTokenRequest
 {
@@ -30,15 +31,20 @@ class GetEmbedAccessTokenRequest
     /**
      * The filter to apply to the query.
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Filters $filters
+     * @var ?Shared\Filters $filters
      */
     #[SpeakeasyMetadata('queryParam:serialization=json,name=filters')]
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Filters $filters = null;
+    public ?Shared\Filters $filters = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $description
+     * @param  ?int  $duration
+     * @param  ?Shared\Filters  $filters
+     */
+    public function __construct(?string $description = null, ?int $duration = null, ?Shared\Filters $filters = null)
     {
-        $this->description = null;
-        $this->duration = null;
-        $this->filters = null;
+        $this->description = $description;
+        $this->duration = $duration;
+        $this->filters = $filters;
     }
 }

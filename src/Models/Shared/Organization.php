@@ -12,51 +12,86 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 /** Organization - A speakeasy organization */
 class Organization
 {
+    /**
+     *
+     * @var AccountType $accountType
+     */
     #[\JMS\Serializer\Annotation\SerializedName('account_type')]
-    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType>')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType')]
     public AccountType $accountType;
 
+    /**
+     *
+     * @var ?\DateTime $createdAt
+     */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $createdAt = null;
 
+    /**
+     *
+     * @var ?\DateTime $freeTrialExpiry
+     */
     #[\JMS\Serializer\Annotation\SerializedName('free_trial_expiry')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $freeTrialExpiry = null;
 
+    /**
+     *
+     * @var string $id
+     */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
 
+    /**
+     *
+     * @var string $name
+     */
     #[\JMS\Serializer\Annotation\SerializedName('name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $name;
 
+    /**
+     *
+     * @var ?string $slug
+     */
     #[\JMS\Serializer\Annotation\SerializedName('slug')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $slug = null;
 
+    /**
+     *
+     * @var bool $telemetryDisabled
+     */
     #[\JMS\Serializer\Annotation\SerializedName('telemetry_disabled')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $telemetryDisabled;
 
+    /**
+     *
+     * @var ?\DateTime $updatedAt
+     */
     #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $updatedAt = null;
 
-    public function __construct()
+    /**
+     * @param  ?AccountType  $accountType
+     * @param  ?string  $id
+     * @param  ?string  $name
+     * @param  ?bool  $telemetryDisabled
+     * @param  ?\DateTime  $createdAt
+     * @param  ?\DateTime  $freeTrialExpiry
+     * @param  ?string  $slug
+     * @param  ?\DateTime  $updatedAt
+     */
+    public function __construct(?AccountType $accountType = null, ?string $id = null, ?string $name = null, ?bool $telemetryDisabled = null, ?\DateTime $createdAt = null, ?\DateTime $freeTrialExpiry = null, ?string $slug = null, ?\DateTime $updatedAt = null)
     {
-        $this->accountType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType::Free;
-        $this->createdAt = null;
-        $this->freeTrialExpiry = null;
-        $this->id = '';
-        $this->name = '';
-        $this->slug = null;
-        $this->telemetryDisabled = false;
-        $this->updatedAt = null;
+        $this->accountType = $accountType;
+        $this->id = $id;
+        $this->name = $name;
+        $this->telemetryDisabled = $telemetryDisabled;
+        $this->createdAt = $createdAt;
+        $this->freeTrialExpiry = $freeTrialExpiry;
+        $this->slug = $slug;
+        $this->updatedAt = $updatedAt;
     }
 }

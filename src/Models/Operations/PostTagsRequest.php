@@ -8,23 +8,32 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class PostTagsRequest
 {
     /**
      * A JSON representation of the tags to add
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\AddTags $addTags
+     * @var ?Shared\AddTags $addTags
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\AddTags $addTags = null;
+    public ?Shared\AddTags $addTags = null;
 
+    /**
+     *
+     * @var string $namespaceName
+     */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=namespace_name')]
     public string $namespaceName;
 
-    public function __construct()
+    /**
+     * @param  ?string  $namespaceName
+     * @param  ?Shared\AddTags  $addTags
+     */
+    public function __construct(?string $namespaceName = null, ?Shared\AddTags $addTags = null)
     {
-        $this->addTags = null;
-        $this->namespaceName = '';
+        $this->namespaceName = $namespaceName;
+        $this->addTags = $addTags;
     }
 }

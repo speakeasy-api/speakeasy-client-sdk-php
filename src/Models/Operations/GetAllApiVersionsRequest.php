@@ -30,15 +30,20 @@ class GetAllApiVersionsRequest
     /**
      * Configuration for filter operations
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\Op $op
+     * @var ?Op $op
      */
     #[SpeakeasyMetadata('queryParam:style=deepObject,explode=true,name=op')]
     public ?Op $op = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiID
+     * @param  ?array<string, array<string>>  $metadata
+     * @param  ?Op  $op
+     */
+    public function __construct(?string $apiID = null, ?array $metadata = null, ?Op $op = null)
     {
-        $this->apiID = '';
-        $this->metadata = null;
-        $this->op = null;
+        $this->apiID = $apiID;
+        $this->metadata = $metadata;
+        $this->op = $op;
     }
 }

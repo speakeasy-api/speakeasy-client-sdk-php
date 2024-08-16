@@ -18,7 +18,6 @@ class VersionMetadataInput
      * @var string $metaKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('meta_key')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $metaKey;
 
     /**
@@ -27,12 +26,15 @@ class VersionMetadataInput
      * @var string $metaValue
      */
     #[\JMS\Serializer\Annotation\SerializedName('meta_value')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $metaValue;
 
-    public function __construct()
+    /**
+     * @param  ?string  $metaKey
+     * @param  ?string  $metaValue
+     */
+    public function __construct(?string $metaKey = null, ?string $metaValue = null)
     {
-        $this->metaKey = '';
-        $this->metaValue = '';
+        $this->metaKey = $metaKey;
+        $this->metaValue = $metaValue;
     }
 }

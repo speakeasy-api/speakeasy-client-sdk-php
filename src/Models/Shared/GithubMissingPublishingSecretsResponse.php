@@ -22,8 +22,11 @@ class GithubMissingPublishingSecretsResponse
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $missingSecrets = null;
 
-    public function __construct()
+    /**
+     * @param  ?array<string>  $missingSecrets
+     */
+    public function __construct(?array $missingSecrets = null)
     {
-        $this->missingSecrets = null;
+        $this->missingSecrets = $missingSecrets;
     }
 }

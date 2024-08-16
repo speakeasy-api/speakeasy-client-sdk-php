@@ -17,7 +17,6 @@ class User
      * @var bool $admin
      */
     #[\JMS\Serializer\Annotation\SerializedName('admin')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $admin;
 
     /**
@@ -26,7 +25,6 @@ class User
      * @var bool $confirmed
      */
     #[\JMS\Serializer\Annotation\SerializedName('confirmed')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $confirmed;
 
     /**
@@ -35,7 +33,6 @@ class User
      * @var \DateTime $createdAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
 
     /**
@@ -44,7 +41,6 @@ class User
      * @var ?string $defaultWorkspaceId
      */
     #[\JMS\Serializer\Annotation\SerializedName('default_workspace_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $defaultWorkspaceId = null;
 
@@ -54,7 +50,6 @@ class User
      * @var string $displayName
      */
     #[\JMS\Serializer\Annotation\SerializedName('display_name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $displayName;
 
     /**
@@ -63,7 +58,6 @@ class User
      * @var string $email
      */
     #[\JMS\Serializer\Annotation\SerializedName('email')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $email;
 
     /**
@@ -72,7 +66,6 @@ class User
      * @var bool $emailVerified
      */
     #[\JMS\Serializer\Annotation\SerializedName('email_verified')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $emailVerified;
 
     /**
@@ -81,7 +74,6 @@ class User
      * @var ?string $githubHandle
      */
     #[\JMS\Serializer\Annotation\SerializedName('github_handle')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $githubHandle = null;
 
@@ -91,7 +83,6 @@ class User
      * @var string $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
 
     /**
@@ -100,7 +91,6 @@ class User
      * @var \DateTime $lastLoginAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('last_login_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $lastLoginAt;
 
     /**
@@ -109,7 +99,6 @@ class User
      * @var ?string $photoUrl
      */
     #[\JMS\Serializer\Annotation\SerializedName('photo_url')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $photoUrl = null;
 
@@ -119,7 +108,6 @@ class User
      * @var \DateTime $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $updatedAt;
 
     /**
@@ -128,23 +116,37 @@ class User
      * @var bool $whitelisted
      */
     #[\JMS\Serializer\Annotation\SerializedName('whitelisted')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $whitelisted;
 
-    public function __construct()
+    /**
+     * @param  ?bool  $admin
+     * @param  ?bool  $confirmed
+     * @param  ?\DateTime  $createdAt
+     * @param  ?string  $displayName
+     * @param  ?string  $email
+     * @param  ?bool  $emailVerified
+     * @param  ?string  $id
+     * @param  ?\DateTime  $lastLoginAt
+     * @param  ?\DateTime  $updatedAt
+     * @param  ?bool  $whitelisted
+     * @param  ?string  $defaultWorkspaceId
+     * @param  ?string  $githubHandle
+     * @param  ?string  $photoUrl
+     */
+    public function __construct(?bool $admin = null, ?bool $confirmed = null, ?\DateTime $createdAt = null, ?string $displayName = null, ?string $email = null, ?bool $emailVerified = null, ?string $id = null, ?\DateTime $lastLoginAt = null, ?\DateTime $updatedAt = null, ?bool $whitelisted = null, ?string $defaultWorkspaceId = null, ?string $githubHandle = null, ?string $photoUrl = null)
     {
-        $this->admin = false;
-        $this->confirmed = false;
-        $this->createdAt = new \DateTime();
-        $this->defaultWorkspaceId = null;
-        $this->displayName = '';
-        $this->email = '';
-        $this->emailVerified = false;
-        $this->githubHandle = null;
-        $this->id = '';
-        $this->lastLoginAt = new \DateTime();
-        $this->photoUrl = null;
-        $this->updatedAt = new \DateTime();
-        $this->whitelisted = false;
+        $this->admin = $admin;
+        $this->confirmed = $confirmed;
+        $this->createdAt = $createdAt;
+        $this->displayName = $displayName;
+        $this->email = $email;
+        $this->emailVerified = $emailVerified;
+        $this->id = $id;
+        $this->lastLoginAt = $lastLoginAt;
+        $this->updatedAt = $updatedAt;
+        $this->whitelisted = $whitelisted;
+        $this->defaultWorkspaceId = $defaultWorkspaceId;
+        $this->githubHandle = $githubHandle;
+        $this->photoUrl = $photoUrl;
     }
 }

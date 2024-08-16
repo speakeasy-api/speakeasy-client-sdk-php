@@ -11,17 +11,27 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class GenerateOpenApiSpecDiff
 {
+    /**
+     *
+     * @var string $currentSchema
+     */
     #[\JMS\Serializer\Annotation\SerializedName('current_schema')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $currentSchema;
 
+    /**
+     *
+     * @var string $newSchema
+     */
     #[\JMS\Serializer\Annotation\SerializedName('new_schema')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $newSchema;
 
-    public function __construct()
+    /**
+     * @param  ?string  $currentSchema
+     * @param  ?string  $newSchema
+     */
+    public function __construct(?string $currentSchema = null, ?string $newSchema = null)
     {
-        $this->currentSchema = '';
-        $this->newSchema = '';
+        $this->currentSchema = $currentSchema;
+        $this->newSchema = $newSchema;
     }
 }

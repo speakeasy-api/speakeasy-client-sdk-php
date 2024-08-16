@@ -19,8 +19,11 @@ class GetChangesReportSignedUrlRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=documentChecksum')]
     public string $documentChecksum;
 
-    public function __construct()
+    /**
+     * @param  ?string  $documentChecksum
+     */
+    public function __construct(?string $documentChecksum = null)
     {
-        $this->documentChecksum = '';
+        $this->documentChecksum = $documentChecksum;
     }
 }

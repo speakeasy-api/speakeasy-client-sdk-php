@@ -17,7 +17,6 @@ class TargetSDK
      * @var ?string $commitHead
      */
     #[\JMS\Serializer\Annotation\SerializedName('commit_head')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $commitHead = null;
 
@@ -27,7 +26,6 @@ class TargetSDK
      * @var ?string $continuousIntegrationEnvironment
      */
     #[\JMS\Serializer\Annotation\SerializedName('continuous_integration_environment')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $continuousIntegrationEnvironment = null;
 
@@ -37,7 +35,6 @@ class TargetSDK
      * @var ?string $error
      */
     #[\JMS\Serializer\Annotation\SerializedName('error')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $error = null;
 
@@ -47,7 +44,6 @@ class TargetSDK
      * @var ?string $generateConfigPostVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_config_post_version')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $generateConfigPostVersion = null;
 
@@ -57,7 +53,6 @@ class TargetSDK
      * @var ?string $generateEligibleFeatures
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_eligible_features')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $generateEligibleFeatures = null;
 
@@ -67,7 +62,6 @@ class TargetSDK
      * @var string $generateGenLockId
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $generateGenLockId;
 
     /**
@@ -76,7 +70,6 @@ class TargetSDK
      * @var ?string $generateGenLockPreFeatures
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_features')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $generateGenLockPreFeatures = null;
 
@@ -86,7 +79,6 @@ class TargetSDK
      * @var ?string $generateGenLockPreVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_version')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $generateGenLockPreVersion = null;
 
@@ -96,7 +88,6 @@ class TargetSDK
      * @var ?int $generateNumberOfOperationsIgnored
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_number_of_operations_ignored')]
-    #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $generateNumberOfOperationsIgnored = null;
 
@@ -106,7 +97,6 @@ class TargetSDK
      * @var ?int $generateNumberOfOperationsUsed
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_number_of_operations_used')]
-    #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $generateNumberOfOperationsUsed = null;
 
@@ -116,7 +106,6 @@ class TargetSDK
      * @var ?bool $generatePublished
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_published')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $generatePublished = null;
 
@@ -126,7 +115,6 @@ class TargetSDK
      * @var string $generateTarget
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_target')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $generateTarget;
 
     /**
@@ -135,7 +123,6 @@ class TargetSDK
      * @var ?string $generateTargetName
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_target_name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $generateTargetName = null;
 
@@ -145,7 +132,6 @@ class TargetSDK
      * @var ?string $generateTargetVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_target_version')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $generateTargetVersion = null;
 
@@ -155,7 +141,6 @@ class TargetSDK
      * @var ?string $ghActionOrganization
      */
     #[\JMS\Serializer\Annotation\SerializedName('gh_action_organization')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $ghActionOrganization = null;
 
@@ -165,7 +150,6 @@ class TargetSDK
      * @var ?string $ghActionRef
      */
     #[\JMS\Serializer\Annotation\SerializedName('gh_action_ref')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $ghActionRef = null;
 
@@ -175,7 +159,6 @@ class TargetSDK
      * @var ?string $ghActionRepository
      */
     #[\JMS\Serializer\Annotation\SerializedName('gh_action_repository')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $ghActionRepository = null;
 
@@ -185,7 +168,6 @@ class TargetSDK
      * @var ?string $ghActionRunLink
      */
     #[\JMS\Serializer\Annotation\SerializedName('gh_action_run_link')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $ghActionRunLink = null;
 
@@ -195,7 +177,6 @@ class TargetSDK
      * @var ?string $ghActionVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('gh_action_version')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $ghActionVersion = null;
 
@@ -205,7 +186,6 @@ class TargetSDK
      * @var ?string $gitRelativeCwd
      */
     #[\JMS\Serializer\Annotation\SerializedName('git_relative_cwd')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $gitRelativeCwd = null;
 
@@ -215,7 +195,6 @@ class TargetSDK
      * @var ?string $gitRemoteDefaultOwner
      */
     #[\JMS\Serializer\Annotation\SerializedName('git_remote_default_owner')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $gitRemoteDefaultOwner = null;
 
@@ -225,7 +204,6 @@ class TargetSDK
      * @var ?string $gitRemoteDefaultRepo
      */
     #[\JMS\Serializer\Annotation\SerializedName('git_remote_default_repo')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $gitRemoteDefaultRepo = null;
 
@@ -235,7 +213,6 @@ class TargetSDK
      * @var ?string $gitUserEmail
      */
     #[\JMS\Serializer\Annotation\SerializedName('git_user_email')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $gitUserEmail = null;
 
@@ -245,7 +222,6 @@ class TargetSDK
      * @var ?string $gitUserName
      */
     #[\JMS\Serializer\Annotation\SerializedName('git_user_name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $gitUserName = null;
 
@@ -255,7 +231,6 @@ class TargetSDK
      * @var ?string $hostname
      */
     #[\JMS\Serializer\Annotation\SerializedName('hostname')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $hostname = null;
 
@@ -265,7 +240,6 @@ class TargetSDK
      * @var string $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
 
     /**
@@ -274,7 +248,6 @@ class TargetSDK
      * @var \DateTime $lastEventCreatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('last_event_created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $lastEventCreatedAt;
 
     /**
@@ -283,16 +256,15 @@ class TargetSDK
      * @var string $lastEventId
      */
     #[\JMS\Serializer\Annotation\SerializedName('last_event_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $lastEventId;
 
     /**
      * Type of interaction.
      *
-     * @var \Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType $lastEventInteractionType
+     * @var InteractionType $lastEventInteractionType
      */
     #[\JMS\Serializer\Annotation\SerializedName('last_event_interaction_type')]
-    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType>')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType')]
     public InteractionType $lastEventInteractionType;
 
     /**
@@ -301,7 +273,6 @@ class TargetSDK
      * @var ?string $repoLabel
      */
     #[\JMS\Serializer\Annotation\SerializedName('repo_label')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $repoLabel = null;
 
@@ -311,7 +282,6 @@ class TargetSDK
      * @var ?string $sourceBlobDigest
      */
     #[\JMS\Serializer\Annotation\SerializedName('source_blob_digest')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $sourceBlobDigest = null;
 
@@ -321,7 +291,6 @@ class TargetSDK
      * @var ?string $sourceNamespaceName
      */
     #[\JMS\Serializer\Annotation\SerializedName('source_namespace_name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $sourceNamespaceName = null;
 
@@ -331,7 +300,6 @@ class TargetSDK
      * @var ?string $sourceRevisionDigest
      */
     #[\JMS\Serializer\Annotation\SerializedName('source_revision_digest')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $sourceRevisionDigest = null;
 
@@ -341,7 +309,6 @@ class TargetSDK
      * @var ?bool $success
      */
     #[\JMS\Serializer\Annotation\SerializedName('success')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $success = null;
 
@@ -351,7 +318,6 @@ class TargetSDK
      * @var ?string $workflowPostRaw
      */
     #[\JMS\Serializer\Annotation\SerializedName('workflow_post_raw')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $workflowPostRaw = null;
 
@@ -361,47 +327,84 @@ class TargetSDK
      * @var ?string $workflowPreRaw
      */
     #[\JMS\Serializer\Annotation\SerializedName('workflow_pre_raw')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $workflowPreRaw = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $generateGenLockId
+     * @param  ?string  $generateTarget
+     * @param  ?string  $id
+     * @param  ?\DateTime  $lastEventCreatedAt
+     * @param  ?string  $lastEventId
+     * @param  ?InteractionType  $lastEventInteractionType
+     * @param  ?string  $commitHead
+     * @param  ?string  $continuousIntegrationEnvironment
+     * @param  ?string  $error
+     * @param  ?string  $generateConfigPostVersion
+     * @param  ?string  $generateEligibleFeatures
+     * @param  ?string  $generateGenLockPreFeatures
+     * @param  ?string  $generateGenLockPreVersion
+     * @param  ?int  $generateNumberOfOperationsIgnored
+     * @param  ?int  $generateNumberOfOperationsUsed
+     * @param  ?bool  $generatePublished
+     * @param  ?string  $generateTargetName
+     * @param  ?string  $generateTargetVersion
+     * @param  ?string  $ghActionOrganization
+     * @param  ?string  $ghActionRef
+     * @param  ?string  $ghActionRepository
+     * @param  ?string  $ghActionRunLink
+     * @param  ?string  $ghActionVersion
+     * @param  ?string  $gitRelativeCwd
+     * @param  ?string  $gitRemoteDefaultOwner
+     * @param  ?string  $gitRemoteDefaultRepo
+     * @param  ?string  $gitUserEmail
+     * @param  ?string  $gitUserName
+     * @param  ?string  $hostname
+     * @param  ?string  $repoLabel
+     * @param  ?string  $sourceBlobDigest
+     * @param  ?string  $sourceNamespaceName
+     * @param  ?string  $sourceRevisionDigest
+     * @param  ?bool  $success
+     * @param  ?string  $workflowPostRaw
+     * @param  ?string  $workflowPreRaw
+     */
+    public function __construct(?string $generateGenLockId = null, ?string $generateTarget = null, ?string $id = null, ?\DateTime $lastEventCreatedAt = null, ?string $lastEventId = null, ?InteractionType $lastEventInteractionType = null, ?string $commitHead = null, ?string $continuousIntegrationEnvironment = null, ?string $error = null, ?string $generateConfigPostVersion = null, ?string $generateEligibleFeatures = null, ?string $generateGenLockPreFeatures = null, ?string $generateGenLockPreVersion = null, ?int $generateNumberOfOperationsIgnored = null, ?int $generateNumberOfOperationsUsed = null, ?bool $generatePublished = null, ?string $generateTargetName = null, ?string $generateTargetVersion = null, ?string $ghActionOrganization = null, ?string $ghActionRef = null, ?string $ghActionRepository = null, ?string $ghActionRunLink = null, ?string $ghActionVersion = null, ?string $gitRelativeCwd = null, ?string $gitRemoteDefaultOwner = null, ?string $gitRemoteDefaultRepo = null, ?string $gitUserEmail = null, ?string $gitUserName = null, ?string $hostname = null, ?string $repoLabel = null, ?string $sourceBlobDigest = null, ?string $sourceNamespaceName = null, ?string $sourceRevisionDigest = null, ?bool $success = null, ?string $workflowPostRaw = null, ?string $workflowPreRaw = null)
     {
-        $this->commitHead = null;
-        $this->continuousIntegrationEnvironment = null;
-        $this->error = null;
-        $this->generateConfigPostVersion = null;
-        $this->generateEligibleFeatures = null;
-        $this->generateGenLockId = '';
-        $this->generateGenLockPreFeatures = null;
-        $this->generateGenLockPreVersion = null;
-        $this->generateNumberOfOperationsIgnored = null;
-        $this->generateNumberOfOperationsUsed = null;
-        $this->generatePublished = null;
-        $this->generateTarget = '';
-        $this->generateTargetName = null;
-        $this->generateTargetVersion = null;
-        $this->ghActionOrganization = null;
-        $this->ghActionRef = null;
-        $this->ghActionRepository = null;
-        $this->ghActionRunLink = null;
-        $this->ghActionVersion = null;
-        $this->gitRelativeCwd = null;
-        $this->gitRemoteDefaultOwner = null;
-        $this->gitRemoteDefaultRepo = null;
-        $this->gitUserEmail = null;
-        $this->gitUserName = null;
-        $this->hostname = null;
-        $this->id = '';
-        $this->lastEventCreatedAt = new \DateTime();
-        $this->lastEventId = '';
-        $this->lastEventInteractionType = \Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType::CiExec;
-        $this->repoLabel = null;
-        $this->sourceBlobDigest = null;
-        $this->sourceNamespaceName = null;
-        $this->sourceRevisionDigest = null;
-        $this->success = null;
-        $this->workflowPostRaw = null;
-        $this->workflowPreRaw = null;
+        $this->generateGenLockId = $generateGenLockId;
+        $this->generateTarget = $generateTarget;
+        $this->id = $id;
+        $this->lastEventCreatedAt = $lastEventCreatedAt;
+        $this->lastEventId = $lastEventId;
+        $this->lastEventInteractionType = $lastEventInteractionType;
+        $this->commitHead = $commitHead;
+        $this->continuousIntegrationEnvironment = $continuousIntegrationEnvironment;
+        $this->error = $error;
+        $this->generateConfigPostVersion = $generateConfigPostVersion;
+        $this->generateEligibleFeatures = $generateEligibleFeatures;
+        $this->generateGenLockPreFeatures = $generateGenLockPreFeatures;
+        $this->generateGenLockPreVersion = $generateGenLockPreVersion;
+        $this->generateNumberOfOperationsIgnored = $generateNumberOfOperationsIgnored;
+        $this->generateNumberOfOperationsUsed = $generateNumberOfOperationsUsed;
+        $this->generatePublished = $generatePublished;
+        $this->generateTargetName = $generateTargetName;
+        $this->generateTargetVersion = $generateTargetVersion;
+        $this->ghActionOrganization = $ghActionOrganization;
+        $this->ghActionRef = $ghActionRef;
+        $this->ghActionRepository = $ghActionRepository;
+        $this->ghActionRunLink = $ghActionRunLink;
+        $this->ghActionVersion = $ghActionVersion;
+        $this->gitRelativeCwd = $gitRelativeCwd;
+        $this->gitRemoteDefaultOwner = $gitRemoteDefaultOwner;
+        $this->gitRemoteDefaultRepo = $gitRemoteDefaultRepo;
+        $this->gitUserEmail = $gitUserEmail;
+        $this->gitUserName = $gitUserName;
+        $this->hostname = $hostname;
+        $this->repoLabel = $repoLabel;
+        $this->sourceBlobDigest = $sourceBlobDigest;
+        $this->sourceNamespaceName = $sourceNamespaceName;
+        $this->sourceRevisionDigest = $sourceRevisionDigest;
+        $this->success = $success;
+        $this->workflowPostRaw = $workflowPostRaw;
+        $this->workflowPreRaw = $workflowPreRaw;
     }
 }

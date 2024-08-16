@@ -11,12 +11,18 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class PreflightRequest
 {
+    /**
+     *
+     * @var string $namespaceName
+     */
     #[\JMS\Serializer\Annotation\SerializedName('namespace_name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $namespaceName;
 
-    public function __construct()
+    /**
+     * @param  ?string  $namespaceName
+     */
+    public function __construct(?string $namespaceName = null)
     {
-        $this->namespaceName = '';
+        $this->namespaceName = $namespaceName;
     }
 }
