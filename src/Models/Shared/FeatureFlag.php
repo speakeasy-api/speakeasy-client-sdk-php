@@ -12,18 +12,28 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 /** FeatureFlag - A feature flag is a key-value pair that can be used to enable or disable features. */
 class FeatureFlag
 {
+    /**
+     *
+     * @var string $featureFlag
+     */
     #[\JMS\Serializer\Annotation\SerializedName('feature_flag')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $featureFlag;
 
+    /**
+     *
+     * @var ?\DateTime $trialEndsAt
+     */
     #[\JMS\Serializer\Annotation\SerializedName('trial_ends_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $trialEndsAt = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $featureFlag
+     * @param  ?\DateTime  $trialEndsAt
+     */
+    public function __construct(?string $featureFlag = null, ?\DateTime $trialEndsAt = null)
     {
-        $this->featureFlag = '';
-        $this->trialEndsAt = null;
+        $this->featureFlag = $featureFlag;
+        $this->trialEndsAt = $trialEndsAt;
     }
 }

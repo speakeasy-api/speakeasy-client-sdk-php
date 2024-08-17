@@ -11,20 +11,32 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class OASOperation
 {
+    /**
+     *
+     * @var string $description
+     */
     #[\JMS\Serializer\Annotation\SerializedName('description')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $description;
 
+    /**
+     *
+     * @var string $method
+     */
     #[\JMS\Serializer\Annotation\SerializedName('method')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $method;
 
+    /**
+     *
+     * @var string $operationId
+     */
     #[\JMS\Serializer\Annotation\SerializedName('operation_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $operationId;
 
+    /**
+     *
+     * @var string $path
+     */
     #[\JMS\Serializer\Annotation\SerializedName('path')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $path;
 
     /**
@@ -36,12 +48,19 @@ class OASOperation
     #[\JMS\Serializer\Annotation\Type('array<string>')]
     public array $tags;
 
-    public function __construct()
+    /**
+     * @param  ?string  $description
+     * @param  ?string  $method
+     * @param  ?string  $operationId
+     * @param  ?string  $path
+     * @param  ?array<string>  $tags
+     */
+    public function __construct(?string $description = null, ?string $method = null, ?string $operationId = null, ?string $path = null, ?array $tags = null)
     {
-        $this->description = '';
-        $this->method = '';
-        $this->operationId = '';
-        $this->path = '';
-        $this->tags = [];
+        $this->description = $description;
+        $this->method = $method;
+        $this->operationId = $operationId;
+        $this->path = $path;
+        $this->tags = $tags;
     }
 }

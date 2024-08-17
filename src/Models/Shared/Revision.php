@@ -11,12 +11,18 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class Revision
 {
+    /**
+     *
+     * @var \DateTime $createdAt
+     */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
 
+    /**
+     *
+     * @var string $digest
+     */
     #[\JMS\Serializer\Annotation\SerializedName('digest')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $digest;
 
     /**
@@ -25,11 +31,13 @@ class Revision
      * @var string $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
 
+    /**
+     *
+     * @var string $namespaceName
+     */
     #[\JMS\Serializer\Annotation\SerializedName('namespace_name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $namespaceName;
 
     /**
@@ -41,17 +49,28 @@ class Revision
     #[\JMS\Serializer\Annotation\Type('array<string>')]
     public array $tags;
 
+    /**
+     *
+     * @var \DateTime $updatedAt
+     */
     #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $updatedAt;
 
-    public function __construct()
+    /**
+     * @param  ?\DateTime  $createdAt
+     * @param  ?string  $digest
+     * @param  ?string  $id
+     * @param  ?string  $namespaceName
+     * @param  ?array<string>  $tags
+     * @param  ?\DateTime  $updatedAt
+     */
+    public function __construct(?\DateTime $createdAt = null, ?string $digest = null, ?string $id = null, ?string $namespaceName = null, ?array $tags = null, ?\DateTime $updatedAt = null)
     {
-        $this->createdAt = new \DateTime();
-        $this->digest = '';
-        $this->id = '';
-        $this->namespaceName = '';
-        $this->tags = [];
-        $this->updatedAt = new \DateTime();
+        $this->createdAt = $createdAt;
+        $this->digest = $digest;
+        $this->id = $id;
+        $this->namespaceName = $namespaceName;
+        $this->tags = $tags;
+        $this->updatedAt = $updatedAt;
     }
 }

@@ -11,8 +11,12 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class ApiKeyDetails
 {
+    /**
+     *
+     * @var AccountType $accountTypeV2
+     */
     #[\JMS\Serializer\Annotation\SerializedName('account_type_v2')]
-    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType>')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType')]
     public AccountType $accountTypeV2;
 
     /**
@@ -34,36 +38,61 @@ class ApiKeyDetails
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $featureFlags = null;
 
+    /**
+     *
+     * @var ?bool $generationAccessUnlimited
+     */
     #[\JMS\Serializer\Annotation\SerializedName('generation_access_unlimited')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $generationAccessUnlimited = null;
 
+    /**
+     *
+     * @var string $orgSlug
+     */
     #[\JMS\Serializer\Annotation\SerializedName('org_slug')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $orgSlug;
 
+    /**
+     *
+     * @var bool $telemetryDisabled
+     */
     #[\JMS\Serializer\Annotation\SerializedName('telemetry_disabled')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $telemetryDisabled;
 
+    /**
+     *
+     * @var string $workspaceId
+     */
     #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $workspaceId;
 
+    /**
+     *
+     * @var string $workspaceSlug
+     */
     #[\JMS\Serializer\Annotation\SerializedName('workspace_slug')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $workspaceSlug;
 
-    public function __construct()
+    /**
+     * @param  ?AccountType  $accountTypeV2
+     * @param  ?array<string>  $enabledFeatures
+     * @param  ?string  $orgSlug
+     * @param  ?bool  $telemetryDisabled
+     * @param  ?string  $workspaceId
+     * @param  ?string  $workspaceSlug
+     * @param  ?array<string>  $featureFlags
+     * @param  ?bool  $generationAccessUnlimited
+     */
+    public function __construct(?AccountType $accountTypeV2 = null, ?array $enabledFeatures = null, ?string $orgSlug = null, ?bool $telemetryDisabled = null, ?string $workspaceId = null, ?string $workspaceSlug = null, ?array $featureFlags = null, ?bool $generationAccessUnlimited = null)
     {
-        $this->accountTypeV2 = \Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType::Free;
-        $this->enabledFeatures = [];
-        $this->featureFlags = null;
-        $this->generationAccessUnlimited = null;
-        $this->orgSlug = '';
-        $this->telemetryDisabled = false;
-        $this->workspaceId = '';
-        $this->workspaceSlug = '';
+        $this->accountTypeV2 = $accountTypeV2;
+        $this->enabledFeatures = $enabledFeatures;
+        $this->orgSlug = $orgSlug;
+        $this->telemetryDisabled = $telemetryDisabled;
+        $this->workspaceId = $workspaceId;
+        $this->workspaceSlug = $workspaceSlug;
+        $this->featureFlags = $featureFlags;
+        $this->generationAccessUnlimited = $generationAccessUnlimited;
     }
 }

@@ -18,7 +18,6 @@ class GithubStorePublishingSecretsRequest
      * @var string $generateGenLockId
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $generateGenLockId;
 
     /**
@@ -31,9 +30,13 @@ class GithubStorePublishingSecretsRequest
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $secrets = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $generateGenLockId
+     * @param  ?array<string, string>  $secrets
+     */
+    public function __construct(?string $generateGenLockId = null, ?array $secrets = null)
     {
-        $this->generateGenLockId = '';
-        $this->secrets = null;
+        $this->generateGenLockId = $generateGenLockId;
+        $this->secrets = $secrets;
     }
 }

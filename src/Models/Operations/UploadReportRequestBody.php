@@ -8,19 +8,32 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 /** UploadReportRequestBody - The report file to upload provided as a multipart/form-data file segment. */
 class UploadReportRequestBody
 {
+    /**
+     *
+     * @var Shared\Report $data
+     */
     #[SpeakeasyMetadata('multipartForm:name=data,json=true')]
-    public \Speakeasy\SpeakeasyClientSDK\Models\Shared\Report $data;
+    public Shared\Report $data;
 
+    /**
+     *
+     * @var File $file
+     */
     #[SpeakeasyMetadata('multipartForm:file=true')]
     public File $file;
 
-    public function __construct()
+    /**
+     * @param  ?Shared\Report  $data
+     * @param  ?File  $file
+     */
+    public function __construct(?Shared\Report $data = null, ?File $file = null)
     {
-        $this->data = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\Report();
-        $this->file = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\File();
+        $this->data = $data;
+        $this->file = $file;
     }
 }

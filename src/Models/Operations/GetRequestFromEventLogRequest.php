@@ -19,8 +19,11 @@ class GetRequestFromEventLogRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=requestID')]
     public string $requestID;
 
-    public function __construct()
+    /**
+     * @param  ?string  $requestID
+     */
+    public function __construct(?string $requestID = null)
     {
-        $this->requestID = '';
+        $this->requestID = $requestID;
     }
 }

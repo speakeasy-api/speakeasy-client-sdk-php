@@ -11,17 +11,27 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class Auth
 {
+    /**
+     *
+     * @var string $header
+     */
     #[\JMS\Serializer\Annotation\SerializedName('header')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $header;
 
+    /**
+     *
+     * @var string $secret
+     */
     #[\JMS\Serializer\Annotation\SerializedName('secret')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $secret;
 
-    public function __construct()
+    /**
+     * @param  ?string  $header
+     * @param  ?string  $secret
+     */
+    public function __construct(?string $header = null, ?string $secret = null)
     {
-        $this->header = '';
-        $this->secret = '';
+        $this->header = $header;
+        $this->secret = $secret;
     }
 }

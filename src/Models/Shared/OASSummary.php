@@ -11,22 +11,30 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class OASSummary
 {
+    /**
+     *
+     * @var OASInfo $info
+     */
     #[\JMS\Serializer\Annotation\SerializedName('info')]
-    #[\JMS\Serializer\Annotation\Type('Speakeasy\SpeakeasyClientSDK\Models\Shared\OASInfo')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\OASInfo')]
     public OASInfo $info;
 
     /**
      * $operations
      *
-     * @var array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\OASOperation> $operations
+     * @var array<OASOperation> $operations
      */
     #[\JMS\Serializer\Annotation\SerializedName('operations')]
-    #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\Models\Shared\OASOperation>')]
+    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\OASOperation>')]
     public array $operations;
 
-    public function __construct()
+    /**
+     * @param  ?OASInfo  $info
+     * @param  ?array<OASOperation>  $operations
+     */
+    public function __construct(?OASInfo $info = null, ?array $operations = null)
     {
-        $this->info = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\OASInfo();
-        $this->operations = [];
+        $this->info = $info;
+        $this->operations = $operations;
     }
 }

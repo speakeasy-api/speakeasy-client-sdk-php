@@ -20,8 +20,11 @@ class QueryParamOp
     #[SpeakeasyMetadata('queryParam:name=and')]
     public bool $and;
 
-    public function __construct()
+    /**
+     * @param  ?bool  $and
+     */
+    public function __construct(?bool $and = null)
     {
-        $this->and = false;
+        $this->and = $and;
     }
 }

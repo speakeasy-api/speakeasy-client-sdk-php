@@ -8,19 +8,32 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 /** SuggestOperationIDsRequestBody - The schema file to upload provided as a multipart/form-data file segment. */
 class SuggestOperationIDsRequestBody
 {
+    /**
+     *
+     * @var ?Shared\SuggestOperationIDsOpts $opts
+     */
     #[SpeakeasyMetadata('multipartForm:name=opts,json=true')]
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestOperationIDsOpts $opts = null;
+    public ?Shared\SuggestOperationIDsOpts $opts = null;
 
+    /**
+     *
+     * @var Schema $schema
+     */
     #[SpeakeasyMetadata('multipartForm:file=true')]
     public Schema $schema;
 
-    public function __construct()
+    /**
+     * @param  ?Schema  $schema
+     * @param  ?Shared\SuggestOperationIDsOpts  $opts
+     */
+    public function __construct(?Schema $schema = null, ?Shared\SuggestOperationIDsOpts $opts = null)
     {
-        $this->opts = null;
-        $this->schema = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\Schema();
+        $this->schema = $schema;
+        $this->opts = $opts;
     }
 }

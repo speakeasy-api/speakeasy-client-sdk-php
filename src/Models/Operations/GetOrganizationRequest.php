@@ -19,8 +19,11 @@ class GetOrganizationRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=organizationID')]
     public string $organizationID;
 
-    public function __construct()
+    /**
+     * @param  ?string  $organizationID
+     */
+    public function __construct(?string $organizationID = null)
     {
-        $this->organizationID = '';
+        $this->organizationID = $organizationID;
     }
 }
