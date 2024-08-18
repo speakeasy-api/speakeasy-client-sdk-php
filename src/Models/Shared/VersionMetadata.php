@@ -18,7 +18,6 @@ class VersionMetadata
      * @var string $apiId
      */
     #[\JMS\Serializer\Annotation\SerializedName('api_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $apiId;
 
     /**
@@ -27,7 +26,6 @@ class VersionMetadata
      * @var \DateTime $createdAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
 
     /**
@@ -36,7 +34,6 @@ class VersionMetadata
      * @var string $metaKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('meta_key')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $metaKey;
 
     /**
@@ -45,7 +42,6 @@ class VersionMetadata
      * @var string $metaValue
      */
     #[\JMS\Serializer\Annotation\SerializedName('meta_value')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $metaValue;
 
     /**
@@ -54,7 +50,6 @@ class VersionMetadata
      * @var string $versionId
      */
     #[\JMS\Serializer\Annotation\SerializedName('version_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $versionId;
 
     /**
@@ -63,16 +58,23 @@ class VersionMetadata
      * @var string $workspaceId
      */
     #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $workspaceId;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiId
+     * @param  ?\DateTime  $createdAt
+     * @param  ?string  $metaKey
+     * @param  ?string  $metaValue
+     * @param  ?string  $versionId
+     * @param  ?string  $workspaceId
+     */
+    public function __construct(?string $apiId = null, ?\DateTime $createdAt = null, ?string $metaKey = null, ?string $metaValue = null, ?string $versionId = null, ?string $workspaceId = null)
     {
-        $this->apiId = '';
-        $this->createdAt = new \DateTime();
-        $this->metaKey = '';
-        $this->metaValue = '';
-        $this->versionId = '';
-        $this->workspaceId = '';
+        $this->apiId = $apiId;
+        $this->createdAt = $createdAt;
+        $this->metaKey = $metaKey;
+        $this->metaValue = $metaValue;
+        $this->versionId = $versionId;
+        $this->workspaceId = $workspaceId;
     }
 }

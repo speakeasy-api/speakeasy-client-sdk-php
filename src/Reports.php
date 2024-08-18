@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK;
 
+use JMS\Serializer\DeserializationContext;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
 class Reports
 {
     private SDKConfiguration $sdkConfiguration;
@@ -23,80 +26,99 @@ class Reports
     /**
      * Get the signed access url for the change reports for a particular document.
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlRequest  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlResponse
+     * @param  Operations\GetChangesReportSignedUrlRequest  $request
+     * @return Operations\GetChangesReportSignedUrlResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function getChangesReportSignedUrl(
-        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlResponse {
+        ?Operations\GetChangesReportSignedUrlRequest $request,
+    ): Operations\GetChangesReportSignedUrlResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/reports/changes/{documentChecksum}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/reports/changes/{documentChecksum}', Operations\GetChangesReportSignedUrlRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+        if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->signedAccess = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlSignedAccess', 'json');
-            }
-        }
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlSignedAccess', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetChangesReportSignedUrlResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    signedAccess: $obj);
 
-        return $response;
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
     }
 
     /**
      * Get the signed access url for the linting reports for a particular document.
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetLintingReportSignedUrlRequest  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetLintingReportSignedUrlResponse
+     * @param  Operations\GetLintingReportSignedUrlRequest  $request
+     * @return Operations\GetLintingReportSignedUrlResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function getLintingReportSignedUrl(
-        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetLintingReportSignedUrlRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetLintingReportSignedUrlResponse {
+        ?Operations\GetLintingReportSignedUrlRequest $request,
+    ): Operations\GetLintingReportSignedUrlResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/reports/linting/{documentChecksum}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetLintingReportSignedUrlRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/reports/linting/{documentChecksum}', Operations\GetLintingReportSignedUrlRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\GetLintingReportSignedUrlResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+        if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->signedAccess = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Operations\GetLintingReportSignedUrlSignedAccess', 'json');
-            }
-        }
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetLintingReportSignedUrlSignedAccess', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetLintingReportSignedUrlResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    signedAccess: $obj);
 
-        return $response;
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
     }
 
     /**
      * Upload a report.
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\UploadReportRequestBody  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\UploadReportResponse
+     * @param  Operations\UploadReportRequestBody  $request
+     * @return Operations\UploadReportResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function uploadReport(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\UploadReportRequestBody $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\UploadReportResponse {
+        Operations\UploadReportRequestBody $request,
+    ): Operations\UploadReportResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/reports');
         $options = ['http_errors' => false];
@@ -107,23 +129,31 @@ class Reports
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\UploadReportResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+        if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->uploadedReport = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Operations\UploadReportUploadedReport', 'json');
-            }
-        }
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Operations\UploadReportUploadedReport', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\UploadReportResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    uploadedReport: $obj);
 
-        return $response;
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
     }
 }

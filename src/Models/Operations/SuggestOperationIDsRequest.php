@@ -14,7 +14,7 @@ class SuggestOperationIDsRequest
     /**
      * The schema file to upload provided as a multipart/form-data file segment.
      *
-     * @var \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRequestBody $requestBody
+     * @var SuggestOperationIDsRequestBody $requestBody
      */
     #[SpeakeasyMetadata('request:mediaType=multipart/form-data')]
     public SuggestOperationIDsRequestBody $requestBody;
@@ -27,13 +27,22 @@ class SuggestOperationIDsRequest
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=limit')]
     public ?float $limit = null;
 
+    /**
+     *
+     * @var string $xSessionId
+     */
     #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-session-id')]
     public string $xSessionId;
 
-    public function __construct()
+    /**
+     * @param  ?SuggestOperationIDsRequestBody  $requestBody
+     * @param  ?string  $xSessionId
+     * @param  ?float  $limit
+     */
+    public function __construct(?SuggestOperationIDsRequestBody $requestBody = null, ?string $xSessionId = null, ?float $limit = null)
     {
-        $this->requestBody = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRequestBody();
-        $this->limit = null;
-        $this->xSessionId = '';
+        $this->requestBody = $requestBody;
+        $this->xSessionId = $xSessionId;
+        $this->limit = $limit;
     }
 }

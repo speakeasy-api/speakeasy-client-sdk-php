@@ -43,11 +43,17 @@ class GetSchemaDiffRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=versionID')]
     public string $versionID;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiID
+     * @param  ?string  $baseRevisionID
+     * @param  ?string  $targetRevisionID
+     * @param  ?string  $versionID
+     */
+    public function __construct(?string $apiID = null, ?string $baseRevisionID = null, ?string $targetRevisionID = null, ?string $versionID = null)
     {
-        $this->apiID = '';
-        $this->baseRevisionID = '';
-        $this->targetRevisionID = '';
-        $this->versionID = '';
+        $this->apiID = $apiID;
+        $this->baseRevisionID = $baseRevisionID;
+        $this->targetRevisionID = $targetRevisionID;
+        $this->versionID = $versionID;
     }
 }

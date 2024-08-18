@@ -12,11 +12,18 @@ use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 /** RegisterSchemaRequestBody - The schema file to upload provided as a multipart/form-data file segment. */
 class RegisterSchemaRequestBody
 {
+    /**
+     *
+     * @var RegisterSchemaFile $file
+     */
     #[SpeakeasyMetadata('multipartForm:file=true')]
     public RegisterSchemaFile $file;
 
-    public function __construct()
+    /**
+     * @param  ?RegisterSchemaFile  $file
+     */
+    public function __construct(?RegisterSchemaFile $file = null)
     {
-        $this->file = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\RegisterSchemaFile();
+        $this->file = $file;
     }
 }
