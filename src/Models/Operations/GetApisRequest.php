@@ -22,14 +22,18 @@ class GetApisRequest
     /**
      * Configuration for filter operations
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\QueryParamOp $op
+     * @var ?QueryParamOp $op
      */
     #[SpeakeasyMetadata('queryParam:style=deepObject,explode=true,name=op')]
     public ?QueryParamOp $op = null;
 
-    public function __construct()
+    /**
+     * @param  ?array<string, array<string>>  $metadata
+     * @param  ?QueryParamOp  $op
+     */
+    public function __construct(?array $metadata = null, ?QueryParamOp $op = null)
     {
-        $this->metadata = null;
-        $this->op = null;
+        $this->metadata = $metadata;
+        $this->op = $op;
     }
 }

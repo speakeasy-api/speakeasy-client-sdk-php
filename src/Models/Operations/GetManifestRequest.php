@@ -11,9 +11,17 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class GetManifestRequest
 {
+    /**
+     *
+     * @var string $namespaceName
+     */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=namespace_name')]
     public string $namespaceName;
 
+    /**
+     *
+     * @var string $organizationSlug
+     */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=organization_slug')]
     public string $organizationSlug;
 
@@ -25,14 +33,24 @@ class GetManifestRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=revision_reference')]
     public string $revisionReference;
 
+    /**
+     *
+     * @var string $workspaceSlug
+     */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspace_slug')]
     public string $workspaceSlug;
 
-    public function __construct()
+    /**
+     * @param  ?string  $namespaceName
+     * @param  ?string  $organizationSlug
+     * @param  ?string  $revisionReference
+     * @param  ?string  $workspaceSlug
+     */
+    public function __construct(?string $namespaceName = null, ?string $organizationSlug = null, ?string $revisionReference = null, ?string $workspaceSlug = null)
     {
-        $this->namespaceName = '';
-        $this->organizationSlug = '';
-        $this->revisionReference = '';
-        $this->workspaceSlug = '';
+        $this->namespaceName = $namespaceName;
+        $this->organizationSlug = $organizationSlug;
+        $this->revisionReference = $revisionReference;
+        $this->workspaceSlug = $workspaceSlug;
     }
 }

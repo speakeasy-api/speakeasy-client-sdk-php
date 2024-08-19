@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK;
 
+use JMS\Serializer\DeserializationContext;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
 class Suggest
 {
     private SDKConfiguration $sdkConfiguration;
@@ -23,12 +26,13 @@ class Suggest
     /**
      * Apply operation ID suggestions and download result.
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\ApplyOperationIDsRequest  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\ApplyOperationIDsResponse
+     * @param  Operations\ApplyOperationIDsRequest  $request
+     * @return Operations\ApplyOperationIDsResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function applyOperationIDs(
-        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\ApplyOperationIDsRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\ApplyOperationIDsResponse {
+        ?Operations\ApplyOperationIDsRequest $request,
+    ): Operations\ApplyOperationIDsResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/suggest/operation_ids/apply');
         $options = ['http_errors' => false];
@@ -42,31 +46,50 @@ class Suggest
         }
         $options['headers']['Accept'] = 'application/json;q=1, application/x-yaml;q=0';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\ApplyOperationIDsResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+        if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $response->twoHundredApplicationJsonSchema = $httpResponse->getBody()->getContents();
+                $obj = $httpResponse->getBody()->getContents();
+
+                return new Operations\ApplyOperationIDsResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    twoHundredApplicationJsonSchema: $obj);
+            } elseif (Utils\Utils::matchContentType($contentType, 'application/x-yaml')) {
+                $obj = $httpResponse->getBody()->getContents();
+
+                return new Operations\ApplyOperationIDsResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    twoHundredApplicationXYamlSchema: $obj);
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-            if (Utils\Utils::matchContentType($contentType, 'application/x-yaml')) {
-                $response->twoHundredApplicationXYamlSchema = $httpResponse->getBody()->getContents();
-            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->error = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\Error', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Errors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\ApplyOperationIDsResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    error: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         }
-
-        return $response;
     }
 
     /**
@@ -74,12 +97,13 @@ class Suggest
      *
      * Get suggestions from an LLM model for improving the operationIDs in the provided schema.
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRequest  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsResponse
+     * @param  Operations\SuggestOperationIDsRequest  $request
+     * @return Operations\SuggestOperationIDsResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function suggestOperationIDs(
-        \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsResponse {
+        Operations\SuggestOperationIDsRequest $request,
+    ): Operations\SuggestOperationIDsResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/suggest/operation_ids');
         $options = ['http_errors' => false];
@@ -88,31 +112,39 @@ class Suggest
             throw new \Exception('Request body is required');
         }
         $options = array_merge_recursive($options, $body);
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRequest::class, $request, $this->sdkConfiguration->globals));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\SuggestOperationIDsRequest::class, $request, $this->sdkConfiguration->globals));
         $options = array_merge_recursive($options, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $options)) {
             $options['headers'] = [];
         }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+        if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->suggestedOperationIDs = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestedOperationIDs', 'json');
-            }
-        }
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestedOperationIDs', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\SuggestOperationIDsResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    suggestedOperationIDs: $obj);
 
-        return $response;
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
     }
 
     /**
@@ -120,43 +152,52 @@ class Suggest
      *
      * Get suggestions from an LLM model for improving the operationIDs in the provided schema.
      *
-     * @param  \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryRequest  $request
-     * @return \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryResponse
+     * @param  Operations\SuggestOperationIDsRegistryRequest  $request
+     * @return Operations\SuggestOperationIDsRegistryResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
     public function suggestOperationIDsRegistry(
-        ?\Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryRequest $request,
-    ): \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryResponse {
+        ?Operations\SuggestOperationIDsRegistryRequest $request,
+    ): Operations\SuggestOperationIDsRegistryResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/suggest/operation_ids/{namespace_name}/{revision_reference}', \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/suggest/operation_ids/{namespace_name}/{revision_reference}', Operations\SuggestOperationIDsRegistryRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'suggestOperationIDsOpts', 'json');
         if ($body !== null) {
             $options = array_merge_recursive($options, $body);
         }
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryRequest::class, $request, $this->sdkConfiguration->globals));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\SuggestOperationIDsRegistryRequest::class, $request, $this->sdkConfiguration->globals));
         $options = array_merge_recursive($options, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $options)) {
             $options['headers'] = [];
         }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \Speakeasy\SpeakeasyClientSDK\Models\Operations\SuggestOperationIDsRegistryResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+        if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->suggestedOperationIDs = $serializer->deserialize((string) $httpResponse->getBody(), 'Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestedOperationIDs', 'json');
-            }
-        }
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestedOperationIDs', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\SuggestOperationIDsRegistryResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    suggestedOperationIDs: $obj);
 
-        return $response;
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
     }
 }

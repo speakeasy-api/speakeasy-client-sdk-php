@@ -11,15 +11,27 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class File
 {
+    /**
+     *
+     * @var string $content
+     */
     #[SpeakeasyMetadata('multipartForm:content=true')]
     public string $content;
 
+    /**
+     *
+     * @var string $fileName
+     */
     #[SpeakeasyMetadata('multipartForm:name=file')]
     public string $fileName;
 
-    public function __construct()
+    /**
+     * @param  ?string  $content
+     * @param  ?string  $fileName
+     */
+    public function __construct(?string $content = null, ?string $fileName = null)
     {
-        $this->content = '';
-        $this->fileName = '';
+        $this->content = $content;
+        $this->fileName = $fileName;
     }
 }

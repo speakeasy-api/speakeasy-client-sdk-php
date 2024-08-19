@@ -11,6 +11,10 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class GetRevisionsRequest
 {
+    /**
+     *
+     * @var string $namespaceName
+     */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=namespace_name')]
     public string $namespaceName;
 
@@ -22,9 +26,13 @@ class GetRevisionsRequest
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=next_page_token')]
     public ?string $nextPageToken = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $namespaceName
+     * @param  ?string  $nextPageToken
+     */
+    public function __construct(?string $namespaceName = null, ?string $nextPageToken = null)
     {
-        $this->namespaceName = '';
-        $this->nextPageToken = null;
+        $this->namespaceName = $namespaceName;
+        $this->nextPageToken = $nextPageToken;
     }
 }

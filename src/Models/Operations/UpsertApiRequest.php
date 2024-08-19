@@ -8,16 +8,17 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class UpsertApiRequest
 {
     /**
      * A JSON representation of the Api to upsert
      *
-     * @var \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput $api
+     * @var Shared\ApiInput $api
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput $api;
+    public Shared\ApiInput $api;
 
     /**
      * The ID of the Api to upsert.
@@ -27,9 +28,13 @@ class UpsertApiRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=apiID')]
     public string $apiID;
 
-    public function __construct()
+    /**
+     * @param  ?Shared\ApiInput  $api
+     * @param  ?string  $apiID
+     */
+    public function __construct(?Shared\ApiInput $api = null, ?string $apiID = null)
     {
-        $this->api = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\ApiInput();
-        $this->apiID = '';
+        $this->api = $api;
+        $this->apiID = $apiID;
     }
 }

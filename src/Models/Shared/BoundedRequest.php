@@ -18,7 +18,6 @@ class BoundedRequest
      * @var string $apiEndpointId
      */
     #[\JMS\Serializer\Annotation\SerializedName('api_endpoint_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $apiEndpointId;
 
     /**
@@ -27,7 +26,6 @@ class BoundedRequest
      * @var string $apiId
      */
     #[\JMS\Serializer\Annotation\SerializedName('api_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $apiId;
 
     /**
@@ -36,7 +34,6 @@ class BoundedRequest
      * @var \DateTime $createdAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
 
     /**
@@ -45,7 +42,6 @@ class BoundedRequest
      * @var string $customerId
      */
     #[\JMS\Serializer\Annotation\SerializedName('customer_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $customerId;
 
     /**
@@ -54,16 +50,15 @@ class BoundedRequest
      * @var int $latency
      */
     #[\JMS\Serializer\Annotation\SerializedName('latency')]
-    #[\JMS\Serializer\Annotation\Type('int')]
     public int $latency;
 
     /**
      * Metadata associated with this request
      *
-     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\RequestMetadata> $metadata
+     * @var ?array<RequestMetadata> $metadata
      */
     #[\JMS\Serializer\Annotation\SerializedName('metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\Models\Shared\RequestMetadata>')]
+    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\RequestMetadata>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $metadata = null;
 
@@ -73,7 +68,6 @@ class BoundedRequest
      * @var string $method
      */
     #[\JMS\Serializer\Annotation\SerializedName('method')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $method;
 
     /**
@@ -82,7 +76,6 @@ class BoundedRequest
      * @var string $path
      */
     #[\JMS\Serializer\Annotation\SerializedName('path')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $path;
 
     /**
@@ -91,7 +84,6 @@ class BoundedRequest
      * @var \DateTime $requestFinishTime
      */
     #[\JMS\Serializer\Annotation\SerializedName('request_finish_time')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $requestFinishTime;
 
     /**
@@ -100,7 +92,6 @@ class BoundedRequest
      * @var string $requestId
      */
     #[\JMS\Serializer\Annotation\SerializedName('request_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $requestId;
 
     /**
@@ -109,7 +100,6 @@ class BoundedRequest
      * @var \DateTime $requestStartTime
      */
     #[\JMS\Serializer\Annotation\SerializedName('request_start_time')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $requestStartTime;
 
     /**
@@ -118,7 +108,6 @@ class BoundedRequest
      * @var int $status
      */
     #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('int')]
     public int $status;
 
     /**
@@ -127,7 +116,6 @@ class BoundedRequest
      * @var string $versionId
      */
     #[\JMS\Serializer\Annotation\SerializedName('version_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $versionId;
 
     /**
@@ -136,24 +124,39 @@ class BoundedRequest
      * @var string $workspaceId
      */
     #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $workspaceId;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiEndpointId
+     * @param  ?string  $apiId
+     * @param  ?\DateTime  $createdAt
+     * @param  ?string  $customerId
+     * @param  ?int  $latency
+     * @param  ?string  $method
+     * @param  ?string  $path
+     * @param  ?\DateTime  $requestFinishTime
+     * @param  ?string  $requestId
+     * @param  ?\DateTime  $requestStartTime
+     * @param  ?int  $status
+     * @param  ?string  $versionId
+     * @param  ?string  $workspaceId
+     * @param  ?array<RequestMetadata>  $metadata
+     */
+    public function __construct(?string $apiEndpointId = null, ?string $apiId = null, ?\DateTime $createdAt = null, ?string $customerId = null, ?int $latency = null, ?string $method = null, ?string $path = null, ?\DateTime $requestFinishTime = null, ?string $requestId = null, ?\DateTime $requestStartTime = null, ?int $status = null, ?string $versionId = null, ?string $workspaceId = null, ?array $metadata = null)
     {
-        $this->apiEndpointId = '';
-        $this->apiId = '';
-        $this->createdAt = new \DateTime();
-        $this->customerId = '';
-        $this->latency = 0;
-        $this->metadata = null;
-        $this->method = '';
-        $this->path = '';
-        $this->requestFinishTime = new \DateTime();
-        $this->requestId = '';
-        $this->requestStartTime = new \DateTime();
-        $this->status = 0;
-        $this->versionId = '';
-        $this->workspaceId = '';
+        $this->apiEndpointId = $apiEndpointId;
+        $this->apiId = $apiId;
+        $this->createdAt = $createdAt;
+        $this->customerId = $customerId;
+        $this->latency = $latency;
+        $this->method = $method;
+        $this->path = $path;
+        $this->requestFinishTime = $requestFinishTime;
+        $this->requestId = $requestId;
+        $this->requestStartTime = $requestStartTime;
+        $this->status = $status;
+        $this->versionId = $versionId;
+        $this->workspaceId = $workspaceId;
+        $this->metadata = $metadata;
     }
 }
