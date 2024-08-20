@@ -11,17 +11,27 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class ShortURL
 {
+    /**
+     *
+     * @var string $fullUrl
+     */
     #[\JMS\Serializer\Annotation\SerializedName('full_url')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $fullUrl;
 
+    /**
+     *
+     * @var string $shortUrl
+     */
     #[\JMS\Serializer\Annotation\SerializedName('short_url')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $shortUrl;
 
-    public function __construct()
+    /**
+     * @param  ?string  $fullUrl
+     * @param  ?string  $shortUrl
+     */
+    public function __construct(?string $fullUrl = null, ?string $shortUrl = null)
     {
-        $this->fullUrl = '';
-        $this->shortUrl = '';
+        $this->fullUrl = $fullUrl;
+        $this->shortUrl = $shortUrl;
     }
 }

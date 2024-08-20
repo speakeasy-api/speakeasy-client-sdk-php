@@ -18,7 +18,6 @@ class Schema
      * @var string $apiId
      */
     #[\JMS\Serializer\Annotation\SerializedName('api_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $apiId;
 
     /**
@@ -27,7 +26,6 @@ class Schema
      * @var \DateTime $createdAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
 
     /**
@@ -36,7 +34,6 @@ class Schema
      * @var string $description
      */
     #[\JMS\Serializer\Annotation\SerializedName('description')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $description;
 
     /**
@@ -45,7 +42,6 @@ class Schema
      * @var string $revisionId
      */
     #[\JMS\Serializer\Annotation\SerializedName('revision_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $revisionId;
 
     /**
@@ -54,7 +50,6 @@ class Schema
      * @var string $versionId
      */
     #[\JMS\Serializer\Annotation\SerializedName('version_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $versionId;
 
     /**
@@ -63,16 +58,23 @@ class Schema
      * @var string $workspaceId
      */
     #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $workspaceId;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiId
+     * @param  ?\DateTime  $createdAt
+     * @param  ?string  $description
+     * @param  ?string  $revisionId
+     * @param  ?string  $versionId
+     * @param  ?string  $workspaceId
+     */
+    public function __construct(?string $apiId = null, ?\DateTime $createdAt = null, ?string $description = null, ?string $revisionId = null, ?string $versionId = null, ?string $workspaceId = null)
     {
-        $this->apiId = '';
-        $this->createdAt = new \DateTime();
-        $this->description = '';
-        $this->revisionId = '';
-        $this->versionId = '';
-        $this->workspaceId = '';
+        $this->apiId = $apiId;
+        $this->createdAt = $createdAt;
+        $this->description = $description;
+        $this->revisionId = $revisionId;
+        $this->versionId = $versionId;
+        $this->workspaceId = $workspaceId;
     }
 }

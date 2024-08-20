@@ -11,43 +11,69 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class AccessTokenUser
 {
+    /**
+     *
+     * @var ?bool $admin
+     */
     #[\JMS\Serializer\Annotation\SerializedName('admin')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $admin = null;
 
+    /**
+     *
+     * @var ?\DateTime $createdAt
+     */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $createdAt = null;
 
+    /**
+     *
+     * @var ?string $displayName
+     */
     #[\JMS\Serializer\Annotation\SerializedName('display_name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $displayName = null;
 
+    /**
+     *
+     * @var ?string $email
+     */
     #[\JMS\Serializer\Annotation\SerializedName('email')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $email = null;
 
+    /**
+     *
+     * @var ?bool $emailVerified
+     */
     #[\JMS\Serializer\Annotation\SerializedName('email_verified')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $emailVerified = null;
 
+    /**
+     *
+     * @var ?string $id
+     */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $id = null;
 
-    public function __construct()
+    /**
+     * @param  ?bool  $admin
+     * @param  ?\DateTime  $createdAt
+     * @param  ?string  $displayName
+     * @param  ?string  $email
+     * @param  ?bool  $emailVerified
+     * @param  ?string  $id
+     */
+    public function __construct(?bool $admin = null, ?\DateTime $createdAt = null, ?string $displayName = null, ?string $email = null, ?bool $emailVerified = null, ?string $id = null)
     {
-        $this->admin = null;
-        $this->createdAt = null;
-        $this->displayName = null;
-        $this->email = null;
-        $this->emailVerified = null;
-        $this->id = null;
+        $this->admin = $admin;
+        $this->createdAt = $createdAt;
+        $this->displayName = $displayName;
+        $this->email = $email;
+        $this->emailVerified = $emailVerified;
+        $this->id = $id;
     }
 }

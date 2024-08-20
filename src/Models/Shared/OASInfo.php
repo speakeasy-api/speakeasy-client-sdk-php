@@ -11,32 +11,55 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class OASInfo
 {
+    /**
+     *
+     * @var string $description
+     */
     #[\JMS\Serializer\Annotation\SerializedName('description')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $description;
 
+    /**
+     *
+     * @var License $license
+     */
     #[\JMS\Serializer\Annotation\SerializedName('license')]
-    #[\JMS\Serializer\Annotation\Type('Speakeasy\SpeakeasyClientSDK\Models\Shared\License')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\License')]
     public License $license;
 
+    /**
+     *
+     * @var string $summary
+     */
     #[\JMS\Serializer\Annotation\SerializedName('summary')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $summary;
 
+    /**
+     *
+     * @var string $title
+     */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $title;
 
+    /**
+     *
+     * @var string $version
+     */
     #[\JMS\Serializer\Annotation\SerializedName('version')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $version;
 
-    public function __construct()
+    /**
+     * @param  ?string  $description
+     * @param  ?License  $license
+     * @param  ?string  $summary
+     * @param  ?string  $title
+     * @param  ?string  $version
+     */
+    public function __construct(?string $description = null, ?License $license = null, ?string $summary = null, ?string $title = null, ?string $version = null)
     {
-        $this->description = '';
-        $this->license = new \Speakeasy\SpeakeasyClientSDK\Models\Shared\License();
-        $this->summary = '';
-        $this->title = '';
-        $this->version = '';
+        $this->description = $description;
+        $this->license = $license;
+        $this->summary = $summary;
+        $this->title = $title;
+        $this->version = $version;
     }
 }

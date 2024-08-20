@@ -11,19 +11,31 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class SuggestOperationIDsOpts
 {
+    /**
+     *
+     * @var ?DepthStyle $depthStyle
+     */
     #[\JMS\Serializer\Annotation\SerializedName('depth_style')]
-    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\DepthStyle>')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\DepthStyle')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?DepthStyle $depthStyle = null;
 
+    /**
+     *
+     * @var ?Style $style
+     */
     #[\JMS\Serializer\Annotation\SerializedName('style')]
-    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\Style>')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Style')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Style $style = null;
 
-    public function __construct()
+    /**
+     * @param  ?DepthStyle  $depthStyle
+     * @param  ?Style  $style
+     */
+    public function __construct(?DepthStyle $depthStyle = null, ?Style $style = null)
     {
-        $this->depthStyle = null;
-        $this->style = null;
+        $this->depthStyle = $depthStyle;
+        $this->style = $style;
     }
 }

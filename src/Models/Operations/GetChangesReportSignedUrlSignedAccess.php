@@ -12,12 +12,18 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 /** GetChangesReportSignedUrlSignedAccess - OK */
 class GetChangesReportSignedUrlSignedAccess
 {
+    /**
+     *
+     * @var string $url
+     */
     #[\JMS\Serializer\Annotation\SerializedName('url')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $url;
 
-    public function __construct()
+    /**
+     * @param  ?string  $url
+     */
+    public function __construct(?string $url = null)
     {
-        $this->url = '';
+        $this->url = $url;
     }
 }

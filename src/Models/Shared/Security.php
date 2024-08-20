@@ -11,15 +11,27 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class Security
 {
+    /**
+     *
+     * @var ?string $apiKey
+     */
     #[SpeakeasyMetadata('security:scheme=true,type=apiKey,subtype=header,name=x-api-key')]
     public ?string $apiKey = null;
 
+    /**
+     *
+     * @var ?string $bearer
+     */
     #[SpeakeasyMetadata('security:scheme=true,type=http,subtype=bearer,name=Authorization')]
     public ?string $bearer = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiKey
+     * @param  ?string  $bearer
+     */
+    public function __construct(?string $apiKey = null, ?string $bearer = null)
     {
-        $this->apiKey = null;
-        $this->bearer = null;
+        $this->apiKey = $apiKey;
+        $this->bearer = $bearer;
     }
 }
