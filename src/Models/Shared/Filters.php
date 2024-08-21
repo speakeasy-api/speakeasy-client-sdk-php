@@ -15,10 +15,10 @@ class Filters
     /**
      * A list of filters to apply to the query.
      *
-     * @var array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Filter> $filters
+     * @var array<Filter> $filters
      */
     #[\JMS\Serializer\Annotation\SerializedName('filters')]
-    #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\Models\Shared\Filter>')]
+    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Filter>')]
     public array $filters;
 
     /**
@@ -27,7 +27,6 @@ class Filters
      * @var int $limit
      */
     #[\JMS\Serializer\Annotation\SerializedName('limit')]
-    #[\JMS\Serializer\Annotation\Type('int')]
     public int $limit;
 
     /**
@@ -36,7 +35,6 @@ class Filters
      * @var int $offset
      */
     #[\JMS\Serializer\Annotation\SerializedName('offset')]
-    #[\JMS\Serializer\Annotation\Type('int')]
     public int $offset;
 
     /**
@@ -45,14 +43,19 @@ class Filters
      * @var string $operator
      */
     #[\JMS\Serializer\Annotation\SerializedName('operator')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $operator;
 
-    public function __construct()
+    /**
+     * @param  ?array<Filter>  $filters
+     * @param  ?int  $limit
+     * @param  ?int  $offset
+     * @param  ?string  $operator
+     */
+    public function __construct(?array $filters = null, ?int $limit = null, ?int $offset = null, ?string $operator = null)
     {
-        $this->filters = [];
-        $this->limit = 0;
-        $this->offset = 0;
-        $this->operator = '';
+        $this->filters = $filters;
+        $this->limit = $limit;
+        $this->offset = $offset;
+        $this->operator = $operator;
     }
 }

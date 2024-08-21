@@ -17,7 +17,6 @@ class OrganizationUsage
      * @var bool $accessible
      */
     #[\JMS\Serializer\Annotation\SerializedName('accessible')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $accessible;
 
     /**
@@ -44,7 +43,6 @@ class OrganizationUsage
      * @var string $language
      */
     #[\JMS\Serializer\Annotation\SerializedName('language')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $language;
 
     /**
@@ -53,7 +51,6 @@ class OrganizationUsage
      * @var int $numberOfOperations
      */
     #[\JMS\Serializer\Annotation\SerializedName('number_of_operations')]
-    #[\JMS\Serializer\Annotation\Type('int')]
     public int $numberOfOperations;
 
     /**
@@ -74,14 +71,23 @@ class OrganizationUsage
     #[\JMS\Serializer\Annotation\Type('array<string>')]
     public array $workspaces;
 
-    public function __construct()
+    /**
+     * @param  ?bool  $accessible
+     * @param  ?array<string>  $accessibleFeatures
+     * @param  ?array<string>  $genLockIds
+     * @param  ?string  $language
+     * @param  ?int  $numberOfOperations
+     * @param  ?array<string>  $usedFeatures
+     * @param  ?array<string>  $workspaces
+     */
+    public function __construct(?bool $accessible = null, ?array $accessibleFeatures = null, ?array $genLockIds = null, ?string $language = null, ?int $numberOfOperations = null, ?array $usedFeatures = null, ?array $workspaces = null)
     {
-        $this->accessible = false;
-        $this->accessibleFeatures = [];
-        $this->genLockIds = [];
-        $this->language = '';
-        $this->numberOfOperations = 0;
-        $this->usedFeatures = [];
-        $this->workspaces = [];
+        $this->accessible = $accessible;
+        $this->accessibleFeatures = $accessibleFeatures;
+        $this->genLockIds = $genLockIds;
+        $this->language = $language;
+        $this->numberOfOperations = $numberOfOperations;
+        $this->usedFeatures = $usedFeatures;
+        $this->workspaces = $workspaces;
     }
 }

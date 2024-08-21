@@ -16,31 +16,30 @@ composer require "speakeasy-api/speakeasy-client-sdk-php"
 ### Example
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetApisRequest();
-    $request->metadata = [
-        'South' => ['<value>'],
-    ];
-    $request->op = new Operations\QueryParamOp();
-    $request->op->and = false;
-
+    $request = new Operations\GetApisRequest(
+        metadata: [
+            'South' => [
+                '<value>',
+            ],
+        ],
+        op: new Operations\QueryParamOp(
+            and: false,
+        ),
+    );
     $response = $sdk->apis->getApis($request);
 
     if ($response->apis !== null) {
@@ -49,7 +48,6 @@ try {
 } catch (Throwable $e) {
     // handle exception
 }
-
 ```
 <!-- End SDK Example Usage [usage] -->
 
@@ -212,26 +210,23 @@ The following global parameter is available.
 ### Example
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
 
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetWorkspaceRequest();
+    $request = new Operations\GetWorkspaceRequest(
 
+    );
     $response = $sdk->workspaces->getWorkspace($request);
 
     if ($response->workspace !== null) {
@@ -240,7 +235,6 @@ try {
 } catch (Throwable $e) {
     // handle exception
 }
-
 ```
 <!-- End Global Parameters [global-parameters] -->
 

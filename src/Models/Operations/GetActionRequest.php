@@ -11,9 +11,17 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class GetActionRequest
 {
+    /**
+     *
+     * @var string $org
+     */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=org')]
     public string $org;
 
+    /**
+     *
+     * @var string $repo
+     */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=repo')]
     public string $repo;
 
@@ -25,10 +33,15 @@ class GetActionRequest
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=targetName')]
     public ?string $targetName = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $org
+     * @param  ?string  $repo
+     * @param  ?string  $targetName
+     */
+    public function __construct(?string $org = null, ?string $repo = null, ?string $targetName = null)
     {
-        $this->org = '';
-        $this->repo = '';
-        $this->targetName = null;
+        $this->org = $org;
+        $this->repo = $repo;
+        $this->targetName = $targetName;
     }
 }

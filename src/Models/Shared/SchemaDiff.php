@@ -33,16 +33,21 @@ class SchemaDiff
     /**
      * Holds every modification change in the diff.
      *
-     * @var array<string, \Speakeasy\SpeakeasyClientSDK\Models\Shared\ValueChange> $modifications
+     * @var array<string, ValueChange> $modifications
      */
     #[\JMS\Serializer\Annotation\SerializedName('modifications')]
-    #[\JMS\Serializer\Annotation\Type('array<string, Speakeasy\SpeakeasyClientSDK\Models\Shared\ValueChange>')]
+    #[\JMS\Serializer\Annotation\Type('array<string, \Speakeasy\SpeakeasyClientSDK\Models\Shared\ValueChange>')]
     public array $modifications;
 
-    public function __construct()
+    /**
+     * @param  ?array<string>  $additions
+     * @param  ?array<string>  $deletions
+     * @param  ?array<string, ValueChange>  $modifications
+     */
+    public function __construct(?array $additions = null, ?array $deletions = null, ?array $modifications = null)
     {
-        $this->additions = [];
-        $this->deletions = [];
-        $this->modifications = [];
+        $this->additions = $additions;
+        $this->deletions = $deletions;
+        $this->modifications = $modifications;
     }
 }

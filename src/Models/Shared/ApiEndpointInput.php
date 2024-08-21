@@ -18,7 +18,6 @@ class ApiEndpointInput
      * @var string $apiEndpointId
      */
     #[\JMS\Serializer\Annotation\SerializedName('api_endpoint_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $apiEndpointId;
 
     /**
@@ -27,7 +26,6 @@ class ApiEndpointInput
      * @var string $description
      */
     #[\JMS\Serializer\Annotation\SerializedName('description')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $description;
 
     /**
@@ -36,7 +34,6 @@ class ApiEndpointInput
      * @var string $displayName
      */
     #[\JMS\Serializer\Annotation\SerializedName('display_name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $displayName;
 
     /**
@@ -45,7 +42,6 @@ class ApiEndpointInput
      * @var string $method
      */
     #[\JMS\Serializer\Annotation\SerializedName('method')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $method;
 
     /**
@@ -54,7 +50,6 @@ class ApiEndpointInput
      * @var string $path
      */
     #[\JMS\Serializer\Annotation\SerializedName('path')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $path;
 
     /**
@@ -63,16 +58,23 @@ class ApiEndpointInput
      * @var string $versionId
      */
     #[\JMS\Serializer\Annotation\SerializedName('version_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $versionId;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiEndpointId
+     * @param  ?string  $description
+     * @param  ?string  $displayName
+     * @param  ?string  $method
+     * @param  ?string  $path
+     * @param  ?string  $versionId
+     */
+    public function __construct(?string $apiEndpointId = null, ?string $description = null, ?string $displayName = null, ?string $method = null, ?string $path = null, ?string $versionId = null)
     {
-        $this->apiEndpointId = '';
-        $this->description = '';
-        $this->displayName = '';
-        $this->method = '';
-        $this->path = '';
-        $this->versionId = '';
+        $this->apiEndpointId = $apiEndpointId;
+        $this->description = $description;
+        $this->displayName = $displayName;
+        $this->method = $method;
+        $this->path = $path;
+        $this->versionId = $versionId;
     }
 }
