@@ -15,6 +15,7 @@ class SDKConfiguration
     public ?\GuzzleHttp\ClientInterface $securityClient = null;
 
     public ?Models\Shared\Security $security = null;
+
     /** @var pure-Closure(): Models\Shared\Security */
     public ?\Closure $securitySource = null;
 
@@ -26,11 +27,11 @@ class SDKConfiguration
 
     public string $openapiDocVersion = '0.4.0 .';
 
-    public string $sdkVersion = '0.38.17';
+    public string $sdkVersion = '0.39.0';
 
-    public string $genVersion = '2.385.2';
+    public string $genVersion = '2.404.1';
 
-    public string $userAgent = 'speakeasy-sdk/php 0.38.17 2.385.2 0.4.0 . speakeasy-api/speakeasy-client-sdk-php';
+    public string $userAgent = 'speakeasy-sdk/php 0.39.0 2.404.1 0.4.0 . speakeasy-api/speakeasy-client-sdk-php';
     /** @var array<string, array<string, array<string, mixed>>> */
     public ?array $globals = [
         'parameters' => [],

@@ -35,10 +35,15 @@ class DeleteSchemaRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=versionID')]
     public string $versionID;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiID
+     * @param  ?string  $revisionID
+     * @param  ?string  $versionID
+     */
+    public function __construct(?string $apiID = null, ?string $revisionID = null, ?string $versionID = null)
     {
-        $this->apiID = '';
-        $this->revisionID = '';
-        $this->versionID = '';
+        $this->apiID = $apiID;
+        $this->revisionID = $revisionID;
+        $this->versionID = $versionID;
     }
 }

@@ -11,31 +11,50 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 class Workspaces
 {
+    /**
+     *
+     * @var ?AccountType $accountType
+     */
     #[\JMS\Serializer\Annotation\SerializedName('account_type')]
-    #[\JMS\Serializer\Annotation\Type('enum<Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType>')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?AccountType $accountType = null;
 
+    /**
+     *
+     * @var ?string $id
+     */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $id = null;
 
+    /**
+     *
+     * @var ?string $name
+     */
     #[\JMS\Serializer\Annotation\SerializedName('name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $name = null;
 
+    /**
+     *
+     * @var ?\DateTime $updatedAt
+     */
     #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $updatedAt = null;
 
-    public function __construct()
+    /**
+     * @param  ?AccountType  $accountType
+     * @param  ?string  $id
+     * @param  ?string  $name
+     * @param  ?\DateTime  $updatedAt
+     */
+    public function __construct(?AccountType $accountType = null, ?string $id = null, ?string $name = null, ?\DateTime $updatedAt = null)
     {
-        $this->accountType = null;
-        $this->id = null;
-        $this->name = null;
-        $this->updatedAt = null;
+        $this->accountType = $accountType;
+        $this->id = $id;
+        $this->name = $name;
+        $this->updatedAt = $updatedAt;
     }
 }

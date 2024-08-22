@@ -14,14 +14,17 @@ class GetTagsResponse
     /**
      * $items
      *
-     * @var array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Tag> $items
+     * @var array<Tag> $items
      */
     #[\JMS\Serializer\Annotation\SerializedName('items')]
-    #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\Models\Shared\Tag>')]
+    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Tag>')]
     public array $items;
 
-    public function __construct()
+    /**
+     * @param  ?array<Tag>  $items
+     */
+    public function __construct(?array $items = null)
     {
-        $this->items = [];
+        $this->items = $items;
     }
 }

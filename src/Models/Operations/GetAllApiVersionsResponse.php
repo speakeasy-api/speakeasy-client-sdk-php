@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class GetAllApiVersionsResponse
 {
     /**
      * OK
      *
-     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Api> $apis
+     * @var ?array<Shared\Api> $apis
      */
     public ?array $apis = null;
 
@@ -28,9 +28,9 @@ class GetAllApiVersionsResponse
     /**
      * Default error response
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
+     * @var ?Errors\Error $error
      */
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
+    public ?Errors\Error $error = null;
 
     /**
      * HTTP response status code for this operation
@@ -42,16 +42,23 @@ class GetAllApiVersionsResponse
     /**
      * Raw HTTP response; suitable for custom response parsing
      *
-     * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
+     * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
-    public ?\Psr\Http\Message\ResponseInterface $rawResponse;
+    public \Psr\Http\Message\ResponseInterface $rawResponse;
 
-    public function __construct()
+    /**
+     * @param  ?string  $contentType
+     * @param  ?int  $statusCode
+     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  ?array<Shared\Api>  $apis
+     * @param  ?Errors\Error  $error
+     */
+    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?array $apis = null, ?Errors\Error $error = null)
     {
-        $this->apis = null;
-        $this->contentType = '';
-        $this->error = null;
-        $this->statusCode = 0;
-        $this->rawResponse = null;
+        $this->contentType = $contentType;
+        $this->statusCode = $statusCode;
+        $this->rawResponse = $rawResponse;
+        $this->apis = $apis;
+        $this->error = $error;
     }
 }

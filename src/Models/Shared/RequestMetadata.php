@@ -12,19 +12,29 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 /** RequestMetadata - Key-Value pairs associated with a request */
 class RequestMetadata
 {
+    /**
+     *
+     * @var ?string $key
+     */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $key = null;
 
+    /**
+     *
+     * @var ?string $value
+     */
     #[\JMS\Serializer\Annotation\SerializedName('value')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $value = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $key
+     * @param  ?string  $value
+     */
+    public function __construct(?string $key = null, ?string $value = null)
     {
-        $this->key = null;
-        $this->value = null;
+        $this->key = $key;
+        $this->value = $value;
     }
 }

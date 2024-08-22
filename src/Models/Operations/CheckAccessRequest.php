@@ -11,15 +11,27 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class CheckAccessRequest
 {
+    /**
+     *
+     * @var string $org
+     */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=org')]
     public string $org;
 
+    /**
+     *
+     * @var string $repo
+     */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=repo')]
     public string $repo;
 
-    public function __construct()
+    /**
+     * @param  ?string  $org
+     * @param  ?string  $repo
+     */
+    public function __construct(?string $org = null, ?string $repo = null)
     {
-        $this->org = '';
-        $this->repo = '';
+        $this->org = $org;
+        $this->repo = $repo;
     }
 }

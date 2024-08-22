@@ -1065,3 +1065,13 @@ Based on:
 - [php v0.38.17] .
 ### Releases
 - [Composer v0.38.17] https://packagist.org/packages/speakeasy-api/speakeasy-client-sdk-php#v0.38.17 - .
+
+## 2024-08-22 00:14:05
+### Changes
+Based on:
+- OpenAPI Doc 0.4.0 . https://docs.speakeasyapi.dev/openapi.yaml
+- Speakeasy CLI 1.377.1 (2.404.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v0.39.0] .
+### Releases
+- [Composer v0.39.0] https://packagist.org/packages/speakeasy-api/speakeasy-client-sdk-php#v0.39.0 - .

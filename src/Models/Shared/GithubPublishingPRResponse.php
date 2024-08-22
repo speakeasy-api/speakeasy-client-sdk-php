@@ -12,19 +12,29 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 /** GithubPublishingPRResponse - Open generation PRs pending publishing */
 class GithubPublishingPRResponse
 {
+    /**
+     *
+     * @var ?string $generationPullRequest
+     */
     #[\JMS\Serializer\Annotation\SerializedName('generation_pull_request')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $generationPullRequest = null;
 
+    /**
+     *
+     * @var ?string $pendingVersion
+     */
     #[\JMS\Serializer\Annotation\SerializedName('pending_version')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $pendingVersion = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $generationPullRequest
+     * @param  ?string  $pendingVersion
+     */
+    public function __construct(?string $generationPullRequest = null, ?string $pendingVersion = null)
     {
-        $this->generationPullRequest = null;
-        $this->pendingVersion = null;
+        $this->generationPullRequest = $generationPullRequest;
+        $this->pendingVersion = $pendingVersion;
     }
 }

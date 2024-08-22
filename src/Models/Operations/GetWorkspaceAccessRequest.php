@@ -35,10 +35,15 @@ class GetWorkspaceAccessRequest
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=targetType')]
     public ?string $targetType = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $genLockId
+     * @param  ?bool  $passive
+     * @param  ?string  $targetType
+     */
+    public function __construct(?string $genLockId = null, ?bool $passive = null, ?string $targetType = null)
     {
-        $this->genLockId = null;
-        $this->passive = null;
-        $this->targetType = null;
+        $this->genLockId = $genLockId;
+        $this->passive = $passive;
+        $this->targetType = $targetType;
     }
 }
