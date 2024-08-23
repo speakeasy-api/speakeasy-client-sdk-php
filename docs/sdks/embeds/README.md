@@ -1,6 +1,5 @@
 # Embeds
 
-
 ## Overview
 
 REST APIs for managing embeds
@@ -19,15 +18,13 @@ Filters can be applied allowing views to be filtered to things like particular c
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -35,17 +32,18 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\GetEmbedAccessTokenRequest();
-    $request->description = 'Versatile asynchronous leverage';
-    $request->duration = 554373;
-    $request->filters = new Shared\Filters();
-    $request->filters->filters = [
-        new Shared\Filter(),
-    ];
-    $request->filters->limit = 263313;
-    $request->filters->offset = 411277;
-    $request->filters->operator = '<value>';;
-
+    $request = new Operations\GetEmbedAccessTokenRequest(
+        description: 'Versatile asynchronous leverage',
+        duration: 554373,
+        filters: new Shared\Filters(
+            filters: [
+                new Shared\Filter,
+            ],
+            limit: 263313,
+            offset: 411277,
+            operator: '<value>',
+        ),
+    );
     $response = $sdk->embeds->getEmbedAccessToken($request);
 
     if ($response->embedAccessTokenResponse !== null) {
@@ -58,14 +56,19 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                          | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenRequest](../../Models/Operations/GetEmbedAccessTokenRequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
-
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `$request`                                                                                     | [Operations\GetEmbedAccessTokenRequest](../../Models/Operations/GetEmbedAccessTokenRequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetEmbedAccessTokenResponse](../../Models/Operations/GetEmbedAccessTokenResponse.md)**
+**[?Operations\GetEmbedAccessTokenResponse](../../Models/Operations/GetEmbedAccessTokenResponse.md)**
+
+### Errors
+
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 
 ## getValidEmbedAccessTokens
@@ -75,14 +78,12 @@ Get all valid embed access tokens for the current workspace.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -100,10 +101,15 @@ try {
 }
 ```
 
-
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetValidEmbedAccessTokensResponse](../../Models/Operations/GetValidEmbedAccessTokensResponse.md)**
+**[?Operations\GetValidEmbedAccessTokensResponse](../../Models/Operations/GetValidEmbedAccessTokensResponse.md)**
+
+### Errors
+
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 
 ## revokeEmbedAccessToken
@@ -113,15 +119,13 @@ Revoke an embed access EmbedToken.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -129,9 +133,9 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\RevokeEmbedAccessTokenRequest();
-    $request->tokenID = '<value>';;
-
+    $request = new Operations\RevokeEmbedAccessTokenRequest(
+        tokenID: '<value>',
+    );
     $response = $sdk->embeds->revokeEmbedAccessToken($request);
 
     if ($response->statusCode === 200) {
@@ -144,12 +148,16 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                                 | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                                | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenRequest](../../Models/Operations/RevokeEmbedAccessTokenRequest.md) | :heavy_check_mark:                                                                                                                        | The request object to use for the request.                                                                                                |
-
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                           | [Operations\RevokeEmbedAccessTokenRequest](../../Models/Operations/RevokeEmbedAccessTokenRequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\RevokeEmbedAccessTokenResponse](../../Models/Operations/RevokeEmbedAccessTokenResponse.md)**
+**[?Operations\RevokeEmbedAccessTokenResponse](../../Models/Operations/RevokeEmbedAccessTokenResponse.md)**
 
+### Errors
+
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |

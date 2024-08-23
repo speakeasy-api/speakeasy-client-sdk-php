@@ -13,12 +13,20 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class GithubTriggerActionRequest
 {
     /**
+     * Force an SDK generation
+     *
+     * @var ?bool $force
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('force')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?bool $force = null;
+
+    /**
      * The generation lock ID
      *
      * @var string $genLockId
      */
     #[\JMS\Serializer\Annotation\SerializedName('gen_lock_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $genLockId;
 
     /**
@@ -27,7 +35,6 @@ class GithubTriggerActionRequest
      * @var string $org
      */
     #[\JMS\Serializer\Annotation\SerializedName('org')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $org;
 
     /**
@@ -36,7 +43,6 @@ class GithubTriggerActionRequest
      * @var string $repoName
      */
     #[\JMS\Serializer\Annotation\SerializedName('repo_name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $repoName;
 
     /**
@@ -45,7 +51,6 @@ class GithubTriggerActionRequest
      * @var ?string $setVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('set_version')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $setVersion = null;
 
@@ -55,16 +60,24 @@ class GithubTriggerActionRequest
      * @var ?string $targetName
      */
     #[\JMS\Serializer\Annotation\SerializedName('target_name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $targetName = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $genLockId
+     * @param  ?string  $org
+     * @param  ?string  $repoName
+     * @param  ?bool  $force
+     * @param  ?string  $setVersion
+     * @param  ?string  $targetName
+     */
+    public function __construct(?string $genLockId = null, ?string $org = null, ?string $repoName = null, ?bool $force = null, ?string $setVersion = null, ?string $targetName = null)
     {
-        $this->genLockId = '';
-        $this->org = '';
-        $this->repoName = '';
-        $this->setVersion = null;
-        $this->targetName = null;
+        $this->genLockId = $genLockId;
+        $this->org = $org;
+        $this->repoName = $repoName;
+        $this->force = $force;
+        $this->setVersion = $setVersion;
+        $this->targetName = $targetName;
     }
 }

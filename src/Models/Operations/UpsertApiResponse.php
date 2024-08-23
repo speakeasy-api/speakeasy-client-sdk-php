@@ -8,15 +8,16 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-
+use Speakeasy\SpeakeasyClientSDK\Models\Errors;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class UpsertApiResponse
 {
     /**
      * OK
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Api $api
+     * @var ?Shared\Api $api
      */
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Api $api = null;
+    public ?Shared\Api $api = null;
 
     /**
      * HTTP response content type for this operation
@@ -28,9 +29,9 @@ class UpsertApiResponse
     /**
      * Default error response
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
+     * @var ?Errors\Error $error
      */
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
+    public ?Errors\Error $error = null;
 
     /**
      * HTTP response status code for this operation
@@ -42,16 +43,23 @@ class UpsertApiResponse
     /**
      * Raw HTTP response; suitable for custom response parsing
      *
-     * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
+     * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
-    public ?\Psr\Http\Message\ResponseInterface $rawResponse;
+    public \Psr\Http\Message\ResponseInterface $rawResponse;
 
-    public function __construct()
+    /**
+     * @param  ?string  $contentType
+     * @param  ?int  $statusCode
+     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  ?Shared\Api  $api
+     * @param  ?Errors\Error  $error
+     */
+    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Shared\Api $api = null, ?Errors\Error $error = null)
     {
-        $this->api = null;
-        $this->contentType = '';
-        $this->error = null;
-        $this->statusCode = 0;
-        $this->rawResponse = null;
+        $this->contentType = $contentType;
+        $this->statusCode = $statusCode;
+        $this->rawResponse = $rawResponse;
+        $this->api = $api;
+        $this->error = $error;
     }
 }

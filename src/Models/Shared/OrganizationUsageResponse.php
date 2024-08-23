@@ -27,7 +27,6 @@ class OrganizationUsageResponse
      * @var ?\DateTime $freeTrialExpiry
      */
     #[\JMS\Serializer\Annotation\SerializedName('free_trial_expiry')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $freeTrialExpiry = null;
 
@@ -37,23 +36,28 @@ class OrganizationUsageResponse
      * @var int $totalAllowedLanguages
      */
     #[\JMS\Serializer\Annotation\SerializedName('total_allowed_languages')]
-    #[\JMS\Serializer\Annotation\Type('int')]
     public int $totalAllowedLanguages;
 
     /**
      * $usage
      *
-     * @var array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\OrganizationUsage> $usage
+     * @var array<OrganizationUsage> $usage
      */
     #[\JMS\Serializer\Annotation\SerializedName('usage')]
-    #[\JMS\Serializer\Annotation\Type('array<Speakeasy\SpeakeasyClientSDK\Models\Shared\OrganizationUsage>')]
+    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\OrganizationUsage>')]
     public array $usage;
 
-    public function __construct()
+    /**
+     * @param  ?array<string>  $allowedLanguages
+     * @param  ?int  $totalAllowedLanguages
+     * @param  ?array<OrganizationUsage>  $usage
+     * @param  ?\DateTime  $freeTrialExpiry
+     */
+    public function __construct(?array $allowedLanguages = null, ?int $totalAllowedLanguages = null, ?array $usage = null, ?\DateTime $freeTrialExpiry = null)
     {
-        $this->allowedLanguages = [];
-        $this->freeTrialExpiry = null;
-        $this->totalAllowedLanguages = 0;
-        $this->usage = [];
+        $this->allowedLanguages = $allowedLanguages;
+        $this->totalAllowedLanguages = $totalAllowedLanguages;
+        $this->usage = $usage;
+        $this->freeTrialExpiry = $freeTrialExpiry;
     }
 }

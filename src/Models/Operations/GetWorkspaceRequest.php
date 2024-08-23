@@ -19,8 +19,11 @@ class GetWorkspaceRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspaceID')]
     public ?string $workspaceID = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $workspaceID
+     */
+    public function __construct(?string $workspaceID = null)
     {
-        $this->workspaceID = null;
+        $this->workspaceID = $workspaceID;
     }
 }

@@ -11,19 +11,36 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class FetchPublishingPRsRequest
 {
+    /**
+     *
+     * @var string $generateGenLockId
+     */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=generate_gen_lock_id')]
     public string $generateGenLockId;
 
+    /**
+     *
+     * @var string $org
+     */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=org')]
     public string $org;
 
+    /**
+     *
+     * @var string $repo
+     */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=repo')]
     public string $repo;
 
-    public function __construct()
+    /**
+     * @param  ?string  $generateGenLockId
+     * @param  ?string  $org
+     * @param  ?string  $repo
+     */
+    public function __construct(?string $generateGenLockId = null, ?string $org = null, ?string $repo = null)
     {
-        $this->generateGenLockId = '';
-        $this->org = '';
-        $this->repo = '';
+        $this->generateGenLockId = $generateGenLockId;
+        $this->org = $org;
+        $this->repo = $repo;
     }
 }

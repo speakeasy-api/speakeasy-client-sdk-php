@@ -11,11 +11,18 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class GetTagsRequest
 {
+    /**
+     *
+     * @var string $namespaceName
+     */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=namespace_name')]
     public string $namespaceName;
 
-    public function __construct()
+    /**
+     * @param  ?string  $namespaceName
+     */
+    public function __construct(?string $namespaceName = null)
     {
-        $this->namespaceName = '';
+        $this->namespaceName = $namespaceName;
     }
 }

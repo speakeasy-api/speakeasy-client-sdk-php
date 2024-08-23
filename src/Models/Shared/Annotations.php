@@ -18,7 +18,6 @@ class Annotations
      * @var ?string $orgOpencontainersImageAuthors
      */
     #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.authors')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageAuthors = null;
 
@@ -28,7 +27,6 @@ class Annotations
      * @var ?string $orgOpencontainersImageCreated
      */
     #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.created')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageCreated = null;
 
@@ -38,7 +36,6 @@ class Annotations
      * @var ?string $orgOpencontainersImageDescription
      */
     #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.description')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageDescription = null;
 
@@ -48,12 +45,14 @@ class Annotations
      * @var ?string $orgOpencontainersImageDocumentation
      */
     #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.documentation')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageDocumentation = null;
 
+    /**
+     *
+     * @var ?string $orgOpencontainersImageLicenses
+     */
     #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.licenses')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageLicenses = null;
 
@@ -63,7 +62,6 @@ class Annotations
      * @var ?string $orgOpencontainersImageRefName
      */
     #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.ref.name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageRefName = null;
 
@@ -73,7 +71,6 @@ class Annotations
      * @var ?string $orgOpencontainersImageRevision
      */
     #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.revision')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageRevision = null;
 
@@ -83,7 +80,6 @@ class Annotations
      * @var ?string $orgOpencontainersImageSource
      */
     #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.source')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageSource = null;
 
@@ -93,7 +89,6 @@ class Annotations
      * @var ?string $orgOpencontainersImageTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.title')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageTitle = null;
 
@@ -103,7 +98,6 @@ class Annotations
      * @var ?string $orgOpencontainersImageUrl
      */
     #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.url')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageUrl = null;
 
@@ -113,7 +107,6 @@ class Annotations
      * @var ?string $orgOpencontainersImageVendor
      */
     #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.vendor')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageVendor = null;
 
@@ -123,23 +116,36 @@ class Annotations
      * @var ?string $orgOpencontainersImageVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.version')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $orgOpencontainersImageVersion = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $orgOpencontainersImageAuthors
+     * @param  ?string  $orgOpencontainersImageCreated
+     * @param  ?string  $orgOpencontainersImageDescription
+     * @param  ?string  $orgOpencontainersImageDocumentation
+     * @param  ?string  $orgOpencontainersImageLicenses
+     * @param  ?string  $orgOpencontainersImageRefName
+     * @param  ?string  $orgOpencontainersImageRevision
+     * @param  ?string  $orgOpencontainersImageSource
+     * @param  ?string  $orgOpencontainersImageTitle
+     * @param  ?string  $orgOpencontainersImageUrl
+     * @param  ?string  $orgOpencontainersImageVendor
+     * @param  ?string  $orgOpencontainersImageVersion
+     */
+    public function __construct(?string $orgOpencontainersImageAuthors = null, ?string $orgOpencontainersImageCreated = null, ?string $orgOpencontainersImageDescription = null, ?string $orgOpencontainersImageDocumentation = null, ?string $orgOpencontainersImageLicenses = null, ?string $orgOpencontainersImageRefName = null, ?string $orgOpencontainersImageRevision = null, ?string $orgOpencontainersImageSource = null, ?string $orgOpencontainersImageTitle = null, ?string $orgOpencontainersImageUrl = null, ?string $orgOpencontainersImageVendor = null, ?string $orgOpencontainersImageVersion = null)
     {
-        $this->orgOpencontainersImageAuthors = null;
-        $this->orgOpencontainersImageCreated = null;
-        $this->orgOpencontainersImageDescription = null;
-        $this->orgOpencontainersImageDocumentation = null;
-        $this->orgOpencontainersImageLicenses = null;
-        $this->orgOpencontainersImageRefName = null;
-        $this->orgOpencontainersImageRevision = null;
-        $this->orgOpencontainersImageSource = null;
-        $this->orgOpencontainersImageTitle = null;
-        $this->orgOpencontainersImageUrl = null;
-        $this->orgOpencontainersImageVendor = null;
-        $this->orgOpencontainersImageVersion = null;
+        $this->orgOpencontainersImageAuthors = $orgOpencontainersImageAuthors;
+        $this->orgOpencontainersImageCreated = $orgOpencontainersImageCreated;
+        $this->orgOpencontainersImageDescription = $orgOpencontainersImageDescription;
+        $this->orgOpencontainersImageDocumentation = $orgOpencontainersImageDocumentation;
+        $this->orgOpencontainersImageLicenses = $orgOpencontainersImageLicenses;
+        $this->orgOpencontainersImageRefName = $orgOpencontainersImageRefName;
+        $this->orgOpencontainersImageRevision = $orgOpencontainersImageRevision;
+        $this->orgOpencontainersImageSource = $orgOpencontainersImageSource;
+        $this->orgOpencontainersImageTitle = $orgOpencontainersImageTitle;
+        $this->orgOpencontainersImageUrl = $orgOpencontainersImageUrl;
+        $this->orgOpencontainersImageVendor = $orgOpencontainersImageVendor;
+        $this->orgOpencontainersImageVersion = $orgOpencontainersImageVersion;
     }
 }

@@ -19,8 +19,11 @@ class GetAccessTokenRequest
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=workspace_id')]
     public string $workspaceId;
 
-    public function __construct()
+    /**
+     * @param  ?string  $workspaceId
+     */
+    public function __construct(?string $workspaceId = null)
     {
-        $this->workspaceId = '';
+        $this->workspaceId = $workspaceId;
     }
 }

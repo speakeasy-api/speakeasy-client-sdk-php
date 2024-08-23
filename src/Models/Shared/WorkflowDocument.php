@@ -12,18 +12,29 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 /** WorkflowDocument - A document referenced by a workflow */
 class WorkflowDocument
 {
+    /**
+     *
+     * @var ?Auth $auth
+     */
     #[\JMS\Serializer\Annotation\SerializedName('auth')]
-    #[\JMS\Serializer\Annotation\Type('Speakeasy\SpeakeasyClientSDK\Models\Shared\Auth')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Auth')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Auth $auth = null;
 
+    /**
+     *
+     * @var string $location
+     */
     #[\JMS\Serializer\Annotation\SerializedName('location')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $location;
 
-    public function __construct()
+    /**
+     * @param  ?string  $location
+     * @param  ?Auth  $auth
+     */
+    public function __construct(?string $location = null, ?Auth $auth = null)
     {
-        $this->auth = null;
-        $this->location = '';
+        $this->location = $location;
+        $this->auth = $auth;
     }
 }

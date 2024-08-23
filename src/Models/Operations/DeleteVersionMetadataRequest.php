@@ -43,11 +43,17 @@ class DeleteVersionMetadataRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=versionID')]
     public string $versionID;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiID
+     * @param  ?string  $metaKey
+     * @param  ?string  $metaValue
+     * @param  ?string  $versionID
+     */
+    public function __construct(?string $apiID = null, ?string $metaKey = null, ?string $metaValue = null, ?string $versionID = null)
     {
-        $this->apiID = '';
-        $this->metaKey = '';
-        $this->metaValue = '';
-        $this->versionID = '';
+        $this->apiID = $apiID;
+        $this->metaKey = $metaKey;
+        $this->metaValue = $metaValue;
+        $this->versionID = $versionID;
     }
 }

@@ -18,7 +18,6 @@ class Api
      * @var string $apiId
      */
     #[\JMS\Serializer\Annotation\SerializedName('api_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $apiId;
 
     /**
@@ -27,7 +26,6 @@ class Api
      * @var \DateTime $createdAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
 
     /**
@@ -36,7 +34,6 @@ class Api
      * @var string $description
      */
     #[\JMS\Serializer\Annotation\SerializedName('description')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $description;
 
     /**
@@ -45,7 +42,6 @@ class Api
      * @var ?bool $matched
      */
     #[\JMS\Serializer\Annotation\SerializedName('matched')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $matched = null;
 
@@ -65,7 +61,6 @@ class Api
      * @var \DateTime $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $updatedAt;
 
     /**
@@ -74,7 +69,6 @@ class Api
      * @var string $versionId
      */
     #[\JMS\Serializer\Annotation\SerializedName('version_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $versionId;
 
     /**
@@ -83,18 +77,27 @@ class Api
      * @var string $workspaceId
      */
     #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $workspaceId;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiId
+     * @param  ?\DateTime  $createdAt
+     * @param  ?string  $description
+     * @param  ?\DateTime  $updatedAt
+     * @param  ?string  $versionId
+     * @param  ?string  $workspaceId
+     * @param  ?bool  $matched
+     * @param  ?array<string, array<string>>  $metaData
+     */
+    public function __construct(?string $apiId = null, ?\DateTime $createdAt = null, ?string $description = null, ?\DateTime $updatedAt = null, ?string $versionId = null, ?string $workspaceId = null, ?bool $matched = null, ?array $metaData = null)
     {
-        $this->apiId = '';
-        $this->createdAt = new \DateTime();
-        $this->description = '';
-        $this->matched = null;
-        $this->metaData = null;
-        $this->updatedAt = new \DateTime();
-        $this->versionId = '';
-        $this->workspaceId = '';
+        $this->apiId = $apiId;
+        $this->createdAt = $createdAt;
+        $this->description = $description;
+        $this->updatedAt = $updatedAt;
+        $this->versionId = $versionId;
+        $this->workspaceId = $workspaceId;
+        $this->matched = $matched;
+        $this->metaData = $metaData;
     }
 }

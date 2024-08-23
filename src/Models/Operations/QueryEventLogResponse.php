@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-
+use Speakeasy\SpeakeasyClientSDK\Models\Errors;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class QueryEventLogResponse
 {
     /**
      * OK
      *
-     * @var ?array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\BoundedRequest> $boundedRequests
+     * @var ?array<Shared\BoundedRequest> $boundedRequests
      */
     public ?array $boundedRequests = null;
 
@@ -28,9 +29,9 @@ class QueryEventLogResponse
     /**
      * Default error response
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
+     * @var ?Errors\Error $error
      */
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
+    public ?Errors\Error $error = null;
 
     /**
      * HTTP response status code for this operation
@@ -42,16 +43,23 @@ class QueryEventLogResponse
     /**
      * Raw HTTP response; suitable for custom response parsing
      *
-     * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
+     * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
-    public ?\Psr\Http\Message\ResponseInterface $rawResponse;
+    public \Psr\Http\Message\ResponseInterface $rawResponse;
 
-    public function __construct()
+    /**
+     * @param  ?string  $contentType
+     * @param  ?int  $statusCode
+     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  ?array<Shared\BoundedRequest>  $boundedRequests
+     * @param  ?Errors\Error  $error
+     */
+    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?array $boundedRequests = null, ?Errors\Error $error = null)
     {
-        $this->boundedRequests = null;
-        $this->contentType = '';
-        $this->error = null;
-        $this->statusCode = 0;
-        $this->rawResponse = null;
+        $this->contentType = $contentType;
+        $this->statusCode = $statusCode;
+        $this->rawResponse = $rawResponse;
+        $this->boundedRequests = $boundedRequests;
+        $this->error = $error;
     }
 }

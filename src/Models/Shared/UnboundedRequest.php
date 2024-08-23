@@ -18,7 +18,6 @@ class UnboundedRequest
      * @var \DateTime $createdAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
 
     /**
@@ -27,7 +26,6 @@ class UnboundedRequest
      * @var string $har
      */
     #[\JMS\Serializer\Annotation\SerializedName('har')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $har;
 
     /**
@@ -36,7 +34,6 @@ class UnboundedRequest
      * @var int $harSizeBytes
      */
     #[\JMS\Serializer\Annotation\SerializedName('har_size_bytes')]
-    #[\JMS\Serializer\Annotation\Type('int')]
     public int $harSizeBytes;
 
     /**
@@ -45,7 +42,6 @@ class UnboundedRequest
      * @var string $requestId
      */
     #[\JMS\Serializer\Annotation\SerializedName('request_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $requestId;
 
     /**
@@ -54,15 +50,21 @@ class UnboundedRequest
      * @var string $workspaceId
      */
     #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $workspaceId;
 
-    public function __construct()
+    /**
+     * @param  ?\DateTime  $createdAt
+     * @param  ?string  $har
+     * @param  ?int  $harSizeBytes
+     * @param  ?string  $requestId
+     * @param  ?string  $workspaceId
+     */
+    public function __construct(?\DateTime $createdAt = null, ?string $har = null, ?int $harSizeBytes = null, ?string $requestId = null, ?string $workspaceId = null)
     {
-        $this->createdAt = new \DateTime();
-        $this->har = '';
-        $this->harSizeBytes = 0;
-        $this->requestId = '';
-        $this->workspaceId = '';
+        $this->createdAt = $createdAt;
+        $this->har = $har;
+        $this->harSizeBytes = $harSizeBytes;
+        $this->requestId = $requestId;
+        $this->workspaceId = $workspaceId;
     }
 }

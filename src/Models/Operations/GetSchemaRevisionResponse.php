@@ -8,7 +8,8 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-
+use Speakeasy\SpeakeasyClientSDK\Models\Errors;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class GetSchemaRevisionResponse
 {
     /**
@@ -21,16 +22,16 @@ class GetSchemaRevisionResponse
     /**
      * Default error response
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
+     * @var ?Errors\Error $error
      */
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
+    public ?Errors\Error $error = null;
 
     /**
      * OK
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Schema $schema
+     * @var ?Shared\Schema $schema
      */
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Schema $schema = null;
+    public ?Shared\Schema $schema = null;
 
     /**
      * HTTP response status code for this operation
@@ -42,16 +43,23 @@ class GetSchemaRevisionResponse
     /**
      * Raw HTTP response; suitable for custom response parsing
      *
-     * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
+     * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
-    public ?\Psr\Http\Message\ResponseInterface $rawResponse;
+    public \Psr\Http\Message\ResponseInterface $rawResponse;
 
-    public function __construct()
+    /**
+     * @param  ?string  $contentType
+     * @param  ?int  $statusCode
+     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  ?Errors\Error  $error
+     * @param  ?Shared\Schema  $schema
+     */
+    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Errors\Error $error = null, ?Shared\Schema $schema = null)
     {
-        $this->contentType = '';
-        $this->error = null;
-        $this->schema = null;
-        $this->statusCode = 0;
-        $this->rawResponse = null;
+        $this->contentType = $contentType;
+        $this->statusCode = $statusCode;
+        $this->rawResponse = $rawResponse;
+        $this->error = $error;
+        $this->schema = $schema;
     }
 }

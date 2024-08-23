@@ -1,6 +1,5 @@
 # Apis
 
-
 ## Overview
 
 REST APIs for managing Api entities
@@ -21,15 +20,13 @@ Delete a particular version of an Api. The will also delete all associated ApiEn
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -37,10 +34,10 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\DeleteApiRequest();
-    $request->apiID = '<value>';
-    $request->versionID = '<value>';;
-
+    $request = new Operations\DeleteApiRequest(
+        apiID: '<value>',
+        versionID: '<value>',
+    );
     $response = $sdk->apis->deleteApi($request);
 
     if ($response->statusCode === 200) {
@@ -53,14 +50,19 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiRequest](../../Models/Operations/DeleteApiRequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
-
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `$request`                                                                 | [Operations\DeleteApiRequest](../../Models/Operations/DeleteApiRequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\DeleteApiResponse](../../Models/Operations/DeleteApiResponse.md)**
+**[?Operations\DeleteApiResponse](../../Models/Operations/DeleteApiResponse.md)**
+
+### Errors
+
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 
 ## generateOpenApiSpec
@@ -71,15 +73,13 @@ Returns the original document and the newly generated document allowing a diff t
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -87,10 +87,10 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\GenerateOpenApiSpecRequest();
-    $request->apiID = '<value>';
-    $request->versionID = '<value>';;
-
+    $request = new Operations\GenerateOpenApiSpecRequest(
+        apiID: '<value>',
+        versionID: '<value>',
+    );
     $response = $sdk->apis->generateOpenApiSpec($request);
 
     if ($response->generateOpenApiSpecDiff !== null) {
@@ -103,14 +103,19 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                          | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecRequest](../../Models/Operations/GenerateOpenApiSpecRequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
-
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `$request`                                                                                     | [Operations\GenerateOpenApiSpecRequest](../../Models/Operations/GenerateOpenApiSpecRequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GenerateOpenApiSpecResponse](../../Models/Operations/GenerateOpenApiSpecResponse.md)**
+**[?Operations\GenerateOpenApiSpecResponse](../../Models/Operations/GenerateOpenApiSpecResponse.md)**
+
+### Errors
+
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 
 ## generatePostmanCollection
@@ -120,15 +125,13 @@ Generates a postman collection containing all endpoints for a particular API. In
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -136,10 +139,10 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\GeneratePostmanCollectionRequest();
-    $request->apiID = '<value>';
-    $request->versionID = '<value>';;
-
+    $request = new Operations\GeneratePostmanCollectionRequest(
+        apiID: '<value>',
+        versionID: '<value>',
+    );
     $response = $sdk->apis->generatePostmanCollection($request);
 
     if ($response->postmanCollection !== null) {
@@ -152,14 +155,19 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                                       | Type                                                                                                                                            | Required                                                                                                                                        | Description                                                                                                                                     |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionRequest](../../Models/Operations/GeneratePostmanCollectionRequest.md) | :heavy_check_mark:                                                                                                                              | The request object to use for the request.                                                                                                      |
-
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                 | [Operations\GeneratePostmanCollectionRequest](../../Models/Operations/GeneratePostmanCollectionRequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GeneratePostmanCollectionResponse](../../Models/Operations/GeneratePostmanCollectionResponse.md)**
+**[?Operations\GeneratePostmanCollectionResponse](../../Models/Operations/GeneratePostmanCollectionResponse.md)**
+
+### Errors
+
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 
 ## getAllApiVersions
@@ -170,15 +178,13 @@ Supports filtering the versions based on metadata attributes.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -186,16 +192,17 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\GetAllApiVersionsRequest();
-    $request->apiID = '<value>';
-    $request->metadata = [
-        'azure' => [
-            '<value>',
+    $request = new Operations\GetAllApiVersionsRequest(
+        apiID: '<value>',
+        metadata: [
+            'azure' => [
+                '<value>',
+            ],
         ],
-    ];
-    $request->op = new Operations\Op();
-    $request->op->and = false;;
-
+        op: new Operations\Op(
+            and: false,
+        ),
+    );
     $response = $sdk->apis->getAllApiVersions($request);
 
     if ($response->apis !== null) {
@@ -208,14 +215,19 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsRequest](../../Models/Operations/GetAllApiVersionsRequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
-
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `$request`                                                                                 | [Operations\GetAllApiVersionsRequest](../../Models/Operations/GetAllApiVersionsRequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetAllApiVersionsResponse](../../Models/Operations/GetAllApiVersionsResponse.md)**
+**[?Operations\GetAllApiVersionsResponse](../../Models/Operations/GetAllApiVersionsResponse.md)**
+
+### Errors
+
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 
 ## getApis
@@ -226,15 +238,13 @@ Supports filtering the APIs based on metadata attributes.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -242,15 +252,16 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\GetApisRequest();
-    $request->metadata = [
-        'South' => [
-            '<value>',
+    $request = new Operations\GetApisRequest(
+        metadata: [
+            'South' => [
+                '<value>',
+            ],
         ],
-    ];
-    $request->op = new Operations\QueryParamOp();
-    $request->op->and = false;;
-
+        op: new Operations\QueryParamOp(
+            and: false,
+        ),
+    );
     $response = $sdk->apis->getApis($request);
 
     if ($response->apis !== null) {
@@ -263,14 +274,19 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                  | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisRequest](../../Models/Operations/GetApisRequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
-
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `$request`                                                             | [Operations\GetApisRequest](../../Models/Operations/GetApisRequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetApisResponse](../../Models/Operations/GetApisResponse.md)**
+**[?Operations\GetApisResponse](../../Models/Operations/GetApisResponse.md)**
+
+### Errors
+
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
 
 
 ## upsertApi
@@ -281,15 +297,13 @@ If the Api exists, it will be updated.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Speakeasy\SpeakeasyClientSDK;
-use \Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use \Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = '<YOUR_API_KEY_HERE>';
@@ -297,18 +311,19 @@ $security->apiKey = '<YOUR_API_KEY_HERE>';
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-        $request = new Operations\UpsertApiRequest();
-    $request->api = new Shared\ApiInput();
-    $request->api->apiId = '<value>';
-    $request->api->description = 'Synchronised 5th generation knowledge user';
-    $request->api->metaData = [
-        'redefine' => [
-            '<value>',
-        ],
-    ];
-    $request->api->versionId = '<value>';
-    $request->apiID = '<value>';;
-
+    $request = new Operations\UpsertApiRequest(
+        api: new Shared\ApiInput(
+            apiId: '<value>',
+            description: 'Synchronised 5th generation knowledge user',
+            versionId: '<value>',
+            metaData: [
+                'redefine' => [
+                    '<value>',
+                ],
+            ],
+        ),
+        apiID: '<value>',
+    );
     $response = $sdk->apis->upsertApi($request);
 
     if ($response->api !== null) {
@@ -321,12 +336,16 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                      | [\Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiRequest](../../Models/Operations/UpsertApiRequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
-
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `$request`                                                                 | [Operations\UpsertApiRequest](../../Models/Operations/UpsertApiRequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
 
 ### Response
 
-**[?\Speakeasy\SpeakeasyClientSDK\Models\Operations\UpsertApiResponse](../../Models/Operations/UpsertApiResponse.md)**
+**[?Operations\UpsertApiResponse](../../Models/Operations/UpsertApiResponse.md)**
 
+### Errors
+
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |

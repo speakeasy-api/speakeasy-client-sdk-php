@@ -8,15 +8,16 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-
+use Speakeasy\SpeakeasyClientSDK\Models\Errors;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class GetAccessTokenResponse
 {
     /**
      * OK
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessToken $accessToken
+     * @var ?Shared\AccessToken $accessToken
      */
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessToken $accessToken = null;
+    public ?Shared\AccessToken $accessToken = null;
 
     /**
      * HTTP response content type for this operation
@@ -28,9 +29,9 @@ class GetAccessTokenResponse
     /**
      * Default error response
      *
-     * @var ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error
+     * @var ?Errors\Error $error
      */
-    public ?\Speakeasy\SpeakeasyClientSDK\Models\Shared\Error $error = null;
+    public ?Errors\Error $error = null;
 
     /**
      * HTTP response status code for this operation
@@ -42,16 +43,23 @@ class GetAccessTokenResponse
     /**
      * Raw HTTP response; suitable for custom response parsing
      *
-     * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
+     * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
-    public ?\Psr\Http\Message\ResponseInterface $rawResponse;
+    public \Psr\Http\Message\ResponseInterface $rawResponse;
 
-    public function __construct()
+    /**
+     * @param  ?string  $contentType
+     * @param  ?int  $statusCode
+     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  ?Shared\AccessToken  $accessToken
+     * @param  ?Errors\Error  $error
+     */
+    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Shared\AccessToken $accessToken = null, ?Errors\Error $error = null)
     {
-        $this->accessToken = null;
-        $this->contentType = '';
-        $this->error = null;
-        $this->statusCode = 0;
-        $this->rawResponse = null;
+        $this->contentType = $contentType;
+        $this->statusCode = $statusCode;
+        $this->rawResponse = $rawResponse;
+        $this->accessToken = $accessToken;
+        $this->error = $error;
     }
 }

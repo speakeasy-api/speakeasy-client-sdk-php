@@ -12,8 +12,11 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 /** NamespaceT - A namespace contains many revisions. */
 class NamespaceT
 {
+    /**
+     *
+     * @var \DateTime $createdAt
+     */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
 
     /**
@@ -22,7 +25,6 @@ class NamespaceT
      * @var string $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
 
     /**
@@ -31,18 +33,26 @@ class NamespaceT
      * @var string $name
      */
     #[\JMS\Serializer\Annotation\SerializedName('name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $name;
 
+    /**
+     *
+     * @var \DateTime $updatedAt
+     */
     #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $updatedAt;
 
-    public function __construct()
+    /**
+     * @param  ?\DateTime  $createdAt
+     * @param  ?string  $id
+     * @param  ?string  $name
+     * @param  ?\DateTime  $updatedAt
+     */
+    public function __construct(?\DateTime $createdAt = null, ?string $id = null, ?string $name = null, ?\DateTime $updatedAt = null)
     {
-        $this->createdAt = new \DateTime();
-        $this->id = '';
-        $this->name = '';
-        $this->updatedAt = new \DateTime();
+        $this->createdAt = $createdAt;
+        $this->id = $id;
+        $this->name = $name;
+        $this->updatedAt = $updatedAt;
     }
 }

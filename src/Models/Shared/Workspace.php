@@ -12,59 +12,101 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 /** Workspace - A speakeasy workspace */
 class Workspace
 {
+    /**
+     *
+     * @var \DateTime $createdAt
+     */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $createdAt;
 
+    /**
+     *
+     * @var string $id
+     */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
 
+    /**
+     *
+     * @var string $name
+     */
     #[\JMS\Serializer\Annotation\SerializedName('name')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $name;
 
+    /**
+     *
+     * @var ?string $ociRepo
+     */
     #[\JMS\Serializer\Annotation\SerializedName('oci_repo')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $ociRepo = null;
 
+    /**
+     *
+     * @var ?\DateTime $ociRepoCreatedAt
+     */
     #[\JMS\Serializer\Annotation\SerializedName('oci_repo_created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $ociRepoCreatedAt = null;
 
+    /**
+     *
+     * @var string $organizationId
+     */
     #[\JMS\Serializer\Annotation\SerializedName('organization_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $organizationId;
 
+    /**
+     *
+     * @var string $slug
+     */
     #[\JMS\Serializer\Annotation\SerializedName('slug')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $slug;
 
+    /**
+     *
+     * @var bool $telemetryDisabled
+     */
     #[\JMS\Serializer\Annotation\SerializedName('telemetry_disabled')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $telemetryDisabled;
 
+    /**
+     *
+     * @var \DateTime $updatedAt
+     */
     #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     public \DateTime $updatedAt;
 
+    /**
+     *
+     * @var bool $verified
+     */
     #[\JMS\Serializer\Annotation\SerializedName('verified')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $verified;
 
-    public function __construct()
+    /**
+     * @param  ?\DateTime  $createdAt
+     * @param  ?string  $id
+     * @param  ?string  $name
+     * @param  ?string  $organizationId
+     * @param  ?string  $slug
+     * @param  ?bool  $telemetryDisabled
+     * @param  ?\DateTime  $updatedAt
+     * @param  ?bool  $verified
+     * @param  ?string  $ociRepo
+     * @param  ?\DateTime  $ociRepoCreatedAt
+     */
+    public function __construct(?\DateTime $createdAt = null, ?string $id = null, ?string $name = null, ?string $organizationId = null, ?string $slug = null, ?bool $telemetryDisabled = null, ?\DateTime $updatedAt = null, ?bool $verified = null, ?string $ociRepo = null, ?\DateTime $ociRepoCreatedAt = null)
     {
-        $this->createdAt = new \DateTime();
-        $this->id = '';
-        $this->name = '';
-        $this->ociRepo = null;
-        $this->ociRepoCreatedAt = null;
-        $this->organizationId = '';
-        $this->slug = '';
-        $this->telemetryDisabled = false;
-        $this->updatedAt = new \DateTime();
-        $this->verified = false;
+        $this->createdAt = $createdAt;
+        $this->id = $id;
+        $this->name = $name;
+        $this->organizationId = $organizationId;
+        $this->slug = $slug;
+        $this->telemetryDisabled = $telemetryDisabled;
+        $this->updatedAt = $updatedAt;
+        $this->verified = $verified;
+        $this->ociRepo = $ociRepo;
+        $this->ociRepoCreatedAt = $ociRepoCreatedAt;
     }
 }
