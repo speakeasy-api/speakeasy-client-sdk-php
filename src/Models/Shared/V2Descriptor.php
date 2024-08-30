@@ -18,7 +18,7 @@ class V2Descriptor
      * @var ?Annotations $annotations
      */
     #[\JMS\Serializer\Annotation\SerializedName('annotations')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Annotations $annotations = null;
 

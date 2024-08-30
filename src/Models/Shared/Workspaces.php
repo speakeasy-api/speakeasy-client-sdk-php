@@ -16,7 +16,7 @@ class Workspaces
      * @var ?AccountType $accountType
      */
     #[\JMS\Serializer\Annotation\SerializedName('account_type')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?AccountType $accountType = null;
 

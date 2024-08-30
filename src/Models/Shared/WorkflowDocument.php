@@ -17,7 +17,7 @@ class WorkflowDocument
      * @var ?Auth $auth
      */
     #[\JMS\Serializer\Annotation\SerializedName('auth')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Auth')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Auth|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Auth $auth = null;
 

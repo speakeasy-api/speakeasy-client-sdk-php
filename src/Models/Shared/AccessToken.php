@@ -33,7 +33,7 @@ class AccessToken
      * @var ?array<FeatureFlag> $featureFlags
      */
     #[\JMS\Serializer\Annotation\SerializedName('feature_flags')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlag>')]
+    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlag>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $featureFlags = null;
 
@@ -51,7 +51,7 @@ class AccessToken
      * @var ?array<Workspaces> $workspaces
      */
     #[\JMS\Serializer\Annotation\SerializedName('workspaces')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Workspaces>')]
+    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Workspaces>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $workspaces = null;
 

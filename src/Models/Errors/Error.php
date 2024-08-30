@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Errors;
 
 
+use Speakeasy\SpeakeasyClientSDK\Utils;
 /** Error - The `Status` type defines a logical error model */
 class Error
 {
@@ -36,5 +37,14 @@ class Error
     {
         $this->message = $message;
         $this->statusCode = $statusCode;
+    }
+
+    public function toException(): ErrorThrowable
+    {
+        $serializer = Utils\JSON::createSerializer();
+        $message = $serializer->serialize($this, 'json');
+        $code = -1;
+
+        return new ErrorThrowable($message, (int) $code, $this);
     }
 }

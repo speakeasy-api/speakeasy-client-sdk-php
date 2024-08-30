@@ -16,7 +16,7 @@ class SuggestOperationIDsOpts
      * @var ?DepthStyle $depthStyle
      */
     #[\JMS\Serializer\Annotation\SerializedName('depth_style')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\DepthStyle')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\DepthStyle|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?DepthStyle $depthStyle = null;
 
@@ -25,7 +25,7 @@ class SuggestOperationIDsOpts
      * @var ?Style $style
      */
     #[\JMS\Serializer\Annotation\SerializedName('style')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Style')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Style|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Style $style = null;
 

@@ -26,7 +26,7 @@ class GithubStorePublishingSecretsRequest
      * @var ?array<string, string> $secrets
      */
     #[\JMS\Serializer\Annotation\SerializedName('secrets')]
-    #[\JMS\Serializer\Annotation\Type('array<string, string>')]
+    #[\JMS\Serializer\Annotation\Type('array<string, string>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $secrets = null;
 

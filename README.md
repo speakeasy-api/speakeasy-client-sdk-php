@@ -3,8 +3,9 @@
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-### Composer
+The SDK relies on [Composer](https://getcomposer.org/) to manage its dependencies.
 
+To install the SDK and add it as a dependency to an existing `composer.json` file:
 ```bash
 composer require "speakeasy-api/speakeasy-client-sdk-php"
 ```
@@ -237,6 +238,24 @@ try {
 }
 ```
 <!-- End Global Parameters [global-parameters] -->
+
+<!-- Start Summary [summary] -->
+## Summary
+
+Speakeasy API: The Speakeasy API allows teams to manage common operations with their APIs
+
+For more information about the API: [The Speakeasy Platform Documentation](/docs)
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Global Parameters](#global-parameters)
+* [Server Selection](#server-selection)
+<!-- End Table of Contents [toc] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

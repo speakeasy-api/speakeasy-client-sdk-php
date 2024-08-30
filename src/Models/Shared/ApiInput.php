@@ -34,7 +34,7 @@ class ApiInput
      * @var ?array<string, array<string>> $metaData
      */
     #[\JMS\Serializer\Annotation\SerializedName('meta_data')]
-    #[\JMS\Serializer\Annotation\Type('array<string, array<string>>')]
+    #[\JMS\Serializer\Annotation\Type('array<string, array<string>>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $metaData = null;
 

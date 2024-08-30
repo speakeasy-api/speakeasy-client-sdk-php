@@ -69,7 +69,7 @@ class CliEvent
      * @var ?GenerateBumpType $generateBumpType
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_bump_type')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\GenerateBumpType')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\GenerateBumpType|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?GenerateBumpType $generateBumpType = null;
 
@@ -545,7 +545,7 @@ class CliEvent
      * @var ?OpenapiDiffBumpType $openapiDiffBumpType
      */
     #[\JMS\Serializer\Annotation\SerializedName('openapi_diff_bump_type')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\OpenapiDiffBumpType')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\OpenapiDiffBumpType|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?OpenapiDiffBumpType $openapiDiffBumpType = null;
 

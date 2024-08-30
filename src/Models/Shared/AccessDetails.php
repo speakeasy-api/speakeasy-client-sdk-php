@@ -23,7 +23,7 @@ class AccessDetails
      * @var ?Level $level
      */
     #[\JMS\Serializer\Annotation\SerializedName('level')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Level')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Level|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Level $level = null;
 

@@ -18,7 +18,7 @@ class Manifest
      * @var ?Annotations $annotations
      */
     #[\JMS\Serializer\Annotation\SerializedName('annotations')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations')]
+    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Annotations $annotations = null;
 
@@ -37,7 +37,7 @@ class Manifest
      * @var ?array<V2Descriptor> $layers
      */
     #[\JMS\Serializer\Annotation\SerializedName('layers')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\V2Descriptor>')]
+    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\V2Descriptor>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $layers = null;
 

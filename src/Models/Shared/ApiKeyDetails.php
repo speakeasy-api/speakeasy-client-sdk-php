@@ -34,7 +34,7 @@ class ApiKeyDetails
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\JMS\Serializer\Annotation\SerializedName('feature_flags')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\JMS\Serializer\Annotation\Type('array<string>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $featureFlags = null;
 
