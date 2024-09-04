@@ -9,23 +9,15 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
-class SuggestOperationIDsRequest
+class SuggestOpenAPIRequest
 {
     /**
      * The schema file to upload provided as a multipart/form-data file segment.
      *
-     * @var SuggestOperationIDsRequestBody $requestBody
+     * @var SuggestOpenAPIRequestBody $requestBody
      */
     #[SpeakeasyMetadata('request:mediaType=multipart/form-data')]
-    public SuggestOperationIDsRequestBody $requestBody;
-
-    /**
-     * Max number of suggestions to request
-     *
-     * @var ?float $limit
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=limit')]
-    public ?float $limit = null;
+    public SuggestOpenAPIRequestBody $requestBody;
 
     /**
      *
@@ -35,14 +27,12 @@ class SuggestOperationIDsRequest
     public string $xSessionId;
 
     /**
-     * @param  ?SuggestOperationIDsRequestBody  $requestBody
+     * @param  ?SuggestOpenAPIRequestBody  $requestBody
      * @param  ?string  $xSessionId
-     * @param  ?float  $limit
      */
-    public function __construct(?SuggestOperationIDsRequestBody $requestBody = null, ?string $xSessionId = null, ?float $limit = null)
+    public function __construct(?SuggestOpenAPIRequestBody $requestBody = null, ?string $xSessionId = null)
     {
         $this->requestBody = $requestBody;
         $this->xSessionId = $xSessionId;
-        $this->limit = $limit;
     }
 }

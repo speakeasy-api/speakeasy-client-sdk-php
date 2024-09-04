@@ -10,15 +10,15 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
-/** SuggestOperationIDsRequestBody - The schema file to upload provided as a multipart/form-data file segment. */
-class SuggestOperationIDsRequestBody
+/** SuggestOpenAPIRequestBody - The schema file to upload provided as a multipart/form-data file segment. */
+class SuggestOpenAPIRequestBody
 {
     /**
      *
-     * @var ?Shared\SuggestOperationIDsOpts $opts
+     * @var ?Shared\SuggestOpts $opts
      */
     #[SpeakeasyMetadata('multipartForm:name=opts,json=true')]
-    public ?Shared\SuggestOperationIDsOpts $opts = null;
+    public ?Shared\SuggestOpts $opts = null;
 
     /**
      *
@@ -29,9 +29,9 @@ class SuggestOperationIDsRequestBody
 
     /**
      * @param  ?Schema  $schema
-     * @param  ?Shared\SuggestOperationIDsOpts  $opts
+     * @param  ?Shared\SuggestOpts  $opts
      */
-    public function __construct(?Schema $schema = null, ?Shared\SuggestOperationIDsOpts $opts = null)
+    public function __construct(?Schema $schema = null, ?Shared\SuggestOpts $opts = null)
     {
         $this->schema = $schema;
         $this->opts = $opts;

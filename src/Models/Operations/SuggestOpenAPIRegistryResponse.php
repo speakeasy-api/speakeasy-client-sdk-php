@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-class SuggestOperationIDsRegistryResponse
+
+class SuggestOpenAPIRegistryResponse
 {
     /**
      * HTTP response content type for this operation
@@ -17,6 +17,13 @@ class SuggestOperationIDsRegistryResponse
      * @var string $contentType
      */
     public string $contentType;
+
+    /**
+     * An overlay containing the suggested spec modifications.
+     *
+     * @var ?string $schema
+     */
+    public ?string $schema = null;
 
     /**
      * HTTP response status code for this operation
@@ -33,23 +40,16 @@ class SuggestOperationIDsRegistryResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
-     * OK
-     *
-     * @var ?Shared\SuggestedOperationIDs $suggestedOperationIDs
-     */
-    public ?Shared\SuggestedOperationIDs $suggestedOperationIDs = null;
-
-    /**
      * @param  ?string  $contentType
      * @param  ?int  $statusCode
      * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?Shared\SuggestedOperationIDs  $suggestedOperationIDs
+     * @param  ?string  $schema
      */
-    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Shared\SuggestedOperationIDs $suggestedOperationIDs = null)
+    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?string $schema = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
-        $this->suggestedOperationIDs = $suggestedOperationIDs;
+        $this->schema = $schema;
     }
 }

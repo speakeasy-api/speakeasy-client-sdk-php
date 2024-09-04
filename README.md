@@ -148,8 +148,8 @@ try {
 ### [Suggest](docs/sdks/suggest/README.md)
 
 * [applyOperationIDs](docs/sdks/suggest/README.md#applyoperationids) - Apply operation ID suggestions and download result.
-* [suggestOperationIDs](docs/sdks/suggest/README.md#suggestoperationids) - Generate operation ID suggestions.
-* [suggestOperationIDsRegistry](docs/sdks/suggest/README.md#suggestoperationidsregistry) - Generate operation ID suggestions.
+* [suggestOpenAPI](docs/sdks/suggest/README.md#suggestopenapi) - Generate suggestions for improving an OpenAPI document.
+* [suggestOpenAPIRegistry](docs/sdks/suggest/README.md#suggestopenapiregistry) - Generate suggestions for improving an OpenAPI document stored in the registry.
 
 ### [Embeds](docs/sdks/embeds/README.md)
 

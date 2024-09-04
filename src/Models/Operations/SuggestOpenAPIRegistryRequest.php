@@ -10,23 +10,15 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
-class SuggestOperationIDsRegistryRequest
+class SuggestOpenAPIRegistryRequest
 {
     /**
-     * The schema file to upload provided as a multipart/form-data file segment.
+     * Suggest options
      *
-     * @var ?Shared\SuggestOperationIDsOpts $suggestOperationIDsOpts
+     * @var ?Shared\SuggestOpts $suggestOpts
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public ?Shared\SuggestOperationIDsOpts $suggestOperationIDsOpts = null;
-
-    /**
-     * Max number of suggestions to request
-     *
-     * @var ?float $limit
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=limit')]
-    public ?float $limit = null;
+    public ?Shared\SuggestOpts $suggestOpts = null;
 
     /**
      *
@@ -54,15 +46,13 @@ class SuggestOperationIDsRegistryRequest
      * @param  ?string  $namespaceName
      * @param  ?string  $revisionReference
      * @param  ?string  $xSessionId
-     * @param  ?Shared\SuggestOperationIDsOpts  $suggestOperationIDsOpts
-     * @param  ?float  $limit
+     * @param  ?Shared\SuggestOpts  $suggestOpts
      */
-    public function __construct(?string $namespaceName = null, ?string $revisionReference = null, ?string $xSessionId = null, ?Shared\SuggestOperationIDsOpts $suggestOperationIDsOpts = null, ?float $limit = null)
+    public function __construct(?string $namespaceName = null, ?string $revisionReference = null, ?string $xSessionId = null, ?Shared\SuggestOpts $suggestOpts = null)
     {
         $this->namespaceName = $namespaceName;
         $this->revisionReference = $revisionReference;
         $this->xSessionId = $xSessionId;
-        $this->suggestOperationIDsOpts = $suggestOperationIDsOpts;
-        $this->limit = $limit;
+        $this->suggestOpts = $suggestOpts;
     }
 }

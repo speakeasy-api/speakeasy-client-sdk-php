@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: a1c6af4bc670e02f54fbf8545a634a04
+  docChecksum: 11eaddc370e7d2043750bcff56df17e1
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.383.2
-  generationVersion: 2.407.0
-  releaseVersion: 0.40.0
-  configChecksum: fa9abfb164411246aeb50c369689dfa3
+  speakeasyVersion: 1.390.1
+  generationVersion: 2.409.0
+  releaseVersion: 0.40.1
+  configChecksum: 8ee0166559ceb7685f2904ec44b27a56
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -183,11 +183,11 @@ generatedFiles:
   - src/Models/Operations/ApplyOperationIDsRequest.php
   - src/Models/Operations/ApplyOperationIDsResponse.php
   - src/Models/Operations/Schema.php
-  - src/Models/Operations/SuggestOperationIDsRequestBody.php
-  - src/Models/Operations/SuggestOperationIDsRequest.php
-  - src/Models/Operations/SuggestOperationIDsResponse.php
-  - src/Models/Operations/SuggestOperationIDsRegistryRequest.php
-  - src/Models/Operations/SuggestOperationIDsRegistryResponse.php
+  - src/Models/Operations/SuggestOpenAPIRequestBody.php
+  - src/Models/Operations/SuggestOpenAPIRequest.php
+  - src/Models/Operations/SuggestOpenAPIResponse.php
+  - src/Models/Operations/SuggestOpenAPIRegistryRequest.php
+  - src/Models/Operations/SuggestOpenAPIRegistryResponse.php
   - src/Models/Operations/GetEmbedAccessTokenRequest.php
   - src/Models/Operations/GetEmbedAccessTokenResponse.php
   - src/Models/Operations/GetValidEmbedAccessTokensResponse.php
@@ -263,10 +263,9 @@ generatedFiles:
   - src/Models/Shared/Type.php
   - src/Models/Shared/Report.php
   - src/Models/Shared/ShortURL.php
-  - src/Models/Shared/SuggestedOperationIDs.php
-  - src/Models/Shared/DepthStyle.php
-  - src/Models/Shared/Style.php
-  - src/Models/Shared/SuggestOperationIDsOpts.php
+  - src/Models/Shared/SuggestionType.php
+  - src/Models/Shared/SuggestOpts.php
+  - src/Models/Shared/Diagnostic.php
   - src/Models/Shared/EmbedAccessTokenResponse.php
   - src/Models/Shared/EmbedToken.php
   - src/Models/Shared/Workspace.php
@@ -390,11 +389,11 @@ generatedFiles:
   - docs/Models/Operations/ApplyOperationIDsRequest.md
   - docs/Models/Operations/ApplyOperationIDsResponse.md
   - docs/Models/Operations/Schema.md
-  - docs/Models/Operations/SuggestOperationIDsRequestBody.md
-  - docs/Models/Operations/SuggestOperationIDsRequest.md
-  - docs/Models/Operations/SuggestOperationIDsResponse.md
-  - docs/Models/Operations/SuggestOperationIDsRegistryRequest.md
-  - docs/Models/Operations/SuggestOperationIDsRegistryResponse.md
+  - docs/Models/Operations/SuggestOpenAPIRequestBody.md
+  - docs/Models/Operations/SuggestOpenAPIRequest.md
+  - docs/Models/Operations/SuggestOpenAPIResponse.md
+  - docs/Models/Operations/SuggestOpenAPIRegistryRequest.md
+  - docs/Models/Operations/SuggestOpenAPIRegistryResponse.md
   - docs/Models/Operations/GetEmbedAccessTokenRequest.md
   - docs/Models/Operations/GetEmbedAccessTokenResponse.md
   - docs/Models/Operations/GetValidEmbedAccessTokensResponse.md
@@ -466,10 +465,9 @@ generatedFiles:
   - docs/Models/Shared/Type.md
   - docs/Models/Shared/Report.md
   - docs/Models/Shared/ShortURL.md
-  - docs/Models/Shared/SuggestedOperationIDs.md
-  - docs/Models/Shared/DepthStyle.md
-  - docs/Models/Shared/Style.md
-  - docs/Models/Shared/SuggestOperationIDsOpts.md
+  - docs/Models/Shared/SuggestionType.md
+  - docs/Models/Shared/SuggestOpts.md
+  - docs/Models/Shared/Diagnostic.md
   - docs/Models/Shared/EmbedAccessTokenResponse.md
   - docs/Models/Shared/EmbedToken.md
   - docs/Models/Shared/Workspace.md

@@ -93,26 +93,25 @@ class Suggest
     }
 
     /**
-     * Generate operation ID suggestions.
+     * Generate suggestions for improving an OpenAPI document.
      *
-     * Get suggestions from an LLM model for improving the operationIDs in the provided schema.
+     * Get suggestions from an LLM model for improving an OpenAPI document.
      *
-     * @param  Operations\SuggestOperationIDsRequest  $request
-     * @return Operations\SuggestOperationIDsResponse
+     * @param  Operations\SuggestOpenAPIRequest  $request
+     * @return Operations\SuggestOpenAPIResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
-    public function suggestOperationIDs(
-        Operations\SuggestOperationIDsRequest $request,
-    ): Operations\SuggestOperationIDsResponse {
+    public function suggestOpenAPI(
+        Operations\SuggestOpenAPIRequest $request,
+    ): Operations\SuggestOpenAPIResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/suggest/operation_ids');
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/suggest/openapi');
         $options = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'requestBody', 'multipart');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
         $options = array_merge_recursive($options, $body);
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\SuggestOperationIDsRequest::class, $request, $this->sdkConfiguration->globals));
         $options = array_merge_recursive($options, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $options)) {
             $options['headers'] = [];
@@ -128,15 +127,13 @@ class Suggest
         $statusCode = $httpResponse->getStatusCode();
         if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestedOperationIDs', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\SuggestOperationIDsResponse(
+                $obj = $httpResponse->getBody()->getContents();
+
+                return new Operations\SuggestOpenAPIResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
-                    suggestedOperationIDs: $obj);
-
-                return $response;
+                    schema: $obj);
             } else {
                 throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
@@ -148,25 +145,24 @@ class Suggest
     }
 
     /**
-     * Generate operation ID suggestions.
+     * Generate suggestions for improving an OpenAPI document stored in the registry.
      *
-     * Get suggestions from an LLM model for improving the operationIDs in the provided schema.
+     * Get suggestions from an LLM model for improving an OpenAPI document stored in the registry.
      *
-     * @param  Operations\SuggestOperationIDsRegistryRequest  $request
-     * @return Operations\SuggestOperationIDsRegistryResponse
+     * @param  Operations\SuggestOpenAPIRegistryRequest  $request
+     * @return Operations\SuggestOpenAPIRegistryResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
      */
-    public function suggestOperationIDsRegistry(
-        ?Operations\SuggestOperationIDsRegistryRequest $request,
-    ): Operations\SuggestOperationIDsRegistryResponse {
+    public function suggestOpenAPIRegistry(
+        ?Operations\SuggestOpenAPIRegistryRequest $request,
+    ): Operations\SuggestOpenAPIRegistryResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/suggest/operation_ids/{namespace_name}/{revision_reference}', Operations\SuggestOperationIDsRegistryRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/suggest/openapi/{namespace_name}/{revision_reference}', Operations\SuggestOpenAPIRegistryRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'suggestOperationIDsOpts', 'json');
+        $body = Utils\Utils::serializeRequestBody($request, 'suggestOpts', 'json');
         if ($body !== null) {
             $options = array_merge_recursive($options, $body);
         }
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\SuggestOperationIDsRegistryRequest::class, $request, $this->sdkConfiguration->globals));
         $options = array_merge_recursive($options, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $options)) {
             $options['headers'] = [];
@@ -182,15 +178,13 @@ class Suggest
         $statusCode = $httpResponse->getStatusCode();
         if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestedOperationIDs', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\SuggestOperationIDsRegistryResponse(
+                $obj = $httpResponse->getBody()->getContents();
+
+                return new Operations\SuggestOpenAPIRegistryResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
-                    suggestedOperationIDs: $obj);
-
-                return $response;
+                    schema: $obj);
             } else {
                 throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }

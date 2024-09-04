@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
-enum Style: string
+enum SuggestionType: string
 {
-    case Standardize = 'standardize';
-    case Resource = 'resource';
+    case MethodNames = 'method-names';
+    case DiagnosticsOnly = 'diagnostics-only';
 }
