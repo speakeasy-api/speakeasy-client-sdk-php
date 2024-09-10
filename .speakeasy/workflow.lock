@@ -2,7 +2,7 @@ speakeasyVersion: 1.395.0
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:d07ff740d9a10bc407577bb48b89223fc2415a389630421a4f3598885328627b
+        sourceRevisionDigest: sha256:e348163708b8c533e7994050d70d041201ec2fc59f35ff8d238b6cfe3f599e47
         sourceBlobDigest: sha256:a4bfd0ba65778a5104220868c475a6a29870a95c9018891ea04ffe956383d374
         tags:
             - latest
@@ -11,7 +11,7 @@ targets:
     php-target:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:d07ff740d9a10bc407577bb48b89223fc2415a389630421a4f3598885328627b
+        sourceRevisionDigest: sha256:e348163708b8c533e7994050d70d041201ec2fc59f35ff8d238b6cfe3f599e47
         sourceBlobDigest: sha256:a4bfd0ba65778a5104220868c475a6a29870a95c9018891ea04ffe956383d374
         outLocation: /github/workspace/repo
 workflow:

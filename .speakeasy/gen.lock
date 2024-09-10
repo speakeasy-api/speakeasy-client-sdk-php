@@ -5,8 +5,8 @@ management:
   docVersion: 0.4.0 .
   speakeasyVersion: 1.395.0
   generationVersion: 2.415.0
-  releaseVersion: 0.41.0
-  configChecksum: ac0625dec533bded76fcf02b21e80cf9
+  releaseVersion: 0.41.1
+  configChecksum: 6b3940a1706dec493e842cad82da34ab
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -860,6 +860,7 @@ examples:
       responses:
         default:
           application/json: {"message": "<value>", "status_code": 820828}
+        "200": {}
   getAccessToken:
     speakeasy-default-get-access-token:
       parameters:
@@ -958,6 +959,7 @@ examples:
       responses:
         default:
           application/json: {"message": "<value>", "status_code": 192607}
+        "200": {}
   getAction:
     speakeasy-default-get-action:
       parameters:
@@ -967,6 +969,7 @@ examples:
       responses:
         default:
           application/json: {"message": "<value>", "status_code": 252330}
+        "200": {}
   githubCheckPublishingSecrets:
     speakeasy-default-github-check-publishing-secrets:
       parameters:
@@ -975,6 +978,7 @@ examples:
       responses:
         default:
           application/json: {"message": "<value>", "status_code": 445560}
+        "200": {}
   githubStorePublishingSecrets:
     speakeasy-default-github-store-publishing-secrets:
       requestBody:
