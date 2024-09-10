@@ -17,7 +17,7 @@ class RequestMetadata
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -25,7 +25,7 @@ class RequestMetadata
      * @var ?string $value
      */
     #[\JMS\Serializer\Annotation\SerializedName('value')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $value = null;
 
     /**

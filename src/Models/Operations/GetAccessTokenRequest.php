@@ -20,9 +20,9 @@ class GetAccessTokenRequest
     public string $workspaceId;
 
     /**
-     * @param  ?string  $workspaceId
+     * @param  string  $workspaceId
      */
-    public function __construct(?string $workspaceId = null)
+    public function __construct(string $workspaceId)
     {
         $this->workspaceId = $workspaceId;
     }

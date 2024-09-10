@@ -49,13 +49,13 @@ class OASOperation
     public array $tags;
 
     /**
-     * @param  ?string  $description
-     * @param  ?string  $method
-     * @param  ?string  $operationId
-     * @param  ?string  $path
-     * @param  ?array<string>  $tags
+     * @param  string  $description
+     * @param  string  $method
+     * @param  string  $operationId
+     * @param  string  $path
+     * @param  array<string>  $tags
      */
-    public function __construct(?string $description = null, ?string $method = null, ?string $operationId = null, ?string $path = null, ?array $tags = null)
+    public function __construct(string $description, string $method, string $operationId, string $path, array $tags)
     {
         $this->description = $description;
         $this->method = $method;

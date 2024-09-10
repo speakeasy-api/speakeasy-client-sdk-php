@@ -43,12 +43,12 @@ class NamespaceT
     public \DateTime $updatedAt;
 
     /**
-     * @param  ?\DateTime  $createdAt
-     * @param  ?string  $id
-     * @param  ?string  $name
-     * @param  ?\DateTime  $updatedAt
+     * @param  \DateTime  $createdAt
+     * @param  string  $id
+     * @param  string  $name
+     * @param  \DateTime  $updatedAt
      */
-    public function __construct(?\DateTime $createdAt = null, ?string $id = null, ?string $name = null, ?\DateTime $updatedAt = null)
+    public function __construct(\DateTime $createdAt, string $id, string $name, \DateTime $updatedAt)
     {
         $this->createdAt = $createdAt;
         $this->id = $id;

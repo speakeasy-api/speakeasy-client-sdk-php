@@ -61,14 +61,14 @@ class ApiEndpointInput
     public string $versionId;
 
     /**
-     * @param  ?string  $apiEndpointId
-     * @param  ?string  $description
-     * @param  ?string  $displayName
-     * @param  ?string  $method
-     * @param  ?string  $path
-     * @param  ?string  $versionId
+     * @param  string  $apiEndpointId
+     * @param  string  $description
+     * @param  string  $displayName
+     * @param  string  $method
+     * @param  string  $path
+     * @param  string  $versionId
      */
-    public function __construct(?string $apiEndpointId = null, ?string $description = null, ?string $displayName = null, ?string $method = null, ?string $path = null, ?string $versionId = null)
+    public function __construct(string $apiEndpointId, string $description, string $displayName, string $method, string $path, string $versionId)
     {
         $this->apiEndpointId = $apiEndpointId;
         $this->description = $description;

@@ -28,10 +28,10 @@ class ValueChange
     public string $to;
 
     /**
-     * @param  ?string  $from
-     * @param  ?string  $to
+     * @param  string  $from
+     * @param  string  $to
      */
-    public function __construct(?string $from = null, ?string $to = null)
+    public function __construct(string $from, string $to)
     {
         $this->from = $from;
         $this->to = $to;

@@ -29,10 +29,10 @@ class VersionMetadataInput
     public string $metaValue;
 
     /**
-     * @param  ?string  $metaKey
-     * @param  ?string  $metaValue
+     * @param  string  $metaKey
+     * @param  string  $metaValue
      */
-    public function __construct(?string $metaKey = null, ?string $metaValue = null)
+    public function __construct(string $metaKey, string $metaValue)
     {
         $this->metaKey = $metaKey;
         $this->metaValue = $metaValue;

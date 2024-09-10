@@ -17,7 +17,7 @@ class PreflightToken
      * @var ?string $authToken
      */
     #[\JMS\Serializer\Annotation\SerializedName('auth_token')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $authToken = null;
 
     /**

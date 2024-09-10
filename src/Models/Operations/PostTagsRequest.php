@@ -28,10 +28,10 @@ class PostTagsRequest
     public string $namespaceName;
 
     /**
-     * @param  ?string  $namespaceName
+     * @param  string  $namespaceName
      * @param  ?Shared\AddTags  $addTags
      */
-    public function __construct(?string $namespaceName = null, ?Shared\AddTags $addTags = null)
+    public function __construct(string $namespaceName, ?Shared\AddTags $addTags = null)
     {
         $this->namespaceName = $namespaceName;
         $this->addTags = $addTags;

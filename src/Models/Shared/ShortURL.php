@@ -26,10 +26,10 @@ class ShortURL
     public string $shortUrl;
 
     /**
-     * @param  ?string  $fullUrl
-     * @param  ?string  $shortUrl
+     * @param  string  $fullUrl
+     * @param  string  $shortUrl
      */
-    public function __construct(?string $fullUrl = null, ?string $shortUrl = null)
+    public function __construct(string $fullUrl, string $shortUrl)
     {
         $this->fullUrl = $fullUrl;
         $this->shortUrl = $shortUrl;

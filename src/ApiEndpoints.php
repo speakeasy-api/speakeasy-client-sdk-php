@@ -14,7 +14,6 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 class ApiEndpoints
 {
     private SDKConfiguration $sdkConfiguration;
-
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
@@ -469,4 +468,5 @@ class ApiEndpoints
             }
         }
     }
+
 }

@@ -16,7 +16,7 @@ class AccessTokenUser
      * @var ?bool $admin
      */
     #[\JMS\Serializer\Annotation\SerializedName('admin')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $admin = null;
 
     /**
@@ -24,7 +24,7 @@ class AccessTokenUser
      * @var ?\DateTime $createdAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $createdAt = null;
 
     /**
@@ -32,7 +32,7 @@ class AccessTokenUser
      * @var ?string $displayName
      */
     #[\JMS\Serializer\Annotation\SerializedName('display_name')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $displayName = null;
 
     /**
@@ -40,7 +40,7 @@ class AccessTokenUser
      * @var ?string $email
      */
     #[\JMS\Serializer\Annotation\SerializedName('email')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $email = null;
 
     /**
@@ -48,7 +48,7 @@ class AccessTokenUser
      * @var ?bool $emailVerified
      */
     #[\JMS\Serializer\Annotation\SerializedName('email_verified')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $emailVerified = null;
 
     /**
@@ -56,7 +56,7 @@ class AccessTokenUser
      * @var ?string $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $id = null;
 
     /**

@@ -27,10 +27,10 @@ class SuggestOpenAPIRequest
     public string $xSessionId;
 
     /**
-     * @param  ?SuggestOpenAPIRequestBody  $requestBody
-     * @param  ?string  $xSessionId
+     * @param  SuggestOpenAPIRequestBody  $requestBody
+     * @param  string  $xSessionId
      */
-    public function __construct(?SuggestOpenAPIRequestBody $requestBody = null, ?string $xSessionId = null)
+    public function __construct(SuggestOpenAPIRequestBody $requestBody, string $xSessionId)
     {
         $this->requestBody = $requestBody;
         $this->xSessionId = $xSessionId;

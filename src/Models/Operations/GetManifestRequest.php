@@ -41,12 +41,12 @@ class GetManifestRequest
     public string $workspaceSlug;
 
     /**
-     * @param  ?string  $namespaceName
-     * @param  ?string  $organizationSlug
-     * @param  ?string  $revisionReference
-     * @param  ?string  $workspaceSlug
+     * @param  string  $namespaceName
+     * @param  string  $organizationSlug
+     * @param  string  $revisionReference
+     * @param  string  $workspaceSlug
      */
-    public function __construct(?string $namespaceName = null, ?string $organizationSlug = null, ?string $revisionReference = null, ?string $workspaceSlug = null)
+    public function __construct(string $namespaceName, string $organizationSlug, string $revisionReference, string $workspaceSlug)
     {
         $this->namespaceName = $namespaceName;
         $this->organizationSlug = $organizationSlug;

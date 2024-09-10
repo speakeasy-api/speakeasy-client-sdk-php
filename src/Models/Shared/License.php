@@ -16,7 +16,7 @@ class License
      * @var ?string $identifier
      */
     #[\JMS\Serializer\Annotation\SerializedName('identifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $identifier = null;
 
     /**

@@ -14,7 +14,6 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 class Workspaces
 {
     private SDKConfiguration $sdkConfiguration;
-
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
@@ -79,4 +78,5 @@ class Workspaces
             }
         }
     }
+
 }

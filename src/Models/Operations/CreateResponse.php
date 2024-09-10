@@ -40,12 +40,12 @@ class CreateResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
-     * @param  ?string  $contentType
-     * @param  ?int  $statusCode
-     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  string  $contentType
+     * @param  int  $statusCode
+     * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?Shared\ShortURL  $shortURL
      */
-    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Shared\ShortURL $shortURL = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\ShortURL $shortURL = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;

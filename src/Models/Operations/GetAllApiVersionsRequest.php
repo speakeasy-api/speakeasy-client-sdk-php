@@ -36,11 +36,11 @@ class GetAllApiVersionsRequest
     public ?Op $op = null;
 
     /**
-     * @param  ?string  $apiID
+     * @param  string  $apiID
      * @param  ?array<string, array<string>>  $metadata
      * @param  ?Op  $op
      */
-    public function __construct(?string $apiID = null, ?array $metadata = null, ?Op $op = null)
+    public function __construct(string $apiID, ?array $metadata = null, ?Op $op = null)
     {
         $this->apiID = $apiID;
         $this->metadata = $metadata;

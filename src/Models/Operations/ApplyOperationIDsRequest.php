@@ -27,10 +27,10 @@ class ApplyOperationIDsRequest
     public string $xSessionId;
 
     /**
-     * @param  ?string  $xSessionId
+     * @param  string  $xSessionId
      * @param  ?ApplyOperationIDsRequestBody  $requestBody
      */
-    public function __construct(?string $xSessionId = null, ?ApplyOperationIDsRequestBody $requestBody = null)
+    public function __construct(string $xSessionId, ?ApplyOperationIDsRequestBody $requestBody = null)
     {
         $this->xSessionId = $xSessionId;
         $this->requestBody = $requestBody;

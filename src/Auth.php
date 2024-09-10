@@ -14,7 +14,6 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 class Auth
 {
     private SDKConfiguration $sdkConfiguration;
-
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
@@ -228,4 +227,5 @@ class Auth
             }
         }
     }
+
 }

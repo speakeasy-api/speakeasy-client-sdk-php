@@ -61,14 +61,14 @@ class Schema
     public string $workspaceId;
 
     /**
-     * @param  ?string  $apiId
-     * @param  ?\DateTime  $createdAt
-     * @param  ?string  $description
-     * @param  ?string  $revisionId
-     * @param  ?string  $versionId
-     * @param  ?string  $workspaceId
+     * @param  string  $apiId
+     * @param  \DateTime  $createdAt
+     * @param  string  $description
+     * @param  string  $revisionId
+     * @param  string  $versionId
+     * @param  string  $workspaceId
      */
-    public function __construct(?string $apiId = null, ?\DateTime $createdAt = null, ?string $description = null, ?string $revisionId = null, ?string $versionId = null, ?string $workspaceId = null)
+    public function __construct(string $apiId, \DateTime $createdAt, string $description, string $revisionId, string $versionId, string $workspaceId)
     {
         $this->apiId = $apiId;
         $this->createdAt = $createdAt;

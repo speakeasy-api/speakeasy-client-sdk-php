@@ -51,17 +51,17 @@ class GithubConfigureMintlifyRepoRequest
      * @var ?string $subdirectory
      */
     #[\JMS\Serializer\Annotation\SerializedName('subdirectory')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $subdirectory = null;
 
     /**
-     * @param  ?string  $input
-     * @param  ?string  $org
-     * @param  ?array<string>  $overlays
-     * @param  ?string  $repo
+     * @param  string  $input
+     * @param  string  $org
+     * @param  array<string>  $overlays
+     * @param  string  $repo
      * @param  ?string  $subdirectory
      */
-    public function __construct(?string $input = null, ?string $org = null, ?array $overlays = null, ?string $repo = null, ?string $subdirectory = null)
+    public function __construct(string $input, string $org, array $overlays, string $repo, ?string $subdirectory = null)
     {
         $this->input = $input;
         $this->org = $org;

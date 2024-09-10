@@ -48,13 +48,13 @@ class GetWorkspaceResponse
     public ?Shared\Workspace $workspace = null;
 
     /**
-     * @param  ?string  $contentType
-     * @param  ?int  $statusCode
-     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  string  $contentType
+     * @param  int  $statusCode
+     * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?Errors\Error  $error
      * @param  ?Shared\Workspace  $workspace
      */
-    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Errors\Error $error = null, ?Shared\Workspace $workspace = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Errors\Error $error = null, ?Shared\Workspace $workspace = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;

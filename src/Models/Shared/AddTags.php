@@ -30,10 +30,10 @@ class AddTags
     public array $tags;
 
     /**
-     * @param  ?string  $revisionDigest
-     * @param  ?array<string>  $tags
+     * @param  string  $revisionDigest
+     * @param  array<string>  $tags
      */
-    public function __construct(?string $revisionDigest = null, ?array $tags = null)
+    public function __construct(string $revisionDigest, array $tags)
     {
         $this->revisionDigest = $revisionDigest;
         $this->tags = $tags;

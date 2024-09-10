@@ -29,10 +29,10 @@ class PostWorkspaceEventsRequest
     public ?string $workspaceID = null;
 
     /**
-     * @param  ?array<Shared\CliEvent>  $requestBody
+     * @param  array<Shared\CliEvent>  $requestBody
      * @param  ?string  $workspaceID
      */
-    public function __construct(?array $requestBody = null, ?string $workspaceID = null)
+    public function __construct(array $requestBody, ?string $workspaceID = null)
     {
         $this->requestBody = $requestBody;
         $this->workspaceID = $workspaceID;

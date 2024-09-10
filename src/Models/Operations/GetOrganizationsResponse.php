@@ -48,13 +48,13 @@ class GetOrganizationsResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
-     * @param  ?string  $contentType
-     * @param  ?int  $statusCode
-     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  string  $contentType
+     * @param  int  $statusCode
+     * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?Errors\Error  $error
      * @param  ?array<Shared\Organization>  $organizations
      */
-    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Errors\Error $error = null, ?array $organizations = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Errors\Error $error = null, ?array $organizations = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;

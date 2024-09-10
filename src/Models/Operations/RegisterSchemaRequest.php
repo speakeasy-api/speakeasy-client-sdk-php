@@ -36,11 +36,11 @@ class RegisterSchemaRequest
     public string $versionID;
 
     /**
-     * @param  ?RegisterSchemaRequestBody  $requestBody
-     * @param  ?string  $apiID
-     * @param  ?string  $versionID
+     * @param  RegisterSchemaRequestBody  $requestBody
+     * @param  string  $apiID
+     * @param  string  $versionID
      */
-    public function __construct(?RegisterSchemaRequestBody $requestBody = null, ?string $apiID = null, ?string $versionID = null)
+    public function __construct(RegisterSchemaRequestBody $requestBody, string $apiID, string $versionID)
     {
         $this->requestBody = $requestBody;
         $this->apiID = $apiID;

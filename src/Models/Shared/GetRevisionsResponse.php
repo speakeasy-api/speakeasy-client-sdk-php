@@ -28,10 +28,10 @@ class GetRevisionsResponse
     public string $nextPageToken;
 
     /**
-     * @param  ?array<Revision>  $items
-     * @param  ?string  $nextPageToken
+     * @param  array<Revision>  $items
+     * @param  string  $nextPageToken
      */
-    public function __construct(?array $items = null, ?string $nextPageToken = null)
+    public function __construct(array $items, string $nextPageToken)
     {
         $this->items = $items;
         $this->nextPageToken = $nextPageToken;

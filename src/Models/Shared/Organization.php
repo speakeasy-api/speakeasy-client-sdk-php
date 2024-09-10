@@ -25,7 +25,7 @@ class Organization
      * @var ?\DateTime $createdAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $createdAt = null;
 
     /**
@@ -33,7 +33,7 @@ class Organization
      * @var ?\DateTime $freeTrialExpiry
      */
     #[\JMS\Serializer\Annotation\SerializedName('free_trial_expiry')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $freeTrialExpiry = null;
 
     /**
@@ -55,7 +55,7 @@ class Organization
      * @var ?string $slug
      */
     #[\JMS\Serializer\Annotation\SerializedName('slug')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $slug = null;
 
     /**
@@ -70,20 +70,20 @@ class Organization
      * @var ?\DateTime $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $updatedAt = null;
 
     /**
-     * @param  ?AccountType  $accountType
-     * @param  ?string  $id
-     * @param  ?string  $name
-     * @param  ?bool  $telemetryDisabled
+     * @param  AccountType  $accountType
+     * @param  string  $id
+     * @param  string  $name
+     * @param  bool  $telemetryDisabled
      * @param  ?\DateTime  $createdAt
      * @param  ?\DateTime  $freeTrialExpiry
      * @param  ?string  $slug
      * @param  ?\DateTime  $updatedAt
      */
-    public function __construct(?AccountType $accountType = null, ?string $id = null, ?string $name = null, ?bool $telemetryDisabled = null, ?\DateTime $createdAt = null, ?\DateTime $freeTrialExpiry = null, ?string $slug = null, ?\DateTime $updatedAt = null)
+    public function __construct(AccountType $accountType, string $id, string $name, bool $telemetryDisabled, ?\DateTime $createdAt = null, ?\DateTime $freeTrialExpiry = null, ?string $slug = null, ?\DateTime $updatedAt = null)
     {
         $this->accountType = $accountType;
         $this->id = $id;

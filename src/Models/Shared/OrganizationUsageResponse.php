@@ -27,7 +27,7 @@ class OrganizationUsageResponse
      * @var ?\DateTime $freeTrialExpiry
      */
     #[\JMS\Serializer\Annotation\SerializedName('free_trial_expiry')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $freeTrialExpiry = null;
 
     /**
@@ -48,12 +48,12 @@ class OrganizationUsageResponse
     public array $usage;
 
     /**
-     * @param  ?array<string>  $allowedLanguages
-     * @param  ?int  $totalAllowedLanguages
-     * @param  ?array<OrganizationUsage>  $usage
+     * @param  array<string>  $allowedLanguages
+     * @param  int  $totalAllowedLanguages
+     * @param  array<OrganizationUsage>  $usage
      * @param  ?\DateTime  $freeTrialExpiry
      */
-    public function __construct(?array $allowedLanguages = null, ?int $totalAllowedLanguages = null, ?array $usage = null, ?\DateTime $freeTrialExpiry = null)
+    public function __construct(array $allowedLanguages, int $totalAllowedLanguages, array $usage, ?\DateTime $freeTrialExpiry = null)
     {
         $this->allowedLanguages = $allowedLanguages;
         $this->totalAllowedLanguages = $totalAllowedLanguages;

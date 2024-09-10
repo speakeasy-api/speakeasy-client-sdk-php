@@ -19,9 +19,9 @@ class GithubCheckPublishingSecretsRequest
     public string $generateGenLockId;
 
     /**
-     * @param  ?string  $generateGenLockId
+     * @param  string  $generateGenLockId
      */
-    public function __construct(?string $generateGenLockId = null)
+    public function __construct(string $generateGenLockId)
     {
         $this->generateGenLockId = $generateGenLockId;
     }

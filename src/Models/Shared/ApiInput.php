@@ -35,7 +35,7 @@ class ApiInput
      */
     #[\JMS\Serializer\Annotation\SerializedName('meta_data')]
     #[\JMS\Serializer\Annotation\Type('array<string, array<string>>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $metaData = null;
 
     /**
@@ -47,12 +47,12 @@ class ApiInput
     public string $versionId;
 
     /**
-     * @param  ?string  $apiId
-     * @param  ?string  $description
-     * @param  ?string  $versionId
+     * @param  string  $apiId
+     * @param  string  $description
+     * @param  string  $versionId
      * @param  ?array<string, array<string>>  $metaData
      */
-    public function __construct(?string $apiId = null, ?string $description = null, ?string $versionId = null, ?array $metaData = null)
+    public function __construct(string $apiId, string $description, string $versionId, ?array $metaData = null)
     {
         $this->apiId = $apiId;
         $this->description = $description;

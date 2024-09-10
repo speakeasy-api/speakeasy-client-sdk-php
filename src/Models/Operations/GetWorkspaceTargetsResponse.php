@@ -40,12 +40,12 @@ class GetWorkspaceTargetsResponse
     public ?array $targetSDKList = null;
 
     /**
-     * @param  ?string  $contentType
-     * @param  ?int  $statusCode
-     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  string  $contentType
+     * @param  int  $statusCode
+     * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?array<Shared\TargetSDK>  $targetSDKList
      */
-    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?array $targetSDKList = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $targetSDKList = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;

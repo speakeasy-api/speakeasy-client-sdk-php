@@ -27,10 +27,10 @@ class GetRevisionsRequest
     public ?string $nextPageToken = null;
 
     /**
-     * @param  ?string  $namespaceName
+     * @param  string  $namespaceName
      * @param  ?string  $nextPageToken
      */
-    public function __construct(?string $namespaceName = null, ?string $nextPageToken = null)
+    public function __construct(string $namespaceName, ?string $nextPageToken = null)
     {
         $this->namespaceName = $namespaceName;
         $this->nextPageToken = $nextPageToken;

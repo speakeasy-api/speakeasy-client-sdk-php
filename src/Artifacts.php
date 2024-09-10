@@ -15,7 +15,6 @@ use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class Artifacts
 {
     private SDKConfiguration $sdkConfiguration;
-
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
@@ -460,4 +459,5 @@ class Artifacts
             }
         }
     }
+
 }

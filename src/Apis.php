@@ -14,7 +14,6 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 class Apis
 {
     private SDKConfiguration $sdkConfiguration;
-
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
@@ -365,4 +364,5 @@ class Apis
             }
         }
     }
+
 }

@@ -17,7 +17,7 @@ class CliEvent
      * @var ?string $commitHead
      */
     #[\JMS\Serializer\Annotation\SerializedName('commit_head')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $commitHead = null;
 
     /**
@@ -26,7 +26,7 @@ class CliEvent
      * @var ?string $continuousIntegrationEnvironment
      */
     #[\JMS\Serializer\Annotation\SerializedName('continuous_integration_environment')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $continuousIntegrationEnvironment = null;
 
     /**
@@ -43,7 +43,7 @@ class CliEvent
      * @var ?int $durationMs
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration_ms')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $durationMs = null;
 
     /**
@@ -52,7 +52,7 @@ class CliEvent
      * @var ?string $error
      */
     #[\JMS\Serializer\Annotation\SerializedName('error')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $error = null;
 
     /**
@@ -70,7 +70,7 @@ class CliEvent
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_bump_type')]
     #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\GenerateBumpType|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?GenerateBumpType $generateBumpType = null;
 
     /**
@@ -79,7 +79,7 @@ class CliEvent
      * @var ?string $generateConfigPostChecksum
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_config_post_checksum')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateConfigPostChecksum = null;
 
     /**
@@ -88,7 +88,7 @@ class CliEvent
      * @var ?string $generateConfigPostRaw
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_config_post_raw')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateConfigPostRaw = null;
 
     /**
@@ -97,7 +97,7 @@ class CliEvent
      * @var ?string $generateConfigPostVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_config_post_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateConfigPostVersion = null;
 
     /**
@@ -106,7 +106,7 @@ class CliEvent
      * @var ?string $generateConfigPreChecksum
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_config_pre_checksum')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateConfigPreChecksum = null;
 
     /**
@@ -115,7 +115,7 @@ class CliEvent
      * @var ?string $generateConfigPreRaw
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_config_pre_raw')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateConfigPreRaw = null;
 
     /**
@@ -124,7 +124,7 @@ class CliEvent
      * @var ?string $generateConfigPreVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_config_pre_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateConfigPreVersion = null;
 
     /**
@@ -133,7 +133,7 @@ class CliEvent
      * @var ?string $generateEligibleFeatures
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_eligible_features')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateEligibleFeatures = null;
 
     /**
@@ -142,7 +142,7 @@ class CliEvent
      * @var ?string $generateGenLockId
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateGenLockId = null;
 
     /**
@@ -151,7 +151,7 @@ class CliEvent
      * @var ?string $generateGenLockPostFeatures
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_post_features')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateGenLockPostFeatures = null;
 
     /**
@@ -160,7 +160,7 @@ class CliEvent
      * @var ?string $generateGenLockPreBlobDigest
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_blob_digest')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateGenLockPreBlobDigest = null;
 
     /**
@@ -169,7 +169,7 @@ class CliEvent
      * @var ?string $generateGenLockPreDocChecksum
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_doc_checksum')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateGenLockPreDocChecksum = null;
 
     /**
@@ -178,7 +178,7 @@ class CliEvent
      * @var ?string $generateGenLockPreDocVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_doc_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateGenLockPreDocVersion = null;
 
     /**
@@ -187,7 +187,7 @@ class CliEvent
      * @var ?string $generateGenLockPreFeatures
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_features')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateGenLockPreFeatures = null;
 
     /**
@@ -196,7 +196,7 @@ class CliEvent
      * @var ?string $generateGenLockPreNamespaceName
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_namespace_name')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateGenLockPreNamespaceName = null;
 
     /**
@@ -205,7 +205,7 @@ class CliEvent
      * @var ?string $generateGenLockPreRevisionDigest
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_revision_digest')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateGenLockPreRevisionDigest = null;
 
     /**
@@ -214,7 +214,7 @@ class CliEvent
      * @var ?string $generateGenLockPreVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateGenLockPreVersion = null;
 
     /**
@@ -223,7 +223,7 @@ class CliEvent
      * @var ?int $generateNumberOfOperationsIgnored
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_number_of_operations_ignored')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $generateNumberOfOperationsIgnored = null;
 
     /**
@@ -232,7 +232,7 @@ class CliEvent
      * @var ?int $generateNumberOfOperationsUsed
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_number_of_operations_used')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $generateNumberOfOperationsUsed = null;
 
     /**
@@ -241,7 +241,7 @@ class CliEvent
      * @var ?bool $generateOutputTests
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_output_tests')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $generateOutputTests = null;
 
     /**
@@ -250,7 +250,7 @@ class CliEvent
      * @var ?bool $generatePublished
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_published')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $generatePublished = null;
 
     /**
@@ -259,7 +259,7 @@ class CliEvent
      * @var ?string $generateRepoUrl
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_repo_url')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateRepoUrl = null;
 
     /**
@@ -268,7 +268,7 @@ class CliEvent
      * @var ?string $generateTarget
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_target')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateTarget = null;
 
     /**
@@ -277,7 +277,7 @@ class CliEvent
      * @var ?string $generateTargetName
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_target_name')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateTargetName = null;
 
     /**
@@ -286,7 +286,7 @@ class CliEvent
      * @var ?string $generateTargetVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_target_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateTargetVersion = null;
 
     /**
@@ -295,7 +295,7 @@ class CliEvent
      * @var ?string $generateVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('generate_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $generateVersion = null;
 
     /**
@@ -304,7 +304,7 @@ class CliEvent
      * @var ?string $ghActionOrganization
      */
     #[\JMS\Serializer\Annotation\SerializedName('gh_action_organization')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ghActionOrganization = null;
 
     /**
@@ -313,7 +313,7 @@ class CliEvent
      * @var ?string $ghActionRef
      */
     #[\JMS\Serializer\Annotation\SerializedName('gh_action_ref')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ghActionRef = null;
 
     /**
@@ -322,7 +322,7 @@ class CliEvent
      * @var ?string $ghActionRepository
      */
     #[\JMS\Serializer\Annotation\SerializedName('gh_action_repository')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ghActionRepository = null;
 
     /**
@@ -331,7 +331,7 @@ class CliEvent
      * @var ?string $ghActionRunLink
      */
     #[\JMS\Serializer\Annotation\SerializedName('gh_action_run_link')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ghActionRunLink = null;
 
     /**
@@ -340,7 +340,7 @@ class CliEvent
      * @var ?string $ghActionVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('gh_action_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ghActionVersion = null;
 
     /**
@@ -349,7 +349,7 @@ class CliEvent
      * @var ?string $gitRelativeCwd
      */
     #[\JMS\Serializer\Annotation\SerializedName('git_relative_cwd')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $gitRelativeCwd = null;
 
     /**
@@ -358,7 +358,7 @@ class CliEvent
      * @var ?string $gitRemoteDefaultOwner
      */
     #[\JMS\Serializer\Annotation\SerializedName('git_remote_default_owner')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $gitRemoteDefaultOwner = null;
 
     /**
@@ -367,7 +367,7 @@ class CliEvent
      * @var ?string $gitRemoteDefaultRepo
      */
     #[\JMS\Serializer\Annotation\SerializedName('git_remote_default_repo')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $gitRemoteDefaultRepo = null;
 
     /**
@@ -376,7 +376,7 @@ class CliEvent
      * @var ?string $gitUserEmail
      */
     #[\JMS\Serializer\Annotation\SerializedName('git_user_email')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $gitUserEmail = null;
 
     /**
@@ -385,7 +385,7 @@ class CliEvent
      * @var ?string $gitUserName
      */
     #[\JMS\Serializer\Annotation\SerializedName('git_user_name')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $gitUserName = null;
 
     /**
@@ -394,7 +394,7 @@ class CliEvent
      * @var ?string $hostname
      */
     #[\JMS\Serializer\Annotation\SerializedName('hostname')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $hostname = null;
 
     /**
@@ -420,7 +420,7 @@ class CliEvent
      * @var ?string $lastStep
      */
     #[\JMS\Serializer\Annotation\SerializedName('last_step')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $lastStep = null;
 
     /**
@@ -429,7 +429,7 @@ class CliEvent
      * @var ?string $lintReportDigest
      */
     #[\JMS\Serializer\Annotation\SerializedName('lint_report_digest')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $lintReportDigest = null;
 
     /**
@@ -438,7 +438,7 @@ class CliEvent
      * @var ?int $lintReportErrorCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('lint_report_error_count')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $lintReportErrorCount = null;
 
     /**
@@ -447,7 +447,7 @@ class CliEvent
      * @var ?int $lintReportInfoCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('lint_report_info_count')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $lintReportInfoCount = null;
 
     /**
@@ -456,7 +456,7 @@ class CliEvent
      * @var ?int $lintReportWarningCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('lint_report_warning_count')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $lintReportWarningCount = null;
 
     /**
@@ -465,7 +465,7 @@ class CliEvent
      * @var ?\DateTime $localCompletedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('local_completed_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $localCompletedAt = null;
 
     /**
@@ -482,7 +482,7 @@ class CliEvent
      * @var ?string $managementDocChecksum
      */
     #[\JMS\Serializer\Annotation\SerializedName('management_doc_checksum')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $managementDocChecksum = null;
 
     /**
@@ -491,7 +491,7 @@ class CliEvent
      * @var ?string $managementDocVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('management_doc_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $managementDocVersion = null;
 
     /**
@@ -500,7 +500,7 @@ class CliEvent
      * @var ?string $mermaidDiagram
      */
     #[\JMS\Serializer\Annotation\SerializedName('mermaid_diagram')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $mermaidDiagram = null;
 
     /**
@@ -509,7 +509,7 @@ class CliEvent
      * @var ?string $openapiDiffBaseSourceBlobDigest
      */
     #[\JMS\Serializer\Annotation\SerializedName('openapi_diff_base_source_blob_digest')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $openapiDiffBaseSourceBlobDigest = null;
 
     /**
@@ -518,7 +518,7 @@ class CliEvent
      * @var ?string $openapiDiffBaseSourceNamespaceName
      */
     #[\JMS\Serializer\Annotation\SerializedName('openapi_diff_base_source_namespace_name')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $openapiDiffBaseSourceNamespaceName = null;
 
     /**
@@ -527,7 +527,7 @@ class CliEvent
      * @var ?string $openapiDiffBaseSourceRevisionDigest
      */
     #[\JMS\Serializer\Annotation\SerializedName('openapi_diff_base_source_revision_digest')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $openapiDiffBaseSourceRevisionDigest = null;
 
     /**
@@ -536,7 +536,7 @@ class CliEvent
      * @var ?int $openapiDiffBreakingChangesCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('openapi_diff_breaking_changes_count')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $openapiDiffBreakingChangesCount = null;
 
     /**
@@ -546,7 +546,7 @@ class CliEvent
      */
     #[\JMS\Serializer\Annotation\SerializedName('openapi_diff_bump_type')]
     #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\OpenapiDiffBumpType|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?OpenapiDiffBumpType $openapiDiffBumpType = null;
 
     /**
@@ -555,7 +555,7 @@ class CliEvent
      * @var ?string $openapiDiffReportDigest
      */
     #[\JMS\Serializer\Annotation\SerializedName('openapi_diff_report_digest')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $openapiDiffReportDigest = null;
 
     /**
@@ -564,7 +564,7 @@ class CliEvent
      * @var ?string $publishPackageName
      */
     #[\JMS\Serializer\Annotation\SerializedName('publish_package_name')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $publishPackageName = null;
 
     /**
@@ -573,7 +573,7 @@ class CliEvent
      * @var ?string $publishPackageRegistryName
      */
     #[\JMS\Serializer\Annotation\SerializedName('publish_package_registry_name')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $publishPackageRegistryName = null;
 
     /**
@@ -582,7 +582,7 @@ class CliEvent
      * @var ?string $publishPackageUrl
      */
     #[\JMS\Serializer\Annotation\SerializedName('publish_package_url')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $publishPackageUrl = null;
 
     /**
@@ -591,7 +591,7 @@ class CliEvent
      * @var ?string $publishPackageVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('publish_package_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $publishPackageVersion = null;
 
     /**
@@ -600,7 +600,7 @@ class CliEvent
      * @var ?string $rawCommand
      */
     #[\JMS\Serializer\Annotation\SerializedName('raw_command')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $rawCommand = null;
 
     /**
@@ -609,7 +609,7 @@ class CliEvent
      * @var ?string $repoLabel
      */
     #[\JMS\Serializer\Annotation\SerializedName('repo_label')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $repoLabel = null;
 
     /**
@@ -618,7 +618,7 @@ class CliEvent
      * @var ?string $sourceBlobDigest
      */
     #[\JMS\Serializer\Annotation\SerializedName('source_blob_digest')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $sourceBlobDigest = null;
 
     /**
@@ -627,7 +627,7 @@ class CliEvent
      * @var ?string $sourceNamespaceName
      */
     #[\JMS\Serializer\Annotation\SerializedName('source_namespace_name')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $sourceNamespaceName = null;
 
     /**
@@ -636,7 +636,7 @@ class CliEvent
      * @var ?string $sourceRevisionDigest
      */
     #[\JMS\Serializer\Annotation\SerializedName('source_revision_digest')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $sourceRevisionDigest = null;
 
     /**
@@ -669,7 +669,7 @@ class CliEvent
      * @var ?string $workflowLockPostRaw
      */
     #[\JMS\Serializer\Annotation\SerializedName('workflow_lock_post_raw')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $workflowLockPostRaw = null;
 
     /**
@@ -678,7 +678,7 @@ class CliEvent
      * @var ?string $workflowLockPreRaw
      */
     #[\JMS\Serializer\Annotation\SerializedName('workflow_lock_pre_raw')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $workflowLockPreRaw = null;
 
     /**
@@ -687,7 +687,7 @@ class CliEvent
      * @var ?string $workflowPostRaw
      */
     #[\JMS\Serializer\Annotation\SerializedName('workflow_post_raw')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $workflowPostRaw = null;
 
     /**
@@ -696,7 +696,7 @@ class CliEvent
      * @var ?string $workflowPreRaw
      */
     #[\JMS\Serializer\Annotation\SerializedName('workflow_pre_raw')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $workflowPreRaw = null;
 
     /**
@@ -708,15 +708,15 @@ class CliEvent
     public string $workspaceId;
 
     /**
-     * @param  ?\DateTime  $createdAt
-     * @param  ?string  $executionId
-     * @param  ?string  $id
-     * @param  ?InteractionType  $interactionType
-     * @param  ?\DateTime  $localStartedAt
-     * @param  ?string  $speakeasyApiKeyName
-     * @param  ?string  $speakeasyVersion
-     * @param  ?bool  $success
-     * @param  ?string  $workspaceId
+     * @param  \DateTime  $createdAt
+     * @param  string  $executionId
+     * @param  string  $id
+     * @param  InteractionType  $interactionType
+     * @param  \DateTime  $localStartedAt
+     * @param  string  $speakeasyApiKeyName
+     * @param  string  $speakeasyVersion
+     * @param  bool  $success
+     * @param  string  $workspaceId
      * @param  ?string  $commitHead
      * @param  ?string  $continuousIntegrationEnvironment
      * @param  ?int  $durationMs
@@ -787,7 +787,7 @@ class CliEvent
      * @param  ?string  $workflowPostRaw
      * @param  ?string  $workflowPreRaw
      */
-    public function __construct(?\DateTime $createdAt = null, ?string $executionId = null, ?string $id = null, ?InteractionType $interactionType = null, ?\DateTime $localStartedAt = null, ?string $speakeasyApiKeyName = null, ?string $speakeasyVersion = null, ?bool $success = null, ?string $workspaceId = null, ?string $commitHead = null, ?string $continuousIntegrationEnvironment = null, ?int $durationMs = null, ?string $error = null, ?GenerateBumpType $generateBumpType = null, ?string $generateConfigPostChecksum = null, ?string $generateConfigPostRaw = null, ?string $generateConfigPostVersion = null, ?string $generateConfigPreChecksum = null, ?string $generateConfigPreRaw = null, ?string $generateConfigPreVersion = null, ?string $generateEligibleFeatures = null, ?string $generateGenLockId = null, ?string $generateGenLockPostFeatures = null, ?string $generateGenLockPreBlobDigest = null, ?string $generateGenLockPreDocChecksum = null, ?string $generateGenLockPreDocVersion = null, ?string $generateGenLockPreFeatures = null, ?string $generateGenLockPreNamespaceName = null, ?string $generateGenLockPreRevisionDigest = null, ?string $generateGenLockPreVersion = null, ?int $generateNumberOfOperationsIgnored = null, ?int $generateNumberOfOperationsUsed = null, ?bool $generateOutputTests = null, ?bool $generatePublished = null, ?string $generateRepoUrl = null, ?string $generateTarget = null, ?string $generateTargetName = null, ?string $generateTargetVersion = null, ?string $generateVersion = null, ?string $ghActionOrganization = null, ?string $ghActionRef = null, ?string $ghActionRepository = null, ?string $ghActionRunLink = null, ?string $ghActionVersion = null, ?string $gitRelativeCwd = null, ?string $gitRemoteDefaultOwner = null, ?string $gitRemoteDefaultRepo = null, ?string $gitUserEmail = null, ?string $gitUserName = null, ?string $hostname = null, ?string $lastStep = null, ?string $lintReportDigest = null, ?int $lintReportErrorCount = null, ?int $lintReportInfoCount = null, ?int $lintReportWarningCount = null, ?\DateTime $localCompletedAt = null, ?string $managementDocChecksum = null, ?string $managementDocVersion = null, ?string $mermaidDiagram = null, ?string $openapiDiffBaseSourceBlobDigest = null, ?string $openapiDiffBaseSourceNamespaceName = null, ?string $openapiDiffBaseSourceRevisionDigest = null, ?int $openapiDiffBreakingChangesCount = null, ?OpenapiDiffBumpType $openapiDiffBumpType = null, ?string $openapiDiffReportDigest = null, ?string $publishPackageName = null, ?string $publishPackageRegistryName = null, ?string $publishPackageUrl = null, ?string $publishPackageVersion = null, ?string $rawCommand = null, ?string $repoLabel = null, ?string $sourceBlobDigest = null, ?string $sourceNamespaceName = null, ?string $sourceRevisionDigest = null, ?string $workflowLockPostRaw = null, ?string $workflowLockPreRaw = null, ?string $workflowPostRaw = null, ?string $workflowPreRaw = null)
+    public function __construct(\DateTime $createdAt, string $executionId, string $id, InteractionType $interactionType, \DateTime $localStartedAt, string $speakeasyApiKeyName, string $speakeasyVersion, bool $success, string $workspaceId, ?string $commitHead = null, ?string $continuousIntegrationEnvironment = null, ?int $durationMs = null, ?string $error = null, ?GenerateBumpType $generateBumpType = null, ?string $generateConfigPostChecksum = null, ?string $generateConfigPostRaw = null, ?string $generateConfigPostVersion = null, ?string $generateConfigPreChecksum = null, ?string $generateConfigPreRaw = null, ?string $generateConfigPreVersion = null, ?string $generateEligibleFeatures = null, ?string $generateGenLockId = null, ?string $generateGenLockPostFeatures = null, ?string $generateGenLockPreBlobDigest = null, ?string $generateGenLockPreDocChecksum = null, ?string $generateGenLockPreDocVersion = null, ?string $generateGenLockPreFeatures = null, ?string $generateGenLockPreNamespaceName = null, ?string $generateGenLockPreRevisionDigest = null, ?string $generateGenLockPreVersion = null, ?int $generateNumberOfOperationsIgnored = null, ?int $generateNumberOfOperationsUsed = null, ?bool $generateOutputTests = null, ?bool $generatePublished = null, ?string $generateRepoUrl = null, ?string $generateTarget = null, ?string $generateTargetName = null, ?string $generateTargetVersion = null, ?string $generateVersion = null, ?string $ghActionOrganization = null, ?string $ghActionRef = null, ?string $ghActionRepository = null, ?string $ghActionRunLink = null, ?string $ghActionVersion = null, ?string $gitRelativeCwd = null, ?string $gitRemoteDefaultOwner = null, ?string $gitRemoteDefaultRepo = null, ?string $gitUserEmail = null, ?string $gitUserName = null, ?string $hostname = null, ?string $lastStep = null, ?string $lintReportDigest = null, ?int $lintReportErrorCount = null, ?int $lintReportInfoCount = null, ?int $lintReportWarningCount = null, ?\DateTime $localCompletedAt = null, ?string $managementDocChecksum = null, ?string $managementDocVersion = null, ?string $mermaidDiagram = null, ?string $openapiDiffBaseSourceBlobDigest = null, ?string $openapiDiffBaseSourceNamespaceName = null, ?string $openapiDiffBaseSourceRevisionDigest = null, ?int $openapiDiffBreakingChangesCount = null, ?OpenapiDiffBumpType $openapiDiffBumpType = null, ?string $openapiDiffReportDigest = null, ?string $publishPackageName = null, ?string $publishPackageRegistryName = null, ?string $publishPackageUrl = null, ?string $publishPackageVersion = null, ?string $rawCommand = null, ?string $repoLabel = null, ?string $sourceBlobDigest = null, ?string $sourceNamespaceName = null, ?string $sourceRevisionDigest = null, ?string $workflowLockPostRaw = null, ?string $workflowLockPreRaw = null, ?string $workflowPostRaw = null, ?string $workflowPreRaw = null)
     {
         $this->createdAt = $createdAt;
         $this->executionId = $executionId;

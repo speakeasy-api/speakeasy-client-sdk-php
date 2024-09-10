@@ -37,11 +37,11 @@ class InsertVersionMetadataRequest
     public string $versionID;
 
     /**
-     * @param  ?Shared\VersionMetadataInput  $versionMetadata
-     * @param  ?string  $apiID
-     * @param  ?string  $versionID
+     * @param  Shared\VersionMetadataInput  $versionMetadata
+     * @param  string  $apiID
+     * @param  string  $versionID
      */
-    public function __construct(?Shared\VersionMetadataInput $versionMetadata = null, ?string $apiID = null, ?string $versionID = null)
+    public function __construct(Shared\VersionMetadataInput $versionMetadata, string $apiID, string $versionID)
     {
         $this->versionMetadata = $versionMetadata;
         $this->apiID = $apiID;

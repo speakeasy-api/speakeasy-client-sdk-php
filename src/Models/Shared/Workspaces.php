@@ -17,7 +17,7 @@ class Workspaces
      */
     #[\JMS\Serializer\Annotation\SerializedName('account_type')]
     #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?AccountType $accountType = null;
 
     /**
@@ -25,7 +25,7 @@ class Workspaces
      * @var ?string $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $id = null;
 
     /**
@@ -33,7 +33,7 @@ class Workspaces
      * @var ?string $name
      */
     #[\JMS\Serializer\Annotation\SerializedName('name')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $name = null;
 
     /**
@@ -41,7 +41,7 @@ class Workspaces
      * @var ?\DateTime $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $updatedAt = null;
 
     /**

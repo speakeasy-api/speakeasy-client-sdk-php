@@ -26,10 +26,10 @@ class CheckAccessRequest
     public string $repo;
 
     /**
-     * @param  ?string  $org
-     * @param  ?string  $repo
+     * @param  string  $org
+     * @param  string  $repo
      */
-    public function __construct(?string $org = null, ?string $repo = null)
+    public function __construct(string $org, string $repo)
     {
         $this->org = $org;
         $this->repo = $repo;

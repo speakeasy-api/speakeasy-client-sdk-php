@@ -42,7 +42,7 @@ class Api
      * @var ?bool $matched
      */
     #[\JMS\Serializer\Annotation\SerializedName('matched')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $matched = null;
 
     /**
@@ -52,7 +52,7 @@ class Api
      */
     #[\JMS\Serializer\Annotation\SerializedName('meta_data')]
     #[\JMS\Serializer\Annotation\Type('array<string, array<string>>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $metaData = null;
 
     /**
@@ -80,16 +80,16 @@ class Api
     public string $workspaceId;
 
     /**
-     * @param  ?string  $apiId
-     * @param  ?\DateTime  $createdAt
-     * @param  ?string  $description
-     * @param  ?\DateTime  $updatedAt
-     * @param  ?string  $versionId
-     * @param  ?string  $workspaceId
+     * @param  string  $apiId
+     * @param  \DateTime  $createdAt
+     * @param  string  $description
+     * @param  \DateTime  $updatedAt
+     * @param  string  $versionId
+     * @param  string  $workspaceId
      * @param  ?bool  $matched
      * @param  ?array<string, array<string>>  $metaData
      */
-    public function __construct(?string $apiId = null, ?\DateTime $createdAt = null, ?string $description = null, ?\DateTime $updatedAt = null, ?string $versionId = null, ?string $workspaceId = null, ?bool $matched = null, ?array $metaData = null)
+    public function __construct(string $apiId, \DateTime $createdAt, string $description, \DateTime $updatedAt, string $versionId, string $workspaceId, ?bool $matched = null, ?array $metaData = null)
     {
         $this->apiId = $apiId;
         $this->createdAt = $createdAt;

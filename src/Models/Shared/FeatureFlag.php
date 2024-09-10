@@ -24,14 +24,14 @@ class FeatureFlag
      * @var ?\DateTime $trialEndsAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('trial_ends_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $trialEndsAt = null;
 
     /**
-     * @param  ?string  $featureFlag
+     * @param  string  $featureFlag
      * @param  ?\DateTime  $trialEndsAt
      */
-    public function __construct(?string $featureFlag = null, ?\DateTime $trialEndsAt = null)
+    public function __construct(string $featureFlag, ?\DateTime $trialEndsAt = null)
     {
         $this->featureFlag = $featureFlag;
         $this->trialEndsAt = $trialEndsAt;

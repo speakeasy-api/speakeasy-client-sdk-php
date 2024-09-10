@@ -20,9 +20,9 @@ class GetLintingReportSignedUrlRequest
     public string $documentChecksum;
 
     /**
-     * @param  ?string  $documentChecksum
+     * @param  string  $documentChecksum
      */
-    public function __construct(?string $documentChecksum = null)
+    public function __construct(string $documentChecksum)
     {
         $this->documentChecksum = $documentChecksum;
     }

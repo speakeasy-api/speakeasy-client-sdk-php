@@ -18,7 +18,7 @@ class ApplyOperationIDsRequestBody
      * @var ?bool $asOverlay
      */
     #[\JMS\Serializer\Annotation\SerializedName('as_overlay')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $asOverlay = null;
 
     /**

@@ -21,9 +21,9 @@ class GetTagsResponse
     public array $items;
 
     /**
-     * @param  ?array<Tag>  $items
+     * @param  array<Tag>  $items
      */
-    public function __construct(?array $items = null)
+    public function __construct(array $items)
     {
         $this->items = $items;
     }

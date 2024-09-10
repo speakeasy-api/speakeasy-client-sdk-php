@@ -26,10 +26,10 @@ class GenerateOpenApiSpecDiff
     public string $newSchema;
 
     /**
-     * @param  ?string  $currentSchema
-     * @param  ?string  $newSchema
+     * @param  string  $currentSchema
+     * @param  string  $newSchema
      */
-    public function __construct(?string $currentSchema = null, ?string $newSchema = null)
+    public function __construct(string $currentSchema, string $newSchema)
     {
         $this->currentSchema = $currentSchema;
         $this->newSchema = $newSchema;

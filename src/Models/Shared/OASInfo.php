@@ -48,13 +48,13 @@ class OASInfo
     public string $version;
 
     /**
-     * @param  ?string  $description
-     * @param  ?License  $license
-     * @param  ?string  $summary
-     * @param  ?string  $title
-     * @param  ?string  $version
+     * @param  string  $description
+     * @param  License  $license
+     * @param  string  $summary
+     * @param  string  $title
+     * @param  string  $version
      */
-    public function __construct(?string $description = null, ?License $license = null, ?string $summary = null, ?string $title = null, ?string $version = null)
+    public function __construct(string $description, License $license, string $summary, string $title, string $version)
     {
         $this->description = $description;
         $this->license = $license;

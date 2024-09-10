@@ -53,13 +53,13 @@ class UnboundedRequest
     public string $workspaceId;
 
     /**
-     * @param  ?\DateTime  $createdAt
-     * @param  ?string  $har
-     * @param  ?int  $harSizeBytes
-     * @param  ?string  $requestId
-     * @param  ?string  $workspaceId
+     * @param  \DateTime  $createdAt
+     * @param  string  $har
+     * @param  int  $harSizeBytes
+     * @param  string  $requestId
+     * @param  string  $workspaceId
      */
-    public function __construct(?\DateTime $createdAt = null, ?string $har = null, ?int $harSizeBytes = null, ?string $requestId = null, ?string $workspaceId = null)
+    public function __construct(\DateTime $createdAt, string $har, int $harSizeBytes, string $requestId, string $workspaceId)
     {
         $this->createdAt = $createdAt;
         $this->har = $har;

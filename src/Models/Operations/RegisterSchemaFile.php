@@ -26,10 +26,10 @@ class RegisterSchemaFile
     public string $fileName;
 
     /**
-     * @param  ?string  $content
-     * @param  ?string  $fileName
+     * @param  string  $content
+     * @param  string  $fileName
      */
-    public function __construct(?string $content = null, ?string $fileName = null)
+    public function __construct(string $content, string $fileName)
     {
         $this->content = $content;
         $this->fileName = $fileName;

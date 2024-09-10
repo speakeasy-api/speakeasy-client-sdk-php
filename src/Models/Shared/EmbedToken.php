@@ -66,7 +66,7 @@ class EmbedToken
      * @var ?\DateTime $lastUsed
      */
     #[\JMS\Serializer\Annotation\SerializedName('last_used')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $lastUsed = null;
 
     /**
@@ -75,7 +75,7 @@ class EmbedToken
      * @var ?\DateTime $revokedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('revoked_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $revokedAt = null;
 
     /**
@@ -84,7 +84,7 @@ class EmbedToken
      * @var ?string $revokedBy
      */
     #[\JMS\Serializer\Annotation\SerializedName('revoked_by')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $revokedBy = null;
 
     /**
@@ -96,18 +96,18 @@ class EmbedToken
     public string $workspaceId;
 
     /**
-     * @param  ?\DateTime  $createdAt
-     * @param  ?string  $createdBy
-     * @param  ?string  $description
-     * @param  ?\DateTime  $expiresAt
-     * @param  ?string  $filters
-     * @param  ?string  $id
-     * @param  ?string  $workspaceId
+     * @param  \DateTime  $createdAt
+     * @param  string  $createdBy
+     * @param  string  $description
+     * @param  \DateTime  $expiresAt
+     * @param  string  $filters
+     * @param  string  $id
+     * @param  string  $workspaceId
      * @param  ?\DateTime  $lastUsed
      * @param  ?\DateTime  $revokedAt
      * @param  ?string  $revokedBy
      */
-    public function __construct(?\DateTime $createdAt = null, ?string $createdBy = null, ?string $description = null, ?\DateTime $expiresAt = null, ?string $filters = null, ?string $id = null, ?string $workspaceId = null, ?\DateTime $lastUsed = null, ?\DateTime $revokedAt = null, ?string $revokedBy = null)
+    public function __construct(\DateTime $createdAt, string $createdBy, string $description, \DateTime $expiresAt, string $filters, string $id, string $workspaceId, ?\DateTime $lastUsed = null, ?\DateTime $revokedAt = null, ?string $revokedBy = null)
     {
         $this->createdAt = $createdAt;
         $this->createdBy = $createdBy;

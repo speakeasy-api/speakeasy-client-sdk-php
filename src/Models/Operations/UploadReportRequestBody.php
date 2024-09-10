@@ -28,10 +28,10 @@ class UploadReportRequestBody
     public File $file;
 
     /**
-     * @param  ?Shared\Report  $data
-     * @param  ?File  $file
+     * @param  Shared\Report  $data
+     * @param  File  $file
      */
-    public function __construct(?Shared\Report $data = null, ?File $file = null)
+    public function __construct(Shared\Report $data, File $file)
     {
         $this->data = $data;
         $this->file = $file;

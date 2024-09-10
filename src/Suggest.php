@@ -14,7 +14,6 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 class Suggest
 {
     private SDKConfiguration $sdkConfiguration;
-
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
@@ -194,4 +193,5 @@ class Suggest
             throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
     }
+
 }

@@ -30,10 +30,10 @@ class Error
     public int $statusCode;
 
     /**
-     * @param  ?string  $message
-     * @param  ?int  $statusCode
+     * @param  string  $message
+     * @param  int  $statusCode
      */
-    public function __construct(?string $message = null, ?int $statusCode = null)
+    public function __construct(string $message, int $statusCode)
     {
         $this->message = $message;
         $this->statusCode = $statusCode;

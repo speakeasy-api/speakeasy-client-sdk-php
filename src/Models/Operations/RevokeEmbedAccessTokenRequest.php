@@ -20,9 +20,9 @@ class RevokeEmbedAccessTokenRequest
     public string $tokenID;
 
     /**
-     * @param  ?string  $tokenID
+     * @param  string  $tokenID
      */
-    public function __construct(?string $tokenID = null)
+    public function __construct(string $tokenID)
     {
         $this->tokenID = $tokenID;
     }

@@ -18,7 +18,7 @@ class GithubGetActionResponse
      * @var ?string $runStatus
      */
     #[\JMS\Serializer\Annotation\SerializedName('run_status')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $runStatus = null;
 
     /**
@@ -27,7 +27,7 @@ class GithubGetActionResponse
      * @var ?string $runUrl
      */
     #[\JMS\Serializer\Annotation\SerializedName('run_url')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $runUrl = null;
 
     /**

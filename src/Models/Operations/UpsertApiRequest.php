@@ -29,10 +29,10 @@ class UpsertApiRequest
     public string $apiID;
 
     /**
-     * @param  ?Shared\ApiInput  $api
-     * @param  ?string  $apiID
+     * @param  Shared\ApiInput  $api
+     * @param  string  $apiID
      */
-    public function __construct(?Shared\ApiInput $api = null, ?string $apiID = null)
+    public function __construct(Shared\ApiInput $api, string $apiID)
     {
         $this->api = $api;
         $this->apiID = $apiID;

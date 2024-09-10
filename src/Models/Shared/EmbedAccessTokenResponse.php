@@ -20,9 +20,9 @@ class EmbedAccessTokenResponse
     public string $accessToken;
 
     /**
-     * @param  ?string  $accessToken
+     * @param  string  $accessToken
      */
-    public function __construct(?string $accessToken = null)
+    public function __construct(string $accessToken)
     {
         $this->accessToken = $accessToken;
     }

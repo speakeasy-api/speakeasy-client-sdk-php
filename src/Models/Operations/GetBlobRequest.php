@@ -40,12 +40,12 @@ class GetBlobRequest
     public string $workspaceSlug;
 
     /**
-     * @param  ?string  $digest
-     * @param  ?string  $namespaceName
-     * @param  ?string  $organizationSlug
-     * @param  ?string  $workspaceSlug
+     * @param  string  $digest
+     * @param  string  $namespaceName
+     * @param  string  $organizationSlug
+     * @param  string  $workspaceSlug
      */
-    public function __construct(?string $digest = null, ?string $namespaceName = null, ?string $organizationSlug = null, ?string $workspaceSlug = null)
+    public function __construct(string $digest, string $namespaceName, string $organizationSlug, string $workspaceSlug)
     {
         $this->digest = $digest;
         $this->namespaceName = $namespaceName;

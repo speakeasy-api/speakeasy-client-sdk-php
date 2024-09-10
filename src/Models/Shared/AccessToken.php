@@ -34,7 +34,7 @@ class AccessToken
      */
     #[\JMS\Serializer\Annotation\SerializedName('feature_flags')]
     #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlag>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $featureFlags = null;
 
     /**
@@ -52,17 +52,17 @@ class AccessToken
      */
     #[\JMS\Serializer\Annotation\SerializedName('workspaces')]
     #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Workspaces>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $workspaces = null;
 
     /**
-     * @param  ?string  $accessToken
-     * @param  ?Claims  $claims
-     * @param  ?AccessTokenUser  $user
+     * @param  string  $accessToken
+     * @param  Claims  $claims
+     * @param  AccessTokenUser  $user
      * @param  ?array<FeatureFlag>  $featureFlags
      * @param  ?array<Workspaces>  $workspaces
      */
-    public function __construct(?string $accessToken = null, ?Claims $claims = null, ?AccessTokenUser $user = null, ?array $featureFlags = null, ?array $workspaces = null)
+    public function __construct(string $accessToken, Claims $claims, AccessTokenUser $user, ?array $featureFlags = null, ?array $workspaces = null)
     {
         $this->accessToken = $accessToken;
         $this->claims = $claims;

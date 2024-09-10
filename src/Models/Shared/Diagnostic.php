@@ -17,7 +17,7 @@ class Diagnostic
      * @var ?string $helpMessage
      */
     #[\JMS\Serializer\Annotation\SerializedName('helpMessage')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $helpMessage = null;
 
     /**
@@ -46,12 +46,12 @@ class Diagnostic
     public string $type;
 
     /**
-     * @param  ?string  $message
-     * @param  ?array<string>  $path
-     * @param  ?string  $type
+     * @param  string  $message
+     * @param  array<string>  $path
+     * @param  string  $type
      * @param  ?string  $helpMessage
      */
-    public function __construct(?string $message = null, ?array $path = null, ?string $type = null, ?string $helpMessage = null)
+    public function __construct(string $message, array $path, string $type, ?string $helpMessage = null)
     {
         $this->message = $message;
         $this->path = $path;

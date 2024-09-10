@@ -19,9 +19,9 @@ class PreflightRequest
     public string $namespaceName;
 
     /**
-     * @param  ?string  $namespaceName
+     * @param  string  $namespaceName
      */
-    public function __construct(?string $namespaceName = null)
+    public function __construct(string $namespaceName)
     {
         $this->namespaceName = $namespaceName;
     }

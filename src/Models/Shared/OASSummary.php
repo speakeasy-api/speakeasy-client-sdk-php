@@ -29,10 +29,10 @@ class OASSummary
     public array $operations;
 
     /**
-     * @param  ?OASInfo  $info
-     * @param  ?array<OASOperation>  $operations
+     * @param  OASInfo  $info
+     * @param  array<OASOperation>  $operations
      */
-    public function __construct(?OASInfo $info = null, ?array $operations = null)
+    public function __construct(OASInfo $info, array $operations)
     {
         $this->info = $info;
         $this->operations = $operations;

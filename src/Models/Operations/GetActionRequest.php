@@ -34,11 +34,11 @@ class GetActionRequest
     public ?string $targetName = null;
 
     /**
-     * @param  ?string  $org
-     * @param  ?string  $repo
+     * @param  string  $org
+     * @param  string  $repo
      * @param  ?string  $targetName
      */
-    public function __construct(?string $org = null, ?string $repo = null, ?string $targetName = null)
+    public function __construct(string $org, string $repo, ?string $targetName = null)
     {
         $this->org = $org;
         $this->repo = $repo;

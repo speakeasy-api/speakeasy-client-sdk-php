@@ -20,9 +20,9 @@ class GetAllApiEndpointsRequest
     public string $apiID;
 
     /**
-     * @param  ?string  $apiID
+     * @param  string  $apiID
      */
-    public function __construct(?string $apiID = null)
+    public function __construct(string $apiID)
     {
         $this->apiID = $apiID;
     }

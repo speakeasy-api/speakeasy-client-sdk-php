@@ -42,12 +42,12 @@ class Tag
     public string $revisionDigest;
 
     /**
-     * @param  ?string  $id
-     * @param  ?string  $name
-     * @param  ?string  $namespaceName
-     * @param  ?string  $revisionDigest
+     * @param  string  $id
+     * @param  string  $name
+     * @param  string  $namespaceName
+     * @param  string  $revisionDigest
      */
-    public function __construct(?string $id = null, ?string $name = null, ?string $namespaceName = null, ?string $revisionDigest = null)
+    public function __construct(string $id, string $name, string $namespaceName, string $revisionDigest)
     {
         $this->id = $id;
         $this->name = $name;

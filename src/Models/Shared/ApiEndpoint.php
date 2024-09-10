@@ -58,7 +58,7 @@ class ApiEndpoint
      * @var ?bool $matched
      */
     #[\JMS\Serializer\Annotation\SerializedName('matched')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $matched = null;
 
     /**
@@ -102,19 +102,19 @@ class ApiEndpoint
     public string $workspaceId;
 
     /**
-     * @param  ?string  $apiEndpointId
-     * @param  ?string  $apiId
-     * @param  ?\DateTime  $createdAt
-     * @param  ?string  $description
-     * @param  ?string  $displayName
-     * @param  ?string  $method
-     * @param  ?string  $path
-     * @param  ?\DateTime  $updatedAt
-     * @param  ?string  $versionId
-     * @param  ?string  $workspaceId
+     * @param  string  $apiEndpointId
+     * @param  string  $apiId
+     * @param  \DateTime  $createdAt
+     * @param  string  $description
+     * @param  string  $displayName
+     * @param  string  $method
+     * @param  string  $path
+     * @param  \DateTime  $updatedAt
+     * @param  string  $versionId
+     * @param  string  $workspaceId
      * @param  ?bool  $matched
      */
-    public function __construct(?string $apiEndpointId = null, ?string $apiId = null, ?\DateTime $createdAt = null, ?string $description = null, ?string $displayName = null, ?string $method = null, ?string $path = null, ?\DateTime $updatedAt = null, ?string $versionId = null, ?string $workspaceId = null, ?bool $matched = null)
+    public function __construct(string $apiEndpointId, string $apiId, \DateTime $createdAt, string $description, string $displayName, string $method, string $path, \DateTime $updatedAt, string $versionId, string $workspaceId, ?bool $matched = null)
     {
         $this->apiEndpointId = $apiEndpointId;
         $this->apiId = $apiId;

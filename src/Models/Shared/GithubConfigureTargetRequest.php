@@ -29,10 +29,10 @@ class GithubConfigureTargetRequest
     public string $repoName;
 
     /**
-     * @param  ?string  $org
-     * @param  ?string  $repoName
+     * @param  string  $org
+     * @param  string  $repoName
      */
-    public function __construct(?string $org = null, ?string $repoName = null)
+    public function __construct(string $org, string $repoName)
     {
         $this->org = $org;
         $this->repoName = $repoName;

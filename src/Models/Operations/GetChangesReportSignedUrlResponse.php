@@ -40,12 +40,12 @@ class GetChangesReportSignedUrlResponse
     public ?GetChangesReportSignedUrlSignedAccess $signedAccess = null;
 
     /**
-     * @param  ?string  $contentType
-     * @param  ?int  $statusCode
-     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  string  $contentType
+     * @param  int  $statusCode
+     * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?GetChangesReportSignedUrlSignedAccess  $signedAccess
      */
-    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?GetChangesReportSignedUrlSignedAccess $signedAccess = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?GetChangesReportSignedUrlSignedAccess $signedAccess = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;

@@ -35,7 +35,7 @@ class ApiKeyDetails
      */
     #[\JMS\Serializer\Annotation\SerializedName('feature_flags')]
     #[\JMS\Serializer\Annotation\Type('array<string>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $featureFlags = null;
 
     /**
@@ -43,7 +43,7 @@ class ApiKeyDetails
      * @var ?bool $generationAccessUnlimited
      */
     #[\JMS\Serializer\Annotation\SerializedName('generation_access_unlimited')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $generationAccessUnlimited = null;
 
     /**
@@ -75,16 +75,16 @@ class ApiKeyDetails
     public string $workspaceSlug;
 
     /**
-     * @param  ?AccountType  $accountTypeV2
-     * @param  ?array<string>  $enabledFeatures
-     * @param  ?string  $orgSlug
-     * @param  ?bool  $telemetryDisabled
-     * @param  ?string  $workspaceId
-     * @param  ?string  $workspaceSlug
+     * @param  AccountType  $accountTypeV2
+     * @param  array<string>  $enabledFeatures
+     * @param  string  $orgSlug
+     * @param  bool  $telemetryDisabled
+     * @param  string  $workspaceId
+     * @param  string  $workspaceSlug
      * @param  ?array<string>  $featureFlags
      * @param  ?bool  $generationAccessUnlimited
      */
-    public function __construct(?AccountType $accountTypeV2 = null, ?array $enabledFeatures = null, ?string $orgSlug = null, ?bool $telemetryDisabled = null, ?string $workspaceId = null, ?string $workspaceSlug = null, ?array $featureFlags = null, ?bool $generationAccessUnlimited = null)
+    public function __construct(AccountType $accountTypeV2, array $enabledFeatures, string $orgSlug, bool $telemetryDisabled, string $workspaceId, string $workspaceSlug, ?array $featureFlags = null, ?bool $generationAccessUnlimited = null)
     {
         $this->accountTypeV2 = $accountTypeV2;
         $this->enabledFeatures = $enabledFeatures;

@@ -26,10 +26,10 @@ class Auth
     public string $secret;
 
     /**
-     * @param  ?string  $header
-     * @param  ?string  $secret
+     * @param  string  $header
+     * @param  string  $secret
      */
-    public function __construct(?string $header = null, ?string $secret = null)
+    public function __construct(string $header, string $secret)
     {
         $this->header = $header;
         $this->secret = $secret;

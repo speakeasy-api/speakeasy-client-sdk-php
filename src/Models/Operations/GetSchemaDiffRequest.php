@@ -44,12 +44,12 @@ class GetSchemaDiffRequest
     public string $versionID;
 
     /**
-     * @param  ?string  $apiID
-     * @param  ?string  $baseRevisionID
-     * @param  ?string  $targetRevisionID
-     * @param  ?string  $versionID
+     * @param  string  $apiID
+     * @param  string  $baseRevisionID
+     * @param  string  $targetRevisionID
+     * @param  string  $versionID
      */
-    public function __construct(?string $apiID = null, ?string $baseRevisionID = null, ?string $targetRevisionID = null, ?string $versionID = null)
+    public function __construct(string $apiID, string $baseRevisionID, string $targetRevisionID, string $versionID)
     {
         $this->apiID = $apiID;
         $this->baseRevisionID = $baseRevisionID;

@@ -37,11 +37,11 @@ class GithubConfigureCodeSamplesRequest
     public string $targetName;
 
     /**
-     * @param  ?string  $org
-     * @param  ?string  $repo
-     * @param  ?string  $targetName
+     * @param  string  $org
+     * @param  string  $repo
+     * @param  string  $targetName
      */
-    public function __construct(?string $org = null, ?string $repo = null, ?string $targetName = null)
+    public function __construct(string $org, string $repo, string $targetName)
     {
         $this->org = $org;
         $this->repo = $repo;

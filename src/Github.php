@@ -15,7 +15,6 @@ use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class Github
 {
     private SDKConfiguration $sdkConfiguration;
-
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
@@ -507,4 +506,5 @@ class Github
             }
         }
     }
+
 }

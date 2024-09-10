@@ -28,10 +28,10 @@ class GetAllForVersionApiEndpointsRequest
     public string $versionID;
 
     /**
-     * @param  ?string  $apiID
-     * @param  ?string  $versionID
+     * @param  string  $apiID
+     * @param  string  $versionID
      */
-    public function __construct(?string $apiID = null, ?string $versionID = null)
+    public function __construct(string $apiID, string $versionID)
     {
         $this->apiID = $apiID;
         $this->versionID = $versionID;

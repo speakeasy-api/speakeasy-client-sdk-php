@@ -59,7 +59,7 @@ class BoundedRequest
      */
     #[\JMS\Serializer\Annotation\SerializedName('metadata')]
     #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\RequestMetadata>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $metadata = null;
 
     /**
@@ -127,22 +127,22 @@ class BoundedRequest
     public string $workspaceId;
 
     /**
-     * @param  ?string  $apiEndpointId
-     * @param  ?string  $apiId
-     * @param  ?\DateTime  $createdAt
-     * @param  ?string  $customerId
-     * @param  ?int  $latency
-     * @param  ?string  $method
-     * @param  ?string  $path
-     * @param  ?\DateTime  $requestFinishTime
-     * @param  ?string  $requestId
-     * @param  ?\DateTime  $requestStartTime
-     * @param  ?int  $status
-     * @param  ?string  $versionId
-     * @param  ?string  $workspaceId
+     * @param  string  $apiEndpointId
+     * @param  string  $apiId
+     * @param  \DateTime  $createdAt
+     * @param  string  $customerId
+     * @param  int  $latency
+     * @param  string  $method
+     * @param  string  $path
+     * @param  \DateTime  $requestFinishTime
+     * @param  string  $requestId
+     * @param  \DateTime  $requestStartTime
+     * @param  int  $status
+     * @param  string  $versionId
+     * @param  string  $workspaceId
      * @param  ?array<RequestMetadata>  $metadata
      */
-    public function __construct(?string $apiEndpointId = null, ?string $apiId = null, ?\DateTime $createdAt = null, ?string $customerId = null, ?int $latency = null, ?string $method = null, ?string $path = null, ?\DateTime $requestFinishTime = null, ?string $requestId = null, ?\DateTime $requestStartTime = null, ?int $status = null, ?string $versionId = null, ?string $workspaceId = null, ?array $metadata = null)
+    public function __construct(string $apiEndpointId, string $apiId, \DateTime $createdAt, string $customerId, int $latency, string $method, string $path, \DateTime $requestFinishTime, string $requestId, \DateTime $requestStartTime, int $status, string $versionId, string $workspaceId, ?array $metadata = null)
     {
         $this->apiEndpointId = $apiEndpointId;
         $this->apiId = $apiId;

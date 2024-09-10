@@ -18,7 +18,7 @@ class WorkflowDocument
      */
     #[\JMS\Serializer\Annotation\SerializedName('auth')]
     #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Auth|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?Auth $auth = null;
 
     /**
@@ -29,10 +29,10 @@ class WorkflowDocument
     public string $location;
 
     /**
-     * @param  ?string  $location
+     * @param  string  $location
      * @param  ?Auth  $auth
      */
-    public function __construct(?string $location = null, ?Auth $auth = null)
+    public function __construct(string $location, ?Auth $auth = null)
     {
         $this->location = $location;
         $this->auth = $auth;

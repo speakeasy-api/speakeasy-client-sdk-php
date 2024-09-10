@@ -20,9 +20,9 @@ class RegisterSchemaRequestBody
     public RegisterSchemaFile $file;
 
     /**
-     * @param  ?RegisterSchemaFile  $file
+     * @param  RegisterSchemaFile  $file
      */
-    public function __construct(?RegisterSchemaFile $file = null)
+    public function __construct(RegisterSchemaFile $file)
     {
         $this->file = $file;
     }

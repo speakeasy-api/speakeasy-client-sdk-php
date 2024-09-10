@@ -45,12 +45,12 @@ class UpsertApiEndpointRequest
     public string $versionID;
 
     /**
-     * @param  ?Shared\ApiEndpointInput  $apiEndpoint
-     * @param  ?string  $apiEndpointID
-     * @param  ?string  $apiID
-     * @param  ?string  $versionID
+     * @param  Shared\ApiEndpointInput  $apiEndpoint
+     * @param  string  $apiEndpointID
+     * @param  string  $apiID
+     * @param  string  $versionID
      */
-    public function __construct(?Shared\ApiEndpointInput $apiEndpoint = null, ?string $apiEndpointID = null, ?string $apiID = null, ?string $versionID = null)
+    public function __construct(Shared\ApiEndpointInput $apiEndpoint, string $apiEndpointID, string $apiID, string $versionID)
     {
         $this->apiEndpoint = $apiEndpoint;
         $this->apiEndpointID = $apiEndpointID;

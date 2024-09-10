@@ -40,11 +40,11 @@ class SchemaDiff
     public array $modifications;
 
     /**
-     * @param  ?array<string>  $additions
-     * @param  ?array<string>  $deletions
-     * @param  ?array<string, ValueChange>  $modifications
+     * @param  array<string>  $additions
+     * @param  array<string>  $deletions
+     * @param  array<string, ValueChange>  $modifications
      */
-    public function __construct(?array $additions = null, ?array $deletions = null, ?array $modifications = null)
+    public function __construct(array $additions, array $deletions, array $modifications)
     {
         $this->additions = $additions;
         $this->deletions = $deletions;

@@ -61,14 +61,14 @@ class VersionMetadata
     public string $workspaceId;
 
     /**
-     * @param  ?string  $apiId
-     * @param  ?\DateTime  $createdAt
-     * @param  ?string  $metaKey
-     * @param  ?string  $metaValue
-     * @param  ?string  $versionId
-     * @param  ?string  $workspaceId
+     * @param  string  $apiId
+     * @param  \DateTime  $createdAt
+     * @param  string  $metaKey
+     * @param  string  $metaValue
+     * @param  string  $versionId
+     * @param  string  $workspaceId
      */
-    public function __construct(?string $apiId = null, ?\DateTime $createdAt = null, ?string $metaKey = null, ?string $metaValue = null, ?string $versionId = null, ?string $workspaceId = null)
+    public function __construct(string $apiId, \DateTime $createdAt, string $metaKey, string $metaValue, string $versionId, string $workspaceId)
     {
         $this->apiId = $apiId;
         $this->createdAt = $createdAt;

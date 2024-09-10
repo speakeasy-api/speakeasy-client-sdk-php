@@ -48,13 +48,13 @@ class UpsertApiResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
-     * @param  ?string  $contentType
-     * @param  ?int  $statusCode
-     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  string  $contentType
+     * @param  int  $statusCode
+     * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?Shared\Api  $api
      * @param  ?Errors\Error  $error
      */
-    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Shared\Api $api = null, ?Errors\Error $error = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\Api $api = null, ?Errors\Error $error = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;

@@ -21,9 +21,9 @@ class GetNamespacesResponse
     public array $items;
 
     /**
-     * @param  ?array<NamespaceT>  $items
+     * @param  array<NamespaceT>  $items
      */
-    public function __construct(?array $items = null)
+    public function __construct(array $items)
     {
         $this->items = $items;
     }

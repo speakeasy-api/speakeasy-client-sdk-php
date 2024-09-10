@@ -24,7 +24,7 @@ class AccessDetails
      */
     #[\JMS\Serializer\Annotation\SerializedName('level')]
     #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Level|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?Level $level = null;
 
     /**
@@ -35,11 +35,11 @@ class AccessDetails
     public string $message;
 
     /**
-     * @param  ?bool  $generationAllowed
-     * @param  ?string  $message
+     * @param  bool  $generationAllowed
+     * @param  string  $message
      * @param  ?Level  $level
      */
-    public function __construct(?bool $generationAllowed = null, ?string $message = null, ?Level $level = null)
+    public function __construct(bool $generationAllowed, string $message, ?Level $level = null)
     {
         $this->generationAllowed = $generationAllowed;
         $this->message = $message;

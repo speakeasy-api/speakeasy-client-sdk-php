@@ -26,7 +26,7 @@ class GithubConfigureCodeSamplesResponse
      * @var ?string $ghActionID
      */
     #[\JMS\Serializer\Annotation\SerializedName('ghActionID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ghActionID = null;
 
     /**
@@ -39,11 +39,11 @@ class GithubConfigureCodeSamplesResponse
     public WorkflowDocument $source;
 
     /**
-     * @param  ?string  $codeSampleOverlayRegistryURL
-     * @param  ?WorkflowDocument  $source
+     * @param  string  $codeSampleOverlayRegistryURL
+     * @param  WorkflowDocument  $source
      * @param  ?string  $ghActionID
      */
-    public function __construct(?string $codeSampleOverlayRegistryURL = null, ?WorkflowDocument $source = null, ?string $ghActionID = null)
+    public function __construct(string $codeSampleOverlayRegistryURL, WorkflowDocument $source, ?string $ghActionID = null)
     {
         $this->codeSampleOverlayRegistryURL = $codeSampleOverlayRegistryURL;
         $this->source = $source;

@@ -72,15 +72,15 @@ class OrganizationUsage
     public array $workspaces;
 
     /**
-     * @param  ?bool  $accessible
-     * @param  ?array<string>  $accessibleFeatures
-     * @param  ?array<string>  $genLockIds
-     * @param  ?string  $language
-     * @param  ?int  $numberOfOperations
-     * @param  ?array<string>  $usedFeatures
-     * @param  ?array<string>  $workspaces
+     * @param  bool  $accessible
+     * @param  array<string>  $accessibleFeatures
+     * @param  array<string>  $genLockIds
+     * @param  string  $language
+     * @param  int  $numberOfOperations
+     * @param  array<string>  $usedFeatures
+     * @param  array<string>  $workspaces
      */
-    public function __construct(?bool $accessible = null, ?array $accessibleFeatures = null, ?array $genLockIds = null, ?string $language = null, ?int $numberOfOperations = null, ?array $usedFeatures = null, ?array $workspaces = null)
+    public function __construct(bool $accessible, array $accessibleFeatures, array $genLockIds, string $language, int $numberOfOperations, array $usedFeatures, array $workspaces)
     {
         $this->accessible = $accessible;
         $this->accessibleFeatures = $accessibleFeatures;

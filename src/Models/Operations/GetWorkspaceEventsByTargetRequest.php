@@ -36,11 +36,11 @@ class GetWorkspaceEventsByTargetRequest
     public ?string $workspaceID = null;
 
     /**
-     * @param  ?string  $targetID
+     * @param  string  $targetID
      * @param  ?\DateTime  $afterCreatedAt
      * @param  ?string  $workspaceID
      */
-    public function __construct(?string $targetID = null, ?\DateTime $afterCreatedAt = null, ?string $workspaceID = null)
+    public function __construct(string $targetID, ?\DateTime $afterCreatedAt = null, ?string $workspaceID = null)
     {
         $this->targetID = $targetID;
         $this->afterCreatedAt = $afterCreatedAt;

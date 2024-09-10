@@ -28,10 +28,10 @@ class SuggestOpenAPIRequestBody
     public Schema $schema;
 
     /**
-     * @param  ?Schema  $schema
+     * @param  Schema  $schema
      * @param  ?Shared\SuggestOpts  $opts
      */
-    public function __construct(?Schema $schema = null, ?Shared\SuggestOpts $opts = null)
+    public function __construct(Schema $schema, ?Shared\SuggestOpts $opts = null)
     {
         $this->schema = $schema;
         $this->opts = $opts;

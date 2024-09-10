@@ -36,11 +36,11 @@ class GenerateOpenApiSpecForApiEndpointRequest
     public string $versionID;
 
     /**
-     * @param  ?string  $apiEndpointID
-     * @param  ?string  $apiID
-     * @param  ?string  $versionID
+     * @param  string  $apiEndpointID
+     * @param  string  $apiID
+     * @param  string  $versionID
      */
-    public function __construct(?string $apiEndpointID = null, ?string $apiID = null, ?string $versionID = null)
+    public function __construct(string $apiEndpointID, string $apiID, string $versionID)
     {
         $this->apiEndpointID = $apiEndpointID;
         $this->apiID = $apiID;

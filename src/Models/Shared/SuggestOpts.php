@@ -18,7 +18,7 @@ class SuggestOpts
      */
     #[\JMS\Serializer\Annotation\SerializedName('diagnostics')]
     #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Diagnostic>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $diagnostics = null;
 
     /**
@@ -30,10 +30,10 @@ class SuggestOpts
     public SuggestionType $suggestionType;
 
     /**
-     * @param  ?SuggestionType  $suggestionType
+     * @param  SuggestionType  $suggestionType
      * @param  ?array<Diagnostic>  $diagnostics
      */
-    public function __construct(?SuggestionType $suggestionType = null, ?array $diagnostics = null)
+    public function __construct(SuggestionType $suggestionType, ?array $diagnostics = null)
     {
         $this->suggestionType = $suggestionType;
         $this->diagnostics = $diagnostics;

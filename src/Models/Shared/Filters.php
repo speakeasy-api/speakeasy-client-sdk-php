@@ -46,12 +46,12 @@ class Filters
     public string $operator;
 
     /**
-     * @param  ?array<Filter>  $filters
-     * @param  ?int  $limit
-     * @param  ?int  $offset
-     * @param  ?string  $operator
+     * @param  array<Filter>  $filters
+     * @param  int  $limit
+     * @param  int  $offset
+     * @param  string  $operator
      */
-    public function __construct(?array $filters = null, ?int $limit = null, ?int $offset = null, ?string $operator = null)
+    public function __construct(array $filters, int $limit, int $offset, string $operator)
     {
         $this->filters = $filters;
         $this->limit = $limit;

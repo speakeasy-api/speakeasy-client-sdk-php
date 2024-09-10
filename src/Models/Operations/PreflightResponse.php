@@ -48,13 +48,13 @@ class PreflightResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
-     * @param  ?string  $contentType
-     * @param  ?int  $statusCode
-     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  string  $contentType
+     * @param  int  $statusCode
+     * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?Errors\Error  $error
      * @param  ?Shared\PreflightToken  $preflightToken
      */
-    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Errors\Error $error = null, ?Shared\PreflightToken $preflightToken = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Errors\Error $error = null, ?Shared\PreflightToken $preflightToken = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;

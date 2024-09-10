@@ -38,7 +38,7 @@ class Workspace
      * @var ?string $ociRepo
      */
     #[\JMS\Serializer\Annotation\SerializedName('oci_repo')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ociRepo = null;
 
     /**
@@ -46,7 +46,7 @@ class Workspace
      * @var ?\DateTime $ociRepoCreatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('oci_repo_created_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $ociRepoCreatedAt = null;
 
     /**
@@ -85,18 +85,18 @@ class Workspace
     public bool $verified;
 
     /**
-     * @param  ?\DateTime  $createdAt
-     * @param  ?string  $id
-     * @param  ?string  $name
-     * @param  ?string  $organizationId
-     * @param  ?string  $slug
-     * @param  ?bool  $telemetryDisabled
-     * @param  ?\DateTime  $updatedAt
-     * @param  ?bool  $verified
+     * @param  \DateTime  $createdAt
+     * @param  string  $id
+     * @param  string  $name
+     * @param  string  $organizationId
+     * @param  string  $slug
+     * @param  bool  $telemetryDisabled
+     * @param  \DateTime  $updatedAt
+     * @param  bool  $verified
      * @param  ?string  $ociRepo
      * @param  ?\DateTime  $ociRepoCreatedAt
      */
-    public function __construct(?\DateTime $createdAt = null, ?string $id = null, ?string $name = null, ?string $organizationId = null, ?string $slug = null, ?bool $telemetryDisabled = null, ?\DateTime $updatedAt = null, ?bool $verified = null, ?string $ociRepo = null, ?\DateTime $ociRepoCreatedAt = null)
+    public function __construct(\DateTime $createdAt, string $id, string $name, string $organizationId, string $slug, bool $telemetryDisabled, \DateTime $updatedAt, bool $verified, ?string $ociRepo = null, ?\DateTime $ociRepoCreatedAt = null)
     {
         $this->createdAt = $createdAt;
         $this->id = $id;

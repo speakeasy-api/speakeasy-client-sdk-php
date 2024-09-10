@@ -41,7 +41,7 @@ class User
      * @var ?string $defaultWorkspaceId
      */
     #[\JMS\Serializer\Annotation\SerializedName('default_workspace_id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $defaultWorkspaceId = null;
 
     /**
@@ -74,7 +74,7 @@ class User
      * @var ?string $githubHandle
      */
     #[\JMS\Serializer\Annotation\SerializedName('github_handle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $githubHandle = null;
 
     /**
@@ -99,7 +99,7 @@ class User
      * @var ?string $photoUrl
      */
     #[\JMS\Serializer\Annotation\SerializedName('photo_url')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $photoUrl = null;
 
     /**
@@ -119,21 +119,21 @@ class User
     public bool $whitelisted;
 
     /**
-     * @param  ?bool  $admin
-     * @param  ?bool  $confirmed
-     * @param  ?\DateTime  $createdAt
-     * @param  ?string  $displayName
-     * @param  ?string  $email
-     * @param  ?bool  $emailVerified
-     * @param  ?string  $id
-     * @param  ?\DateTime  $lastLoginAt
-     * @param  ?\DateTime  $updatedAt
-     * @param  ?bool  $whitelisted
+     * @param  bool  $admin
+     * @param  bool  $confirmed
+     * @param  \DateTime  $createdAt
+     * @param  string  $displayName
+     * @param  string  $email
+     * @param  bool  $emailVerified
+     * @param  string  $id
+     * @param  \DateTime  $lastLoginAt
+     * @param  \DateTime  $updatedAt
+     * @param  bool  $whitelisted
      * @param  ?string  $defaultWorkspaceId
      * @param  ?string  $githubHandle
      * @param  ?string  $photoUrl
      */
-    public function __construct(?bool $admin = null, ?bool $confirmed = null, ?\DateTime $createdAt = null, ?string $displayName = null, ?string $email = null, ?bool $emailVerified = null, ?string $id = null, ?\DateTime $lastLoginAt = null, ?\DateTime $updatedAt = null, ?bool $whitelisted = null, ?string $defaultWorkspaceId = null, ?string $githubHandle = null, ?string $photoUrl = null)
+    public function __construct(bool $admin, bool $confirmed, \DateTime $createdAt, string $displayName, string $email, bool $emailVerified, string $id, \DateTime $lastLoginAt, \DateTime $updatedAt, bool $whitelisted, ?string $defaultWorkspaceId = null, ?string $githubHandle = null, ?string $photoUrl = null)
     {
         $this->admin = $admin;
         $this->confirmed = $confirmed;

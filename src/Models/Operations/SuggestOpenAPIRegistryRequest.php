@@ -43,12 +43,12 @@ class SuggestOpenAPIRegistryRequest
     public string $xSessionId;
 
     /**
-     * @param  ?string  $namespaceName
-     * @param  ?string  $revisionReference
-     * @param  ?string  $xSessionId
+     * @param  string  $namespaceName
+     * @param  string  $revisionReference
+     * @param  string  $xSessionId
      * @param  ?Shared\SuggestOpts  $suggestOpts
      */
-    public function __construct(?string $namespaceName = null, ?string $revisionReference = null, ?string $xSessionId = null, ?Shared\SuggestOpts $suggestOpts = null)
+    public function __construct(string $namespaceName, string $revisionReference, string $xSessionId, ?Shared\SuggestOpts $suggestOpts = null)
     {
         $this->namespaceName = $namespaceName;
         $this->revisionReference = $revisionReference;

@@ -57,14 +57,14 @@ class Revision
     public \DateTime $updatedAt;
 
     /**
-     * @param  ?\DateTime  $createdAt
-     * @param  ?string  $digest
-     * @param  ?string  $id
-     * @param  ?string  $namespaceName
-     * @param  ?array<string>  $tags
-     * @param  ?\DateTime  $updatedAt
+     * @param  \DateTime  $createdAt
+     * @param  string  $digest
+     * @param  string  $id
+     * @param  string  $namespaceName
+     * @param  array<string>  $tags
+     * @param  \DateTime  $updatedAt
      */
-    public function __construct(?\DateTime $createdAt = null, ?string $digest = null, ?string $id = null, ?string $namespaceName = null, ?array $tags = null, ?\DateTime $updatedAt = null)
+    public function __construct(\DateTime $createdAt, string $digest, string $id, string $namespaceName, array $tags, \DateTime $updatedAt)
     {
         $this->createdAt = $createdAt;
         $this->digest = $digest;

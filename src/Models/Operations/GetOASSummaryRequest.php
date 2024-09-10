@@ -26,10 +26,10 @@ class GetOASSummaryRequest
     public string $revisionReference;
 
     /**
-     * @param  ?string  $namespaceName
-     * @param  ?string  $revisionReference
+     * @param  string  $namespaceName
+     * @param  string  $revisionReference
      */
-    public function __construct(?string $namespaceName = null, ?string $revisionReference = null)
+    public function __construct(string $namespaceName, string $revisionReference)
     {
         $this->namespaceName = $namespaceName;
         $this->revisionReference = $revisionReference;

@@ -27,14 +27,14 @@ class GithubStorePublishingSecretsRequest
      */
     #[\JMS\Serializer\Annotation\SerializedName('secrets')]
     #[\JMS\Serializer\Annotation\Type('array<string, string>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $secrets = null;
 
     /**
-     * @param  ?string  $generateGenLockId
+     * @param  string  $generateGenLockId
      * @param  ?array<string, string>  $secrets
      */
-    public function __construct(?string $generateGenLockId = null, ?array $secrets = null)
+    public function __construct(string $generateGenLockId, ?array $secrets = null)
     {
         $this->generateGenLockId = $generateGenLockId;
         $this->secrets = $secrets;

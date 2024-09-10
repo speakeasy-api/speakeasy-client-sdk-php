@@ -20,9 +20,9 @@ class GetRequestFromEventLogRequest
     public string $requestID;
 
     /**
-     * @param  ?string  $requestID
+     * @param  string  $requestID
      */
-    public function __construct(?string $requestID = null)
+    public function __construct(string $requestID)
     {
         $this->requestID = $requestID;
     }

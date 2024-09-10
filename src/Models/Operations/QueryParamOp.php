@@ -21,9 +21,9 @@ class QueryParamOp
     public bool $and;
 
     /**
-     * @param  ?bool  $and
+     * @param  bool  $and
      */
-    public function __construct(?bool $and = null)
+    public function __construct(bool $and)
     {
         $this->and = $and;
     }

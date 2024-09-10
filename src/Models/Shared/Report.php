@@ -17,7 +17,7 @@ class Report
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
     #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Type|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?Type $type = null;
 
     /**

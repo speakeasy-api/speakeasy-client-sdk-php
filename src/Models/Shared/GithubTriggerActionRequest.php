@@ -18,7 +18,7 @@ class GithubTriggerActionRequest
      * @var ?bool $force
      */
     #[\JMS\Serializer\Annotation\SerializedName('force')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $force = null;
 
     /**
@@ -51,7 +51,7 @@ class GithubTriggerActionRequest
      * @var ?string $setVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('set_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $setVersion = null;
 
     /**
@@ -60,18 +60,18 @@ class GithubTriggerActionRequest
      * @var ?string $targetName
      */
     #[\JMS\Serializer\Annotation\SerializedName('target_name')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $targetName = null;
 
     /**
-     * @param  ?string  $genLockId
-     * @param  ?string  $org
-     * @param  ?string  $repoName
+     * @param  string  $genLockId
+     * @param  string  $org
+     * @param  string  $repoName
      * @param  ?bool  $force
      * @param  ?string  $setVersion
      * @param  ?string  $targetName
      */
-    public function __construct(?string $genLockId = null, ?string $org = null, ?string $repoName = null, ?bool $force = null, ?string $setVersion = null, ?string $targetName = null)
+    public function __construct(string $genLockId, string $org, string $repoName, ?bool $force = null, ?string $setVersion = null, ?string $targetName = null)
     {
         $this->genLockId = $genLockId;
         $this->org = $org;

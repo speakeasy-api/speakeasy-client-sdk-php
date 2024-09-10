@@ -37,11 +37,11 @@ class Filter
     public string $value;
 
     /**
-     * @param  ?string  $key
-     * @param  ?string  $operator
-     * @param  ?string  $value
+     * @param  string  $key
+     * @param  string  $operator
+     * @param  string  $value
      */
-    public function __construct(?string $key = null, ?string $operator = null, ?string $value = null)
+    public function __construct(string $key, string $operator, string $value)
     {
         $this->key = $key;
         $this->operator = $operator;

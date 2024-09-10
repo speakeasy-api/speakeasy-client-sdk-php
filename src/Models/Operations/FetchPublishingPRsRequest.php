@@ -33,11 +33,11 @@ class FetchPublishingPRsRequest
     public string $repo;
 
     /**
-     * @param  ?string  $generateGenLockId
-     * @param  ?string  $org
-     * @param  ?string  $repo
+     * @param  string  $generateGenLockId
+     * @param  string  $org
+     * @param  string  $repo
      */
-    public function __construct(?string $generateGenLockId = null, ?string $org = null, ?string $repo = null)
+    public function __construct(string $generateGenLockId, string $org, string $repo)
     {
         $this->generateGenLockId = $generateGenLockId;
         $this->org = $org;
