@@ -25,8 +25,9 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
@@ -76,8 +77,9 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
@@ -127,19 +129,18 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
     $request = new Operations\UploadReportRequestBody(
-        data: new Shared\Report(
-            type: Shared\Type::Changes,
-        ),
+        data: new Shared\Report(),
         file: new Operations\File(
-            content: '0x329C0ad855',
-            fileName: 'your_file_here',
+            content: '0xA329C0ad85',
+            fileName: 'example.file',
         ),
     );
     $response = $sdk->reports->uploadReport($request);

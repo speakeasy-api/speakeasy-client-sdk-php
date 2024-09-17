@@ -15,10 +15,10 @@ class SuggestOpenAPIRegistryRequest
     /**
      * Suggest options
      *
-     * @var ?Shared\SuggestOpts $suggestOpts
+     * @var ?Shared\SuggestRequestBody $suggestRequestBody
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public ?Shared\SuggestOpts $suggestOpts = null;
+    public ?Shared\SuggestRequestBody $suggestRequestBody = null;
 
     /**
      *
@@ -46,13 +46,13 @@ class SuggestOpenAPIRegistryRequest
      * @param  string  $namespaceName
      * @param  string  $revisionReference
      * @param  string  $xSessionId
-     * @param  ?Shared\SuggestOpts  $suggestOpts
+     * @param  ?Shared\SuggestRequestBody  $suggestRequestBody
      */
-    public function __construct(string $namespaceName, string $revisionReference, string $xSessionId, ?Shared\SuggestOpts $suggestOpts = null)
+    public function __construct(string $namespaceName, string $revisionReference, string $xSessionId, ?Shared\SuggestRequestBody $suggestRequestBody = null)
     {
         $this->namespaceName = $namespaceName;
         $this->revisionReference = $revisionReference;
         $this->xSessionId = $xSessionId;
-        $this->suggestOpts = $suggestOpts;
+        $this->suggestRequestBody = $suggestRequestBody;
     }
 }

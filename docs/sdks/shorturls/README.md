@@ -23,8 +23,9 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 

@@ -25,22 +25,14 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetApisRequest(
-        metadata: [
-            'South' => [
-                '<value>',
-            ],
-        ],
-        op: new Operations\QueryParamOp(
-            and: false,
-        ),
-    );
+    $request = new Operations\GetApisRequest();
     $response = $sdk->apis->getApis($request);
 
     if ($response->apis !== null) {
@@ -55,14 +47,8 @@ try {
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [Apis](docs/sdks/apis/README.md)
-
-* [deleteApi](docs/sdks/apis/README.md#deleteapi) - Delete an Api.
-* [generateOpenApiSpec](docs/sdks/apis/README.md#generateopenapispec) - Generate an OpenAPI specification for a particular Api.
-* [generatePostmanCollection](docs/sdks/apis/README.md#generatepostmancollection) - Generate a Postman collection for a particular Api.
-* [getAllApiVersions](docs/sdks/apis/README.md#getallapiversions) - Get all Api versions for a particular ApiEndpoint.
-* [getApis](docs/sdks/apis/README.md#getapis) - Get a list of Apis for a given workspace
-* [upsertApi](docs/sdks/apis/README.md#upsertapi) - Upsert an Api
+<details open>
+<summary>Available methods</summary>
 
 ### [ApiEndpoints](docs/sdks/apiendpoints/README.md)
 
@@ -75,22 +61,14 @@ try {
 * [getApiEndpoint](docs/sdks/apiendpoints/README.md#getapiendpoint) - Get an ApiEndpoint.
 * [upsertApiEndpoint](docs/sdks/apiendpoints/README.md#upsertapiendpoint) - Upsert an ApiEndpoint.
 
-### [Metadata](docs/sdks/metadata/README.md)
+### [Apis](docs/sdks/apis/README.md)
 
-* [deleteVersionMetadata](docs/sdks/metadata/README.md#deleteversionmetadata) - Delete metadata for a particular apiID and versionID.
-* [getVersionMetadata](docs/sdks/metadata/README.md#getversionmetadata) - Get all metadata for a particular apiID and versionID.
-* [insertVersionMetadata](docs/sdks/metadata/README.md#insertversionmetadata) - Insert metadata for a particular apiID and versionID.
-
-### [Schemas](docs/sdks/schemas/README.md)
-
-* [deleteSchema](docs/sdks/schemas/README.md#deleteschema) - Delete a particular schema revision for an Api.
-* [downloadSchema](docs/sdks/schemas/README.md#downloadschema) - Download the latest schema for a particular apiID.
-* [downloadSchemaRevision](docs/sdks/schemas/README.md#downloadschemarevision) - Download a particular schema revision for an Api.
-* [getSchema](docs/sdks/schemas/README.md#getschema) - Get information about the latest schema.
-* [getSchemaDiff](docs/sdks/schemas/README.md#getschemadiff) - Get a diff of two schema revisions for an Api.
-* [getSchemaRevision](docs/sdks/schemas/README.md#getschemarevision) - Get information about a particular schema revision for an Api.
-* [getSchemas](docs/sdks/schemas/README.md#getschemas) - Get information about all schemas associated with a particular apiID.
-* [registerSchema](docs/sdks/schemas/README.md#registerschema) - Register a schema.
+* [deleteApi](docs/sdks/apis/README.md#deleteapi) - Delete an Api.
+* [generateOpenApiSpec](docs/sdks/apis/README.md#generateopenapispec) - Generate an OpenAPI specification for a particular Api.
+* [generatePostmanCollection](docs/sdks/apis/README.md#generatepostmancollection) - Generate a Postman collection for a particular Api.
+* [getAllApiVersions](docs/sdks/apis/README.md#getallapiversions) - Get all Api versions for a particular ApiEndpoint.
+* [getApis](docs/sdks/apis/README.md#getapis) - Get a list of Apis for a given workspace
+* [upsertApi](docs/sdks/apis/README.md#upsertapi) - Upsert an Api
 
 ### [Artifacts](docs/sdks/artifacts/README.md)
 
@@ -110,11 +88,18 @@ try {
 * [getWorkspaceAccess](docs/sdks/auth/README.md#getworkspaceaccess) - Get access allowances for a particular workspace
 * [validateApiKey](docs/sdks/auth/README.md#validateapikey) - Validate the current api key.
 
-### [Requests](docs/sdks/requests/README.md)
+### [Embeds](docs/sdks/embeds/README.md)
 
-* [generateRequestPostmanCollection](docs/sdks/requests/README.md#generaterequestpostmancollection) - Generate a Postman collection for a particular request.
-* [getRequestFromEventLog](docs/sdks/requests/README.md#getrequestfromeventlog) - Get information about a particular request.
-* [queryEventLog](docs/sdks/requests/README.md#queryeventlog) - Query the event log to retrieve a list of requests.
+* [getEmbedAccessToken](docs/sdks/embeds/README.md#getembedaccesstoken) - Get an embed access token for the current workspace.
+* [getValidEmbedAccessTokens](docs/sdks/embeds/README.md#getvalidembedaccesstokens) - Get all valid embed access tokens for the current workspace.
+* [revokeEmbedAccessToken](docs/sdks/embeds/README.md#revokeembedaccesstoken) - Revoke an embed access EmbedToken.
+
+### [Events](docs/sdks/events/README.md)
+
+* [getWorkspaceEventsByTarget](docs/sdks/events/README.md#getworkspaceeventsbytarget) - Load recent events for a particular workspace
+* [getWorkspaceTargets](docs/sdks/events/README.md#getworkspacetargets) - Load targets for a particular workspace
+* [postWorkspaceEvents](docs/sdks/events/README.md#postworkspaceevents) - Post events for a specific workspace
+* [searchWorkspaceEvents](docs/sdks/events/README.md#searchworkspaceevents) - Search events for a particular workspace by any field
 
 ### [Github](docs/sdks/github/README.md)
 
@@ -127,6 +112,12 @@ try {
 * [githubCheckPublishingSecrets](docs/sdks/github/README.md#githubcheckpublishingsecrets)
 * [githubStorePublishingSecrets](docs/sdks/github/README.md#githubstorepublishingsecrets)
 * [triggerAction](docs/sdks/github/README.md#triggeraction)
+
+### [Metadata](docs/sdks/metadata/README.md)
+
+* [deleteVersionMetadata](docs/sdks/metadata/README.md#deleteversionmetadata) - Delete metadata for a particular apiID and versionID.
+* [getVersionMetadata](docs/sdks/metadata/README.md#getversionmetadata) - Get all metadata for a particular apiID and versionID.
+* [insertVersionMetadata](docs/sdks/metadata/README.md#insertversionmetadata) - Insert metadata for a particular apiID and versionID.
 
 ### [Organizations](docs/sdks/organizations/README.md)
 
@@ -141,32 +132,40 @@ try {
 * [getLintingReportSignedUrl](docs/sdks/reports/README.md#getlintingreportsignedurl) - Get the signed access url for the linting reports for a particular document.
 * [uploadReport](docs/sdks/reports/README.md#uploadreport) - Upload a report.
 
+### [Requests](docs/sdks/requests/README.md)
+
+* [generateRequestPostmanCollection](docs/sdks/requests/README.md#generaterequestpostmancollection) - Generate a Postman collection for a particular request.
+* [getRequestFromEventLog](docs/sdks/requests/README.md#getrequestfromeventlog) - Get information about a particular request.
+* [queryEventLog](docs/sdks/requests/README.md#queryeventlog) - Query the event log to retrieve a list of requests.
+
+### [Schemas](docs/sdks/schemas/README.md)
+
+* [deleteSchema](docs/sdks/schemas/README.md#deleteschema) - Delete a particular schema revision for an Api.
+* [downloadSchema](docs/sdks/schemas/README.md#downloadschema) - Download the latest schema for a particular apiID.
+* [downloadSchemaRevision](docs/sdks/schemas/README.md#downloadschemarevision) - Download a particular schema revision for an Api.
+* [getSchema](docs/sdks/schemas/README.md#getschema) - Get information about the latest schema.
+* [getSchemaDiff](docs/sdks/schemas/README.md#getschemadiff) - Get a diff of two schema revisions for an Api.
+* [getSchemaRevision](docs/sdks/schemas/README.md#getschemarevision) - Get information about a particular schema revision for an Api.
+* [getSchemas](docs/sdks/schemas/README.md#getschemas) - Get information about all schemas associated with a particular apiID.
+* [registerSchema](docs/sdks/schemas/README.md#registerschema) - Register a schema.
+
+
 ### [ShortURLs](docs/sdks/shorturls/README.md)
 
 * [create](docs/sdks/shorturls/README.md#create) - Shorten a URL.
 
 ### [Suggest](docs/sdks/suggest/README.md)
 
-* [applyOperationIDs](docs/sdks/suggest/README.md#applyoperationids) - Apply operation ID suggestions and download result.
-* [suggestOpenAPI](docs/sdks/suggest/README.md#suggestopenapi) - Generate suggestions for improving an OpenAPI document.
+* [suggest](docs/sdks/suggest/README.md#suggest) - Generate suggestions for improving an OpenAPI document.
+* [suggestOpenAPI](docs/sdks/suggest/README.md#suggestopenapi) - (DEPRECATED) Generate suggestions for improving an OpenAPI document.
 * [suggestOpenAPIRegistry](docs/sdks/suggest/README.md#suggestopenapiregistry) - Generate suggestions for improving an OpenAPI document stored in the registry.
-
-### [Embeds](docs/sdks/embeds/README.md)
-
-* [getEmbedAccessToken](docs/sdks/embeds/README.md#getembedaccesstoken) - Get an embed access token for the current workspace.
-* [getValidEmbedAccessTokens](docs/sdks/embeds/README.md#getvalidembedaccesstokens) - Get all valid embed access tokens for the current workspace.
-* [revokeEmbedAccessToken](docs/sdks/embeds/README.md#revokeembedaccesstoken) - Revoke an embed access EmbedToken.
 
 ### [Workspaces](docs/sdks/workspaces/README.md)
 
 * [getWorkspace](docs/sdks/workspaces/README.md#getworkspace) - Get workspace
+* [getWorkspaceFeatureFlags](docs/sdks/workspaces/README.md#getworkspacefeatureflags) - Get workspace feature flags
 
-### [Events](docs/sdks/events/README.md)
-
-* [getWorkspaceEventsByTarget](docs/sdks/events/README.md#getworkspaceeventsbytarget) - Load recent events for a particular workspace
-* [getWorkspaceTargets](docs/sdks/events/README.md#getworkspacetargets) - Load targets for a particular workspace
-* [postWorkspaceEvents](docs/sdks/events/README.md#postworkspaceevents) - Post events for a specific workspace
-* [searchWorkspaceEvents](docs/sdks/events/README.md#searchworkspaceevents) - Search events for a particular workspace by any field
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 
@@ -219,15 +218,14 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetWorkspaceRequest(
-
-    );
+    $request = new Operations\GetWorkspaceRequest();
     $response = $sdk->workspaces->getWorkspace($request);
 
     if ($response->workspace !== null) {

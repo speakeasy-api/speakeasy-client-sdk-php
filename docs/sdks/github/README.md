@@ -27,8 +27,9 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
@@ -76,8 +77,9 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
@@ -126,8 +128,9 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
@@ -139,7 +142,6 @@ try {
             '<value>',
         ],
         repo: '<value>',
-        subdirectory: '<value>',
     );
     $response = $sdk->github->configureMintlifyRepo($request);
 
@@ -180,8 +182,9 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
@@ -230,8 +233,9 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
@@ -281,8 +285,9 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
@@ -290,7 +295,6 @@ try {
     $request = new Operations\GetActionRequest(
         org: '<value>',
         repo: '<value>',
-        targetName: '<value>',
     );
     $response = $sdk->github->getAction($request);
 
@@ -332,8 +336,9 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
@@ -380,17 +385,15 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
     $request = new Shared\GithubStorePublishingSecretsRequest(
         generateGenLockId: '<value>',
-        secrets: [
-            'Diesel' => '<value>',
-        ],
     );
     $response = $sdk->github->githubStorePublishingSecrets($request);
 
@@ -431,8 +434,9 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
@@ -441,9 +445,6 @@ try {
         genLockId: '<value>',
         org: '<value>',
         repoName: '<value>',
-        force: false,
-        setVersion: '<value>',
-        targetName: '<value>',
     );
     $response = $sdk->github->triggerAction($request);
 

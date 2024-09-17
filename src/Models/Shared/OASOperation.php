@@ -20,10 +20,26 @@ class OASOperation
 
     /**
      *
+     * @var ?string $groupOverride
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('group_override')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $groupOverride = null;
+
+    /**
+     *
      * @var string $method
      */
     #[\JMS\Serializer\Annotation\SerializedName('method')]
     public string $method;
+
+    /**
+     *
+     * @var ?string $methodNameOverride
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('method_name_override')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $methodNameOverride = null;
 
     /**
      *
@@ -54,13 +70,17 @@ class OASOperation
      * @param  string  $operationId
      * @param  string  $path
      * @param  array<string>  $tags
+     * @param  ?string  $groupOverride
+     * @param  ?string  $methodNameOverride
      */
-    public function __construct(string $description, string $method, string $operationId, string $path, array $tags)
+    public function __construct(string $description, string $method, string $operationId, string $path, array $tags, ?string $groupOverride = null, ?string $methodNameOverride = null)
     {
         $this->description = $description;
         $this->method = $method;
         $this->operationId = $operationId;
         $this->path = $path;
         $this->tags = $tags;
+        $this->groupOverride = $groupOverride;
+        $this->methodNameOverride = $methodNameOverride;
     }
 }

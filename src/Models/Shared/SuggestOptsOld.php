@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
-class SuggestOpts
+class SuggestOptsOld
 {
     /**
      * $diagnostics

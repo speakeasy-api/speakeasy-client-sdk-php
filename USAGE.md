@@ -8,22 +8,14 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetApisRequest(
-        metadata: [
-            'South' => [
-                '<value>',
-            ],
-        ],
-        op: new Operations\QueryParamOp(
-            and: false,
-        ),
-    );
+    $request = new Operations\GetApisRequest();
     $response = $sdk->apis->getApis($request);
 
     if ($response->apis !== null) {

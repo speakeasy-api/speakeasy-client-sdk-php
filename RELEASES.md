@@ -1125,3 +1125,13 @@ Based on:
 - [php v0.41.1] .
 ### Releases
 - [Composer v0.41.1] https://packagist.org/packages/speakeasy-api/speakeasy-client-sdk-php#v0.41.1 - .
+
+## 2024-09-17 00:12:47
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.398.0 (2.415.8) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v0.41.2] .
+### Releases
+- [Composer v0.41.2] https://packagist.org/packages/speakeasy-api/speakeasy-client-sdk-php#v0.41.2 - .

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 11eaddc370e7d2043750bcff56df17e1
+  docChecksum: 40626f73138958b2117c67a0ddff344f
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.395.0
-  generationVersion: 2.415.0
-  releaseVersion: 0.41.1
-  configChecksum: 6b3940a1706dec493e842cad82da34ab
+  speakeasyVersion: 1.398.0
+  generationVersion: 2.415.8
+  releaseVersion: 0.41.2
+  configChecksum: df020bf6213f533243a9881238738a0d
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
   published: true
 features:
   php:
-    core: 3.4.1
+    core: 3.4.3
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.81.7
@@ -29,9 +29,6 @@ generatedFiles:
   - USAGE.md
   - composer.json
   - docs/Models/Errors/Error.md
-  - docs/Models/Operations/ApplyOperationIDsRequest.md
-  - docs/Models/Operations/ApplyOperationIDsRequestBody.md
-  - docs/Models/Operations/ApplyOperationIDsResponse.md
   - docs/Models/Operations/CheckAccessRequest.md
   - docs/Models/Operations/CheckAccessResponse.md
   - docs/Models/Operations/ConfigureCodeSamplesResponse.md
@@ -122,6 +119,8 @@ generatedFiles:
   - docs/Models/Operations/GetWorkspaceAccessResponse.md
   - docs/Models/Operations/GetWorkspaceEventsByTargetRequest.md
   - docs/Models/Operations/GetWorkspaceEventsByTargetResponse.md
+  - docs/Models/Operations/GetWorkspaceFeatureFlagsRequest.md
+  - docs/Models/Operations/GetWorkspaceFeatureFlagsResponse.md
   - docs/Models/Operations/GetWorkspaceRequest.md
   - docs/Models/Operations/GetWorkspaceResponse.md
   - docs/Models/Operations/GetWorkspaceTargetsRequest.md
@@ -154,6 +153,8 @@ generatedFiles:
   - docs/Models/Operations/SuggestOpenAPIRequest.md
   - docs/Models/Operations/SuggestOpenAPIRequestBody.md
   - docs/Models/Operations/SuggestOpenAPIResponse.md
+  - docs/Models/Operations/SuggestRequest.md
+  - docs/Models/Operations/SuggestResponse.md
   - docs/Models/Operations/TriggerActionResponse.md
   - docs/Models/Operations/UploadReportRequestBody.md
   - docs/Models/Operations/UploadReportResponse.md
@@ -217,7 +218,9 @@ generatedFiles:
   - docs/Models/Shared/SchemaDiff.md
   - docs/Models/Shared/Security.md
   - docs/Models/Shared/ShortURL.md
-  - docs/Models/Shared/SuggestOpts.md
+  - docs/Models/Shared/SuggestOptsOld.md
+  - docs/Models/Shared/SuggestRequestBody.md
+  - docs/Models/Shared/SuggestRequestBodySuggestionType.md
   - docs/Models/Shared/SuggestionType.md
   - docs/Models/Shared/Tag.md
   - docs/Models/Shared/TargetSDK.md
@@ -229,6 +232,7 @@ generatedFiles:
   - docs/Models/Shared/VersionMetadata.md
   - docs/Models/Shared/WorkflowDocument.md
   - docs/Models/Shared/Workspace.md
+  - docs/Models/Shared/WorkspaceFeatureFlagResponse.md
   - docs/Models/Shared/Workspaces.md
   - docs/sdks/apiendpoints/README.md
   - docs/sdks/apis/README.md
@@ -261,9 +265,6 @@ generatedFiles:
   - src/Models/Errors/Error.php
   - src/Models/Errors/ErrorThrowable.php
   - src/Models/Errors/SDKException.php
-  - src/Models/Operations/ApplyOperationIDsRequest.php
-  - src/Models/Operations/ApplyOperationIDsRequestBody.php
-  - src/Models/Operations/ApplyOperationIDsResponse.php
   - src/Models/Operations/CheckAccessRequest.php
   - src/Models/Operations/CheckAccessResponse.php
   - src/Models/Operations/ConfigureCodeSamplesResponse.php
@@ -354,6 +355,8 @@ generatedFiles:
   - src/Models/Operations/GetWorkspaceAccessResponse.php
   - src/Models/Operations/GetWorkspaceEventsByTargetRequest.php
   - src/Models/Operations/GetWorkspaceEventsByTargetResponse.php
+  - src/Models/Operations/GetWorkspaceFeatureFlagsRequest.php
+  - src/Models/Operations/GetWorkspaceFeatureFlagsResponse.php
   - src/Models/Operations/GetWorkspaceRequest.php
   - src/Models/Operations/GetWorkspaceResponse.php
   - src/Models/Operations/GetWorkspaceTargetsRequest.php
@@ -386,6 +389,8 @@ generatedFiles:
   - src/Models/Operations/SuggestOpenAPIRequest.php
   - src/Models/Operations/SuggestOpenAPIRequestBody.php
   - src/Models/Operations/SuggestOpenAPIResponse.php
+  - src/Models/Operations/SuggestRequest.php
+  - src/Models/Operations/SuggestResponse.php
   - src/Models/Operations/TriggerActionResponse.php
   - src/Models/Operations/UploadReportRequestBody.php
   - src/Models/Operations/UploadReportResponse.php
@@ -451,7 +456,9 @@ generatedFiles:
   - src/Models/Shared/SchemaDiff.php
   - src/Models/Shared/Security.php
   - src/Models/Shared/ShortURL.php
-  - src/Models/Shared/SuggestOpts.php
+  - src/Models/Shared/SuggestOptsOld.php
+  - src/Models/Shared/SuggestRequestBody.php
+  - src/Models/Shared/SuggestRequestBodySuggestionType.php
   - src/Models/Shared/SuggestionType.php
   - src/Models/Shared/Tag.php
   - src/Models/Shared/TargetSDK.php
@@ -464,6 +471,7 @@ generatedFiles:
   - src/Models/Shared/VersionMetadataInput.php
   - src/Models/Shared/WorkflowDocument.php
   - src/Models/Shared/Workspace.php
+  - src/Models/Shared/WorkspaceFeatureFlagResponse.php
   - src/Models/Shared/Workspaces.php
   - src/Organizations.php
   - src/Reports.php
@@ -778,7 +786,7 @@ examples:
           apiID: "<value>"
           versionID: "<value>"
       requestBody:
-        multipart/form-data: {"file": {"": "your_file_here"}}
+        multipart/form-data: {"file": {"": "example.file"}}
       responses:
         default:
           application/json: {"message": "<value>", "status_code": 867990}
@@ -1041,7 +1049,7 @@ examples:
   uploadReport:
     speakeasy-default-upload-report:
       requestBody:
-        multipart/form-data: {"file": {"": "your_file_here"}}
+        multipart/form-data: {"file": {"": "example.file"}}
       responses:
         "200":
           application/json: {"url": "http://earnest-upgrade.com"}
@@ -1069,7 +1077,7 @@ examples:
         header:
           x-session-id: "<value>"
       requestBody:
-        multipart/form-data: {"schema": {"": "your_file_here"}}
+        multipart/form-data: {"schema": {"": "example.file"}}
       responses:
         "200":
           application/json: "0xB470c0FE6E"
@@ -1145,3 +1153,18 @@ examples:
           application/json: []
         5XX:
           application/json: {"message": "<value>", "status_code": 750032}
+  suggest:
+    speakeasy-default-suggest:
+      parameters:
+        header:
+          x-session-id: "<value>"
+      requestBody:
+        application/json: {"diagnostics": [], "oas_summary": {"info": {"description": "Operative impactful monitoring", "summary": "<value>", "title": "<value>", "version": "<value>"}, "operations": []}, "suggestion_type": "diagnostics-only"}
+      responses:
+        "200":
+          application/json: "0x8D9A3DCDEa"
+  getWorkspaceFeatureFlags:
+    speakeasy-default-get-workspace-feature-flags:
+      responses:
+        5XX:
+          application/json: {"message": "<value>", "status_code": 365854}

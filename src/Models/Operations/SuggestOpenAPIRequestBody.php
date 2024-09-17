@@ -15,10 +15,10 @@ class SuggestOpenAPIRequestBody
 {
     /**
      *
-     * @var ?Shared\SuggestOpts $opts
+     * @var ?Shared\SuggestOptsOld $opts
      */
     #[SpeakeasyMetadata('multipartForm:name=opts,json=true')]
-    public ?Shared\SuggestOpts $opts = null;
+    public ?Shared\SuggestOptsOld $opts = null;
 
     /**
      *
@@ -29,9 +29,9 @@ class SuggestOpenAPIRequestBody
 
     /**
      * @param  Schema  $schema
-     * @param  ?Shared\SuggestOpts  $opts
+     * @param  ?Shared\SuggestOptsOld  $opts
      */
-    public function __construct(Schema $schema, ?Shared\SuggestOpts $opts = null)
+    public function __construct(Schema $schema, ?Shared\SuggestOptsOld $opts = null)
     {
         $this->schema = $schema;
         $this->opts = $opts;

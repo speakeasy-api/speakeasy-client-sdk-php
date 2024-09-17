@@ -25,17 +25,16 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use Speakeasy\SpeakeasyClientSDK\Utils;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
     $request = new Operations\GetWorkspaceEventsByTargetRequest(
         targetID: '<value>',
-        afterCreatedAt: Utils\Utils::parseDateTime('2024-04-01T04:00:29.393Z'),
     );
     $response = $sdk->events->getWorkspaceEventsByTarget($request);
 
@@ -79,17 +78,15 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use Speakeasy\SpeakeasyClientSDK\Utils;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetWorkspaceTargetsRequest(
-        afterLastEventCreatedAt: Utils\Utils::parseDateTime('2024-11-24T17:59:46.647Z'),
-    );
+    $request = new Operations\GetWorkspaceTargetsRequest();
     $response = $sdk->events->getWorkspaceTargets($request);
 
     if ($response->targetSDKList !== null) {
@@ -133,8 +130,9 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
@@ -187,19 +185,14 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = '<YOUR_API_KEY_HERE>';
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\SearchWorkspaceEventsRequest(
-        generateGenLockId: '<value>',
-        interactionType: Shared\InteractionType::Run,
-        lintReportDigest: '<value>',
-        openapiDiffReportDigest: '<value>',
-        sourceRevisionDigest: '<value>',
-    );
+    $request = new Operations\SearchWorkspaceEventsRequest();
     $response = $sdk->events->searchWorkspaceEvents($request);
 
     if ($response->cliEventBatch !== null) {

@@ -8,16 +8,17 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
-class ApplyOperationIDsRequest
+class SuggestRequest
 {
     /**
-     * Apply options
+     * The OAS summary and diagnostics to use for the suggestion.
      *
-     * @var ?ApplyOperationIDsRequestBody $requestBody
+     * @var Shared\SuggestRequestBody $suggestRequestBody
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public ?ApplyOperationIDsRequestBody $requestBody = null;
+    public Shared\SuggestRequestBody $suggestRequestBody;
 
     /**
      *
@@ -27,12 +28,12 @@ class ApplyOperationIDsRequest
     public string $xSessionId;
 
     /**
+     * @param  Shared\SuggestRequestBody  $suggestRequestBody
      * @param  string  $xSessionId
-     * @param  ?ApplyOperationIDsRequestBody  $requestBody
      */
-    public function __construct(string $xSessionId, ?ApplyOperationIDsRequestBody $requestBody = null)
+    public function __construct(Shared\SuggestRequestBody $suggestRequestBody, string $xSessionId)
     {
+        $this->suggestRequestBody = $suggestRequestBody;
         $this->xSessionId = $xSessionId;
-        $this->requestBody = $requestBody;
     }
 }
