@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use Speakeasy\SpeakeasyClientSDK\Models\Errors;
+use Speakeasy\SpeakeasyClientSDK\Models\Errorors;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class GetAllApiEndpointsResponse
 {
@@ -29,9 +29,9 @@ class GetAllApiEndpointsResponse
     /**
      * Default error response
      *
-     * @var ?Errors\Error $error
+     * @var ?Errorors\Error $error
      */
-    public ?Errors\Error $error = null;
+    public ?Errorors\Error $error = null;
 
     /**
      * HTTP response status code for this operation
@@ -52,9 +52,9 @@ class GetAllApiEndpointsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?array<Shared\ApiEndpoint>  $apiEndpoints
-     * @param  ?Errors\Error  $error
+     * @param  ?Errorors\Error  $error
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $apiEndpoints = null, ?Errors\Error $error = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $apiEndpoints = null, ?Errorors\Error $error = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;

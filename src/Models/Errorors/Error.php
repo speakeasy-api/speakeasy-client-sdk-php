@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Speakeasy\SpeakeasyClientSDK\Models\Errors;
+namespace Speakeasy\SpeakeasyClientSDK\Models\Errorors;
 
 
 use Speakeasy\SpeakeasyClientSDK\Utils;

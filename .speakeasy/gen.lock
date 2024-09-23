@@ -3,10 +3,10 @@ id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
   docChecksum: d879ec64eec0ec08ccf22092442669ba
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.401.3
-  generationVersion: 2.421.3
-  releaseVersion: 0.41.3
-  configChecksum: 6ba9fc122b6dc3fad1bc607ac967785c
+  speakeasyVersion: 1.402.0
+  generationVersion: 2.422.6
+  releaseVersion: 0.41.4
+  configChecksum: cf31f9ff40f3a970c03dfdd1e9dcd16f
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -28,7 +28,7 @@ generatedFiles:
   - CONTRIBUTING.md
   - USAGE.md
   - composer.json
-  - docs/Models/Errors/Error.md
+  - docs/Models/Errorors/Error.md
   - docs/Models/Operations/CheckAccessRequest.md
   - docs/Models/Operations/CheckAccessResponse.md
   - docs/Models/Operations/ConfigureCodeSamplesResponse.md
@@ -262,9 +262,9 @@ generatedFiles:
   - src/Events.php
   - src/Github.php
   - src/Metadata.php
-  - src/Models/Errors/Error.php
-  - src/Models/Errors/ErrorThrowable.php
-  - src/Models/Errors/SDKException.php
+  - src/Models/Errorors/Error.php
+  - src/Models/Errorors/ErrorThrowable.php
+  - src/Models/Errorors/SDKException.php
   - src/Models/Operations/CheckAccessRequest.php
   - src/Models/Operations/CheckAccessResponse.php
   - src/Models/Operations/ConfigureCodeSamplesResponse.php
