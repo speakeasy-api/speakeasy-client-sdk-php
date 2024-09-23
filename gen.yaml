@@ -17,12 +17,12 @@ php:
     option: openapi
     paths:
       callbacks: Models/Callbacks
-      errors: Models/Errors
+      errors: Models/Errorors
       operations: Models/Operations
       shared: Models/Shared
       webhooks: Models/Webhooks
   inputModelSuffix: input
   maxMethodParams: 0
-  namespace: Speakeasy\SpeakeasyClientSDKay
+  namespace: Speakeasy\SpeakeasyClientSDK
   outputModelSuffix: output
   packageName: speakeasy-api/speakeasy-client-sdk-php
