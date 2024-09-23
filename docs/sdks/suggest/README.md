@@ -39,7 +39,7 @@ try {
             ],
             oasSummary: new Shared\OASSummary(
                 info: new Shared\OASInfo(
-                    description: 'Operative impactful monitoring',
+                    description: 'Operative multi-tasking framework',
                     license: new Shared\License(),
                     summary: '<value>',
                     title: '<value>',
@@ -49,7 +49,7 @@ try {
                     new Shared\OASOperation,
                 ],
             ),
-            suggestionType: Shared\SuggestRequestBodySuggestionType::DiagnosticsOnly,
+            suggestionType: Shared\SuggestRequestBodySuggestionType::MethodNames,
         ),
         xSessionId: '<value>',
     );
@@ -105,7 +105,7 @@ try {
     $request = new Operations\SuggestOpenAPIRequest(
         requestBody: new Operations\SuggestOpenAPIRequestBody(
             schema: new Operations\Schema(
-                content: '0x0FbfeAEcc8',
+                content: '0x0beEcB7cF6',
                 fileName: 'example.file',
             ),
         ),

@@ -5,6 +5,7 @@
 ### Available Operations
 
 * [getWorkspace](#getworkspace) - Get workspace
+* [getWorkspaceByContext](#getworkspacebycontext) - Get workspace by context
 * [getWorkspaceFeatureFlags](#getworkspacefeatureflags) - Get workspace feature flags
 
 ## getWorkspace
@@ -49,6 +50,48 @@ try {
 ### Response
 
 **[?Operations\GetWorkspaceResponse](../../Models/Operations/GetWorkspaceResponse.md)**
+
+### Errors
+
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
+
+
+## getWorkspaceByContext
+
+Get information about a particular workspace by context.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: "<YOUR_API_KEY_HERE>",
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+try {
+    $response = $sdk->workspaces->getWorkspaceByContext();
+
+    if ($response->workspaceAndOrganization !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Response
+
+**[?Operations\GetWorkspaceByContextResponse](../../Models/Operations/GetWorkspaceByContextResponse.md)**
 
 ### Errors
 

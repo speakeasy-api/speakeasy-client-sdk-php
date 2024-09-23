@@ -99,14 +99,14 @@ class SDK
      */
     public Suggest $suggest;
 
+    public Workspaces $workspaces;
+
     /**
      * REST APIs for managing embeds
      *
      * @var Embeds $$embeds
      */
     public Embeds $embeds;
-
-    public Workspaces $workspaces;
 
     /**
      * REST APIs for capturing event data
@@ -143,8 +143,8 @@ class SDK
         $this->reports = new Reports($this->sdkConfiguration);
         $this->shortURLs = new ShortURLs($this->sdkConfiguration);
         $this->suggest = new Suggest($this->sdkConfiguration);
-        $this->embeds = new Embeds($this->sdkConfiguration);
         $this->workspaces = new Workspaces($this->sdkConfiguration);
+        $this->embeds = new Embeds($this->sdkConfiguration);
         $this->events = new Events($this->sdkConfiguration);
     }
 }

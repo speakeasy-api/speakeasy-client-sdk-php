@@ -26,12 +26,21 @@ class Security
     public ?string $bearer = null;
 
     /**
+     *
+     * @var ?string $workspaceIdentifier
+     */
+    #[SpeakeasyMetadata('security:scheme=true,type=apiKey,subtype=header,name=x-workspace-identifier')]
+    public ?string $workspaceIdentifier = null;
+
+    /**
      * @param  ?string  $apiKey
      * @param  ?string  $bearer
+     * @param  ?string  $workspaceIdentifier
      */
-    public function __construct(?string $apiKey = null, ?string $bearer = null)
+    public function __construct(?string $apiKey = null, ?string $bearer = null, ?string $workspaceIdentifier = null)
     {
         $this->apiKey = $apiKey;
         $this->bearer = $bearer;
+        $this->workspaceIdentifier = $workspaceIdentifier;
     }
 }

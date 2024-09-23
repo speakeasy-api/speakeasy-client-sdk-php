@@ -94,7 +94,7 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 try {
     $request = new Operations\FindApiEndpointRequest(
         apiID: '<value>',
-        displayName: 'Don.Strosin',
+        displayName: 'Don_Kihn39',
         versionID: '<value>',
     );
     $response = $sdk->apiEndpoints->findApiEndpoint($request);
@@ -417,10 +417,10 @@ try {
     $request = new Operations\UpsertApiEndpointRequest(
         apiEndpoint: new Shared\ApiEndpointInput(
             apiEndpointId: '<value>',
-            description: 'Public-key systematic attitude',
-            displayName: 'Camille.Schaefer11',
+            description: 'Public-key background productivity',
+            displayName: 'Jailyn_Turner',
             method: '<value>',
-            path: '/Library',
+            path: '/home/user',
             versionId: '<value>',
         ),
         apiEndpointID: '<value>',

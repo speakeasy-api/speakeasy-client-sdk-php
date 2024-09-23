@@ -31,7 +31,7 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
     $request = new Operations\CreateRequestBody(
-        url: 'http://limp-pastry.org',
+        url: 'https://probable-heating.com/',
     );
     $response = $sdk->shortURLs->create($request);
 

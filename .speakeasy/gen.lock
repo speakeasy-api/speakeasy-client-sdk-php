@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 40626f73138958b2117c67a0ddff344f
+  docChecksum: d879ec64eec0ec08ccf22092442669ba
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.398.0
-  generationVersion: 2.415.8
-  releaseVersion: 0.41.2
-  configChecksum: df020bf6213f533243a9881238738a0d
+  speakeasyVersion: 1.401.3
+  generationVersion: 2.421.3
+  releaseVersion: 0.41.3
+  configChecksum: 6ba9fc122b6dc3fad1bc607ac967785c
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
   published: true
 features:
   php:
-    core: 3.4.3
+    core: 3.4.4
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.81.7
@@ -91,8 +91,6 @@ generatedFiles:
   - docs/Models/Operations/GetManifestRequest.md
   - docs/Models/Operations/GetManifestResponse.md
   - docs/Models/Operations/GetNamespacesResponse.md
-  - docs/Models/Operations/GetOASSummaryRequest.md
-  - docs/Models/Operations/GetOASSummaryResponse.md
   - docs/Models/Operations/GetOrganizationRequest.md
   - docs/Models/Operations/GetOrganizationResponse.md
   - docs/Models/Operations/GetOrganizationUsageResponse.md
@@ -117,6 +115,7 @@ generatedFiles:
   - docs/Models/Operations/GetVersionMetadataResponse.md
   - docs/Models/Operations/GetWorkspaceAccessRequest.md
   - docs/Models/Operations/GetWorkspaceAccessResponse.md
+  - docs/Models/Operations/GetWorkspaceByContextResponse.md
   - docs/Models/Operations/GetWorkspaceEventsByTargetRequest.md
   - docs/Models/Operations/GetWorkspaceEventsByTargetResponse.md
   - docs/Models/Operations/GetWorkspaceFeatureFlagsRequest.md
@@ -232,6 +231,7 @@ generatedFiles:
   - docs/Models/Shared/VersionMetadata.md
   - docs/Models/Shared/WorkflowDocument.md
   - docs/Models/Shared/Workspace.md
+  - docs/Models/Shared/WorkspaceAndOrganization.md
   - docs/Models/Shared/WorkspaceFeatureFlagResponse.md
   - docs/Models/Shared/Workspaces.md
   - docs/sdks/apiendpoints/README.md
@@ -327,8 +327,6 @@ generatedFiles:
   - src/Models/Operations/GetManifestRequest.php
   - src/Models/Operations/GetManifestResponse.php
   - src/Models/Operations/GetNamespacesResponse.php
-  - src/Models/Operations/GetOASSummaryRequest.php
-  - src/Models/Operations/GetOASSummaryResponse.php
   - src/Models/Operations/GetOrganizationRequest.php
   - src/Models/Operations/GetOrganizationResponse.php
   - src/Models/Operations/GetOrganizationUsageResponse.php
@@ -353,6 +351,7 @@ generatedFiles:
   - src/Models/Operations/GetVersionMetadataResponse.php
   - src/Models/Operations/GetWorkspaceAccessRequest.php
   - src/Models/Operations/GetWorkspaceAccessResponse.php
+  - src/Models/Operations/GetWorkspaceByContextResponse.php
   - src/Models/Operations/GetWorkspaceEventsByTargetRequest.php
   - src/Models/Operations/GetWorkspaceEventsByTargetResponse.php
   - src/Models/Operations/GetWorkspaceFeatureFlagsRequest.php
@@ -471,6 +470,7 @@ generatedFiles:
   - src/Models/Shared/VersionMetadataInput.php
   - src/Models/Shared/WorkflowDocument.php
   - src/Models/Shared/Workspace.php
+  - src/Models/Shared/WorkspaceAndOrganization.php
   - src/Models/Shared/WorkspaceFeatureFlagResponse.php
   - src/Models/Shared/Workspaces.php
   - src/Organizations.php
@@ -1168,3 +1168,11 @@ examples:
       responses:
         5XX:
           application/json: {"message": "<value>", "status_code": 365854}
+        "200": {}
+  getWorkspaceByContext:
+    speakeasy-default-get-workspace-by-context:
+      responses:
+        "200":
+          application/json: {"organization": {"account_type": "scale-up", "id": "<id>", "name": "<value>", "telemetry_disabled": true}, "workspace": {"created_at": "2022-07-12T11:34:21.219Z", "id": "<id>", "name": "<value>", "organization_id": "<value>", "slug": "<value>", "telemetry_disabled": true, "updated_at": "2024-08-05T18:10:01.152Z", "verified": false}}
+        default:
+          application/json: {"message": "<value>", "status_code": 567858}

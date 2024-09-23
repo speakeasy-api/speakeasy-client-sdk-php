@@ -185,61 +185,6 @@ class Artifacts
     }
 
     /**
-     * getOASSummary
-     *
-     * @param  Operations\GetOASSummaryRequest  $request
-     * @return Operations\GetOASSummaryResponse
-     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException
-     */
-    public function getOASSummary(
-        ?Operations\GetOASSummaryRequest $request,
-    ): Operations\GetOASSummaryResponse {
-        $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/artifacts/namespaces/{namespace_name}/revisions/{revision_reference}/summary', Operations\GetOASSummaryRequest::class, $request, $this->sdkConfiguration->globals);
-        $options = ['http_errors' => false];
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-
-
-        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 200) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Shared\OASSummary', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\GetOASSummaryResponse(
-                    statusCode: $statusCode,
-                    contentType: $contentType,
-                    rawResponse: $httpResponse,
-                    oasSummary: $obj);
-
-                return $response;
-            } else {
-                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } else {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Errors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\GetOASSummaryResponse(
-                    statusCode: $statusCode,
-                    contentType: $contentType,
-                    rawResponse: $httpResponse,
-                    error: $obj);
-
-                return $response;
-            } else {
-                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        }
-    }
-
-    /**
      * getRevisions
      *
      * @param  Operations\GetRevisionsRequest  $request

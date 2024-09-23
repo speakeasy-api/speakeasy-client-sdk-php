@@ -1,9 +1,9 @@
-speakeasyVersion: 1.398.0
+speakeasyVersion: 1.401.3
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:29200b2dd597d96a08c7a41abb627b3cd5f53192b43e9e6ff283d3b733b9883f
-        sourceBlobDigest: sha256:33237bbe2d3634722cd7716eb6ec31d9791f75b4f39402f6f164ad4dd9629e9e
+        sourceRevisionDigest: sha256:71c73407c7dabfacb0bb39d4c6da4194deb5bf73878edbaa17f6f22450ec955e
+        sourceBlobDigest: sha256:c631a3d49dc602f7258899ba657fffa1c794ebe2c1f3211a3c728186c7577f54
         tags:
             - latest
             - main
@@ -11,15 +11,15 @@ targets:
     php-target:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:29200b2dd597d96a08c7a41abb627b3cd5f53192b43e9e6ff283d3b733b9883f
-        sourceBlobDigest: sha256:33237bbe2d3634722cd7716eb6ec31d9791f75b4f39402f6f164ad4dd9629e9e
+        sourceRevisionDigest: sha256:71c73407c7dabfacb0bb39d4c6da4194deb5bf73878edbaa17f6f22450ec955e
+        sourceBlobDigest: sha256:c631a3d49dc602f7258899ba657fffa1c794ebe2c1f3211a3c728186c7577f54
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
         my-source:
             inputs:
-                - location: https://docs.speakeasyapi.dev/openapi.yaml
+                - location: https://www.speakeasy.com/openapi.yaml
             registry:
                 location: registry.speakeasyapi.dev/speakeasy-self/speakeasy-self/my-source
     targets:

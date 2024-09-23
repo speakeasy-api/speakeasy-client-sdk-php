@@ -420,7 +420,7 @@ try {
     $request = new Operations\RegisterSchemaRequest(
         requestBody: new Operations\RegisterSchemaRequestBody(
             file: new Operations\RegisterSchemaFile(
-                content: '0xCAFCA03e0e',
+                content: '0xCFA30D144c',
                 fileName: 'example.file',
             ),
         ),

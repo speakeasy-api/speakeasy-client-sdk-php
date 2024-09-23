@@ -9,7 +9,6 @@ REST APIs for working with Registry artifacts
 * [getBlob](#getblob) - Get blob for a particular digest
 * [getManifest](#getmanifest) - Get manifest for a particular reference
 * [getNamespaces](#getnamespaces) - Each namespace contains many revisions.
-* [getOASSummary](#getoassummary)
 * [getRevisions](#getrevisions)
 * [getTags](#gettags)
 * [postTags](#posttags) - Add tags to an existing revision
@@ -159,57 +158,6 @@ try {
 ### Response
 
 **[?Operations\GetNamespacesResponse](../../Models/Operations/GetNamespacesResponse.md)**
-
-### Errors
-
-| Error Object                                            | Status Code                                             | Content Type                                            |
-| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
-| Speakeasy\SpeakeasyClientSDK\Models\Errors.SDKException | 4xx-5xx                                                 | */*                                                     |
-
-
-## getOASSummary
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Operations;
-use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-
-$security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
-try {
-    $request = new Operations\GetOASSummaryRequest(
-        namespaceName: '<value>',
-        revisionReference: '<value>',
-    );
-    $response = $sdk->artifacts->getOASSummary($request);
-
-    if ($response->oasSummary !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
-}
-```
-
-### Parameters
-
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `$request`                                                                         | [Operations\GetOASSummaryRequest](../../Models/Operations/GetOASSummaryRequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-
-### Response
-
-**[?Operations\GetOASSummaryResponse](../../Models/Operations/GetOASSummaryResponse.md)**
 
 ### Errors
 

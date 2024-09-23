@@ -139,7 +139,7 @@ try {
     $request = new Operations\UploadReportRequestBody(
         data: new Shared\Report(),
         file: new Operations\File(
-            content: '0xA329C0ad85',
+            content: '0xA2Ca85EFA5',
             fileName: 'example.file',
         ),
     );

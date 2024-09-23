@@ -10,7 +10,7 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 use Speakeasy\SpeakeasyClientSDK\Models\Errors;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-class GetOASSummaryResponse
+class GetWorkspaceByContextResponse
 {
     /**
      * HTTP response content type for this operation
@@ -27,13 +27,6 @@ class GetOASSummaryResponse
     public ?Errors\Error $error = null;
 
     /**
-     * OK
-     *
-     * @var ?Shared\OASSummary $oasSummary
-     */
-    public ?Shared\OASSummary $oasSummary = null;
-
-    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -48,18 +41,25 @@ class GetOASSummaryResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
+     * OK
+     *
+     * @var ?Shared\WorkspaceAndOrganization $workspaceAndOrganization
+     */
+    public ?Shared\WorkspaceAndOrganization $workspaceAndOrganization = null;
+
+    /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?Errors\Error  $error
-     * @param  ?Shared\OASSummary  $oasSummary
+     * @param  ?Shared\WorkspaceAndOrganization  $workspaceAndOrganization
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Errors\Error $error = null, ?Shared\OASSummary $oasSummary = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Errors\Error $error = null, ?Shared\WorkspaceAndOrganization $workspaceAndOrganization = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->error = $error;
-        $this->oasSummary = $oasSummary;
+        $this->workspaceAndOrganization = $workspaceAndOrganization;
     }
 }

@@ -75,7 +75,6 @@ try {
 * [getBlob](docs/sdks/artifacts/README.md#getblob) - Get blob for a particular digest
 * [getManifest](docs/sdks/artifacts/README.md#getmanifest) - Get manifest for a particular reference
 * [getNamespaces](docs/sdks/artifacts/README.md#getnamespaces) - Each namespace contains many revisions.
-* [getOASSummary](docs/sdks/artifacts/README.md#getoassummary)
 * [getRevisions](docs/sdks/artifacts/README.md#getrevisions)
 * [getTags](docs/sdks/artifacts/README.md#gettags)
 * [postTags](docs/sdks/artifacts/README.md#posttags) - Add tags to an existing revision
@@ -163,6 +162,7 @@ try {
 ### [Workspaces](docs/sdks/workspaces/README.md)
 
 * [getWorkspace](docs/sdks/workspaces/README.md#getworkspace) - Get workspace
+* [getWorkspaceByContext](docs/sdks/workspaces/README.md#getworkspacebycontext) - Get workspace by context
 * [getWorkspaceFeatureFlags](docs/sdks/workspaces/README.md#getworkspacefeatureflags) - Get workspace feature flags
 
 </details>

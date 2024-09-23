@@ -303,7 +303,7 @@ try {
     $request = new Operations\UpsertApiRequest(
         api: new Shared\ApiInput(
             apiId: '<value>',
-            description: 'Synchronised 5th generation knowledge user',
+            description: 'Synchronised leading edge utilisation',
             versionId: '<value>',
         ),
         apiID: '<value>',

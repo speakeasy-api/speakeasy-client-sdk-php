@@ -1,4 +1,4 @@
-# GetOASSummaryResponse
+# GetWorkspaceByContextResponse
 
 
 ## Fields
@@ -9,4 +9,4 @@
 | `statusCode`                                                                                                 | *int*                                                                                                        | :heavy_check_mark:                                                                                           | HTTP response status code for this operation                                                                 |
 | `rawResponse`                                                                                                | [\Psr\Http\Message\ResponseInterface](https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface) | :heavy_check_mark:                                                                                           | Raw HTTP response; suitable for custom response parsing                                                      |
 | `error`                                                                                                      | *?Errors\Error*                                                                                              | :heavy_minus_sign:                                                                                           | Default error response                                                                                       |
-| `oasSummary`                                                                                                 | [?Shared\OASSummary](../../Models/Shared/OASSummary.md)                                                      | :heavy_minus_sign:                                                                                           | OK                                                                                                           |
+| `workspaceAndOrganization`                                                                                   | [?Shared\WorkspaceAndOrganization](../../Models/Shared/WorkspaceAndOrganization.md)                          | :heavy_minus_sign:                                                                                           | OK                                                                                                           |
