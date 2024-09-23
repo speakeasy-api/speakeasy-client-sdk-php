@@ -23,6 +23,6 @@ php:
       webhooks: Models/Webhooks
   inputModelSuffix: input
   maxMethodParams: 0
-  namespace: Speakeasy\SpeakeasyClientSDK
+  namespace: Speakeasy\SpeakeasyClientSDKay
   outputModelSuffix: output
   packageName: speakeasy-api/speakeasy-client-sdk-php
