@@ -2,7 +2,7 @@ speakeasyVersion: 1.402.0
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:f56c55f52f39784532924bce357bcd7c463d345fbd5209fec1c99554c3b42c80
+        sourceRevisionDigest: sha256:211b344608745385740fbcce66e4d59976eca8bc05f889243feed11e600cade8
         sourceBlobDigest: sha256:c631a3d49dc602f7258899ba657fffa1c794ebe2c1f3211a3c728186c7577f54
         tags:
             - latest
@@ -11,7 +11,7 @@ targets:
     php-target:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:f56c55f52f39784532924bce357bcd7c463d345fbd5209fec1c99554c3b42c80
+        sourceRevisionDigest: sha256:211b344608745385740fbcce66e4d59976eca8bc05f889243feed11e600cade8
         sourceBlobDigest: sha256:c631a3d49dc602f7258899ba657fffa1c794ebe2c1f3211a3c728186c7577f54
 workflow:
     workflowVersion: 1.0.0
