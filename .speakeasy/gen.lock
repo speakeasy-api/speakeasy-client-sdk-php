@@ -5,8 +5,8 @@ management:
   docVersion: 0.4.0 .
   speakeasyVersion: 1.402.0
   generationVersion: 2.422.6
-  releaseVersion: 0.41.6
-  configChecksum: 474d4ea763dff25eb3fdc430c04c04e0
+  releaseVersion: 0.41.7
+  configChecksum: a453ec0327cabf4d3bea0bcaa55d79d4
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
