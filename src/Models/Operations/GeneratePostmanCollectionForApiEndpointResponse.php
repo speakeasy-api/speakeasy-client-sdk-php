@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use Speakeasy\SpeakeasyClientSDK\Models\Errorors;
+
 class GeneratePostmanCollectionForApiEndpointResponse
 {
     /**
@@ -17,13 +17,6 @@ class GeneratePostmanCollectionForApiEndpointResponse
      * @var string $contentType
      */
     public string $contentType;
-
-    /**
-     * Default error response
-     *
-     * @var ?Errorors\Error $error
-     */
-    public ?Errorors\Error $error = null;
 
     /**
      * OK
@@ -50,15 +43,13 @@ class GeneratePostmanCollectionForApiEndpointResponse
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?Errorors\Error  $error
      * @param  ?string  $postmanCollection
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Errorors\Error $error = null, ?string $postmanCollection = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?string $postmanCollection = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
-        $this->error = $error;
         $this->postmanCollection = $postmanCollection;
     }
 }

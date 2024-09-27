@@ -23,18 +23,18 @@ class PostWorkspaceEventsRequest
     /**
      * Unique identifier of the workspace.
      *
-     * @var ?string $workspaceID
+     * @var string $workspaceId
      */
-    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspaceID')]
-    public ?string $workspaceID = null;
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspace_id')]
+    public string $workspaceId;
 
     /**
      * @param  array<Shared\CliEvent>  $requestBody
-     * @param  ?string  $workspaceID
+     * @param  string  $workspaceId
      */
-    public function __construct(array $requestBody, ?string $workspaceID = null)
+    public function __construct(array $requestBody, string $workspaceId)
     {
         $this->requestBody = $requestBody;
-        $this->workspaceID = $workspaceID;
+        $this->workspaceId = $workspaceId;
     }
 }

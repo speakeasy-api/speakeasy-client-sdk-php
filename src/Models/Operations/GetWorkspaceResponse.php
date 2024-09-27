@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use Speakeasy\SpeakeasyClientSDK\Models\Errorors;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class GetWorkspaceResponse
 {
@@ -18,13 +17,6 @@ class GetWorkspaceResponse
      * @var string $contentType
      */
     public string $contentType;
-
-    /**
-     * Default error response
-     *
-     * @var ?Errorors\Error $error
-     */
-    public ?Errorors\Error $error = null;
 
     /**
      * HTTP response status code for this operation
@@ -51,15 +43,13 @@ class GetWorkspaceResponse
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?Errorors\Error  $error
      * @param  ?Shared\Workspace  $workspace
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Errorors\Error $error = null, ?Shared\Workspace $workspace = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\Workspace $workspace = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
-        $this->error = $error;
         $this->workspace = $workspace;
     }
 }

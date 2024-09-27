@@ -22,11 +22,10 @@ class Organization
 
     /**
      *
-     * @var ?\DateTime $createdAt
+     * @var \DateTime $createdAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $createdAt = null;
+    public \DateTime $createdAt;
 
     /**
      *
@@ -52,11 +51,10 @@ class Organization
 
     /**
      *
-     * @var ?string $slug
+     * @var string $slug
      */
     #[\JMS\Serializer\Annotation\SerializedName('slug')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $slug = null;
+    public string $slug;
 
     /**
      *
@@ -67,31 +65,30 @@ class Organization
 
     /**
      *
-     * @var ?\DateTime $updatedAt
+     * @var \DateTime $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $updatedAt = null;
+    public \DateTime $updatedAt;
 
     /**
      * @param  AccountType  $accountType
+     * @param  \DateTime  $createdAt
      * @param  string  $id
      * @param  string  $name
+     * @param  string  $slug
      * @param  bool  $telemetryDisabled
-     * @param  ?\DateTime  $createdAt
+     * @param  \DateTime  $updatedAt
      * @param  ?\DateTime  $freeTrialExpiry
-     * @param  ?string  $slug
-     * @param  ?\DateTime  $updatedAt
      */
-    public function __construct(AccountType $accountType, string $id, string $name, bool $telemetryDisabled, ?\DateTime $createdAt = null, ?\DateTime $freeTrialExpiry = null, ?string $slug = null, ?\DateTime $updatedAt = null)
+    public function __construct(AccountType $accountType, \DateTime $createdAt, string $id, string $name, string $slug, bool $telemetryDisabled, \DateTime $updatedAt, ?\DateTime $freeTrialExpiry = null)
     {
         $this->accountType = $accountType;
+        $this->createdAt = $createdAt;
         $this->id = $id;
         $this->name = $name;
-        $this->telemetryDisabled = $telemetryDisabled;
-        $this->createdAt = $createdAt;
-        $this->freeTrialExpiry = $freeTrialExpiry;
         $this->slug = $slug;
+        $this->telemetryDisabled = $telemetryDisabled;
         $this->updatedAt = $updatedAt;
+        $this->freeTrialExpiry = $freeTrialExpiry;
     }
 }

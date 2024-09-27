@@ -1,4 +1,5 @@
 # Suggest
+(*suggest*)
 
 ## Overview
 
@@ -26,34 +27,49 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\SuggestRequest(
         suggestRequestBody: new Shared\SuggestRequestBody(
             diagnostics: [
-                new Shared\Diagnostic,
+                new Shared\Diagnostic(
+                    message: '<value>',
+                    path: [
+                        '/rescue',
+                    ],
+                    type: '<value>',
+                ),
             ],
             oasSummary: new Shared\OASSummary(
                 info: new Shared\OASInfo(
-                    description: 'Operative multi-tasking framework',
+                    description: 'kielbasa psst stitcher cannon devoted blindly apropos low',
                     license: new Shared\License(),
                     summary: '<value>',
                     title: '<value>',
                     version: '<value>',
                 ),
                 operations: [
-                    new Shared\OASOperation,
+                    new Shared\OASOperation(
+                        description: 'via apparatus gray whether opposite what',
+                        method: '<value>',
+                        operationId: '<id>',
+                        path: '/sys',
+                        tags: [
+                            '<value>',
+                        ],
+                    ),
                 ],
             ),
             suggestionType: Shared\SuggestRequestBodySuggestionType::MethodNames,
         ),
-        xSessionId: '<value>',
+        xSessionId: '<id>',
     );
-    $response = $sdk->suggest->suggest($request);
+    $response = $sdk.suggest->suggest(
+        request: $request
+    );
 
     if ($response->schema !== null) {
         // handle response
@@ -96,11 +112,10 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\SuggestOpenAPIRequest(
         requestBody: new Operations\SuggestOpenAPIRequestBody(
@@ -109,9 +124,11 @@ try {
                 fileName: 'example.file',
             ),
         ),
-        xSessionId: '<value>',
+        xSessionId: '<id>',
     );
-    $response = $sdk->suggest->suggestOpenAPI($request);
+    $response = $sdk.suggest->suggestOpenAPI(
+        request: $request
+    );
 
     if ($response->schema !== null) {
         // handle response
@@ -154,18 +171,19 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\SuggestOpenAPIRegistryRequest(
         namespaceName: '<value>',
         revisionReference: '<value>',
-        xSessionId: '<value>',
+        xSessionId: '<id>',
     );
-    $response = $sdk->suggest->suggestOpenAPIRegistry($request);
+    $response = $sdk.suggest->suggestOpenAPIRegistry(
+        request: $request
+    );
 
     if ($response->schema !== null) {
         // handle response

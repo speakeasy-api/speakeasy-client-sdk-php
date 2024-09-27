@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use Speakeasy\SpeakeasyClientSDK\Models\Errorors;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class GetValidEmbedAccessTokensResponse
 {
@@ -25,13 +24,6 @@ class GetValidEmbedAccessTokensResponse
      * @var ?array<Shared\EmbedToken> $embedTokens
      */
     public ?array $embedTokens = null;
-
-    /**
-     * Default error response
-     *
-     * @var ?Errorors\Error $error
-     */
-    public ?Errorors\Error $error = null;
 
     /**
      * HTTP response status code for this operation
@@ -52,14 +44,12 @@ class GetValidEmbedAccessTokensResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?array<Shared\EmbedToken>  $embedTokens
-     * @param  ?Errorors\Error  $error
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $embedTokens = null, ?Errorors\Error $error = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $embedTokens = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->embedTokens = $embedTokens;
-        $this->error = $error;
     }
 }

@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use Speakeasy\SpeakeasyClientSDK\Models\Errorors;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class GithubCheckPublishingSecretsResponse
 {
@@ -18,13 +17,6 @@ class GithubCheckPublishingSecretsResponse
      * @var string $contentType
      */
     public string $contentType;
-
-    /**
-     * Default error response
-     *
-     * @var ?Errorors\Error $error
-     */
-    public ?Errorors\Error $error = null;
 
     /**
      * OK
@@ -51,15 +43,13 @@ class GithubCheckPublishingSecretsResponse
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?Errorors\Error  $error
      * @param  ?Shared\GithubMissingPublishingSecretsResponse  $githubMissingPublishingSecretsResponse
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Errorors\Error $error = null, ?Shared\GithubMissingPublishingSecretsResponse $githubMissingPublishingSecretsResponse = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\GithubMissingPublishingSecretsResponse $githubMissingPublishingSecretsResponse = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
-        $this->error = $error;
         $this->githubMissingPublishingSecretsResponse = $githubMissingPublishingSecretsResponse;
     }
 }

@@ -1,4 +1,5 @@
 # Reports
+(*reports*)
 
 ## Overview
 
@@ -26,16 +27,17 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetChangesReportSignedUrlRequest(
         documentChecksum: '<value>',
     );
-    $response = $sdk->reports->getChangesReportSignedUrl($request);
+    $response = $sdk.reports->getChangesReportSignedUrl(
+        request: $request
+    );
 
     if ($response->signedAccess !== null) {
         // handle response
@@ -78,16 +80,17 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetLintingReportSignedUrlRequest(
         documentChecksum: '<value>',
     );
-    $response = $sdk->reports->getLintingReportSignedUrl($request);
+    $response = $sdk.reports->getLintingReportSignedUrl(
+        request: $request
+    );
 
     if ($response->signedAccess !== null) {
         // handle response
@@ -130,11 +133,10 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\UploadReportRequestBody(
         data: new Shared\Report(),
@@ -143,7 +145,9 @@ try {
             fileName: 'example.file',
         ),
     );
-    $response = $sdk->reports->uploadReport($request);
+    $response = $sdk.reports->uploadReport(
+        request: $request
+    );
 
     if ($response->uploadedReport !== null) {
         // handle response

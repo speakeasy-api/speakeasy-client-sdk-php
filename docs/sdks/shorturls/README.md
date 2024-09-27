@@ -1,4 +1,5 @@
 # ShortURLs
+(*shortURLs*)
 
 ## Overview
 
@@ -24,16 +25,17 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\CreateRequestBody(
         url: 'https://probable-heating.com/',
     );
-    $response = $sdk->shortURLs->create($request);
+    $response = $sdk.shortURLs->create(
+        request: $request
+    );
 
     if ($response->shortURL !== null) {
         // handle response

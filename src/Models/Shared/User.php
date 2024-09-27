@@ -88,10 +88,11 @@ class User
     /**
      * Timestamp of the last login.
      *
-     * @var \DateTime $lastLoginAt
+     * @var ?\DateTime $lastLoginAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('last_login_at')]
-    public \DateTime $lastLoginAt;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $lastLoginAt = null;
 
     /**
      * URL of the user's photo.
@@ -126,14 +127,14 @@ class User
      * @param  string  $email
      * @param  bool  $emailVerified
      * @param  string  $id
-     * @param  \DateTime  $lastLoginAt
      * @param  \DateTime  $updatedAt
      * @param  bool  $whitelisted
      * @param  ?string  $defaultWorkspaceId
      * @param  ?string  $githubHandle
+     * @param  ?\DateTime  $lastLoginAt
      * @param  ?string  $photoUrl
      */
-    public function __construct(bool $admin, bool $confirmed, \DateTime $createdAt, string $displayName, string $email, bool $emailVerified, string $id, \DateTime $lastLoginAt, \DateTime $updatedAt, bool $whitelisted, ?string $defaultWorkspaceId = null, ?string $githubHandle = null, ?string $photoUrl = null)
+    public function __construct(bool $admin, bool $confirmed, \DateTime $createdAt, string $displayName, string $email, bool $emailVerified, string $id, \DateTime $updatedAt, bool $whitelisted, ?string $defaultWorkspaceId = null, ?string $githubHandle = null, ?\DateTime $lastLoginAt = null, ?string $photoUrl = null)
     {
         $this->admin = $admin;
         $this->confirmed = $confirmed;
@@ -142,11 +143,11 @@ class User
         $this->email = $email;
         $this->emailVerified = $emailVerified;
         $this->id = $id;
-        $this->lastLoginAt = $lastLoginAt;
         $this->updatedAt = $updatedAt;
         $this->whitelisted = $whitelisted;
         $this->defaultWorkspaceId = $defaultWorkspaceId;
         $this->githubHandle = $githubHandle;
+        $this->lastLoginAt = $lastLoginAt;
         $this->photoUrl = $photoUrl;
     }
 }

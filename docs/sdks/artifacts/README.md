@@ -1,4 +1,5 @@
 # Artifacts
+(*artifacts*)
 
 ## Overview
 
@@ -30,11 +31,10 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetBlobRequest(
         digest: '<value>',
@@ -42,7 +42,9 @@ try {
         organizationSlug: '<value>',
         workspaceSlug: '<value>',
     );
-    $response = $sdk->artifacts->getBlob($request);
+    $response = $sdk.artifacts->getBlob(
+        request: $request
+    );
 
     if ($response->blob !== null) {
         // handle response
@@ -66,6 +68,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -85,11 +88,10 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetManifestRequest(
         namespaceName: '<value>',
@@ -97,7 +99,9 @@ try {
         revisionReference: '<value>',
         workspaceSlug: '<value>',
     );
-    $response = $sdk->artifacts->getManifest($request);
+    $response = $sdk.artifacts->getManifest(
+        request: $request
+    );
 
     if ($response->manifest !== null) {
         // handle response
@@ -121,6 +125,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -139,13 +144,14 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
-    $response = $sdk->artifacts->getNamespaces();
+    $response = $sdk.artifacts->getNamespaces(
+
+    );
 
     if ($response->getNamespacesResponse !== null) {
         // handle response
@@ -163,6 +169,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -180,16 +187,17 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetRevisionsRequest(
         namespaceName: '<value>',
     );
-    $response = $sdk->artifacts->getRevisions($request);
+    $response = $sdk.artifacts->getRevisions(
+        request: $request
+    );
 
     if ($response->getRevisionsResponse !== null) {
         // handle response
@@ -213,6 +221,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -230,16 +239,17 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetTagsRequest(
         namespaceName: '<value>',
     );
-    $response = $sdk->artifacts->getTags($request);
+    $response = $sdk.artifacts->getTags(
+        request: $request
+    );
 
     if ($response->getTagsResponse !== null) {
         // handle response
@@ -263,6 +273,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -282,16 +293,17 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\PostTagsRequest(
         namespaceName: '<value>',
     );
-    $response = $sdk->artifacts->postTags($request);
+    $response = $sdk.artifacts->postTags(
+        request: $request
+    );
 
     if ($response->statusCode === 200) {
         // handle response
@@ -315,6 +327,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -333,16 +346,17 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Shared\PreflightRequest(
         namespaceName: '<value>',
     );
-    $response = $sdk->artifacts->preflight($request);
+    $response = $sdk.artifacts->preflight(
+        request: $request
+    );
 
     if ($response->preflightToken !== null) {
         // handle response
@@ -366,4 +380,5 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |

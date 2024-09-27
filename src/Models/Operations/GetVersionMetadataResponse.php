@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use Speakeasy\SpeakeasyClientSDK\Models\Errorors;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class GetVersionMetadataResponse
 {
@@ -18,13 +17,6 @@ class GetVersionMetadataResponse
      * @var string $contentType
      */
     public string $contentType;
-
-    /**
-     * Default error response
-     *
-     * @var ?Errorors\Error $error
-     */
-    public ?Errorors\Error $error = null;
 
     /**
      * HTTP response status code for this operation
@@ -51,15 +43,13 @@ class GetVersionMetadataResponse
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?Errorors\Error  $error
      * @param  ?array<Shared\VersionMetadata>  $versionMetadata
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Errorors\Error $error = null, ?array $versionMetadata = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $versionMetadata = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
-        $this->error = $error;
         $this->versionMetadata = $versionMetadata;
     }
 }

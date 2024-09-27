@@ -8,22 +8,22 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use Speakeasy\SpeakeasyClientSDK\Models\Errorors;
+
 class DownloadSchemaRevisionResponse
 {
     /**
      * OK
      *
-     * @var ?string $twoHundredApplicationJsonSchema
+     * @var ?string $twoXXApplicationJsonSchema
      */
-    public ?string $twoHundredApplicationJsonSchema = null;
+    public ?string $twoXXApplicationJsonSchema = null;
 
     /**
      * OK
      *
-     * @var ?string $twoHundredApplicationXYamlSchema
+     * @var ?string $twoXXApplicationXYamlSchema
      */
-    public ?string $twoHundredApplicationXYamlSchema = null;
+    public ?string $twoXXApplicationXYamlSchema = null;
 
     /**
      * HTTP response content type for this operation
@@ -31,13 +31,6 @@ class DownloadSchemaRevisionResponse
      * @var string $contentType
      */
     public string $contentType;
-
-    /**
-     * Default error response
-     *
-     * @var ?Errorors\Error $error
-     */
-    public ?Errorors\Error $error = null;
 
     /**
      * HTTP response status code for this operation
@@ -57,17 +50,15 @@ class DownloadSchemaRevisionResponse
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?string  $twoHundredApplicationJsonSchema
-     * @param  ?string  $twoHundredApplicationXYamlSchema
-     * @param  ?Errorors\Error  $error
+     * @param  ?string  $twoXXApplicationJsonSchema
+     * @param  ?string  $twoXXApplicationXYamlSchema
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?string $twoHundredApplicationJsonSchema = null, ?string $twoHundredApplicationXYamlSchema = null, ?Errorors\Error $error = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?string $twoXXApplicationJsonSchema = null, ?string $twoXXApplicationXYamlSchema = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
-        $this->twoHundredApplicationJsonSchema = $twoHundredApplicationJsonSchema;
-        $this->twoHundredApplicationXYamlSchema = $twoHundredApplicationXYamlSchema;
-        $this->error = $error;
+        $this->twoXXApplicationJsonSchema = $twoXXApplicationJsonSchema;
+        $this->twoXXApplicationXYamlSchema = $twoXXApplicationXYamlSchema;
     }
 }

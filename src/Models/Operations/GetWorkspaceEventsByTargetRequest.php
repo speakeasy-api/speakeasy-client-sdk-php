@@ -22,28 +22,28 @@ class GetWorkspaceEventsByTargetRequest
     /**
      * Filter to only return events corresponding to a particular gen_lock_id (gen_lock_id uniquely identifies a target)
      *
-     * @var string $targetID
+     * @var string $targetId
      */
-    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=targetID')]
-    public string $targetID;
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=target_id')]
+    public string $targetId;
 
     /**
      * Unique identifier of the workspace.
      *
-     * @var ?string $workspaceID
+     * @var string $workspaceId
      */
-    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspaceID')]
-    public ?string $workspaceID = null;
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspace_id')]
+    public string $workspaceId;
 
     /**
-     * @param  string  $targetID
+     * @param  string  $targetId
+     * @param  string  $workspaceId
      * @param  ?\DateTime  $afterCreatedAt
-     * @param  ?string  $workspaceID
      */
-    public function __construct(string $targetID, ?\DateTime $afterCreatedAt = null, ?string $workspaceID = null)
+    public function __construct(string $targetId, string $workspaceId, ?\DateTime $afterCreatedAt = null)
     {
-        $this->targetID = $targetID;
+        $this->targetId = $targetId;
+        $this->workspaceId = $workspaceId;
         $this->afterCreatedAt = $afterCreatedAt;
-        $this->workspaceID = $workspaceID;
     }
 }

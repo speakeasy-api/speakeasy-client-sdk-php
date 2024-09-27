@@ -1,4 +1,5 @@
 # ApiEndpoints
+(*apiEndpoints*)
 
 ## Overview
 
@@ -31,18 +32,19 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\DeleteApiEndpointRequest(
-        apiEndpointID: '<value>',
-        apiID: '<value>',
-        versionID: '<value>',
+        apiEndpointID: '<id>',
+        apiID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->apiEndpoints->deleteApiEndpoint($request);
+    $response = $sdk.apiEndpoints->deleteApiEndpoint(
+        request: $request
+    );
 
     if ($response->statusCode === 200) {
         // handle response
@@ -66,6 +68,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -86,18 +89,19 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\FindApiEndpointRequest(
-        apiID: '<value>',
+        apiID: '<id>',
         displayName: 'Don_Kihn39',
-        versionID: '<value>',
+        versionID: '<id>',
     );
-    $response = $sdk->apiEndpoints->findApiEndpoint($request);
+    $response = $sdk.apiEndpoints->findApiEndpoint(
+        request: $request
+    );
 
     if ($response->apiEndpoint !== null) {
         // handle response
@@ -121,6 +125,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -141,18 +146,19 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GenerateOpenApiSpecForApiEndpointRequest(
-        apiEndpointID: '<value>',
-        apiID: '<value>',
-        versionID: '<value>',
+        apiEndpointID: '<id>',
+        apiID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->apiEndpoints->generateOpenApiSpecForApiEndpoint($request);
+    $response = $sdk.apiEndpoints->generateOpenApiSpecForApiEndpoint(
+        request: $request
+    );
 
     if ($response->generateOpenApiSpecDiff !== null) {
         // handle response
@@ -176,6 +182,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -195,18 +202,19 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GeneratePostmanCollectionForApiEndpointRequest(
-        apiEndpointID: '<value>',
-        apiID: '<value>',
-        versionID: '<value>',
+        apiEndpointID: '<id>',
+        apiID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->apiEndpoints->generatePostmanCollectionForApiEndpoint($request);
+    $response = $sdk.apiEndpoints->generatePostmanCollectionForApiEndpoint(
+        request: $request
+    );
 
     if ($response->postmanCollection !== null) {
         // handle response
@@ -230,6 +238,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -249,16 +258,17 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetAllApiEndpointsRequest(
-        apiID: '<value>',
+        apiID: '<id>',
     );
-    $response = $sdk->apiEndpoints->getAllApiEndpoints($request);
+    $response = $sdk.apiEndpoints->getAllApiEndpoints(
+        request: $request
+    );
 
     if ($response->apiEndpoints !== null) {
         // handle response
@@ -282,6 +292,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -301,17 +312,18 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetAllForVersionApiEndpointsRequest(
-        apiID: '<value>',
-        versionID: '<value>',
+        apiID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->apiEndpoints->getAllForVersionApiEndpoints($request);
+    $response = $sdk.apiEndpoints->getAllForVersionApiEndpoints(
+        request: $request
+    );
 
     if ($response->apiEndpoints !== null) {
         // handle response
@@ -335,6 +347,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -354,18 +367,19 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetApiEndpointRequest(
-        apiEndpointID: '<value>',
-        apiID: '<value>',
-        versionID: '<value>',
+        apiEndpointID: '<id>',
+        apiID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->apiEndpoints->getApiEndpoint($request);
+    $response = $sdk.apiEndpoints->getApiEndpoint(
+        request: $request
+    );
 
     if ($response->apiEndpoint !== null) {
         // handle response
@@ -389,6 +403,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -408,26 +423,27 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\UpsertApiEndpointRequest(
         apiEndpoint: new Shared\ApiEndpointInput(
-            apiEndpointId: '<value>',
-            description: 'Public-key background productivity',
-            displayName: 'Jailyn_Turner',
+            apiEndpointId: '<id>',
+            description: 'commandeer equate pish psst hoot ugh frankly supposing',
+            displayName: 'Eliseo.Little15',
             method: '<value>',
-            path: '/home/user',
-            versionId: '<value>',
+            path: '/etc/defaults',
+            versionId: '<id>',
         ),
-        apiEndpointID: '<value>',
-        apiID: '<value>',
-        versionID: '<value>',
+        apiEndpointID: '<id>',
+        apiID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->apiEndpoints->upsertApiEndpoint($request);
+    $response = $sdk.apiEndpoints->upsertApiEndpoint(
+        request: $request
+    );
 
     if ($response->apiEndpoint !== null) {
         // handle response
@@ -451,4 +467,5 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |

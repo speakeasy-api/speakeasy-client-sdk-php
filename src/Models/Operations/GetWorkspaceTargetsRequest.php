@@ -20,20 +20,10 @@ class GetWorkspaceTargetsRequest
     public ?\DateTime $afterLastEventCreatedAt = null;
 
     /**
-     * Unique identifier of the workspace.
-     *
-     * @var ?string $workspaceID
-     */
-    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspaceID')]
-    public ?string $workspaceID = null;
-
-    /**
      * @param  ?\DateTime  $afterLastEventCreatedAt
-     * @param  ?string  $workspaceID
      */
-    public function __construct(?\DateTime $afterLastEventCreatedAt = null, ?string $workspaceID = null)
+    public function __construct(?\DateTime $afterLastEventCreatedAt = null)
     {
         $this->afterLastEventCreatedAt = $afterLastEventCreatedAt;
-        $this->workspaceID = $workspaceID;
     }
 }

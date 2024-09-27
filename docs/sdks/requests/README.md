@@ -1,4 +1,5 @@
 # Requests
+(*requests*)
 
 ## Overview
 
@@ -27,16 +28,17 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GenerateRequestPostmanCollectionRequest(
-        requestID: '<value>',
+        requestID: '<id>',
     );
-    $response = $sdk->requests->generateRequestPostmanCollection($request);
+    $response = $sdk.requests->generateRequestPostmanCollection(
+        request: $request
+    );
 
     if ($response->postmanCollection !== null) {
         // handle response
@@ -60,6 +62,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -79,16 +82,17 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetRequestFromEventLogRequest(
-        requestID: '<value>',
+        requestID: '<id>',
     );
-    $response = $sdk->requests->getRequestFromEventLog($request);
+    $response = $sdk.requests->getRequestFromEventLog(
+        request: $request
+    );
 
     if ($response->unboundedRequest !== null) {
         // handle response
@@ -112,6 +116,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -132,14 +137,15 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\QueryEventLogRequest();
-    $response = $sdk->requests->queryEventLog($request);
+    $response = $sdk.requests->queryEventLog(
+        request: $request
+    );
 
     if ($response->boundedRequests !== null) {
         // handle response
@@ -163,4 +169,5 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |

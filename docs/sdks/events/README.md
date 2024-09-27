@@ -1,4 +1,5 @@
 # Events
+(*events*)
 
 ## Overview
 
@@ -6,12 +7,13 @@ REST APIs for capturing event data
 
 ### Available Operations
 
-* [getWorkspaceEventsByTarget](#getworkspaceeventsbytarget) - Load recent events for a particular workspace
-* [getWorkspaceTargets](#getworkspacetargets) - Load targets for a particular workspace
-* [postWorkspaceEvents](#postworkspaceevents) - Post events for a specific workspace
-* [searchWorkspaceEvents](#searchworkspaceevents) - Search events for a particular workspace by any field
+* [getEventsByTarget](#geteventsbytarget) - Load recent events for a particular workspace
+* [getTargets](#gettargets) - Load targets for a particular workspace
+* [getTargetsDeprecated](#gettargetsdeprecated) - Load targets for a particular workspace
+* [post](#post) - Post events for a specific workspace
+* [search](#search) - Search events for a particular workspace by any field
 
-## getWorkspaceEventsByTarget
+## getEventsByTarget
 
 Load recent events for a particular workspace
 
@@ -27,16 +29,18 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetWorkspaceEventsByTargetRequest(
-        targetID: '<value>',
+        targetId: '<id>',
+        workspaceId: '<id>',
     );
-    $response = $sdk->events->getWorkspaceEventsByTarget($request);
+    $response = $sdk.events->getEventsByTarget(
+        request: $request
+    );
 
     if ($response->cliEventBatch !== null) {
         // handle response
@@ -64,7 +68,7 @@ try {
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
-## getWorkspaceTargets
+## getTargets
 
 Load targets for a particular workspace
 
@@ -80,14 +84,15 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetWorkspaceTargetsRequest();
-    $response = $sdk->events->getWorkspaceTargets($request);
+    $response = $sdk.events->getTargets(
+        request: $request
+    );
 
     if ($response->targetSDKList !== null) {
         // handle response
@@ -115,9 +120,9 @@ try {
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
-## postWorkspaceEvents
+## getTargetsDeprecated
 
-Sends an array of events to be stored for a particular workspace.
+Load targets for a particular workspace
 
 ### Example Usage
 
@@ -131,18 +136,85 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+try {
+    $request = new Operations\GetWorkspaceTargetsDeprecatedRequest(
+        workspaceId: '<id>',
+    );
+    $response = $sdk.events->getTargetsDeprecated(
+        request: $request
+    );
 
+    if ($response->targetSDKList !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                                         | [Operations\GetWorkspaceTargetsDeprecatedRequest](../../Models/Operations/GetWorkspaceTargetsDeprecatedRequest.md) | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
+
+### Response
+
+**[?Operations\GetWorkspaceTargetsDeprecatedResponse](../../Models/Operations/GetWorkspaceTargetsDeprecatedResponse.md)**
+
+### Errors
+
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 5XX                                                       | application/json                                          |
+| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+
+
+## post
+
+Sends an array of events to be stored for a particular workspace.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use Speakeasy\SpeakeasyClientSDK\Utils;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 try {
     $request = new Operations\PostWorkspaceEventsRequest(
         requestBody: [
-            new Shared\CliEvent,
+            new Shared\CliEvent(
+                createdAt: Utils\Utils::parseDateTime('2023-05-08T03:24:39.583Z'),
+                executionId: '<id>',
+                id: '<id>',
+                interactionType: Shared\InteractionType::Quickstart,
+                localStartedAt: Utils\Utils::parseDateTime('2023-09-09T05:59:33.876Z'),
+                speakeasyApiKeyName: '<value>',
+                speakeasyVersion: '<value>',
+                success: false,
+                workspaceId: '<id>',
+            ),
         ],
+        workspaceId: '<id>',
     );
-    $response = $sdk->events->postWorkspaceEvents($request);
+    $response = $sdk.events->post(
+        request: $request
+    );
 
     if ($response->statusCode === 200) {
         // handle response
@@ -170,7 +242,7 @@ try {
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
-## searchWorkspaceEvents
+## search
 
 Search events for a particular workspace by any field
 
@@ -186,14 +258,17 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
-    $request = new Operations\SearchWorkspaceEventsRequest();
-    $response = $sdk->events->searchWorkspaceEvents($request);
+    $request = new Operations\SearchWorkspaceEventsRequest(
+        workspaceId: '<id>',
+    );
+    $response = $sdk.events->search(
+        request: $request
+    );
 
     if ($response->cliEventBatch !== null) {
         // handle response

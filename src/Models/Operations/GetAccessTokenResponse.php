@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use Speakeasy\SpeakeasyClientSDK\Models\Errorors;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class GetAccessTokenResponse
 {
@@ -25,13 +24,6 @@ class GetAccessTokenResponse
      * @var string $contentType
      */
     public string $contentType;
-
-    /**
-     * Default error response
-     *
-     * @var ?Errorors\Error $error
-     */
-    public ?Errorors\Error $error = null;
 
     /**
      * HTTP response status code for this operation
@@ -52,14 +44,12 @@ class GetAccessTokenResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?Shared\AccessToken  $accessToken
-     * @param  ?Errorors\Error  $error
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\AccessToken $accessToken = null, ?Errorors\Error $error = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\AccessToken $accessToken = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->accessToken = $accessToken;
-        $this->error = $error;
     }
 }

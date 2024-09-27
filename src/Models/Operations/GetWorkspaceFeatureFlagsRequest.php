@@ -14,16 +14,16 @@ class GetWorkspaceFeatureFlagsRequest
     /**
      * Unique identifier of the workspace.
      *
-     * @var ?string $workspaceID
+     * @var string $workspaceId
      */
-    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspaceID')]
-    public ?string $workspaceID = null;
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspace_id')]
+    public string $workspaceId;
 
     /**
-     * @param  ?string  $workspaceID
+     * @param  string  $workspaceId
      */
-    public function __construct(?string $workspaceID = null)
+    public function __construct(string $workspaceId)
     {
-        $this->workspaceID = $workspaceID;
+        $this->workspaceId = $workspaceId;
     }
 }

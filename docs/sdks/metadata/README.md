@@ -1,4 +1,5 @@
 # Metadata
+(*metadata*)
 
 ## Overview
 
@@ -26,19 +27,20 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\DeleteVersionMetadataRequest(
-        apiID: '<value>',
+        apiID: '<id>',
         metaKey: '<value>',
         metaValue: '<value>',
-        versionID: '<value>',
+        versionID: '<id>',
     );
-    $response = $sdk->metadata->deleteVersionMetadata($request);
+    $response = $sdk.metadata->deleteVersionMetadata(
+        request: $request
+    );
 
     if ($response->statusCode === 200) {
         // handle response
@@ -62,6 +64,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -81,17 +84,18 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetVersionMetadataRequest(
-        apiID: '<value>',
-        versionID: '<value>',
+        apiID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->metadata->getVersionMetadata($request);
+    $response = $sdk.metadata->getVersionMetadata(
+        request: $request
+    );
 
     if ($response->versionMetadata !== null) {
         // handle response
@@ -115,6 +119,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -134,21 +139,22 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\InsertVersionMetadataRequest(
         versionMetadata: new Shared\VersionMetadataInput(
             metaKey: '<value>',
             metaValue: '<value>',
         ),
-        apiID: '<value>',
-        versionID: '<value>',
+        apiID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->metadata->insertVersionMetadata($request);
+    $response = $sdk.metadata->insertVersionMetadata(
+        request: $request
+    );
 
     if ($response->versionMetadata !== null) {
         // handle response
@@ -172,4 +178,5 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |

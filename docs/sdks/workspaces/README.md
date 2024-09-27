@@ -1,14 +1,291 @@
 # Workspaces
+(*workspaces*)
 
 ## Overview
 
 ### Available Operations
 
-* [getWorkspace](#getworkspace) - Get workspace
-* [getWorkspaceByContext](#getworkspacebycontext) - Get workspace by context
-* [getWorkspaceFeatureFlags](#getworkspacefeatureflags) - Get workspace feature flags
+* [create](#create) - Create a workspace
+* [createToken](#createtoken) - Create a token for a particular workspace
+* [deleteToken](#deletetoken) - Delete a token for a particular workspace
+* [get](#get) - Get workspace by context
+* [getAll](#getall) - Get workspaces for a user
+* [getByID](#getbyid) - Get workspace
+* [getFeatureFlags](#getfeatureflags) - Get workspace feature flags
+* [getSettings](#getsettings) - Get workspace settings
+* [getTeam](#getteam) - Get team members for a particular workspace
+* [getTokens](#gettokens) - Get tokens for a particular workspace
+* [grantAccess](#grantaccess) - Grant a user access to a particular workspace
+* [revokeAccess](#revokeaccess) - Revoke a user's access to a particular workspace
+* [update](#update) - Update workspace details
+* [updateSettings](#updatesettings) - Update workspace settings
 
-## getWorkspace
+## create
+
+Creates a workspace
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use Speakeasy\SpeakeasyClientSDK\Utils;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+try {
+    $request = new Shared\Workspace(
+        createdAt: Utils\Utils::parseDateTime('2023-06-18T07:14:55.338Z'),
+        id: '<id>',
+        name: '<value>',
+        organizationId: '<id>',
+        slug: '<value>',
+        telemetryDisabled: false,
+        updatedAt: Utils\Utils::parseDateTime('2023-12-01T17:06:07.804Z'),
+        verified: false,
+    );
+    $response = $sdk.workspaces->create(
+        request: $request
+    );
+
+    if ($response->workspace !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                            | Type                                                 | Required                                             | Description                                          |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| `$request`                                           | [Shared\Workspace](../../Models/Shared/Workspace.md) | :heavy_check_mark:                                   | The request object to use for the request.           |
+
+### Response
+
+**[?Operations\CreateWorkspaceResponse](../../Models/Operations/CreateWorkspaceResponse.md)**
+
+### Errors
+
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
+| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+
+
+## createToken
+
+Create a token for a particular workspace
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+try {
+    $request = new Operations\CreateWorkspaceTokenRequest(
+        workspaceToken: new Shared\WorkspaceToken(
+            alg: '<value>',
+            createdAt: '<value>',
+            id: '<id>',
+            key: '<key>',
+            name: '<value>',
+        ),
+        workspaceId: '<id>',
+    );
+    $response = $sdk.workspaces->createToken(
+        request: $request
+    );
+
+    if ($response->statusCode === 200) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                       | [Operations\CreateWorkspaceTokenRequest](../../Models/Operations/CreateWorkspaceTokenRequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+
+### Response
+
+**[?Operations\CreateWorkspaceTokenResponse](../../Models/Operations/CreateWorkspaceTokenResponse.md)**
+
+### Errors
+
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
+| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+
+
+## deleteToken
+
+Delete a token for a particular workspace
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+try {
+    $request = new Operations\DeleteWorkspaceTokenRequest(
+        tokenID: '<id>',
+        workspaceId: '<id>',
+    );
+    $response = $sdk.workspaces->deleteToken(
+        request: $request
+    );
+
+    if ($response->statusCode === 200) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                       | [Operations\DeleteWorkspaceTokenRequest](../../Models/Operations/DeleteWorkspaceTokenRequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+
+### Response
+
+**[?Operations\DeleteWorkspaceTokenResponse](../../Models/Operations/DeleteWorkspaceTokenResponse.md)**
+
+### Errors
+
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
+| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+
+
+## get
+
+Get information about a particular workspace by context.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+try {
+    $response = $sdk.workspaces->get(
+
+    );
+
+    if ($response->workspaceAndOrganization !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Response
+
+**[?Operations\GetWorkspaceByContextResponse](../../Models/Operations/GetWorkspaceByContextResponse.md)**
+
+### Errors
+
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
+| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+
+
+## getAll
+
+Returns a list of workspaces a user has access too
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+try {
+    $response = $sdk.workspaces->getAll(
+
+    );
+
+    if ($response->workspaces !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Response
+
+**[?Operations\GetWorkspacesResponse](../../Models/Operations/GetWorkspacesResponse.md)**
+
+### Errors
+
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
+| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+
+
+## getByID
 
 Get information about a particular workspace.
 
@@ -24,14 +301,17 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
-    $request = new Operations\GetWorkspaceRequest();
-    $response = $sdk->workspaces->getWorkspace($request);
+    $request = new Operations\GetWorkspaceRequest(
+        workspaceId: '<id>',
+    );
+    $response = $sdk.workspaces->getByID(
+        request: $request
+    );
 
     if ($response->workspace !== null) {
         // handle response
@@ -55,52 +335,11 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
-## getWorkspaceByContext
-
-Get information about a particular workspace by context.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-
-$security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
-try {
-    $response = $sdk->workspaces->getWorkspaceByContext();
-
-    if ($response->workspaceAndOrganization !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
-}
-```
-
-### Response
-
-**[?Operations\GetWorkspaceByContextResponse](../../Models/Operations/GetWorkspaceByContextResponse.md)**
-
-### Errors
-
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
-
-
-## getWorkspaceFeatureFlags
+## getFeatureFlags
 
 Get workspace feature flags
 
@@ -116,14 +355,17 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
-    $request = new Operations\GetWorkspaceFeatureFlagsRequest();
-    $response = $sdk->workspaces->getWorkspaceFeatureFlags($request);
+    $request = new Operations\GetWorkspaceFeatureFlagsRequest(
+        workspaceId: '<id>',
+    );
+    $response = $sdk.workspaces->getFeatureFlags(
+        request: $request
+    );
 
     if ($response->workspaceFeatureFlagResponse !== null) {
         // handle response
@@ -148,4 +390,398 @@ try {
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
 | Errorors\Error                                            | 5XX                                                       | application/json                                          |
+| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+
+
+## getSettings
+
+Get settings about a particular workspace.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+try {
+    $request = new Operations\GetWorkspaceSettingsRequest(
+        workspaceId: '<id>',
+    );
+    $response = $sdk.workspaces->getSettings(
+        request: $request
+    );
+
+    if ($response->workspaceSettings !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                       | [Operations\GetWorkspaceSettingsRequest](../../Models/Operations/GetWorkspaceSettingsRequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+
+### Response
+
+**[?Operations\GetWorkspaceSettingsResponse](../../Models/Operations/GetWorkspaceSettingsResponse.md)**
+
+### Errors
+
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
+| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+
+
+## getTeam
+
+Get team members for a particular workspace
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+try {
+    $request = new Operations\GetWorkspaceTeamRequest(
+        workspaceId: '<id>',
+    );
+    $response = $sdk.workspaces->getTeam(
+        request: $request
+    );
+
+    if ($response->workspaceTeamResponse !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `$request`                                                                               | [Operations\GetWorkspaceTeamRequest](../../Models/Operations/GetWorkspaceTeamRequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+
+### Response
+
+**[?Operations\GetWorkspaceTeamResponse](../../Models/Operations/GetWorkspaceTeamResponse.md)**
+
+### Errors
+
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
+| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+
+
+## getTokens
+
+Get tokens for a particular workspace
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+try {
+    $request = new Operations\GetWorkspaceTokensRequest(
+        workspaceId: '<id>',
+    );
+    $response = $sdk.workspaces->getTokens(
+        request: $request
+    );
+
+    if ($response->classes !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `$request`                                                                                   | [Operations\GetWorkspaceTokensRequest](../../Models/Operations/GetWorkspaceTokensRequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+
+### Response
+
+**[?Operations\GetWorkspaceTokensResponse](../../Models/Operations/GetWorkspaceTokensResponse.md)**
+
+### Errors
+
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
+| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+
+
+## grantAccess
+
+Grant a user access to a particular workspace
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+try {
+    $request = new Operations\GrantUserAccessToWorkspaceRequest(
+        email: 'Lucinda.Batz8@hotmail.com',
+        workspaceId: '<id>',
+    );
+    $response = $sdk.workspaces->grantAccess(
+        request: $request
+    );
+
+    if ($response->workspaceInviteResponse !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                                   | [Operations\GrantUserAccessToWorkspaceRequest](../../Models/Operations/GrantUserAccessToWorkspaceRequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
+
+### Response
+
+**[?Operations\GrantUserAccessToWorkspaceResponse](../../Models/Operations/GrantUserAccessToWorkspaceResponse.md)**
+
+### Errors
+
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
+| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+
+
+## revokeAccess
+
+Revoke a user's access to a particular workspace
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+try {
+    $request = new Operations\RevokeUserAccessToWorkspaceRequest(
+        userId: '<id>',
+        workspaceId: '<id>',
+    );
+    $response = $sdk.workspaces->revokeAccess(
+        request: $request
+    );
+
+    if ($response->statusCode === 200) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                     | [Operations\RevokeUserAccessToWorkspaceRequest](../../Models/Operations/RevokeUserAccessToWorkspaceRequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+
+### Response
+
+**[?Operations\RevokeUserAccessToWorkspaceResponse](../../Models/Operations/RevokeUserAccessToWorkspaceResponse.md)**
+
+### Errors
+
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
+| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+
+
+## update
+
+Update information about a particular workspace.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use Speakeasy\SpeakeasyClientSDK\Utils;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+try {
+    $request = new Operations\UpdateWorkspaceDetailsRequest(
+        workspace: new Shared\Workspace(
+            createdAt: Utils\Utils::parseDateTime('2024-07-28T19:04:48.565Z'),
+            id: '<id>',
+            name: '<value>',
+            organizationId: '<id>',
+            slug: '<value>',
+            telemetryDisabled: false,
+            updatedAt: Utils\Utils::parseDateTime('2023-10-17T10:52:42.015Z'),
+            verified: false,
+        ),
+        workspaceId: '<id>',
+    );
+    $response = $sdk.workspaces->update(
+        request: $request
+    );
+
+    if ($response->statusCode === 200) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                           | [Operations\UpdateWorkspaceDetailsRequest](../../Models/Operations/UpdateWorkspaceDetailsRequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+
+### Response
+
+**[?Operations\UpdateWorkspaceDetailsResponse](../../Models/Operations/UpdateWorkspaceDetailsResponse.md)**
+
+### Errors
+
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
+| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+
+
+## updateSettings
+
+Update settings about a particular workspace.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+try {
+    $request = new Operations\UpdateWorkspaceSettingsRequest(
+        workspaceSettings: new Shared\WorkspaceSettings(
+            workspaceId: '<id>',
+        ),
+        workspaceId: '<id>',
+    );
+    $response = $sdk.workspaces->updateSettings(
+        request: $request
+    );
+
+    if ($response->statusCode === 200) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                             | [Operations\UpdateWorkspaceSettingsRequest](../../Models/Operations/UpdateWorkspaceSettingsRequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+
+### Response
+
+**[?Operations\UpdateWorkspaceSettingsResponse](../../Models/Operations/UpdateWorkspaceSettingsResponse.md)**
+
+### Errors
+
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |

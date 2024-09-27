@@ -1,4 +1,5 @@
 # Schemas
+(*schemas*)
 
 ## Overview
 
@@ -31,18 +32,19 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\DeleteSchemaRequest(
-        apiID: '<value>',
-        revisionID: '<value>',
-        versionID: '<value>',
+        apiID: '<id>',
+        revisionID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->schemas->deleteSchema($request);
+    $response = $sdk.schemas->deleteSchema(
+        request: $request
+    );
 
     if ($response->statusCode === 200) {
         // handle response
@@ -66,6 +68,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -85,19 +88,20 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\DownloadSchemaRequest(
-        apiID: '<value>',
-        versionID: '<value>',
+        apiID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->schemas->downloadSchema($request);
+    $response = $sdk.schemas->downloadSchema(
+        request: $request
+    );
 
-    if ($response->twoHundredApplicationJsonSchema !== null) {
+    if ($response->twoXXApplicationJsonSchema !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -119,6 +123,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -138,20 +143,21 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\DownloadSchemaRevisionRequest(
-        apiID: '<value>',
-        revisionID: '<value>',
-        versionID: '<value>',
+        apiID: '<id>',
+        revisionID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->schemas->downloadSchemaRevision($request);
+    $response = $sdk.schemas->downloadSchemaRevision(
+        request: $request
+    );
 
-    if ($response->twoHundredApplicationJsonSchema !== null) {
+    if ($response->twoXXApplicationJsonSchema !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -173,6 +179,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -193,17 +200,18 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetSchemaRequest(
-        apiID: '<value>',
-        versionID: '<value>',
+        apiID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->schemas->getSchema($request);
+    $response = $sdk.schemas->getSchema(
+        request: $request
+    );
 
     if ($response->schema !== null) {
         // handle response
@@ -227,6 +235,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -246,19 +255,20 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetSchemaDiffRequest(
-        apiID: '<value>',
-        baseRevisionID: '<value>',
-        targetRevisionID: '<value>',
-        versionID: '<value>',
+        apiID: '<id>',
+        baseRevisionID: '<id>',
+        targetRevisionID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->schemas->getSchemaDiff($request);
+    $response = $sdk.schemas->getSchemaDiff(
+        request: $request
+    );
 
     if ($response->schemaDiff !== null) {
         // handle response
@@ -282,6 +292,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -302,18 +313,19 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetSchemaRevisionRequest(
-        apiID: '<value>',
-        revisionID: '<value>',
-        versionID: '<value>',
+        apiID: '<id>',
+        revisionID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->schemas->getSchemaRevision($request);
+    $response = $sdk.schemas->getSchemaRevision(
+        request: $request
+    );
 
     if ($response->schema !== null) {
         // handle response
@@ -337,6 +349,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -357,17 +370,18 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetSchemasRequest(
-        apiID: '<value>',
-        versionID: '<value>',
+        apiID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->schemas->getSchemas($request);
+    $response = $sdk.schemas->getSchemas(
+        request: $request
+    );
 
     if ($response->classes !== null) {
         // handle response
@@ -391,6 +405,7 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
 
 
@@ -411,11 +426,10 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\RegisterSchemaRequest(
         requestBody: new Operations\RegisterSchemaRequestBody(
@@ -424,10 +438,12 @@ try {
                 fileName: 'example.file',
             ),
         ),
-        apiID: '<value>',
-        versionID: '<value>',
+        apiID: '<id>',
+        versionID: '<id>',
     );
-    $response = $sdk->schemas->registerSchema($request);
+    $response = $sdk.schemas->registerSchema(
+        request: $request
+    );
 
     if ($response->statusCode === 200) {
         // handle response
@@ -451,4 +467,5 @@ try {
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
 | Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |

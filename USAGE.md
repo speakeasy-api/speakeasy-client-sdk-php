@@ -9,14 +9,15 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
-    apiKey: "<YOUR_API_KEY_HERE>",
+    apiKey: '<YOUR_API_KEY_HERE>',
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetApisRequest();
-    $response = $sdk->apis->getApis($request);
+    $response = $sdk.apis->getApis(
+        request: $request
+    );
 
     if ($response->apis !== null) {
         // handle response
