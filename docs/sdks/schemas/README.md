@@ -36,21 +36,19 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\DeleteSchemaRequest(
-        apiID: '<id>',
-        revisionID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.schemas->deleteSchema(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\DeleteSchemaRequest(
+    apiID: '<id>',
+    revisionID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->schemas->deleteSchema(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -92,20 +90,18 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\DownloadSchemaRequest(
-        apiID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.schemas->downloadSchema(
-        request: $request
-    );
 
-    if ($response->twoXXApplicationJsonSchema !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\DownloadSchemaRequest(
+    apiID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->schemas->downloadSchema(
+    request: $request
+);
+
+if ($response->twoXXApplicationJsonSchema !== null) {
+    // handle response
 }
 ```
 
@@ -147,21 +143,19 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\DownloadSchemaRevisionRequest(
-        apiID: '<id>',
-        revisionID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.schemas->downloadSchemaRevision(
-        request: $request
-    );
 
-    if ($response->twoXXApplicationJsonSchema !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\DownloadSchemaRevisionRequest(
+    apiID: '<id>',
+    revisionID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->schemas->downloadSchemaRevision(
+    request: $request
+);
+
+if ($response->twoXXApplicationJsonSchema !== null) {
+    // handle response
 }
 ```
 
@@ -204,20 +198,18 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetSchemaRequest(
-        apiID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.schemas->getSchema(
-        request: $request
-    );
 
-    if ($response->schema !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetSchemaRequest(
+    apiID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->schemas->getSchema(
+    request: $request
+);
+
+if ($response->schema !== null) {
+    // handle response
 }
 ```
 
@@ -259,22 +251,20 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetSchemaDiffRequest(
-        apiID: '<id>',
-        baseRevisionID: '<id>',
-        targetRevisionID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.schemas->getSchemaDiff(
-        request: $request
-    );
 
-    if ($response->schemaDiff !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetSchemaDiffRequest(
+    apiID: '<id>',
+    baseRevisionID: '<id>',
+    targetRevisionID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->schemas->getSchemaDiff(
+    request: $request
+);
+
+if ($response->schemaDiff !== null) {
+    // handle response
 }
 ```
 
@@ -317,21 +307,19 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetSchemaRevisionRequest(
-        apiID: '<id>',
-        revisionID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.schemas->getSchemaRevision(
-        request: $request
-    );
 
-    if ($response->schema !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetSchemaRevisionRequest(
+    apiID: '<id>',
+    revisionID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->schemas->getSchemaRevision(
+    request: $request
+);
+
+if ($response->schema !== null) {
+    // handle response
 }
 ```
 
@@ -374,20 +362,18 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetSchemasRequest(
-        apiID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.schemas->getSchemas(
-        request: $request
-    );
 
-    if ($response->classes !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetSchemasRequest(
+    apiID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->schemas->getSchemas(
+    request: $request
+);
+
+if ($response->classes !== null) {
+    // handle response
 }
 ```
 
@@ -430,26 +416,24 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\RegisterSchemaRequest(
-        requestBody: new Operations\RegisterSchemaRequestBody(
-            file: new Operations\RegisterSchemaFile(
-                content: '0xCFA30D144c',
-                fileName: 'example.file',
-            ),
-        ),
-        apiID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.schemas->registerSchema(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\RegisterSchemaRequest(
+    requestBody: new Operations\RegisterSchemaRequestBody(
+        file: new Operations\RegisterSchemaFile(
+            content: '0xCFA30D144c',
+            fileName: 'example.file',
+        ),
+    ),
+    apiID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->schemas->registerSchema(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 

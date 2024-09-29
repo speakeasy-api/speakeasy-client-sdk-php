@@ -36,21 +36,19 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\DeleteApiEndpointRequest(
-        apiEndpointID: '<id>',
-        apiID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.apiEndpoints->deleteApiEndpoint(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\DeleteApiEndpointRequest(
+    apiEndpointID: '<id>',
+    apiID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->apiEndpoints->deleteApiEndpoint(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -93,21 +91,19 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\FindApiEndpointRequest(
-        apiID: '<id>',
-        displayName: 'Don_Kihn39',
-        versionID: '<id>',
-    );
-    $response = $sdk.apiEndpoints->findApiEndpoint(
-        request: $request
-    );
 
-    if ($response->apiEndpoint !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\FindApiEndpointRequest(
+    apiID: '<id>',
+    displayName: 'Don_Kihn39',
+    versionID: '<id>',
+);
+
+$response = $sdk->apiEndpoints->findApiEndpoint(
+    request: $request
+);
+
+if ($response->apiEndpoint !== null) {
+    // handle response
 }
 ```
 
@@ -150,21 +146,19 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GenerateOpenApiSpecForApiEndpointRequest(
-        apiEndpointID: '<id>',
-        apiID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.apiEndpoints->generateOpenApiSpecForApiEndpoint(
-        request: $request
-    );
 
-    if ($response->generateOpenApiSpecDiff !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GenerateOpenApiSpecForApiEndpointRequest(
+    apiEndpointID: '<id>',
+    apiID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->apiEndpoints->generateOpenApiSpecForApiEndpoint(
+    request: $request
+);
+
+if ($response->generateOpenApiSpecDiff !== null) {
+    // handle response
 }
 ```
 
@@ -206,21 +200,19 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GeneratePostmanCollectionForApiEndpointRequest(
-        apiEndpointID: '<id>',
-        apiID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.apiEndpoints->generatePostmanCollectionForApiEndpoint(
-        request: $request
-    );
 
-    if ($response->postmanCollection !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GeneratePostmanCollectionForApiEndpointRequest(
+    apiEndpointID: '<id>',
+    apiID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->apiEndpoints->generatePostmanCollectionForApiEndpoint(
+    request: $request
+);
+
+if ($response->postmanCollection !== null) {
+    // handle response
 }
 ```
 
@@ -262,19 +254,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetAllApiEndpointsRequest(
-        apiID: '<id>',
-    );
-    $response = $sdk.apiEndpoints->getAllApiEndpoints(
-        request: $request
-    );
 
-    if ($response->apiEndpoints !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetAllApiEndpointsRequest(
+    apiID: '<id>',
+);
+
+$response = $sdk->apiEndpoints->getAllApiEndpoints(
+    request: $request
+);
+
+if ($response->apiEndpoints !== null) {
+    // handle response
 }
 ```
 
@@ -316,20 +306,18 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetAllForVersionApiEndpointsRequest(
-        apiID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.apiEndpoints->getAllForVersionApiEndpoints(
-        request: $request
-    );
 
-    if ($response->apiEndpoints !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetAllForVersionApiEndpointsRequest(
+    apiID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->apiEndpoints->getAllForVersionApiEndpoints(
+    request: $request
+);
+
+if ($response->apiEndpoints !== null) {
+    // handle response
 }
 ```
 
@@ -371,21 +359,19 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetApiEndpointRequest(
-        apiEndpointID: '<id>',
-        apiID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.apiEndpoints->getApiEndpoint(
-        request: $request
-    );
 
-    if ($response->apiEndpoint !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetApiEndpointRequest(
+    apiEndpointID: '<id>',
+    apiID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->apiEndpoints->getApiEndpoint(
+    request: $request
+);
+
+if ($response->apiEndpoint !== null) {
+    // handle response
 }
 ```
 
@@ -427,29 +413,27 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\UpsertApiEndpointRequest(
-        apiEndpoint: new Shared\ApiEndpointInput(
-            apiEndpointId: '<id>',
-            description: 'commandeer equate pish psst hoot ugh frankly supposing',
-            displayName: 'Eliseo.Little15',
-            method: '<value>',
-            path: '/etc/defaults',
-            versionId: '<id>',
-        ),
-        apiEndpointID: '<id>',
-        apiID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.apiEndpoints->upsertApiEndpoint(
-        request: $request
-    );
 
-    if ($response->apiEndpoint !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\UpsertApiEndpointRequest(
+    apiEndpoint: new Shared\ApiEndpointInput(
+        apiEndpointId: '<id>',
+        description: 'commandeer equate pish psst hoot ugh frankly supposing',
+        displayName: 'Eliseo.Little15',
+        method: '<value>',
+        path: '/etc/defaults',
+        versionId: '<id>',
+    ),
+    apiEndpointID: '<id>',
+    apiID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->apiEndpoints->upsertApiEndpoint(
+    request: $request
+);
+
+if ($response->apiEndpoint !== null) {
+    // handle response
 }
 ```
 

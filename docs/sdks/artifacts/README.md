@@ -35,22 +35,20 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetBlobRequest(
-        digest: '<value>',
-        namespaceName: '<value>',
-        organizationSlug: '<value>',
-        workspaceSlug: '<value>',
-    );
-    $response = $sdk.artifacts->getBlob(
-        request: $request
-    );
 
-    if ($response->blob !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetBlobRequest(
+    digest: '<value>',
+    namespaceName: '<value>',
+    organizationSlug: '<value>',
+    workspaceSlug: '<value>',
+);
+
+$response = $sdk->artifacts->getBlob(
+    request: $request
+);
+
+if ($response->blob !== null) {
+    // handle response
 }
 ```
 
@@ -92,22 +90,20 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetManifestRequest(
-        namespaceName: '<value>',
-        organizationSlug: '<value>',
-        revisionReference: '<value>',
-        workspaceSlug: '<value>',
-    );
-    $response = $sdk.artifacts->getManifest(
-        request: $request
-    );
 
-    if ($response->manifest !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetManifestRequest(
+    namespaceName: '<value>',
+    organizationSlug: '<value>',
+    revisionReference: '<value>',
+    workspaceSlug: '<value>',
+);
+
+$response = $sdk->artifacts->getManifest(
+    request: $request
+);
+
+if ($response->manifest !== null) {
+    // handle response
 }
 ```
 
@@ -148,16 +144,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $response = $sdk.artifacts->getNamespaces(
 
-    );
 
-    if ($response->getNamespacesResponse !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->artifacts->getNamespaces(
+
+);
+
+if ($response->getNamespacesResponse !== null) {
+    // handle response
 }
 ```
 
@@ -191,19 +186,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetRevisionsRequest(
-        namespaceName: '<value>',
-    );
-    $response = $sdk.artifacts->getRevisions(
-        request: $request
-    );
 
-    if ($response->getRevisionsResponse !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetRevisionsRequest(
+    namespaceName: '<value>',
+);
+
+$response = $sdk->artifacts->getRevisions(
+    request: $request
+);
+
+if ($response->getRevisionsResponse !== null) {
+    // handle response
 }
 ```
 
@@ -243,19 +236,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetTagsRequest(
-        namespaceName: '<value>',
-    );
-    $response = $sdk.artifacts->getTags(
-        request: $request
-    );
 
-    if ($response->getTagsResponse !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetTagsRequest(
+    namespaceName: '<value>',
+);
+
+$response = $sdk->artifacts->getTags(
+    request: $request
+);
+
+if ($response->getTagsResponse !== null) {
+    // handle response
 }
 ```
 
@@ -297,19 +288,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\PostTagsRequest(
-        namespaceName: '<value>',
-    );
-    $response = $sdk.artifacts->postTags(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\PostTagsRequest(
+    namespaceName: '<value>',
+);
+
+$response = $sdk->artifacts->postTags(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -350,19 +339,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Shared\PreflightRequest(
-        namespaceName: '<value>',
-    );
-    $response = $sdk.artifacts->preflight(
-        request: $request
-    );
 
-    if ($response->preflightToken !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Shared\PreflightRequest(
+    namespaceName: '<value>',
+);
+
+$response = $sdk->artifacts->preflight(
+    request: $request
+);
+
+if ($response->preflightToken !== null) {
+    // handle response
 }
 ```
 

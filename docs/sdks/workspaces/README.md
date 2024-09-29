@@ -40,26 +40,24 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Shared\Workspace(
-        createdAt: Utils\Utils::parseDateTime('2023-06-18T07:14:55.338Z'),
-        id: '<id>',
-        name: '<value>',
-        organizationId: '<id>',
-        slug: '<value>',
-        telemetryDisabled: false,
-        updatedAt: Utils\Utils::parseDateTime('2023-12-01T17:06:07.804Z'),
-        verified: false,
-    );
-    $response = $sdk.workspaces->create(
-        request: $request
-    );
 
-    if ($response->workspace !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Shared\Workspace(
+    createdAt: Utils\Utils::parseDateTime('2023-06-18T07:14:55.338Z'),
+    id: '<id>',
+    name: '<value>',
+    organizationId: '<id>',
+    slug: '<value>',
+    telemetryDisabled: false,
+    updatedAt: Utils\Utils::parseDateTime('2023-12-01T17:06:07.804Z'),
+    verified: false,
+);
+
+$response = $sdk->workspaces->create(
+    request: $request
+);
+
+if ($response->workspace !== null) {
+    // handle response
 }
 ```
 
@@ -101,26 +99,24 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\CreateWorkspaceTokenRequest(
-        workspaceToken: new Shared\WorkspaceToken(
-            alg: '<value>',
-            createdAt: '<value>',
-            id: '<id>',
-            key: '<key>',
-            name: '<value>',
-        ),
-        workspaceId: '<id>',
-    );
-    $response = $sdk.workspaces->createToken(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\CreateWorkspaceTokenRequest(
+    workspaceToken: new Shared\WorkspaceToken(
+        alg: '<value>',
+        createdAt: '<value>',
+        id: '<id>',
+        key: '<key>',
+        name: '<value>',
+    ),
+    workspaceId: '<id>',
+);
+
+$response = $sdk->workspaces->createToken(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -162,20 +158,18 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\DeleteWorkspaceTokenRequest(
-        tokenID: '<id>',
-        workspaceId: '<id>',
-    );
-    $response = $sdk.workspaces->deleteToken(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\DeleteWorkspaceTokenRequest(
+    tokenID: '<id>',
+    workspaceId: '<id>',
+);
+
+$response = $sdk->workspaces->deleteToken(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -216,16 +210,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $response = $sdk.workspaces->get(
 
-    );
 
-    if ($response->workspaceAndOrganization !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->workspaces->get(
+
+);
+
+if ($response->workspaceAndOrganization !== null) {
+    // handle response
 }
 ```
 
@@ -260,16 +253,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $response = $sdk.workspaces->getAll(
 
-    );
 
-    if ($response->workspaces !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->workspaces->getAll(
+
+);
+
+if ($response->workspaces !== null) {
+    // handle response
 }
 ```
 
@@ -305,19 +297,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetWorkspaceRequest(
-        workspaceId: '<id>',
-    );
-    $response = $sdk.workspaces->getByID(
-        request: $request
-    );
 
-    if ($response->workspace !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetWorkspaceRequest(
+    workspaceId: '<id>',
+);
+
+$response = $sdk->workspaces->getByID(
+    request: $request
+);
+
+if ($response->workspace !== null) {
+    // handle response
 }
 ```
 
@@ -359,19 +349,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetWorkspaceFeatureFlagsRequest(
-        workspaceId: '<id>',
-    );
-    $response = $sdk.workspaces->getFeatureFlags(
-        request: $request
-    );
 
-    if ($response->workspaceFeatureFlagResponse !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetWorkspaceFeatureFlagsRequest(
+    workspaceId: '<id>',
+);
+
+$response = $sdk->workspaces->getFeatureFlags(
+    request: $request
+);
+
+if ($response->workspaceFeatureFlagResponse !== null) {
+    // handle response
 }
 ```
 
@@ -413,19 +401,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetWorkspaceSettingsRequest(
-        workspaceId: '<id>',
-    );
-    $response = $sdk.workspaces->getSettings(
-        request: $request
-    );
 
-    if ($response->workspaceSettings !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetWorkspaceSettingsRequest(
+    workspaceId: '<id>',
+);
+
+$response = $sdk->workspaces->getSettings(
+    request: $request
+);
+
+if ($response->workspaceSettings !== null) {
+    // handle response
 }
 ```
 
@@ -467,19 +453,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetWorkspaceTeamRequest(
-        workspaceId: '<id>',
-    );
-    $response = $sdk.workspaces->getTeam(
-        request: $request
-    );
 
-    if ($response->workspaceTeamResponse !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetWorkspaceTeamRequest(
+    workspaceId: '<id>',
+);
+
+$response = $sdk->workspaces->getTeam(
+    request: $request
+);
+
+if ($response->workspaceTeamResponse !== null) {
+    // handle response
 }
 ```
 
@@ -521,19 +505,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetWorkspaceTokensRequest(
-        workspaceId: '<id>',
-    );
-    $response = $sdk.workspaces->getTokens(
-        request: $request
-    );
 
-    if ($response->classes !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetWorkspaceTokensRequest(
+    workspaceId: '<id>',
+);
+
+$response = $sdk->workspaces->getTokens(
+    request: $request
+);
+
+if ($response->classes !== null) {
+    // handle response
 }
 ```
 
@@ -575,20 +557,18 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GrantUserAccessToWorkspaceRequest(
-        email: 'Lucinda.Batz8@hotmail.com',
-        workspaceId: '<id>',
-    );
-    $response = $sdk.workspaces->grantAccess(
-        request: $request
-    );
 
-    if ($response->workspaceInviteResponse !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GrantUserAccessToWorkspaceRequest(
+    email: 'Lucinda.Batz8@hotmail.com',
+    workspaceId: '<id>',
+);
+
+$response = $sdk->workspaces->grantAccess(
+    request: $request
+);
+
+if ($response->workspaceInviteResponse !== null) {
+    // handle response
 }
 ```
 
@@ -630,20 +610,18 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\RevokeUserAccessToWorkspaceRequest(
-        userId: '<id>',
-        workspaceId: '<id>',
-    );
-    $response = $sdk.workspaces->revokeAccess(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\RevokeUserAccessToWorkspaceRequest(
+    userId: '<id>',
+    workspaceId: '<id>',
+);
+
+$response = $sdk->workspaces->revokeAccess(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -686,29 +664,27 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\UpdateWorkspaceDetailsRequest(
-        workspace: new Shared\Workspace(
-            createdAt: Utils\Utils::parseDateTime('2024-07-28T19:04:48.565Z'),
-            id: '<id>',
-            name: '<value>',
-            organizationId: '<id>',
-            slug: '<value>',
-            telemetryDisabled: false,
-            updatedAt: Utils\Utils::parseDateTime('2023-10-17T10:52:42.015Z'),
-            verified: false,
-        ),
-        workspaceId: '<id>',
-    );
-    $response = $sdk.workspaces->update(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\UpdateWorkspaceDetailsRequest(
+    workspace: new Shared\Workspace(
+        createdAt: Utils\Utils::parseDateTime('2024-07-28T19:04:48.565Z'),
+        id: '<id>',
+        name: '<value>',
+        organizationId: '<id>',
+        slug: '<value>',
+        telemetryDisabled: false,
+        updatedAt: Utils\Utils::parseDateTime('2023-10-17T10:52:42.015Z'),
+        verified: false,
+    ),
+    workspaceId: '<id>',
+);
+
+$response = $sdk->workspaces->update(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -750,22 +726,20 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\UpdateWorkspaceSettingsRequest(
-        workspaceSettings: new Shared\WorkspaceSettings(
-            workspaceId: '<id>',
-        ),
-        workspaceId: '<id>',
-    );
-    $response = $sdk.workspaces->updateSettings(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\UpdateWorkspaceSettingsRequest(
+    workspaceSettings: new Shared\WorkspaceSettings(
+        workspaceId: '<id>',
+    ),
+    workspaceId: '<id>',
+);
+
+$response = $sdk->workspaces->updateSettings(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 

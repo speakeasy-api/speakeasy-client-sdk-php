@@ -33,20 +33,18 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\CheckGithubAccessRequest(
-        org: '<value>',
-        repo: '<value>',
-    );
-    $response = $sdk.github->checkAccess(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\CheckGithubAccessRequest(
+    org: '<value>',
+    repo: '<value>',
+);
+
+$response = $sdk->github->checkAccess(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -86,21 +84,19 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GithubCheckPublishingPRsRequest(
-        generateGenLockId: '<id>',
-        org: '<value>',
-        repo: '<value>',
-    );
-    $response = $sdk.github->checkPublishingPRs(
-        request: $request
-    );
 
-    if ($response->githubPublishingPRResponse !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GithubCheckPublishingPRsRequest(
+    generateGenLockId: '<id>',
+    org: '<value>',
+    repo: '<value>',
+);
+
+$response = $sdk->github->checkPublishingPRs(
+    request: $request
+);
+
+if ($response->githubPublishingPRResponse !== null) {
+    // handle response
 }
 ```
 
@@ -140,19 +136,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GithubCheckPublishingSecretsRequest(
-        generateGenLockId: '<id>',
-    );
-    $response = $sdk.github->checkPublishingSecrets(
-        request: $request
-    );
 
-    if ($response->githubMissingPublishingSecretsResponse !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GithubCheckPublishingSecretsRequest(
+    generateGenLockId: '<id>',
+);
+
+$response = $sdk->github->checkPublishingSecrets(
+    request: $request
+);
+
+if ($response->githubMissingPublishingSecretsResponse !== null) {
+    // handle response
 }
 ```
 
@@ -191,21 +185,19 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Shared\GithubConfigureCodeSamplesRequest(
-        org: '<value>',
-        repo: '<value>',
-        targetName: '<value>',
-    );
-    $response = $sdk.github->configureCodeSamples(
-        request: $request
-    );
 
-    if ($response->githubConfigureCodeSamplesResponse !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Shared\GithubConfigureCodeSamplesRequest(
+    org: '<value>',
+    repo: '<value>',
+    targetName: '<value>',
+);
+
+$response = $sdk->github->configureCodeSamples(
+    request: $request
+);
+
+if ($response->githubConfigureCodeSamplesResponse !== null) {
+    // handle response
 }
 ```
 
@@ -244,24 +236,22 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Shared\GithubConfigureMintlifyRepoRequest(
-        input: '<value>',
-        org: '<value>',
-        overlays: [
-            '<value>',
-        ],
-        repo: '<value>',
-    );
-    $response = $sdk.github->configureMintlifyRepo(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Shared\GithubConfigureMintlifyRepoRequest(
+    input: '<value>',
+    org: '<value>',
+    overlays: [
+        '<value>',
+    ],
+    repo: '<value>',
+);
+
+$response = $sdk->github->configureMintlifyRepo(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -300,20 +290,18 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Shared\GithubConfigureTargetRequest(
-        org: '<value>',
-        repoName: '<value>',
-    );
-    $response = $sdk.github->configureTarget(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Shared\GithubConfigureTargetRequest(
+    org: '<value>',
+    repoName: '<value>',
+);
+
+$response = $sdk->github->configureTarget(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -353,20 +341,18 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetGitHubActionRequest(
-        org: '<value>',
-        repo: '<value>',
-    );
-    $response = $sdk.github->getAction(
-        request: $request
-    );
 
-    if ($response->githubGetActionResponse !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetGitHubActionRequest(
+    org: '<value>',
+    repo: '<value>',
+);
+
+$response = $sdk->github->getAction(
+    request: $request
+);
+
+if ($response->githubGetActionResponse !== null) {
+    // handle response
 }
 ```
 
@@ -405,19 +391,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Shared\GithubStorePublishingSecretsRequest(
-        generateGenLockId: '<id>',
-    );
-    $response = $sdk.github->storePublishingSecrets(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Shared\GithubStorePublishingSecretsRequest(
+    generateGenLockId: '<id>',
+);
+
+$response = $sdk->github->storePublishingSecrets(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -456,21 +440,19 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Shared\GithubTriggerActionRequest(
-        genLockId: '<id>',
-        org: '<value>',
-        repoName: '<value>',
-    );
-    $response = $sdk.github->triggerAction(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Shared\GithubTriggerActionRequest(
+    genLockId: '<id>',
+    org: '<value>',
+    repoName: '<value>',
+);
+
+$response = $sdk->github->triggerAction(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 

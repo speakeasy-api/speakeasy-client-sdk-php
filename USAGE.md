@@ -13,17 +13,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetApisRequest();
-    $response = $sdk.apis->getApis(
-        request: $request
-    );
 
-    if ($response->apis !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetApisRequest();
+
+$response = $sdk->apis->getApis(
+    request: $request
+);
+
+if ($response->apis !== null) {
+    // handle response
 }
 ```
 <!-- End SDK Example Usage [usage] -->

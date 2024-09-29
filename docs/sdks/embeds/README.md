@@ -32,17 +32,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetEmbedAccessTokenRequest();
-    $response = $sdk.embeds->getEmbedAccessToken(
-        request: $request
-    );
 
-    if ($response->embedAccessTokenResponse !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetEmbedAccessTokenRequest();
+
+$response = $sdk->embeds->getEmbedAccessToken(
+    request: $request
+);
+
+if ($response->embedAccessTokenResponse !== null) {
+    // handle response
 }
 ```
 
@@ -83,16 +81,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $response = $sdk.embeds->getValidEmbedAccessTokens(
 
-    );
 
-    if ($response->embedTokens !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->embeds->getValidEmbedAccessTokens(
+
+);
+
+if ($response->embedTokens !== null) {
+    // handle response
 }
 ```
 
@@ -128,19 +125,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\RevokeEmbedAccessTokenRequest(
-        tokenID: '<id>',
-    );
-    $response = $sdk.embeds->revokeEmbedAccessToken(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\RevokeEmbedAccessTokenRequest(
+    tokenID: '<id>',
+);
+
+$response = $sdk->embeds->revokeEmbedAccessToken(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 

@@ -31,22 +31,20 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\DeleteVersionMetadataRequest(
-        apiID: '<id>',
-        metaKey: '<value>',
-        metaValue: '<value>',
-        versionID: '<id>',
-    );
-    $response = $sdk.metadata->deleteVersionMetadata(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\DeleteVersionMetadataRequest(
+    apiID: '<id>',
+    metaKey: '<value>',
+    metaValue: '<value>',
+    versionID: '<id>',
+);
+
+$response = $sdk->metadata->deleteVersionMetadata(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -88,20 +86,18 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetVersionMetadataRequest(
-        apiID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.metadata->getVersionMetadata(
-        request: $request
-    );
 
-    if ($response->versionMetadata !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetVersionMetadataRequest(
+    apiID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->metadata->getVersionMetadata(
+    request: $request
+);
+
+if ($response->versionMetadata !== null) {
+    // handle response
 }
 ```
 
@@ -143,24 +139,22 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\InsertVersionMetadataRequest(
-        versionMetadata: new Shared\VersionMetadataInput(
-            metaKey: '<value>',
-            metaValue: '<value>',
-        ),
-        apiID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.metadata->insertVersionMetadata(
-        request: $request
-    );
 
-    if ($response->versionMetadata !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\InsertVersionMetadataRequest(
+    versionMetadata: new Shared\VersionMetadataInput(
+        metaKey: '<value>',
+        metaValue: '<value>',
+    ),
+    apiID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->metadata->insertVersionMetadata(
+    request: $request
+);
+
+if ($response->versionMetadata !== null) {
+    // handle response
 }
 ```
 

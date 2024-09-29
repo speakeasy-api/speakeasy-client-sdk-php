@@ -29,19 +29,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\CreateRequestBody(
-        url: 'https://probable-heating.com/',
-    );
-    $response = $sdk.shortURLs->create(
-        request: $request
-    );
 
-    if ($response->shortURL !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\CreateRequestBody(
+    url: 'https://probable-heating.com/',
+);
+
+$response = $sdk->shortURLs->create(
+    request: $request
+);
+
+if ($response->shortURL !== null) {
+    // handle response
 }
 ```
 

@@ -30,17 +30,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetApisRequest();
-    $response = $sdk.apis->getApis(
-        request: $request
-    );
 
-    if ($response->apis !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetApisRequest();
+
+$response = $sdk->apis->getApis(
+    request: $request
+);
+
+if ($response->apis !== null) {
+    // handle response
 }
 ```
 <!-- End SDK Example Usage [usage] -->
@@ -184,6 +182,67 @@ try {
 
 
 
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations. All operations return a response object or throw an exception.
+
+By default an API error will raise a `Errorors\SDKException` exception, which has the following properties:
+
+| Property       | Type                                    | Description           |
+|----------------|-----------------------------------------|-----------------------|
+| `$message`     | *string*                                | The error message     |
+| `$statusCode`  | *int*                                   | The HTTP status code  |
+| `$rawResponse` | *?\Psr\Http\Message\ResponseInterface*  | The raw HTTP response |
+| `$body`        | *string*                                | The response content  |
+
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `deleteApi` method throws the following exceptions:
+
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Errorors\Error                                            | 4XX                                                       | application/json                                          |
+| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+
+### Example
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+try {
+    $request = new Operations\DeleteApiRequest(
+        apiID: '<id>',
+        versionID: '<id>',
+    );
+
+    $response = $sdk->apis->deleteApi(
+        request: $request
+    );
+
+    if ($response->statusCode === 200) {
+        // handle response
+    }
+} catch (Errorors\ErrorThrowable $e) {
+    // handle $e->$container data
+    throw $e;
+} catch (Errorors\SDKException $e) {
+    // handle default exception
+    throw $e;
+}
+```
+<!-- End Error Handling [errors] -->
+
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
@@ -218,6 +277,7 @@ For more information about the API: [The Speakeasy Platform Documentation](/docs
 * [SDK Installation](#sdk-installation)
 * [SDK Example Usage](#sdk-example-usage)
 * [Available Resources and Operations](#available-resources-and-operations)
+* [Error Handling](#error-handling)
 * [Server Selection](#server-selection)
 <!-- End Table of Contents [toc] -->
 

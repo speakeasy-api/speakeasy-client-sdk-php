@@ -32,19 +32,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GenerateRequestPostmanCollectionRequest(
-        requestID: '<id>',
-    );
-    $response = $sdk.requests->generateRequestPostmanCollection(
-        request: $request
-    );
 
-    if ($response->postmanCollection !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GenerateRequestPostmanCollectionRequest(
+    requestID: '<id>',
+);
+
+$response = $sdk->requests->generateRequestPostmanCollection(
+    request: $request
+);
+
+if ($response->postmanCollection !== null) {
+    // handle response
 }
 ```
 
@@ -86,19 +84,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetRequestFromEventLogRequest(
-        requestID: '<id>',
-    );
-    $response = $sdk.requests->getRequestFromEventLog(
-        request: $request
-    );
 
-    if ($response->unboundedRequest !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetRequestFromEventLogRequest(
+    requestID: '<id>',
+);
+
+$response = $sdk->requests->getRequestFromEventLog(
+    request: $request
+);
+
+if ($response->unboundedRequest !== null) {
+    // handle response
 }
 ```
 
@@ -141,17 +137,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\QueryEventLogRequest();
-    $response = $sdk.requests->queryEventLog(
-        request: $request
-    );
 
-    if ($response->boundedRequests !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\QueryEventLogRequest();
+
+$response = $sdk->requests->queryEventLog(
+    request: $request
+);
+
+if ($response->boundedRequests !== null) {
+    // handle response
 }
 ```
 

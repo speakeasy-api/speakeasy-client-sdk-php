@@ -31,51 +31,49 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\SuggestRequest(
-        suggestRequestBody: new Shared\SuggestRequestBody(
-            diagnostics: [
-                new Shared\Diagnostic(
-                    message: '<value>',
-                    path: [
-                        '/rescue',
+
+$request = new Operations\SuggestRequest(
+    suggestRequestBody: new Shared\SuggestRequestBody(
+        diagnostics: [
+            new Shared\Diagnostic(
+                message: '<value>',
+                path: [
+                    '/rescue',
+                ],
+                type: '<value>',
+            ),
+        ],
+        oasSummary: new Shared\OASSummary(
+            info: new Shared\OASInfo(
+                description: 'kielbasa psst stitcher cannon devoted blindly apropos low',
+                license: new Shared\License(),
+                summary: '<value>',
+                title: '<value>',
+                version: '<value>',
+            ),
+            operations: [
+                new Shared\OASOperation(
+                    description: 'via apparatus gray whether opposite what',
+                    method: '<value>',
+                    operationId: '<id>',
+                    path: '/sys',
+                    tags: [
+                        '<value>',
                     ],
-                    type: '<value>',
                 ),
             ],
-            oasSummary: new Shared\OASSummary(
-                info: new Shared\OASInfo(
-                    description: 'kielbasa psst stitcher cannon devoted blindly apropos low',
-                    license: new Shared\License(),
-                    summary: '<value>',
-                    title: '<value>',
-                    version: '<value>',
-                ),
-                operations: [
-                    new Shared\OASOperation(
-                        description: 'via apparatus gray whether opposite what',
-                        method: '<value>',
-                        operationId: '<id>',
-                        path: '/sys',
-                        tags: [
-                            '<value>',
-                        ],
-                    ),
-                ],
-            ),
-            suggestionType: Shared\SuggestRequestBodySuggestionType::MethodNames,
         ),
-        xSessionId: '<id>',
-    );
-    $response = $sdk.suggest->suggest(
-        request: $request
-    );
+        suggestionType: Shared\SuggestRequestBodySuggestionType::MethodNames,
+    ),
+    xSessionId: '<id>',
+);
 
-    if ($response->schema !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->suggest->suggest(
+    request: $request
+);
+
+if ($response->schema !== null) {
+    // handle response
 }
 ```
 
@@ -116,25 +114,23 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\SuggestOpenAPIRequest(
-        requestBody: new Operations\SuggestOpenAPIRequestBody(
-            schema: new Operations\Schema(
-                content: '0x0beEcB7cF6',
-                fileName: 'example.file',
-            ),
-        ),
-        xSessionId: '<id>',
-    );
-    $response = $sdk.suggest->suggestOpenAPI(
-        request: $request
-    );
 
-    if ($response->schema !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\SuggestOpenAPIRequest(
+    requestBody: new Operations\SuggestOpenAPIRequestBody(
+        schema: new Operations\Schema(
+            content: '0x0beEcB7cF6',
+            fileName: 'example.file',
+        ),
+    ),
+    xSessionId: '<id>',
+);
+
+$response = $sdk->suggest->suggestOpenAPI(
+    request: $request
+);
+
+if ($response->schema !== null) {
+    // handle response
 }
 ```
 
@@ -175,21 +171,19 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\SuggestOpenAPIRegistryRequest(
-        namespaceName: '<value>',
-        revisionReference: '<value>',
-        xSessionId: '<id>',
-    );
-    $response = $sdk.suggest->suggestOpenAPIRegistry(
-        request: $request
-    );
 
-    if ($response->schema !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\SuggestOpenAPIRegistryRequest(
+    namespaceName: '<value>',
+    revisionReference: '<value>',
+    xSessionId: '<id>',
+);
+
+$response = $sdk->suggest->suggestOpenAPIRegistry(
+    request: $request
+);
+
+if ($response->schema !== null) {
+    // handle response
 }
 ```
 

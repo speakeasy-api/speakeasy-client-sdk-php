@@ -31,19 +31,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetChangesReportSignedUrlRequest(
-        documentChecksum: '<value>',
-    );
-    $response = $sdk.reports->getChangesReportSignedUrl(
-        request: $request
-    );
 
-    if ($response->signedAccess !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetChangesReportSignedUrlRequest(
+    documentChecksum: '<value>',
+);
+
+$response = $sdk->reports->getChangesReportSignedUrl(
+    request: $request
+);
+
+if ($response->signedAccess !== null) {
+    // handle response
 }
 ```
 
@@ -84,19 +82,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetLintingReportSignedUrlRequest(
-        documentChecksum: '<value>',
-    );
-    $response = $sdk.reports->getLintingReportSignedUrl(
-        request: $request
-    );
 
-    if ($response->signedAccess !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetLintingReportSignedUrlRequest(
+    documentChecksum: '<value>',
+);
+
+$response = $sdk->reports->getLintingReportSignedUrl(
+    request: $request
+);
+
+if ($response->signedAccess !== null) {
+    // handle response
 }
 ```
 
@@ -137,23 +133,21 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\UploadReportRequestBody(
-        data: new Shared\Report(),
-        file: new Operations\File(
-            content: '0xA2Ca85EFA5',
-            fileName: 'example.file',
-        ),
-    );
-    $response = $sdk.reports->uploadReport(
-        request: $request
-    );
 
-    if ($response->uploadedReport !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\UploadReportRequestBody(
+    data: new Shared\Report(),
+    file: new Operations\File(
+        content: '0xA2Ca85EFA5',
+        fileName: 'example.file',
+    ),
+);
+
+$response = $sdk->reports->uploadReport(
+    request: $request
+);
+
+if ($response->uploadedReport !== null) {
+    // handle response
 }
 ```
 

@@ -32,17 +32,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetWorkspaceAccessRequest();
-    $response = $sdk.auth->getAccess(
-        request: $request
-    );
 
-    if ($response->accessDetails !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetWorkspaceAccessRequest();
+
+$response = $sdk->auth->getAccess(
+    request: $request
+);
+
+if ($response->accessDetails !== null) {
+    // handle response
 }
 ```
 
@@ -78,19 +76,17 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->build();
-try {
-    $request = new Operations\GetAccessTokenRequest(
-        workspaceId: '<id>',
-    );
-    $response = $sdk.auth->getAccessToken(
-        request: $request
-    );
 
-    if ($response->accessToken !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetAccessTokenRequest(
+    workspaceId: '<id>',
+);
+
+$response = $sdk->auth->getAccessToken(
+    request: $request
+);
+
+if ($response->accessToken !== null) {
+    // handle response
 }
 ```
 
@@ -131,16 +127,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $response = $sdk.auth->getUser(
 
-    );
 
-    if ($response->user !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->auth->getUser(
+
+);
+
+if ($response->user !== null) {
+    // handle response
 }
 ```
 
@@ -175,16 +170,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $response = $sdk.auth->validateApiKey(
 
-    );
 
-    if ($response->apiKeyDetails !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->auth->validateApiKey(
+
+);
+
+if ($response->apiKeyDetails !== null) {
+    // handle response
 }
 ```
 

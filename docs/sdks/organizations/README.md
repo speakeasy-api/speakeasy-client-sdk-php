@@ -31,25 +31,23 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Shared\Organization(
-        accountType: Shared\AccountType::ScaleUp,
-        createdAt: Utils\Utils::parseDateTime('2023-12-01T17:06:07.804Z'),
-        id: '<id>',
-        name: '<value>',
-        slug: '<value>',
-        telemetryDisabled: false,
-        updatedAt: Utils\Utils::parseDateTime('2023-04-03T12:48:32.253Z'),
-    );
-    $response = $sdk.organizations->create(
-        request: $request
-    );
 
-    if ($response->organization !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Shared\Organization(
+    accountType: Shared\AccountType::ScaleUp,
+    createdAt: Utils\Utils::parseDateTime('2023-12-01T17:06:07.804Z'),
+    id: '<id>',
+    name: '<value>',
+    slug: '<value>',
+    telemetryDisabled: false,
+    updatedAt: Utils\Utils::parseDateTime('2023-04-03T12:48:32.253Z'),
+);
+
+$response = $sdk->organizations->create(
+    request: $request
+);
+
+if ($response->organization !== null) {
+    // handle response
 }
 ```
 
@@ -90,16 +88,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $response = $sdk.organizations->createFreeTrial(
 
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->organizations->createFreeTrial(
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -135,19 +132,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetOrganizationRequest(
-        organizationID: '<id>',
-    );
-    $response = $sdk.organizations->get(
-        request: $request
-    );
 
-    if ($response->organization !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetOrganizationRequest(
+    organizationID: '<id>',
+);
+
+$response = $sdk->organizations->get(
+    request: $request
+);
+
+if ($response->organization !== null) {
+    // handle response
 }
 ```
 
@@ -188,16 +183,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $response = $sdk.organizations->getAll(
 
-    );
 
-    if ($response->organizations !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->organizations->getAll(
+
+);
+
+if ($response->organizations !== null) {
+    // handle response
 }
 ```
 
@@ -232,16 +226,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $response = $sdk.organizations->getUsage(
 
-    );
 
-    if ($response->organizationUsageResponse !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->organizations->getUsage(
+
+);
+
+if ($response->organizationUsageResponse !== null) {
+    // handle response
 }
 ```
 

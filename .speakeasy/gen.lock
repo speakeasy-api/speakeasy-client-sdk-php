@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: e29727191626d67f4c4c017fc13758fa
+  docChecksum: d2e02fd58297f0f2d76a05242f33ed33
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.403.3
-  generationVersion: 2.424.0
-  releaseVersion: 0.42.0
-  configChecksum: ca646b0a6941f3c2763ad88c171b3edd
+  speakeasyVersion: 1.404.5
+  generationVersion: 2.426.2
+  releaseVersion: 0.42.1
+  configChecksum: 15c2033ee57093e6c08e56a840712a3a
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
   published: true
 features:
   php:
-    core: 3.4.7
+    core: 3.4.8
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.81.7
@@ -1466,6 +1466,7 @@ examples:
       responses:
         4XX:
           application/json: {"message": "<value>", "status_code": 670562}
+        2XX: {}
   githubConfigureCodeSamples:
     speakeasy-default-github-configure-code-samples:
       requestBody:
@@ -1498,6 +1499,7 @@ examples:
       responses:
         4XX:
           application/json: {"message": "<value>", "status_code": 252330}
+        2XX: {}
   githubTriggerAction:
     speakeasy-default-github-trigger-action:
       requestBody:

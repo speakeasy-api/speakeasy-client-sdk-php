@@ -34,20 +34,18 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\DeleteApiRequest(
-        apiID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.apis->deleteApi(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\DeleteApiRequest(
+    apiID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->apis->deleteApi(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -90,20 +88,18 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GenerateOpenApiSpecRequest(
-        apiID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.apis->generateOpenApiSpec(
-        request: $request
-    );
 
-    if ($response->generateOpenApiSpecDiff !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GenerateOpenApiSpecRequest(
+    apiID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->apis->generateOpenApiSpec(
+    request: $request
+);
+
+if ($response->generateOpenApiSpecDiff !== null) {
+    // handle response
 }
 ```
 
@@ -145,20 +141,18 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GeneratePostmanCollectionRequest(
-        apiID: '<id>',
-        versionID: '<id>',
-    );
-    $response = $sdk.apis->generatePostmanCollection(
-        request: $request
-    );
 
-    if ($response->postmanCollection !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GeneratePostmanCollectionRequest(
+    apiID: '<id>',
+    versionID: '<id>',
+);
+
+$response = $sdk->apis->generatePostmanCollection(
+    request: $request
+);
+
+if ($response->postmanCollection !== null) {
+    // handle response
 }
 ```
 
@@ -201,19 +195,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetAllApiVersionsRequest(
-        apiID: '<id>',
-    );
-    $response = $sdk.apis->getAllApiVersions(
-        request: $request
-    );
 
-    if ($response->apis !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetAllApiVersionsRequest(
+    apiID: '<id>',
+);
+
+$response = $sdk->apis->getAllApiVersions(
+    request: $request
+);
+
+if ($response->apis !== null) {
+    // handle response
 }
 ```
 
@@ -256,17 +248,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetApisRequest();
-    $response = $sdk.apis->getApis(
-        request: $request
-    );
 
-    if ($response->apis !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetApisRequest();
+
+$response = $sdk->apis->getApis(
+    request: $request
+);
+
+if ($response->apis !== null) {
+    // handle response
 }
 ```
 
@@ -309,24 +299,22 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\UpsertApiRequest(
-        api: new Shared\ApiInput(
-            apiId: '<id>',
-            description: 'consequently brr happily yowza however gosh investigate joyfully direct',
-            versionId: '<id>',
-        ),
-        apiID: '<id>',
-    );
-    $response = $sdk.apis->upsertApi(
-        request: $request
-    );
 
-    if ($response->api !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\UpsertApiRequest(
+    api: new Shared\ApiInput(
+        apiId: '<id>',
+        description: 'consequently brr happily yowza however gosh investigate joyfully direct',
+        versionId: '<id>',
+    ),
+    apiID: '<id>',
+);
+
+$response = $sdk->apis->upsertApi(
+    request: $request
+);
+
+if ($response->api !== null) {
+    // handle response
 }
 ```
 

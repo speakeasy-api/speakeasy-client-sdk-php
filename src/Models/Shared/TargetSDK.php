@@ -268,6 +268,42 @@ class TargetSDK
     public InteractionType $lastEventInteractionType;
 
     /**
+     * Name of the published package.
+     *
+     * @var ?string $publishPackageName
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('publish_package_name')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $publishPackageName = null;
+
+    /**
+     * Name of the registry where the package was published.
+     *
+     * @var ?string $publishPackageRegistryName
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('publish_package_registry_name')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $publishPackageRegistryName = null;
+
+    /**
+     * URL of the published package.
+     *
+     * @var ?string $publishPackageUrl
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('publish_package_url')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $publishPackageUrl = null;
+
+    /**
+     * Version of the published package.
+     *
+     * @var ?string $publishPackageVersion
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('publish_package_version')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $publishPackageVersion = null;
+
+    /**
      * Label of the git repository.
      *
      * @var ?string $repoLabel
@@ -360,6 +396,10 @@ class TargetSDK
      * @param  ?string  $gitUserEmail
      * @param  ?string  $gitUserName
      * @param  ?string  $hostname
+     * @param  ?string  $publishPackageName
+     * @param  ?string  $publishPackageRegistryName
+     * @param  ?string  $publishPackageUrl
+     * @param  ?string  $publishPackageVersion
      * @param  ?string  $repoLabel
      * @param  ?string  $sourceBlobDigest
      * @param  ?string  $sourceNamespaceName
@@ -368,7 +408,7 @@ class TargetSDK
      * @param  ?string  $workflowPostRaw
      * @param  ?string  $workflowPreRaw
      */
-    public function __construct(string $generateGenLockId, string $generateTarget, string $id, \DateTime $lastEventCreatedAt, string $lastEventId, InteractionType $lastEventInteractionType, ?string $commitHead = null, ?string $continuousIntegrationEnvironment = null, ?string $error = null, ?string $generateConfigPostVersion = null, ?string $generateEligibleFeatures = null, ?string $generateGenLockPreFeatures = null, ?string $generateGenLockPreVersion = null, ?int $generateNumberOfOperationsIgnored = null, ?int $generateNumberOfOperationsUsed = null, ?bool $generatePublished = null, ?string $generateTargetName = null, ?string $generateTargetVersion = null, ?string $ghActionOrganization = null, ?string $ghActionRef = null, ?string $ghActionRepository = null, ?string $ghActionRunLink = null, ?string $ghActionVersion = null, ?string $gitRelativeCwd = null, ?string $gitRemoteDefaultOwner = null, ?string $gitRemoteDefaultRepo = null, ?string $gitUserEmail = null, ?string $gitUserName = null, ?string $hostname = null, ?string $repoLabel = null, ?string $sourceBlobDigest = null, ?string $sourceNamespaceName = null, ?string $sourceRevisionDigest = null, ?bool $success = null, ?string $workflowPostRaw = null, ?string $workflowPreRaw = null)
+    public function __construct(string $generateGenLockId, string $generateTarget, string $id, \DateTime $lastEventCreatedAt, string $lastEventId, InteractionType $lastEventInteractionType, ?string $commitHead = null, ?string $continuousIntegrationEnvironment = null, ?string $error = null, ?string $generateConfigPostVersion = null, ?string $generateEligibleFeatures = null, ?string $generateGenLockPreFeatures = null, ?string $generateGenLockPreVersion = null, ?int $generateNumberOfOperationsIgnored = null, ?int $generateNumberOfOperationsUsed = null, ?bool $generatePublished = null, ?string $generateTargetName = null, ?string $generateTargetVersion = null, ?string $ghActionOrganization = null, ?string $ghActionRef = null, ?string $ghActionRepository = null, ?string $ghActionRunLink = null, ?string $ghActionVersion = null, ?string $gitRelativeCwd = null, ?string $gitRemoteDefaultOwner = null, ?string $gitRemoteDefaultRepo = null, ?string $gitUserEmail = null, ?string $gitUserName = null, ?string $hostname = null, ?string $publishPackageName = null, ?string $publishPackageRegistryName = null, ?string $publishPackageUrl = null, ?string $publishPackageVersion = null, ?string $repoLabel = null, ?string $sourceBlobDigest = null, ?string $sourceNamespaceName = null, ?string $sourceRevisionDigest = null, ?bool $success = null, ?string $workflowPostRaw = null, ?string $workflowPreRaw = null)
     {
         $this->generateGenLockId = $generateGenLockId;
         $this->generateTarget = $generateTarget;
@@ -399,6 +439,10 @@ class TargetSDK
         $this->gitUserEmail = $gitUserEmail;
         $this->gitUserName = $gitUserName;
         $this->hostname = $hostname;
+        $this->publishPackageName = $publishPackageName;
+        $this->publishPackageRegistryName = $publishPackageRegistryName;
+        $this->publishPackageUrl = $publishPackageUrl;
+        $this->publishPackageVersion = $publishPackageVersion;
         $this->repoLabel = $repoLabel;
         $this->sourceBlobDigest = $sourceBlobDigest;
         $this->sourceNamespaceName = $sourceNamespaceName;

@@ -33,20 +33,18 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetWorkspaceEventsByTargetRequest(
-        targetId: '<id>',
-        workspaceId: '<id>',
-    );
-    $response = $sdk.events->getEventsByTarget(
-        request: $request
-    );
 
-    if ($response->cliEventBatch !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetWorkspaceEventsByTargetRequest(
+    targetId: '<id>',
+    workspaceId: '<id>',
+);
+
+$response = $sdk->events->getEventsByTarget(
+    request: $request
+);
+
+if ($response->cliEventBatch !== null) {
+    // handle response
 }
 ```
 
@@ -88,17 +86,15 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetWorkspaceTargetsRequest();
-    $response = $sdk.events->getTargets(
-        request: $request
-    );
 
-    if ($response->targetSDKList !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetWorkspaceTargetsRequest();
+
+$response = $sdk->events->getTargets(
+    request: $request
+);
+
+if ($response->targetSDKList !== null) {
+    // handle response
 }
 ```
 
@@ -140,19 +136,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\GetWorkspaceTargetsDeprecatedRequest(
-        workspaceId: '<id>',
-    );
-    $response = $sdk.events->getTargetsDeprecated(
-        request: $request
-    );
 
-    if ($response->targetSDKList !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\GetWorkspaceTargetsDeprecatedRequest(
+    workspaceId: '<id>',
+);
+
+$response = $sdk->events->getTargetsDeprecated(
+    request: $request
+);
+
+if ($response->targetSDKList !== null) {
+    // handle response
 }
 ```
 
@@ -195,32 +189,30 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\PostWorkspaceEventsRequest(
-        requestBody: [
-            new Shared\CliEvent(
-                createdAt: Utils\Utils::parseDateTime('2023-05-08T03:24:39.583Z'),
-                executionId: '<id>',
-                id: '<id>',
-                interactionType: Shared\InteractionType::Quickstart,
-                localStartedAt: Utils\Utils::parseDateTime('2023-09-09T05:59:33.876Z'),
-                speakeasyApiKeyName: '<value>',
-                speakeasyVersion: '<value>',
-                success: false,
-                workspaceId: '<id>',
-            ),
-        ],
-        workspaceId: '<id>',
-    );
-    $response = $sdk.events->post(
-        request: $request
-    );
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\PostWorkspaceEventsRequest(
+    requestBody: [
+        new Shared\CliEvent(
+            createdAt: Utils\Utils::parseDateTime('2023-05-08T03:24:39.583Z'),
+            executionId: '<id>',
+            id: '<id>',
+            interactionType: Shared\InteractionType::Quickstart,
+            localStartedAt: Utils\Utils::parseDateTime('2023-09-09T05:59:33.876Z'),
+            speakeasyApiKeyName: '<value>',
+            speakeasyVersion: '<value>',
+            success: false,
+            workspaceId: '<id>',
+        ),
+    ],
+    workspaceId: '<id>',
+);
+
+$response = $sdk->events->post(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -262,19 +254,17 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\SearchWorkspaceEventsRequest(
-        workspaceId: '<id>',
-    );
-    $response = $sdk.events->search(
-        request: $request
-    );
 
-    if ($response->cliEventBatch !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\SearchWorkspaceEventsRequest(
+    workspaceId: '<id>',
+);
+
+$response = $sdk->events->search(
+    request: $request
+);
+
+if ($response->cliEventBatch !== null) {
+    // handle response
 }
 ```
 
