@@ -60,11 +60,10 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Errorors\Error                                            | 4XX                                                       | application/json                                          |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
-
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |
 
 ## checkPublishingPRs
 
@@ -112,11 +111,10 @@ if ($response->githubPublishingPRResponse !== null) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Errorors\Error                                            | 4XX                                                       | application/json                                          |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
-
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |
 
 ## checkPublishingSecrets
 
@@ -162,11 +160,10 @@ if ($response->githubMissingPublishingSecretsResponse !== null) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Errorors\Error                                            | 4XX                                                       | application/json                                          |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
-
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |
 
 ## configureCodeSamples
 
@@ -213,11 +210,10 @@ if ($response->githubConfigureCodeSamplesResponse !== null) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Errorors\Error                                            | 4XX                                                       | application/json                                          |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
-
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |
 
 ## configureMintlifyRepo
 
@@ -267,11 +263,10 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Errorors\Error                                            | 4XX                                                       | application/json                                          |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
-
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |
 
 ## configureTarget
 
@@ -317,11 +312,10 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Errorors\Error                                            | 4XX                                                       | application/json                                          |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
-
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |
 
 ## getAction
 
@@ -368,11 +362,10 @@ if ($response->githubGetActionResponse !== null) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Errorors\Error                                            | 4XX                                                       | application/json                                          |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
-
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |
 
 ## storePublishingSecrets
 
@@ -417,11 +410,10 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Errorors\Error                                            | 4XX                                                       | application/json                                          |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
-
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |
 
 ## triggerAction
 
@@ -468,7 +460,7 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Errorors\Error                                            | 4XX                                                       | application/json                                          |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |

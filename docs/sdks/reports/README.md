@@ -57,10 +57,9 @@ if ($response->signedAccess !== null) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
-
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\SDKException | 4XX, 5XX              | \*/\*                 |
 
 ## getLintingReportSignedUrl
 
@@ -108,10 +107,9 @@ if ($response->signedAccess !== null) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
-
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\SDKException | 4XX, 5XX              | \*/\*                 |
 
 ## uploadReport
 
@@ -163,6 +161,6 @@ if ($response->uploadedReport !== null) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\SDKException | 4XX, 5XX              | \*/\*                 |

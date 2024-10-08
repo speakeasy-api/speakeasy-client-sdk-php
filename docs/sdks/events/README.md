@@ -60,11 +60,10 @@ if ($response->cliEventBatch !== null) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Errorors\Error                                            | 5XX                                                       | application/json                                          |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
-
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 5XX                   | application/json      |
+| Errorors\SDKException | 4XX                   | \*/\*                 |
 
 ## getTargets
 
@@ -110,11 +109,10 @@ if ($response->targetSDKList !== null) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Errorors\Error                                            | 5XX                                                       | application/json                                          |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
-
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 5XX                   | application/json      |
+| Errorors\SDKException | 4XX                   | \*/\*                 |
 
 ## getTargetsDeprecated
 
@@ -162,11 +160,10 @@ if ($response->targetSDKList !== null) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Errorors\Error                                            | 5XX                                                       | application/json                                          |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
-
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 5XX                   | application/json      |
+| Errorors\SDKException | 4XX                   | \*/\*                 |
 
 ## post
 
@@ -228,11 +225,10 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Errorors\Error                                            | 5XX                                                       | application/json                                          |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
-
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 5XX                   | application/json      |
+| Errorors\SDKException | 4XX                   | \*/\*                 |
 
 ## search
 
@@ -280,7 +276,7 @@ if ($response->cliEventBatch !== null) {
 
 ### Errors
 
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| Errorors\Error                                            | 5XX                                                       | application/json                                          |
-| Speakeasy\SpeakeasyClientSDK\Models\Errorors.SDKException | 4xx-5xx                                                   | */*                                                       |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 5XX                   | application/json      |
+| Errorors\SDKException | 4XX                   | \*/\*                 |

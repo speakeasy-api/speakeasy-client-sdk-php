@@ -25,7 +25,7 @@ class Requests
     /**
      * Generate a Postman collection for a particular request.
      *
-     * Generates a Postman collection for a particular request. 
+     * Generates a Postman collection for a particular request.
      * Allowing it to be replayed with the same inputs that were captured by the SDK.
      *
      * @param  Operations\GenerateRequestPostmanCollectionRequest  $request

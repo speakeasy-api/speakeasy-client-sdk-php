@@ -182,7 +182,7 @@ class Schemas
     /**
      * Get information about the latest schema.
      *
-     * Returns information about the last uploaded schema for a particular API version. 
+     * Returns information about the last uploaded schema for a particular API version.
      * This won't include the schema itself, that can be retrieved via the downloadSchema operation.
      *
      * @param  Operations\GetSchemaRequest  $request
@@ -287,7 +287,7 @@ class Schemas
     /**
      * Get information about a particular schema revision for an Api.
      *
-     * Returns information about the last uploaded schema for a particular schema revision. 
+     * Returns information about the last uploaded schema for a particular schema revision.
      * This won't include the schema itself, that can be retrieved via the downloadSchema operation.
      *
      * @param  Operations\GetSchemaRevisionRequest  $request
@@ -341,7 +341,7 @@ class Schemas
     /**
      * Get information about all schemas associated with a particular apiID.
      *
-     * Returns information the schemas associated with a particular apiID. 
+     * Returns information the schemas associated with a particular apiID.
      * This won't include the schemas themselves, they can be retrieved via the downloadSchema operation.
      *
      * @param  Operations\GetSchemasRequest  $request
