@@ -8,6 +8,7 @@ REST APIs for managing LLM OAS suggestions
 ### Available Operations
 
 * [suggest](#suggest) - Generate suggestions for improving an OpenAPI document.
+* [suggestItems](#suggestitems) - Generate generic suggestions for a list of items.
 * [suggestOpenAPI](#suggestopenapi) - (DEPRECATED) Generate suggestions for improving an OpenAPI document.
 * [suggestOpenAPIRegistry](#suggestopenapiregistry) - Generate suggestions for improving an OpenAPI document stored in the registry.
 
@@ -86,6 +87,58 @@ if ($response->schema !== null) {
 ### Response
 
 **[?Operations\SuggestResponse](../../Models/Operations/SuggestResponse.md)**
+
+### Errors
+
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\SDKException | 4XX, 5XX              | \*/\*                 |
+
+## suggestItems
+
+Generate generic suggestions for a list of items.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+$request = new Shared\SuggestItemsRequestBody(
+    items: [
+        '<value>',
+    ],
+    prompt: '<value>',
+);
+
+$response = $sdk->suggest->suggestItems(
+    request: $request
+);
+
+if ($response->strings !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `$request`                                                                       | [Shared\SuggestItemsRequestBody](../../Models/Shared/SuggestItemsRequestBody.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+
+### Response
+
+**[?Operations\SuggestItemsResponse](../../Models/Operations/SuggestItemsResponse.md)**
 
 ### Errors
 

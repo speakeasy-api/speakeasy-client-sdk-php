@@ -30,9 +30,8 @@ class Github
      * @return Operations\CheckGithubAccessResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function checkAccess(
-        ?Operations\CheckGithubAccessRequest $request,
-    ): Operations\CheckGithubAccessResponse {
+    public function checkAccess(Operations\CheckGithubAccessRequest $request): Operations\CheckGithubAccessResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/check_access');
         $options = ['http_errors' => false];
@@ -74,9 +73,8 @@ class Github
      * @return Operations\GithubCheckPublishingPRsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function checkPublishingPRs(
-        ?Operations\GithubCheckPublishingPRsRequest $request,
-    ): Operations\GithubCheckPublishingPRsResponse {
+    public function checkPublishingPRs(Operations\GithubCheckPublishingPRsRequest $request): Operations\GithubCheckPublishingPRsResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/publishing_prs');
         $options = ['http_errors' => false];
@@ -126,9 +124,8 @@ class Github
      * @return Operations\GithubCheckPublishingSecretsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function checkPublishingSecrets(
-        ?Operations\GithubCheckPublishingSecretsRequest $request,
-    ): Operations\GithubCheckPublishingSecretsResponse {
+    public function checkPublishingSecrets(Operations\GithubCheckPublishingSecretsRequest $request): Operations\GithubCheckPublishingSecretsResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/publishing_secrets');
         $options = ['http_errors' => false];
@@ -178,9 +175,8 @@ class Github
      * @return Operations\GithubConfigureCodeSamplesResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function configureCodeSamples(
-        Shared\GithubConfigureCodeSamplesRequest $request,
-    ): Operations\GithubConfigureCodeSamplesResponse {
+    public function configureCodeSamples(Shared\GithubConfigureCodeSamplesRequest $request): Operations\GithubConfigureCodeSamplesResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/configure_code_samples');
         $options = ['http_errors' => false];
@@ -234,9 +230,8 @@ class Github
      * @return Operations\GithubConfigureMintlifyRepoResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function configureMintlifyRepo(
-        Shared\GithubConfigureMintlifyRepoRequest $request,
-    ): Operations\GithubConfigureMintlifyRepoResponse {
+    public function configureMintlifyRepo(Shared\GithubConfigureMintlifyRepoRequest $request): Operations\GithubConfigureMintlifyRepoResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/configure_mintlify_repo');
         $options = ['http_errors' => false];
@@ -282,9 +277,8 @@ class Github
      * @return Operations\GithubConfigureTargetResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function configureTarget(
-        Shared\GithubConfigureTargetRequest $request,
-    ): Operations\GithubConfigureTargetResponse {
+    public function configureTarget(Shared\GithubConfigureTargetRequest $request): Operations\GithubConfigureTargetResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/configure_target');
         $options = ['http_errors' => false];
@@ -330,9 +324,8 @@ class Github
      * @return Operations\GetGitHubActionResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getAction(
-        ?Operations\GetGitHubActionRequest $request,
-    ): Operations\GetGitHubActionResponse {
+    public function getAction(Operations\GetGitHubActionRequest $request): Operations\GetGitHubActionResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/action');
         $options = ['http_errors' => false];
@@ -382,9 +375,8 @@ class Github
      * @return Operations\GithubStorePublishingSecretsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function storePublishingSecrets(
-        Shared\GithubStorePublishingSecretsRequest $request,
-    ): Operations\GithubStorePublishingSecretsResponse {
+    public function storePublishingSecrets(Shared\GithubStorePublishingSecretsRequest $request): Operations\GithubStorePublishingSecretsResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/publishing_secrets');
         $options = ['http_errors' => false];
@@ -430,9 +422,8 @@ class Github
      * @return Operations\GithubTriggerActionResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function triggerAction(
-        Shared\GithubTriggerActionRequest $request,
-    ): Operations\GithubTriggerActionResponse {
+    public function triggerAction(Shared\GithubTriggerActionRequest $request): Operations\GithubTriggerActionResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/trigger_action');
         $options = ['http_errors' => false];

@@ -27,13 +27,12 @@ class Auth
      *
      * Checks if generation is permitted for a particular run of the CLI
      *
-     * @param  Operations\GetWorkspaceAccessRequest  $request
+     * @param  ?Operations\GetWorkspaceAccessRequest  $request
      * @return Operations\GetWorkspaceAccessResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getAccess(
-        ?Operations\GetWorkspaceAccessRequest $request,
-    ): Operations\GetWorkspaceAccessResponse {
+    public function getAccess(?Operations\GetWorkspaceAccessRequest $request = null): Operations\GetWorkspaceAccessResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/access');
         $options = ['http_errors' => false];
@@ -75,9 +74,8 @@ class Auth
      * @return Operations\GetAccessTokenResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getAccessToken(
-        ?Operations\GetAccessTokenRequest $request,
-    ): Operations\GetAccessTokenResponse {
+    public function getAccessToken(Operations\GetAccessTokenRequest $request): Operations\GetAccessTokenResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/auth/access_token');
         $options = ['http_errors' => false];
@@ -124,8 +122,8 @@ class Auth
      * @return Operations\GetUserResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getUser(
-    ): Operations\GetUserResponse {
+    public function getUser(): Operations\GetUserResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/user');
         $options = ['http_errors' => false];
@@ -173,8 +171,8 @@ class Auth
      * @return Operations\ValidateApiKeyResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function validateApiKey(
-    ): Operations\ValidateApiKeyResponse {
+    public function validateApiKey(): Operations\ValidateApiKeyResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/auth/validate');
         $options = ['http_errors' => false];

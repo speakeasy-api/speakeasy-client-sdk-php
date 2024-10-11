@@ -31,9 +31,8 @@ class ApiEndpoints
      * @return Operations\DeleteApiEndpointResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function deleteApiEndpoint(
-        ?Operations\DeleteApiEndpointRequest $request,
-    ): Operations\DeleteApiEndpointResponse {
+    public function deleteApiEndpoint(Operations\DeleteApiEndpointRequest $request): Operations\DeleteApiEndpointResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}', Operations\DeleteApiEndpointRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -77,9 +76,8 @@ class ApiEndpoints
      * @return Operations\FindApiEndpointResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function findApiEndpoint(
-        ?Operations\FindApiEndpointRequest $request,
-    ): Operations\FindApiEndpointResponse {
+    public function findApiEndpoint(Operations\FindApiEndpointRequest $request): Operations\FindApiEndpointResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/find/{displayName}', Operations\FindApiEndpointRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -131,9 +129,8 @@ class ApiEndpoints
      * @return Operations\GenerateOpenApiSpecForApiEndpointResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function generateOpenApiSpecForApiEndpoint(
-        ?Operations\GenerateOpenApiSpecForApiEndpointRequest $request,
-    ): Operations\GenerateOpenApiSpecForApiEndpointResponse {
+    public function generateOpenApiSpecForApiEndpoint(Operations\GenerateOpenApiSpecForApiEndpointRequest $request): Operations\GenerateOpenApiSpecForApiEndpointResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}/generate/openapi', Operations\GenerateOpenApiSpecForApiEndpointRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -184,9 +181,8 @@ class ApiEndpoints
      * @return Operations\GeneratePostmanCollectionForApiEndpointResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function generatePostmanCollectionForApiEndpoint(
-        ?Operations\GeneratePostmanCollectionForApiEndpointRequest $request,
-    ): Operations\GeneratePostmanCollectionForApiEndpointResponse {
+    public function generatePostmanCollectionForApiEndpoint(Operations\GeneratePostmanCollectionForApiEndpointRequest $request): Operations\GeneratePostmanCollectionForApiEndpointResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}/generate/postman', Operations\GeneratePostmanCollectionForApiEndpointRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -233,9 +229,8 @@ class ApiEndpoints
      * @return Operations\GetAllApiEndpointsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getAllApiEndpoints(
-        ?Operations\GetAllApiEndpointsRequest $request,
-    ): Operations\GetAllApiEndpointsResponse {
+    public function getAllApiEndpoints(Operations\GetAllApiEndpointsRequest $request): Operations\GetAllApiEndpointsResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/api_endpoints', Operations\GetAllApiEndpointsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -284,9 +279,8 @@ class ApiEndpoints
      * @return Operations\GetAllForVersionApiEndpointsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getAllForVersionApiEndpoints(
-        ?Operations\GetAllForVersionApiEndpointsRequest $request,
-    ): Operations\GetAllForVersionApiEndpointsResponse {
+    public function getAllForVersionApiEndpoints(Operations\GetAllForVersionApiEndpointsRequest $request): Operations\GetAllForVersionApiEndpointsResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints', Operations\GetAllForVersionApiEndpointsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -335,9 +329,8 @@ class ApiEndpoints
      * @return Operations\GetApiEndpointResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getApiEndpoint(
-        ?Operations\GetApiEndpointRequest $request,
-    ): Operations\GetApiEndpointResponse {
+    public function getApiEndpoint(Operations\GetApiEndpointRequest $request): Operations\GetApiEndpointResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}', Operations\GetApiEndpointRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -388,9 +381,8 @@ class ApiEndpoints
      * @return Operations\UpsertApiEndpointResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function upsertApiEndpoint(
-        Operations\UpsertApiEndpointRequest $request,
-    ): Operations\UpsertApiEndpointResponse {
+    public function upsertApiEndpoint(Operations\UpsertApiEndpointRequest $request): Operations\UpsertApiEndpointResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}', Operations\UpsertApiEndpointRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];

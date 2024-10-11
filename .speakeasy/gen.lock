@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: ff0251877ad0819b7ae028e9d209320c
+  docChecksum: 423cb74009b95d54915258fb6e315547
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.411.1
-  generationVersion: 2.436.1
-  releaseVersion: 0.43.0
-  configChecksum: 52c7d467dcacf94c77391eb6d77808e5
+  speakeasyVersion: 1.417.0
+  generationVersion: 2.438.2
+  releaseVersion: 0.44.0
+  configChecksum: 77ee1b273922ed6ef47f37dd97734858
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -20,6 +20,7 @@ features:
     globalServerURLs: 2.82.1
     globals: 2.82.2
     inputOutputModels: 2.83.0
+    methodArguments: 0.1.0
     nameOverrides: 2.81.2
     nullables: 1.0.0
     responseFormat: 0.1.0
@@ -168,6 +169,7 @@ generatedFiles:
   - docs/Models/Operations/Schema.md
   - docs/Models/Operations/SearchWorkspaceEventsRequest.md
   - docs/Models/Operations/SearchWorkspaceEventsResponse.md
+  - docs/Models/Operations/SuggestItemsResponse.md
   - docs/Models/Operations/SuggestOpenAPIRegistryRequest.md
   - docs/Models/Operations/SuggestOpenAPIRegistryResponse.md
   - docs/Models/Operations/SuggestOpenAPIRequest.md
@@ -245,6 +247,7 @@ generatedFiles:
   - docs/Models/Shared/SchemaDiff.md
   - docs/Models/Shared/Security.md
   - docs/Models/Shared/ShortURL.md
+  - docs/Models/Shared/SuggestItemsRequestBody.md
   - docs/Models/Shared/SuggestOptsOld.md
   - docs/Models/Shared/SuggestRequestBody.md
   - docs/Models/Shared/SuggestRequestBodySuggestionType.md
@@ -436,6 +439,7 @@ generatedFiles:
   - src/Models/Operations/Schema.php
   - src/Models/Operations/SearchWorkspaceEventsRequest.php
   - src/Models/Operations/SearchWorkspaceEventsResponse.php
+  - src/Models/Operations/SuggestItemsResponse.php
   - src/Models/Operations/SuggestOpenAPIRegistryRequest.php
   - src/Models/Operations/SuggestOpenAPIRegistryResponse.php
   - src/Models/Operations/SuggestOpenAPIRequest.php
@@ -513,6 +517,7 @@ generatedFiles:
   - src/Models/Shared/SchemaDiff.php
   - src/Models/Shared/Security.php
   - src/Models/Shared/ShortURL.php
+  - src/Models/Shared/SuggestItemsRequestBody.php
   - src/Models/Shared/SuggestOptsOld.php
   - src/Models/Shared/SuggestRequestBody.php
   - src/Models/Shared/SuggestRequestBodySuggestionType.php
@@ -544,6 +549,8 @@ generatedFiles:
   - src/Schemas.php
   - src/ShortURLs.php
   - src/Suggest.php
+  - src/Utils/BigDecimalHandler.php
+  - src/Utils/BigIntHandler.php
   - src/Utils/DateHandler.php
   - src/Utils/DateTimeHandler.php
   - src/Utils/DefaultRequest.php
@@ -1632,3 +1639,10 @@ examples:
           application/json: []
         5XX:
           application/json: {"message": "<value>", "status_code": 255923}
+  suggestItems:
+    speakeasy-default-suggest-items:
+      requestBody:
+        application/json: {"items": [], "prompt": "<value>"}
+      responses:
+        2XX:
+          application/json: ["<value>", "<value>"]

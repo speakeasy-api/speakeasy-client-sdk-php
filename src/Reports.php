@@ -29,9 +29,8 @@ class Reports
      * @return Operations\GetChangesReportSignedUrlResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getChangesReportSignedUrl(
-        ?Operations\GetChangesReportSignedUrlRequest $request,
-    ): Operations\GetChangesReportSignedUrlResponse {
+    public function getChangesReportSignedUrl(Operations\GetChangesReportSignedUrlRequest $request): Operations\GetChangesReportSignedUrlResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/reports/changes/{documentChecksum}', Operations\GetChangesReportSignedUrlRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -72,9 +71,8 @@ class Reports
      * @return Operations\GetLintingReportSignedUrlResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getLintingReportSignedUrl(
-        ?Operations\GetLintingReportSignedUrlRequest $request,
-    ): Operations\GetLintingReportSignedUrlResponse {
+    public function getLintingReportSignedUrl(Operations\GetLintingReportSignedUrlRequest $request): Operations\GetLintingReportSignedUrlResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/reports/linting/{documentChecksum}', Operations\GetLintingReportSignedUrlRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -115,9 +113,8 @@ class Reports
      * @return Operations\UploadReportResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function uploadReport(
-        Operations\UploadReportRequestBody $request,
-    ): Operations\UploadReportResponse {
+    public function uploadReport(Operations\UploadReportRequestBody $request): Operations\UploadReportResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/reports');
         $options = ['http_errors' => false];

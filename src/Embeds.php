@@ -28,13 +28,12 @@ class Embeds
      * Returns an embed access token for the current workspace. This can be used to authenticate access to externally embedded content.
      * Filters can be applied allowing views to be filtered to things like particular customerIds.
      *
-     * @param  Operations\GetEmbedAccessTokenRequest  $request
+     * @param  ?Operations\GetEmbedAccessTokenRequest  $request
      * @return Operations\GetEmbedAccessTokenResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getEmbedAccessToken(
-        ?Operations\GetEmbedAccessTokenRequest $request,
-    ): Operations\GetEmbedAccessTokenResponse {
+    public function getEmbedAccessToken(?Operations\GetEmbedAccessTokenRequest $request = null): Operations\GetEmbedAccessTokenResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/embed-access-token');
         $options = ['http_errors' => false];
@@ -83,8 +82,8 @@ class Embeds
      * @return Operations\GetValidEmbedAccessTokensResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getValidEmbedAccessTokens(
-    ): Operations\GetValidEmbedAccessTokensResponse {
+    public function getValidEmbedAccessTokens(): Operations\GetValidEmbedAccessTokensResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/embed-access-tokens/valid');
         $options = ['http_errors' => false];
@@ -133,9 +132,8 @@ class Embeds
      * @return Operations\RevokeEmbedAccessTokenResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function revokeEmbedAccessToken(
-        ?Operations\RevokeEmbedAccessTokenRequest $request,
-    ): Operations\RevokeEmbedAccessTokenResponse {
+    public function revokeEmbedAccessToken(Operations\RevokeEmbedAccessTokenRequest $request): Operations\RevokeEmbedAccessTokenResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/embed-access-tokens/{tokenID}', Operations\RevokeEmbedAccessTokenRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];

@@ -86,6 +86,15 @@ class User
     public string $id;
 
     /**
+     * Indicates whether the user is internal.
+     *
+     * @var ?bool $internal
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('internal')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?bool $internal = null;
+
+    /**
      * Timestamp of the last login.
      *
      * @var ?\DateTime $lastLoginAt
@@ -129,12 +138,13 @@ class User
      * @param  string  $id
      * @param  \DateTime  $updatedAt
      * @param  bool  $whitelisted
+     * @param  ?bool  $internal
      * @param  ?string  $defaultWorkspaceId
      * @param  ?string  $githubHandle
      * @param  ?\DateTime  $lastLoginAt
      * @param  ?string  $photoUrl
      */
-    public function __construct(bool $admin, bool $confirmed, \DateTime $createdAt, string $displayName, string $email, bool $emailVerified, string $id, \DateTime $updatedAt, bool $whitelisted, ?string $defaultWorkspaceId = null, ?string $githubHandle = null, ?\DateTime $lastLoginAt = null, ?string $photoUrl = null)
+    public function __construct(bool $admin, bool $confirmed, \DateTime $createdAt, string $displayName, string $email, bool $emailVerified, string $id, \DateTime $updatedAt, bool $whitelisted, ?bool $internal = null, ?string $defaultWorkspaceId = null, ?string $githubHandle = null, ?\DateTime $lastLoginAt = null, ?string $photoUrl = null)
     {
         $this->admin = $admin;
         $this->confirmed = $confirmed;
@@ -145,6 +155,7 @@ class User
         $this->id = $id;
         $this->updatedAt = $updatedAt;
         $this->whitelisted = $whitelisted;
+        $this->internal = $internal;
         $this->defaultWorkspaceId = $defaultWorkspaceId;
         $this->githubHandle = $githubHandle;
         $this->lastLoginAt = $lastLoginAt;

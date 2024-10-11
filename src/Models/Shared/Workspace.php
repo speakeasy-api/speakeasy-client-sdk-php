@@ -64,11 +64,14 @@ class Workspace
     public string $slug;
 
     /**
+     * Deprecated. Use organization.telemetry_disabled instead.
      *
-     * @var bool $telemetryDisabled
+     * @var ?bool $telemetryDisabled
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\JMS\Serializer\Annotation\SerializedName('telemetry_disabled')]
-    public bool $telemetryDisabled;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?bool $telemetryDisabled = null;
 
     /**
      *
@@ -90,22 +93,22 @@ class Workspace
      * @param  string  $name
      * @param  string  $organizationId
      * @param  string  $slug
-     * @param  bool  $telemetryDisabled
      * @param  \DateTime  $updatedAt
      * @param  bool  $verified
+     * @param  ?bool  $telemetryDisabled
      * @param  ?string  $ociRepo
      * @param  ?\DateTime  $ociRepoCreatedAt
      */
-    public function __construct(\DateTime $createdAt, string $id, string $name, string $organizationId, string $slug, bool $telemetryDisabled, \DateTime $updatedAt, bool $verified, ?string $ociRepo = null, ?\DateTime $ociRepoCreatedAt = null)
+    public function __construct(\DateTime $createdAt, string $id, string $name, string $organizationId, string $slug, \DateTime $updatedAt, bool $verified, ?bool $telemetryDisabled = null, ?string $ociRepo = null, ?\DateTime $ociRepoCreatedAt = null)
     {
         $this->createdAt = $createdAt;
         $this->id = $id;
         $this->name = $name;
         $this->organizationId = $organizationId;
         $this->slug = $slug;
-        $this->telemetryDisabled = $telemetryDisabled;
         $this->updatedAt = $updatedAt;
         $this->verified = $verified;
+        $this->telemetryDisabled = $telemetryDisabled;
         $this->ociRepo = $ociRepo;
         $this->ociRepoCreatedAt = $ociRepoCreatedAt;
     }

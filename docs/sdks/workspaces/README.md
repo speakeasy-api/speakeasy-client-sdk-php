@@ -47,7 +47,6 @@ $request = new Shared\Workspace(
     name: '<value>',
     organizationId: '<id>',
     slug: '<value>',
-    telemetryDisabled: false,
     updatedAt: Utils\Utils::parseDateTime('2023-12-01T17:06:07.804Z'),
     verified: false,
 );
@@ -660,7 +659,6 @@ $request = new Operations\UpdateWorkspaceDetailsRequest(
         name: '<value>',
         organizationId: '<id>',
         slug: '<value>',
-        telemetryDisabled: false,
         updatedAt: Utils\Utils::parseDateTime('2023-10-17T10:52:42.015Z'),
         verified: false,
     ),

@@ -30,9 +30,8 @@ class Artifacts
      * @return Operations\GetBlobResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getBlob(
-        ?Operations\GetBlobRequest $request,
-    ): Operations\GetBlobResponse {
+    public function getBlob(Operations\GetBlobRequest $request): Operations\GetBlobResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/oci/v2/{organization_slug}/{workspace_slug}/{namespace_name}/blobs/{digest}', Operations\GetBlobRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -79,9 +78,8 @@ class Artifacts
      * @return Operations\GetManifestResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getManifest(
-        ?Operations\GetManifestRequest $request,
-    ): Operations\GetManifestResponse {
+    public function getManifest(Operations\GetManifestRequest $request): Operations\GetManifestResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/oci/v2/{organization_slug}/{workspace_slug}/{namespace_name}/manifests/{revision_reference}', Operations\GetManifestRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -129,8 +127,8 @@ class Artifacts
      * @return Operations\GetNamespacesResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getNamespaces(
-    ): Operations\GetNamespacesResponse {
+    public function getNamespaces(): Operations\GetNamespacesResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/artifacts/namespaces');
         $options = ['http_errors' => false];
@@ -179,9 +177,8 @@ class Artifacts
      * @return Operations\GetRevisionsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getRevisions(
-        ?Operations\GetRevisionsRequest $request,
-    ): Operations\GetRevisionsResponse {
+    public function getRevisions(Operations\GetRevisionsRequest $request): Operations\GetRevisionsResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/artifacts/namespaces/{namespace_name}/revisions', Operations\GetRevisionsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -231,9 +228,8 @@ class Artifacts
      * @return Operations\GetTagsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getTags(
-        ?Operations\GetTagsRequest $request,
-    ): Operations\GetTagsResponse {
+    public function getTags(Operations\GetTagsRequest $request): Operations\GetTagsResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/artifacts/namespaces/{namespace_name}/tags', Operations\GetTagsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -282,9 +278,8 @@ class Artifacts
      * @return Operations\PostTagsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function postTags(
-        ?Operations\PostTagsRequest $request,
-    ): Operations\PostTagsResponse {
+    public function postTags(Operations\PostTagsRequest $request): Operations\PostTagsResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/artifacts/namespaces/{namespace_name}/tags', Operations\PostTagsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -325,13 +320,12 @@ class Artifacts
     /**
      * Get access token for communicating with OCI distribution endpoints
      *
-     * @param  Shared\PreflightRequest  $request
+     * @param  ?Shared\PreflightRequest  $request
      * @return Operations\PreflightResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function preflight(
-        ?Shared\PreflightRequest $request,
-    ): Operations\PreflightResponse {
+    public function preflight(?Shared\PreflightRequest $request = null): Operations\PreflightResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/artifacts/preflight');
         $options = ['http_errors' => false];

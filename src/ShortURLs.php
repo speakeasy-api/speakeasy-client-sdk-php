@@ -29,9 +29,8 @@ class ShortURLs
      * @return Operations\CreateResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function create(
-        Operations\CreateRequestBody $request,
-    ): Operations\CreateResponse {
+    public function create(Operations\CreateRequestBody $request): Operations\CreateResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/short_urls');
         $options = ['http_errors' => false];

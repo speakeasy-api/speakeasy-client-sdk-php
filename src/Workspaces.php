@@ -32,9 +32,8 @@ class Workspaces
      * @return Operations\CreateWorkspaceResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function create(
-        Shared\Workspace $request,
-    ): Operations\CreateWorkspaceResponse {
+    public function create(Shared\Workspace $request): Operations\CreateWorkspaceResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace');
         $options = ['http_errors' => false];
@@ -88,9 +87,8 @@ class Workspaces
      * @return Operations\CreateWorkspaceTokenResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function createToken(
-        Operations\CreateWorkspaceTokenRequest $request,
-    ): Operations\CreateWorkspaceTokenResponse {
+    public function createToken(Operations\CreateWorkspaceTokenRequest $request): Operations\CreateWorkspaceTokenResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/tokens', Operations\CreateWorkspaceTokenRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -136,9 +134,8 @@ class Workspaces
      * @return Operations\DeleteWorkspaceTokenResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function deleteToken(
-        ?Operations\DeleteWorkspaceTokenRequest $request,
-    ): Operations\DeleteWorkspaceTokenResponse {
+    public function deleteToken(Operations\DeleteWorkspaceTokenRequest $request): Operations\DeleteWorkspaceTokenResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/tokens/{tokenID}', Operations\DeleteWorkspaceTokenRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -180,8 +177,8 @@ class Workspaces
      * @return Operations\GetWorkspaceByContextResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function get(
-    ): Operations\GetWorkspaceByContextResponse {
+    public function get(): Operations\GetWorkspaceByContextResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace');
         $options = ['http_errors' => false];
@@ -231,8 +228,8 @@ class Workspaces
      * @return Operations\GetWorkspacesResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getAll(
-    ): Operations\GetWorkspacesResponse {
+    public function getAll(): Operations\GetWorkspacesResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspaces');
         $options = ['http_errors' => false];
@@ -283,9 +280,8 @@ class Workspaces
      * @return Operations\GetWorkspaceResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getByID(
-        ?Operations\GetWorkspaceRequest $request,
-    ): Operations\GetWorkspaceResponse {
+    public function getByID(Operations\GetWorkspaceRequest $request): Operations\GetWorkspaceResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}', Operations\GetWorkspaceRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -334,9 +330,8 @@ class Workspaces
      * @return Operations\GetWorkspaceFeatureFlagsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getFeatureFlags(
-        ?Operations\GetWorkspaceFeatureFlagsRequest $request,
-    ): Operations\GetWorkspaceFeatureFlagsResponse {
+    public function getFeatureFlags(Operations\GetWorkspaceFeatureFlagsRequest $request): Operations\GetWorkspaceFeatureFlagsResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/feature_flags', Operations\GetWorkspaceFeatureFlagsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -387,9 +382,8 @@ class Workspaces
      * @return Operations\GetWorkspaceSettingsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getSettings(
-        ?Operations\GetWorkspaceSettingsRequest $request,
-    ): Operations\GetWorkspaceSettingsResponse {
+    public function getSettings(Operations\GetWorkspaceSettingsRequest $request): Operations\GetWorkspaceSettingsResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/settings', Operations\GetWorkspaceSettingsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -438,9 +432,8 @@ class Workspaces
      * @return Operations\GetWorkspaceTeamResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getTeam(
-        ?Operations\GetWorkspaceTeamRequest $request,
-    ): Operations\GetWorkspaceTeamResponse {
+    public function getTeam(Operations\GetWorkspaceTeamRequest $request): Operations\GetWorkspaceTeamResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/team', Operations\GetWorkspaceTeamRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -489,9 +482,8 @@ class Workspaces
      * @return Operations\GetWorkspaceTokensResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getTokens(
-        ?Operations\GetWorkspaceTokensRequest $request,
-    ): Operations\GetWorkspaceTokensResponse {
+    public function getTokens(Operations\GetWorkspaceTokensRequest $request): Operations\GetWorkspaceTokensResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/tokens', Operations\GetWorkspaceTokensRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -540,9 +532,8 @@ class Workspaces
      * @return Operations\GrantUserAccessToWorkspaceResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function grantAccess(
-        ?Operations\GrantUserAccessToWorkspaceRequest $request,
-    ): Operations\GrantUserAccessToWorkspaceResponse {
+    public function grantAccess(Operations\GrantUserAccessToWorkspaceRequest $request): Operations\GrantUserAccessToWorkspaceResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/team/email/{email}', Operations\GrantUserAccessToWorkspaceRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -591,9 +582,8 @@ class Workspaces
      * @return Operations\RevokeUserAccessToWorkspaceResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function revokeAccess(
-        ?Operations\RevokeUserAccessToWorkspaceRequest $request,
-    ): Operations\RevokeUserAccessToWorkspaceResponse {
+    public function revokeAccess(Operations\RevokeUserAccessToWorkspaceRequest $request): Operations\RevokeUserAccessToWorkspaceResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/team/{userId}', Operations\RevokeUserAccessToWorkspaceRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -636,9 +626,8 @@ class Workspaces
      * @return Operations\UpdateWorkspaceDetailsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function update(
-        Operations\UpdateWorkspaceDetailsRequest $request,
-    ): Operations\UpdateWorkspaceDetailsResponse {
+    public function update(Operations\UpdateWorkspaceDetailsRequest $request): Operations\UpdateWorkspaceDetailsResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/details', Operations\UpdateWorkspaceDetailsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -686,9 +675,8 @@ class Workspaces
      * @return Operations\UpdateWorkspaceSettingsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function updateSettings(
-        Operations\UpdateWorkspaceSettingsRequest $request,
-    ): Operations\UpdateWorkspaceSettingsResponse {
+    public function updateSettings(Operations\UpdateWorkspaceSettingsRequest $request): Operations\UpdateWorkspaceSettingsResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/settings', Operations\UpdateWorkspaceSettingsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];

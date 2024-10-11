@@ -10,7 +10,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 php:
-  version: 0.43.0
+  version: 0.44.0
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
   imports:
@@ -26,6 +26,7 @@ php:
     enabled: false
     svcName: openapi
   maxMethodParams: 0
+  methodArguments: infer-optional-args
   namespace: Speakeasy\SpeakeasyClientSDK
   outputModelSuffix: output
   packageName: speakeasy-api/speakeasy-client-sdk-php

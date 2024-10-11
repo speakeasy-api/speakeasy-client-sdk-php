@@ -44,6 +44,14 @@ class Organization
 
     /**
      *
+     * @var ?bool $internal
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('internal')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?bool $internal = null;
+
+    /**
+     *
      * @var string $name
      */
     #[\JMS\Serializer\Annotation\SerializedName('name')]
@@ -78,9 +86,10 @@ class Organization
      * @param  string  $slug
      * @param  bool  $telemetryDisabled
      * @param  \DateTime  $updatedAt
+     * @param  ?bool  $internal
      * @param  ?\DateTime  $freeTrialExpiry
      */
-    public function __construct(AccountType $accountType, \DateTime $createdAt, string $id, string $name, string $slug, bool $telemetryDisabled, \DateTime $updatedAt, ?\DateTime $freeTrialExpiry = null)
+    public function __construct(AccountType $accountType, \DateTime $createdAt, string $id, string $name, string $slug, bool $telemetryDisabled, \DateTime $updatedAt, ?bool $internal = null, ?\DateTime $freeTrialExpiry = null)
     {
         $this->accountType = $accountType;
         $this->createdAt = $createdAt;
@@ -89,6 +98,7 @@ class Organization
         $this->slug = $slug;
         $this->telemetryDisabled = $telemetryDisabled;
         $this->updatedAt = $updatedAt;
+        $this->internal = $internal;
         $this->freeTrialExpiry = $freeTrialExpiry;
     }
 }

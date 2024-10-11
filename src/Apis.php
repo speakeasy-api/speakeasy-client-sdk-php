@@ -31,9 +31,8 @@ class Apis
      * @return Operations\DeleteApiResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function deleteApi(
-        ?Operations\DeleteApiRequest $request,
-    ): Operations\DeleteApiResponse {
+    public function deleteApi(Operations\DeleteApiRequest $request): Operations\DeleteApiResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}', Operations\DeleteApiRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -77,9 +76,8 @@ class Apis
      * @return Operations\GenerateOpenApiSpecResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function generateOpenApiSpec(
-        ?Operations\GenerateOpenApiSpecRequest $request,
-    ): Operations\GenerateOpenApiSpecResponse {
+    public function generateOpenApiSpec(Operations\GenerateOpenApiSpecRequest $request): Operations\GenerateOpenApiSpecResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/openapi', Operations\GenerateOpenApiSpecRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -130,9 +128,8 @@ class Apis
      * @return Operations\GeneratePostmanCollectionResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function generatePostmanCollection(
-        ?Operations\GeneratePostmanCollectionRequest $request,
-    ): Operations\GeneratePostmanCollectionResponse {
+    public function generatePostmanCollection(Operations\GeneratePostmanCollectionRequest $request): Operations\GeneratePostmanCollectionResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/generate/postman', Operations\GeneratePostmanCollectionRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -182,9 +179,8 @@ class Apis
      * @return Operations\GetAllApiVersionsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getAllApiVersions(
-        ?Operations\GetAllApiVersionsRequest $request,
-    ): Operations\GetAllApiVersionsResponse {
+    public function getAllApiVersions(Operations\GetAllApiVersionsRequest $request): Operations\GetAllApiVersionsResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}', Operations\GetAllApiVersionsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -233,13 +229,12 @@ class Apis
      * Get a list of all Apis and their versions for a given workspace.
      * Supports filtering the APIs based on metadata attributes.
      *
-     * @param  Operations\GetApisRequest  $request
+     * @param  ?Operations\GetApisRequest  $request
      * @return Operations\GetApisResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getApis(
-        ?Operations\GetApisRequest $request,
-    ): Operations\GetApisResponse {
+    public function getApis(?Operations\GetApisRequest $request = null): Operations\GetApisResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis');
         $options = ['http_errors' => false];
@@ -292,9 +287,8 @@ class Apis
      * @return Operations\UpsertApiResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function upsertApi(
-        Operations\UpsertApiRequest $request,
-    ): Operations\UpsertApiResponse {
+    public function upsertApi(Operations\UpsertApiRequest $request): Operations\UpsertApiResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}', Operations\UpsertApiRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];

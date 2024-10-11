@@ -32,9 +32,8 @@ class Requests
      * @return Operations\GenerateRequestPostmanCollectionResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function generateRequestPostmanCollection(
-        ?Operations\GenerateRequestPostmanCollectionRequest $request,
-    ): Operations\GenerateRequestPostmanCollectionResponse {
+    public function generateRequestPostmanCollection(Operations\GenerateRequestPostmanCollectionRequest $request): Operations\GenerateRequestPostmanCollectionResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/eventlog/{requestID}/generate/postman', Operations\GenerateRequestPostmanCollectionRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -81,9 +80,8 @@ class Requests
      * @return Operations\GetRequestFromEventLogResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getRequestFromEventLog(
-        ?Operations\GetRequestFromEventLogRequest $request,
-    ): Operations\GetRequestFromEventLogResponse {
+    public function getRequestFromEventLog(Operations\GetRequestFromEventLogRequest $request): Operations\GetRequestFromEventLogResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/eventlog/{requestID}', Operations\GetRequestFromEventLogRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -131,13 +129,12 @@ class Requests
      * Supports retrieving a list of request captured by the SDK for this workspace.
      * Allows the filtering of requests on a number of criteria such as ApiID, VersionID, Path, Method, etc.
      *
-     * @param  Operations\QueryEventLogRequest  $request
+     * @param  ?Operations\QueryEventLogRequest  $request
      * @return Operations\QueryEventLogResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function queryEventLog(
-        ?Operations\QueryEventLogRequest $request,
-    ): Operations\QueryEventLogResponse {
+    public function queryEventLog(?Operations\QueryEventLogRequest $request = null): Operations\QueryEventLogResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/eventlog/query');
         $options = ['http_errors' => false];

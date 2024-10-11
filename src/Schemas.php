@@ -29,9 +29,8 @@ class Schemas
      * @return Operations\DeleteSchemaResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function deleteSchema(
-        ?Operations\DeleteSchemaRequest $request,
-    ): Operations\DeleteSchemaResponse {
+    public function deleteSchema(Operations\DeleteSchemaRequest $request): Operations\DeleteSchemaResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', Operations\DeleteSchemaRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -72,9 +71,8 @@ class Schemas
      * @return Operations\DownloadSchemaResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function downloadSchema(
-        ?Operations\DownloadSchemaRequest $request,
-    ): Operations\DownloadSchemaResponse {
+    public function downloadSchema(Operations\DownloadSchemaRequest $request): Operations\DownloadSchemaResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/download', Operations\DownloadSchemaRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -129,9 +127,8 @@ class Schemas
      * @return Operations\DownloadSchemaRevisionResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function downloadSchemaRevision(
-        ?Operations\DownloadSchemaRevisionRequest $request,
-    ): Operations\DownloadSchemaRevisionResponse {
+    public function downloadSchemaRevision(Operations\DownloadSchemaRevisionRequest $request): Operations\DownloadSchemaRevisionResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}/download', Operations\DownloadSchemaRevisionRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -189,9 +186,8 @@ class Schemas
      * @return Operations\GetSchemaResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getSchema(
-        ?Operations\GetSchemaRequest $request,
-    ): Operations\GetSchemaResponse {
+    public function getSchema(Operations\GetSchemaRequest $request): Operations\GetSchemaResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', Operations\GetSchemaRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -240,9 +236,8 @@ class Schemas
      * @return Operations\GetSchemaDiffResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getSchemaDiff(
-        ?Operations\GetSchemaDiffRequest $request,
-    ): Operations\GetSchemaDiffResponse {
+    public function getSchemaDiff(Operations\GetSchemaDiffRequest $request): Operations\GetSchemaDiffResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{baseRevisionID}/diff/{targetRevisionID}', Operations\GetSchemaDiffRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -294,9 +289,8 @@ class Schemas
      * @return Operations\GetSchemaRevisionResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getSchemaRevision(
-        ?Operations\GetSchemaRevisionRequest $request,
-    ): Operations\GetSchemaRevisionResponse {
+    public function getSchemaRevision(Operations\GetSchemaRevisionRequest $request): Operations\GetSchemaRevisionResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}', Operations\GetSchemaRevisionRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -348,9 +342,8 @@ class Schemas
      * @return Operations\GetSchemasResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getSchemas(
-        ?Operations\GetSchemasRequest $request,
-    ): Operations\GetSchemasResponse {
+    public function getSchemas(Operations\GetSchemasRequest $request): Operations\GetSchemasResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schemas', Operations\GetSchemasRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -402,9 +395,8 @@ class Schemas
      * @return Operations\RegisterSchemaResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function registerSchema(
-        Operations\RegisterSchemaRequest $request,
-    ): Operations\RegisterSchemaResponse {
+    public function registerSchema(Operations\RegisterSchemaRequest $request): Operations\RegisterSchemaResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/schema', Operations\RegisterSchemaRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];

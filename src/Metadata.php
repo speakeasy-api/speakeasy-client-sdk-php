@@ -29,9 +29,8 @@ class Metadata
      * @return Operations\DeleteVersionMetadataResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function deleteVersionMetadata(
-        ?Operations\DeleteVersionMetadataRequest $request,
-    ): Operations\DeleteVersionMetadataResponse {
+    public function deleteVersionMetadata(Operations\DeleteVersionMetadataRequest $request): Operations\DeleteVersionMetadataResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}', Operations\DeleteVersionMetadataRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -72,9 +71,8 @@ class Metadata
      * @return Operations\GetVersionMetadataResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getVersionMetadata(
-        ?Operations\GetVersionMetadataRequest $request,
-    ): Operations\GetVersionMetadataResponse {
+    public function getVersionMetadata(Operations\GetVersionMetadataRequest $request): Operations\GetVersionMetadataResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', Operations\GetVersionMetadataRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -123,9 +121,8 @@ class Metadata
      * @return Operations\InsertVersionMetadataResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function insertVersionMetadata(
-        Operations\InsertVersionMetadataRequest $request,
-    ): Operations\InsertVersionMetadataResponse {
+    public function insertVersionMetadata(Operations\InsertVersionMetadataRequest $request): Operations\InsertVersionMetadataResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/apis/{apiID}/version/{versionID}/metadata', Operations\InsertVersionMetadataRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];

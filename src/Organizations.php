@@ -32,9 +32,8 @@ class Organizations
      * @return Operations\CreateOrganizationResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function create(
-        Shared\Organization $request,
-    ): Operations\CreateOrganizationResponse {
+    public function create(Shared\Organization $request): Operations\CreateOrganizationResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/organization');
         $options = ['http_errors' => false];
@@ -89,8 +88,8 @@ class Organizations
      * @return Operations\CreateFreeTrialResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function createFreeTrial(
-    ): Operations\CreateFreeTrialResponse {
+    public function createFreeTrial(): Operations\CreateFreeTrialResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/organization/free_trial');
         $options = ['http_errors' => false];
@@ -133,9 +132,8 @@ class Organizations
      * @return Operations\GetOrganizationResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function get(
-        ?Operations\GetOrganizationRequest $request,
-    ): Operations\GetOrganizationResponse {
+    public function get(Operations\GetOrganizationRequest $request): Operations\GetOrganizationResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/organization/{organizationID}', Operations\GetOrganizationRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -185,8 +183,8 @@ class Organizations
      * @return Operations\GetOrganizationsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getAll(
-    ): Operations\GetOrganizationsResponse {
+    public function getAll(): Operations\GetOrganizationsResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/organizations');
         $options = ['http_errors' => false];
@@ -236,8 +234,8 @@ class Organizations
      * @return Operations\GetOrganizationUsageResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getUsage(
-    ): Operations\GetOrganizationUsageResponse {
+    public function getUsage(): Operations\GetOrganizationUsageResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/organization/usage');
         $options = ['http_errors' => false];
