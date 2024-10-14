@@ -28,6 +28,14 @@ class Workspace
 
     /**
      *
+     * @var ?bool $inactive
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('inactive')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?bool $inactive = null;
+
+    /**
+     *
      * @var string $name
      */
     #[\JMS\Serializer\Annotation\SerializedName('name')]
@@ -95,11 +103,12 @@ class Workspace
      * @param  string  $slug
      * @param  \DateTime  $updatedAt
      * @param  bool  $verified
+     * @param  ?bool  $inactive
      * @param  ?bool  $telemetryDisabled
      * @param  ?string  $ociRepo
      * @param  ?\DateTime  $ociRepoCreatedAt
      */
-    public function __construct(\DateTime $createdAt, string $id, string $name, string $organizationId, string $slug, \DateTime $updatedAt, bool $verified, ?bool $telemetryDisabled = null, ?string $ociRepo = null, ?\DateTime $ociRepoCreatedAt = null)
+    public function __construct(\DateTime $createdAt, string $id, string $name, string $organizationId, string $slug, \DateTime $updatedAt, bool $verified, ?bool $inactive = null, ?bool $telemetryDisabled = null, ?string $ociRepo = null, ?\DateTime $ociRepoCreatedAt = null)
     {
         $this->createdAt = $createdAt;
         $this->id = $id;
@@ -108,6 +117,7 @@ class Workspace
         $this->slug = $slug;
         $this->updatedAt = $updatedAt;
         $this->verified = $verified;
+        $this->inactive = $inactive;
         $this->telemetryDisabled = $telemetryDisabled;
         $this->ociRepo = $ociRepo;
         $this->ociRepoCreatedAt = $ociRepoCreatedAt;
