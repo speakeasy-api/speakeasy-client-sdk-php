@@ -61,6 +61,14 @@ class ApiKeyDetails
     public bool $telemetryDisabled;
 
     /**
+     * Workspace creation timestamp.
+     *
+     * @var \DateTime $workspaceCreatedAt
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('workspace_created_at')]
+    public \DateTime $workspaceCreatedAt;
+
+    /**
      *
      * @var string $workspaceId
      */
@@ -79,17 +87,19 @@ class ApiKeyDetails
      * @param  array<string>  $enabledFeatures
      * @param  string  $orgSlug
      * @param  bool  $telemetryDisabled
+     * @param  \DateTime  $workspaceCreatedAt
      * @param  string  $workspaceId
      * @param  string  $workspaceSlug
      * @param  ?array<string>  $featureFlags
      * @param  ?bool  $generationAccessUnlimited
      */
-    public function __construct(AccountType $accountTypeV2, array $enabledFeatures, string $orgSlug, bool $telemetryDisabled, string $workspaceId, string $workspaceSlug, ?array $featureFlags = null, ?bool $generationAccessUnlimited = null)
+    public function __construct(AccountType $accountTypeV2, array $enabledFeatures, string $orgSlug, bool $telemetryDisabled, \DateTime $workspaceCreatedAt, string $workspaceId, string $workspaceSlug, ?array $featureFlags = null, ?bool $generationAccessUnlimited = null)
     {
         $this->accountTypeV2 = $accountTypeV2;
         $this->enabledFeatures = $enabledFeatures;
         $this->orgSlug = $orgSlug;
         $this->telemetryDisabled = $telemetryDisabled;
+        $this->workspaceCreatedAt = $workspaceCreatedAt;
         $this->workspaceId = $workspaceId;
         $this->workspaceSlug = $workspaceSlug;
         $this->featureFlags = $featureFlags;

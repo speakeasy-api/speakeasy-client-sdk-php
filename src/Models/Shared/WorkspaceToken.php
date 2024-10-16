@@ -21,10 +21,10 @@ class WorkspaceToken
 
     /**
      *
-     * @var string $createdAt
+     * @var \DateTime $createdAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    public string $createdAt;
+    public \DateTime $createdAt;
 
     /**
      *
@@ -73,24 +73,23 @@ class WorkspaceToken
 
     /**
      *
-     * @var ?string $workspaceId
+     * @var string $workspaceId
      */
     #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $workspaceId = null;
+    public string $workspaceId;
 
     /**
      * @param  string  $alg
-     * @param  string  $createdAt
+     * @param  \DateTime  $createdAt
      * @param  string  $id
      * @param  string  $key
      * @param  string  $name
-     * @param  ?string  $workspaceId
+     * @param  string  $workspaceId
      * @param  ?string  $createdBy
      * @param  ?string  $email
      * @param  ?string  $lastUsed
      */
-    public function __construct(string $alg, string $createdAt, string $id, string $key, string $name, ?string $workspaceId = null, ?string $createdBy = null, ?string $email = null, ?string $lastUsed = null)
+    public function __construct(string $alg, \DateTime $createdAt, string $id, string $key, string $name, string $workspaceId, ?string $createdBy = null, ?string $email = null, ?string $lastUsed = null)
     {
         $this->alg = $alg;
         $this->createdAt = $createdAt;

@@ -91,6 +91,7 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use Speakeasy\SpeakeasyClientSDK\Utils;
 
 $security = new Shared\Security(
     apiKey: '<YOUR_API_KEY_HERE>',
@@ -101,10 +102,11 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 $request = new Operations\CreateWorkspaceTokenRequest(
     workspaceToken: new Shared\WorkspaceToken(
         alg: '<value>',
-        createdAt: '<value>',
+        createdAt: Utils\Utils::parseDateTime('2022-08-16T02:33:00.784Z'),
         id: '<id>',
         key: '<key>',
         name: '<value>',
+        workspaceId: '<id>',
     ),
     workspaceId: '<id>',
 );
@@ -705,6 +707,7 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use Speakeasy\SpeakeasyClientSDK\Utils;
 
 $security = new Shared\Security(
     apiKey: '<YOUR_API_KEY_HERE>',
@@ -714,6 +717,9 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 $request = new Operations\UpdateWorkspaceSettingsRequest(
     workspaceSettings: new Shared\WorkspaceSettings(
+        createdAt: Utils\Utils::parseDateTime('2022-07-05T11:43:28.305Z'),
+        updatedAt: Utils\Utils::parseDateTime('2023-05-15T05:39:21.874Z'),
+        webhookUrl: 'https://grown-pharmacopoeia.net',
         workspaceId: '<id>',
     ),
     workspaceId: '<id>',

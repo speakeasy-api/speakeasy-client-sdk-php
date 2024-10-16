@@ -13,11 +13,24 @@ class WorkspaceSettings
 {
     /**
      *
-     * @var ?string $webhookUrl
+     * @var \DateTime $createdAt
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    public \DateTime $createdAt;
+
+    /**
+     *
+     * @var \DateTime $updatedAt
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
+    public \DateTime $updatedAt;
+
+    /**
+     *
+     * @var string $webhookUrl
      */
     #[\JMS\Serializer\Annotation\SerializedName('webhook_url')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $webhookUrl = null;
+    public string $webhookUrl;
 
     /**
      *
@@ -27,12 +40,16 @@ class WorkspaceSettings
     public string $workspaceId;
 
     /**
+     * @param  \DateTime  $createdAt
+     * @param  \DateTime  $updatedAt
+     * @param  string  $webhookUrl
      * @param  string  $workspaceId
-     * @param  ?string  $webhookUrl
      */
-    public function __construct(string $workspaceId, ?string $webhookUrl = null)
+    public function __construct(\DateTime $createdAt, \DateTime $updatedAt, string $webhookUrl, string $workspaceId)
     {
-        $this->workspaceId = $workspaceId;
+        $this->createdAt = $createdAt;
+        $this->updatedAt = $updatedAt;
         $this->webhookUrl = $webhookUrl;
+        $this->workspaceId = $workspaceId;
     }
 }
