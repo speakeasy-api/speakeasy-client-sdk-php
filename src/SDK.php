@@ -11,7 +11,7 @@ namespace Speakeasy\SpeakeasyClientSDK;
 
 
 /**
- * SDK - Speakeasy API: The Speakeasy API allows teams to manage common operations with their APIs
+ * SDK - Speakeasy API: The Subscriptions API manages subscriptions for CLI and registry events
  *
  * /docs - The Speakeasy Platform Documentation
  *
@@ -116,6 +116,13 @@ class SDK
     public Events $events;
 
     /**
+     * REST APIs for managing subscriptions
+     *
+     * @var Subscriptions $$subscriptions
+     */
+    public Subscriptions $subscriptions;
+
+    /**
      * Returns a new instance of the SDK builder used to configure and create the SDK instance.
      *
      * @return SDKBuilder
@@ -146,5 +153,6 @@ class SDK
         $this->workspaces = new Workspaces($this->sdkConfiguration);
         $this->embeds = new Embeds($this->sdkConfiguration);
         $this->events = new Events($this->sdkConfiguration);
+        $this->subscriptions = new Subscriptions($this->sdkConfiguration);
     }
 }

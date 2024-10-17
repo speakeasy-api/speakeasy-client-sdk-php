@@ -154,6 +154,11 @@ if ($response->apis !== null) {
 
 * [create](docs/sdks/shorturls/README.md#create) - Shorten a URL.
 
+### [subscriptions](docs/sdks/subscriptions/README.md)
+
+* [createSubscription](docs/sdks/subscriptions/README.md#createsubscription) - Create Subscription
+* [listSubscriptions](docs/sdks/subscriptions/README.md#listsubscriptions) - List Subscriptions
+
 ### [suggest](docs/sdks/suggest/README.md)
 
 * [suggest](docs/sdks/suggest/README.md#suggest) - Generate suggestions for improving an OpenAPI document.
@@ -267,7 +272,7 @@ The default server can also be overridden globally by passing a URL to the `serv
 <!-- Start Summary [summary] -->
 ## Summary
 
-Speakeasy API: The Speakeasy API allows teams to manage common operations with their APIs
+Speakeasy API: The Subscriptions API manages subscriptions for CLI and registry events
 
 For more information about the API: [The Speakeasy Platform Documentation](/docs)
 <!-- End Summary [summary] -->

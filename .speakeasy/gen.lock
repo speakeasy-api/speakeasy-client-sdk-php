@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 2a390341c83d98ebf634cd5238828b8d
-  docVersion: 0.4.0 .
-  speakeasyVersion: 1.418.4
+  docChecksum: ee267248fdc38f30a92325f03aaa7eb5
+  docVersion: 0.4.0
+  speakeasyVersion: 1.419.0
   generationVersion: 2.438.3
-  releaseVersion: 0.44.2
-  configChecksum: 35d869b1538d3494351255fd46256285
+  releaseVersion: 0.44.3
+  configChecksum: 4192f221fe16734c3e7079c097e60cf7
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -37,6 +37,8 @@ generatedFiles:
   - docs/Models/Operations/CreateOrganizationResponse.md
   - docs/Models/Operations/CreateRequestBody.md
   - docs/Models/Operations/CreateResponse.md
+  - docs/Models/Operations/CreateSubscriptionRequest.md
+  - docs/Models/Operations/CreateSubscriptionResponse.md
   - docs/Models/Operations/CreateWorkspaceResponse.md
   - docs/Models/Operations/CreateWorkspaceTokenRequest.md
   - docs/Models/Operations/CreateWorkspaceTokenResponse.md
@@ -149,6 +151,8 @@ generatedFiles:
   - docs/Models/Operations/GrantUserAccessToWorkspaceResponse.md
   - docs/Models/Operations/InsertVersionMetadataRequest.md
   - docs/Models/Operations/InsertVersionMetadataResponse.md
+  - docs/Models/Operations/ListSubscriptionsRequest.md
+  - docs/Models/Operations/ListSubscriptionsResponse.md
   - docs/Models/Operations/Op.md
   - docs/Models/Operations/PostTagsRequest.md
   - docs/Models/Operations/PostTagsResponse.md
@@ -207,6 +211,7 @@ generatedFiles:
   - docs/Models/Shared/Diagnostic.md
   - docs/Models/Shared/EmbedAccessTokenResponse.md
   - docs/Models/Shared/EmbedToken.md
+  - docs/Models/Shared/EventType.md
   - docs/Models/Shared/FeatureFlag.md
   - docs/Models/Shared/Filter.md
   - docs/Models/Shared/Filters.md
@@ -247,6 +252,8 @@ generatedFiles:
   - docs/Models/Shared/SchemaDiff.md
   - docs/Models/Shared/Security.md
   - docs/Models/Shared/ShortURL.md
+  - docs/Models/Shared/Subscription.md
+  - docs/Models/Shared/SubscriptionType.md
   - docs/Models/Shared/SuggestItemsRequestBody.md
   - docs/Models/Shared/SuggestOptsOld.md
   - docs/Models/Shared/SuggestRequestBody.md
@@ -284,6 +291,7 @@ generatedFiles:
   - docs/sdks/schemas/README.md
   - docs/sdks/sdk/README.md
   - docs/sdks/shorturls/README.md
+  - docs/sdks/subscriptions/README.md
   - docs/sdks/suggest/README.md
   - docs/sdks/workspaces/README.md
   - phpstan.neon
@@ -307,6 +315,8 @@ generatedFiles:
   - src/Models/Operations/CreateOrganizationResponse.php
   - src/Models/Operations/CreateRequestBody.php
   - src/Models/Operations/CreateResponse.php
+  - src/Models/Operations/CreateSubscriptionRequest.php
+  - src/Models/Operations/CreateSubscriptionResponse.php
   - src/Models/Operations/CreateWorkspaceResponse.php
   - src/Models/Operations/CreateWorkspaceTokenRequest.php
   - src/Models/Operations/CreateWorkspaceTokenResponse.php
@@ -419,6 +429,8 @@ generatedFiles:
   - src/Models/Operations/GrantUserAccessToWorkspaceResponse.php
   - src/Models/Operations/InsertVersionMetadataRequest.php
   - src/Models/Operations/InsertVersionMetadataResponse.php
+  - src/Models/Operations/ListSubscriptionsRequest.php
+  - src/Models/Operations/ListSubscriptionsResponse.php
   - src/Models/Operations/Op.php
   - src/Models/Operations/PostTagsRequest.php
   - src/Models/Operations/PostTagsResponse.php
@@ -477,6 +489,7 @@ generatedFiles:
   - src/Models/Shared/Diagnostic.php
   - src/Models/Shared/EmbedAccessTokenResponse.php
   - src/Models/Shared/EmbedToken.php
+  - src/Models/Shared/EventType.php
   - src/Models/Shared/FeatureFlag.php
   - src/Models/Shared/Filter.php
   - src/Models/Shared/Filters.php
@@ -517,6 +530,8 @@ generatedFiles:
   - src/Models/Shared/SchemaDiff.php
   - src/Models/Shared/Security.php
   - src/Models/Shared/ShortURL.php
+  - src/Models/Shared/Subscription.php
+  - src/Models/Shared/SubscriptionType.php
   - src/Models/Shared/SuggestItemsRequestBody.php
   - src/Models/Shared/SuggestOptsOld.php
   - src/Models/Shared/SuggestRequestBody.php
@@ -548,6 +563,7 @@ generatedFiles:
   - src/SDKConfiguration.php
   - src/Schemas.php
   - src/ShortURLs.php
+  - src/Subscriptions.php
   - src/Suggest.php
   - src/Utils/BigDecimalHandler.php
   - src/Utils/BigIntHandler.php
@@ -1646,3 +1662,22 @@ examples:
       responses:
         2XX:
           application/json: ["<value>", "<value>"]
+  createSubscription:
+    speakeasy-default-create-subscription:
+      parameters:
+        path:
+          workspace_id: "<id>"
+      requestBody:
+        application/json: {"created_at": "2022-06-08T17:58:57.702Z", "event_type": "update", "id": "<id>", "namespace_name": "<value>", "subscription_settings": "<value>", "subscription_type": "cli", "updated_at": "2022-07-20T08:51:35.776Z", "workspace_id": "<id>"}
+      responses:
+        "200":
+          application/json: {"created_at": "2022-03-27T15:41:56.125Z", "event_type": "update", "id": "<id>", "namespace_name": "<value>", "subscription_settings": "<value>", "subscription_type": "cli", "updated_at": "2023-07-24T03:56:06.003Z", "workspace_id": "<id>"}
+  listSubscriptions:
+    speakeasy-default-list-subscriptions:
+      parameters:
+        path:
+          workspace_id: "<id>"
+        query: {}
+      responses:
+        "200":
+          application/json: [{"created_at": "2024-01-21T10:46:30.226Z", "event_type": "update", "id": "<id>", "namespace_name": "<value>", "subscription_settings": "<value>", "subscription_type": "cli", "updated_at": "2023-03-11T01:32:13.093Z", "workspace_id": "<id>"}, {"created_at": "2023-03-10T12:19:12.091Z", "event_type": "update", "id": "<id>", "namespace_name": "<value>", "subscription_settings": "<value>", "subscription_type": "cli", "updated_at": "2023-12-27T06:56:14.336Z", "workspace_id": "<id>"}]
