@@ -71,11 +71,13 @@ if ($response->apis !== null) {
 
 ### [artifacts](docs/sdks/artifacts/README.md)
 
+* [createRemoteSource](docs/sdks/artifacts/README.md#createremotesource) - Configure a new remote source
 * [getBlob](docs/sdks/artifacts/README.md#getblob) - Get blob for a particular digest
 * [getManifest](docs/sdks/artifacts/README.md#getmanifest) - Get manifest for a particular reference
 * [getNamespaces](docs/sdks/artifacts/README.md#getnamespaces) - Each namespace contains many revisions.
 * [getRevisions](docs/sdks/artifacts/README.md#getrevisions)
 * [getTags](docs/sdks/artifacts/README.md#gettags)
+* [listRemoteSources](docs/sdks/artifacts/README.md#listremotesources) - Get remote sources attached to a particular namespace
 * [postTags](docs/sdks/artifacts/README.md#posttags) - Add tags to an existing revision
 * [preflight](docs/sdks/artifacts/README.md#preflight) - Get access token for communicating with OCI distribution endpoints
 
@@ -157,7 +159,7 @@ if ($response->apis !== null) {
 ### [subscriptions](docs/sdks/subscriptions/README.md)
 
 * [createSubscription](docs/sdks/subscriptions/README.md#createsubscription) - Create Subscription
-* [listSubscriptions](docs/sdks/subscriptions/README.md#listsubscriptions) - List Subscriptions
+* [listRegistrySubscriptions](docs/sdks/subscriptions/README.md#listregistrysubscriptions) - List Subscriptions
 
 ### [suggest](docs/sdks/suggest/README.md)
 

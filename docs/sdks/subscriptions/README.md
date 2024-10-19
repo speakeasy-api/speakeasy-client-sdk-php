@@ -8,7 +8,7 @@ REST APIs for managing subscriptions
 ### Available Operations
 
 * [createSubscription](#createsubscription) - Create Subscription
-* [listSubscriptions](#listsubscriptions) - List Subscriptions
+* [listRegistrySubscriptions](#listregistrysubscriptions) - List Subscriptions
 
 ## createSubscription
 
@@ -33,7 +33,7 @@ $security = new Shared\Security(
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 $request = new Operations\CreateSubscriptionRequest(
-    subscription: new Shared\Subscription(
+    registrySubscription: new Shared\RegistrySubscription(
         createdAt: Utils\Utils::parseDateTime('2022-06-08T17:58:57.702Z'),
         eventType: Shared\EventType::Update,
         id: '<id>',
@@ -50,7 +50,7 @@ $response = $sdk->subscriptions->createSubscription(
     request: $request
 );
 
-if ($response->subscription !== null) {
+if ($response->registrySubscription !== null) {
     // handle response
 }
 ```
@@ -71,7 +71,7 @@ if ($response->subscription !== null) {
 | --------------------- | --------------------- | --------------------- |
 | Errorors\SDKException | 4XX, 5XX              | \*/\*                 |
 
-## listSubscriptions
+## listRegistrySubscriptions
 
 List Subscriptions
 
@@ -92,11 +92,11 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\ListSubscriptionsRequest(
+$request = new Operations\ListRegistrySubscriptionsRequest(
     workspaceId: '<id>',
 );
 
-$response = $sdk->subscriptions->listSubscriptions(
+$response = $sdk->subscriptions->listRegistrySubscriptions(
     request: $request
 );
 
@@ -107,13 +107,13 @@ if ($response->classes !== null) {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `$request`                                                                                 | [Operations\ListSubscriptionsRequest](../../Models/Operations/ListSubscriptionsRequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                 | [Operations\ListRegistrySubscriptionsRequest](../../Models/Operations/ListRegistrySubscriptionsRequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
 
 ### Response
 
-**[?Operations\ListSubscriptionsResponse](../../Models/Operations/ListSubscriptionsResponse.md)**
+**[?Operations\ListRegistrySubscriptionsResponse](../../Models/Operations/ListRegistrySubscriptionsResponse.md)**
 
 ### Errors
 

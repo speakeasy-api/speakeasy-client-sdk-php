@@ -10,7 +10,7 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
-class ListSubscriptionsRequest
+class ListRegistrySubscriptionsRequest
 {
     /**
      * The event type

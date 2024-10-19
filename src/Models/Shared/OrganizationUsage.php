@@ -46,6 +46,14 @@ class OrganizationUsage
     public string $language;
 
     /**
+     * Maximum Number of operations per SDK specific in contract
+     *
+     * @var int $maxOperations
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('max_operations')]
+    public int $maxOperations;
+
+    /**
      * Number of operations performed
      *
      * @var int $numberOfOperations
@@ -76,16 +84,18 @@ class OrganizationUsage
      * @param  array<string>  $accessibleFeatures
      * @param  array<string>  $genLockIds
      * @param  string  $language
+     * @param  int  $maxOperations
      * @param  int  $numberOfOperations
      * @param  array<string>  $usedFeatures
      * @param  array<string>  $workspaces
      */
-    public function __construct(bool $accessible, array $accessibleFeatures, array $genLockIds, string $language, int $numberOfOperations, array $usedFeatures, array $workspaces)
+    public function __construct(bool $accessible, array $accessibleFeatures, array $genLockIds, string $language, int $maxOperations, int $numberOfOperations, array $usedFeatures, array $workspaces)
     {
         $this->accessible = $accessible;
         $this->accessibleFeatures = $accessibleFeatures;
         $this->genLockIds = $genLockIds;
         $this->language = $language;
+        $this->maxOperations = $maxOperations;
         $this->numberOfOperations = $numberOfOperations;
         $this->usedFeatures = $usedFeatures;
         $this->workspaces = $workspaces;

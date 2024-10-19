@@ -10,7 +10,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 php:
-  version: 0.44.3
+  version: 0.44.4
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
   imports:

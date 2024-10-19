@@ -7,13 +7,72 @@ REST APIs for working with Registry artifacts
 
 ### Available Operations
 
+* [createRemoteSource](#createremotesource) - Configure a new remote source
 * [getBlob](#getblob) - Get blob for a particular digest
 * [getManifest](#getmanifest) - Get manifest for a particular reference
 * [getNamespaces](#getnamespaces) - Each namespace contains many revisions.
 * [getRevisions](#getrevisions)
 * [getTags](#gettags)
+* [listRemoteSources](#listremotesources) - Get remote sources attached to a particular namespace
 * [postTags](#posttags) - Add tags to an existing revision
 * [preflight](#preflight) - Get access token for communicating with OCI distribution endpoints
+
+## createRemoteSource
+
+Configure a new remote source
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+$request = new Shared\RemoteSource(
+    inputs: [
+        new Shared\RemoteDocument(
+            registryUrl: 'https://productive-swine.net',
+        ),
+    ],
+    output: new Shared\RemoteDocument(
+        registryUrl: 'https://spiteful-apricot.info',
+    ),
+);
+
+$response = $sdk->artifacts->createRemoteSource(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                  | Type                                                       | Required                                                   | Description                                                |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| `$request`                                                 | [Shared\RemoteSource](../../Models/Shared/RemoteSource.md) | :heavy_check_mark:                                         | The request object to use for the request.                 |
+
+### Response
+
+**[?Operations\CreateRemoteSourceResponse](../../Models/Operations/CreateRemoteSourceResponse.md)**
+
+### Errors
+
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |
 
 ## getBlob
 
@@ -255,6 +314,57 @@ if ($response->getTagsResponse !== null) {
 ### Response
 
 **[?Operations\GetTagsResponse](../../Models/Operations/GetTagsResponse.md)**
+
+### Errors
+
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |
+
+## listRemoteSources
+
+Get remote sources attached to a particular namespace
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+$request = new Operations\ListRemoteSourcesRequest(
+    namespaceName: '<value>',
+);
+
+$response = $sdk->artifacts->listRemoteSources(
+    request: $request
+);
+
+if ($response->remoteSource !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `$request`                                                                                 | [Operations\ListRemoteSourcesRequest](../../Models/Operations/ListRemoteSourcesRequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+
+### Response
+
+**[?Operations\ListRemoteSourcesResponse](../../Models/Operations/ListRemoteSourcesResponse.md)**
 
 ### Errors
 

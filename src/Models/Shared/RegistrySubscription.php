@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 
-/** Subscription - A subscription */
-class Subscription
+/** RegistrySubscription - A subscription to a registry event */
+class RegistrySubscription
 {
     /**
      *

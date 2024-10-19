@@ -15,10 +15,10 @@ class CreateSubscriptionRequest
     /**
      * The subscription to create
      *
-     * @var Shared\Subscription $subscription
+     * @var Shared\RegistrySubscription $registrySubscription
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public Shared\Subscription $subscription;
+    public Shared\RegistrySubscription $registrySubscription;
 
     /**
      * The workspace ID
@@ -29,12 +29,12 @@ class CreateSubscriptionRequest
     public string $workspaceId;
 
     /**
-     * @param  Shared\Subscription  $subscription
+     * @param  Shared\RegistrySubscription  $registrySubscription
      * @param  string  $workspaceId
      */
-    public function __construct(Shared\Subscription $subscription, string $workspaceId)
+    public function __construct(Shared\RegistrySubscription $registrySubscription, string $workspaceId)
     {
-        $this->subscription = $subscription;
+        $this->registrySubscription = $registrySubscription;
         $this->workspaceId = $workspaceId;
     }
 }

@@ -32,9 +32,9 @@ class Subscriptions
     public function createSubscription(Operations\CreateSubscriptionRequest $request): Operations\CreateSubscriptionResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/subscriptions', Operations\CreateSubscriptionRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/registry_subscriptions', Operations\CreateSubscriptionRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'subscription', 'json');
+        $body = Utils\Utils::serializeRequestBody($request, 'registrySubscription', 'json');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -51,12 +51,12 @@ class Subscriptions
         if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Shared\Subscription', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Shared\RegistrySubscription', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\CreateSubscriptionResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
-                    subscription: $obj);
+                    registrySubscription: $obj);
 
                 return $response;
             } else {
@@ -72,16 +72,16 @@ class Subscriptions
     /**
      * List Subscriptions
      *
-     * @param  Operations\ListSubscriptionsRequest  $request
-     * @return Operations\ListSubscriptionsResponse
+     * @param  Operations\ListRegistrySubscriptionsRequest  $request
+     * @return Operations\ListRegistrySubscriptionsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function listSubscriptions(Operations\ListSubscriptionsRequest $request): Operations\ListSubscriptionsResponse
+    public function listRegistrySubscriptions(Operations\ListRegistrySubscriptionsRequest $request): Operations\ListRegistrySubscriptionsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/subscriptions', Operations\ListSubscriptionsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/registry_subscriptions', Operations\ListRegistrySubscriptionsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\ListSubscriptionsRequest::class, $request, $this->sdkConfiguration->globals));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\ListRegistrySubscriptionsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -94,8 +94,8 @@ class Subscriptions
         if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), 'array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Subscription>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\ListSubscriptionsResponse(
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), 'array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\RegistrySubscription>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\ListRegistrySubscriptionsResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,

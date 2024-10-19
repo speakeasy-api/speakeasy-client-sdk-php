@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-class ListSubscriptionsResponse
+class ListRegistrySubscriptionsResponse
 {
     /**
      * HTTP response content type for this operation
@@ -35,7 +35,7 @@ class ListSubscriptionsResponse
     /**
      * OK
      *
-     * @var ?array<Shared\Subscription> $classes
+     * @var ?array<Shared\RegistrySubscription> $classes
      */
     public ?array $classes = null;
 
@@ -43,7 +43,7 @@ class ListSubscriptionsResponse
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?array<Shared\Subscription>  $classes
+     * @param  ?array<Shared\RegistrySubscription>  $classes
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $classes = null)
     {

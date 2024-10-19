@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-class CreateSubscriptionResponse
+class ListRemoteSourcesResponse
 {
     /**
      * HTTP response content type for this operation
@@ -21,9 +21,9 @@ class CreateSubscriptionResponse
     /**
      * OK
      *
-     * @var ?Shared\RegistrySubscription $registrySubscription
+     * @var ?Shared\RemoteSource $remoteSource
      */
-    public ?Shared\RegistrySubscription $registrySubscription = null;
+    public ?Shared\RemoteSource $remoteSource = null;
 
     /**
      * HTTP response status code for this operation
@@ -43,13 +43,13 @@ class CreateSubscriptionResponse
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?Shared\RegistrySubscription  $registrySubscription
+     * @param  ?Shared\RemoteSource  $remoteSource
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\RegistrySubscription $registrySubscription = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\RemoteSource $remoteSource = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
-        $this->registrySubscription = $registrySubscription;
+        $this->remoteSource = $remoteSource;
     }
 }
