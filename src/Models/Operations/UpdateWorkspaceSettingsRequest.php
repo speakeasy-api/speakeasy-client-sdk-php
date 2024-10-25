@@ -23,16 +23,16 @@ class UpdateWorkspaceSettingsRequest
     /**
      * Unique identifier of the workspace.
      *
-     * @var string $workspaceId
+     * @var ?string $workspaceId
      */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspace_id')]
-    public string $workspaceId;
+    public ?string $workspaceId = null;
 
     /**
      * @param  Shared\WorkspaceSettings  $workspaceSettings
-     * @param  string  $workspaceId
+     * @param  ?string  $workspaceId
      */
-    public function __construct(Shared\WorkspaceSettings $workspaceSettings, string $workspaceId)
+    public function __construct(Shared\WorkspaceSettings $workspaceSettings, ?string $workspaceId = null)
     {
         $this->workspaceSettings = $workspaceSettings;
         $this->workspaceId = $workspaceId;

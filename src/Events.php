@@ -127,11 +127,11 @@ class Events
     /**
      * Load targets for a particular workspace
      *
-     * @param  Operations\GetWorkspaceTargetsDeprecatedRequest  $request
+     * @param  ?Operations\GetWorkspaceTargetsDeprecatedRequest  $request
      * @return Operations\GetWorkspaceTargetsDeprecatedResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getTargetsDeprecated(Operations\GetWorkspaceTargetsDeprecatedRequest $request): Operations\GetWorkspaceTargetsDeprecatedResponse
+    public function getTargetsDeprecated(?Operations\GetWorkspaceTargetsDeprecatedRequest $request = null): Operations\GetWorkspaceTargetsDeprecatedResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/events/targets', Operations\GetWorkspaceTargetsDeprecatedRequest::class, $request, $this->sdkConfiguration->globals);
@@ -227,11 +227,11 @@ class Events
     /**
      * Search events for a particular workspace by any field
      *
-     * @param  Operations\SearchWorkspaceEventsRequest  $request
+     * @param  ?Operations\SearchWorkspaceEventsRequest  $request
      * @return Operations\SearchWorkspaceEventsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function search(Operations\SearchWorkspaceEventsRequest $request): Operations\SearchWorkspaceEventsResponse
+    public function search(?Operations\SearchWorkspaceEventsRequest $request = null): Operations\SearchWorkspaceEventsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/events', Operations\SearchWorkspaceEventsRequest::class, $request, $this->sdkConfiguration->globals);

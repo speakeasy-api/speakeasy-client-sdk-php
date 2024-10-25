@@ -22,16 +22,16 @@ class RevokeUserAccessToWorkspaceRequest
     /**
      * Unique identifier of the workspace.
      *
-     * @var string $workspaceId
+     * @var ?string $workspaceId
      */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspace_id')]
-    public string $workspaceId;
+    public ?string $workspaceId = null;
 
     /**
      * @param  string  $userId
-     * @param  string  $workspaceId
+     * @param  ?string  $workspaceId
      */
-    public function __construct(string $userId, string $workspaceId)
+    public function __construct(string $userId, ?string $workspaceId = null)
     {
         $this->userId = $userId;
         $this->workspaceId = $workspaceId;

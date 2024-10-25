@@ -22,18 +22,18 @@ class GetWorkspaceTargetsDeprecatedRequest
     /**
      * Unique identifier of the workspace.
      *
-     * @var string $workspaceId
+     * @var ?string $workspaceId
      */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspace_id')]
-    public string $workspaceId;
+    public ?string $workspaceId = null;
 
     /**
-     * @param  string  $workspaceId
      * @param  ?\DateTime  $afterLastEventCreatedAt
+     * @param  ?string  $workspaceId
      */
-    public function __construct(string $workspaceId, ?\DateTime $afterLastEventCreatedAt = null)
+    public function __construct(?\DateTime $afterLastEventCreatedAt = null, ?string $workspaceId = null)
     {
-        $this->workspaceId = $workspaceId;
         $this->afterLastEventCreatedAt = $afterLastEventCreatedAt;
+        $this->workspaceId = $workspaceId;
     }
 }

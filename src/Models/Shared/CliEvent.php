@@ -236,6 +236,15 @@ class CliEvent
     public ?int $generateNumberOfOperationsUsed = null;
 
     /**
+     * The number of terraform resources used in generation.
+     *
+     * @var ?int $generateNumberOfTerraformResources
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('generate_number_of_terraform_resources')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $generateNumberOfTerraformResources = null;
+
+    /**
      * Indicates whether tests were output.
      *
      * @var ?bool $generateOutputTests
@@ -749,6 +758,7 @@ class CliEvent
      * @param  ?string  $generateGenLockPreVersion
      * @param  ?int  $generateNumberOfOperationsIgnored
      * @param  ?int  $generateNumberOfOperationsUsed
+     * @param  ?int  $generateNumberOfTerraformResources
      * @param  ?bool  $generateOutputTests
      * @param  ?bool  $generatePublished
      * @param  ?string  $generateRepoUrl
@@ -797,7 +807,7 @@ class CliEvent
      * @param  ?string  $workflowPostRaw
      * @param  ?string  $workflowPreRaw
      */
-    public function __construct(\DateTime $createdAt, string $executionId, string $id, InteractionType $interactionType, \DateTime $localStartedAt, string $speakeasyApiKeyName, string $speakeasyVersion, bool $success, string $workspaceId, ?string $commitHead = null, ?string $continuousIntegrationEnvironment = null, ?int $durationMs = null, ?string $error = null, ?GenerateBumpType $generateBumpType = null, ?string $generateConfigPostChecksum = null, ?string $generateConfigPostRaw = null, ?string $generateConfigPostVersion = null, ?string $generateConfigPreChecksum = null, ?string $generateConfigPreRaw = null, ?string $generateConfigPreVersion = null, ?string $generateEligibleFeatures = null, ?string $generateGenLockId = null, ?string $generateGenLockPostFeatures = null, ?string $generateGenLockPreBlobDigest = null, ?string $generateGenLockPreDocChecksum = null, ?string $generateGenLockPreDocVersion = null, ?string $generateGenLockPreFeatures = null, ?string $generateGenLockPreNamespaceName = null, ?string $generateGenLockPreRevisionDigest = null, ?string $generateGenLockPreVersion = null, ?int $generateNumberOfOperationsIgnored = null, ?int $generateNumberOfOperationsUsed = null, ?bool $generateOutputTests = null, ?bool $generatePublished = null, ?string $generateRepoUrl = null, ?string $generateTarget = null, ?string $generateTargetName = null, ?string $generateTargetVersion = null, ?string $generateVersion = null, ?string $ghActionOrganization = null, ?string $ghActionRef = null, ?string $ghActionRepository = null, ?string $ghActionRunLink = null, ?string $ghActionVersion = null, ?string $ghPullRequest = null, ?string $gitRelativeCwd = null, ?string $gitRemoteDefaultOwner = null, ?string $gitRemoteDefaultRepo = null, ?string $gitUserEmail = null, ?string $gitUserName = null, ?string $hostname = null, ?string $lastStep = null, ?string $lintReportDigest = null, ?int $lintReportErrorCount = null, ?int $lintReportInfoCount = null, ?int $lintReportWarningCount = null, ?\DateTime $localCompletedAt = null, ?string $managementDocChecksum = null, ?string $managementDocVersion = null, ?string $mermaidDiagram = null, ?string $openapiDiffBaseSourceBlobDigest = null, ?string $openapiDiffBaseSourceNamespaceName = null, ?string $openapiDiffBaseSourceRevisionDigest = null, ?int $openapiDiffBreakingChangesCount = null, ?OpenapiDiffBumpType $openapiDiffBumpType = null, ?string $openapiDiffReportDigest = null, ?string $publishPackageName = null, ?string $publishPackageRegistryName = null, ?string $publishPackageUrl = null, ?string $publishPackageVersion = null, ?string $rawCommand = null, ?string $repoLabel = null, ?string $sourceBlobDigest = null, ?string $sourceNamespaceName = null, ?string $sourceRevisionDigest = null, ?string $workflowLockPostRaw = null, ?string $workflowLockPreRaw = null, ?string $workflowPostRaw = null, ?string $workflowPreRaw = null)
+    public function __construct(\DateTime $createdAt, string $executionId, string $id, InteractionType $interactionType, \DateTime $localStartedAt, string $speakeasyApiKeyName, string $speakeasyVersion, bool $success, string $workspaceId, ?string $commitHead = null, ?string $continuousIntegrationEnvironment = null, ?int $durationMs = null, ?string $error = null, ?GenerateBumpType $generateBumpType = null, ?string $generateConfigPostChecksum = null, ?string $generateConfigPostRaw = null, ?string $generateConfigPostVersion = null, ?string $generateConfigPreChecksum = null, ?string $generateConfigPreRaw = null, ?string $generateConfigPreVersion = null, ?string $generateEligibleFeatures = null, ?string $generateGenLockId = null, ?string $generateGenLockPostFeatures = null, ?string $generateGenLockPreBlobDigest = null, ?string $generateGenLockPreDocChecksum = null, ?string $generateGenLockPreDocVersion = null, ?string $generateGenLockPreFeatures = null, ?string $generateGenLockPreNamespaceName = null, ?string $generateGenLockPreRevisionDigest = null, ?string $generateGenLockPreVersion = null, ?int $generateNumberOfOperationsIgnored = null, ?int $generateNumberOfOperationsUsed = null, ?int $generateNumberOfTerraformResources = null, ?bool $generateOutputTests = null, ?bool $generatePublished = null, ?string $generateRepoUrl = null, ?string $generateTarget = null, ?string $generateTargetName = null, ?string $generateTargetVersion = null, ?string $generateVersion = null, ?string $ghActionOrganization = null, ?string $ghActionRef = null, ?string $ghActionRepository = null, ?string $ghActionRunLink = null, ?string $ghActionVersion = null, ?string $ghPullRequest = null, ?string $gitRelativeCwd = null, ?string $gitRemoteDefaultOwner = null, ?string $gitRemoteDefaultRepo = null, ?string $gitUserEmail = null, ?string $gitUserName = null, ?string $hostname = null, ?string $lastStep = null, ?string $lintReportDigest = null, ?int $lintReportErrorCount = null, ?int $lintReportInfoCount = null, ?int $lintReportWarningCount = null, ?\DateTime $localCompletedAt = null, ?string $managementDocChecksum = null, ?string $managementDocVersion = null, ?string $mermaidDiagram = null, ?string $openapiDiffBaseSourceBlobDigest = null, ?string $openapiDiffBaseSourceNamespaceName = null, ?string $openapiDiffBaseSourceRevisionDigest = null, ?int $openapiDiffBreakingChangesCount = null, ?OpenapiDiffBumpType $openapiDiffBumpType = null, ?string $openapiDiffReportDigest = null, ?string $publishPackageName = null, ?string $publishPackageRegistryName = null, ?string $publishPackageUrl = null, ?string $publishPackageVersion = null, ?string $rawCommand = null, ?string $repoLabel = null, ?string $sourceBlobDigest = null, ?string $sourceNamespaceName = null, ?string $sourceRevisionDigest = null, ?string $workflowLockPostRaw = null, ?string $workflowLockPreRaw = null, ?string $workflowPostRaw = null, ?string $workflowPreRaw = null)
     {
         $this->createdAt = $createdAt;
         $this->executionId = $executionId;
@@ -831,6 +841,7 @@ class CliEvent
         $this->generateGenLockPreVersion = $generateGenLockPreVersion;
         $this->generateNumberOfOperationsIgnored = $generateNumberOfOperationsIgnored;
         $this->generateNumberOfOperationsUsed = $generateNumberOfOperationsUsed;
+        $this->generateNumberOfTerraformResources = $generateNumberOfTerraformResources;
         $this->generateOutputTests = $generateOutputTests;
         $this->generatePublished = $generatePublished;
         $this->generateRepoUrl = $generateRepoUrl;

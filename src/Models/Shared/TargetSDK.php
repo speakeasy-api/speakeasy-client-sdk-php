@@ -101,6 +101,15 @@ class TargetSDK
     public ?int $generateNumberOfOperationsUsed = null;
 
     /**
+     * The number of terraform resources used in generation.
+     *
+     * @var ?int $generateNumberOfTerraformResources
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('generate_number_of_terraform_resources')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $generateNumberOfTerraformResources = null;
+
+    /**
      * Indicates whether the target was considered published.
      *
      * @var ?bool $generatePublished
@@ -382,6 +391,7 @@ class TargetSDK
      * @param  ?string  $generateGenLockPreVersion
      * @param  ?int  $generateNumberOfOperationsIgnored
      * @param  ?int  $generateNumberOfOperationsUsed
+     * @param  ?int  $generateNumberOfTerraformResources
      * @param  ?bool  $generatePublished
      * @param  ?string  $generateTargetName
      * @param  ?string  $generateTargetVersion
@@ -408,7 +418,7 @@ class TargetSDK
      * @param  ?string  $workflowPostRaw
      * @param  ?string  $workflowPreRaw
      */
-    public function __construct(string $generateGenLockId, string $generateTarget, string $id, \DateTime $lastEventCreatedAt, string $lastEventId, InteractionType $lastEventInteractionType, ?string $commitHead = null, ?string $continuousIntegrationEnvironment = null, ?string $error = null, ?string $generateConfigPostVersion = null, ?string $generateEligibleFeatures = null, ?string $generateGenLockPreFeatures = null, ?string $generateGenLockPreVersion = null, ?int $generateNumberOfOperationsIgnored = null, ?int $generateNumberOfOperationsUsed = null, ?bool $generatePublished = null, ?string $generateTargetName = null, ?string $generateTargetVersion = null, ?string $ghActionOrganization = null, ?string $ghActionRef = null, ?string $ghActionRepository = null, ?string $ghActionRunLink = null, ?string $ghActionVersion = null, ?string $gitRelativeCwd = null, ?string $gitRemoteDefaultOwner = null, ?string $gitRemoteDefaultRepo = null, ?string $gitUserEmail = null, ?string $gitUserName = null, ?string $hostname = null, ?string $publishPackageName = null, ?string $publishPackageRegistryName = null, ?string $publishPackageUrl = null, ?string $publishPackageVersion = null, ?string $repoLabel = null, ?string $sourceBlobDigest = null, ?string $sourceNamespaceName = null, ?string $sourceRevisionDigest = null, ?bool $success = null, ?string $workflowPostRaw = null, ?string $workflowPreRaw = null)
+    public function __construct(string $generateGenLockId, string $generateTarget, string $id, \DateTime $lastEventCreatedAt, string $lastEventId, InteractionType $lastEventInteractionType, ?string $commitHead = null, ?string $continuousIntegrationEnvironment = null, ?string $error = null, ?string $generateConfigPostVersion = null, ?string $generateEligibleFeatures = null, ?string $generateGenLockPreFeatures = null, ?string $generateGenLockPreVersion = null, ?int $generateNumberOfOperationsIgnored = null, ?int $generateNumberOfOperationsUsed = null, ?int $generateNumberOfTerraformResources = null, ?bool $generatePublished = null, ?string $generateTargetName = null, ?string $generateTargetVersion = null, ?string $ghActionOrganization = null, ?string $ghActionRef = null, ?string $ghActionRepository = null, ?string $ghActionRunLink = null, ?string $ghActionVersion = null, ?string $gitRelativeCwd = null, ?string $gitRemoteDefaultOwner = null, ?string $gitRemoteDefaultRepo = null, ?string $gitUserEmail = null, ?string $gitUserName = null, ?string $hostname = null, ?string $publishPackageName = null, ?string $publishPackageRegistryName = null, ?string $publishPackageUrl = null, ?string $publishPackageVersion = null, ?string $repoLabel = null, ?string $sourceBlobDigest = null, ?string $sourceNamespaceName = null, ?string $sourceRevisionDigest = null, ?bool $success = null, ?string $workflowPostRaw = null, ?string $workflowPreRaw = null)
     {
         $this->generateGenLockId = $generateGenLockId;
         $this->generateTarget = $generateTarget;
@@ -425,6 +435,7 @@ class TargetSDK
         $this->generateGenLockPreVersion = $generateGenLockPreVersion;
         $this->generateNumberOfOperationsIgnored = $generateNumberOfOperationsIgnored;
         $this->generateNumberOfOperationsUsed = $generateNumberOfOperationsUsed;
+        $this->generateNumberOfTerraformResources = $generateNumberOfTerraformResources;
         $this->generatePublished = $generatePublished;
         $this->generateTargetName = $generateTargetName;
         $this->generateTargetVersion = $generateTargetVersion;

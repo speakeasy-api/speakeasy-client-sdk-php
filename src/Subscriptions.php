@@ -72,11 +72,11 @@ class Subscriptions
     /**
      * List Subscriptions
      *
-     * @param  Operations\ListRegistrySubscriptionsRequest  $request
+     * @param  ?Operations\ListRegistrySubscriptionsRequest  $request
      * @return Operations\ListRegistrySubscriptionsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function listRegistrySubscriptions(Operations\ListRegistrySubscriptionsRequest $request): Operations\ListRegistrySubscriptionsResponse
+    public function listRegistrySubscriptions(?Operations\ListRegistrySubscriptionsRequest $request = null): Operations\ListRegistrySubscriptionsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/registry_subscriptions', Operations\ListRegistrySubscriptionsRequest::class, $request, $this->sdkConfiguration->globals);

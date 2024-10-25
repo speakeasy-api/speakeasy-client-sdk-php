@@ -190,6 +190,49 @@ if ($response->apis !== null) {
 
 
 
+<!-- Start Global Parameters [global-parameters] -->
+## Global Parameters
+
+A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
+
+For example, you can set `workspace_id` to `'<id>'` at SDK initialization and then you do not have to pass the same value on calls to operations like `getAccessToken`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+
+
+### Available Globals
+
+The following global parameter is available.
+
+| Name | Type | Required | Description |
+| ---- | ---- |:--------:| ----------- |
+| workspaceId | string |  | The workspaceId parameter. |
+
+
+### Example
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->build();
+
+$request = new Operations\GetAccessTokenRequest(
+    workspaceId: '<id>',
+);
+
+$response = $sdk->auth->getAccessToken(
+    request: $request
+);
+
+if ($response->accessToken !== null) {
+    // handle response
+}
+```
+<!-- End Global Parameters [global-parameters] -->
+
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
@@ -285,6 +328,7 @@ For more information about the API: [The Speakeasy Platform Documentation](/docs
 * [SDK Installation](#sdk-installation)
 * [SDK Example Usage](#sdk-example-usage)
 * [Available Resources and Operations](#available-resources-and-operations)
+* [Global Parameters](#global-parameters)
 * [Error Handling](#error-handling)
 * [Server Selection](#server-selection)
 <!-- End Table of Contents [toc] -->

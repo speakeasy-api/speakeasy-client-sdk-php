@@ -6,4 +6,4 @@
 | Field                               | Type                                | Required                            | Description                         |
 | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
 | `tokenID`                           | *string*                            | :heavy_check_mark:                  | Unique identifier of the token.     |
-| `workspaceId`                       | *string*                            | :heavy_check_mark:                  | Unique identifier of the workspace. |
+| `workspaceId`                       | *?string*                           | :heavy_minus_sign:                  | Unique identifier of the workspace. |

@@ -23,16 +23,16 @@ class CreateSubscriptionRequest
     /**
      * The workspace ID
      *
-     * @var string $workspaceId
+     * @var ?string $workspaceId
      */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspace_id')]
-    public string $workspaceId;
+    public ?string $workspaceId = null;
 
     /**
      * @param  Shared\RegistrySubscription  $registrySubscription
-     * @param  string  $workspaceId
+     * @param  ?string  $workspaceId
      */
-    public function __construct(Shared\RegistrySubscription $registrySubscription, string $workspaceId)
+    public function __construct(Shared\RegistrySubscription $registrySubscription, ?string $workspaceId = null)
     {
         $this->registrySubscription = $registrySubscription;
         $this->workspaceId = $workspaceId;

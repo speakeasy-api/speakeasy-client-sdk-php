@@ -276,11 +276,11 @@ class Workspaces
      *
      * Get information about a particular workspace.
      *
-     * @param  Operations\GetWorkspaceRequest  $request
+     * @param  ?Operations\GetWorkspaceRequest  $request
      * @return Operations\GetWorkspaceResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getByID(Operations\GetWorkspaceRequest $request): Operations\GetWorkspaceResponse
+    public function getByID(?Operations\GetWorkspaceRequest $request = null): Operations\GetWorkspaceResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}', Operations\GetWorkspaceRequest::class, $request, $this->sdkConfiguration->globals);
@@ -326,11 +326,11 @@ class Workspaces
     /**
      * Get workspace feature flags
      *
-     * @param  Operations\GetWorkspaceFeatureFlagsRequest  $request
+     * @param  ?Operations\GetWorkspaceFeatureFlagsRequest  $request
      * @return Operations\GetWorkspaceFeatureFlagsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getFeatureFlags(Operations\GetWorkspaceFeatureFlagsRequest $request): Operations\GetWorkspaceFeatureFlagsResponse
+    public function getFeatureFlags(?Operations\GetWorkspaceFeatureFlagsRequest $request = null): Operations\GetWorkspaceFeatureFlagsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/feature_flags', Operations\GetWorkspaceFeatureFlagsRequest::class, $request, $this->sdkConfiguration->globals);
@@ -378,11 +378,11 @@ class Workspaces
      *
      * Get settings about a particular workspace.
      *
-     * @param  Operations\GetWorkspaceSettingsRequest  $request
+     * @param  ?Operations\GetWorkspaceSettingsRequest  $request
      * @return Operations\GetWorkspaceSettingsResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getSettings(Operations\GetWorkspaceSettingsRequest $request): Operations\GetWorkspaceSettingsResponse
+    public function getSettings(?Operations\GetWorkspaceSettingsRequest $request = null): Operations\GetWorkspaceSettingsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/settings', Operations\GetWorkspaceSettingsRequest::class, $request, $this->sdkConfiguration->globals);
@@ -428,11 +428,11 @@ class Workspaces
     /**
      * Get team members for a particular workspace
      *
-     * @param  Operations\GetWorkspaceTeamRequest  $request
+     * @param  ?Operations\GetWorkspaceTeamRequest  $request
      * @return Operations\GetWorkspaceTeamResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getTeam(Operations\GetWorkspaceTeamRequest $request): Operations\GetWorkspaceTeamResponse
+    public function getTeam(?Operations\GetWorkspaceTeamRequest $request = null): Operations\GetWorkspaceTeamResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/team', Operations\GetWorkspaceTeamRequest::class, $request, $this->sdkConfiguration->globals);
@@ -478,11 +478,11 @@ class Workspaces
     /**
      * Get tokens for a particular workspace
      *
-     * @param  Operations\GetWorkspaceTokensRequest  $request
+     * @param  ?Operations\GetWorkspaceTokensRequest  $request
      * @return Operations\GetWorkspaceTokensResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getTokens(Operations\GetWorkspaceTokensRequest $request): Operations\GetWorkspaceTokensResponse
+    public function getTokens(?Operations\GetWorkspaceTokensRequest $request = null): Operations\GetWorkspaceTokensResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/tokens', Operations\GetWorkspaceTokensRequest::class, $request, $this->sdkConfiguration->globals);

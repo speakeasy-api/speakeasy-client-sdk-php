@@ -55,26 +55,26 @@ class SearchWorkspaceEventsRequest
     /**
      * Unique identifier of the workspace.
      *
-     * @var string $workspaceId
+     * @var ?string $workspaceId
      */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspace_id')]
-    public string $workspaceId;
+    public ?string $workspaceId = null;
 
     /**
-     * @param  string  $workspaceId
      * @param  ?string  $generateGenLockId
      * @param  ?Shared\InteractionType  $interactionType
      * @param  ?string  $lintReportDigest
      * @param  ?string  $openapiDiffReportDigest
      * @param  ?string  $sourceRevisionDigest
+     * @param  ?string  $workspaceId
      */
-    public function __construct(string $workspaceId, ?string $generateGenLockId = null, ?Shared\InteractionType $interactionType = null, ?string $lintReportDigest = null, ?string $openapiDiffReportDigest = null, ?string $sourceRevisionDigest = null)
+    public function __construct(?string $generateGenLockId = null, ?Shared\InteractionType $interactionType = null, ?string $lintReportDigest = null, ?string $openapiDiffReportDigest = null, ?string $sourceRevisionDigest = null, ?string $workspaceId = null)
     {
-        $this->workspaceId = $workspaceId;
         $this->generateGenLockId = $generateGenLockId;
         $this->interactionType = $interactionType;
         $this->lintReportDigest = $lintReportDigest;
         $this->openapiDiffReportDigest = $openapiDiffReportDigest;
         $this->sourceRevisionDigest = $sourceRevisionDigest;
+        $this->workspaceId = $workspaceId;
     }
 }

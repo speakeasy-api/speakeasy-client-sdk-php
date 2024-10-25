@@ -43,7 +43,6 @@ $request = new Operations\CreateSubscriptionRequest(
         updatedAt: Utils\Utils::parseDateTime('2022-07-20T08:51:35.776Z'),
         workspaceId: '<id>',
     ),
-    workspaceId: '<id>',
 );
 
 $response = $sdk->subscriptions->createSubscription(
@@ -92,9 +91,7 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\ListRegistrySubscriptionsRequest(
-    workspaceId: '<id>',
-);
+$request = new Operations\ListRegistrySubscriptionsRequest();
 
 $response = $sdk->subscriptions->listRegistrySubscriptions(
     request: $request

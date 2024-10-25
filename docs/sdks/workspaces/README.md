@@ -108,7 +108,6 @@ $request = new Operations\CreateWorkspaceTokenRequest(
         name: '<value>',
         workspaceId: '<id>',
     ),
-    workspaceId: '<id>',
 );
 
 $response = $sdk->workspaces->createToken(
@@ -160,7 +159,6 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 $request = new Operations\DeleteWorkspaceTokenRequest(
     tokenID: '<id>',
-    workspaceId: '<id>',
 );
 
 $response = $sdk->workspaces->deleteToken(
@@ -294,9 +292,7 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\GetWorkspaceRequest(
-    workspaceId: '<id>',
-);
+$request = new Operations\GetWorkspaceRequest();
 
 $response = $sdk->workspaces->getByID(
     request: $request
@@ -345,9 +341,7 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\GetWorkspaceFeatureFlagsRequest(
-    workspaceId: '<id>',
-);
+$request = new Operations\GetWorkspaceFeatureFlagsRequest();
 
 $response = $sdk->workspaces->getFeatureFlags(
     request: $request
@@ -396,9 +390,7 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\GetWorkspaceSettingsRequest(
-    workspaceId: '<id>',
-);
+$request = new Operations\GetWorkspaceSettingsRequest();
 
 $response = $sdk->workspaces->getSettings(
     request: $request
@@ -447,9 +439,7 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\GetWorkspaceTeamRequest(
-    workspaceId: '<id>',
-);
+$request = new Operations\GetWorkspaceTeamRequest();
 
 $response = $sdk->workspaces->getTeam(
     request: $request
@@ -498,9 +488,7 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\GetWorkspaceTokensRequest(
-    workspaceId: '<id>',
-);
+$request = new Operations\GetWorkspaceTokensRequest();
 
 $response = $sdk->workspaces->getTokens(
     request: $request
@@ -551,7 +539,6 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 $request = new Operations\GrantUserAccessToWorkspaceRequest(
     email: 'Lucinda.Batz8@hotmail.com',
-    workspaceId: '<id>',
 );
 
 $response = $sdk->workspaces->grantAccess(
@@ -603,7 +590,6 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 $request = new Operations\RevokeUserAccessToWorkspaceRequest(
     userId: '<id>',
-    workspaceId: '<id>',
 );
 
 $response = $sdk->workspaces->revokeAccess(
@@ -664,7 +650,6 @@ $request = new Operations\UpdateWorkspaceDetailsRequest(
         updatedAt: Utils\Utils::parseDateTime('2023-10-17T10:52:42.015Z'),
         verified: false,
     ),
-    workspaceId: '<id>',
 );
 
 $response = $sdk->workspaces->update(
@@ -722,7 +707,6 @@ $request = new Operations\UpdateWorkspaceSettingsRequest(
         webhookUrl: 'https://grown-pharmacopoeia.net',
         workspaceId: '<id>',
     ),
-    workspaceId: '<id>',
 );
 
 $response = $sdk->workspaces->updateSettings(

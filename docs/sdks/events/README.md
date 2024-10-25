@@ -36,7 +36,6 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 $request = new Operations\GetWorkspaceEventsByTargetRequest(
     targetId: '<id>',
-    workspaceId: '<id>',
 );
 
 $response = $sdk->events->getEventsByTarget(
@@ -135,9 +134,7 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\GetWorkspaceTargetsDeprecatedRequest(
-    workspaceId: '<id>',
-);
+$request = new Operations\GetWorkspaceTargetsDeprecatedRequest();
 
 $response = $sdk->events->getTargetsDeprecated(
     request: $request
@@ -201,7 +198,6 @@ $request = new Operations\PostWorkspaceEventsRequest(
             workspaceId: '<id>',
         ),
     ],
-    workspaceId: '<id>',
 );
 
 $response = $sdk->events->post(
@@ -251,9 +247,7 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\SearchWorkspaceEventsRequest(
-    workspaceId: '<id>',
-);
+$request = new Operations\SearchWorkspaceEventsRequest();
 
 $response = $sdk->events->search(
     request: $request

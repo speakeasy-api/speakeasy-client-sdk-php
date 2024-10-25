@@ -85,18 +85,18 @@ class SDKBuilder
         return $this;
     }
     /**
-     * setWorkspaceID is used to configure the workspaceID parameter for the SDK.
+     * setWorkspaceId is used to configure the workspace_id parameter for the SDK.
      *
-     * @param  string  $workspaceID
+     * @param  string  $workspaceId
      * @return SDKBuilder
      */
-    public function setWorkspaceID(string $workspaceID): SDKBuilder
+    public function setWorkspaceId(string $workspaceId): SDKBuilder
     {
         if (! array_key_exists('pathParam', $this->sdkConfig->globals['parameters'])) {
             $this->sdkConfig->globals['parameters']['pathParam'] = [];
         }
 
-        $this->sdkConfig->globals['parameters']['pathParam']['workspaceID'] = $workspaceID;
+        $this->sdkConfig->globals['parameters']['pathParam']['workspaceId'] = $workspaceId;
 
         return $this;
     }

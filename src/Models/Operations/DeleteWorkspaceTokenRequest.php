@@ -22,16 +22,16 @@ class DeleteWorkspaceTokenRequest
     /**
      * Unique identifier of the workspace.
      *
-     * @var string $workspaceId
+     * @var ?string $workspaceId
      */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspace_id')]
-    public string $workspaceId;
+    public ?string $workspaceId = null;
 
     /**
      * @param  string  $tokenID
-     * @param  string  $workspaceId
+     * @param  ?string  $workspaceId
      */
-    public function __construct(string $tokenID, string $workspaceId)
+    public function __construct(string $tokenID, ?string $workspaceId = null)
     {
         $this->tokenID = $tokenID;
         $this->workspaceId = $workspaceId;

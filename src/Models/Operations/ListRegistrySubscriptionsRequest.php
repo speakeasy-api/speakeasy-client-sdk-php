@@ -47,24 +47,24 @@ class ListRegistrySubscriptionsRequest
     /**
      * The workspace ID
      *
-     * @var string $workspaceId
+     * @var ?string $workspaceId
      */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=workspace_id')]
-    public string $workspaceId;
+    public ?string $workspaceId = null;
 
     /**
-     * @param  string  $workspaceId
      * @param  ?string  $eventType
      * @param  ?string  $namespaceName
      * @param  ?Shared\SubscriptionType  $subscriptionType
      * @param  ?string  $tag
+     * @param  ?string  $workspaceId
      */
-    public function __construct(string $workspaceId, ?string $eventType = null, ?string $namespaceName = null, ?Shared\SubscriptionType $subscriptionType = null, ?string $tag = null)
+    public function __construct(?string $eventType = null, ?string $namespaceName = null, ?Shared\SubscriptionType $subscriptionType = null, ?string $tag = null, ?string $workspaceId = null)
     {
-        $this->workspaceId = $workspaceId;
         $this->eventType = $eventType;
         $this->namespaceName = $namespaceName;
         $this->subscriptionType = $subscriptionType;
         $this->tag = $tag;
+        $this->workspaceId = $workspaceId;
     }
 }
