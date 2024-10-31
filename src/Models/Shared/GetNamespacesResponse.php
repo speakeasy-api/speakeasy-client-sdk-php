@@ -16,8 +16,8 @@ class GetNamespacesResponse
      *
      * @var array<NamespaceT> $items
      */
-    #[\JMS\Serializer\Annotation\SerializedName('items')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\NamespaceT>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\NamespaceT>')]
     public array $items;
 
     /**

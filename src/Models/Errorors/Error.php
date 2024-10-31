@@ -18,7 +18,7 @@ class Error
      *
      * @var string $message
      */
-    #[\JMS\Serializer\Annotation\SerializedName('message')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('message')]
     public string $message;
 
     /**
@@ -26,7 +26,7 @@ class Error
      *
      * @var int $statusCode
      */
-    #[\JMS\Serializer\Annotation\SerializedName('status_code')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status_code')]
     public int $statusCode;
 
     /**

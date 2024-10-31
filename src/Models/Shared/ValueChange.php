@@ -16,7 +16,7 @@ class ValueChange
      *
      * @var string $from
      */
-    #[\JMS\Serializer\Annotation\SerializedName('From')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('From')]
     public string $from;
 
     /**
@@ -24,7 +24,7 @@ class ValueChange
      *
      * @var string $to
      */
-    #[\JMS\Serializer\Annotation\SerializedName('To')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('To')]
     public string $to;
 
     /**

@@ -15,8 +15,8 @@ class OASSummary
      *
      * @var OASInfo $info
      */
-    #[\JMS\Serializer\Annotation\SerializedName('info')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\OASInfo')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('info')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\OASInfo')]
     public OASInfo $info;
 
     /**
@@ -24,8 +24,8 @@ class OASSummary
      *
      * @var array<OASOperation> $operations
      */
-    #[\JMS\Serializer\Annotation\SerializedName('operations')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\OASOperation>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('operations')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\OASOperation>')]
     public array $operations;
 
     /**

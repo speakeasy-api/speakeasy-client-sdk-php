@@ -16,8 +16,8 @@ class TargetSDK
      *
      * @var ?string $commitHead
      */
-    #[\JMS\Serializer\Annotation\SerializedName('commit_head')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('commit_head')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $commitHead = null;
 
     /**
@@ -25,8 +25,8 @@ class TargetSDK
      *
      * @var ?string $continuousIntegrationEnvironment
      */
-    #[\JMS\Serializer\Annotation\SerializedName('continuous_integration_environment')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('continuous_integration_environment')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $continuousIntegrationEnvironment = null;
 
     /**
@@ -34,8 +34,8 @@ class TargetSDK
      *
      * @var ?string $error
      */
-    #[\JMS\Serializer\Annotation\SerializedName('error')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('error')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $error = null;
 
     /**
@@ -43,8 +43,8 @@ class TargetSDK
      *
      * @var ?string $generateConfigPostVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generate_config_post_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_config_post_version')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $generateConfigPostVersion = null;
 
     /**
@@ -52,8 +52,8 @@ class TargetSDK
      *
      * @var ?string $generateEligibleFeatures
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generate_eligible_features')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_eligible_features')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $generateEligibleFeatures = null;
 
     /**
@@ -61,7 +61,7 @@ class TargetSDK
      *
      * @var string $generateGenLockId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_gen_lock_id')]
     public string $generateGenLockId;
 
     /**
@@ -69,8 +69,8 @@ class TargetSDK
      *
      * @var ?string $generateGenLockPreFeatures
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_features')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_gen_lock_pre_features')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $generateGenLockPreFeatures = null;
 
     /**
@@ -78,8 +78,8 @@ class TargetSDK
      *
      * @var ?string $generateGenLockPreVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_pre_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_gen_lock_pre_version')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $generateGenLockPreVersion = null;
 
     /**
@@ -87,8 +87,8 @@ class TargetSDK
      *
      * @var ?int $generateNumberOfOperationsIgnored
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generate_number_of_operations_ignored')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_number_of_operations_ignored')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $generateNumberOfOperationsIgnored = null;
 
     /**
@@ -96,8 +96,8 @@ class TargetSDK
      *
      * @var ?int $generateNumberOfOperationsUsed
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generate_number_of_operations_used')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_number_of_operations_used')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $generateNumberOfOperationsUsed = null;
 
     /**
@@ -105,8 +105,8 @@ class TargetSDK
      *
      * @var ?int $generateNumberOfTerraformResources
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generate_number_of_terraform_resources')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_number_of_terraform_resources')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $generateNumberOfTerraformResources = null;
 
     /**
@@ -114,8 +114,8 @@ class TargetSDK
      *
      * @var ?bool $generatePublished
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generate_published')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_published')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $generatePublished = null;
 
     /**
@@ -123,7 +123,7 @@ class TargetSDK
      *
      * @var string $generateTarget
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generate_target')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_target')]
     public string $generateTarget;
 
     /**
@@ -131,8 +131,8 @@ class TargetSDK
      *
      * @var ?string $generateTargetName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generate_target_name')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_target_name')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $generateTargetName = null;
 
     /**
@@ -140,8 +140,8 @@ class TargetSDK
      *
      * @var ?string $generateTargetVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generate_target_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_target_version')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $generateTargetVersion = null;
 
     /**
@@ -149,8 +149,8 @@ class TargetSDK
      *
      * @var ?string $ghActionOrganization
      */
-    #[\JMS\Serializer\Annotation\SerializedName('gh_action_organization')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('gh_action_organization')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $ghActionOrganization = null;
 
     /**
@@ -158,8 +158,8 @@ class TargetSDK
      *
      * @var ?string $ghActionRef
      */
-    #[\JMS\Serializer\Annotation\SerializedName('gh_action_ref')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('gh_action_ref')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $ghActionRef = null;
 
     /**
@@ -167,8 +167,8 @@ class TargetSDK
      *
      * @var ?string $ghActionRepository
      */
-    #[\JMS\Serializer\Annotation\SerializedName('gh_action_repository')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('gh_action_repository')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $ghActionRepository = null;
 
     /**
@@ -176,8 +176,8 @@ class TargetSDK
      *
      * @var ?string $ghActionRunLink
      */
-    #[\JMS\Serializer\Annotation\SerializedName('gh_action_run_link')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('gh_action_run_link')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $ghActionRunLink = null;
 
     /**
@@ -185,8 +185,8 @@ class TargetSDK
      *
      * @var ?string $ghActionVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('gh_action_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('gh_action_version')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $ghActionVersion = null;
 
     /**
@@ -194,8 +194,8 @@ class TargetSDK
      *
      * @var ?string $gitRelativeCwd
      */
-    #[\JMS\Serializer\Annotation\SerializedName('git_relative_cwd')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('git_relative_cwd')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $gitRelativeCwd = null;
 
     /**
@@ -203,8 +203,8 @@ class TargetSDK
      *
      * @var ?string $gitRemoteDefaultOwner
      */
-    #[\JMS\Serializer\Annotation\SerializedName('git_remote_default_owner')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('git_remote_default_owner')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $gitRemoteDefaultOwner = null;
 
     /**
@@ -212,8 +212,8 @@ class TargetSDK
      *
      * @var ?string $gitRemoteDefaultRepo
      */
-    #[\JMS\Serializer\Annotation\SerializedName('git_remote_default_repo')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('git_remote_default_repo')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $gitRemoteDefaultRepo = null;
 
     /**
@@ -221,8 +221,8 @@ class TargetSDK
      *
      * @var ?string $gitUserEmail
      */
-    #[\JMS\Serializer\Annotation\SerializedName('git_user_email')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('git_user_email')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $gitUserEmail = null;
 
     /**
@@ -230,8 +230,8 @@ class TargetSDK
      *
      * @var ?string $gitUserName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('git_user_name')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('git_user_name')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $gitUserName = null;
 
     /**
@@ -239,8 +239,8 @@ class TargetSDK
      *
      * @var ?string $hostname
      */
-    #[\JMS\Serializer\Annotation\SerializedName('hostname')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hostname')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $hostname = null;
 
     /**
@@ -248,7 +248,7 @@ class TargetSDK
      *
      * @var string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public string $id;
 
     /**
@@ -256,7 +256,7 @@ class TargetSDK
      *
      * @var \DateTime $lastEventCreatedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('last_event_created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('last_event_created_at')]
     public \DateTime $lastEventCreatedAt;
 
     /**
@@ -264,7 +264,7 @@ class TargetSDK
      *
      * @var string $lastEventId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('last_event_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('last_event_id')]
     public string $lastEventId;
 
     /**
@@ -272,8 +272,8 @@ class TargetSDK
      *
      * @var InteractionType $lastEventInteractionType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('last_event_interaction_type')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('last_event_interaction_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType')]
     public InteractionType $lastEventInteractionType;
 
     /**
@@ -281,8 +281,8 @@ class TargetSDK
      *
      * @var ?string $publishPackageName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('publish_package_name')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('publish_package_name')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $publishPackageName = null;
 
     /**
@@ -290,8 +290,8 @@ class TargetSDK
      *
      * @var ?string $publishPackageRegistryName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('publish_package_registry_name')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('publish_package_registry_name')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $publishPackageRegistryName = null;
 
     /**
@@ -299,8 +299,8 @@ class TargetSDK
      *
      * @var ?string $publishPackageUrl
      */
-    #[\JMS\Serializer\Annotation\SerializedName('publish_package_url')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('publish_package_url')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $publishPackageUrl = null;
 
     /**
@@ -308,8 +308,8 @@ class TargetSDK
      *
      * @var ?string $publishPackageVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('publish_package_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('publish_package_version')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $publishPackageVersion = null;
 
     /**
@@ -317,8 +317,8 @@ class TargetSDK
      *
      * @var ?string $repoLabel
      */
-    #[\JMS\Serializer\Annotation\SerializedName('repo_label')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('repo_label')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $repoLabel = null;
 
     /**
@@ -326,8 +326,8 @@ class TargetSDK
      *
      * @var ?string $sourceBlobDigest
      */
-    #[\JMS\Serializer\Annotation\SerializedName('source_blob_digest')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('source_blob_digest')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $sourceBlobDigest = null;
 
     /**
@@ -335,8 +335,8 @@ class TargetSDK
      *
      * @var ?string $sourceNamespaceName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('source_namespace_name')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('source_namespace_name')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $sourceNamespaceName = null;
 
     /**
@@ -344,8 +344,8 @@ class TargetSDK
      *
      * @var ?string $sourceRevisionDigest
      */
-    #[\JMS\Serializer\Annotation\SerializedName('source_revision_digest')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('source_revision_digest')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $sourceRevisionDigest = null;
 
     /**
@@ -353,8 +353,8 @@ class TargetSDK
      *
      * @var ?bool $success
      */
-    #[\JMS\Serializer\Annotation\SerializedName('success')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('success')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $success = null;
 
     /**
@@ -362,8 +362,8 @@ class TargetSDK
      *
      * @var ?string $workflowPostRaw
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workflow_post_raw')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workflow_post_raw')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $workflowPostRaw = null;
 
     /**
@@ -371,8 +371,8 @@ class TargetSDK
      *
      * @var ?string $workflowPreRaw
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workflow_pre_raw')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workflow_pre_raw')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $workflowPreRaw = null;
 
     /**

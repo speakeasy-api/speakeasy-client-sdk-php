@@ -17,7 +17,7 @@ class EmbedToken
      *
      * @var \DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
     public \DateTime $createdAt;
 
     /**
@@ -25,7 +25,7 @@ class EmbedToken
      *
      * @var string $createdBy
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_by')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_by')]
     public string $createdBy;
 
     /**
@@ -33,7 +33,7 @@ class EmbedToken
      *
      * @var string $description
      */
-    #[\JMS\Serializer\Annotation\SerializedName('description')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
     public string $description;
 
     /**
@@ -41,7 +41,7 @@ class EmbedToken
      *
      * @var \DateTime $expiresAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('expires_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('expires_at')]
     public \DateTime $expiresAt;
 
     /**
@@ -49,7 +49,7 @@ class EmbedToken
      *
      * @var string $filters
      */
-    #[\JMS\Serializer\Annotation\SerializedName('filters')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('filters')]
     public string $filters;
 
     /**
@@ -57,7 +57,7 @@ class EmbedToken
      *
      * @var string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public string $id;
 
     /**
@@ -65,8 +65,8 @@ class EmbedToken
      *
      * @var ?\DateTime $lastUsed
      */
-    #[\JMS\Serializer\Annotation\SerializedName('last_used')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('last_used')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $lastUsed = null;
 
     /**
@@ -74,8 +74,8 @@ class EmbedToken
      *
      * @var ?\DateTime $revokedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('revoked_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('revoked_at')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $revokedAt = null;
 
     /**
@@ -83,8 +83,8 @@ class EmbedToken
      *
      * @var ?string $revokedBy
      */
-    #[\JMS\Serializer\Annotation\SerializedName('revoked_by')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('revoked_by')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $revokedBy = null;
 
     /**
@@ -92,7 +92,7 @@ class EmbedToken
      *
      * @var string $workspaceId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
     public string $workspaceId;
 
     /**

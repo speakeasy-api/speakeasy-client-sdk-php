@@ -17,7 +17,7 @@ class GithubConfigureMintlifyRepoRequest
      *
      * @var string $input
      */
-    #[\JMS\Serializer\Annotation\SerializedName('input')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('input')]
     public string $input;
 
     /**
@@ -25,7 +25,7 @@ class GithubConfigureMintlifyRepoRequest
      *
      * @var string $org
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org')]
     public string $org;
 
     /**
@@ -33,8 +33,8 @@ class GithubConfigureMintlifyRepoRequest
      *
      * @var array<string> $overlays
      */
-    #[\JMS\Serializer\Annotation\SerializedName('overlays')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('overlays')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $overlays;
 
     /**
@@ -42,7 +42,7 @@ class GithubConfigureMintlifyRepoRequest
      *
      * @var string $repo
      */
-    #[\JMS\Serializer\Annotation\SerializedName('repo')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('repo')]
     public string $repo;
 
     /**
@@ -50,8 +50,8 @@ class GithubConfigureMintlifyRepoRequest
      *
      * @var ?string $subdirectory
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subdirectory')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subdirectory')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $subdirectory = null;
 
     /**

@@ -15,14 +15,14 @@ class Relationship
      *
      * @var string $userId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('user_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('user_id')]
     public string $userId;
 
     /**
      *
      * @var string $workspaceId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
     public string $workspaceId;
 
     /**

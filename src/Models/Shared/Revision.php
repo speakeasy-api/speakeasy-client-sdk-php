@@ -15,14 +15,14 @@ class Revision
      *
      * @var \DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
     public \DateTime $createdAt;
 
     /**
      *
      * @var string $digest
      */
-    #[\JMS\Serializer\Annotation\SerializedName('digest')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('digest')]
     public string $digest;
 
     /**
@@ -30,14 +30,14 @@ class Revision
      *
      * @var string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public string $id;
 
     /**
      *
      * @var string $namespaceName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('namespace_name')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('namespace_name')]
     public string $namespaceName;
 
     /**
@@ -45,15 +45,15 @@ class Revision
      *
      * @var array<string> $tags
      */
-    #[\JMS\Serializer\Annotation\SerializedName('tags')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tags')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $tags;
 
     /**
      *
      * @var \DateTime $updatedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updated_at')]
     public \DateTime $updatedAt;
 
     /**

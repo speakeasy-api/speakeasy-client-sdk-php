@@ -16,17 +16,17 @@ class SuggestOptsOld
      *
      * @var ?array<Diagnostic> $diagnostics
      */
-    #[\JMS\Serializer\Annotation\SerializedName('diagnostics')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Diagnostic>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('diagnostics')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Diagnostic>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $diagnostics = null;
 
     /**
      *
      * @var SuggestionType $suggestionType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('suggestion_type')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestionType')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('suggestion_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestionType')]
     public SuggestionType $suggestionType;
 
     /**

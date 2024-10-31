@@ -17,7 +17,7 @@ class GithubConfigureCodeSamplesResponse
      *
      * @var string $codeSampleOverlayRegistryURL
      */
-    #[\JMS\Serializer\Annotation\SerializedName('codeSampleOverlayRegistryURL')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('codeSampleOverlayRegistryURL')]
     public string $codeSampleOverlayRegistryURL;
 
     /**
@@ -25,8 +25,8 @@ class GithubConfigureCodeSamplesResponse
      *
      * @var ?string $ghActionID
      */
-    #[\JMS\Serializer\Annotation\SerializedName('ghActionID')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('ghActionID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $ghActionID = null;
 
     /**
@@ -34,8 +34,8 @@ class GithubConfigureCodeSamplesResponse
      *
      * @var WorkflowDocument $source
      */
-    #[\JMS\Serializer\Annotation\SerializedName('source')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\WorkflowDocument')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('source')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\WorkflowDocument')]
     public WorkflowDocument $source;
 
     /**

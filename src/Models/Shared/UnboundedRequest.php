@@ -17,7 +17,7 @@ class UnboundedRequest
      *
      * @var \DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
     public \DateTime $createdAt;
 
     /**
@@ -25,7 +25,7 @@ class UnboundedRequest
      *
      * @var string $har
      */
-    #[\JMS\Serializer\Annotation\SerializedName('har')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('har')]
     public string $har;
 
     /**
@@ -33,7 +33,7 @@ class UnboundedRequest
      *
      * @var int $harSizeBytes
      */
-    #[\JMS\Serializer\Annotation\SerializedName('har_size_bytes')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('har_size_bytes')]
     public int $harSizeBytes;
 
     /**
@@ -41,7 +41,7 @@ class UnboundedRequest
      *
      * @var string $requestId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('request_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('request_id')]
     public string $requestId;
 
     /**
@@ -49,7 +49,7 @@ class UnboundedRequest
      *
      * @var string $workspaceId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
     public string $workspaceId;
 
     /**

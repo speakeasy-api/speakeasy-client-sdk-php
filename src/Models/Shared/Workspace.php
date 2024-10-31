@@ -16,43 +16,43 @@ class Workspace
      *
      * @var \DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
     public \DateTime $createdAt;
 
     /**
      *
      * @var string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public string $id;
 
     /**
      *
      * @var ?bool $inactive
      */
-    #[\JMS\Serializer\Annotation\SerializedName('inactive')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('inactive')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $inactive = null;
 
     /**
      *
      * @var string $name
      */
-    #[\JMS\Serializer\Annotation\SerializedName('name')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
     public string $name;
 
     /**
      *
      * @var string $organizationId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('organization_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('organization_id')]
     public string $organizationId;
 
     /**
      *
      * @var string $slug
      */
-    #[\JMS\Serializer\Annotation\SerializedName('slug')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('slug')]
     public string $slug;
 
     /**
@@ -61,22 +61,22 @@ class Workspace
      * @var ?bool $telemetryDisabled
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
-    #[\JMS\Serializer\Annotation\SerializedName('telemetry_disabled')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('telemetry_disabled')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $telemetryDisabled = null;
 
     /**
      *
      * @var \DateTime $updatedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updated_at')]
     public \DateTime $updatedAt;
 
     /**
      *
      * @var bool $verified
      */
-    #[\JMS\Serializer\Annotation\SerializedName('verified')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('verified')]
     public bool $verified;
 
     /**

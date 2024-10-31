@@ -15,7 +15,7 @@ class PreflightRequest
      *
      * @var string $namespaceName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('namespace_name')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('namespace_name')]
     public string $namespaceName;
 
     /**

@@ -17,7 +17,7 @@ class VersionMetadataInput
      *
      * @var string $metaKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('meta_key')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('meta_key')]
     public string $metaKey;
 
     /**
@@ -25,7 +25,7 @@ class VersionMetadataInput
      *
      * @var string $metaValue
      */
-    #[\JMS\Serializer\Annotation\SerializedName('meta_value')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('meta_value')]
     public string $metaValue;
 
     /**

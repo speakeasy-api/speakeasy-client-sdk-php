@@ -16,7 +16,7 @@ class OrganizationUsage
      *
      * @var bool $accessible
      */
-    #[\JMS\Serializer\Annotation\SerializedName('accessible')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('accessible')]
     public bool $accessible;
 
     /**
@@ -24,8 +24,8 @@ class OrganizationUsage
      *
      * @var array<string> $accessibleFeatures
      */
-    #[\JMS\Serializer\Annotation\SerializedName('accessible_features')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('accessible_features')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $accessibleFeatures;
 
     /**
@@ -33,8 +33,8 @@ class OrganizationUsage
      *
      * @var array<string> $genLockIds
      */
-    #[\JMS\Serializer\Annotation\SerializedName('gen_lock_ids')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('gen_lock_ids')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $genLockIds;
 
     /**
@@ -42,7 +42,7 @@ class OrganizationUsage
      *
      * @var string $language
      */
-    #[\JMS\Serializer\Annotation\SerializedName('language')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('language')]
     public string $language;
 
     /**
@@ -50,7 +50,7 @@ class OrganizationUsage
      *
      * @var int $maxOperations
      */
-    #[\JMS\Serializer\Annotation\SerializedName('max_operations')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('max_operations')]
     public int $maxOperations;
 
     /**
@@ -58,7 +58,7 @@ class OrganizationUsage
      *
      * @var int $numberOfOperations
      */
-    #[\JMS\Serializer\Annotation\SerializedName('number_of_operations')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('number_of_operations')]
     public int $numberOfOperations;
 
     /**
@@ -66,8 +66,8 @@ class OrganizationUsage
      *
      * @var array<string> $usedFeatures
      */
-    #[\JMS\Serializer\Annotation\SerializedName('used_features')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('used_features')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $usedFeatures;
 
     /**
@@ -75,8 +75,8 @@ class OrganizationUsage
      *
      * @var array<string> $workspaces
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspaces')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspaces')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $workspaces;
 
     /**

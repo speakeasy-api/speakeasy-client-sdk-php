@@ -16,8 +16,8 @@ class Diagnostic
      *
      * @var ?string $helpMessage
      */
-    #[\JMS\Serializer\Annotation\SerializedName('helpMessage')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('helpMessage')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $helpMessage = null;
 
     /**
@@ -25,7 +25,7 @@ class Diagnostic
      *
      * @var string $message
      */
-    #[\JMS\Serializer\Annotation\SerializedName('message')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('message')]
     public string $message;
 
     /**
@@ -33,8 +33,8 @@ class Diagnostic
      *
      * @var array<string> $path
      */
-    #[\JMS\Serializer\Annotation\SerializedName('path')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('path')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $path;
 
     /**
@@ -42,7 +42,7 @@ class Diagnostic
      *
      * @var string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
     public string $type;
 
     /**

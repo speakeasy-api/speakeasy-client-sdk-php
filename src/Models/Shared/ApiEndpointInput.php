@@ -17,7 +17,7 @@ class ApiEndpointInput
      *
      * @var string $apiEndpointId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('api_endpoint_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('api_endpoint_id')]
     public string $apiEndpointId;
 
     /**
@@ -25,7 +25,7 @@ class ApiEndpointInput
      *
      * @var string $description
      */
-    #[\JMS\Serializer\Annotation\SerializedName('description')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
     public string $description;
 
     /**
@@ -33,7 +33,7 @@ class ApiEndpointInput
      *
      * @var string $displayName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('display_name')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('display_name')]
     public string $displayName;
 
     /**
@@ -41,7 +41,7 @@ class ApiEndpointInput
      *
      * @var string $method
      */
-    #[\JMS\Serializer\Annotation\SerializedName('method')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('method')]
     public string $method;
 
     /**
@@ -49,7 +49,7 @@ class ApiEndpointInput
      *
      * @var string $path
      */
-    #[\JMS\Serializer\Annotation\SerializedName('path')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('path')]
     public string $path;
 
     /**
@@ -57,7 +57,7 @@ class ApiEndpointInput
      *
      * @var string $versionId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('version_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('version_id')]
     public string $versionId;
 
     /**

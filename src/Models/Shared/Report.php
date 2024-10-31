@@ -15,9 +15,9 @@ class Report
      *
      * @var ?Type $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Type|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Type|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Type $type = null;
 
     /**

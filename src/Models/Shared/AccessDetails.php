@@ -15,23 +15,23 @@ class AccessDetails
      *
      * @var bool $generationAllowed
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generation_allowed')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generation_allowed')]
     public bool $generationAllowed;
 
     /**
      *
      * @var ?Level $level
      */
-    #[\JMS\Serializer\Annotation\SerializedName('level')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Level|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('level')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Level|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Level $level = null;
 
     /**
      *
      * @var string $message
      */
-    #[\JMS\Serializer\Annotation\SerializedName('message')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('message')]
     public string $message;
 
     /**

@@ -136,7 +136,7 @@ class SDK
      * @param  SDKConfiguration  $sdkConfiguration
      */
     public function __construct(
-        private SDKConfiguration $sdkConfiguration,
+        public SDKConfiguration $sdkConfiguration,
     ) {
         $this->apis = new Apis($this->sdkConfiguration);
         $this->apiEndpoints = new ApiEndpoints($this->sdkConfiguration);

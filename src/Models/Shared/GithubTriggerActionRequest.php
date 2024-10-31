@@ -17,8 +17,8 @@ class GithubTriggerActionRequest
      *
      * @var ?bool $force
      */
-    #[\JMS\Serializer\Annotation\SerializedName('force')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('force')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $force = null;
 
     /**
@@ -26,7 +26,7 @@ class GithubTriggerActionRequest
      *
      * @var string $genLockId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('gen_lock_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('gen_lock_id')]
     public string $genLockId;
 
     /**
@@ -34,7 +34,7 @@ class GithubTriggerActionRequest
      *
      * @var string $org
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org')]
     public string $org;
 
     /**
@@ -42,7 +42,7 @@ class GithubTriggerActionRequest
      *
      * @var string $repoName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('repo_name')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('repo_name')]
     public string $repoName;
 
     /**
@@ -50,8 +50,8 @@ class GithubTriggerActionRequest
      *
      * @var ?string $setVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('set_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('set_version')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $setVersion = null;
 
     /**
@@ -59,8 +59,8 @@ class GithubTriggerActionRequest
      *
      * @var ?string $targetName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('target_name')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('target_name')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $targetName = null;
 
     /**

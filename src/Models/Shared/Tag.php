@@ -16,7 +16,7 @@ class Tag
      *
      * @var string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public string $id;
 
     /**
@@ -24,21 +24,21 @@ class Tag
      *
      * @var string $name
      */
-    #[\JMS\Serializer\Annotation\SerializedName('name')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
     public string $name;
 
     /**
      *
      * @var string $namespaceName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('namespace_name')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('namespace_name')]
     public string $namespaceName;
 
     /**
      *
      * @var string $revisionDigest
      */
-    #[\JMS\Serializer\Annotation\SerializedName('revision_digest')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('revision_digest')]
     public string $revisionDigest;
 
     /**

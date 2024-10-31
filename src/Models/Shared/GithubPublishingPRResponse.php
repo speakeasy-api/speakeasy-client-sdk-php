@@ -16,16 +16,16 @@ class GithubPublishingPRResponse
      *
      * @var ?string $generationPullRequest
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generation_pull_request')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generation_pull_request')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $generationPullRequest = null;
 
     /**
      *
      * @var ?string $pendingVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('pending_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('pending_version')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $pendingVersion = null;
 
     /**

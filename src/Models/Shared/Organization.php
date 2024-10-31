@@ -16,66 +16,66 @@ class Organization
      *
      * @var AccountType $accountType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('account_type')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('account_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType')]
     public AccountType $accountType;
 
     /**
      *
      * @var \DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
     public \DateTime $createdAt;
 
     /**
      *
      * @var ?\DateTime $freeTrialExpiry
      */
-    #[\JMS\Serializer\Annotation\SerializedName('free_trial_expiry')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('free_trial_expiry')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $freeTrialExpiry = null;
 
     /**
      *
      * @var string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public string $id;
 
     /**
      *
      * @var ?bool $internal
      */
-    #[\JMS\Serializer\Annotation\SerializedName('internal')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('internal')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $internal = null;
 
     /**
      *
      * @var string $name
      */
-    #[\JMS\Serializer\Annotation\SerializedName('name')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
     public string $name;
 
     /**
      *
      * @var string $slug
      */
-    #[\JMS\Serializer\Annotation\SerializedName('slug')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('slug')]
     public string $slug;
 
     /**
      *
      * @var bool $telemetryDisabled
      */
-    #[\JMS\Serializer\Annotation\SerializedName('telemetry_disabled')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('telemetry_disabled')]
     public bool $telemetryDisabled;
 
     /**
      *
      * @var \DateTime $updatedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updated_at')]
     public \DateTime $updatedAt;
 
     /**

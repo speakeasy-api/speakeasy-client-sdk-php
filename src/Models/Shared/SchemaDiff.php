@@ -17,8 +17,8 @@ class SchemaDiff
      *
      * @var array<string> $additions
      */
-    #[\JMS\Serializer\Annotation\SerializedName('additions')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('additions')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $additions;
 
     /**
@@ -26,8 +26,8 @@ class SchemaDiff
      *
      * @var array<string> $deletions
      */
-    #[\JMS\Serializer\Annotation\SerializedName('deletions')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('deletions')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $deletions;
 
     /**
@@ -35,8 +35,8 @@ class SchemaDiff
      *
      * @var array<string, ValueChange> $modifications
      */
-    #[\JMS\Serializer\Annotation\SerializedName('modifications')]
-    #[\JMS\Serializer\Annotation\Type('array<string, \Speakeasy\SpeakeasyClientSDK\Models\Shared\ValueChange>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('modifications')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, \Speakeasy\SpeakeasyClientSDK\Models\Shared\ValueChange>')]
     public array $modifications;
 
     /**

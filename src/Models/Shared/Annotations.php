@@ -17,8 +17,8 @@ class Annotations
      *
      * @var ?string $orgOpencontainersImageAuthors
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.authors')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org.opencontainers.image.authors')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $orgOpencontainersImageAuthors = null;
 
     /**
@@ -26,8 +26,8 @@ class Annotations
      *
      * @var ?string $orgOpencontainersImageCreated
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.created')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org.opencontainers.image.created')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $orgOpencontainersImageCreated = null;
 
     /**
@@ -35,8 +35,8 @@ class Annotations
      *
      * @var ?string $orgOpencontainersImageDescription
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.description')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org.opencontainers.image.description')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $orgOpencontainersImageDescription = null;
 
     /**
@@ -44,16 +44,16 @@ class Annotations
      *
      * @var ?string $orgOpencontainersImageDocumentation
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.documentation')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org.opencontainers.image.documentation')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $orgOpencontainersImageDocumentation = null;
 
     /**
      *
      * @var ?string $orgOpencontainersImageLicenses
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.licenses')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org.opencontainers.image.licenses')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $orgOpencontainersImageLicenses = null;
 
     /**
@@ -61,8 +61,8 @@ class Annotations
      *
      * @var ?string $orgOpencontainersImageRefName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.ref.name')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org.opencontainers.image.ref.name')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $orgOpencontainersImageRefName = null;
 
     /**
@@ -70,8 +70,8 @@ class Annotations
      *
      * @var ?string $orgOpencontainersImageRevision
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.revision')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org.opencontainers.image.revision')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $orgOpencontainersImageRevision = null;
 
     /**
@@ -79,8 +79,8 @@ class Annotations
      *
      * @var ?string $orgOpencontainersImageSource
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.source')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org.opencontainers.image.source')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $orgOpencontainersImageSource = null;
 
     /**
@@ -88,8 +88,8 @@ class Annotations
      *
      * @var ?string $orgOpencontainersImageTitle
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org.opencontainers.image.title')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $orgOpencontainersImageTitle = null;
 
     /**
@@ -97,8 +97,8 @@ class Annotations
      *
      * @var ?string $orgOpencontainersImageUrl
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.url')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org.opencontainers.image.url')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $orgOpencontainersImageUrl = null;
 
     /**
@@ -106,8 +106,8 @@ class Annotations
      *
      * @var ?string $orgOpencontainersImageVendor
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.vendor')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org.opencontainers.image.vendor')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $orgOpencontainersImageVendor = null;
 
     /**
@@ -115,8 +115,8 @@ class Annotations
      *
      * @var ?string $orgOpencontainersImageVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org.opencontainers.image.version')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org.opencontainers.image.version')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $orgOpencontainersImageVersion = null;
 
     /**

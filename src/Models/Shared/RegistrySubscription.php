@@ -16,52 +16,52 @@ class RegistrySubscription
      *
      * @var \DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
     public \DateTime $createdAt;
 
     /**
      *
      * @var ?\DateTime $deletedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('deleted_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('deleted_at')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $deletedAt = null;
 
     /**
      *
      * @var EventType $eventType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('event_type')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\EventType')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('event_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\EventType')]
     public EventType $eventType;
 
     /**
      *
      * @var string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public string $id;
 
     /**
      *
      * @var string $namespaceName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('namespace_name')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('namespace_name')]
     public string $namespaceName;
 
     /**
      *
      * @var string $subscriptionSettings
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subscription_settings')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subscription_settings')]
     public string $subscriptionSettings;
 
     /**
      *
      * @var SubscriptionType $subscriptionType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subscription_type')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\SubscriptionType')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subscription_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\SubscriptionType')]
     public SubscriptionType $subscriptionType;
 
     /**
@@ -69,23 +69,23 @@ class RegistrySubscription
      *
      * @var ?array<string> $tags
      */
-    #[\JMS\Serializer\Annotation\SerializedName('tags')]
-    #[\JMS\Serializer\Annotation\Type('array<string>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tags')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $tags = null;
 
     /**
      *
      * @var \DateTime $updatedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updated_at')]
     public \DateTime $updatedAt;
 
     /**
      *
      * @var string $workspaceId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
     public string $workspaceId;
 
     /**

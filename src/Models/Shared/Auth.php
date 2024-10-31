@@ -15,14 +15,14 @@ class Auth
      *
      * @var string $header
      */
-    #[\JMS\Serializer\Annotation\SerializedName('header')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('header')]
     public string $header;
 
     /**
      *
      * @var string $secret
      */
-    #[\JMS\Serializer\Annotation\SerializedName('secret')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('secret')]
     public string $secret;
 
     /**

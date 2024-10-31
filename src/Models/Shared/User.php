@@ -16,7 +16,7 @@ class User
      *
      * @var bool $admin
      */
-    #[\JMS\Serializer\Annotation\SerializedName('admin')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('admin')]
     public bool $admin;
 
     /**
@@ -24,7 +24,7 @@ class User
      *
      * @var bool $confirmed
      */
-    #[\JMS\Serializer\Annotation\SerializedName('confirmed')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('confirmed')]
     public bool $confirmed;
 
     /**
@@ -32,7 +32,7 @@ class User
      *
      * @var \DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
     public \DateTime $createdAt;
 
     /**
@@ -40,8 +40,8 @@ class User
      *
      * @var ?string $defaultWorkspaceId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('default_workspace_id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('default_workspace_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $defaultWorkspaceId = null;
 
     /**
@@ -49,7 +49,7 @@ class User
      *
      * @var string $displayName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('display_name')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('display_name')]
     public string $displayName;
 
     /**
@@ -57,7 +57,7 @@ class User
      *
      * @var string $email
      */
-    #[\JMS\Serializer\Annotation\SerializedName('email')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('email')]
     public string $email;
 
     /**
@@ -65,7 +65,7 @@ class User
      *
      * @var bool $emailVerified
      */
-    #[\JMS\Serializer\Annotation\SerializedName('email_verified')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('email_verified')]
     public bool $emailVerified;
 
     /**
@@ -73,8 +73,8 @@ class User
      *
      * @var ?string $githubHandle
      */
-    #[\JMS\Serializer\Annotation\SerializedName('github_handle')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('github_handle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $githubHandle = null;
 
     /**
@@ -82,7 +82,7 @@ class User
      *
      * @var string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public string $id;
 
     /**
@@ -90,8 +90,8 @@ class User
      *
      * @var ?bool $internal
      */
-    #[\JMS\Serializer\Annotation\SerializedName('internal')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('internal')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $internal = null;
 
     /**
@@ -99,8 +99,8 @@ class User
      *
      * @var ?\DateTime $lastLoginAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('last_login_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('last_login_at')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $lastLoginAt = null;
 
     /**
@@ -108,8 +108,8 @@ class User
      *
      * @var ?string $photoUrl
      */
-    #[\JMS\Serializer\Annotation\SerializedName('photo_url')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('photo_url')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $photoUrl = null;
 
     /**
@@ -117,7 +117,7 @@ class User
      *
      * @var \DateTime $updatedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updated_at')]
     public \DateTime $updatedAt;
 
     /**
@@ -125,7 +125,7 @@ class User
      *
      * @var bool $whitelisted
      */
-    #[\JMS\Serializer\Annotation\SerializedName('whitelisted')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('whitelisted')]
     public bool $whitelisted;
 
     /**

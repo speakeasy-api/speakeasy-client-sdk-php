@@ -15,14 +15,14 @@ class ShortURL
      *
      * @var string $fullUrl
      */
-    #[\JMS\Serializer\Annotation\SerializedName('full_url')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('full_url')]
     public string $fullUrl;
 
     /**
      *
      * @var string $shortUrl
      */
-    #[\JMS\Serializer\Annotation\SerializedName('short_url')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('short_url')]
     public string $shortUrl;
 
     /**

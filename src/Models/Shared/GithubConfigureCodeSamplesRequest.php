@@ -17,7 +17,7 @@ class GithubConfigureCodeSamplesRequest
      *
      * @var string $org
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org')]
     public string $org;
 
     /**
@@ -25,7 +25,7 @@ class GithubConfigureCodeSamplesRequest
      *
      * @var string $repo
      */
-    #[\JMS\Serializer\Annotation\SerializedName('repo')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('repo')]
     public string $repo;
 
     /**
@@ -33,7 +33,7 @@ class GithubConfigureCodeSamplesRequest
      *
      * @var string $targetName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('targetName')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('targetName')]
     public string $targetName;
 
     /**

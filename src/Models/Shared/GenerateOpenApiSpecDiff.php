@@ -15,14 +15,14 @@ class GenerateOpenApiSpecDiff
      *
      * @var string $currentSchema
      */
-    #[\JMS\Serializer\Annotation\SerializedName('current_schema')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('current_schema')]
     public string $currentSchema;
 
     /**
      *
      * @var string $newSchema
      */
-    #[\JMS\Serializer\Annotation\SerializedName('new_schema')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('new_schema')]
     public string $newSchema;
 
     /**

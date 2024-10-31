@@ -16,7 +16,7 @@ class RemoteDocument
      *
      * @var string $registryUrl
      */
-    #[\JMS\Serializer\Annotation\SerializedName('registry_url')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('registry_url')]
     public string $registryUrl;
 
     /**

@@ -16,7 +16,7 @@ class SSOMetadata
      *
      * @var bool $ssoActivated
      */
-    #[\JMS\Serializer\Annotation\SerializedName('sso_activated')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sso_activated')]
     public bool $ssoActivated;
 
     /**
@@ -24,8 +24,8 @@ class SSOMetadata
      *
      * @var array<string> $ssoDomains
      */
-    #[\JMS\Serializer\Annotation\SerializedName('sso_domains')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sso_domains')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $ssoDomains;
 
     /**

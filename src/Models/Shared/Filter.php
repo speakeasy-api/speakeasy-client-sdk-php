@@ -17,7 +17,7 @@ class Filter
      *
      * @var string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
     public string $key;
 
     /**
@@ -25,7 +25,7 @@ class Filter
      *
      * @var string $operator
      */
-    #[\JMS\Serializer\Annotation\SerializedName('operator')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('operator')]
     public string $operator;
 
     /**
@@ -33,7 +33,7 @@ class Filter
      *
      * @var string $value
      */
-    #[\JMS\Serializer\Annotation\SerializedName('value')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('value')]
     public string $value;
 
     /**

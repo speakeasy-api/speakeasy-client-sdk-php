@@ -17,9 +17,9 @@ class Manifest
      *
      * @var ?Annotations $annotations
      */
-    #[\JMS\Serializer\Annotation\SerializedName('annotations')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('annotations')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Annotations $annotations = null;
 
     /**
@@ -27,8 +27,8 @@ class Manifest
      *
      * @var ?string $artifactType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('artifactType')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('artifactType')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $artifactType = null;
 
     /**
@@ -36,9 +36,9 @@ class Manifest
      *
      * @var ?array<V2Descriptor> $layers
      */
-    #[\JMS\Serializer\Annotation\SerializedName('layers')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\V2Descriptor>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('layers')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\V2Descriptor>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $layers = null;
 
     /**
@@ -46,8 +46,8 @@ class Manifest
      *
      * @var ?string $mediaType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mediaType')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mediaType')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $mediaType = null;
 
     /**
@@ -55,8 +55,8 @@ class Manifest
      *
      * @var ?int $schemaVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('schemaVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('schemaVersion')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $schemaVersion = null;
 
     /**

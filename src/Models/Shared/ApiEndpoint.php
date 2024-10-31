@@ -17,7 +17,7 @@ class ApiEndpoint
      *
      * @var string $apiEndpointId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('api_endpoint_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('api_endpoint_id')]
     public string $apiEndpointId;
 
     /**
@@ -25,7 +25,7 @@ class ApiEndpoint
      *
      * @var string $apiId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('api_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('api_id')]
     public string $apiId;
 
     /**
@@ -33,7 +33,7 @@ class ApiEndpoint
      *
      * @var \DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
     public \DateTime $createdAt;
 
     /**
@@ -41,7 +41,7 @@ class ApiEndpoint
      *
      * @var string $description
      */
-    #[\JMS\Serializer\Annotation\SerializedName('description')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
     public string $description;
 
     /**
@@ -49,7 +49,7 @@ class ApiEndpoint
      *
      * @var string $displayName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('display_name')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('display_name')]
     public string $displayName;
 
     /**
@@ -57,8 +57,8 @@ class ApiEndpoint
      *
      * @var ?bool $matched
      */
-    #[\JMS\Serializer\Annotation\SerializedName('matched')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('matched')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $matched = null;
 
     /**
@@ -66,7 +66,7 @@ class ApiEndpoint
      *
      * @var string $method
      */
-    #[\JMS\Serializer\Annotation\SerializedName('method')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('method')]
     public string $method;
 
     /**
@@ -74,7 +74,7 @@ class ApiEndpoint
      *
      * @var string $path
      */
-    #[\JMS\Serializer\Annotation\SerializedName('path')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('path')]
     public string $path;
 
     /**
@@ -82,7 +82,7 @@ class ApiEndpoint
      *
      * @var \DateTime $updatedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updated_at')]
     public \DateTime $updatedAt;
 
     /**
@@ -90,7 +90,7 @@ class ApiEndpoint
      *
      * @var string $versionId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('version_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('version_id')]
     public string $versionId;
 
     /**
@@ -98,7 +98,7 @@ class ApiEndpoint
      *
      * @var string $workspaceId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
     public string $workspaceId;
 
     /**

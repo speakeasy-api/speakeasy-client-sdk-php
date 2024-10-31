@@ -17,7 +17,7 @@ class Api
      *
      * @var string $apiId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('api_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('api_id')]
     public string $apiId;
 
     /**
@@ -25,7 +25,7 @@ class Api
      *
      * @var \DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
     public \DateTime $createdAt;
 
     /**
@@ -33,7 +33,7 @@ class Api
      *
      * @var string $description
      */
-    #[\JMS\Serializer\Annotation\SerializedName('description')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
     public string $description;
 
     /**
@@ -41,8 +41,8 @@ class Api
      *
      * @var ?bool $matched
      */
-    #[\JMS\Serializer\Annotation\SerializedName('matched')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('matched')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $matched = null;
 
     /**
@@ -50,9 +50,9 @@ class Api
      *
      * @var ?array<string, array<string>> $metaData
      */
-    #[\JMS\Serializer\Annotation\SerializedName('meta_data')]
-    #[\JMS\Serializer\Annotation\Type('array<string, array<string>>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('meta_data')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, array<string>>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $metaData = null;
 
     /**
@@ -60,7 +60,7 @@ class Api
      *
      * @var \DateTime $updatedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('updated_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updated_at')]
     public \DateTime $updatedAt;
 
     /**
@@ -68,7 +68,7 @@ class Api
      *
      * @var string $versionId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('version_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('version_id')]
     public string $versionId;
 
     /**
@@ -76,7 +76,7 @@ class Api
      *
      * @var string $workspaceId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
     public string $workspaceId;
 
     /**

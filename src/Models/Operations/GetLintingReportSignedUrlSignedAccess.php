@@ -16,7 +16,7 @@ class GetLintingReportSignedUrlSignedAccess
      *
      * @var string $url
      */
-    #[\JMS\Serializer\Annotation\SerializedName('url')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('url')]
     public string $url;
 
     /**

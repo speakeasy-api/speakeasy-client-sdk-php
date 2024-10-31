@@ -17,9 +17,9 @@ class V2Descriptor
      *
      * @var ?Annotations $annotations
      */
-    #[\JMS\Serializer\Annotation\SerializedName('annotations')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('annotations')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Annotations|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Annotations $annotations = null;
 
     /**
@@ -27,8 +27,8 @@ class V2Descriptor
      *
      * @var ?string $digest
      */
-    #[\JMS\Serializer\Annotation\SerializedName('digest')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('digest')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $digest = null;
 
     /**
@@ -36,8 +36,8 @@ class V2Descriptor
      *
      * @var ?string $mediaType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mediaType')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mediaType')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $mediaType = null;
 
     /**
@@ -45,8 +45,8 @@ class V2Descriptor
      *
      * @var ?int $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**

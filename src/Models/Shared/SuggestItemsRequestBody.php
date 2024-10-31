@@ -16,8 +16,8 @@ class SuggestItemsRequestBody
      *
      * @var array<string> $items
      */
-    #[\JMS\Serializer\Annotation\SerializedName('items')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $items;
 
     /**
@@ -25,7 +25,7 @@ class SuggestItemsRequestBody
      *
      * @var string $prompt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('prompt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('prompt')]
     public string $prompt;
 
     /**

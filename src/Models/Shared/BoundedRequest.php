@@ -17,7 +17,7 @@ class BoundedRequest
      *
      * @var string $apiEndpointId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('api_endpoint_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('api_endpoint_id')]
     public string $apiEndpointId;
 
     /**
@@ -25,7 +25,7 @@ class BoundedRequest
      *
      * @var string $apiId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('api_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('api_id')]
     public string $apiId;
 
     /**
@@ -33,7 +33,7 @@ class BoundedRequest
      *
      * @var \DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
     public \DateTime $createdAt;
 
     /**
@@ -41,7 +41,7 @@ class BoundedRequest
      *
      * @var string $customerId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('customer_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('customer_id')]
     public string $customerId;
 
     /**
@@ -49,7 +49,7 @@ class BoundedRequest
      *
      * @var int $latency
      */
-    #[\JMS\Serializer\Annotation\SerializedName('latency')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('latency')]
     public int $latency;
 
     /**
@@ -57,9 +57,9 @@ class BoundedRequest
      *
      * @var ?array<RequestMetadata> $metadata
      */
-    #[\JMS\Serializer\Annotation\SerializedName('metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\RequestMetadata>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\RequestMetadata>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $metadata = null;
 
     /**
@@ -67,7 +67,7 @@ class BoundedRequest
      *
      * @var string $method
      */
-    #[\JMS\Serializer\Annotation\SerializedName('method')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('method')]
     public string $method;
 
     /**
@@ -75,7 +75,7 @@ class BoundedRequest
      *
      * @var string $path
      */
-    #[\JMS\Serializer\Annotation\SerializedName('path')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('path')]
     public string $path;
 
     /**
@@ -83,7 +83,7 @@ class BoundedRequest
      *
      * @var \DateTime $requestFinishTime
      */
-    #[\JMS\Serializer\Annotation\SerializedName('request_finish_time')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('request_finish_time')]
     public \DateTime $requestFinishTime;
 
     /**
@@ -91,7 +91,7 @@ class BoundedRequest
      *
      * @var string $requestId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('request_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('request_id')]
     public string $requestId;
 
     /**
@@ -99,7 +99,7 @@ class BoundedRequest
      *
      * @var \DateTime $requestStartTime
      */
-    #[\JMS\Serializer\Annotation\SerializedName('request_start_time')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('request_start_time')]
     public \DateTime $requestStartTime;
 
     /**
@@ -107,7 +107,7 @@ class BoundedRequest
      *
      * @var int $status
      */
-    #[\JMS\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     public int $status;
 
     /**
@@ -115,7 +115,7 @@ class BoundedRequest
      *
      * @var string $versionId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('version_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('version_id')]
     public string $versionId;
 
     /**
@@ -123,7 +123,7 @@ class BoundedRequest
      *
      * @var string $workspaceId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
     public string $workspaceId;
 
     /**

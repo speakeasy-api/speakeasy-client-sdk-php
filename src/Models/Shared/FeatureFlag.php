@@ -16,15 +16,15 @@ class FeatureFlag
      *
      * @var string $featureFlag
      */
-    #[\JMS\Serializer\Annotation\SerializedName('feature_flag')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('feature_flag')]
     public string $featureFlag;
 
     /**
      *
      * @var ?\DateTime $trialEndsAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('trial_ends_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('trial_ends_at')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $trialEndsAt = null;
 
     /**

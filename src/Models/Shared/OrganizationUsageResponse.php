@@ -17,8 +17,8 @@ class OrganizationUsageResponse
      *
      * @var array<string> $allowedLanguages
      */
-    #[\JMS\Serializer\Annotation\SerializedName('allowed_languages')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('allowed_languages')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $allowedLanguages;
 
     /**
@@ -26,8 +26,8 @@ class OrganizationUsageResponse
      *
      * @var ?\DateTime $freeTrialExpiry
      */
-    #[\JMS\Serializer\Annotation\SerializedName('free_trial_expiry')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('free_trial_expiry')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $freeTrialExpiry = null;
 
     /**
@@ -35,7 +35,7 @@ class OrganizationUsageResponse
      *
      * @var int $totalAllowedLanguages
      */
-    #[\JMS\Serializer\Annotation\SerializedName('total_allowed_languages')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('total_allowed_languages')]
     public int $totalAllowedLanguages;
 
     /**
@@ -43,8 +43,8 @@ class OrganizationUsageResponse
      *
      * @var array<OrganizationUsage> $usage
      */
-    #[\JMS\Serializer\Annotation\SerializedName('usage')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\OrganizationUsage>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('usage')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\OrganizationUsage>')]
     public array $usage;
 
     /**

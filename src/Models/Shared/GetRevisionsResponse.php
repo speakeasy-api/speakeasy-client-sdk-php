@@ -16,15 +16,15 @@ class GetRevisionsResponse
      *
      * @var array<Revision> $items
      */
-    #[\JMS\Serializer\Annotation\SerializedName('items')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Revision>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Revision>')]
     public array $items;
 
     /**
      *
      * @var string $nextPageToken
      */
-    #[\JMS\Serializer\Annotation\SerializedName('next_page_token')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('next_page_token')]
     public string $nextPageToken;
 
     /**

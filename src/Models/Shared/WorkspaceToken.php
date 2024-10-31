@@ -16,66 +16,66 @@ class WorkspaceToken
      *
      * @var string $alg
      */
-    #[\JMS\Serializer\Annotation\SerializedName('alg')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('alg')]
     public string $alg;
 
     /**
      *
      * @var \DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
     public \DateTime $createdAt;
 
     /**
      *
      * @var ?string $createdBy
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_by')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_by')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $createdBy = null;
 
     /**
      *
      * @var ?string $email
      */
-    #[\JMS\Serializer\Annotation\SerializedName('email')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('email')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $email = null;
 
     /**
      *
      * @var string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public string $id;
 
     /**
      *
      * @var string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
     public string $key;
 
     /**
      *
-     * @var ?string $lastUsed
+     * @var ?\DateTime $lastUsed
      */
-    #[\JMS\Serializer\Annotation\SerializedName('last_used')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $lastUsed = null;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('last_used')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $lastUsed = null;
 
     /**
      *
      * @var string $name
      */
-    #[\JMS\Serializer\Annotation\SerializedName('name')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
     public string $name;
 
     /**
      *
      * @var string $workspaceId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
     public string $workspaceId;
 
     /**
@@ -87,9 +87,9 @@ class WorkspaceToken
      * @param  string  $workspaceId
      * @param  ?string  $createdBy
      * @param  ?string  $email
-     * @param  ?string  $lastUsed
+     * @param  ?\DateTime  $lastUsed
      */
-    public function __construct(string $alg, \DateTime $createdAt, string $id, string $key, string $name, string $workspaceId, ?string $createdBy = null, ?string $email = null, ?string $lastUsed = null)
+    public function __construct(string $alg, \DateTime $createdAt, string $id, string $key, string $name, string $workspaceId, ?string $createdBy = null, ?string $email = null, ?\DateTime $lastUsed = null)
     {
         $this->alg = $alg;
         $this->createdAt = $createdAt;

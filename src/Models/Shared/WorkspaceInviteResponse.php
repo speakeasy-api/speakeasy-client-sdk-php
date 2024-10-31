@@ -16,16 +16,16 @@ class WorkspaceInviteResponse
      *
      * @var ?string $inviteLink
      */
-    #[\JMS\Serializer\Annotation\SerializedName('invite_link')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('invite_link')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $inviteLink = null;
 
     /**
      *
      * @var Relationship $relationship
      */
-    #[\JMS\Serializer\Annotation\SerializedName('relationship')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Relationship')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('relationship')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Relationship')]
     public Relationship $relationship;
 
     /**

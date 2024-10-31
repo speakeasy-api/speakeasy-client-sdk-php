@@ -17,7 +17,7 @@ class Schema
      *
      * @var string $apiId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('api_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('api_id')]
     public string $apiId;
 
     /**
@@ -25,7 +25,7 @@ class Schema
      *
      * @var \DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
     public \DateTime $createdAt;
 
     /**
@@ -33,7 +33,7 @@ class Schema
      *
      * @var string $description
      */
-    #[\JMS\Serializer\Annotation\SerializedName('description')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
     public string $description;
 
     /**
@@ -41,7 +41,7 @@ class Schema
      *
      * @var string $revisionId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('revision_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('revision_id')]
     public string $revisionId;
 
     /**
@@ -49,7 +49,7 @@ class Schema
      *
      * @var string $versionId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('version_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('version_id')]
     public string $versionId;
 
     /**
@@ -57,7 +57,7 @@ class Schema
      *
      * @var string $workspaceId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
     public string $workspaceId;
 
     /**

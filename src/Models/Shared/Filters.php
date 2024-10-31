@@ -17,8 +17,8 @@ class Filters
      *
      * @var array<Filter> $filters
      */
-    #[\JMS\Serializer\Annotation\SerializedName('filters')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Filter>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('filters')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Filter>')]
     public array $filters;
 
     /**
@@ -26,7 +26,7 @@ class Filters
      *
      * @var int $limit
      */
-    #[\JMS\Serializer\Annotation\SerializedName('limit')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('limit')]
     public int $limit;
 
     /**
@@ -34,7 +34,7 @@ class Filters
      *
      * @var int $offset
      */
-    #[\JMS\Serializer\Annotation\SerializedName('offset')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('offset')]
     public int $offset;
 
     /**
@@ -42,7 +42,7 @@ class Filters
      *
      * @var string $operator
      */
-    #[\JMS\Serializer\Annotation\SerializedName('operator')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('operator')]
     public string $operator;
 
     /**

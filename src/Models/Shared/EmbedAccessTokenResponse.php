@@ -16,7 +16,7 @@ class EmbedAccessTokenResponse
      *
      * @var string $accessToken
      */
-    #[\JMS\Serializer\Annotation\SerializedName('access_token')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('access_token')]
     public string $accessToken;
 
     /**

@@ -17,7 +17,7 @@ class VersionMetadata
      *
      * @var string $apiId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('api_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('api_id')]
     public string $apiId;
 
     /**
@@ -25,7 +25,7 @@ class VersionMetadata
      *
      * @var \DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
     public \DateTime $createdAt;
 
     /**
@@ -33,7 +33,7 @@ class VersionMetadata
      *
      * @var string $metaKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('meta_key')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('meta_key')]
     public string $metaKey;
 
     /**
@@ -41,7 +41,7 @@ class VersionMetadata
      *
      * @var string $metaValue
      */
-    #[\JMS\Serializer\Annotation\SerializedName('meta_value')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('meta_value')]
     public string $metaValue;
 
     /**
@@ -49,7 +49,7 @@ class VersionMetadata
      *
      * @var string $versionId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('version_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('version_id')]
     public string $versionId;
 
     /**
@@ -57,7 +57,7 @@ class VersionMetadata
      *
      * @var string $workspaceId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
     public string $workspaceId;
 
     /**

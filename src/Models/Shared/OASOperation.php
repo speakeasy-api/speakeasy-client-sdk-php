@@ -15,44 +15,44 @@ class OASOperation
      *
      * @var string $description
      */
-    #[\JMS\Serializer\Annotation\SerializedName('description')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
     public string $description;
 
     /**
      *
      * @var ?string $groupOverride
      */
-    #[\JMS\Serializer\Annotation\SerializedName('group_override')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('group_override')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $groupOverride = null;
 
     /**
      *
      * @var string $method
      */
-    #[\JMS\Serializer\Annotation\SerializedName('method')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('method')]
     public string $method;
 
     /**
      *
      * @var ?string $methodNameOverride
      */
-    #[\JMS\Serializer\Annotation\SerializedName('method_name_override')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('method_name_override')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $methodNameOverride = null;
 
     /**
      *
      * @var string $operationId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('operation_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('operation_id')]
     public string $operationId;
 
     /**
      *
      * @var string $path
      */
-    #[\JMS\Serializer\Annotation\SerializedName('path')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('path')]
     public string $path;
 
     /**
@@ -60,8 +60,8 @@ class OASOperation
      *
      * @var array<string> $tags
      */
-    #[\JMS\Serializer\Annotation\SerializedName('tags')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tags')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $tags;
 
     /**

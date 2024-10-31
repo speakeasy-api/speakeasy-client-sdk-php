@@ -17,7 +17,7 @@ class ApiInput
      *
      * @var string $apiId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('api_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('api_id')]
     public string $apiId;
 
     /**
@@ -25,7 +25,7 @@ class ApiInput
      *
      * @var string $description
      */
-    #[\JMS\Serializer\Annotation\SerializedName('description')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
     public string $description;
 
     /**
@@ -33,9 +33,9 @@ class ApiInput
      *
      * @var ?array<string, array<string>> $metaData
      */
-    #[\JMS\Serializer\Annotation\SerializedName('meta_data')]
-    #[\JMS\Serializer\Annotation\Type('array<string, array<string>>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('meta_data')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, array<string>>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $metaData = null;
 
     /**
@@ -43,7 +43,7 @@ class ApiInput
      *
      * @var string $versionId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('version_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('version_id')]
     public string $versionId;
 
     /**

@@ -15,36 +15,36 @@ class OASInfo
      *
      * @var string $description
      */
-    #[\JMS\Serializer\Annotation\SerializedName('description')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
     public string $description;
 
     /**
      *
      * @var License $license
      */
-    #[\JMS\Serializer\Annotation\SerializedName('license')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\License')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('license')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\License')]
     public License $license;
 
     /**
      *
      * @var string $summary
      */
-    #[\JMS\Serializer\Annotation\SerializedName('summary')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('summary')]
     public string $summary;
 
     /**
      *
      * @var string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
     public string $title;
 
     /**
      *
      * @var string $version
      */
-    #[\JMS\Serializer\Annotation\SerializedName('version')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('version')]
     public string $version;
 
     /**

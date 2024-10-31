@@ -17,9 +17,9 @@ class WorkspaceTeamResponse
      *
      * @var ?SSOMetadata $ssoMetadata
      */
-    #[\JMS\Serializer\Annotation\SerializedName('sso_metadata')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\SSOMetadata|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sso_metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\SSOMetadata|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?SSOMetadata $ssoMetadata = null;
 
     /**
@@ -27,8 +27,8 @@ class WorkspaceTeamResponse
      *
      * @var array<User> $users
      */
-    #[\JMS\Serializer\Annotation\SerializedName('users')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\User>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('users')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\User>')]
     public array $users;
 
     /**

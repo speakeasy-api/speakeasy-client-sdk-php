@@ -17,8 +17,8 @@ class WorkspaceAndOrganization
      *
      * @var Organization $organization
      */
-    #[\JMS\Serializer\Annotation\SerializedName('organization')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Organization')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('organization')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Organization')]
     public Organization $organization;
 
     /**
@@ -26,8 +26,8 @@ class WorkspaceAndOrganization
      *
      * @var Workspace $workspace
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspace')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Workspace')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Workspace')]
     public Workspace $workspace;
 
     /**

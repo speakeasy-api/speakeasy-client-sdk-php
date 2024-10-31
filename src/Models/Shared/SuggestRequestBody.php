@@ -16,24 +16,24 @@ class SuggestRequestBody
      *
      * @var array<Diagnostic> $diagnostics
      */
-    #[\JMS\Serializer\Annotation\SerializedName('diagnostics')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Diagnostic>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('diagnostics')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Diagnostic>')]
     public array $diagnostics;
 
     /**
      *
      * @var OASSummary $oasSummary
      */
-    #[\JMS\Serializer\Annotation\SerializedName('oas_summary')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\OASSummary')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('oas_summary')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\OASSummary')]
     public OASSummary $oasSummary;
 
     /**
      *
      * @var SuggestRequestBodySuggestionType $suggestionType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('suggestion_type')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestRequestBodySuggestionType')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('suggestion_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestRequestBodySuggestionType')]
     public SuggestRequestBodySuggestionType $suggestionType;
 
     /**

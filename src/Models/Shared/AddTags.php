@@ -17,7 +17,7 @@ class AddTags
      *
      * @var string $revisionDigest
      */
-    #[\JMS\Serializer\Annotation\SerializedName('revision_digest')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('revision_digest')]
     public string $revisionDigest;
 
     /**
@@ -25,8 +25,8 @@ class AddTags
      *
      * @var array<string> $tags
      */
-    #[\JMS\Serializer\Annotation\SerializedName('tags')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tags')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $tags;
 
     /**

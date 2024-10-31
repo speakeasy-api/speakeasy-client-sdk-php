@@ -17,7 +17,7 @@ class GithubConfigureTargetRequest
      *
      * @var string $org
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org')]
     public string $org;
 
     /**
@@ -25,7 +25,7 @@ class GithubConfigureTargetRequest
      *
      * @var string $repoName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('repo_name')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('repo_name')]
     public string $repoName;
 
     /**

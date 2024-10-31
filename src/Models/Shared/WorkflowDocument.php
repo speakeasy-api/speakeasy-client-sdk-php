@@ -16,16 +16,16 @@ class WorkflowDocument
      *
      * @var ?Auth $auth
      */
-    #[\JMS\Serializer\Annotation\SerializedName('auth')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Auth|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('auth')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Auth|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Auth $auth = null;
 
     /**
      *
      * @var string $location
      */
-    #[\JMS\Serializer\Annotation\SerializedName('location')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('location')]
     public string $location;
 
     /**

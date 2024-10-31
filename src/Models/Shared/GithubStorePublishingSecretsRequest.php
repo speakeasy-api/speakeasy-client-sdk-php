@@ -17,7 +17,7 @@ class GithubStorePublishingSecretsRequest
      *
      * @var string $generateGenLockId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generate_gen_lock_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_gen_lock_id')]
     public string $generateGenLockId;
 
     /**
@@ -25,9 +25,9 @@ class GithubStorePublishingSecretsRequest
      *
      * @var ?array<string, string> $secrets
      */
-    #[\JMS\Serializer\Annotation\SerializedName('secrets')]
-    #[\JMS\Serializer\Annotation\Type('array<string, string>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('secrets')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $secrets = null;
 
     /**

@@ -17,9 +17,9 @@ class WorkspaceFeatureFlagResponse
      *
      * @var ?array<FeatureFlag> $featureFlags
      */
-    #[\JMS\Serializer\Annotation\SerializedName('feature_flags')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlag>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('feature_flags')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlag>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $featureFlags = null;
 
     /**

@@ -14,3 +14,7 @@ targets:
             packagist:
                 username: $PACKAGIST_USERNAME
                 token: $PACKAGIST_TOKEN
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/speakeasy-self/speakeasy-self/my-source-code-samples
+            blocking: false

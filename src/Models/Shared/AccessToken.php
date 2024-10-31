@@ -16,15 +16,15 @@ class AccessToken
      *
      * @var string $accessToken
      */
-    #[\JMS\Serializer\Annotation\SerializedName('access_token')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('access_token')]
     public string $accessToken;
 
     /**
      *
      * @var Claims $claims
      */
-    #[\JMS\Serializer\Annotation\SerializedName('claims')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Claims')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('claims')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Claims')]
     public Claims $claims;
 
     /**
@@ -32,17 +32,17 @@ class AccessToken
      *
      * @var ?array<FeatureFlag> $featureFlags
      */
-    #[\JMS\Serializer\Annotation\SerializedName('feature_flags')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlag>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('feature_flags')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlag>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $featureFlags = null;
 
     /**
      *
      * @var AccessTokenUser $user
      */
-    #[\JMS\Serializer\Annotation\SerializedName('user')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessTokenUser')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('user')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessTokenUser')]
     public AccessTokenUser $user;
 
     /**
@@ -50,9 +50,9 @@ class AccessToken
      *
      * @var ?array<Workspaces> $workspaces
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspaces')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Workspaces>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspaces')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Workspaces>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $workspaces = null;
 
     /**

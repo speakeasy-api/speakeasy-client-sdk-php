@@ -15,8 +15,8 @@ class ApiKeyDetails
      *
      * @var AccountType $accountTypeV2
      */
-    #[\JMS\Serializer\Annotation\SerializedName('account_type_v2')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('account_type_v2')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccountType')]
     public AccountType $accountTypeV2;
 
     /**
@@ -24,8 +24,8 @@ class ApiKeyDetails
      *
      * @var array<string> $enabledFeatures
      */
-    #[\JMS\Serializer\Annotation\SerializedName('enabled_features')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('enabled_features')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $enabledFeatures;
 
     /**
@@ -33,31 +33,31 @@ class ApiKeyDetails
      * @var ?array<string> $featureFlags
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
-    #[\JMS\Serializer\Annotation\SerializedName('feature_flags')]
-    #[\JMS\Serializer\Annotation\Type('array<string>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('feature_flags')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $featureFlags = null;
 
     /**
      *
      * @var ?bool $generationAccessUnlimited
      */
-    #[\JMS\Serializer\Annotation\SerializedName('generation_access_unlimited')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generation_access_unlimited')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $generationAccessUnlimited = null;
 
     /**
      *
      * @var string $orgSlug
      */
-    #[\JMS\Serializer\Annotation\SerializedName('org_slug')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('org_slug')]
     public string $orgSlug;
 
     /**
      *
      * @var bool $telemetryDisabled
      */
-    #[\JMS\Serializer\Annotation\SerializedName('telemetry_disabled')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('telemetry_disabled')]
     public bool $telemetryDisabled;
 
     /**
@@ -65,21 +65,21 @@ class ApiKeyDetails
      *
      * @var \DateTime $workspaceCreatedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspace_created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_created_at')]
     public \DateTime $workspaceCreatedAt;
 
     /**
      *
      * @var string $workspaceId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspace_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
     public string $workspaceId;
 
     /**
      *
      * @var string $workspaceSlug
      */
-    #[\JMS\Serializer\Annotation\SerializedName('workspace_slug')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_slug')]
     public string $workspaceSlug;
 
     /**

@@ -17,8 +17,8 @@ class RemoteSource
      *
      * @var array<RemoteDocument> $inputs
      */
-    #[\JMS\Serializer\Annotation\SerializedName('inputs')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\RemoteDocument>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('inputs')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\RemoteDocument>')]
     public array $inputs;
 
     /**
@@ -26,8 +26,8 @@ class RemoteSource
      *
      * @var RemoteDocument $output
      */
-    #[\JMS\Serializer\Annotation\SerializedName('output')]
-    #[\JMS\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\RemoteDocument')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('output')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\RemoteDocument')]
     public RemoteDocument $output;
 
     /**
@@ -35,9 +35,9 @@ class RemoteSource
      *
      * @var ?array<RemoteDocument> $overlays
      */
-    #[\JMS\Serializer\Annotation\SerializedName('overlays')]
-    #[\JMS\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\RemoteDocument>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('overlays')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\RemoteDocument>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $overlays = null;
 
     /**

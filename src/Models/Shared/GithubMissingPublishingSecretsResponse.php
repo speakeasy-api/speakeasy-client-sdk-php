@@ -17,9 +17,9 @@ class GithubMissingPublishingSecretsResponse
      *
      * @var ?array<string> $missingSecrets
      */
-    #[\JMS\Serializer\Annotation\SerializedName('missing_secrets')]
-    #[\JMS\Serializer\Annotation\Type('array<string>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('missing_secrets')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $missingSecrets = null;
 
     /**
