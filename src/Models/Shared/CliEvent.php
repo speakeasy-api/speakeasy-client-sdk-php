@@ -362,7 +362,7 @@ class CliEvent
     public ?bool $ghChangesCommitted = null;
 
     /**
-     * The reference to a created pull request.
+     * The reference to a created pull request URL.
      *
      * @var ?string $ghPullRequest
      */

@@ -13,6 +13,14 @@ use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class SearchWorkspaceEventsRequest
 {
     /**
+     * Shared execution ID for cli events across a single action.
+     *
+     * @var ?string $executionId
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=execution_id')]
+    public ?string $executionId = null;
+
+    /**
      * A specific gen lock ID for the events.
      *
      * @var ?string $generateGenLockId
@@ -61,6 +69,7 @@ class SearchWorkspaceEventsRequest
     public ?string $workspaceId = null;
 
     /**
+     * @param  ?string  $executionId
      * @param  ?string  $generateGenLockId
      * @param  ?Shared\InteractionType  $interactionType
      * @param  ?string  $lintReportDigest
@@ -68,8 +77,9 @@ class SearchWorkspaceEventsRequest
      * @param  ?string  $sourceRevisionDigest
      * @param  ?string  $workspaceId
      */
-    public function __construct(?string $generateGenLockId = null, ?Shared\InteractionType $interactionType = null, ?string $lintReportDigest = null, ?string $openapiDiffReportDigest = null, ?string $sourceRevisionDigest = null, ?string $workspaceId = null)
+    public function __construct(?string $executionId = null, ?string $generateGenLockId = null, ?Shared\InteractionType $interactionType = null, ?string $lintReportDigest = null, ?string $openapiDiffReportDigest = null, ?string $sourceRevisionDigest = null, ?string $workspaceId = null)
     {
+        $this->executionId = $executionId;
         $this->generateGenLockId = $generateGenLockId;
         $this->interactionType = $interactionType;
         $this->lintReportDigest = $lintReportDigest;
