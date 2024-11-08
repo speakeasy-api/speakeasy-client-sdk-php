@@ -20,6 +20,13 @@ class LinkGithubAccessRequest
 
     /**
      *
+     * @var ?string $githubOrg
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=github_org')]
+    public ?string $githubOrg = null;
+
+    /**
+     *
      * @var ?string $installationId
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=installation_id')]
@@ -27,11 +34,13 @@ class LinkGithubAccessRequest
 
     /**
      * @param  ?string  $githubOidcToken
+     * @param  ?string  $githubOrg
      * @param  ?string  $installationId
      */
-    public function __construct(?string $githubOidcToken = null, ?string $installationId = null)
+    public function __construct(?string $githubOidcToken = null, ?string $githubOrg = null, ?string $installationId = null)
     {
         $this->githubOidcToken = $githubOidcToken;
+        $this->githubOrg = $githubOrg;
         $this->installationId = $installationId;
     }
 }
