@@ -11,8 +11,9 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 php:
-  version: 0.45.4
+  version: 0.45.5
   clientServerStatusCodesAsErrors: true
+  defaultErrorName: SDKException
   flattenGlobalSecurity: true
   imports:
     option: openapi

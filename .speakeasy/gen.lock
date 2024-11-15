@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 9a034a66f4da4914406d1bf2b518d536
+  docChecksum: 02b88f594911af47ff6407c43e5990cb
   docVersion: 0.4.0
-  speakeasyVersion: 1.434.6
-  generationVersion: 2.452.0
-  releaseVersion: 0.45.4
-  configChecksum: 00e5446666678bfde5679b8cc2922764
+  speakeasyVersion: 1.440.0
+  generationVersion: 2.457.9
+  releaseVersion: 0.45.5
+  configChecksum: df5caa6df93acc668b609623e05d6780
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
   published: true
 features:
   php:
-    core: 3.7.1
+    core: 3.7.2
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.81.7
@@ -60,6 +60,9 @@ generatedFiles:
   - docs/Models/Operations/File.md
   - docs/Models/Operations/FindApiEndpointRequest.md
   - docs/Models/Operations/FindApiEndpointResponse.md
+  - docs/Models/Operations/GenerateCodeSamplePreviewAsyncResponse.md
+  - docs/Models/Operations/GenerateCodeSamplePreviewAsyncResponseBody.md
+  - docs/Models/Operations/GenerateCodeSamplePreviewResponse.md
   - docs/Models/Operations/GenerateOpenApiSpecForApiEndpointRequest.md
   - docs/Models/Operations/GenerateOpenApiSpecForApiEndpointResponse.md
   - docs/Models/Operations/GenerateOpenApiSpecRequest.md
@@ -87,6 +90,9 @@ generatedFiles:
   - docs/Models/Operations/GetChangesReportSignedUrlRequest.md
   - docs/Models/Operations/GetChangesReportSignedUrlResponse.md
   - docs/Models/Operations/GetChangesReportSignedUrlSignedAccess.md
+  - docs/Models/Operations/GetCodeSamplePreviewAsyncRequest.md
+  - docs/Models/Operations/GetCodeSamplePreviewAsyncResponse.md
+  - docs/Models/Operations/GetCodeSamplePreviewAsyncResponseBody.md
   - docs/Models/Operations/GetEmbedAccessTokenRequest.md
   - docs/Models/Operations/GetEmbedAccessTokenResponse.md
   - docs/Models/Operations/GetGitHubActionRequest.md
@@ -213,6 +219,8 @@ generatedFiles:
   - docs/Models/Shared/BoundedRequest.md
   - docs/Models/Shared/Claims.md
   - docs/Models/Shared/CliEvent.md
+  - docs/Models/Shared/CodeSampleSchemaInput.md
+  - docs/Models/Shared/CodeSamplesJobStatus.md
   - docs/Models/Shared/Diagnostic.md
   - docs/Models/Shared/EmbedAccessTokenResponse.md
   - docs/Models/Shared/EmbedToken.md
@@ -258,6 +266,7 @@ generatedFiles:
   - docs/Models/Shared/SSOMetadata.md
   - docs/Models/Shared/Schema.md
   - docs/Models/Shared/SchemaDiff.md
+  - docs/Models/Shared/SchemaFile.md
   - docs/Models/Shared/Security.md
   - docs/Models/Shared/ShortURL.md
   - docs/Models/Shared/SubscriptionType.md
@@ -345,6 +354,9 @@ generatedFiles:
   - src/Models/Operations/File.php
   - src/Models/Operations/FindApiEndpointRequest.php
   - src/Models/Operations/FindApiEndpointResponse.php
+  - src/Models/Operations/GenerateCodeSamplePreviewAsyncResponse.php
+  - src/Models/Operations/GenerateCodeSamplePreviewAsyncResponseBody.php
+  - src/Models/Operations/GenerateCodeSamplePreviewResponse.php
   - src/Models/Operations/GenerateOpenApiSpecForApiEndpointRequest.php
   - src/Models/Operations/GenerateOpenApiSpecForApiEndpointResponse.php
   - src/Models/Operations/GenerateOpenApiSpecRequest.php
@@ -372,6 +384,9 @@ generatedFiles:
   - src/Models/Operations/GetChangesReportSignedUrlRequest.php
   - src/Models/Operations/GetChangesReportSignedUrlResponse.php
   - src/Models/Operations/GetChangesReportSignedUrlSignedAccess.php
+  - src/Models/Operations/GetCodeSamplePreviewAsyncRequest.php
+  - src/Models/Operations/GetCodeSamplePreviewAsyncResponse.php
+  - src/Models/Operations/GetCodeSamplePreviewAsyncResponseBody.php
   - src/Models/Operations/GetEmbedAccessTokenRequest.php
   - src/Models/Operations/GetEmbedAccessTokenResponse.php
   - src/Models/Operations/GetGitHubActionRequest.php
@@ -498,6 +513,8 @@ generatedFiles:
   - src/Models/Shared/BoundedRequest.php
   - src/Models/Shared/Claims.php
   - src/Models/Shared/CliEvent.php
+  - src/Models/Shared/CodeSampleSchemaInput.php
+  - src/Models/Shared/CodeSamplesJobStatus.php
   - src/Models/Shared/Diagnostic.php
   - src/Models/Shared/EmbedAccessTokenResponse.php
   - src/Models/Shared/EmbedToken.php
@@ -543,6 +560,7 @@ generatedFiles:
   - src/Models/Shared/SSOMetadata.php
   - src/Models/Shared/Schema.php
   - src/Models/Shared/SchemaDiff.php
+  - src/Models/Shared/SchemaFile.php
   - src/Models/Shared/Security.php
   - src/Models/Shared/ShortURL.php
   - src/Models/Shared/SubscriptionType.php
@@ -1724,3 +1742,35 @@ examples:
       responses:
         4XX:
           application/json: {"message": "<value>", "status_code": 774553}
+  generateCodeSamplePreview:
+    speakeasy-default-generate-code-sample-preview:
+      requestBody:
+        multipart/form-data: {"languages": ["<value>", "<value>"], "schema_file": {"": "example.file"}}
+      responses:
+        "200":
+          application/json: "0x28e0E3f5d1"
+          application/x-yaml: "0xfA011e0be4"
+        4XX:
+          application/json: {"message": "<value>", "status_code": 396101}
+  generateCodeSamplePreviewAsync:
+    speakeasy-default-generate-code-sample-preview-async:
+      requestBody:
+        multipart/form-data: {"languages": ["<value>", "<value>", "<value>"], "schema_file": {"": "example.file"}}
+      responses:
+        "202":
+          application/json: {"jobID": "<id>", "status": "pending"}
+        4XX:
+          application/json: {"message": "<value>", "status_code": 394086}
+  getCodeSamplePreviewAsync:
+    speakeasy-default-get-code-sample-preview-async:
+      parameters:
+        path:
+          jobID: "<id>"
+      responses:
+        "200":
+          application/json: "0x2090d4E1A7"
+          application/x-yaml: "0x14456CbEbA"
+        "202":
+          application/json: {"status": "running"}
+        4XX:
+          application/json: {"message": "<value>", "status_code": 462062}

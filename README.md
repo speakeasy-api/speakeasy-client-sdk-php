@@ -152,6 +152,11 @@ if ($response->apis !== null) {
 * [getSchemas](docs/sdks/schemas/README.md#getschemas) - Get information about all schemas associated with a particular apiID.
 * [registerSchema](docs/sdks/schemas/README.md#registerschema) - Register a schema.
 
+### [SDK](docs/sdks/sdk/README.md)
+
+* [generateCodeSamplePreview](docs/sdks/sdk/README.md#generatecodesamplepreview) - Generate Code Sample previews from a file and configuration parameters.
+* [generateCodeSamplePreviewAsync](docs/sdks/sdk/README.md#generatecodesamplepreviewasync) - Initiate asynchronous Code Sample preview generation from a file and configuration parameters, receiving an async JobID response for polling.
+* [getCodeSamplePreviewAsync](docs/sdks/sdk/README.md#getcodesamplepreviewasync) - Poll for the result of an asynchronous Code Sample preview generation.
 
 ### [shortURLs](docs/sdks/shorturls/README.md)
 
@@ -203,10 +208,9 @@ For example, you can set `workspace_id` to `'<id>'` at SDK initialization and th
 
 The following global parameter is available.
 
-| Name | Type | Required | Description |
-| ---- | ---- |:--------:| ----------- |
-| workspaceId | string |  | The workspaceId parameter. |
-
+| Name        | Type   | Description                |
+| ----------- | ------ | -------------------------- |
+| workspaceId | string | The workspaceId parameter. |
 
 ### Example
 
@@ -248,12 +252,11 @@ By default an API error will raise a `Errorors\SDKException` exception, which ha
 | `$rawResponse` | *?\Psr\Http\Message\ResponseInterface*  | The raw HTTP response |
 | `$body`        | *string*                                | The response content  |
 
-When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `deleteApi` method throws the following exceptions:
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `generateCodeSamplePreview` method throws the following exceptions:
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type     | Status Code | Content Type     |
+| -------------- | ----------- | ---------------- |
+| Errorors\Error | 4XX, 5XX    | application/json |
 
 ### Example
 
@@ -263,7 +266,6 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
@@ -273,16 +275,21 @@ $security = new Shared\Security(
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\DeleteApiRequest(
-        apiID: '<id>',
-        versionID: '<id>',
+    $request = new Shared\CodeSampleSchemaInput(
+        languages: [
+            '<value>',
+        ],
+        schemaFile: new Shared\SchemaFile(
+            content: '0xc3dD8BfBef',
+            fileName: 'example.file',
+        ),
     );
 
-    $response = $sdk->apis->deleteApi(
+    $response = $sdk->generateCodeSamplePreview(
         request: $request
     );
 
-    if ($response->statusCode === 200) {
+    if ($response->twoHundredApplicationJsonBytes !== null) {
         // handle response
     }
 } catch (Errorors\ErrorThrowable $e) {
@@ -298,21 +305,88 @@ try {
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-## Server Selection
-
 ### Select Server by Name
 
-You can override the default server globally by passing a server name to the `server: str` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
+You can override the default server globally using the `setServer(string $serverName)` builder method when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
-| Name | Server | Variables |
-| ----- | ------ | --------- |
-| `prod` | `https://api.prod.speakeasyapi.dev` | None |
+| Name   | Server                              |
+| ------ | ----------------------------------- |
+| `prod` | `https://api.prod.speakeasyapi.dev` |
 
+#### Example
 
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setServer("prod")
+    ->setSecurity($security)->build();
+
+$request = new Shared\CodeSampleSchemaInput(
+    languages: [
+        '<value>',
+    ],
+    schemaFile: new Shared\SchemaFile(
+        content: '0xc3dD8BfBef',
+        fileName: 'example.file',
+    ),
+);
+
+$response = $sdk->generateCodeSamplePreview(
+    request: $request
+);
+
+if ($response->twoHundredApplicationJsonBytes !== null) {
+    // handle response
+}
+```
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
+The default server can also be overridden globally using the `setServerUrl(string $serverUrl)` builder method when initializing the SDK client instance. For example:
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setServerURL("https://api.prod.speakeasyapi.dev")
+    ->setSecurity($security)->build();
+
+$request = new Shared\CodeSampleSchemaInput(
+    languages: [
+        '<value>',
+    ],
+    schemaFile: new Shared\SchemaFile(
+        content: '0xc3dD8BfBef',
+        fileName: 'example.file',
+    ),
+);
+
+$response = $sdk->generateCodeSamplePreview(
+    request: $request
+);
+
+if ($response->twoHundredApplicationJsonBytes !== null) {
+    // handle response
+}
+```
 <!-- End Server Selection [server] -->
 
 <!-- Start Summary [summary] -->
