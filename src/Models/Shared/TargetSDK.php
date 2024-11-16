@@ -358,6 +358,24 @@ class TargetSDK
     public ?bool $success = null;
 
     /**
+     * Workflow lock file (post execution)
+     *
+     * @var ?string $workflowLockPostRaw
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workflow_lock_post_raw')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $workflowLockPostRaw = null;
+
+    /**
+     * Workflow lock file (prior to execution)
+     *
+     * @var ?string $workflowLockPreRaw
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workflow_lock_pre_raw')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $workflowLockPreRaw = null;
+
+    /**
      * Workflow file (post execution)
      *
      * @var ?string $workflowPostRaw
@@ -415,10 +433,12 @@ class TargetSDK
      * @param  ?string  $sourceNamespaceName
      * @param  ?string  $sourceRevisionDigest
      * @param  ?bool  $success
+     * @param  ?string  $workflowLockPostRaw
+     * @param  ?string  $workflowLockPreRaw
      * @param  ?string  $workflowPostRaw
      * @param  ?string  $workflowPreRaw
      */
-    public function __construct(string $generateGenLockId, string $generateTarget, string $id, \DateTime $lastEventCreatedAt, string $lastEventId, InteractionType $lastEventInteractionType, ?string $commitHead = null, ?string $continuousIntegrationEnvironment = null, ?string $error = null, ?string $generateConfigPostVersion = null, ?string $generateEligibleFeatures = null, ?string $generateGenLockPreFeatures = null, ?string $generateGenLockPreVersion = null, ?int $generateNumberOfOperationsIgnored = null, ?int $generateNumberOfOperationsUsed = null, ?int $generateNumberOfTerraformResources = null, ?bool $generatePublished = null, ?string $generateTargetName = null, ?string $generateTargetVersion = null, ?string $ghActionOrganization = null, ?string $ghActionRef = null, ?string $ghActionRepository = null, ?string $ghActionRunLink = null, ?string $ghActionVersion = null, ?string $gitRelativeCwd = null, ?string $gitRemoteDefaultOwner = null, ?string $gitRemoteDefaultRepo = null, ?string $gitUserEmail = null, ?string $gitUserName = null, ?string $hostname = null, ?string $publishPackageName = null, ?string $publishPackageRegistryName = null, ?string $publishPackageUrl = null, ?string $publishPackageVersion = null, ?string $repoLabel = null, ?string $sourceBlobDigest = null, ?string $sourceNamespaceName = null, ?string $sourceRevisionDigest = null, ?bool $success = null, ?string $workflowPostRaw = null, ?string $workflowPreRaw = null)
+    public function __construct(string $generateGenLockId, string $generateTarget, string $id, \DateTime $lastEventCreatedAt, string $lastEventId, InteractionType $lastEventInteractionType, ?string $commitHead = null, ?string $continuousIntegrationEnvironment = null, ?string $error = null, ?string $generateConfigPostVersion = null, ?string $generateEligibleFeatures = null, ?string $generateGenLockPreFeatures = null, ?string $generateGenLockPreVersion = null, ?int $generateNumberOfOperationsIgnored = null, ?int $generateNumberOfOperationsUsed = null, ?int $generateNumberOfTerraformResources = null, ?bool $generatePublished = null, ?string $generateTargetName = null, ?string $generateTargetVersion = null, ?string $ghActionOrganization = null, ?string $ghActionRef = null, ?string $ghActionRepository = null, ?string $ghActionRunLink = null, ?string $ghActionVersion = null, ?string $gitRelativeCwd = null, ?string $gitRemoteDefaultOwner = null, ?string $gitRemoteDefaultRepo = null, ?string $gitUserEmail = null, ?string $gitUserName = null, ?string $hostname = null, ?string $publishPackageName = null, ?string $publishPackageRegistryName = null, ?string $publishPackageUrl = null, ?string $publishPackageVersion = null, ?string $repoLabel = null, ?string $sourceBlobDigest = null, ?string $sourceNamespaceName = null, ?string $sourceRevisionDigest = null, ?bool $success = null, ?string $workflowLockPostRaw = null, ?string $workflowLockPreRaw = null, ?string $workflowPostRaw = null, ?string $workflowPreRaw = null)
     {
         $this->generateGenLockId = $generateGenLockId;
         $this->generateTarget = $generateTarget;
@@ -459,6 +479,8 @@ class TargetSDK
         $this->sourceNamespaceName = $sourceNamespaceName;
         $this->sourceRevisionDigest = $sourceRevisionDigest;
         $this->success = $success;
+        $this->workflowLockPostRaw = $workflowLockPostRaw;
+        $this->workflowLockPreRaw = $workflowLockPreRaw;
         $this->workflowPostRaw = $workflowPostRaw;
         $this->workflowPreRaw = $workflowPreRaw;
     }
