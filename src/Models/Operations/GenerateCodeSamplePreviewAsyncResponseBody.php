@@ -15,10 +15,10 @@ class GenerateCodeSamplePreviewAsyncResponseBody
     /**
      * The job ID for polling
      *
-     * @var string $jobID
+     * @var string $jobId
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('jobID')]
-    public string $jobID;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('job_id')]
+    public string $jobId;
 
     /**
      * The current status of the job. Possible values are `pending` or `running`.
@@ -30,12 +30,12 @@ class GenerateCodeSamplePreviewAsyncResponseBody
     public Shared\CodeSamplesJobStatus $status;
 
     /**
-     * @param  string  $jobID
+     * @param  string  $jobId
      * @param  Shared\CodeSamplesJobStatus  $status
      */
-    public function __construct(string $jobID, Shared\CodeSamplesJobStatus $status)
+    public function __construct(string $jobId, Shared\CodeSamplesJobStatus $status)
     {
-        $this->jobID = $jobID;
+        $this->jobId = $jobId;
         $this->status = $status;
     }
 }

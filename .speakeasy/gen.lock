@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: be67da8c42c207e9bca0fa82315ff95a
+  docChecksum: f29435bb099891e387e6c1c61cb02f8c
   docVersion: 0.4.0
-  speakeasyVersion: 1.440.1
+  speakeasyVersion: 1.441.0
   generationVersion: 2.460.1
-  releaseVersion: 0.45.6
-  configChecksum: 9844b8a3354d2da8ba63a45c6b4b9df9
+  releaseVersion: 0.45.7
+  configChecksum: 5b5900365d0674bc378d3c134951c761
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -1758,7 +1758,7 @@ examples:
         multipart/form-data: {"languages": ["<value>", "<value>", "<value>"], "schema_file": {"": "example.file"}}
       responses:
         "202":
-          application/json: {"jobID": "<id>", "status": "pending"}
+          application/json: {"job_id": "<id>", "status": "pending"}
         4XX:
           application/json: {"message": "<value>", "status_code": 394086}
   getCodeSamplePreviewAsync:
