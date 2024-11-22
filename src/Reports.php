@@ -21,6 +21,26 @@ class Reports
     {
         $this->sdkConfiguration = $sdkConfig;
     }
+    /**
+     * @param  string  $baseUrl
+     * @param  array<string, string>  $urlVariables
+     *
+     * @return string
+     */
+    public function getUrl(string $baseUrl, array $urlVariables): string
+    {
+        $serverDetails = $this->sdkConfiguration->getServerDetails();
+
+        if ($baseUrl == null) {
+            $baseUrl = $serverDetails->baseUrl;
+        }
+
+        if ($urlVariables == null) {
+            $urlVariables = $serverDetails->options;
+        }
+
+        return Utils\Utils::templateUrl($baseUrl, $urlVariables);
+    }
 
     /**
      * Get the signed access url for the change reports for a particular document.
@@ -33,6 +53,7 @@ class Reports
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/reports/changes/{documentChecksum}', Operations\GetChangesReportSignedUrlRequest::class, $request, $this->sdkConfiguration->globals);
+        $urlOverride = null;
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
@@ -46,7 +67,8 @@ class Reports
         if ($statusCode >= 200 && $statusCode < 300) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlSignedAccess', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetChangesReportSignedUrlSignedAccess', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\GetChangesReportSignedUrlResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
@@ -75,6 +97,7 @@ class Reports
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/reports/linting/{documentChecksum}', Operations\GetLintingReportSignedUrlRequest::class, $request, $this->sdkConfiguration->globals);
+        $urlOverride = null;
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
@@ -88,7 +111,8 @@ class Reports
         if ($statusCode >= 200 && $statusCode < 300) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetLintingReportSignedUrlSignedAccess', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetLintingReportSignedUrlSignedAccess', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\GetLintingReportSignedUrlResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
@@ -117,6 +141,7 @@ class Reports
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/reports');
+        $urlOverride = null;
         $options = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'request', 'multipart');
         if ($body === null) {
@@ -135,7 +160,8 @@ class Reports
         if ($statusCode >= 200 && $statusCode < 300) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Speakeasy\SpeakeasyClientSDK\Models\Operations\UploadReportUploadedReport', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Operations\UploadReportUploadedReport', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\UploadReportResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,

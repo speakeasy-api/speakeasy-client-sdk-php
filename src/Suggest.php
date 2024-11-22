@@ -22,6 +22,26 @@ class Suggest
     {
         $this->sdkConfiguration = $sdkConfig;
     }
+    /**
+     * @param  string  $baseUrl
+     * @param  array<string, string>  $urlVariables
+     *
+     * @return string
+     */
+    public function getUrl(string $baseUrl, array $urlVariables): string
+    {
+        $serverDetails = $this->sdkConfiguration->getServerDetails();
+
+        if ($baseUrl == null) {
+            $baseUrl = $serverDetails->baseUrl;
+        }
+
+        if ($urlVariables == null) {
+            $urlVariables = $serverDetails->options;
+        }
+
+        return Utils\Utils::templateUrl($baseUrl, $urlVariables);
+    }
 
     /**
      * Generate suggestions for improving an OpenAPI document.
@@ -36,6 +56,7 @@ class Suggest
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/suggest/openapi_from_summary');
+        $urlOverride = null;
         $options = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'suggestRequestBody', 'json');
         if ($body === null) {
@@ -85,6 +106,7 @@ class Suggest
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/suggest/items');
+        $urlOverride = null;
         $options = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
         if ($body === null) {
@@ -103,7 +125,8 @@ class Suggest
         if ($statusCode >= 200 && $statusCode < 300) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), 'array<string>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, 'array<string>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\SuggestItemsResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
@@ -134,6 +157,7 @@ class Suggest
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/suggest/openapi');
+        $urlOverride = null;
         $options = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'requestBody', 'multipart');
         if ($body === null) {
@@ -185,6 +209,7 @@ class Suggest
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/suggest/openapi/{namespace_name}/{revision_reference}', Operations\SuggestOpenAPIRegistryRequest::class, $request, $this->sdkConfiguration->globals);
+        $urlOverride = null;
         $options = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'suggestRequestBody', 'json');
         if ($body !== null) {

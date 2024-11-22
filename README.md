@@ -111,6 +111,7 @@ if ($response->apis !== null) {
 * [configureMintlifyRepo](docs/sdks/github/README.md#configuremintlifyrepo)
 * [configureTarget](docs/sdks/github/README.md#configuretarget)
 * [getAction](docs/sdks/github/README.md#getaction)
+* [getSetup](docs/sdks/github/README.md#getsetup)
 * [linkGithub](docs/sdks/github/README.md#linkgithub)
 * [storePublishingSecrets](docs/sdks/github/README.md#storepublishingsecrets)
 * [triggerAction](docs/sdks/github/README.md#triggeraction)

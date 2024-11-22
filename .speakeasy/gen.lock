@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: f29435bb099891e387e6c1c61cb02f8c
+  docChecksum: 04169f580d81fde74dfa8c8a3b75a513
   docVersion: 0.4.0
-  speakeasyVersion: 1.441.0
-  generationVersion: 2.460.1
-  releaseVersion: 0.45.7
-  configChecksum: 5b5900365d0674bc378d3c134951c761
+  speakeasyVersion: 1.443.0
+  generationVersion: 2.461.4
+  releaseVersion: 0.45.8
+  configChecksum: 2b21332ef0665786731e770b6ab8a524
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -97,6 +97,8 @@ generatedFiles:
   - docs/Models/Operations/GetEmbedAccessTokenResponse.md
   - docs/Models/Operations/GetGitHubActionRequest.md
   - docs/Models/Operations/GetGitHubActionResponse.md
+  - docs/Models/Operations/GetGithubSetupStateRequest.md
+  - docs/Models/Operations/GetGithubSetupStateResponse.md
   - docs/Models/Operations/GetLintingReportSignedUrlRequest.md
   - docs/Models/Operations/GetLintingReportSignedUrlResponse.md
   - docs/Models/Operations/GetLintingReportSignedUrlSignedAccess.md
@@ -208,6 +210,7 @@ generatedFiles:
   - docs/Models/Shared/AccessToken.md
   - docs/Models/Shared/AccessTokenUser.md
   - docs/Models/Shared/AccountType.md
+  - docs/Models/Shared/Actions.md
   - docs/Models/Shared/AddTags.md
   - docs/Models/Shared/Annotations.md
   - docs/Models/Shared/Api.md
@@ -240,6 +243,7 @@ generatedFiles:
   - docs/Models/Shared/GithubGetActionResponse.md
   - docs/Models/Shared/GithubMissingPublishingSecretsResponse.md
   - docs/Models/Shared/GithubPublishingPRResponse.md
+  - docs/Models/Shared/GithubSetupStateResponse.md
   - docs/Models/Shared/GithubStorePublishingSecretsRequest.md
   - docs/Models/Shared/GithubTriggerActionRequest.md
   - docs/Models/Shared/InteractionType.md
@@ -267,6 +271,7 @@ generatedFiles:
   - docs/Models/Shared/Schema.md
   - docs/Models/Shared/SchemaDiff.md
   - docs/Models/Shared/SchemaFile.md
+  - docs/Models/Shared/Secrets.md
   - docs/Models/Shared/Security.md
   - docs/Models/Shared/ShortURL.md
   - docs/Models/Shared/SubscriptionType.md
@@ -391,6 +396,8 @@ generatedFiles:
   - src/Models/Operations/GetEmbedAccessTokenResponse.php
   - src/Models/Operations/GetGitHubActionRequest.php
   - src/Models/Operations/GetGitHubActionResponse.php
+  - src/Models/Operations/GetGithubSetupStateRequest.php
+  - src/Models/Operations/GetGithubSetupStateResponse.php
   - src/Models/Operations/GetLintingReportSignedUrlRequest.php
   - src/Models/Operations/GetLintingReportSignedUrlResponse.php
   - src/Models/Operations/GetLintingReportSignedUrlSignedAccess.php
@@ -502,6 +509,7 @@ generatedFiles:
   - src/Models/Shared/AccessToken.php
   - src/Models/Shared/AccessTokenUser.php
   - src/Models/Shared/AccountType.php
+  - src/Models/Shared/Actions.php
   - src/Models/Shared/AddTags.php
   - src/Models/Shared/Annotations.php
   - src/Models/Shared/Api.php
@@ -534,6 +542,7 @@ generatedFiles:
   - src/Models/Shared/GithubGetActionResponse.php
   - src/Models/Shared/GithubMissingPublishingSecretsResponse.php
   - src/Models/Shared/GithubPublishingPRResponse.php
+  - src/Models/Shared/GithubSetupStateResponse.php
   - src/Models/Shared/GithubStorePublishingSecretsRequest.php
   - src/Models/Shared/GithubTriggerActionRequest.php
   - src/Models/Shared/InteractionType.php
@@ -561,6 +570,7 @@ generatedFiles:
   - src/Models/Shared/Schema.php
   - src/Models/Shared/SchemaDiff.php
   - src/Models/Shared/SchemaFile.php
+  - src/Models/Shared/Secrets.php
   - src/Models/Shared/Security.php
   - src/Models/Shared/ShortURL.php
   - src/Models/Shared/SubscriptionType.php
@@ -620,6 +630,7 @@ generatedFiles:
   - src/Utils/Security.php
   - src/Utils/SecurityClient.php
   - src/Utils/SecurityMetadata.php
+  - src/Utils/ServerDetails.php
   - src/Utils/SpeakeasyMetadata.php
   - src/Utils/UnionHandler.php
   - src/Utils/Utils.php
@@ -1774,3 +1785,15 @@ examples:
           application/json: {"status": "running"}
         4XX:
           application/json: {"message": "<value>", "status_code": 462062}
+  getGithubSetupState:
+    speakeasy-default-get-github-setup-state:
+      parameters:
+        query:
+          org: "<value>"
+          repo: "<value>"
+          generate_gen_lock_id: "<id>"
+      responses:
+        2XX:
+          application/json: {"actions": {"generation_action_configured": false, "publish_action_configured": false}, "app_installed": false, "secrets": {"api_key_configured": true, "publishing_secrets_configured": true}}
+        4XX:
+          application/json: {"message": "<value>", "status_code": 743106}

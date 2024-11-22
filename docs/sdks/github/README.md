@@ -12,6 +12,7 @@
 * [configureMintlifyRepo](#configuremintlifyrepo)
 * [configureTarget](#configuretarget)
 * [getAction](#getaction)
+* [getSetup](#getsetup)
 * [linkGithub](#linkgithub)
 * [storePublishingSecrets](#storepublishingsecrets)
 * [triggerAction](#triggeraction)
@@ -360,6 +361,57 @@ if ($response->githubGetActionResponse !== null) {
 ### Response
 
 **[?Operations\GetGitHubActionResponse](../../Models/Operations/GetGitHubActionResponse.md)**
+
+### Errors
+
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |
+
+## getSetup
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+$request = new Operations\GetGithubSetupStateRequest(
+    generateGenLockId: '<id>',
+    org: '<value>',
+    repo: '<value>',
+);
+
+$response = $sdk->github->getSetup(
+    request: $request
+);
+
+if ($response->githubSetupStateResponse !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `$request`                                                                                     | [Operations\GetGithubSetupStateRequest](../../Models/Operations/GetGithubSetupStateRequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+
+### Response
+
+**[?Operations\GetGithubSetupStateResponse](../../Models/Operations/GetGithubSetupStateResponse.md)**
 
 ### Errors
 
