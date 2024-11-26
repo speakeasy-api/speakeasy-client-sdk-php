@@ -80,6 +80,7 @@ if ($response->apis !== null) {
 * [listRemoteSources](docs/sdks/artifacts/README.md#listremotesources) - Get remote sources attached to a particular namespace
 * [postTags](docs/sdks/artifacts/README.md#posttags) - Add tags to an existing revision
 * [preflight](docs/sdks/artifacts/README.md#preflight) - Get access token for communicating with OCI distribution endpoints
+* [setVisibility](docs/sdks/artifacts/README.md#setvisibility) - Set visibility of a namespace with an existing metadata entry
 
 ### [auth](docs/sdks/auth/README.md)
 

@@ -37,6 +37,14 @@ class NamespaceT
 
     /**
      *
+     * @var ?bool $public
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('public')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $public = null;
+
+    /**
+     *
      * @var \DateTime $updatedAt
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('updated_at')]
@@ -47,12 +55,14 @@ class NamespaceT
      * @param  string  $id
      * @param  string  $name
      * @param  \DateTime  $updatedAt
+     * @param  ?bool  $public
      */
-    public function __construct(\DateTime $createdAt, string $id, string $name, \DateTime $updatedAt)
+    public function __construct(\DateTime $createdAt, string $id, string $name, \DateTime $updatedAt, ?bool $public = null)
     {
         $this->createdAt = $createdAt;
         $this->id = $id;
         $this->name = $name;
         $this->updatedAt = $updatedAt;
+        $this->public = $public;
     }
 }

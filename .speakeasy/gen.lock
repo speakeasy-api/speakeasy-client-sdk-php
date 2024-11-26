@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 04169f580d81fde74dfa8c8a3b75a513
+  docChecksum: 461c434568ccf922eabedab19a4e0afd
   docVersion: 0.4.0
-  speakeasyVersion: 1.443.0
+  speakeasyVersion: 1.445.2
   generationVersion: 2.461.4
-  releaseVersion: 0.45.8
-  configChecksum: 2b21332ef0665786731e770b6ab8a524
+  releaseVersion: 0.45.9
+  configChecksum: 78308325e31c462e1e151215ebf3f670
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -104,6 +104,7 @@ generatedFiles:
   - docs/Models/Operations/GetLintingReportSignedUrlSignedAccess.md
   - docs/Models/Operations/GetManifestRequest.md
   - docs/Models/Operations/GetManifestResponse.md
+  - docs/Models/Operations/GetNamespacesRequest.md
   - docs/Models/Operations/GetNamespacesResponse.md
   - docs/Models/Operations/GetOrganizationRequest.md
   - docs/Models/Operations/GetOrganizationResponse.md
@@ -186,6 +187,9 @@ generatedFiles:
   - docs/Models/Operations/Schema.md
   - docs/Models/Operations/SearchWorkspaceEventsRequest.md
   - docs/Models/Operations/SearchWorkspaceEventsResponse.md
+  - docs/Models/Operations/SetVisibilityRequest.md
+  - docs/Models/Operations/SetVisibilityRequestBody.md
+  - docs/Models/Operations/SetVisibilityResponse.md
   - docs/Models/Operations/SuggestItemsResponse.md
   - docs/Models/Operations/SuggestOpenAPIRegistryRequest.md
   - docs/Models/Operations/SuggestOpenAPIRegistryResponse.md
@@ -403,6 +407,7 @@ generatedFiles:
   - src/Models/Operations/GetLintingReportSignedUrlSignedAccess.php
   - src/Models/Operations/GetManifestRequest.php
   - src/Models/Operations/GetManifestResponse.php
+  - src/Models/Operations/GetNamespacesRequest.php
   - src/Models/Operations/GetNamespacesResponse.php
   - src/Models/Operations/GetOrganizationRequest.php
   - src/Models/Operations/GetOrganizationResponse.php
@@ -485,6 +490,9 @@ generatedFiles:
   - src/Models/Operations/Schema.php
   - src/Models/Operations/SearchWorkspaceEventsRequest.php
   - src/Models/Operations/SearchWorkspaceEventsResponse.php
+  - src/Models/Operations/SetVisibilityRequest.php
+  - src/Models/Operations/SetVisibilityRequestBody.php
+  - src/Models/Operations/SetVisibilityResponse.php
   - src/Models/Operations/SuggestItemsResponse.php
   - src/Models/Operations/SuggestOpenAPIRegistryRequest.php
   - src/Models/Operations/SuggestOpenAPIRegistryResponse.php
@@ -1797,3 +1805,11 @@ examples:
           application/json: {"actions": {"generation_action_configured": false, "publish_action_configured": false}, "app_installed": false, "secrets": {"api_key_configured": true, "publishing_secrets_configured": true}}
         4XX:
           application/json: {"message": "<value>", "status_code": 743106}
+  setVisibility:
+    speakeasy-default-set-visibility:
+      parameters:
+        path:
+          namespace_name: "<value>"
+      responses:
+        4XX:
+          application/json: {"message": "<value>", "status_code": 651364}
