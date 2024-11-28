@@ -368,7 +368,7 @@ $security = new Shared\Security(
 );
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setServerURL("https://api.prod.speakeasyapi.dev")
+    ->setServerURL('https://api.prod.speakeasyapi.dev')
     ->setSecurity($security)->build();
 
 $request = new Shared\CodeSampleSchemaInput(
@@ -401,13 +401,15 @@ For more information about the API: [The Speakeasy Platform Documentation](/docs
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
+<!-- $toc-max-depth=2 -->
+* [speakeasy-api/speakeasy-client-sdk-php](#speakeasy-apispeakeasy-client-sdk-php)
+  * [SDK Installation](#sdk-installation)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Global Parameters](#global-parameters)
+  * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
 
-* [SDK Installation](#sdk-installation)
-* [SDK Example Usage](#sdk-example-usage)
-* [Available Resources and Operations](#available-resources-and-operations)
-* [Global Parameters](#global-parameters)
-* [Error Handling](#error-handling)
-* [Server Selection](#server-selection)
 <!-- End Table of Contents [toc] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

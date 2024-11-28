@@ -38,6 +38,7 @@ $request = new Shared\Organization(
     id: '<id>',
     name: '<value>',
     slug: '<value>',
+    ssoActivated: false,
     telemetryDisabled: false,
     updatedAt: Utils\Utils::parseDateTime('2023-04-03T12:48:32.253Z'),
 );

@@ -66,6 +66,21 @@ class Organization
 
     /**
      *
+     * @var bool $ssoActivated
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sso_activated')]
+    public bool $ssoActivated;
+
+    /**
+     *
+     * @var ?string $ssoConnectionId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sso_connection_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $ssoConnectionId = null;
+
+    /**
+     *
      * @var bool $telemetryDisabled
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('telemetry_disabled')]
@@ -84,21 +99,25 @@ class Organization
      * @param  string  $id
      * @param  string  $name
      * @param  string  $slug
+     * @param  bool  $ssoActivated
      * @param  bool  $telemetryDisabled
      * @param  \DateTime  $updatedAt
      * @param  ?bool  $internal
      * @param  ?\DateTime  $freeTrialExpiry
+     * @param  ?string  $ssoConnectionId
      */
-    public function __construct(AccountType $accountType, \DateTime $createdAt, string $id, string $name, string $slug, bool $telemetryDisabled, \DateTime $updatedAt, ?bool $internal = null, ?\DateTime $freeTrialExpiry = null)
+    public function __construct(AccountType $accountType, \DateTime $createdAt, string $id, string $name, string $slug, bool $ssoActivated, bool $telemetryDisabled, \DateTime $updatedAt, ?bool $internal = null, ?\DateTime $freeTrialExpiry = null, ?string $ssoConnectionId = null)
     {
         $this->accountType = $accountType;
         $this->createdAt = $createdAt;
         $this->id = $id;
         $this->name = $name;
         $this->slug = $slug;
+        $this->ssoActivated = $ssoActivated;
         $this->telemetryDisabled = $telemetryDisabled;
         $this->updatedAt = $updatedAt;
         $this->internal = $internal;
         $this->freeTrialExpiry = $freeTrialExpiry;
+        $this->ssoConnectionId = $ssoConnectionId;
     }
 }

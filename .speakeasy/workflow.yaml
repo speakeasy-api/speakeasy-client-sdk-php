@@ -16,5 +16,5 @@ targets:
                 token: $PACKAGIST_TOKEN
         codeSamples:
             registry:
-                location: registry.speakeasyapi.dev/speakeasy-self/speakeasy-self/my-source-code-samples
+                location: registry.speakeasyapi.dev/speakeasy-self/speakeasy-self/my-source-php-code-samples
             blocking: false
