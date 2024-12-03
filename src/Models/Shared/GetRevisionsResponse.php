@@ -12,13 +12,6 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class GetRevisionsResponse
 {
     /**
-     *
-     * @var bool $isCompositeSpec
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('is_composite_spec')]
-    public bool $isCompositeSpec;
-
-    /**
      * $items
      *
      * @var array<Revision> $items
@@ -35,23 +28,12 @@ class GetRevisionsResponse
     public string $nextPageToken;
 
     /**
-     *
-     * @var bool $public
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('public')]
-    public bool $public;
-
-    /**
-     * @param  bool  $isCompositeSpec
      * @param  array<Revision>  $items
      * @param  string  $nextPageToken
-     * @param  bool  $public
      */
-    public function __construct(bool $isCompositeSpec, array $items, string $nextPageToken, bool $public)
+    public function __construct(array $items, string $nextPageToken)
     {
-        $this->isCompositeSpec = $isCompositeSpec;
         $this->items = $items;
         $this->nextPageToken = $nextPageToken;
-        $this->public = $public;
     }
 }

@@ -197,20 +197,15 @@ class Artifacts
     /**
      * Each namespace contains many revisions.
      *
-     * @param  ?Operations\GetNamespacesRequest  $request
      * @return Operations\GetNamespacesResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function getNamespaces(?Operations\GetNamespacesRequest $request = null): Operations\GetNamespacesResponse
+    public function getNamespaces(): Operations\GetNamespacesResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/artifacts/namespaces');
         $urlOverride = null;
         $options = ['http_errors' => false];
-
-        $qp = Utils\Utils::getQueryParams(Operations\GetNamespacesRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-
-        $options = array_merge_recursive($options, $qp);
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);

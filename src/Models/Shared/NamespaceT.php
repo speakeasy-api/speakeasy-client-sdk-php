@@ -14,6 +14,15 @@ class NamespaceT
 {
     /**
      *
+     * @var ?CompositeSpecMetadata $compositeSpecMetadata
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('composite_spec_metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\CompositeSpecMetadata|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CompositeSpecMetadata $compositeSpecMetadata = null;
+
+    /**
+     *
      * @var \DateTime $createdAt
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
@@ -36,6 +45,7 @@ class NamespaceT
     public string $name;
 
     /**
+     * Indicates whether the namespace is publicly accessible
      *
      * @var ?bool $public
      */
@@ -55,14 +65,16 @@ class NamespaceT
      * @param  string  $id
      * @param  string  $name
      * @param  \DateTime  $updatedAt
+     * @param  ?CompositeSpecMetadata  $compositeSpecMetadata
      * @param  ?bool  $public
      */
-    public function __construct(\DateTime $createdAt, string $id, string $name, \DateTime $updatedAt, ?bool $public = null)
+    public function __construct(\DateTime $createdAt, string $id, string $name, \DateTime $updatedAt, ?CompositeSpecMetadata $compositeSpecMetadata = null, ?bool $public = null)
     {
         $this->createdAt = $createdAt;
         $this->id = $id;
         $this->name = $name;
         $this->updatedAt = $updatedAt;
+        $this->compositeSpecMetadata = $compositeSpecMetadata;
         $this->public = $public;
     }
 }
