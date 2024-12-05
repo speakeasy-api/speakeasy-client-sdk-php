@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 867e0698f3110dba472ddc490d9dcf87
+  docChecksum: 4370adb34e4b8d543b23bdcf77707fef
   docVersion: 0.4.0
-  speakeasyVersion: 1.449.0
-  generationVersion: 2.467.4
-  releaseVersion: 0.45.11
-  configChecksum: 7ab094de84b6f42cb464da871ebbd16d
+  speakeasyVersion: 1.451.4
+  generationVersion: 2.471.2
+  releaseVersion: 0.45.12
+  configChecksum: 0156b13c7ba0ef5af2bedf5c22514870
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -331,6 +331,19 @@ generatedFiles:
   - src/Embeds.php
   - src/Events.php
   - src/Github.php
+  - src/Hooks/AfterErrorContext.php
+  - src/Hooks/AfterErrorHook.php
+  - src/Hooks/AfterSuccessContext.php
+  - src/Hooks/AfterSuccessHook.php
+  - src/Hooks/BeforeRequestContext.php
+  - src/Hooks/BeforeRequestHook.php
+  - src/Hooks/ErrorResponseContext.php
+  - src/Hooks/FailEarlyException.php
+  - src/Hooks/HookContext.php
+  - src/Hooks/Hooks.php
+  - src/Hooks/SDKHooks.php
+  - src/Hooks/SDKInitHook.php
+  - src/Hooks/SDKRequestContext.php
   - src/Metadata.php
   - src/Models/Errorors/Error.php
   - src/Models/Errorors/ErrorThrowable.php
