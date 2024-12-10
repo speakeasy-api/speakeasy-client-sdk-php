@@ -3,6 +3,8 @@
 
 ## Overview
 
+REST APIs for managing Organizations (speakeasy L1 Tenancy construct)
+
 ### Available Operations
 
 * [create](#create) - Create an organization

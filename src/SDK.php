@@ -29,34 +29,6 @@ class SDK
     ];
 
     /**
-     * REST APIs for managing Api entities
-     *
-     * @var Apis $$apis
-     */
-    public Apis $apis;
-
-    /**
-     * REST APIs for managing ApiEndpoint entities
-     *
-     * @var ApiEndpoints $$apiEndpoints
-     */
-    public ApiEndpoints $apiEndpoints;
-
-    /**
-     * REST APIs for managing Version Metadata entities
-     *
-     * @var Metadata $$metadata
-     */
-    public Metadata $metadata;
-
-    /**
-     * REST APIs for managing Schema entities
-     *
-     * @var Schemas $$schemas
-     */
-    public Schemas $schemas;
-
-    /**
      * REST APIs for working with Registry artifacts
      *
      * @var Artifacts $$artifacts
@@ -71,18 +43,21 @@ class SDK
     public Auth $auth;
 
     /**
-     * REST APIs for retrieving request information
+     * REST APIs for managing the github integration
      *
-     * @var Requests $$requests
+     * @var Github $$github
      */
-    public Requests $requests;
-
     public Github $github;
 
+    /**
+     * REST APIs for managing Organizations (speakeasy L1 Tenancy construct)
+     *
+     * @var Organizations $$organizations
+     */
     public Organizations $organizations;
 
     /**
-     * REST APIs for managing reports
+     * REST APIs for managing reports (lint reports, change reports, etc)
      *
      * @var Reports $$reports
      */
@@ -102,17 +77,15 @@ class SDK
      */
     public Suggest $suggest;
 
+    /**
+     * REST APIs for managing Workspaces (speakeasy tenancy)
+     *
+     * @var Workspaces $$workspaces
+     */
     public Workspaces $workspaces;
 
     /**
-     * REST APIs for managing embeds
-     *
-     * @var Embeds $$embeds
-     */
-    public Embeds $embeds;
-
-    /**
-     * REST APIs for capturing event data
+     * REST APIs for managing events captured by a speakeasy binary (CLI, GitHub Action etc)
      *
      * @var Events $$events
      */
@@ -141,20 +114,14 @@ class SDK
     public function __construct(
         public SDKConfiguration $sdkConfiguration,
     ) {
-        $this->apis = new Apis($this->sdkConfiguration);
-        $this->apiEndpoints = new ApiEndpoints($this->sdkConfiguration);
-        $this->metadata = new Metadata($this->sdkConfiguration);
-        $this->schemas = new Schemas($this->sdkConfiguration);
         $this->artifacts = new Artifacts($this->sdkConfiguration);
         $this->auth = new Auth($this->sdkConfiguration);
-        $this->requests = new Requests($this->sdkConfiguration);
         $this->github = new Github($this->sdkConfiguration);
         $this->organizations = new Organizations($this->sdkConfiguration);
         $this->reports = new Reports($this->sdkConfiguration);
         $this->shortURLs = new ShortURLs($this->sdkConfiguration);
         $this->suggest = new Suggest($this->sdkConfiguration);
         $this->workspaces = new Workspaces($this->sdkConfiguration);
-        $this->embeds = new Embeds($this->sdkConfiguration);
         $this->events = new Events($this->sdkConfiguration);
         $this->subscriptions = new Subscriptions($this->sdkConfiguration);
         $this->sdkConfiguration->client = $this->sdkConfiguration->initHooks($this->sdkConfiguration->client);

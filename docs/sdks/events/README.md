@@ -3,7 +3,7 @@
 
 ## Overview
 
-REST APIs for capturing event data
+REST APIs for managing events captured by a speakeasy binary (CLI, GitHub Action etc)
 
 ### Available Operations
 

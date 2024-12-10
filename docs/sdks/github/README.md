@@ -3,6 +3,8 @@
 
 ## Overview
 
+REST APIs for managing the github integration
+
 ### Available Operations
 
 * [checkAccess](#checkaccess)

@@ -1,25 +1,23 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 09696cca6dbcaa4fa372f51b4fa17ebc
+  docChecksum: d5a331da222343db2b92613baf751e36
   docVersion: 0.4.0
-  speakeasyVersion: 1.453.3
-  generationVersion: 2.474.6
-  releaseVersion: 0.45.13
-  configChecksum: 67a5ea38c99cd6a82cd2597d795a1b2e
+  speakeasyVersion: 1.453.8
+  generationVersion: 2.474.15
+  releaseVersion: 0.46.0
+  configChecksum: 44b188f5503ea47014811cd99cf8aa3b
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
   published: true
 features:
   php:
-    core: 3.7.3
+    core: 3.7.4
     deprecations: 2.81.1
-    examples: 2.81.3
     globalSecurity: 2.81.7
     globalServerURLs: 2.82.1
     globals: 2.82.2
-    inputOutputModels: 2.83.0
     methodArguments: 0.1.0
     nameOverrides: 2.81.2
     nullables: 1.0.0
@@ -43,48 +41,14 @@ generatedFiles:
   - docs/Models/Operations/CreateWorkspaceResponse.md
   - docs/Models/Operations/CreateWorkspaceTokenRequest.md
   - docs/Models/Operations/CreateWorkspaceTokenResponse.md
-  - docs/Models/Operations/DeleteApiEndpointRequest.md
-  - docs/Models/Operations/DeleteApiEndpointResponse.md
-  - docs/Models/Operations/DeleteApiRequest.md
-  - docs/Models/Operations/DeleteApiResponse.md
-  - docs/Models/Operations/DeleteSchemaRequest.md
-  - docs/Models/Operations/DeleteSchemaResponse.md
-  - docs/Models/Operations/DeleteVersionMetadataRequest.md
-  - docs/Models/Operations/DeleteVersionMetadataResponse.md
   - docs/Models/Operations/DeleteWorkspaceTokenRequest.md
   - docs/Models/Operations/DeleteWorkspaceTokenResponse.md
-  - docs/Models/Operations/DownloadSchemaRequest.md
-  - docs/Models/Operations/DownloadSchemaResponse.md
-  - docs/Models/Operations/DownloadSchemaRevisionRequest.md
-  - docs/Models/Operations/DownloadSchemaRevisionResponse.md
   - docs/Models/Operations/File.md
-  - docs/Models/Operations/FindApiEndpointRequest.md
-  - docs/Models/Operations/FindApiEndpointResponse.md
   - docs/Models/Operations/GenerateCodeSamplePreviewAsyncResponse.md
   - docs/Models/Operations/GenerateCodeSamplePreviewAsyncResponseBody.md
   - docs/Models/Operations/GenerateCodeSamplePreviewResponse.md
-  - docs/Models/Operations/GenerateOpenApiSpecForApiEndpointRequest.md
-  - docs/Models/Operations/GenerateOpenApiSpecForApiEndpointResponse.md
-  - docs/Models/Operations/GenerateOpenApiSpecRequest.md
-  - docs/Models/Operations/GenerateOpenApiSpecResponse.md
-  - docs/Models/Operations/GeneratePostmanCollectionForApiEndpointRequest.md
-  - docs/Models/Operations/GeneratePostmanCollectionForApiEndpointResponse.md
-  - docs/Models/Operations/GeneratePostmanCollectionRequest.md
-  - docs/Models/Operations/GeneratePostmanCollectionResponse.md
-  - docs/Models/Operations/GenerateRequestPostmanCollectionRequest.md
-  - docs/Models/Operations/GenerateRequestPostmanCollectionResponse.md
   - docs/Models/Operations/GetAccessTokenRequest.md
   - docs/Models/Operations/GetAccessTokenResponse.md
-  - docs/Models/Operations/GetAllApiEndpointsRequest.md
-  - docs/Models/Operations/GetAllApiEndpointsResponse.md
-  - docs/Models/Operations/GetAllApiVersionsRequest.md
-  - docs/Models/Operations/GetAllApiVersionsResponse.md
-  - docs/Models/Operations/GetAllForVersionApiEndpointsRequest.md
-  - docs/Models/Operations/GetAllForVersionApiEndpointsResponse.md
-  - docs/Models/Operations/GetApiEndpointRequest.md
-  - docs/Models/Operations/GetApiEndpointResponse.md
-  - docs/Models/Operations/GetApisRequest.md
-  - docs/Models/Operations/GetApisResponse.md
   - docs/Models/Operations/GetBlobRequest.md
   - docs/Models/Operations/GetBlobResponse.md
   - docs/Models/Operations/GetChangesReportSignedUrlRequest.md
@@ -93,8 +57,6 @@ generatedFiles:
   - docs/Models/Operations/GetCodeSamplePreviewAsyncRequest.md
   - docs/Models/Operations/GetCodeSamplePreviewAsyncResponse.md
   - docs/Models/Operations/GetCodeSamplePreviewAsyncResponseBody.md
-  - docs/Models/Operations/GetEmbedAccessTokenRequest.md
-  - docs/Models/Operations/GetEmbedAccessTokenResponse.md
   - docs/Models/Operations/GetGitHubActionRequest.md
   - docs/Models/Operations/GetGitHubActionResponse.md
   - docs/Models/Operations/GetGithubSetupStateRequest.md
@@ -109,24 +71,11 @@ generatedFiles:
   - docs/Models/Operations/GetOrganizationResponse.md
   - docs/Models/Operations/GetOrganizationUsageResponse.md
   - docs/Models/Operations/GetOrganizationsResponse.md
-  - docs/Models/Operations/GetRequestFromEventLogRequest.md
-  - docs/Models/Operations/GetRequestFromEventLogResponse.md
   - docs/Models/Operations/GetRevisionsRequest.md
   - docs/Models/Operations/GetRevisionsResponse.md
-  - docs/Models/Operations/GetSchemaDiffRequest.md
-  - docs/Models/Operations/GetSchemaDiffResponse.md
-  - docs/Models/Operations/GetSchemaRequest.md
-  - docs/Models/Operations/GetSchemaResponse.md
-  - docs/Models/Operations/GetSchemaRevisionRequest.md
-  - docs/Models/Operations/GetSchemaRevisionResponse.md
-  - docs/Models/Operations/GetSchemasRequest.md
-  - docs/Models/Operations/GetSchemasResponse.md
   - docs/Models/Operations/GetTagsRequest.md
   - docs/Models/Operations/GetTagsResponse.md
   - docs/Models/Operations/GetUserResponse.md
-  - docs/Models/Operations/GetValidEmbedAccessTokensResponse.md
-  - docs/Models/Operations/GetVersionMetadataRequest.md
-  - docs/Models/Operations/GetVersionMetadataResponse.md
   - docs/Models/Operations/GetWorkspaceAccessRequest.md
   - docs/Models/Operations/GetWorkspaceAccessResponse.md
   - docs/Models/Operations/GetWorkspaceByContextResponse.md
@@ -158,29 +107,17 @@ generatedFiles:
   - docs/Models/Operations/GithubTriggerActionResponse.md
   - docs/Models/Operations/GrantUserAccessToWorkspaceRequest.md
   - docs/Models/Operations/GrantUserAccessToWorkspaceResponse.md
-  - docs/Models/Operations/InsertVersionMetadataRequest.md
-  - docs/Models/Operations/InsertVersionMetadataResponse.md
   - docs/Models/Operations/LinkGithubAccessRequest.md
   - docs/Models/Operations/LinkGithubAccessResponse.md
   - docs/Models/Operations/ListRegistrySubscriptionsRequest.md
   - docs/Models/Operations/ListRegistrySubscriptionsResponse.md
   - docs/Models/Operations/ListRemoteSourcesRequest.md
   - docs/Models/Operations/ListRemoteSourcesResponse.md
-  - docs/Models/Operations/Op.md
   - docs/Models/Operations/PostTagsRequest.md
   - docs/Models/Operations/PostTagsResponse.md
   - docs/Models/Operations/PostWorkspaceEventsRequest.md
   - docs/Models/Operations/PostWorkspaceEventsResponse.md
   - docs/Models/Operations/PreflightResponse.md
-  - docs/Models/Operations/QueryEventLogRequest.md
-  - docs/Models/Operations/QueryEventLogResponse.md
-  - docs/Models/Operations/QueryParamOp.md
-  - docs/Models/Operations/RegisterSchemaFile.md
-  - docs/Models/Operations/RegisterSchemaRequest.md
-  - docs/Models/Operations/RegisterSchemaRequestBody.md
-  - docs/Models/Operations/RegisterSchemaResponse.md
-  - docs/Models/Operations/RevokeEmbedAccessTokenRequest.md
-  - docs/Models/Operations/RevokeEmbedAccessTokenResponse.md
   - docs/Models/Operations/RevokeUserAccessToWorkspaceRequest.md
   - docs/Models/Operations/RevokeUserAccessToWorkspaceResponse.md
   - docs/Models/Operations/Schema.md
@@ -204,10 +141,6 @@ generatedFiles:
   - docs/Models/Operations/UploadReportRequestBody.md
   - docs/Models/Operations/UploadReportResponse.md
   - docs/Models/Operations/UploadReportUploadedReport.md
-  - docs/Models/Operations/UpsertApiEndpointRequest.md
-  - docs/Models/Operations/UpsertApiEndpointResponse.md
-  - docs/Models/Operations/UpsertApiRequest.md
-  - docs/Models/Operations/UpsertApiResponse.md
   - docs/Models/Operations/ValidateApiKeyResponse.md
   - docs/Models/Shared/AccessDetails.md
   - docs/Models/Shared/AccessToken.md
@@ -216,27 +149,17 @@ generatedFiles:
   - docs/Models/Shared/Actions.md
   - docs/Models/Shared/AddTags.md
   - docs/Models/Shared/Annotations.md
-  - docs/Models/Shared/Api.md
-  - docs/Models/Shared/ApiEndpoint.md
-  - docs/Models/Shared/ApiEndpointInput.md
-  - docs/Models/Shared/ApiInput.md
   - docs/Models/Shared/ApiKeyDetails.md
   - docs/Models/Shared/Auth.md
-  - docs/Models/Shared/BoundedRequest.md
   - docs/Models/Shared/Claims.md
   - docs/Models/Shared/CliEvent.md
   - docs/Models/Shared/CodeSampleSchemaInput.md
   - docs/Models/Shared/CodeSamplesJobStatus.md
   - docs/Models/Shared/CompositeSpecMetadata.md
   - docs/Models/Shared/Diagnostic.md
-  - docs/Models/Shared/EmbedAccessTokenResponse.md
-  - docs/Models/Shared/EmbedToken.md
   - docs/Models/Shared/EventType.md
   - docs/Models/Shared/FeatureFlag.md
-  - docs/Models/Shared/Filter.md
-  - docs/Models/Shared/Filters.md
   - docs/Models/Shared/GenerateBumpType.md
-  - docs/Models/Shared/GenerateOpenApiSpecDiff.md
   - docs/Models/Shared/GetNamespacesResponse.md
   - docs/Models/Shared/GetRevisionsResponse.md
   - docs/Models/Shared/GetTagsResponse.md
@@ -270,11 +193,8 @@ generatedFiles:
   - docs/Models/Shared/RemoteSource.md
   - docs/Models/Shared/RemoteSourceSubscriptionSettings.md
   - docs/Models/Shared/Report.md
-  - docs/Models/Shared/RequestMetadata.md
   - docs/Models/Shared/Revision.md
   - docs/Models/Shared/SSOMetadata.md
-  - docs/Models/Shared/Schema.md
-  - docs/Models/Shared/SchemaDiff.md
   - docs/Models/Shared/SchemaFile.md
   - docs/Models/Shared/Secrets.md
   - docs/Models/Shared/Security.md
@@ -288,12 +208,8 @@ generatedFiles:
   - docs/Models/Shared/Tag.md
   - docs/Models/Shared/TargetSDK.md
   - docs/Models/Shared/Type.md
-  - docs/Models/Shared/UnboundedRequest.md
   - docs/Models/Shared/User.md
   - docs/Models/Shared/V2Descriptor.md
-  - docs/Models/Shared/ValueChange.md
-  - docs/Models/Shared/VersionMetadata.md
-  - docs/Models/Shared/VersionMetadataInput.md
   - docs/Models/Shared/WorkflowDocument.md
   - docs/Models/Shared/Workspace.md
   - docs/Models/Shared/WorkspaceAndOrganization.md
@@ -303,18 +219,12 @@ generatedFiles:
   - docs/Models/Shared/WorkspaceTeamResponse.md
   - docs/Models/Shared/WorkspaceToken.md
   - docs/Models/Shared/Workspaces.md
-  - docs/sdks/apiendpoints/README.md
-  - docs/sdks/apis/README.md
   - docs/sdks/artifacts/README.md
   - docs/sdks/auth/README.md
-  - docs/sdks/embeds/README.md
   - docs/sdks/events/README.md
   - docs/sdks/github/README.md
-  - docs/sdks/metadata/README.md
   - docs/sdks/organizations/README.md
   - docs/sdks/reports/README.md
-  - docs/sdks/requests/README.md
-  - docs/sdks/schemas/README.md
   - docs/sdks/sdk/README.md
   - docs/sdks/shorturls/README.md
   - docs/sdks/subscriptions/README.md
@@ -324,11 +234,8 @@ generatedFiles:
   - phpunit.xml
   - pint.json
   - rector.php
-  - src/ApiEndpoints.php
-  - src/Apis.php
   - src/Artifacts.php
   - src/Auth.php
-  - src/Embeds.php
   - src/Events.php
   - src/Github.php
   - src/Hooks/AfterErrorContext.php
@@ -344,7 +251,6 @@ generatedFiles:
   - src/Hooks/SDKHooks.php
   - src/Hooks/SDKInitHook.php
   - src/Hooks/SDKRequestContext.php
-  - src/Metadata.php
   - src/Models/Errorors/Error.php
   - src/Models/Errorors/ErrorThrowable.php
   - src/Models/Errorors/SDKException.php
@@ -360,48 +266,14 @@ generatedFiles:
   - src/Models/Operations/CreateWorkspaceResponse.php
   - src/Models/Operations/CreateWorkspaceTokenRequest.php
   - src/Models/Operations/CreateWorkspaceTokenResponse.php
-  - src/Models/Operations/DeleteApiEndpointRequest.php
-  - src/Models/Operations/DeleteApiEndpointResponse.php
-  - src/Models/Operations/DeleteApiRequest.php
-  - src/Models/Operations/DeleteApiResponse.php
-  - src/Models/Operations/DeleteSchemaRequest.php
-  - src/Models/Operations/DeleteSchemaResponse.php
-  - src/Models/Operations/DeleteVersionMetadataRequest.php
-  - src/Models/Operations/DeleteVersionMetadataResponse.php
   - src/Models/Operations/DeleteWorkspaceTokenRequest.php
   - src/Models/Operations/DeleteWorkspaceTokenResponse.php
-  - src/Models/Operations/DownloadSchemaRequest.php
-  - src/Models/Operations/DownloadSchemaResponse.php
-  - src/Models/Operations/DownloadSchemaRevisionRequest.php
-  - src/Models/Operations/DownloadSchemaRevisionResponse.php
   - src/Models/Operations/File.php
-  - src/Models/Operations/FindApiEndpointRequest.php
-  - src/Models/Operations/FindApiEndpointResponse.php
   - src/Models/Operations/GenerateCodeSamplePreviewAsyncResponse.php
   - src/Models/Operations/GenerateCodeSamplePreviewAsyncResponseBody.php
   - src/Models/Operations/GenerateCodeSamplePreviewResponse.php
-  - src/Models/Operations/GenerateOpenApiSpecForApiEndpointRequest.php
-  - src/Models/Operations/GenerateOpenApiSpecForApiEndpointResponse.php
-  - src/Models/Operations/GenerateOpenApiSpecRequest.php
-  - src/Models/Operations/GenerateOpenApiSpecResponse.php
-  - src/Models/Operations/GeneratePostmanCollectionForApiEndpointRequest.php
-  - src/Models/Operations/GeneratePostmanCollectionForApiEndpointResponse.php
-  - src/Models/Operations/GeneratePostmanCollectionRequest.php
-  - src/Models/Operations/GeneratePostmanCollectionResponse.php
-  - src/Models/Operations/GenerateRequestPostmanCollectionRequest.php
-  - src/Models/Operations/GenerateRequestPostmanCollectionResponse.php
   - src/Models/Operations/GetAccessTokenRequest.php
   - src/Models/Operations/GetAccessTokenResponse.php
-  - src/Models/Operations/GetAllApiEndpointsRequest.php
-  - src/Models/Operations/GetAllApiEndpointsResponse.php
-  - src/Models/Operations/GetAllApiVersionsRequest.php
-  - src/Models/Operations/GetAllApiVersionsResponse.php
-  - src/Models/Operations/GetAllForVersionApiEndpointsRequest.php
-  - src/Models/Operations/GetAllForVersionApiEndpointsResponse.php
-  - src/Models/Operations/GetApiEndpointRequest.php
-  - src/Models/Operations/GetApiEndpointResponse.php
-  - src/Models/Operations/GetApisRequest.php
-  - src/Models/Operations/GetApisResponse.php
   - src/Models/Operations/GetBlobRequest.php
   - src/Models/Operations/GetBlobResponse.php
   - src/Models/Operations/GetChangesReportSignedUrlRequest.php
@@ -410,8 +282,6 @@ generatedFiles:
   - src/Models/Operations/GetCodeSamplePreviewAsyncRequest.php
   - src/Models/Operations/GetCodeSamplePreviewAsyncResponse.php
   - src/Models/Operations/GetCodeSamplePreviewAsyncResponseBody.php
-  - src/Models/Operations/GetEmbedAccessTokenRequest.php
-  - src/Models/Operations/GetEmbedAccessTokenResponse.php
   - src/Models/Operations/GetGitHubActionRequest.php
   - src/Models/Operations/GetGitHubActionResponse.php
   - src/Models/Operations/GetGithubSetupStateRequest.php
@@ -426,24 +296,11 @@ generatedFiles:
   - src/Models/Operations/GetOrganizationResponse.php
   - src/Models/Operations/GetOrganizationUsageResponse.php
   - src/Models/Operations/GetOrganizationsResponse.php
-  - src/Models/Operations/GetRequestFromEventLogRequest.php
-  - src/Models/Operations/GetRequestFromEventLogResponse.php
   - src/Models/Operations/GetRevisionsRequest.php
   - src/Models/Operations/GetRevisionsResponse.php
-  - src/Models/Operations/GetSchemaDiffRequest.php
-  - src/Models/Operations/GetSchemaDiffResponse.php
-  - src/Models/Operations/GetSchemaRequest.php
-  - src/Models/Operations/GetSchemaResponse.php
-  - src/Models/Operations/GetSchemaRevisionRequest.php
-  - src/Models/Operations/GetSchemaRevisionResponse.php
-  - src/Models/Operations/GetSchemasRequest.php
-  - src/Models/Operations/GetSchemasResponse.php
   - src/Models/Operations/GetTagsRequest.php
   - src/Models/Operations/GetTagsResponse.php
   - src/Models/Operations/GetUserResponse.php
-  - src/Models/Operations/GetValidEmbedAccessTokensResponse.php
-  - src/Models/Operations/GetVersionMetadataRequest.php
-  - src/Models/Operations/GetVersionMetadataResponse.php
   - src/Models/Operations/GetWorkspaceAccessRequest.php
   - src/Models/Operations/GetWorkspaceAccessResponse.php
   - src/Models/Operations/GetWorkspaceByContextResponse.php
@@ -475,29 +332,17 @@ generatedFiles:
   - src/Models/Operations/GithubTriggerActionResponse.php
   - src/Models/Operations/GrantUserAccessToWorkspaceRequest.php
   - src/Models/Operations/GrantUserAccessToWorkspaceResponse.php
-  - src/Models/Operations/InsertVersionMetadataRequest.php
-  - src/Models/Operations/InsertVersionMetadataResponse.php
   - src/Models/Operations/LinkGithubAccessRequest.php
   - src/Models/Operations/LinkGithubAccessResponse.php
   - src/Models/Operations/ListRegistrySubscriptionsRequest.php
   - src/Models/Operations/ListRegistrySubscriptionsResponse.php
   - src/Models/Operations/ListRemoteSourcesRequest.php
   - src/Models/Operations/ListRemoteSourcesResponse.php
-  - src/Models/Operations/Op.php
   - src/Models/Operations/PostTagsRequest.php
   - src/Models/Operations/PostTagsResponse.php
   - src/Models/Operations/PostWorkspaceEventsRequest.php
   - src/Models/Operations/PostWorkspaceEventsResponse.php
   - src/Models/Operations/PreflightResponse.php
-  - src/Models/Operations/QueryEventLogRequest.php
-  - src/Models/Operations/QueryEventLogResponse.php
-  - src/Models/Operations/QueryParamOp.php
-  - src/Models/Operations/RegisterSchemaFile.php
-  - src/Models/Operations/RegisterSchemaRequest.php
-  - src/Models/Operations/RegisterSchemaRequestBody.php
-  - src/Models/Operations/RegisterSchemaResponse.php
-  - src/Models/Operations/RevokeEmbedAccessTokenRequest.php
-  - src/Models/Operations/RevokeEmbedAccessTokenResponse.php
   - src/Models/Operations/RevokeUserAccessToWorkspaceRequest.php
   - src/Models/Operations/RevokeUserAccessToWorkspaceResponse.php
   - src/Models/Operations/Schema.php
@@ -521,10 +366,6 @@ generatedFiles:
   - src/Models/Operations/UploadReportRequestBody.php
   - src/Models/Operations/UploadReportResponse.php
   - src/Models/Operations/UploadReportUploadedReport.php
-  - src/Models/Operations/UpsertApiEndpointRequest.php
-  - src/Models/Operations/UpsertApiEndpointResponse.php
-  - src/Models/Operations/UpsertApiRequest.php
-  - src/Models/Operations/UpsertApiResponse.php
   - src/Models/Operations/ValidateApiKeyResponse.php
   - src/Models/Shared/AccessDetails.php
   - src/Models/Shared/AccessToken.php
@@ -533,27 +374,17 @@ generatedFiles:
   - src/Models/Shared/Actions.php
   - src/Models/Shared/AddTags.php
   - src/Models/Shared/Annotations.php
-  - src/Models/Shared/Api.php
-  - src/Models/Shared/ApiEndpoint.php
-  - src/Models/Shared/ApiEndpointInput.php
-  - src/Models/Shared/ApiInput.php
   - src/Models/Shared/ApiKeyDetails.php
   - src/Models/Shared/Auth.php
-  - src/Models/Shared/BoundedRequest.php
   - src/Models/Shared/Claims.php
   - src/Models/Shared/CliEvent.php
   - src/Models/Shared/CodeSampleSchemaInput.php
   - src/Models/Shared/CodeSamplesJobStatus.php
   - src/Models/Shared/CompositeSpecMetadata.php
   - src/Models/Shared/Diagnostic.php
-  - src/Models/Shared/EmbedAccessTokenResponse.php
-  - src/Models/Shared/EmbedToken.php
   - src/Models/Shared/EventType.php
   - src/Models/Shared/FeatureFlag.php
-  - src/Models/Shared/Filter.php
-  - src/Models/Shared/Filters.php
   - src/Models/Shared/GenerateBumpType.php
-  - src/Models/Shared/GenerateOpenApiSpecDiff.php
   - src/Models/Shared/GetNamespacesResponse.php
   - src/Models/Shared/GetRevisionsResponse.php
   - src/Models/Shared/GetTagsResponse.php
@@ -587,11 +418,8 @@ generatedFiles:
   - src/Models/Shared/RemoteSource.php
   - src/Models/Shared/RemoteSourceSubscriptionSettings.php
   - src/Models/Shared/Report.php
-  - src/Models/Shared/RequestMetadata.php
   - src/Models/Shared/Revision.php
   - src/Models/Shared/SSOMetadata.php
-  - src/Models/Shared/Schema.php
-  - src/Models/Shared/SchemaDiff.php
   - src/Models/Shared/SchemaFile.php
   - src/Models/Shared/Secrets.php
   - src/Models/Shared/Security.php
@@ -605,12 +433,8 @@ generatedFiles:
   - src/Models/Shared/Tag.php
   - src/Models/Shared/TargetSDK.php
   - src/Models/Shared/Type.php
-  - src/Models/Shared/UnboundedRequest.php
   - src/Models/Shared/User.php
   - src/Models/Shared/V2Descriptor.php
-  - src/Models/Shared/ValueChange.php
-  - src/Models/Shared/VersionMetadata.php
-  - src/Models/Shared/VersionMetadataInput.php
   - src/Models/Shared/WorkflowDocument.php
   - src/Models/Shared/Workspace.php
   - src/Models/Shared/WorkspaceAndOrganization.php
@@ -622,11 +446,9 @@ generatedFiles:
   - src/Models/Shared/Workspaces.php
   - src/Organizations.php
   - src/Reports.php
-  - src/Requests.php
   - src/SDK.php
   - src/SDKBuilder.php
   - src/SDKConfiguration.php
-  - src/Schemas.php
   - src/ShortURLs.php
   - src/Subscriptions.php
   - src/Suggest.php

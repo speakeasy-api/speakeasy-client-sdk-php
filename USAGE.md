@@ -5,7 +5,6 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $security = new Shared\Security(
@@ -14,13 +13,21 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\GetApisRequest();
+$request = new Shared\CodeSampleSchemaInput(
+    languages: [
+        '<value>',
+    ],
+    schemaFile: new Shared\SchemaFile(
+        content: '0xc3dD8BfBef',
+        fileName: 'example.file',
+    ),
+);
 
-$response = $sdk->apis->getApis(
+$response = $sdk->generateCodeSamplePreview(
     request: $request
 );
 
-if ($response->apis !== null) {
+if ($response->twoHundredApplicationJsonBytes !== null) {
     // handle response
 }
 ```

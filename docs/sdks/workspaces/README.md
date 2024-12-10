@@ -3,6 +3,8 @@
 
 ## Overview
 
+REST APIs for managing Workspaces (speakeasy tenancy)
+
 ### Available Operations
 
 * [create](#create) - Create a workspace
