@@ -124,8 +124,8 @@ if ($response->twoHundredApplicationJsonBytes !== null) {
 
 ### [subscriptions](docs/sdks/subscriptions/README.md)
 
-* [createSubscription](docs/sdks/subscriptions/README.md#createsubscription) - Create Subscription
-* [listRegistrySubscriptions](docs/sdks/subscriptions/README.md#listregistrysubscriptions) - List Subscriptions
+* [activateSubscriptionNamespace](docs/sdks/subscriptions/README.md#activatesubscriptionnamespace) - Activate an ignored namespace for a subscription
+* [ignoreSubscriptionNamespace](docs/sdks/subscriptions/README.md#ignoresubscriptionnamespace) - Ignored a namespace for a subscription
 
 ### [suggest](docs/sdks/suggest/README.md)
 

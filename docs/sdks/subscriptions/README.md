@@ -7,72 +7,12 @@ REST APIs for managing subscriptions
 
 ### Available Operations
 
-* [createSubscription](#createsubscription) - Create Subscription
-* [listRegistrySubscriptions](#listregistrysubscriptions) - List Subscriptions
+* [activateSubscriptionNamespace](#activatesubscriptionnamespace) - Activate an ignored namespace for a subscription
+* [ignoreSubscriptionNamespace](#ignoresubscriptionnamespace) - Ignored a namespace for a subscription
 
-## createSubscription
+## activateSubscriptionNamespace
 
-Create Subscription
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Operations;
-use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use Speakeasy\SpeakeasyClientSDK\Utils;
-
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
-$request = new Operations\CreateSubscriptionRequest(
-    registrySubscription: new Shared\RegistrySubscription(
-        createdAt: Utils\Utils::parseDateTime('2022-06-08T17:58:57.702Z'),
-        eventType: Shared\EventType::Update,
-        id: '<id>',
-        namespaceName: '<value>',
-        subscriptionSettings: '<value>',
-        subscriptionType: Shared\SubscriptionType::Cli,
-        updatedAt: Utils\Utils::parseDateTime('2022-07-20T08:51:35.776Z'),
-        workspaceId: '<id>',
-    ),
-);
-
-$response = $sdk->subscriptions->createSubscription(
-    request: $request
-);
-
-if ($response->registrySubscription !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `$request`                                                                                   | [Operations\CreateSubscriptionRequest](../../Models/Operations/CreateSubscriptionRequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-
-### Response
-
-**[?Operations\CreateSubscriptionResponse](../../Models/Operations/CreateSubscriptionResponse.md)**
-
-### Errors
-
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\SDKException | 4XX, 5XX              | \*/\*                 |
-
-## listRegistrySubscriptions
-
-List Subscriptions
+Activate an ignored namespace for a subscription
 
 ### Example Usage
 
@@ -91,29 +31,85 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\ListRegistrySubscriptionsRequest();
+$request = new Operations\ActivateSubscriptionNamespaceRequest(
+    namespaceName: '<value>',
+    subscriptionID: '<id>',
+);
 
-$response = $sdk->subscriptions->listRegistrySubscriptions(
+$response = $sdk->subscriptions->activateSubscriptionNamespace(
     request: $request
 );
 
-if ($response->classes !== null) {
+if ($response->statusCode === 200) {
     // handle response
 }
 ```
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                 | [Operations\ListRegistrySubscriptionsRequest](../../Models/Operations/ListRegistrySubscriptionsRequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                                         | [Operations\ActivateSubscriptionNamespaceRequest](../../Models/Operations/ActivateSubscriptionNamespaceRequest.md) | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
 
 ### Response
 
-**[?Operations\ListRegistrySubscriptionsResponse](../../Models/Operations/ListRegistrySubscriptionsResponse.md)**
+**[?Operations\ActivateSubscriptionNamespaceResponse](../../Models/Operations/ActivateSubscriptionNamespaceResponse.md)**
 
 ### Errors
 
 | Error Type            | Status Code           | Content Type          |
 | --------------------- | --------------------- | --------------------- |
-| Errorors\SDKException | 4XX, 5XX              | \*/\*                 |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |
+
+## ignoreSubscriptionNamespace
+
+Ignored a namespace for a subscription
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+$request = new Operations\IgnoreSubscriptionNamespaceRequest(
+    namespaceName: '<value>',
+    subscriptionID: '<id>',
+);
+
+$response = $sdk->subscriptions->ignoreSubscriptionNamespace(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                     | [Operations\IgnoreSubscriptionNamespaceRequest](../../Models/Operations/IgnoreSubscriptionNamespaceRequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+
+### Response
+
+**[?Operations\IgnoreSubscriptionNamespaceResponse](../../Models/Operations/IgnoreSubscriptionNamespaceResponse.md)**
+
+### Errors
+
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |

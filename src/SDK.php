@@ -71,6 +71,13 @@ class SDK
     public ShortURLs $shortURLs;
 
     /**
+     * REST APIs for managing subscriptions
+     *
+     * @var Subscriptions $$subscriptions
+     */
+    public Subscriptions $subscriptions;
+
+    /**
      * REST APIs for managing LLM OAS suggestions
      *
      * @var Suggest $$suggest
@@ -90,13 +97,6 @@ class SDK
      * @var Events $$events
      */
     public Events $events;
-
-    /**
-     * REST APIs for managing subscriptions
-     *
-     * @var Subscriptions $$subscriptions
-     */
-    public Subscriptions $subscriptions;
 
     /**
      * Returns a new instance of the SDK builder used to configure and create the SDK instance.
@@ -120,10 +120,10 @@ class SDK
         $this->organizations = new Organizations($this->sdkConfiguration);
         $this->reports = new Reports($this->sdkConfiguration);
         $this->shortURLs = new ShortURLs($this->sdkConfiguration);
+        $this->subscriptions = new Subscriptions($this->sdkConfiguration);
         $this->suggest = new Suggest($this->sdkConfiguration);
         $this->workspaces = new Workspaces($this->sdkConfiguration);
         $this->events = new Events($this->sdkConfiguration);
-        $this->subscriptions = new Subscriptions($this->sdkConfiguration);
         $this->sdkConfiguration->client = $this->sdkConfiguration->initHooks($this->sdkConfiguration->client);
 
     }

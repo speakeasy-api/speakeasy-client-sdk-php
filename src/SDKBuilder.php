@@ -41,6 +41,8 @@ class SDKBuilder
     {
         $this->sdkConfig->security = $security;
 
+        $this->sdkConfig->securitySource = fn () => $security;
+
         return $this;
     }
 

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: d5a331da222343db2b92613baf751e36
+  docChecksum: a776550f34009612df62ba6268f834e3
   docVersion: 0.4.0
-  speakeasyVersion: 1.453.8
-  generationVersion: 2.474.15
-  releaseVersion: 0.46.0
-  configChecksum: 44b188f5503ea47014811cd99cf8aa3b
+  speakeasyVersion: 1.454.0
+  generationVersion: 2.477.0
+  releaseVersion: 0.46.1
+  configChecksum: 83433c2ee243a1850a58bc8610a106be
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -29,6 +29,8 @@ generatedFiles:
   - USAGE.md
   - composer.json
   - docs/Models/Errorors/Error.md
+  - docs/Models/Operations/ActivateSubscriptionNamespaceRequest.md
+  - docs/Models/Operations/ActivateSubscriptionNamespaceResponse.md
   - docs/Models/Operations/CheckGithubAccessRequest.md
   - docs/Models/Operations/CheckGithubAccessResponse.md
   - docs/Models/Operations/CreateFreeTrialResponse.md
@@ -36,8 +38,6 @@ generatedFiles:
   - docs/Models/Operations/CreateRemoteSourceResponse.md
   - docs/Models/Operations/CreateRequestBody.md
   - docs/Models/Operations/CreateResponse.md
-  - docs/Models/Operations/CreateSubscriptionRequest.md
-  - docs/Models/Operations/CreateSubscriptionResponse.md
   - docs/Models/Operations/CreateWorkspaceResponse.md
   - docs/Models/Operations/CreateWorkspaceTokenRequest.md
   - docs/Models/Operations/CreateWorkspaceTokenResponse.md
@@ -107,10 +107,10 @@ generatedFiles:
   - docs/Models/Operations/GithubTriggerActionResponse.md
   - docs/Models/Operations/GrantUserAccessToWorkspaceRequest.md
   - docs/Models/Operations/GrantUserAccessToWorkspaceResponse.md
+  - docs/Models/Operations/IgnoreSubscriptionNamespaceRequest.md
+  - docs/Models/Operations/IgnoreSubscriptionNamespaceResponse.md
   - docs/Models/Operations/LinkGithubAccessRequest.md
   - docs/Models/Operations/LinkGithubAccessResponse.md
-  - docs/Models/Operations/ListRegistrySubscriptionsRequest.md
-  - docs/Models/Operations/ListRegistrySubscriptionsResponse.md
   - docs/Models/Operations/ListRemoteSourcesRequest.md
   - docs/Models/Operations/ListRemoteSourcesResponse.md
   - docs/Models/Operations/PostTagsRequest.md
@@ -157,7 +157,6 @@ generatedFiles:
   - docs/Models/Shared/CodeSamplesJobStatus.md
   - docs/Models/Shared/CompositeSpecMetadata.md
   - docs/Models/Shared/Diagnostic.md
-  - docs/Models/Shared/EventType.md
   - docs/Models/Shared/FeatureFlag.md
   - docs/Models/Shared/GenerateBumpType.md
   - docs/Models/Shared/GetNamespacesResponse.md
@@ -187,7 +186,6 @@ generatedFiles:
   - docs/Models/Shared/OrganizationUsageResponse.md
   - docs/Models/Shared/PreflightRequest.md
   - docs/Models/Shared/PreflightToken.md
-  - docs/Models/Shared/RegistrySubscription.md
   - docs/Models/Shared/Relationship.md
   - docs/Models/Shared/RemoteDocument.md
   - docs/Models/Shared/RemoteSource.md
@@ -199,7 +197,6 @@ generatedFiles:
   - docs/Models/Shared/Secrets.md
   - docs/Models/Shared/Security.md
   - docs/Models/Shared/ShortURL.md
-  - docs/Models/Shared/SubscriptionType.md
   - docs/Models/Shared/SuggestItemsRequestBody.md
   - docs/Models/Shared/SuggestOptsOld.md
   - docs/Models/Shared/SuggestRequestBody.md
@@ -244,6 +241,7 @@ generatedFiles:
   - src/Hooks/AfterSuccessHook.php
   - src/Hooks/BeforeRequestContext.php
   - src/Hooks/BeforeRequestHook.php
+  - src/Hooks/Credentials.php
   - src/Hooks/ErrorResponseContext.php
   - src/Hooks/FailEarlyException.php
   - src/Hooks/HookContext.php
@@ -251,9 +249,13 @@ generatedFiles:
   - src/Hooks/SDKHooks.php
   - src/Hooks/SDKInitHook.php
   - src/Hooks/SDKRequestContext.php
+  - src/Hooks/Session.php
+  - src/Hooks/TokenResponse.php
   - src/Models/Errorors/Error.php
   - src/Models/Errorors/ErrorThrowable.php
   - src/Models/Errorors/SDKException.php
+  - src/Models/Operations/ActivateSubscriptionNamespaceRequest.php
+  - src/Models/Operations/ActivateSubscriptionNamespaceResponse.php
   - src/Models/Operations/CheckGithubAccessRequest.php
   - src/Models/Operations/CheckGithubAccessResponse.php
   - src/Models/Operations/CreateFreeTrialResponse.php
@@ -261,8 +263,6 @@ generatedFiles:
   - src/Models/Operations/CreateRemoteSourceResponse.php
   - src/Models/Operations/CreateRequestBody.php
   - src/Models/Operations/CreateResponse.php
-  - src/Models/Operations/CreateSubscriptionRequest.php
-  - src/Models/Operations/CreateSubscriptionResponse.php
   - src/Models/Operations/CreateWorkspaceResponse.php
   - src/Models/Operations/CreateWorkspaceTokenRequest.php
   - src/Models/Operations/CreateWorkspaceTokenResponse.php
@@ -332,10 +332,10 @@ generatedFiles:
   - src/Models/Operations/GithubTriggerActionResponse.php
   - src/Models/Operations/GrantUserAccessToWorkspaceRequest.php
   - src/Models/Operations/GrantUserAccessToWorkspaceResponse.php
+  - src/Models/Operations/IgnoreSubscriptionNamespaceRequest.php
+  - src/Models/Operations/IgnoreSubscriptionNamespaceResponse.php
   - src/Models/Operations/LinkGithubAccessRequest.php
   - src/Models/Operations/LinkGithubAccessResponse.php
-  - src/Models/Operations/ListRegistrySubscriptionsRequest.php
-  - src/Models/Operations/ListRegistrySubscriptionsResponse.php
   - src/Models/Operations/ListRemoteSourcesRequest.php
   - src/Models/Operations/ListRemoteSourcesResponse.php
   - src/Models/Operations/PostTagsRequest.php
@@ -382,7 +382,6 @@ generatedFiles:
   - src/Models/Shared/CodeSamplesJobStatus.php
   - src/Models/Shared/CompositeSpecMetadata.php
   - src/Models/Shared/Diagnostic.php
-  - src/Models/Shared/EventType.php
   - src/Models/Shared/FeatureFlag.php
   - src/Models/Shared/GenerateBumpType.php
   - src/Models/Shared/GetNamespacesResponse.php
@@ -412,7 +411,6 @@ generatedFiles:
   - src/Models/Shared/OrganizationUsageResponse.php
   - src/Models/Shared/PreflightRequest.php
   - src/Models/Shared/PreflightToken.php
-  - src/Models/Shared/RegistrySubscription.php
   - src/Models/Shared/Relationship.php
   - src/Models/Shared/RemoteDocument.php
   - src/Models/Shared/RemoteSource.php
@@ -424,7 +422,6 @@ generatedFiles:
   - src/Models/Shared/Secrets.php
   - src/Models/Shared/Security.php
   - src/Models/Shared/ShortURL.php
-  - src/Models/Shared/SubscriptionType.php
   - src/Models/Shared/SuggestItemsRequestBody.php
   - src/Models/Shared/SuggestOptsOld.php
   - src/Models/Shared/SuggestRequestBody.php
@@ -1650,4 +1647,22 @@ examples:
       responses:
         4XX:
           application/json: {"message": "<value>", "status_code": 651364}
+  activateSubscriptionNamespace:
+    speakeasy-default-activate-subscription-namespace:
+      parameters:
+        path:
+          subscriptionID: "<id>"
+          namespaceName: "<value>"
+      responses:
+        4XX:
+          application/json: {"message": "<value>", "status_code": 566510}
+  ignoreSubscriptionNamespace:
+    speakeasy-default-ignore-subscription-namespace:
+      parameters:
+        path:
+          subscriptionID: "<id>"
+          namespaceName: "<value>"
+      responses:
+        4XX:
+          application/json: {"message": "<value>", "status_code": 844164}
 generatedTests: {}

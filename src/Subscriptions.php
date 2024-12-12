@@ -44,27 +44,22 @@ class Subscriptions
     }
 
     /**
-     * Create Subscription
+     * Activate an ignored namespace for a subscription
      *
-     * @param  Operations\CreateSubscriptionRequest  $request
-     * @return Operations\CreateSubscriptionResponse
+     * @param  Operations\ActivateSubscriptionNamespaceRequest  $request
+     * @return Operations\ActivateSubscriptionNamespaceResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function createSubscription(Operations\CreateSubscriptionRequest $request): Operations\CreateSubscriptionResponse
+    public function activateSubscriptionNamespace(Operations\ActivateSubscriptionNamespaceRequest $request): Operations\ActivateSubscriptionNamespaceResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/registry_subscriptions', Operations\CreateSubscriptionRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/subscriptions/{subscriptionID}/{namespaceName}/activate', Operations\ActivateSubscriptionNamespaceRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'registrySubscription', 'json');
-        if ($body === null) {
-            throw new \Exception('Request body is required');
-        }
-        $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
-        $hookContext = new HookContext('createSubscription', null, $this->sdkConfiguration->securitySource);
+        $hookContext = new HookContext('activateSubscriptionNamespace', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
@@ -85,24 +80,26 @@ class Subscriptions
                 $httpResponse = $res;
             }
         }
-        if ($statusCode == 200) {
+        if ($statusCode >= 200 && $statusCode < 300) {
+            $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+            return new Operations\ActivateSubscriptionNamespaceResponse(
+                statusCode: $statusCode,
+                contentType: $contentType,
+                rawResponse: $httpResponse
+            );
+        } elseif ($statusCode >= 400 && $statusCode < 500) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Shared\RegistrySubscription', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\CreateSubscriptionResponse(
-                    statusCode: $statusCode,
-                    contentType: $contentType,
-                    rawResponse: $httpResponse,
-                    registrySubscription: $obj);
-
-                return $response;
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj->toException();
             } else {
                 throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif ($statusCode >= 500 && $statusCode < 600) {
             throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -110,26 +107,23 @@ class Subscriptions
     }
 
     /**
-     * List Subscriptions
+     * Ignored a namespace for a subscription
      *
-     * @param  ?Operations\ListRegistrySubscriptionsRequest  $request
-     * @return Operations\ListRegistrySubscriptionsResponse
+     * @param  Operations\IgnoreSubscriptionNamespaceRequest  $request
+     * @return Operations\IgnoreSubscriptionNamespaceResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
      */
-    public function listRegistrySubscriptions(?Operations\ListRegistrySubscriptionsRequest $request = null): Operations\ListRegistrySubscriptionsResponse
+    public function ignoreSubscriptionNamespace(Operations\IgnoreSubscriptionNamespaceRequest $request): Operations\IgnoreSubscriptionNamespaceResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/{workspace_id}/registry_subscriptions', Operations\ListRegistrySubscriptionsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/subscriptions/{subscriptionID}/{namespaceName}/ignore', Operations\IgnoreSubscriptionNamespaceRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $options = ['http_errors' => false];
-
-        $qp = Utils\Utils::getQueryParams(Operations\ListRegistrySubscriptionsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        $hookContext = new HookContext('listRegistrySubscriptions', null, $this->sdkConfiguration->securitySource);
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
+        $hookContext = new HookContext('ignoreSubscriptionNamespace', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
-        $options['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
         $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
@@ -149,24 +143,26 @@ class Subscriptions
                 $httpResponse = $res;
             }
         }
-        if ($statusCode == 200) {
+        if ($statusCode >= 200 && $statusCode < 300) {
+            $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+            return new Operations\IgnoreSubscriptionNamespaceResponse(
+                statusCode: $statusCode,
+                contentType: $contentType,
+                rawResponse: $httpResponse
+            );
+        } elseif ($statusCode >= 400 && $statusCode < 500) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, 'array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\RegistrySubscription>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\ListRegistrySubscriptionsResponse(
-                    statusCode: $statusCode,
-                    contentType: $contentType,
-                    rawResponse: $httpResponse,
-                    classes: $obj);
-
-                return $response;
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj->toException();
             } else {
                 throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif ($statusCode >= 500 && $statusCode < 600) {
             throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);

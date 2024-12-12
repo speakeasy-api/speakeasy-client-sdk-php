@@ -37,6 +37,14 @@ class SearchWorkspaceEventsRequest
     public ?Shared\InteractionType $interactionType = null;
 
     /**
+     * Number of results to return.
+     *
+     * @var ?int $limit
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=limit')]
+    public ?int $limit = null;
+
+    /**
      * Unique identifier of the lint report digest.
      *
      * @var ?string $lintReportDigest
@@ -61,6 +69,14 @@ class SearchWorkspaceEventsRequest
     public ?string $sourceRevisionDigest = null;
 
     /**
+     * Whether the event was successful or not.
+     *
+     * @var ?bool $success
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=success')]
+    public ?bool $success = null;
+
+    /**
      * Unique identifier of the workspace.
      *
      * @var ?string $workspaceId
@@ -72,19 +88,23 @@ class SearchWorkspaceEventsRequest
      * @param  ?string  $executionId
      * @param  ?string  $generateGenLockId
      * @param  ?Shared\InteractionType  $interactionType
+     * @param  ?int  $limit
      * @param  ?string  $lintReportDigest
      * @param  ?string  $openapiDiffReportDigest
      * @param  ?string  $sourceRevisionDigest
+     * @param  ?bool  $success
      * @param  ?string  $workspaceId
      */
-    public function __construct(?string $executionId = null, ?string $generateGenLockId = null, ?Shared\InteractionType $interactionType = null, ?string $lintReportDigest = null, ?string $openapiDiffReportDigest = null, ?string $sourceRevisionDigest = null, ?string $workspaceId = null)
+    public function __construct(?string $executionId = null, ?string $generateGenLockId = null, ?Shared\InteractionType $interactionType = null, ?int $limit = null, ?string $lintReportDigest = null, ?string $openapiDiffReportDigest = null, ?string $sourceRevisionDigest = null, ?bool $success = null, ?string $workspaceId = null)
     {
         $this->executionId = $executionId;
         $this->generateGenLockId = $generateGenLockId;
         $this->interactionType = $interactionType;
+        $this->limit = $limit;
         $this->lintReportDigest = $lintReportDigest;
         $this->openapiDiffReportDigest = $openapiDiffReportDigest;
         $this->sourceRevisionDigest = $sourceRevisionDigest;
+        $this->success = $success;
         $this->workspaceId = $workspaceId;
     }
 }

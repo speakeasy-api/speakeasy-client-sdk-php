@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-class CreateSubscriptionResponse
+
+class IgnoreSubscriptionNamespaceResponse
 {
     /**
      * HTTP response content type for this operation
@@ -17,13 +17,6 @@ class CreateSubscriptionResponse
      * @var string $contentType
      */
     public string $contentType;
-
-    /**
-     * OK
-     *
-     * @var ?Shared\RegistrySubscription $registrySubscription
-     */
-    public ?Shared\RegistrySubscription $registrySubscription = null;
 
     /**
      * HTTP response status code for this operation
@@ -43,13 +36,11 @@ class CreateSubscriptionResponse
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?Shared\RegistrySubscription  $registrySubscription
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\RegistrySubscription $registrySubscription = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
-        $this->registrySubscription = $registrySubscription;
     }
 }
