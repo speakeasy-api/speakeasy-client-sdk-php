@@ -20,26 +20,10 @@ class OASOperation
 
     /**
      *
-     * @var ?string $groupOverride
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('group_override')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $groupOverride = null;
-
-    /**
-     *
      * @var string $method
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('method')]
     public string $method;
-
-    /**
-     *
-     * @var ?string $methodNameOverride
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('method_name_override')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $methodNameOverride = null;
 
     /**
      *
@@ -63,6 +47,22 @@ class OASOperation
     #[\Speakeasy\Serializer\Annotation\SerializedName('tags')]
     #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $tags;
+
+    /**
+     *
+     * @var ?string $groupOverride
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('group_override')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $groupOverride = null;
+
+    /**
+     *
+     * @var ?string $methodNameOverride
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('method_name_override')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $methodNameOverride = null;
 
     /**
      * @param  string  $description

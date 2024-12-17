@@ -255,152 +255,6 @@ class Workspaces
     }
 
     /**
-     * Get workspace by context
-     *
-     * Get information about a particular workspace by context.
-     *
-     * @return Operations\GetWorkspaceByContextResponse
-     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
-     */
-    public function get(): Operations\GetWorkspaceByContextResponse
-    {
-        $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace');
-        $urlOverride = null;
-        $options = ['http_errors' => false];
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        $hookContext = new HookContext('getWorkspaceByContext', null, $this->sdkConfiguration->securitySource);
-        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
-        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
-        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
-        try {
-            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
-        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        if ($statusCode >= 200 && $statusCode < 300) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-                $serializer = Utils\JSON::createSerializer();
-                $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Shared\WorkspaceAndOrganization', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\GetWorkspaceByContextResponse(
-                    statusCode: $statusCode,
-                    contentType: $contentType,
-                    rawResponse: $httpResponse,
-                    workspaceAndOrganization: $obj);
-
-                return $response;
-            } else {
-                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        } elseif ($statusCode >= 400 && $statusCode < 500) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-                $serializer = Utils\JSON::createSerializer();
-                $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                throw $obj->toException();
-            } else {
-                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        } elseif ($statusCode >= 500 && $statusCode < 600) {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } else {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        }
-    }
-
-    /**
-     * Get workspaces for a user
-     *
-     * Returns a list of workspaces a user has access too
-     *
-     * @return Operations\GetWorkspacesResponse
-     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
-     */
-    public function getAll(): Operations\GetWorkspacesResponse
-    {
-        $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspaces');
-        $urlOverride = null;
-        $options = ['http_errors' => false];
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        $hookContext = new HookContext('getWorkspaces', null, $this->sdkConfiguration->securitySource);
-        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
-        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
-        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
-        try {
-            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
-        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        if ($statusCode >= 200 && $statusCode < 300) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-                $serializer = Utils\JSON::createSerializer();
-                $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, 'array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Workspace>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\GetWorkspacesResponse(
-                    statusCode: $statusCode,
-                    contentType: $contentType,
-                    rawResponse: $httpResponse,
-                    workspaces: $obj);
-
-                return $response;
-            } else {
-                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        } elseif ($statusCode >= 400 && $statusCode < 500) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-                $serializer = Utils\JSON::createSerializer();
-                $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                throw $obj->toException();
-            } else {
-                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        } elseif ($statusCode >= 500 && $statusCode < 600) {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } else {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        }
-    }
-
-    /**
      * Get workspace
      *
      * Get information about a particular workspace.
@@ -451,6 +305,79 @@ class Workspaces
                     contentType: $contentType,
                     rawResponse: $httpResponse,
                     workspace: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj->toException();
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
+     * Get workspace by context
+     *
+     * Get information about a particular workspace by context.
+     *
+     * @return Operations\GetWorkspaceByContextResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
+     */
+    public function get(): Operations\GetWorkspaceByContextResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace');
+        $urlOverride = null;
+        $options = ['http_errors' => false];
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
+        $hookContext = new HookContext('getWorkspaceByContext', null, $this->sdkConfiguration->securitySource);
+        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
+        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
+        try {
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
+        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        if ($statusCode >= 200 && $statusCode < 300) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Shared\WorkspaceAndOrganization', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetWorkspaceByContextResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    workspaceAndOrganization: $obj);
 
                 return $response;
             } else {
@@ -741,6 +668,79 @@ class Workspaces
                     contentType: $contentType,
                     rawResponse: $httpResponse,
                     classes: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj->toException();
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
+     * Get workspaces for a user
+     *
+     * Returns a list of workspaces a user has access too
+     *
+     * @return Operations\GetWorkspacesResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
+     */
+    public function getAll(): Operations\GetWorkspacesResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspaces');
+        $urlOverride = null;
+        $options = ['http_errors' => false];
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
+        $hookContext = new HookContext('getWorkspaces', null, $this->sdkConfiguration->securitySource);
+        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
+        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
+        try {
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
+        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        if ($statusCode >= 200 && $statusCode < 300) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, 'array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Workspace>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetWorkspacesResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    workspaces: $obj);
 
                 return $response;
             } else {

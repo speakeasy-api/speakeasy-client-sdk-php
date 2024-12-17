@@ -12,6 +12,55 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class TargetSDK
 {
     /**
+     * gen.lock ID (expected to be a uuid). The same as `id`. A unique identifier for the target.
+     *
+     * @var string $generateGenLockId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_gen_lock_id')]
+    public string $generateGenLockId;
+
+    /**
+     * eg `typescript`, `terraform`, `python`
+     *
+     * @var string $generateTarget
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_target')]
+    public string $generateTarget;
+
+    /**
+     * Unique identifier of the target the same as `generate_gen_lock_id`
+     *
+     * @var string $id
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    public string $id;
+
+    /**
+     * Timestamp when the event was created in the database.
+     *
+     * @var \DateTime $lastEventCreatedAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('last_event_created_at')]
+    public \DateTime $lastEventCreatedAt;
+
+    /**
+     * Unique identifier of the last event for the target
+     *
+     * @var string $lastEventId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('last_event_id')]
+    public string $lastEventId;
+
+    /**
+     * Type of interaction.
+     *
+     * @var InteractionType $lastEventInteractionType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('last_event_interaction_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType')]
+    public InteractionType $lastEventInteractionType;
+
+    /**
      * Remote commit ID.
      *
      * @var ?string $commitHead
@@ -55,14 +104,6 @@ class TargetSDK
     #[\Speakeasy\Serializer\Annotation\SerializedName('generate_eligible_features')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $generateEligibleFeatures = null;
-
-    /**
-     * gen.lock ID (expected to be a uuid). The same as `id`. A unique identifier for the target.
-     *
-     * @var string $generateGenLockId
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_gen_lock_id')]
-    public string $generateGenLockId;
 
     /**
      * Features prior to generation
@@ -117,14 +158,6 @@ class TargetSDK
     #[\Speakeasy\Serializer\Annotation\SerializedName('generate_published')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $generatePublished = null;
-
-    /**
-     * eg `typescript`, `terraform`, `python`
-     *
-     * @var string $generateTarget
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('generate_target')]
-    public string $generateTarget;
 
     /**
      * The workflow name of the target.
@@ -242,39 +275,6 @@ class TargetSDK
     #[\Speakeasy\Serializer\Annotation\SerializedName('hostname')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $hostname = null;
-
-    /**
-     * Unique identifier of the target the same as `generate_gen_lock_id`
-     *
-     * @var string $id
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
-    public string $id;
-
-    /**
-     * Timestamp when the event was created in the database.
-     *
-     * @var \DateTime $lastEventCreatedAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('last_event_created_at')]
-    public \DateTime $lastEventCreatedAt;
-
-    /**
-     * Unique identifier of the last event for the target
-     *
-     * @var string $lastEventId
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('last_event_id')]
-    public string $lastEventId;
-
-    /**
-     * Type of interaction.
-     *
-     * @var InteractionType $lastEventInteractionType
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('last_event_interaction_type')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType')]
-    public InteractionType $lastEventInteractionType;
 
     /**
      * Name of the published package.

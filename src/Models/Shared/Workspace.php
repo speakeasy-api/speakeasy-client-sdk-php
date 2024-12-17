@@ -28,14 +28,6 @@ class Workspace
 
     /**
      *
-     * @var ?bool $inactive
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('inactive')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $inactive = null;
-
-    /**
-     *
      * @var string $name
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
@@ -56,16 +48,6 @@ class Workspace
     public string $slug;
 
     /**
-     * Deprecated. Use organization.telemetry_disabled instead.
-     *
-     * @var ?bool $telemetryDisabled
-     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('telemetry_disabled')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $telemetryDisabled = null;
-
-    /**
      *
      * @var \DateTime $updatedAt
      */
@@ -78,6 +60,24 @@ class Workspace
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('verified')]
     public bool $verified;
+
+    /**
+     *
+     * @var ?bool $inactive
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('inactive')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $inactive = null;
+
+    /**
+     * Deprecated. Use organization.telemetry_disabled instead.
+     *
+     * @var ?bool $telemetryDisabled
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('telemetry_disabled')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $telemetryDisabled = null;
 
     /**
      * @param  \DateTime  $createdAt

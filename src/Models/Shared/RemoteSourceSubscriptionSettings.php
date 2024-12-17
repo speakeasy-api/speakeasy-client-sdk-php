@@ -37,14 +37,26 @@ class RemoteSourceSubscriptionSettings
     public array $overlayNamespaces;
 
     /**
+     * $ignoredNamespaces
+     *
+     * @var ?array<string> $ignoredNamespaces
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('ignored_namespaces')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $ignoredNamespaces = null;
+
+    /**
      * @param  array<string>  $baseSpecNamespaces
      * @param  string  $outputNamespace
      * @param  array<string>  $overlayNamespaces
+     * @param  ?array<string>  $ignoredNamespaces
      */
-    public function __construct(array $baseSpecNamespaces, string $outputNamespace, array $overlayNamespaces)
+    public function __construct(array $baseSpecNamespaces, string $outputNamespace, array $overlayNamespaces, ?array $ignoredNamespaces = null)
     {
         $this->baseSpecNamespaces = $baseSpecNamespaces;
         $this->outputNamespace = $outputNamespace;
         $this->overlayNamespaces = $overlayNamespaces;
+        $this->ignoredNamespaces = $ignoredNamespaces;
     }
 }

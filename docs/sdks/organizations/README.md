@@ -7,11 +7,53 @@ REST APIs for managing Organizations (speakeasy L1 Tenancy construct)
 
 ### Available Operations
 
-* [create](#create) - Create an organization
 * [createFreeTrial](#createfreetrial) - Create a free trial for an organization
+* [create](#create) - Create an organization
 * [get](#get) - Get organization
-* [getAll](#getall) - Get organizations for a user
 * [getUsage](#getusage) - Get billing usage summary for a particular organization
+* [getAll](#getall) - Get organizations for a user
+
+## createFreeTrial
+
+Creates a free trial for an organization
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+
+
+$response = $sdk->organizations->createFreeTrial(
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\CreateFreeTrialResponse](../../Models/Operations/CreateFreeTrialResponse.md)**
+
+### Errors
+
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |
 
 ## create
 
@@ -71,48 +113,6 @@ if ($response->organization !== null) {
 | Errorors\Error        | 4XX                   | application/json      |
 | Errorors\SDKException | 5XX                   | \*/\*                 |
 
-## createFreeTrial
-
-Creates a free trial for an organization
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
-
-
-$response = $sdk->organizations->createFreeTrial(
-
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\CreateFreeTrialResponse](../../Models/Operations/CreateFreeTrialResponse.md)**
-
-### Errors
-
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
-
 ## get
 
 Get information about a particular organization.
@@ -164,48 +164,6 @@ if ($response->organization !== null) {
 | Errorors\Error        | 4XX                   | application/json      |
 | Errorors\SDKException | 5XX                   | \*/\*                 |
 
-## getAll
-
-Returns a list of organizations a user has access too
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
-
-
-
-$response = $sdk->organizations->getAll(
-
-);
-
-if ($response->organizations !== null) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\GetOrganizationsResponse](../../Models/Operations/GetOrganizationsResponse.md)**
-
-### Errors
-
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
-
 ## getUsage
 
 Returns a billing usage summary by target languages for a particular organization
@@ -240,6 +198,48 @@ if ($response->organizationUsageResponse !== null) {
 ### Response
 
 **[?Operations\GetOrganizationUsageResponse](../../Models/Operations/GetOrganizationUsageResponse.md)**
+
+### Errors
+
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 4XX                   | application/json      |
+| Errorors\SDKException | 5XX                   | \*/\*                 |
+
+## getAll
+
+Returns a list of organizations a user has access too
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+
+
+$response = $sdk->organizations->getAll(
+
+);
+
+if ($response->organizations !== null) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\GetOrganizationsResponse](../../Models/Operations/GetOrganizationsResponse.md)**
 
 ### Errors
 

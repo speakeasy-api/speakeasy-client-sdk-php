@@ -19,13 +19,6 @@ class SuggestOpenAPIRegistryResponse
     public string $contentType;
 
     /**
-     * An overlay containing the suggested spec modifications.
-     *
-     * @var ?string $schema
-     */
-    public ?string $schema = null;
-
-    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -38,6 +31,13 @@ class SuggestOpenAPIRegistryResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * An overlay containing the suggested spec modifications.
+     *
+     * @var ?string $schema
+     */
+    public ?string $schema = null;
 
     /**
      * @param  string  $contentType

@@ -22,7 +22,7 @@ class Schema
      *
      * @var string $fileName
      */
-    #[SpeakeasyMetadata('multipartForm:name=schema')]
+    #[SpeakeasyMetadata('multipartForm:name=fileName')]
     public string $fileName;
 
     /**

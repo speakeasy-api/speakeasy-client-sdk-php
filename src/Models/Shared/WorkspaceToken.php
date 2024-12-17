@@ -28,6 +28,34 @@ class WorkspaceToken
 
     /**
      *
+     * @var string $id
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    public string $id;
+
+    /**
+     *
+     * @var string $key
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    public string $key;
+
+    /**
+     *
+     * @var string $name
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
+    public string $name;
+
+    /**
+     *
+     * @var string $workspaceId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
+    public string $workspaceId;
+
+    /**
+     *
      * @var ?string $createdBy
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('created_by')]
@@ -44,39 +72,11 @@ class WorkspaceToken
 
     /**
      *
-     * @var string $id
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
-    public string $id;
-
-    /**
-     *
-     * @var string $key
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
-    public string $key;
-
-    /**
-     *
      * @var ?\DateTime $lastUsed
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('last_used')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $lastUsed = null;
-
-    /**
-     *
-     * @var string $name
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
-    public string $name;
-
-    /**
-     *
-     * @var string $workspaceId
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
-    public string $workspaceId;
 
     /**
      * @param  string  $alg

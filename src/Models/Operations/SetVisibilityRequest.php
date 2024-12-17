@@ -12,19 +12,19 @@ use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class SetVisibilityRequest
 {
     /**
+     *
+     * @var string $namespaceName
+     */
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=namespace_name')]
+    public string $namespaceName;
+
+    /**
      * Namespace visibility
      *
      * @var ?SetVisibilityRequestBody $requestBody
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public ?SetVisibilityRequestBody $requestBody = null;
-
-    /**
-     *
-     * @var string $namespaceName
-     */
-    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=namespace_name')]
-    public string $namespaceName;
 
     /**
      * @param  string  $namespaceName

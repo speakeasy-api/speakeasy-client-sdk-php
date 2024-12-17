@@ -12,13 +12,6 @@ use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class GetAccessTokenResponse
 {
     /**
-     * OK
-     *
-     * @var ?Shared\AccessToken $accessToken
-     */
-    public ?Shared\AccessToken $accessToken = null;
-
-    /**
      * HTTP response content type for this operation
      *
      * @var string $contentType
@@ -38,6 +31,13 @@ class GetAccessTokenResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * OK
+     *
+     * @var ?Shared\AccessToken $accessToken
+     */
+    public ?Shared\AccessToken $accessToken = null;
 
     /**
      * @param  string  $contentType

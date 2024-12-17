@@ -19,13 +19,6 @@ class GetGithubSetupStateResponse
     public string $contentType;
 
     /**
-     * github setup state response
-     *
-     * @var ?Shared\GithubSetupStateResponse $githubSetupStateResponse
-     */
-    public ?Shared\GithubSetupStateResponse $githubSetupStateResponse = null;
-
-    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -38,6 +31,13 @@ class GetGithubSetupStateResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * github setup state response
+     *
+     * @var ?Shared\GithubSetupStateResponse $githubSetupStateResponse
+     */
+    public ?Shared\GithubSetupStateResponse $githubSetupStateResponse = null;
 
     /**
      * @param  string  $contentType

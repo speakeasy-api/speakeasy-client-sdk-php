@@ -12,27 +12,6 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 class GetCodeSamplePreviewAsyncResponse
 {
     /**
-     * Successfully returned codeSample overlay file
-     *
-     * @var ?string $twoHundredApplicationJsonBytes
-     */
-    public ?string $twoHundredApplicationJsonBytes = null;
-
-    /**
-     * Successfully returned codeSample overlay file
-     *
-     * @var ?string $twoHundredApplicationXYamlBytes
-     */
-    public ?string $twoHundredApplicationXYamlBytes = null;
-
-    /**
-     * Job is still in progress
-     *
-     * @var ?GetCodeSamplePreviewAsyncResponseBody $twoHundredAndTwoApplicationJsonObject
-     */
-    public ?GetCodeSamplePreviewAsyncResponseBody $twoHundredAndTwoApplicationJsonObject = null;
-
-    /**
      * HTTP response content type for this operation
      *
      * @var string $contentType
@@ -52,6 +31,27 @@ class GetCodeSamplePreviewAsyncResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * Successfully returned codeSample overlay file
+     *
+     * @var ?string $twoHundredApplicationJsonBytes
+     */
+    public ?string $twoHundredApplicationJsonBytes = null;
+
+    /**
+     * Successfully returned codeSample overlay file
+     *
+     * @var ?string $twoHundredApplicationXYamlBytes
+     */
+    public ?string $twoHundredApplicationXYamlBytes = null;
+
+    /**
+     * Job is still in progress
+     *
+     * @var ?GetCodeSamplePreviewAsyncResponseBody $twoHundredAndTwoApplicationJsonObject
+     */
+    public ?GetCodeSamplePreviewAsyncResponseBody $twoHundredAndTwoApplicationJsonObject = null;
 
     /**
      * @param  string  $contentType

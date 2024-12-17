@@ -12,13 +12,6 @@ use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class SearchWorkspaceEventsResponse
 {
     /**
-     * Success
-     *
-     * @var ?array<Shared\CliEvent> $cliEventBatch
-     */
-    public ?array $cliEventBatch = null;
-
-    /**
      * HTTP response content type for this operation
      *
      * @var string $contentType
@@ -38,6 +31,13 @@ class SearchWorkspaceEventsResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * Success
+     *
+     * @var ?array<Shared\CliEvent> $cliEventBatch
+     */
+    public ?array $cliEventBatch = null;
 
     /**
      * @param  string  $contentType

@@ -12,15 +12,6 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class Diagnostic
 {
     /**
-     * Help message for how to fix the issue
-     *
-     * @var ?string $helpMessage
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('helpMessage')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $helpMessage = null;
-
-    /**
      * Message describing the issue
      *
      * @var string $message
@@ -44,6 +35,15 @@ class Diagnostic
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
     public string $type;
+
+    /**
+     * Help message for how to fix the issue
+     *
+     * @var ?string $helpMessage
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('helpMessage')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $helpMessage = null;
 
     /**
      * @param  string  $message

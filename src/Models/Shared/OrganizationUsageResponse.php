@@ -22,15 +22,6 @@ class OrganizationUsageResponse
     public array $allowedLanguages;
 
     /**
-     * Expiry date of the free trial, will be null if no trial
-     *
-     * @var ?\DateTime $freeTrialExpiry
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('free_trial_expiry')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $freeTrialExpiry = null;
-
-    /**
      * Total number of allowed languages, -1 if unlimited
      *
      * @var int $totalAllowedLanguages
@@ -46,6 +37,15 @@ class OrganizationUsageResponse
     #[\Speakeasy\Serializer\Annotation\SerializedName('usage')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\OrganizationUsage>')]
     public array $usage;
+
+    /**
+     * Expiry date of the free trial, will be null if no trial
+     *
+     * @var ?\DateTime $freeTrialExpiry
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('free_trial_expiry')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $freeTrialExpiry = null;
 
     /**
      * @param  array<string>  $allowedLanguages

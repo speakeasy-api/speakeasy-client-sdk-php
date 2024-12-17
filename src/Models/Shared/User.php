@@ -36,15 +36,6 @@ class User
     public \DateTime $createdAt;
 
     /**
-     * Identifier of the default workspace.
-     *
-     * @var ?string $defaultWorkspaceId
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('default_workspace_id')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $defaultWorkspaceId = null;
-
-    /**
      * Display name of the user.
      *
      * @var string $displayName
@@ -69,21 +60,28 @@ class User
     public bool $emailVerified;
 
     /**
-     * GitHub handle of the user.
-     *
-     * @var ?string $githubHandle
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('github_handle')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $githubHandle = null;
-
-    /**
      * Unique identifier for the user.
      *
      * @var string $id
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public string $id;
+
+    /**
+     * Timestamp of the user's last update.
+     *
+     * @var \DateTime $updatedAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updated_at')]
+    public \DateTime $updatedAt;
+
+    /**
+     * Indicates whether the user has been whitelisted.
+     *
+     * @var bool $whitelisted
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('whitelisted')]
+    public bool $whitelisted;
 
     /**
      * Indicates whether the user is internal.
@@ -93,6 +91,24 @@ class User
     #[\Speakeasy\Serializer\Annotation\SerializedName('internal')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $internal = null;
+
+    /**
+     * Identifier of the default workspace.
+     *
+     * @var ?string $defaultWorkspaceId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('default_workspace_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $defaultWorkspaceId = null;
+
+    /**
+     * GitHub handle of the user.
+     *
+     * @var ?string $githubHandle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('github_handle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $githubHandle = null;
 
     /**
      * Timestamp of the last login.
@@ -111,22 +127,6 @@ class User
     #[\Speakeasy\Serializer\Annotation\SerializedName('photo_url')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $photoUrl = null;
-
-    /**
-     * Timestamp of the user's last update.
-     *
-     * @var \DateTime $updatedAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('updated_at')]
-    public \DateTime $updatedAt;
-
-    /**
-     * Indicates whether the user has been whitelisted.
-     *
-     * @var bool $whitelisted
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('whitelisted')]
-    public bool $whitelisted;
 
     /**
      * @param  bool  $admin

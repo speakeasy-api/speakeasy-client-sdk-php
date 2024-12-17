@@ -19,13 +19,6 @@ class CreateOrganizationResponse
     public string $contentType;
 
     /**
-     * OK
-     *
-     * @var ?Shared\Organization $organization
-     */
-    public ?Shared\Organization $organization = null;
-
-    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -38,6 +31,13 @@ class CreateOrganizationResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * OK
+     *
+     * @var ?Shared\Organization $organization
+     */
+    public ?Shared\Organization $organization = null;
 
     /**
      * @param  string  $contentType

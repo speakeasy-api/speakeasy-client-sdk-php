@@ -71,9 +71,9 @@ if ($response->twoHundredApplicationJsonBytes !== null) {
 
 ### [auth](docs/sdks/auth/README.md)
 
-* [getAccess](docs/sdks/auth/README.md#getaccess) - Get access allowances for a particular workspace
 * [getAccessToken](docs/sdks/auth/README.md#getaccesstoken) - Get or refresh an access token for the current workspace.
 * [getUser](docs/sdks/auth/README.md#getuser) - Get information about the current user.
+* [getAccess](docs/sdks/auth/README.md#getaccess) - Get access allowances for a particular workspace
 * [validateApiKey](docs/sdks/auth/README.md#validateapikey) - Validate the current api key.
 
 ### [events](docs/sdks/events/README.md)
@@ -87,24 +87,24 @@ if ($response->twoHundredApplicationJsonBytes !== null) {
 ### [github](docs/sdks/github/README.md)
 
 * [checkAccess](docs/sdks/github/README.md#checkaccess)
+* [getAction](docs/sdks/github/README.md#getaction)
+* [getSetup](docs/sdks/github/README.md#getsetup)
 * [checkPublishingPRs](docs/sdks/github/README.md#checkpublishingprs)
 * [checkPublishingSecrets](docs/sdks/github/README.md#checkpublishingsecrets)
 * [configureCodeSamples](docs/sdks/github/README.md#configurecodesamples)
 * [configureMintlifyRepo](docs/sdks/github/README.md#configuremintlifyrepo)
 * [configureTarget](docs/sdks/github/README.md#configuretarget)
-* [getAction](docs/sdks/github/README.md#getaction)
-* [getSetup](docs/sdks/github/README.md#getsetup)
-* [linkGithub](docs/sdks/github/README.md#linkgithub)
 * [storePublishingSecrets](docs/sdks/github/README.md#storepublishingsecrets)
 * [triggerAction](docs/sdks/github/README.md#triggeraction)
+* [linkGithub](docs/sdks/github/README.md#linkgithub)
 
 ### [organizations](docs/sdks/organizations/README.md)
 
-* [create](docs/sdks/organizations/README.md#create) - Create an organization
 * [createFreeTrial](docs/sdks/organizations/README.md#createfreetrial) - Create a free trial for an organization
+* [create](docs/sdks/organizations/README.md#create) - Create an organization
 * [get](docs/sdks/organizations/README.md#get) - Get organization
-* [getAll](docs/sdks/organizations/README.md#getall) - Get organizations for a user
 * [getUsage](docs/sdks/organizations/README.md#getusage) - Get billing usage summary for a particular organization
+* [getAll](docs/sdks/organizations/README.md#getall) - Get organizations for a user
 
 ### [reports](docs/sdks/reports/README.md)
 
@@ -139,13 +139,13 @@ if ($response->twoHundredApplicationJsonBytes !== null) {
 * [create](docs/sdks/workspaces/README.md#create) - Create a workspace
 * [createToken](docs/sdks/workspaces/README.md#createtoken) - Create a token for a particular workspace
 * [deleteToken](docs/sdks/workspaces/README.md#deletetoken) - Delete a token for a particular workspace
-* [get](docs/sdks/workspaces/README.md#get) - Get workspace by context
-* [getAll](docs/sdks/workspaces/README.md#getall) - Get workspaces for a user
 * [getByID](docs/sdks/workspaces/README.md#getbyid) - Get workspace
+* [get](docs/sdks/workspaces/README.md#get) - Get workspace by context
 * [getFeatureFlags](docs/sdks/workspaces/README.md#getfeatureflags) - Get workspace feature flags
 * [getSettings](docs/sdks/workspaces/README.md#getsettings) - Get workspace settings
 * [getTeam](docs/sdks/workspaces/README.md#getteam) - Get team members for a particular workspace
 * [getTokens](docs/sdks/workspaces/README.md#gettokens) - Get tokens for a particular workspace
+* [getAll](docs/sdks/workspaces/README.md#getall) - Get workspaces for a user
 * [grantAccess](docs/sdks/workspaces/README.md#grantaccess) - Grant a user access to a particular workspace
 * [revokeAccess](docs/sdks/workspaces/README.md#revokeaccess) - Revoke a user's access to a particular workspace
 * [update](docs/sdks/workspaces/README.md#update) - Update workspace details

@@ -12,13 +12,6 @@ use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class GetWorkspaceAccessResponse
 {
     /**
-     * OK
-     *
-     * @var ?Shared\AccessDetails $accessDetails
-     */
-    public ?Shared\AccessDetails $accessDetails = null;
-
-    /**
      * HTTP response content type for this operation
      *
      * @var string $contentType
@@ -38,6 +31,13 @@ class GetWorkspaceAccessResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * OK
+     *
+     * @var ?Shared\AccessDetails $accessDetails
+     */
+    public ?Shared\AccessDetails $accessDetails = null;
 
     /**
      * @param  string  $contentType

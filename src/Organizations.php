@@ -45,6 +45,70 @@ class Organizations
     }
 
     /**
+     * Create a free trial for an organization
+     *
+     * Creates a free trial for an organization
+     *
+     * @return Operations\CreateFreeTrialResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
+     */
+    public function createFreeTrial(): Operations\CreateFreeTrialResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/organization/free_trial');
+        $urlOverride = null;
+        $options = ['http_errors' => false];
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
+        $hookContext = new HookContext('createFreeTrial', null, $this->sdkConfiguration->securitySource);
+        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
+        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
+        try {
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
+        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        if ($statusCode >= 200 && $statusCode < 300) {
+            $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+            return new Operations\CreateFreeTrialResponse(
+                statusCode: $statusCode,
+                contentType: $contentType,
+                rawResponse: $httpResponse
+            );
+        } elseif ($statusCode >= 400 && $statusCode < 500) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj->toException();
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
      * Create an organization
      *
      * Creates an organization
@@ -105,70 +169,6 @@ class Organizations
             } else {
                 throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode >= 400 && $statusCode < 500) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-                $serializer = Utils\JSON::createSerializer();
-                $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                throw $obj->toException();
-            } else {
-                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        } elseif ($statusCode >= 500 && $statusCode < 600) {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } else {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        }
-    }
-
-    /**
-     * Create a free trial for an organization
-     *
-     * Creates a free trial for an organization
-     *
-     * @return Operations\CreateFreeTrialResponse
-     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
-     */
-    public function createFreeTrial(): Operations\CreateFreeTrialResponse
-    {
-        $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/organization/free_trial');
-        $urlOverride = null;
-        $options = ['http_errors' => false];
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
-        $hookContext = new HookContext('createFreeTrial', null, $this->sdkConfiguration->securitySource);
-        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
-        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
-        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
-        try {
-            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
-        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        if ($statusCode >= 200 && $statusCode < 300) {
-            $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-            return new Operations\CreateFreeTrialResponse(
-                statusCode: $statusCode,
-                contentType: $contentType,
-                rawResponse: $httpResponse
-            );
         } elseif ($statusCode >= 400 && $statusCode < 500) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
@@ -262,79 +262,6 @@ class Organizations
     }
 
     /**
-     * Get organizations for a user
-     *
-     * Returns a list of organizations a user has access too
-     *
-     * @return Operations\GetOrganizationsResponse
-     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
-     */
-    public function getAll(): Operations\GetOrganizationsResponse
-    {
-        $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/organizations');
-        $urlOverride = null;
-        $options = ['http_errors' => false];
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        $hookContext = new HookContext('getOrganizations', null, $this->sdkConfiguration->securitySource);
-        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
-        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
-        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
-        try {
-            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
-        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        if ($statusCode >= 200 && $statusCode < 300) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-                $serializer = Utils\JSON::createSerializer();
-                $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, 'array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Organization>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\GetOrganizationsResponse(
-                    statusCode: $statusCode,
-                    contentType: $contentType,
-                    rawResponse: $httpResponse,
-                    organizations: $obj);
-
-                return $response;
-            } else {
-                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        } elseif ($statusCode >= 400 && $statusCode < 500) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-                $serializer = Utils\JSON::createSerializer();
-                $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                throw $obj->toException();
-            } else {
-                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        } elseif ($statusCode >= 500 && $statusCode < 600) {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } else {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        }
-    }
-
-    /**
      * Get billing usage summary for a particular organization
      *
      * Returns a billing usage summary by target languages for a particular organization
@@ -384,6 +311,79 @@ class Organizations
                     contentType: $contentType,
                     rawResponse: $httpResponse,
                     organizationUsageResponse: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj->toException();
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
+     * Get organizations for a user
+     *
+     * Returns a list of organizations a user has access too
+     *
+     * @return Operations\GetOrganizationsResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
+     */
+    public function getAll(): Operations\GetOrganizationsResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/organizations');
+        $urlOverride = null;
+        $options = ['http_errors' => false];
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
+        $hookContext = new HookContext('getOrganizations', null, $this->sdkConfiguration->securitySource);
+        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
+        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
+        try {
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
+        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        if ($statusCode >= 200 && $statusCode < 300) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, 'array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Organization>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetOrganizationsResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    organizations: $obj);
 
                 return $response;
             } else {

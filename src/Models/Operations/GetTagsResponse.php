@@ -19,13 +19,6 @@ class GetTagsResponse
     public string $contentType;
 
     /**
-     * OK
-     *
-     * @var ?Shared\GetTagsResponse $getTagsResponse
-     */
-    public ?Shared\GetTagsResponse $getTagsResponse = null;
-
-    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -38,6 +31,13 @@ class GetTagsResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * OK
+     *
+     * @var ?Shared\GetTagsResponse $getTagsResponse
+     */
+    public ?Shared\GetTagsResponse $getTagsResponse = null;
 
     /**
      * @param  string  $contentType

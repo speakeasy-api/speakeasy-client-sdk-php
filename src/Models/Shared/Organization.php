@@ -29,26 +29,10 @@ class Organization
 
     /**
      *
-     * @var ?\DateTime $freeTrialExpiry
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('free_trial_expiry')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $freeTrialExpiry = null;
-
-    /**
-     *
      * @var string $id
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public string $id;
-
-    /**
-     *
-     * @var ?bool $internal
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('internal')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $internal = null;
 
     /**
      *
@@ -73,14 +57,6 @@ class Organization
 
     /**
      *
-     * @var ?string $ssoConnectionId
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('sso_connection_id')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $ssoConnectionId = null;
-
-    /**
-     *
      * @var bool $telemetryDisabled
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('telemetry_disabled')]
@@ -92,6 +68,30 @@ class Organization
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('updated_at')]
     public \DateTime $updatedAt;
+
+    /**
+     *
+     * @var ?bool $internal
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('internal')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $internal = null;
+
+    /**
+     *
+     * @var ?\DateTime $freeTrialExpiry
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('free_trial_expiry')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $freeTrialExpiry = null;
+
+    /**
+     *
+     * @var ?string $ssoConnectionId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sso_connection_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $ssoConnectionId = null;
 
     /**
      * @param  AccountType  $accountType

@@ -30,24 +30,6 @@ class ApiKeyDetails
 
     /**
      *
-     * @var ?array<string> $featureFlags
-     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('feature_flags')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $featureFlags = null;
-
-    /**
-     *
-     * @var ?bool $generationAccessUnlimited
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('generation_access_unlimited')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $generationAccessUnlimited = null;
-
-    /**
-     *
      * @var string $orgSlug
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('org_slug')]
@@ -81,6 +63,24 @@ class ApiKeyDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_slug')]
     public string $workspaceSlug;
+
+    /**
+     *
+     * @var ?array<string> $featureFlags
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('feature_flags')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $featureFlags = null;
+
+    /**
+     *
+     * @var ?bool $generationAccessUnlimited
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('generation_access_unlimited')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $generationAccessUnlimited = null;
 
     /**
      * @param  AccountType  $accountTypeV2

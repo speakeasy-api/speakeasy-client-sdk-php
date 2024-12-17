@@ -14,19 +14,19 @@ class WorkspaceInviteResponse
 {
     /**
      *
-     * @var ?string $inviteLink
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('invite_link')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $inviteLink = null;
-
-    /**
-     *
      * @var Relationship $relationship
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('relationship')]
     #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Relationship')]
     public Relationship $relationship;
+
+    /**
+     *
+     * @var ?string $inviteLink
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('invite_link')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $inviteLink = null;
 
     /**
      * @param  Relationship  $relationship

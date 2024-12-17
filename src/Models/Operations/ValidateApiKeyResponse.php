@@ -12,13 +12,6 @@ use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class ValidateApiKeyResponse
 {
     /**
-     * OK
-     *
-     * @var ?Shared\ApiKeyDetails $apiKeyDetails
-     */
-    public ?Shared\ApiKeyDetails $apiKeyDetails = null;
-
-    /**
      * HTTP response content type for this operation
      *
      * @var string $contentType
@@ -38,6 +31,13 @@ class ValidateApiKeyResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * OK
+     *
+     * @var ?Shared\ApiKeyDetails $apiKeyDetails
+     */
+    public ?Shared\ApiKeyDetails $apiKeyDetails = null;
 
     /**
      * @param  string  $contentType

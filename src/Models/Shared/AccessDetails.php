@@ -20,19 +20,19 @@ class AccessDetails
 
     /**
      *
+     * @var string $message
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('message')]
+    public string $message;
+
+    /**
+     *
      * @var ?Level $level
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('level')]
     #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Level|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Level $level = null;
-
-    /**
-     *
-     * @var string $message
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('message')]
-    public string $message;
 
     /**
      * @param  bool  $generationAllowed

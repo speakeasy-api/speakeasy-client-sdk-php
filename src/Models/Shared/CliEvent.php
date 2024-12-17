@@ -12,6 +12,79 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class CliEvent
 {
     /**
+     * Timestamp when the event was created in the database.
+     *
+     * @var \DateTime $createdAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
+    public \DateTime $createdAt;
+
+    /**
+     * Unique identifier for each execution of the CLI.
+     *
+     * @var string $executionId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('execution_id')]
+    public string $executionId;
+
+    /**
+     * Unique identifier for each event.
+     *
+     * @var string $id
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    public string $id;
+
+    /**
+     * Type of interaction.
+     *
+     * @var InteractionType $interactionType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('interaction_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType')]
+    public InteractionType $interactionType;
+
+    /**
+     * Timestamp when the event started, in local time.
+     *
+     * @var \DateTime $localStartedAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('local_started_at')]
+    public \DateTime $localStartedAt;
+
+    /**
+     * Identifier of the Speakeasy API key.
+     *
+     * @var string $speakeasyApiKeyName
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('speakeasy_api_key_name')]
+    public string $speakeasyApiKeyName;
+
+    /**
+     * Version of the Speakeasy CLI.
+     *
+     * @var string $speakeasyVersion
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('speakeasy_version')]
+    public string $speakeasyVersion;
+
+    /**
+     * Indicates whether the event was successful.
+     *
+     * @var bool $success
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('success')]
+    public bool $success;
+
+    /**
+     * Identifier of the workspace.
+     *
+     * @var string $workspaceId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
+    public string $workspaceId;
+
+    /**
      * Remote commit ID.
      *
      * @var ?string $commitHead
@@ -30,14 +103,6 @@ class CliEvent
     public ?string $continuousIntegrationEnvironment = null;
 
     /**
-     * Timestamp when the event was created in the database.
-     *
-     * @var \DateTime $createdAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
-    public \DateTime $createdAt;
-
-    /**
      * Duration of the event in milliseconds.
      *
      * @var ?int $durationMs
@@ -54,14 +119,6 @@ class CliEvent
     #[\Speakeasy\Serializer\Annotation\SerializedName('error')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $error = null;
-
-    /**
-     * Unique identifier for each execution of the CLI.
-     *
-     * @var string $executionId
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('execution_id')]
-    public string $executionId;
 
     /**
      * Bump type of the lock file (calculated semver delta, custom change (manual release), or prerelease/graduate)
@@ -425,23 +482,6 @@ class CliEvent
     public ?string $hostname = null;
 
     /**
-     * Unique identifier for each event.
-     *
-     * @var string $id
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
-    public string $id;
-
-    /**
-     * Type of interaction.
-     *
-     * @var InteractionType $interactionType
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('interaction_type')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\InteractionType')]
-    public InteractionType $interactionType;
-
-    /**
      * The last step of the event.
      *
      * @var ?string $lastStep
@@ -494,14 +534,6 @@ class CliEvent
     #[\Speakeasy\Serializer\Annotation\SerializedName('local_completed_at')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $localCompletedAt = null;
-
-    /**
-     * Timestamp when the event started, in local time.
-     *
-     * @var \DateTime $localStartedAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('local_started_at')]
-    public \DateTime $localStartedAt;
 
     /**
      * Checksum of the currently Rendered OpenAPI document.
@@ -667,30 +699,6 @@ class CliEvent
     public ?string $sourceRevisionDigest = null;
 
     /**
-     * Identifier of the Speakeasy API key.
-     *
-     * @var string $speakeasyApiKeyName
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('speakeasy_api_key_name')]
-    public string $speakeasyApiKeyName;
-
-    /**
-     * Version of the Speakeasy CLI.
-     *
-     * @var string $speakeasyVersion
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('speakeasy_version')]
-    public string $speakeasyVersion;
-
-    /**
-     * Indicates whether the event was successful.
-     *
-     * @var bool $success
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('success')]
-    public bool $success;
-
-    /**
      * Workflow lock file (post execution)
      *
      * @var ?string $workflowLockPostRaw
@@ -725,14 +733,6 @@ class CliEvent
     #[\Speakeasy\Serializer\Annotation\SerializedName('workflow_pre_raw')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $workflowPreRaw = null;
-
-    /**
-     * Identifier of the workspace.
-     *
-     * @var string $workspaceId
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
-    public string $workspaceId;
 
     /**
      * @param  \DateTime  $createdAt

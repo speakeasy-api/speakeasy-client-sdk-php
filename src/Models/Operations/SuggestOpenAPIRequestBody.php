@@ -15,17 +15,17 @@ class SuggestOpenAPIRequestBody
 {
     /**
      *
+     * @var Schema $schema
+     */
+    #[SpeakeasyMetadata('multipartForm:file=true,name=schema')]
+    public Schema $schema;
+
+    /**
+     *
      * @var ?Shared\SuggestOptsOld $opts
      */
     #[SpeakeasyMetadata('multipartForm:name=opts,json=true')]
     public ?Shared\SuggestOptsOld $opts = null;
-
-    /**
-     *
-     * @var Schema $schema
-     */
-    #[SpeakeasyMetadata('multipartForm:file=true')]
-    public Schema $schema;
 
     /**
      * @param  Schema  $schema

@@ -19,13 +19,6 @@ class GetManifestResponse
     public string $contentType;
 
     /**
-     * OK
-     *
-     * @var ?Shared\Manifest $manifest
-     */
-    public ?Shared\Manifest $manifest = null;
-
-    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -38,6 +31,13 @@ class GetManifestResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * OK
+     *
+     * @var ?Shared\Manifest $manifest
+     */
+    public ?Shared\Manifest $manifest = null;
 
     /**
      * @param  string  $contentType

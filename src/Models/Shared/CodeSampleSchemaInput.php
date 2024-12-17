@@ -20,20 +20,20 @@ class CodeSampleSchemaInput
     public array $languages;
 
     /**
+     * The OpenAPI file to be uploaded
+     *
+     * @var SchemaFile $schemaFile
+     */
+    #[SpeakeasyMetadata('multipartForm:file=true,name=schema_file')]
+    public SchemaFile $schemaFile;
+
+    /**
      * The name of the package
      *
      * @var ?string $packageName
      */
     #[SpeakeasyMetadata('multipartForm:name=package_name')]
     public ?string $packageName = null;
-
-    /**
-     * The OpenAPI file to be uploaded
-     *
-     * @var SchemaFile $schemaFile
-     */
-    #[SpeakeasyMetadata('multipartForm:file=true')]
-    public SchemaFile $schemaFile;
 
     /**
      * The SDK class name

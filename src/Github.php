@@ -111,6 +111,156 @@ class Github
     }
 
     /**
+     * getAction
+     *
+     * @param  Operations\GetGitHubActionRequest  $request
+     * @return Operations\GetGitHubActionResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
+     */
+    public function getAction(Operations\GetGitHubActionRequest $request): Operations\GetGitHubActionResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/action');
+        $urlOverride = null;
+        $options = ['http_errors' => false];
+
+        $qp = Utils\Utils::getQueryParams(Operations\GetGitHubActionRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
+        $hookContext = new HookContext('getGitHubAction', null, $this->sdkConfiguration->securitySource);
+        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $options['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
+        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
+        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
+        try {
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
+        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        if ($statusCode >= 200 && $statusCode < 300) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Shared\GithubGetActionResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetGitHubActionResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    githubGetActionResponse: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj->toException();
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
+     * getSetup
+     *
+     * @param  Operations\GetGithubSetupStateRequest  $request
+     * @return Operations\GetGithubSetupStateResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
+     */
+    public function getSetup(Operations\GetGithubSetupStateRequest $request): Operations\GetGithubSetupStateResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/setup');
+        $urlOverride = null;
+        $options = ['http_errors' => false];
+
+        $qp = Utils\Utils::getQueryParams(Operations\GetGithubSetupStateRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
+        $hookContext = new HookContext('getGithubSetupState', null, $this->sdkConfiguration->securitySource);
+        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $options['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
+        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
+        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
+        try {
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
+        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        if ($statusCode >= 200 && $statusCode < 300) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Shared\GithubSetupStateResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetGithubSetupStateResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    githubSetupStateResponse: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj->toException();
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
      * checkPublishingPRs
      *
      * @param  Operations\GithubCheckPublishingPRsRequest  $request
@@ -474,222 +624,6 @@ class Github
     }
 
     /**
-     * getAction
-     *
-     * @param  Operations\GetGitHubActionRequest  $request
-     * @return Operations\GetGitHubActionResponse
-     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
-     */
-    public function getAction(Operations\GetGitHubActionRequest $request): Operations\GetGitHubActionResponse
-    {
-        $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/action');
-        $urlOverride = null;
-        $options = ['http_errors' => false];
-
-        $qp = Utils\Utils::getQueryParams(Operations\GetGitHubActionRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        $hookContext = new HookContext('getGitHubAction', null, $this->sdkConfiguration->securitySource);
-        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
-        $options['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
-        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
-        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
-        try {
-            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
-        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        if ($statusCode >= 200 && $statusCode < 300) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-                $serializer = Utils\JSON::createSerializer();
-                $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Shared\GithubGetActionResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\GetGitHubActionResponse(
-                    statusCode: $statusCode,
-                    contentType: $contentType,
-                    rawResponse: $httpResponse,
-                    githubGetActionResponse: $obj);
-
-                return $response;
-            } else {
-                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        } elseif ($statusCode >= 400 && $statusCode < 500) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-                $serializer = Utils\JSON::createSerializer();
-                $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                throw $obj->toException();
-            } else {
-                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        } elseif ($statusCode >= 500 && $statusCode < 600) {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } else {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        }
-    }
-
-    /**
-     * getSetup
-     *
-     * @param  Operations\GetGithubSetupStateRequest  $request
-     * @return Operations\GetGithubSetupStateResponse
-     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
-     */
-    public function getSetup(Operations\GetGithubSetupStateRequest $request): Operations\GetGithubSetupStateResponse
-    {
-        $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/setup');
-        $urlOverride = null;
-        $options = ['http_errors' => false];
-
-        $qp = Utils\Utils::getQueryParams(Operations\GetGithubSetupStateRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        $hookContext = new HookContext('getGithubSetupState', null, $this->sdkConfiguration->securitySource);
-        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
-        $options['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
-        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
-        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
-        try {
-            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
-        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        if ($statusCode >= 200 && $statusCode < 300) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-                $serializer = Utils\JSON::createSerializer();
-                $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Shared\GithubSetupStateResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\GetGithubSetupStateResponse(
-                    statusCode: $statusCode,
-                    contentType: $contentType,
-                    rawResponse: $httpResponse,
-                    githubSetupStateResponse: $obj);
-
-                return $response;
-            } else {
-                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        } elseif ($statusCode >= 400 && $statusCode < 500) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-                $serializer = Utils\JSON::createSerializer();
-                $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                throw $obj->toException();
-            } else {
-                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        } elseif ($statusCode >= 500 && $statusCode < 600) {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } else {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        }
-    }
-
-    /**
-     * linkGithub
-     *
-     * @param  ?Operations\LinkGithubAccessRequest  $request
-     * @return Operations\LinkGithubAccessResponse
-     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
-     */
-    public function linkGithub(?Operations\LinkGithubAccessRequest $request = null): Operations\LinkGithubAccessResponse
-    {
-        $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/link');
-        $urlOverride = null;
-        $options = ['http_errors' => false];
-
-        $qp = Utils\Utils::getQueryParams(Operations\LinkGithubAccessRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
-        $hookContext = new HookContext('linkGithubAccess', null, $this->sdkConfiguration->securitySource);
-        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
-        $options['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
-        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
-        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
-        try {
-            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
-        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        if ($statusCode >= 200 && $statusCode < 300) {
-            $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-            return new Operations\LinkGithubAccessResponse(
-                statusCode: $statusCode,
-                contentType: $contentType,
-                rawResponse: $httpResponse
-            );
-        } elseif ($statusCode >= 400 && $statusCode < 500) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-                $serializer = Utils\JSON::createSerializer();
-                $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                throw $obj->toException();
-            } else {
-                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        } elseif ($statusCode >= 500 && $statusCode < 600) {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } else {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        }
-    }
-
-    /**
      * storePublishingSecrets
      *
      * @param  Shared\GithubStorePublishingSecretsRequest  $request
@@ -803,6 +737,72 @@ class Github
             $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
             return new Operations\GithubTriggerActionResponse(
+                statusCode: $statusCode,
+                contentType: $contentType,
+                rawResponse: $httpResponse
+            );
+        } elseif ($statusCode >= 400 && $statusCode < 500) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj->toException();
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
+     * linkGithub
+     *
+     * @param  ?Operations\LinkGithubAccessRequest  $request
+     * @return Operations\LinkGithubAccessResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
+     */
+    public function linkGithub(?Operations\LinkGithubAccessRequest $request = null): Operations\LinkGithubAccessResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/github/link');
+        $urlOverride = null;
+        $options = ['http_errors' => false];
+
+        $qp = Utils\Utils::getQueryParams(Operations\LinkGithubAccessRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
+        $hookContext = new HookContext('linkGithubAccess', null, $this->sdkConfiguration->securitySource);
+        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $options['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
+        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
+        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
+        try {
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
+        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        if ($statusCode >= 200 && $statusCode < 300) {
+            $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+            return new Operations\LinkGithubAccessResponse(
                 statusCode: $statusCode,
                 contentType: $contentType,
                 rawResponse: $httpResponse

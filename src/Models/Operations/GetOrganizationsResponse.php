@@ -19,13 +19,6 @@ class GetOrganizationsResponse
     public string $contentType;
 
     /**
-     * OK
-     *
-     * @var ?array<Shared\Organization> $organizations
-     */
-    public ?array $organizations = null;
-
-    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -38,6 +31,13 @@ class GetOrganizationsResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * OK
+     *
+     * @var ?array<Shared\Organization> $organizations
+     */
+    public ?array $organizations = null;
 
     /**
      * @param  string  $contentType

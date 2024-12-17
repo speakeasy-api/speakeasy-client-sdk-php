@@ -13,15 +13,6 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class GithubTriggerActionRequest
 {
     /**
-     * Force an SDK generation
-     *
-     * @var ?bool $force
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('force')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $force = null;
-
-    /**
      * The generation lock ID
      *
      * @var string $genLockId
@@ -44,6 +35,15 @@ class GithubTriggerActionRequest
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('repo_name')]
     public string $repoName;
+
+    /**
+     * Force an SDK generation
+     *
+     * @var ?bool $force
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('force')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $force = null;
 
     /**
      * A version to override the SDK too in workflow dispatch

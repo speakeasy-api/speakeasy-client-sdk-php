@@ -13,14 +13,6 @@ use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class SuggestOpenAPIRegistryRequest
 {
     /**
-     * Suggest options
-     *
-     * @var ?Shared\SuggestRequestBody $suggestRequestBody
-     */
-    #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public ?Shared\SuggestRequestBody $suggestRequestBody = null;
-
-    /**
      *
      * @var string $namespaceName
      */
@@ -41,6 +33,14 @@ class SuggestOpenAPIRegistryRequest
      */
     #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-session-id')]
     public string $xSessionId;
+
+    /**
+     * Suggest options
+     *
+     * @var ?Shared\SuggestRequestBody $suggestRequestBody
+     */
+    #[SpeakeasyMetadata('request:mediaType=application/json')]
+    public ?Shared\SuggestRequestBody $suggestRequestBody = null;
 
     /**
      * @param  string  $namespaceName

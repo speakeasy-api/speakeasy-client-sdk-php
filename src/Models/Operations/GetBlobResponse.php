@@ -12,13 +12,6 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 class GetBlobResponse
 {
     /**
-     * OK
-     *
-     * @var ?string $blob
-     */
-    public ?string $blob = null;
-
-    /**
      * HTTP response content type for this operation
      *
      * @var string $contentType
@@ -38,6 +31,13 @@ class GetBlobResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * OK
+     *
+     * @var ?string $blob
+     */
+    public ?string $blob = null;
 
     /**
      * @param  string  $contentType

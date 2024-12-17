@@ -14,19 +14,19 @@ class WorkflowDocument
 {
     /**
      *
+     * @var string $location
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('location')]
+    public string $location;
+
+    /**
+     *
      * @var ?Auth $auth
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('auth')]
     #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\Auth|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Auth $auth = null;
-
-    /**
-     *
-     * @var string $location
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('location')]
-    public string $location;
 
     /**
      * @param  string  $location

@@ -19,13 +19,6 @@ class PreflightResponse
     public string $contentType;
 
     /**
-     * OK
-     *
-     * @var ?Shared\PreflightToken $preflightToken
-     */
-    public ?Shared\PreflightToken $preflightToken = null;
-
-    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -38,6 +31,13 @@ class PreflightResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * OK
+     *
+     * @var ?Shared\PreflightToken $preflightToken
+     */
+    public ?Shared\PreflightToken $preflightToken = null;
 
     /**
      * @param  string  $contentType

@@ -13,6 +13,15 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class WorkspaceTeamResponse
 {
     /**
+     * $users
+     *
+     * @var array<User> $users
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('users')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\User>')]
+    public array $users;
+
+    /**
      * SSO metadata for a workspace
      *
      * @var ?SSOMetadata $ssoMetadata
@@ -21,15 +30,6 @@ class WorkspaceTeamResponse
     #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\SSOMetadata|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?SSOMetadata $ssoMetadata = null;
-
-    /**
-     * $users
-     *
-     * @var array<User> $users
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('users')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\User>')]
-    public array $users;
 
     /**
      * @param  array<User>  $users

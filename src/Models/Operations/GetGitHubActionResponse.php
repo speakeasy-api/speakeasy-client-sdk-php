@@ -19,13 +19,6 @@ class GetGitHubActionResponse
     public string $contentType;
 
     /**
-     * OK
-     *
-     * @var ?Shared\GithubGetActionResponse $githubGetActionResponse
-     */
-    public ?Shared\GithubGetActionResponse $githubGetActionResponse = null;
-
-    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -38,6 +31,13 @@ class GetGitHubActionResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * OK
+     *
+     * @var ?Shared\GithubGetActionResponse $githubGetActionResponse
+     */
+    public ?Shared\GithubGetActionResponse $githubGetActionResponse = null;
 
     /**
      * @param  string  $contentType

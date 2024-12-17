@@ -19,13 +19,6 @@ class GithubCheckPublishingSecretsResponse
     public string $contentType;
 
     /**
-     * OK
-     *
-     * @var ?Shared\GithubMissingPublishingSecretsResponse $githubMissingPublishingSecretsResponse
-     */
-    public ?Shared\GithubMissingPublishingSecretsResponse $githubMissingPublishingSecretsResponse = null;
-
-    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -38,6 +31,13 @@ class GithubCheckPublishingSecretsResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * OK
+     *
+     * @var ?Shared\GithubMissingPublishingSecretsResponse $githubMissingPublishingSecretsResponse
+     */
+    public ?Shared\GithubMissingPublishingSecretsResponse $githubMissingPublishingSecretsResponse = null;
 
     /**
      * @param  string  $contentType

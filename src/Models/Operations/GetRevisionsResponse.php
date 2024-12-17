@@ -19,13 +19,6 @@ class GetRevisionsResponse
     public string $contentType;
 
     /**
-     * OK
-     *
-     * @var ?Shared\GetRevisionsResponse $getRevisionsResponse
-     */
-    public ?Shared\GetRevisionsResponse $getRevisionsResponse = null;
-
-    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -38,6 +31,13 @@ class GetRevisionsResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * OK
+     *
+     * @var ?Shared\GetRevisionsResponse $getRevisionsResponse
+     */
+    public ?Shared\GetRevisionsResponse $getRevisionsResponse = null;
 
     /**
      * @param  string  $contentType

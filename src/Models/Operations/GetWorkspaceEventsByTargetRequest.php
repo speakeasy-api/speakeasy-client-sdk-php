@@ -12,20 +12,20 @@ use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class GetWorkspaceEventsByTargetRequest
 {
     /**
-     * Filter to only return events created after this timestamp
-     *
-     * @var ?\DateTime $afterCreatedAt
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=after_created_at,dateTimeFormat=Y-m-d\TH:i:s.up')]
-    public ?\DateTime $afterCreatedAt = null;
-
-    /**
      * Filter to only return events corresponding to a particular gen_lock_id (gen_lock_id uniquely identifies a target)
      *
      * @var string $targetId
      */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=target_id')]
     public string $targetId;
+
+    /**
+     * Filter to only return events created after this timestamp
+     *
+     * @var ?\DateTime $afterCreatedAt
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=after_created_at,dateTimeFormat=Y-m-d\TH:i:s.up')]
+    public ?\DateTime $afterCreatedAt = null;
 
     /**
      * Unique identifier of the workspace.

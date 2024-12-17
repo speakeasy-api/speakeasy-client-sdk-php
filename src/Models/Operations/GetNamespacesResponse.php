@@ -19,13 +19,6 @@ class GetNamespacesResponse
     public string $contentType;
 
     /**
-     * OK
-     *
-     * @var ?Shared\GetNamespacesResponse $getNamespacesResponse
-     */
-    public ?Shared\GetNamespacesResponse $getNamespacesResponse = null;
-
-    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -38,6 +31,13 @@ class GetNamespacesResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * OK
+     *
+     * @var ?Shared\GetNamespacesResponse $getNamespacesResponse
+     */
+    public ?Shared\GetNamespacesResponse $getNamespacesResponse = null;
 
     /**
      * @param  string  $contentType

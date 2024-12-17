@@ -13,19 +13,19 @@ use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class PostTagsRequest
 {
     /**
+     *
+     * @var string $namespaceName
+     */
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=namespace_name')]
+    public string $namespaceName;
+
+    /**
      * A JSON representation of the tags to add
      *
      * @var ?Shared\AddTags $addTags
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public ?Shared\AddTags $addTags = null;
-
-    /**
-     *
-     * @var string $namespaceName
-     */
-    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=namespace_name')]
-    public string $namespaceName;
 
     /**
      * @param  string  $namespaceName

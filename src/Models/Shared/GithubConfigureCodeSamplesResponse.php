@@ -21,15 +21,6 @@ class GithubConfigureCodeSamplesResponse
     public string $codeSampleOverlayRegistryURL;
 
     /**
-     * The ID of the GitHub action that was dispatched
-     *
-     * @var ?string $ghActionID
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('ghActionID')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $ghActionID = null;
-
-    /**
      * A document referenced by a workflow
      *
      * @var WorkflowDocument $source
@@ -37,6 +28,15 @@ class GithubConfigureCodeSamplesResponse
     #[\Speakeasy\Serializer\Annotation\SerializedName('source')]
     #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\WorkflowDocument')]
     public WorkflowDocument $source;
+
+    /**
+     * The ID of the GitHub action that was dispatched
+     *
+     * @var ?string $ghActionID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('ghActionID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $ghActionID = null;
 
     /**
      * @param  string  $codeSampleOverlayRegistryURL

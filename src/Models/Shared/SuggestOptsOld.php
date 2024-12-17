@@ -12,6 +12,14 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class SuggestOptsOld
 {
     /**
+     *
+     * @var SuggestionType $suggestionType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('suggestion_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestionType')]
+    public SuggestionType $suggestionType;
+
+    /**
      * $diagnostics
      *
      * @var ?array<Diagnostic> $diagnostics
@@ -20,14 +28,6 @@ class SuggestOptsOld
     #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\Diagnostic>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $diagnostics = null;
-
-    /**
-     *
-     * @var SuggestionType $suggestionType
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('suggestion_type')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\SuggestionType')]
-    public SuggestionType $suggestionType;
 
     /**
      * @param  SuggestionType  $suggestionType

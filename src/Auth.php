@@ -44,72 +44,6 @@ class Auth
     }
 
     /**
-     * Get access allowances for a particular workspace
-     *
-     * Checks if generation is permitted for a particular run of the CLI
-     *
-     * @param  ?Operations\GetWorkspaceAccessRequest  $request
-     * @return Operations\GetWorkspaceAccessResponse
-     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
-     */
-    public function getAccess(?Operations\GetWorkspaceAccessRequest $request = null): Operations\GetWorkspaceAccessResponse
-    {
-        $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/access');
-        $urlOverride = null;
-        $options = ['http_errors' => false];
-
-        $qp = Utils\Utils::getQueryParams(Operations\GetWorkspaceAccessRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        $hookContext = new HookContext('getWorkspaceAccess', null, $this->sdkConfiguration->securitySource);
-        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
-        $options['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
-        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
-        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
-        try {
-            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
-        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
-            if ($res !== null) {
-                $httpResponse = $res;
-            }
-        }
-        if ($statusCode >= 200 && $statusCode < 300) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-                $serializer = Utils\JSON::createSerializer();
-                $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessDetails', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\GetWorkspaceAccessResponse(
-                    statusCode: $statusCode,
-                    contentType: $contentType,
-                    rawResponse: $httpResponse,
-                    accessDetails: $obj);
-
-                return $response;
-            } else {
-                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } else {
-            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        }
-    }
-
-    /**
      * Get or refresh an access token for the current workspace.
      *
      * @param  Operations\GetAccessTokenRequest  $request
@@ -249,6 +183,72 @@ class Auth
                 throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif ($statusCode >= 500 && $statusCode < 600) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
+     * Get access allowances for a particular workspace
+     *
+     * Checks if generation is permitted for a particular run of the CLI
+     *
+     * @param  ?Operations\GetWorkspaceAccessRequest  $request
+     * @return Operations\GetWorkspaceAccessResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException
+     */
+    public function getAccess(?Operations\GetWorkspaceAccessRequest $request = null): Operations\GetWorkspaceAccessResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/workspace/access');
+        $urlOverride = null;
+        $options = ['http_errors' => false];
+
+        $qp = Utils\Utils::getQueryParams(Operations\GetWorkspaceAccessRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
+        $hookContext = new HookContext('getWorkspaceAccess', null, $this->sdkConfiguration->securitySource);
+        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $options['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
+        $options = Utils\Utils::convertHeadersToOptions($httpRequest, $options);
+        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
+        try {
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $options);
+        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
+            if ($res !== null) {
+                $httpResponse = $res;
+            }
+        }
+        if ($statusCode >= 200 && $statusCode < 300) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessDetails', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetWorkspaceAccessResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    accessDetails: $obj);
+
+                return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
             throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);

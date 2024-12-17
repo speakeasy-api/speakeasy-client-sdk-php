@@ -12,20 +12,6 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 class GenerateCodeSamplePreviewResponse
 {
     /**
-     * Successfully returned codeSample overlay file
-     *
-     * @var ?string $twoHundredApplicationJsonBytes
-     */
-    public ?string $twoHundredApplicationJsonBytes = null;
-
-    /**
-     * Successfully returned codeSample overlay file
-     *
-     * @var ?string $twoHundredApplicationXYamlBytes
-     */
-    public ?string $twoHundredApplicationXYamlBytes = null;
-
-    /**
      * HTTP response content type for this operation
      *
      * @var string $contentType
@@ -45,6 +31,20 @@ class GenerateCodeSamplePreviewResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * Successfully returned codeSample overlay file
+     *
+     * @var ?string $twoHundredApplicationJsonBytes
+     */
+    public ?string $twoHundredApplicationJsonBytes = null;
+
+    /**
+     * Successfully returned codeSample overlay file
+     *
+     * @var ?string $twoHundredApplicationXYamlBytes
+     */
+    public ?string $twoHundredApplicationXYamlBytes = null;
 
     /**
      * @param  string  $contentType

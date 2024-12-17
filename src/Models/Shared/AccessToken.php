@@ -28,6 +28,14 @@ class AccessToken
     public Claims $claims;
 
     /**
+     *
+     * @var AccessTokenUser $user
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('user')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessTokenUser')]
+    public AccessTokenUser $user;
+
+    /**
      * $featureFlags
      *
      * @var ?array<FeatureFlag> $featureFlags
@@ -36,14 +44,6 @@ class AccessToken
     #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\FeatureFlag>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $featureFlags = null;
-
-    /**
-     *
-     * @var AccessTokenUser $user
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('user')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\AccessTokenUser')]
-    public AccessTokenUser $user;
 
     /**
      * $workspaces

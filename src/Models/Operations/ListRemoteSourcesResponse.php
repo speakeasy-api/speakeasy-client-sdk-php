@@ -19,13 +19,6 @@ class ListRemoteSourcesResponse
     public string $contentType;
 
     /**
-     * OK
-     *
-     * @var ?Shared\RemoteSource $remoteSource
-     */
-    public ?Shared\RemoteSource $remoteSource = null;
-
-    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -38,6 +31,13 @@ class ListRemoteSourcesResponse
      * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
     public \Psr\Http\Message\ResponseInterface $rawResponse;
+
+    /**
+     * OK
+     *
+     * @var ?Shared\RemoteSource $remoteSource
+     */
+    public ?Shared\RemoteSource $remoteSource = null;
 
     /**
      * @param  string  $contentType
