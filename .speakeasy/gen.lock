@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 3dbd165cb83aaf90203b78ec02c2a141
+  docChecksum: 17684e14e65fca2909aaf49de5c6b935
   docVersion: 0.4.0
-  speakeasyVersion: 1.455.7
-  generationVersion: 2.480.1
-  releaseVersion: 0.46.2
-  configChecksum: a9969eb26a984169e7439787f686ca63
+  speakeasyVersion: 1.456.1
+  generationVersion: 2.481.0
+  releaseVersion: 0.46.3
+  configChecksum: 70395cadadc90bcfec7b0db193c34b16
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -953,7 +953,8 @@ examples:
         default:
           application/json: {"message": "<value>", "status_code": 820828}
         "200": {}
-        2XX: {}
+        2XX:
+          application/json: {}
         4XX:
           application/json: {"message": "<value>", "status_code": 820828}
   getAccessToken:
@@ -1100,7 +1101,8 @@ examples:
         default:
           application/json: {"message": "<value>", "status_code": 445560}
         "200": {}
-        2XX: {}
+        2XX:
+          application/json: {}
         4XX:
           application/json: {"message": "<value>", "status_code": 749379}
   githubStorePublishingSecrets:
@@ -1343,7 +1345,8 @@ examples:
       responses:
         5XX:
           application/json: {"message": "<value>", "status_code": 365854}
-        "200": {}
+        "200":
+          application/json: {}
   getWorkspaceByContext:
     speakeasy-default-get-workspace-by-context:
       responses:
@@ -1374,7 +1377,8 @@ examples:
       responses:
         4XX:
           application/json: {"message": "<value>", "status_code": 670562}
-        2XX: {}
+        2XX:
+          application/json: {}
   githubConfigureCodeSamples:
     speakeasy-default-github-configure-code-samples:
       requestBody:
@@ -1407,7 +1411,8 @@ examples:
       responses:
         4XX:
           application/json: {"message": "<value>", "status_code": 252330}
-        2XX: {}
+        2XX:
+          application/json: {}
   githubTriggerAction:
     speakeasy-default-github-trigger-action:
       requestBody:
