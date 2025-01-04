@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 17684e14e65fca2909aaf49de5c6b935
+  docChecksum: bb7b102d1334d2d3e66e7cd8d8b866d8
   docVersion: 0.4.0
-  speakeasyVersion: 1.456.1
-  generationVersion: 2.481.0
-  releaseVersion: 0.46.3
-  configChecksum: 70395cadadc90bcfec7b0db193c34b16
+  speakeasyVersion: 1.462.2
+  generationVersion: 2.486.1
+  releaseVersion: 0.47.0
+  configChecksum: 026d2eb83427eeb452300de5c320637d
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -22,6 +22,7 @@ features:
     nameOverrides: 2.81.2
     nullables: 1.0.0
     responseFormat: 0.1.0
+    retries: 0.1.0
     serverIDs: 2.81.1
 generatedFiles:
   - .gitattributes
@@ -57,6 +58,8 @@ generatedFiles:
   - docs/Models/Operations/GetCodeSamplePreviewAsyncRequest.md
   - docs/Models/Operations/GetCodeSamplePreviewAsyncResponse.md
   - docs/Models/Operations/GetCodeSamplePreviewAsyncResponseBody.md
+  - docs/Models/Operations/GetCodeSamplesRequest.md
+  - docs/Models/Operations/GetCodeSamplesResponse.md
   - docs/Models/Operations/GetGitHubActionRequest.md
   - docs/Models/Operations/GetGitHubActionResponse.md
   - docs/Models/Operations/GetGithubSetupStateRequest.md
@@ -205,6 +208,8 @@ generatedFiles:
   - docs/Models/Shared/Tag.md
   - docs/Models/Shared/TargetSDK.md
   - docs/Models/Shared/Type.md
+  - docs/Models/Shared/UsageSnippet.md
+  - docs/Models/Shared/UsageSnippets.md
   - docs/Models/Shared/User.md
   - docs/Models/Shared/V2Descriptor.md
   - docs/Models/Shared/WorkflowDocument.md
@@ -218,6 +223,7 @@ generatedFiles:
   - docs/Models/Shared/Workspaces.md
   - docs/sdks/artifacts/README.md
   - docs/sdks/auth/README.md
+  - docs/sdks/codesamples/README.md
   - docs/sdks/events/README.md
   - docs/sdks/github/README.md
   - docs/sdks/organizations/README.md
@@ -233,6 +239,7 @@ generatedFiles:
   - rector.php
   - src/Artifacts.php
   - src/Auth.php
+  - src/CodeSamples.php
   - src/Events.php
   - src/Github.php
   - src/Hooks/AfterErrorContext.php
@@ -282,6 +289,8 @@ generatedFiles:
   - src/Models/Operations/GetCodeSamplePreviewAsyncRequest.php
   - src/Models/Operations/GetCodeSamplePreviewAsyncResponse.php
   - src/Models/Operations/GetCodeSamplePreviewAsyncResponseBody.php
+  - src/Models/Operations/GetCodeSamplesRequest.php
+  - src/Models/Operations/GetCodeSamplesResponse.php
   - src/Models/Operations/GetGitHubActionRequest.php
   - src/Models/Operations/GetGitHubActionResponse.php
   - src/Models/Operations/GetGithubSetupStateRequest.php
@@ -430,6 +439,8 @@ generatedFiles:
   - src/Models/Shared/Tag.php
   - src/Models/Shared/TargetSDK.php
   - src/Models/Shared/Type.php
+  - src/Models/Shared/UsageSnippet.php
+  - src/Models/Shared/UsageSnippets.php
   - src/Models/Shared/User.php
   - src/Models/Shared/V2Descriptor.php
   - src/Models/Shared/WorkflowDocument.php
@@ -463,12 +474,20 @@ generatedFiles:
   - src/Utils/JSON.php
   - src/Utils/MixedJSONHandler.php
   - src/Utils/MultipartMetadata.php
+  - src/Utils/Options.php
   - src/Utils/ParamsMetadata.php
   - src/Utils/PathParameters.php
   - src/Utils/PhpDocTypeParser.php
   - src/Utils/QueryParameters.php
   - src/Utils/RequestBodies.php
   - src/Utils/RequestMetadata.php
+  - src/Utils/Retry/PermanentError.php
+  - src/Utils/Retry/RetryConfig.php
+  - src/Utils/Retry/RetryConfigBackoff.php
+  - src/Utils/Retry/RetryConfigNone.php
+  - src/Utils/Retry/RetryStrategy.php
+  - src/Utils/Retry/RetryUtils.php
+  - src/Utils/Retry/TemporaryError.php
   - src/Utils/Security.php
   - src/Utils/SecurityClient.php
   - src/Utils/SecurityMetadata.php
@@ -1670,4 +1689,14 @@ examples:
       responses:
         4XX:
           application/json: {"message": "<value>", "status_code": 844164}
+  getCodeSamples:
+    speakeasy-default-get-code-samples:
+      parameters:
+        query:
+          registry_url: "https://normal-making.name"
+      responses:
+        2XX:
+          application/json: {"snippets": [{"code": "<value>", "language": "<value>", "operationId": "<id>"}, {"code": "<value>", "language": "<value>", "operationId": "<id>"}, {"code": "<value>", "language": "<value>", "operationId": "<id>"}]}
+        4XX:
+          application/json: {"message": "<value>", "status_code": 458049}
 generatedTests: {}

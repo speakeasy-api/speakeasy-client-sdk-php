@@ -44,12 +44,12 @@ $security = new Shared\Security(
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 $request = new Shared\Workspace(
-    createdAt: Utils\Utils::parseDateTime('2023-06-18T07:14:55.338Z'),
+    createdAt: Utils\Utils::parseDateTime('2024-06-17T07:14:55.338Z'),
     id: '<id>',
     name: '<value>',
     organizationId: '<id>',
     slug: '<value>',
-    updatedAt: Utils\Utils::parseDateTime('2023-12-01T17:06:07.804Z'),
+    updatedAt: Utils\Utils::parseDateTime('2024-11-30T17:06:07.804Z'),
     verified: false,
 );
 
@@ -104,12 +104,13 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 $request = new Operations\CreateWorkspaceTokenRequest(
     workspaceToken: new Shared\WorkspaceToken(
         alg: '<value>',
-        createdAt: Utils\Utils::parseDateTime('2022-08-16T02:33:00.784Z'),
+        createdAt: Utils\Utils::parseDateTime('2023-08-16T02:33:00.784Z'),
         id: '<id>',
         key: '<key>',
         name: '<value>',
         workspaceId: '<id>',
     ),
+    workspaceId: '<id>',
 );
 
 $response = $sdk->workspaces->createToken(
@@ -161,6 +162,7 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 $request = new Operations\DeleteWorkspaceTokenRequest(
     tokenID: '<id>',
+    workspaceId: '<id>',
 );
 
 $response = $sdk->workspaces->deleteToken(
@@ -210,7 +212,9 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\GetWorkspaceRequest();
+$request = new Operations\GetWorkspaceRequest(
+    workspaceId: '<id>',
+);
 
 $response = $sdk->workspaces->getByID(
     request: $request
@@ -301,7 +305,9 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\GetWorkspaceFeatureFlagsRequest();
+$request = new Operations\GetWorkspaceFeatureFlagsRequest(
+    workspaceId: '<id>',
+);
 
 $response = $sdk->workspaces->getFeatureFlags(
     request: $request
@@ -350,7 +356,9 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\GetWorkspaceSettingsRequest();
+$request = new Operations\GetWorkspaceSettingsRequest(
+    workspaceId: '<id>',
+);
 
 $response = $sdk->workspaces->getSettings(
     request: $request
@@ -399,7 +407,9 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\GetWorkspaceTeamRequest();
+$request = new Operations\GetWorkspaceTeamRequest(
+    workspaceId: '<id>',
+);
 
 $response = $sdk->workspaces->getTeam(
     request: $request
@@ -448,7 +458,9 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\GetWorkspaceTokensRequest();
+$request = new Operations\GetWorkspaceTokensRequest(
+    workspaceId: '<id>',
+);
 
 $response = $sdk->workspaces->getTokens(
     request: $request
@@ -541,6 +553,7 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 $request = new Operations\GrantUserAccessToWorkspaceRequest(
     email: 'Lucinda.Batz8@hotmail.com',
+    workspaceId: '<id>',
 );
 
 $response = $sdk->workspaces->grantAccess(
@@ -592,6 +605,7 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 $request = new Operations\RevokeUserAccessToWorkspaceRequest(
     userId: '<id>',
+    workspaceId: '<id>',
 );
 
 $response = $sdk->workspaces->revokeAccess(
@@ -644,14 +658,15 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 $request = new Operations\UpdateWorkspaceDetailsRequest(
     workspace: new Shared\Workspace(
-        createdAt: Utils\Utils::parseDateTime('2024-07-28T19:04:48.565Z'),
+        createdAt: Utils\Utils::parseDateTime('2025-07-28T19:04:48.565Z'),
         id: '<id>',
         name: '<value>',
         organizationId: '<id>',
         slug: '<value>',
-        updatedAt: Utils\Utils::parseDateTime('2023-10-17T10:52:42.015Z'),
+        updatedAt: Utils\Utils::parseDateTime('2024-10-16T10:52:42.015Z'),
         verified: false,
     ),
+    workspaceId: '<id>',
 );
 
 $response = $sdk->workspaces->update(
@@ -704,11 +719,12 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 $request = new Operations\UpdateWorkspaceSettingsRequest(
     workspaceSettings: new Shared\WorkspaceSettings(
-        createdAt: Utils\Utils::parseDateTime('2022-07-05T11:43:28.305Z'),
-        updatedAt: Utils\Utils::parseDateTime('2023-05-15T05:39:21.874Z'),
+        createdAt: Utils\Utils::parseDateTime('2023-07-05T11:43:28.305Z'),
+        updatedAt: Utils\Utils::parseDateTime('2024-05-14T05:39:21.874Z'),
         webhookUrl: 'https://grown-pharmacopoeia.net',
         workspaceId: '<id>',
     ),
+    workspaceId: '<id>',
 );
 
 $response = $sdk->workspaces->updateSettings(

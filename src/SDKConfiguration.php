@@ -7,7 +7,7 @@
 declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK;
-
+use Speakeasy\SpeakeasyClientSDK\Utils\Retry\RetryConfig;
 
 class SDKConfiguration
 {
@@ -26,15 +26,17 @@ class SDKConfiguration
 
     public string $openapiDocVersion = '0.4.0';
 
-    public string $sdkVersion = '0.46.3';
+    public string $sdkVersion = '0.47.0';
 
-    public string $genVersion = '2.481.0';
+    public string $genVersion = '2.486.1';
 
-    public string $userAgent = 'speakeasy-sdk/php 0.46.3 2.481.0 0.4.0 speakeasy-api/speakeasy-client-sdk-php';
+    public string $userAgent = 'speakeasy-sdk/php 0.47.0 2.486.1 0.4.0 speakeasy-api/speakeasy-client-sdk-php';
     /** @var array<string, array<string, array<string, mixed>>> */
     public ?array $globals = [
         'parameters' => [],
     ];
+
+    public ?RetryConfig $retryConfig = null;
 
     public function __construct()
     {

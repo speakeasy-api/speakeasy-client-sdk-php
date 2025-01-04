@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK;
 
+use Speakeasy\SpeakeasyClientSDK\Utils\Retry;
+
 /**
  * SDKBuilder is used to configure and build an instance of the SDK.
  */
@@ -99,6 +101,13 @@ class SDKBuilder
         }
 
         $this->sdkConfig->globals['parameters']['pathParam']['workspaceId'] = $workspaceId;
+
+        return $this;
+    }
+
+    public function setRetryConfig(Retry\RetryConfig $config): SDKBuilder
+    {
+        $this->sdkConfig->retryConfig = $config;
 
         return $this;
     }

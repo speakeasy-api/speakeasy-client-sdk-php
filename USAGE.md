@@ -13,21 +13,22 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Shared\CodeSampleSchemaInput(
-    languages: [
-        '<value>',
+$request = new Shared\RemoteSource(
+    inputs: [
+        new Shared\RemoteDocument(
+            registryUrl: 'https://productive-swine.net',
+        ),
     ],
-    schemaFile: new Shared\SchemaFile(
-        content: '0xc3dD8BfBef',
-        fileName: 'example.file',
+    output: new Shared\RemoteDocument(
+        registryUrl: 'https://spiteful-apricot.info',
     ),
 );
 
-$response = $sdk->generateCodeSamplePreview(
+$response = $sdk->artifacts->createRemoteSource(
     request: $request
 );
 
-if ($response->twoHundredApplicationJsonBytes !== null) {
+if ($response->statusCode === 200) {
     // handle response
 }
 ```

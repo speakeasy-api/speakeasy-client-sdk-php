@@ -36,6 +36,7 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 $request = new Operations\GetWorkspaceEventsByTargetRequest(
     targetId: '<id>',
+    workspaceId: '<id>',
 );
 
 $response = $sdk->events->getEventsByTarget(
@@ -134,7 +135,9 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\GetWorkspaceTargetsDeprecatedRequest();
+$request = new Operations\GetWorkspaceTargetsDeprecatedRequest(
+    workspaceId: '<id>',
+);
 
 $response = $sdk->events->getTargetsDeprecated(
     request: $request
@@ -187,17 +190,18 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 $request = new Operations\PostWorkspaceEventsRequest(
     requestBody: [
         new Shared\CliEvent(
-            createdAt: Utils\Utils::parseDateTime('2023-05-08T03:24:39.583Z'),
+            createdAt: Utils\Utils::parseDateTime('2024-05-07T03:24:39.583Z'),
             executionId: '<id>',
             id: '<id>',
             interactionType: Shared\InteractionType::Quickstart,
-            localStartedAt: Utils\Utils::parseDateTime('2023-09-09T05:59:33.876Z'),
+            localStartedAt: Utils\Utils::parseDateTime('2024-09-08T05:59:33.876Z'),
             speakeasyApiKeyName: '<value>',
             speakeasyVersion: '<value>',
             success: false,
             workspaceId: '<id>',
         ),
     ],
+    workspaceId: '<id>',
 );
 
 $response = $sdk->events->post(
@@ -247,7 +251,9 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Operations\SearchWorkspaceEventsRequest();
+$request = new Operations\SearchWorkspaceEventsRequest(
+    workspaceId: '<id>',
+);
 
 $response = $sdk->events->search(
     request: $request

@@ -30,21 +30,22 @@ $security = new Shared\Security(
 
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
-$request = new Shared\CodeSampleSchemaInput(
-    languages: [
-        '<value>',
+$request = new Shared\RemoteSource(
+    inputs: [
+        new Shared\RemoteDocument(
+            registryUrl: 'https://productive-swine.net',
+        ),
     ],
-    schemaFile: new Shared\SchemaFile(
-        content: '0xc3dD8BfBef',
-        fileName: 'example.file',
+    output: new Shared\RemoteDocument(
+        registryUrl: 'https://spiteful-apricot.info',
     ),
 );
 
-$response = $sdk->generateCodeSamplePreview(
+$response = $sdk->artifacts->createRemoteSource(
     request: $request
 );
 
-if ($response->twoHundredApplicationJsonBytes !== null) {
+if ($response->statusCode === 200) {
     // handle response
 }
 ```
@@ -75,6 +76,13 @@ if ($response->twoHundredApplicationJsonBytes !== null) {
 * [getUser](docs/sdks/auth/README.md#getuser) - Get information about the current user.
 * [getAccess](docs/sdks/auth/README.md#getaccess) - Get access allowances for a particular workspace
 * [validateApiKey](docs/sdks/auth/README.md#validateapikey) - Validate the current api key.
+
+### [codeSamples](docs/sdks/codesamples/README.md)
+
+* [generateCodeSamplePreview](docs/sdks/codesamples/README.md#generatecodesamplepreview) - Generate Code Sample previews from a file and configuration parameters.
+* [generateCodeSamplePreviewAsync](docs/sdks/codesamples/README.md#generatecodesamplepreviewasync) - Initiate asynchronous Code Sample preview generation from a file and configuration parameters, receiving an async JobID response for polling.
+* [getCodeSamplePreviewAsync](docs/sdks/codesamples/README.md#getcodesamplepreviewasync) - Poll for the result of an asynchronous Code Sample preview generation.
+* [get](docs/sdks/codesamples/README.md#get) - Retrieve usage snippets from document stored in the registry
 
 ### [events](docs/sdks/events/README.md)
 
@@ -112,11 +120,6 @@ if ($response->twoHundredApplicationJsonBytes !== null) {
 * [getLintingReportSignedUrl](docs/sdks/reports/README.md#getlintingreportsignedurl) - Get the signed access url for the linting reports for a particular document.
 * [uploadReport](docs/sdks/reports/README.md#uploadreport) - Upload a report.
 
-### [SDK](docs/sdks/sdk/README.md)
-
-* [generateCodeSamplePreview](docs/sdks/sdk/README.md#generatecodesamplepreview) - Generate Code Sample previews from a file and configuration parameters.
-* [generateCodeSamplePreviewAsync](docs/sdks/sdk/README.md#generatecodesamplepreviewasync) - Initiate asynchronous Code Sample preview generation from a file and configuration parameters, receiving an async JobID response for polling.
-* [getCodeSamplePreviewAsync](docs/sdks/sdk/README.md#getcodesamplepreviewasync) - Poll for the result of an asynchronous Code Sample preview generation.
 
 ### [shortURLs](docs/sdks/shorturls/README.md)
 
@@ -198,6 +201,86 @@ if ($response->accessToken !== null) {
 ```
 <!-- End Global Parameters [global-parameters] -->
 
+<!-- Start Retries [retries] -->
+## Retries
+
+Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+
+To change the default retry strategy for a single API call, simply provide an `Options` object built with a `RetryConfig` object to the call:
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use Speakeasy\SpeakeasyClientSDK\Utils\Retry;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+
+$request = new Operations\GetWorkspaceAccessRequest();
+
+$response = $sdk->auth->getAccess(
+    request: $request,
+    options: Utils\Options->builder()->setRetryConfig(
+        new Retry\RetryConfigBackoff(
+            initialInterval: 1,
+            maxInterval:     50,
+            exponent:        1.1,
+            maxElapsedTime:  100,
+            retryConnectionErrors: false,
+        ))->build()
+);
+
+if ($response->accessDetails !== null) {
+    // handle response
+}
+```
+
+If you'd like to override the default retry strategy for all operations that support retries, you can pass a `RetryConfig` object to the `SDKBuilder->setRetryConfig` function when initializing the SDK:
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use Speakeasy\SpeakeasyClientSDK\Utils\Retry;
+
+$security = new Shared\Security(
+    apiKey: '<YOUR_API_KEY_HERE>',
+);
+
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setRetryConfig(
+        new Retry\RetryConfigBackoff(
+            initialInterval: 1,
+            maxInterval:     50,
+            exponent:        1.1,
+            maxElapsedTime:  100,
+            retryConnectionErrors: false,
+        )
+  )
+    ->setSecurity($security)->build();
+
+$request = new Operations\GetWorkspaceAccessRequest();
+
+$response = $sdk->auth->getAccess(
+    request: $request
+);
+
+if ($response->accessDetails !== null) {
+    // handle response
+}
+```
+<!-- End Retries [retries] -->
+
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
@@ -212,11 +295,12 @@ By default an API error will raise a `Errorors\SDKException` exception, which ha
 | `$rawResponse` | *?\Psr\Http\Message\ResponseInterface*  | The raw HTTP response |
 | `$body`        | *string*                                | The response content  |
 
-When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `generateCodeSamplePreview` method throws the following exceptions:
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `createRemoteSource` method throws the following exceptions:
 
-| Error Type     | Status Code | Content Type     |
-| -------------- | ----------- | ---------------- |
-| Errorors\Error | 4XX, 5XX    | application/json |
+| Error Type            | Status Code | Content Type     |
+| --------------------- | ----------- | ---------------- |
+| Errorors\Error        | 4XX         | application/json |
+| Errorors\SDKException | 5XX         | \*/\*            |
 
 ### Example
 
@@ -235,21 +319,22 @@ $security = new Shared\Security(
 $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CodeSampleSchemaInput(
-        languages: [
-            '<value>',
+    $request = new Shared\RemoteSource(
+        inputs: [
+            new Shared\RemoteDocument(
+                registryUrl: 'https://productive-swine.net',
+            ),
         ],
-        schemaFile: new Shared\SchemaFile(
-            content: '0xc3dD8BfBef',
-            fileName: 'example.file',
+        output: new Shared\RemoteDocument(
+            registryUrl: 'https://spiteful-apricot.info',
         ),
     );
 
-    $response = $sdk->generateCodeSamplePreview(
+    $response = $sdk->artifacts->createRemoteSource(
         request: $request
     );
 
-    if ($response->twoHundredApplicationJsonBytes !== null) {
+    if ($response->statusCode === 200) {
         // handle response
     }
 } catch (Errorors\ErrorThrowable $e) {
@@ -291,21 +376,22 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setServer("prod")
     ->setSecurity($security)->build();
 
-$request = new Shared\CodeSampleSchemaInput(
-    languages: [
-        '<value>',
+$request = new Shared\RemoteSource(
+    inputs: [
+        new Shared\RemoteDocument(
+            registryUrl: 'https://productive-swine.net',
+        ),
     ],
-    schemaFile: new Shared\SchemaFile(
-        content: '0xc3dD8BfBef',
-        fileName: 'example.file',
+    output: new Shared\RemoteDocument(
+        registryUrl: 'https://spiteful-apricot.info',
     ),
 );
 
-$response = $sdk->generateCodeSamplePreview(
+$response = $sdk->artifacts->createRemoteSource(
     request: $request
 );
 
-if ($response->twoHundredApplicationJsonBytes !== null) {
+if ($response->statusCode === 200) {
     // handle response
 }
 ```
@@ -329,21 +415,22 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setServerURL('https://api.prod.speakeasyapi.dev')
     ->setSecurity($security)->build();
 
-$request = new Shared\CodeSampleSchemaInput(
-    languages: [
-        '<value>',
+$request = new Shared\RemoteSource(
+    inputs: [
+        new Shared\RemoteDocument(
+            registryUrl: 'https://productive-swine.net',
+        ),
     ],
-    schemaFile: new Shared\SchemaFile(
-        content: '0xc3dD8BfBef',
-        fileName: 'example.file',
+    output: new Shared\RemoteDocument(
+        registryUrl: 'https://spiteful-apricot.info',
     ),
 );
 
-$response = $sdk->generateCodeSamplePreview(
+$response = $sdk->artifacts->createRemoteSource(
     request: $request
 );
 
-if ($response->twoHundredApplicationJsonBytes !== null) {
+if ($response->statusCode === 200) {
     // handle response
 }
 ```
@@ -365,6 +452,7 @@ For more information about the API: [The Speakeasy Platform Documentation](/docs
   * [SDK Example Usage](#sdk-example-usage)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Global Parameters](#global-parameters)
+  * [Retries](#retries)
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
 

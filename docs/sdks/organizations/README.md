@@ -78,13 +78,13 @@ $sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
 
 $request = new Shared\Organization(
     accountType: Shared\AccountType::ScaleUp,
-    createdAt: Utils\Utils::parseDateTime('2023-12-01T17:06:07.804Z'),
+    createdAt: Utils\Utils::parseDateTime('2024-11-30T17:06:07.804Z'),
     id: '<id>',
     name: '<value>',
     slug: '<value>',
     ssoActivated: false,
     telemetryDisabled: false,
-    updatedAt: Utils\Utils::parseDateTime('2023-04-03T12:48:32.253Z'),
+    updatedAt: Utils\Utils::parseDateTime('2024-04-02T12:48:32.253Z'),
 );
 
 $response = $sdk->organizations->create(
