@@ -26,11 +26,11 @@ class SDKConfiguration
 
     public string $openapiDocVersion = '0.4.0';
 
-    public string $sdkVersion = '0.47.0';
+    public string $sdkVersion = '0.47.1';
 
-    public string $genVersion = '2.486.1';
+    public string $genVersion = '2.492.3';
 
-    public string $userAgent = 'speakeasy-sdk/php 0.47.0 2.486.1 0.4.0 speakeasy-api/speakeasy-client-sdk-php';
+    public string $userAgent = 'speakeasy-sdk/php 0.47.1 2.492.3 0.4.0 speakeasy-api/speakeasy-client-sdk-php';
     /** @var array<string, array<string, array<string, mixed>>> */
     public ?array $globals = [
         'parameters' => [],
@@ -77,7 +77,7 @@ class SDKConfiguration
      */
     public function getServerDetails(): Utils\ServerDetails
     {
-        if ($this->serverUrl !== null && $this->serverUrl !== '') {
+        if ($this->serverUrl !== '') {
             return new Utils\ServerDetails(rtrim($this->serverUrl, '/'), []);
         }
 

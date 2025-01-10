@@ -19,6 +19,7 @@ REST APIs for managing Workspaces (speakeasy tenancy)
 * [getAll](#getall) - Get workspaces for a user
 * [grantAccess](#grantaccess) - Grant a user access to a particular workspace
 * [revokeAccess](#revokeaccess) - Revoke a user's access to a particular workspace
+* [setFeatureFlags](#setfeatureflags) - Set workspace feature flags
 * [update](#update) - Update workspace details
 * [updateSettings](#updatesettings) - Update workspace settings
 
@@ -37,11 +38,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Shared\Workspace(
     createdAt: Utils\Utils::parseDateTime('2024-06-17T07:14:55.338Z'),
@@ -95,11 +98,13 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\CreateWorkspaceTokenRequest(
     workspaceToken: new Shared\WorkspaceToken(
@@ -154,11 +159,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\DeleteWorkspaceTokenRequest(
     tokenID: '<id>',
@@ -206,11 +213,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\GetWorkspaceRequest(
     workspaceId: '<id>',
@@ -256,11 +265,13 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 
 
@@ -299,11 +310,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\GetWorkspaceFeatureFlagsRequest(
     workspaceId: '<id>',
@@ -350,11 +363,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\GetWorkspaceSettingsRequest(
     workspaceId: '<id>',
@@ -401,11 +416,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\GetWorkspaceTeamRequest(
     workspaceId: '<id>',
@@ -452,11 +469,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\GetWorkspaceTokensRequest(
     workspaceId: '<id>',
@@ -502,11 +521,13 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 
 
@@ -545,11 +566,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\GrantUserAccessToWorkspaceRequest(
     email: 'Lucinda.Batz8@hotmail.com',
@@ -597,11 +620,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\RevokeUserAccessToWorkspaceRequest(
     userId: '<id>',
@@ -634,6 +659,60 @@ if ($response->statusCode === 200) {
 | Errorors\Error        | 4XX                   | application/json      |
 | Errorors\SDKException | 5XX                   | \*/\*                 |
 
+## setFeatureFlags
+
+Set workspace feature flags
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
+
+$request = new Shared\WorkspaceFeatureFlagRequest(
+    featureFlags: [
+        Shared\WorkspaceFeatureFlag::SkipSchemaRegistry,
+    ],
+);
+
+$response = $sdk->workspaces->setFeatureFlags(
+    request: $request
+);
+
+if ($response->workspaceFeatureFlagResponse !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `$request`                                                                               | [Shared\WorkspaceFeatureFlagRequest](../../Models/Shared/WorkspaceFeatureFlagRequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+
+### Response
+
+**[?Operations\SetWorkspaceFeatureFlagsResponse](../../Models/Operations/SetWorkspaceFeatureFlagsResponse.md)**
+
+### Errors
+
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| Errorors\Error        | 5XX                   | application/json      |
+| Errorors\SDKException | 4XX                   | \*/\*                 |
+
 ## update
 
 Update information about a particular workspace.
@@ -650,11 +729,13 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\UpdateWorkspaceDetailsRequest(
     workspace: new Shared\Workspace(
@@ -711,11 +792,13 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\UpdateWorkspaceSettingsRequest(
     workspaceSettings: new Shared\WorkspaceSettings(

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: bb7b102d1334d2d3e66e7cd8d8b866d8
+  docChecksum: 52df6f1f34dfe76968f8ed009cc2bfd3
   docVersion: 0.4.0
-  speakeasyVersion: 1.462.2
-  generationVersion: 2.486.1
-  releaseVersion: 0.47.0
-  configChecksum: 026d2eb83427eeb452300de5c320637d
+  speakeasyVersion: 1.467.0
+  generationVersion: 2.492.3
+  releaseVersion: 0.47.1
+  configChecksum: fc3e2a4f688162e907c0aed73a152b12
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
   published: true
 features:
   php:
-    core: 3.7.7
+    core: 3.7.8
     deprecations: 2.81.1
     globalSecurity: 2.81.7
     globalServerURLs: 2.82.1
@@ -129,6 +129,7 @@ generatedFiles:
   - docs/Models/Operations/SetVisibilityRequest.md
   - docs/Models/Operations/SetVisibilityRequestBody.md
   - docs/Models/Operations/SetVisibilityResponse.md
+  - docs/Models/Operations/SetWorkspaceFeatureFlagsResponse.md
   - docs/Models/Operations/SuggestItemsResponse.md
   - docs/Models/Operations/SuggestOpenAPIRegistryRequest.md
   - docs/Models/Operations/SuggestOpenAPIRegistryResponse.md
@@ -189,6 +190,7 @@ generatedFiles:
   - docs/Models/Shared/OrganizationUsageResponse.md
   - docs/Models/Shared/PreflightRequest.md
   - docs/Models/Shared/PreflightToken.md
+  - docs/Models/Shared/PullRequestMetadata.md
   - docs/Models/Shared/Relationship.md
   - docs/Models/Shared/RemoteDocument.md
   - docs/Models/Shared/RemoteSource.md
@@ -215,6 +217,8 @@ generatedFiles:
   - docs/Models/Shared/WorkflowDocument.md
   - docs/Models/Shared/Workspace.md
   - docs/Models/Shared/WorkspaceAndOrganization.md
+  - docs/Models/Shared/WorkspaceFeatureFlag.md
+  - docs/Models/Shared/WorkspaceFeatureFlagRequest.md
   - docs/Models/Shared/WorkspaceFeatureFlagResponse.md
   - docs/Models/Shared/WorkspaceInviteResponse.md
   - docs/Models/Shared/WorkspaceSettings.md
@@ -360,6 +364,7 @@ generatedFiles:
   - src/Models/Operations/SetVisibilityRequest.php
   - src/Models/Operations/SetVisibilityRequestBody.php
   - src/Models/Operations/SetVisibilityResponse.php
+  - src/Models/Operations/SetWorkspaceFeatureFlagsResponse.php
   - src/Models/Operations/SuggestItemsResponse.php
   - src/Models/Operations/SuggestOpenAPIRegistryRequest.php
   - src/Models/Operations/SuggestOpenAPIRegistryResponse.php
@@ -420,6 +425,7 @@ generatedFiles:
   - src/Models/Shared/OrganizationUsageResponse.php
   - src/Models/Shared/PreflightRequest.php
   - src/Models/Shared/PreflightToken.php
+  - src/Models/Shared/PullRequestMetadata.php
   - src/Models/Shared/Relationship.php
   - src/Models/Shared/RemoteDocument.php
   - src/Models/Shared/RemoteSource.php
@@ -446,6 +452,8 @@ generatedFiles:
   - src/Models/Shared/WorkflowDocument.php
   - src/Models/Shared/Workspace.php
   - src/Models/Shared/WorkspaceAndOrganization.php
+  - src/Models/Shared/WorkspaceFeatureFlag.php
+  - src/Models/Shared/WorkspaceFeatureFlagRequest.php
   - src/Models/Shared/WorkspaceFeatureFlagResponse.php
   - src/Models/Shared/WorkspaceInviteResponse.php
   - src/Models/Shared/WorkspaceSettings.php
@@ -1699,4 +1707,13 @@ examples:
           application/json: {"snippets": [{"code": "<value>", "language": "<value>", "operationId": "<id>"}, {"code": "<value>", "language": "<value>", "operationId": "<id>"}, {"code": "<value>", "language": "<value>", "operationId": "<id>"}]}
         4XX:
           application/json: {"message": "<value>", "status_code": 458049}
+  setWorkspaceFeatureFlags:
+    speakeasy-default-set-workspace-feature-flags:
+      requestBody:
+        application/json: {"feature_flags": ["skip_schema_registry", "webhooks"]}
+      responses:
+        "200":
+          application/json: {}
+        5XX:
+          application/json: {"message": "<value>", "status_code": 264889}
 generatedTests: {}

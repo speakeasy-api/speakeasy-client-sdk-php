@@ -24,11 +24,13 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Shared\RemoteSource(
     inputs: [
@@ -50,6 +52,57 @@ if ($response->statusCode === 200) {
 }
 ```
 <!-- End SDK Example Usage [usage] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security schemes globally:
+
+| Name                  | Type   | Scheme      |
+| --------------------- | ------ | ----------- |
+| `apiKey`              | apiKey | API key     |
+| `bearer`              | http   | HTTP Bearer |
+| `workspaceIdentifier` | apiKey | API key     |
+
+You can set the security parameters through the `setSecurity` function on the `SDKBuilder` when initializing the SDK. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
+
+$request = new Shared\RemoteSource(
+    inputs: [
+        new Shared\RemoteDocument(
+            registryUrl: 'https://productive-swine.net',
+        ),
+    ],
+    output: new Shared\RemoteDocument(
+        registryUrl: 'https://spiteful-apricot.info',
+    ),
+);
+
+$response = $sdk->artifacts->createRemoteSource(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+<!-- End Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
@@ -151,6 +204,7 @@ if ($response->statusCode === 200) {
 * [getAll](docs/sdks/workspaces/README.md#getall) - Get workspaces for a user
 * [grantAccess](docs/sdks/workspaces/README.md#grantaccess) - Grant a user access to a particular workspace
 * [revokeAccess](docs/sdks/workspaces/README.md#revokeaccess) - Revoke a user's access to a particular workspace
+* [setFeatureFlags](docs/sdks/workspaces/README.md#setfeatureflags) - Set workspace feature flags
 * [update](docs/sdks/workspaces/README.md#update) - Update workspace details
 * [updateSettings](docs/sdks/workspaces/README.md#updatesettings) - Update workspace settings
 
@@ -217,11 +271,13 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\Retry;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\GetWorkspaceAccessRequest();
 
@@ -253,10 +309,6 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils\Retry;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
 $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setRetryConfig(
         new Retry\RetryConfigBackoff(
@@ -267,7 +319,12 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
             retryConnectionErrors: false,
         )
   )
-    ->setSecurity($security)->build();
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\GetWorkspaceAccessRequest();
 
@@ -312,11 +369,13 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 try {
     $request = new Shared\RemoteSource(
@@ -368,13 +427,14 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
 $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setServer("prod")
-    ->setSecurity($security)->build();
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Shared\RemoteSource(
     inputs: [
@@ -407,13 +467,14 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
 $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setServerURL('https://api.prod.speakeasyapi.dev')
-    ->setSecurity($security)->build();
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Shared\RemoteSource(
     inputs: [
@@ -450,6 +511,7 @@ For more information about the API: [The Speakeasy Platform Documentation](/docs
 * [speakeasy-api/speakeasy-client-sdk-php](#speakeasy-apispeakeasy-client-sdk-php)
   * [SDK Installation](#sdk-installation)
   * [SDK Example Usage](#sdk-example-usage)
+  * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Global Parameters](#global-parameters)
   * [Retries](#retries)

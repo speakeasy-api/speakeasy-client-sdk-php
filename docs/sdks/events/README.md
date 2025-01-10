@@ -28,11 +28,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\GetWorkspaceEventsByTargetRequest(
     targetId: '<id>',
@@ -80,11 +82,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\GetWorkspaceTargetsRequest();
 
@@ -129,11 +133,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\GetWorkspaceTargetsDeprecatedRequest(
     workspaceId: '<id>',
@@ -181,11 +187,13 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 use Speakeasy\SpeakeasyClientSDK\Utils;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\PostWorkspaceEventsRequest(
     requestBody: [
@@ -245,11 +253,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\SearchWorkspaceEventsRequest(
     workspaceId: '<id>',

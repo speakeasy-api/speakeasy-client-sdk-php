@@ -32,11 +32,13 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Shared\RemoteSource(
     inputs: [
@@ -90,11 +92,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\GetBlobRequest(
     digest: '<value>',
@@ -144,11 +148,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\GetManifestRequest(
     namespaceName: '<value>',
@@ -197,11 +203,13 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 
 
@@ -238,11 +246,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\GetRevisionsRequest(
     namespaceName: '<value>',
@@ -287,11 +297,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\GetTagsRequest(
     namespaceName: '<value>',
@@ -338,11 +350,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\ListRemoteSourcesRequest(
     namespaceName: '<value>',
@@ -389,11 +403,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\PostTagsRequest(
     namespaceName: '<value>',
@@ -439,11 +455,13 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Shared\PreflightRequest(
     namespaceName: '<value>',
@@ -490,11 +508,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\SetVisibilityRequest(
     namespaceName: '<value>',

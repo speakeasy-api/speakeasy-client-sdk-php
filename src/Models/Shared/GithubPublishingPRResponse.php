@@ -14,14 +14,6 @@ class GithubPublishingPRResponse
 {
     /**
      *
-     * @var ?string $generationPullRequest
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('generation_pull_request')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $generationPullRequest = null;
-
-    /**
-     *
      * @var ?string $pendingVersion
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pending_version')]
@@ -29,12 +21,32 @@ class GithubPublishingPRResponse
     public ?string $pendingVersion = null;
 
     /**
-     * @param  ?string  $generationPullRequest
-     * @param  ?string  $pendingVersion
+     *
+     * @var ?string $pullRequest
      */
-    public function __construct(?string $generationPullRequest = null, ?string $pendingVersion = null)
+    #[\Speakeasy\Serializer\Annotation\SerializedName('pull_request')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $pullRequest = null;
+
+    /**
+     * This can only be populated when the github app is installed for a repo
+     *
+     * @var ?PullRequestMetadata $pullRequestMetadata
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('pull_request_metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\PullRequestMetadata|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?PullRequestMetadata $pullRequestMetadata = null;
+
+    /**
+     * @param  ?string  $pendingVersion
+     * @param  ?string  $pullRequest
+     * @param  ?PullRequestMetadata  $pullRequestMetadata
+     */
+    public function __construct(?string $pendingVersion = null, ?string $pullRequest = null, ?PullRequestMetadata $pullRequestMetadata = null)
     {
-        $this->generationPullRequest = $generationPullRequest;
         $this->pendingVersion = $pendingVersion;
+        $this->pullRequest = $pullRequest;
+        $this->pullRequestMetadata = $pullRequestMetadata;
     }
 }

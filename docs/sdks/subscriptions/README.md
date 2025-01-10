@@ -25,11 +25,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\ActivateSubscriptionNamespaceRequest(
     namespaceName: '<value>',
@@ -77,11 +79,13 @@ use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
-$security = new Shared\Security(
-    apiKey: '<YOUR_API_KEY_HERE>',
-);
-
-$sdk = SpeakeasyClientSDK\SDK::builder()->setSecurity($security)->build();
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
 
 $request = new Operations\IgnoreSubscriptionNamespaceRequest(
     namespaceName: '<value>',

@@ -13,11 +13,13 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class FeatureFlag
 {
     /**
+     * enum value workspace feature flag
      *
-     * @var string $featureFlag
+     * @var WorkspaceFeatureFlag $featureFlag
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('feature_flag')]
-    public string $featureFlag;
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\WorkspaceFeatureFlag')]
+    public WorkspaceFeatureFlag $featureFlag;
 
     /**
      *
@@ -28,10 +30,10 @@ class FeatureFlag
     public ?\DateTime $trialEndsAt = null;
 
     /**
-     * @param  string  $featureFlag
+     * @param  WorkspaceFeatureFlag  $featureFlag
      * @param  ?\DateTime  $trialEndsAt
      */
-    public function __construct(string $featureFlag, ?\DateTime $trialEndsAt = null)
+    public function __construct(WorkspaceFeatureFlag $featureFlag, ?\DateTime $trialEndsAt = null)
     {
         $this->featureFlag = $featureFlag;
         $this->trialEndsAt = $trialEndsAt;
