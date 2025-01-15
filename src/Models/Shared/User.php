@@ -93,6 +93,15 @@ class User
     public ?bool $internal = null;
 
     /**
+     * Hash used for pylon identity verification returned on v1/user.
+     *
+     * @var ?string $pylonIdentityHash
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('pylon_identity_hash')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $pylonIdentityHash = null;
+
+    /**
      * Identifier of the default workspace.
      *
      * @var ?string $defaultWorkspaceId
@@ -139,12 +148,13 @@ class User
      * @param  \DateTime  $updatedAt
      * @param  bool  $whitelisted
      * @param  ?bool  $internal
+     * @param  ?string  $pylonIdentityHash
      * @param  ?string  $defaultWorkspaceId
      * @param  ?string  $githubHandle
      * @param  ?\DateTime  $lastLoginAt
      * @param  ?string  $photoUrl
      */
-    public function __construct(bool $admin, bool $confirmed, \DateTime $createdAt, string $displayName, string $email, bool $emailVerified, string $id, \DateTime $updatedAt, bool $whitelisted, ?bool $internal = null, ?string $defaultWorkspaceId = null, ?string $githubHandle = null, ?\DateTime $lastLoginAt = null, ?string $photoUrl = null)
+    public function __construct(bool $admin, bool $confirmed, \DateTime $createdAt, string $displayName, string $email, bool $emailVerified, string $id, \DateTime $updatedAt, bool $whitelisted, ?bool $internal = null, ?string $pylonIdentityHash = null, ?string $defaultWorkspaceId = null, ?string $githubHandle = null, ?\DateTime $lastLoginAt = null, ?string $photoUrl = null)
     {
         $this->admin = $admin;
         $this->confirmed = $confirmed;
@@ -156,6 +166,7 @@ class User
         $this->updatedAt = $updatedAt;
         $this->whitelisted = $whitelisted;
         $this->internal = $internal;
+        $this->pylonIdentityHash = $pylonIdentityHash;
         $this->defaultWorkspaceId = $defaultWorkspaceId;
         $this->githubHandle = $githubHandle;
         $this->lastLoginAt = $lastLoginAt;

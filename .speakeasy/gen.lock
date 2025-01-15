@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 52df6f1f34dfe76968f8ed009cc2bfd3
+  docChecksum: 53c59e9888ffa48d7fef9b0017efc602
   docVersion: 0.4.0
-  speakeasyVersion: 1.467.0
-  generationVersion: 2.492.3
-  releaseVersion: 0.47.1
-  configChecksum: fc3e2a4f688162e907c0aed73a152b12
+  speakeasyVersion: 1.468.6
+  generationVersion: 2.493.13
+  releaseVersion: 0.47.2
+  configChecksum: b81af1be2975a7ed902d5e1c9aaa461a
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -26,7 +26,6 @@ features:
     serverIDs: 2.81.1
 generatedFiles:
   - .gitattributes
-  - CONTRIBUTING.md
   - USAGE.md
   - composer.json
   - docs/Models/Errorors/Error.md
@@ -995,7 +994,7 @@ examples:
         default:
           application/json: {"message": "<value>", "status_code": 299050}
         2XX:
-          application/json: {"access_token": "<value>"}
+          application/json: {"access_token": "<value>", "claims": {}, "user": {}}
         4XX:
           application/json: {"message": "<value>", "status_code": 299050}
   getUser:
@@ -1214,7 +1213,7 @@ examples:
   uploadReport:
     speakeasy-default-upload-report:
       requestBody:
-        multipart/form-data: {"file": {"": "example.file"}}
+        multipart/form-data: {"data": {}, "file": {"": "example.file"}}
       responses:
         "200":
           application/json: {"url": "http://earnest-upgrade.com"}
@@ -1358,7 +1357,7 @@ examples:
         header:
           x-session-id: "<value>"
       requestBody:
-        application/json: {"diagnostics": [], "oas_summary": {"info": {"description": "Operative impactful monitoring", "summary": "<value>", "title": "<value>", "version": "<value>"}, "operations": []}, "suggestion_type": "diagnostics-only"}
+        application/json: {"diagnostics": [], "oas_summary": {"info": {"description": "Operative impactful monitoring", "license": {}, "summary": "<value>", "title": "<value>", "version": "<value>"}, "operations": []}, "suggestion_type": "diagnostics-only"}
       responses:
         "200":
           application/json: "0x8D9A3DCDEa"
