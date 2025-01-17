@@ -12,7 +12,7 @@ use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class GetCodeSamplesRequest
 {
     /**
-     * The registry URL from which to retrieve the snippets. E.g. https://spec.speakeasy.com/org/ws/my-source
+     * The registry URL from which to retrieve the snippets.
      *
      * @var string $registryUrl
      */
@@ -20,7 +20,7 @@ class GetCodeSamplesRequest
     public string $registryUrl;
 
     /**
-     * $languages
+     * The languages to retrieve snippets for.
      *
      * @var ?array<string> $languages
      */
@@ -28,7 +28,7 @@ class GetCodeSamplesRequest
     public ?array $languages = null;
 
     /**
-     * $operationIds
+     * The operation IDs to retrieve snippets for.
      *
      * @var ?array<string> $operationIds
      */

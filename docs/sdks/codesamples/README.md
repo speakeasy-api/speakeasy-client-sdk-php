@@ -10,7 +10,7 @@ REST APIs for retrieving Code Samples
 * [generateCodeSamplePreview](#generatecodesamplepreview) - Generate Code Sample previews from a file and configuration parameters.
 * [generateCodeSamplePreviewAsync](#generatecodesamplepreviewasync) - Initiate asynchronous Code Sample preview generation from a file and configuration parameters, receiving an async JobID response for polling.
 * [getCodeSamplePreviewAsync](#getcodesamplepreviewasync) - Poll for the result of an asynchronous Code Sample preview generation.
-* [get](#get) - Retrieve usage snippets from document stored in the registry
+* [get](#get) - Retrieve usage snippets
 
 ## generateCodeSamplePreview
 
@@ -67,7 +67,8 @@ if ($response->twoHundredApplicationJsonBytes !== null) {
 
 | Error Type       | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
-| Errorors\Error   | 4XX, 5XX         | application/json |
+| Errorors\Error   | 4XX              | application/json |
+| Errorors\Error   | 5XX              | application/json |
 
 ## generateCodeSamplePreviewAsync
 
@@ -124,7 +125,8 @@ if ($response->object !== null) {
 
 | Error Type       | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
-| Errorors\Error   | 4XX, 5XX         | application/json |
+| Errorors\Error   | 4XX              | application/json |
+| Errorors\Error   | 5XX              | application/json |
 
 ## getCodeSamplePreviewAsync
 
@@ -176,11 +178,13 @@ if ($response->twoHundredApplicationJsonBytes !== null) {
 
 | Error Type       | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
-| Errorors\Error   | 4XX, 5XX         | application/json |
+| Errorors\Error   | 4XX              | application/json |
+| Errorors\Error   | 5XX              | application/json |
 
 ## get
 
-Retrieve usage snippets from document stored in the registry. Supports filtering by language and operation ID.
+Retrieve usage snippets from an OpenAPI document stored in the registry. Supports filtering by language and operation ID.
+
 
 ### Example Usage
 
@@ -202,7 +206,10 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     ->build();
 
 $request = new Operations\GetCodeSamplesRequest(
-    registryUrl: 'https://normal-making.name',
+    registryUrl: 'https://spec.speakeasy.com/my-org/my-workspace/my-source',
+    operationIds: [
+        'getPetById',
+    ],
 );
 
 $response = $sdk->codeSamples->get(
