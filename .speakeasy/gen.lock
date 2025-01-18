@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 37a13cf25882217bb6883efc4407294c
+  docChecksum: 1766b7749df601fc084985fa6f54c7be
   docVersion: 0.4.0
-  speakeasyVersion: 1.468.9
+  speakeasyVersion: 1.469.1
   generationVersion: 2.493.21
-  releaseVersion: 0.47.3
-  configChecksum: bc520ead5512b1ea5ef4febc93e25fec
+  releaseVersion: 0.47.4
+  configChecksum: 9cad8f769c8cbe79b614bf09f1cfba00
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -57,8 +57,6 @@ generatedFiles:
   - docs/Models/Operations/GetCodeSamplePreviewAsyncRequest.md
   - docs/Models/Operations/GetCodeSamplePreviewAsyncResponse.md
   - docs/Models/Operations/GetCodeSamplePreviewAsyncResponseBody.md
-  - docs/Models/Operations/GetCodeSamplesRequest.md
-  - docs/Models/Operations/GetCodeSamplesResponse.md
   - docs/Models/Operations/GetGitHubActionRequest.md
   - docs/Models/Operations/GetGitHubActionResponse.md
   - docs/Models/Operations/GetGithubSetupStateRequest.md
@@ -209,8 +207,6 @@ generatedFiles:
   - docs/Models/Shared/Tag.md
   - docs/Models/Shared/TargetSDK.md
   - docs/Models/Shared/Type.md
-  - docs/Models/Shared/UsageSnippet.md
-  - docs/Models/Shared/UsageSnippets.md
   - docs/Models/Shared/User.md
   - docs/Models/Shared/V2Descriptor.md
   - docs/Models/Shared/WorkflowDocument.md
@@ -292,8 +288,6 @@ generatedFiles:
   - src/Models/Operations/GetCodeSamplePreviewAsyncRequest.php
   - src/Models/Operations/GetCodeSamplePreviewAsyncResponse.php
   - src/Models/Operations/GetCodeSamplePreviewAsyncResponseBody.php
-  - src/Models/Operations/GetCodeSamplesRequest.php
-  - src/Models/Operations/GetCodeSamplesResponse.php
   - src/Models/Operations/GetGitHubActionRequest.php
   - src/Models/Operations/GetGitHubActionResponse.php
   - src/Models/Operations/GetGithubSetupStateRequest.php
@@ -444,8 +438,6 @@ generatedFiles:
   - src/Models/Shared/Tag.php
   - src/Models/Shared/TargetSDK.php
   - src/Models/Shared/Type.php
-  - src/Models/Shared/UsageSnippet.php
-  - src/Models/Shared/UsageSnippets.php
   - src/Models/Shared/User.php
   - src/Models/Shared/V2Descriptor.php
   - src/Models/Shared/WorkflowDocument.php
