@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 1766b7749df601fc084985fa6f54c7be
+  docChecksum: 8e0ff093baf67c9e2001a9f810f355de
   docVersion: 0.4.0
-  speakeasyVersion: 1.469.12
+  speakeasyVersion: 1.470.1
   generationVersion: 2.493.34
-  releaseVersion: 0.47.5
-  configChecksum: 8c93972262c59be541aa891bc2bd677b
+  releaseVersion: 0.47.6
+  configChecksum: e33657152519b98a43d4ee989637ec18
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -194,6 +194,8 @@ generatedFiles:
   - docs/Models/Shared/RemoteSourceSubscriptionSettings.md
   - docs/Models/Shared/Report.md
   - docs/Models/Shared/Revision.md
+  - docs/Models/Shared/RevisionContentsMetadata.md
+  - docs/Models/Shared/RevisionContentsMetadataType.md
   - docs/Models/Shared/SSOMetadata.md
   - docs/Models/Shared/SchemaFile.md
   - docs/Models/Shared/Secrets.md
@@ -425,6 +427,8 @@ generatedFiles:
   - src/Models/Shared/RemoteSourceSubscriptionSettings.php
   - src/Models/Shared/Report.php
   - src/Models/Shared/Revision.php
+  - src/Models/Shared/RevisionContentsMetadata.php
+  - src/Models/Shared/RevisionContentsMetadataType.php
   - src/Models/Shared/SSOMetadata.php
   - src/Models/Shared/SchemaFile.php
   - src/Models/Shared/Secrets.php

@@ -52,6 +52,15 @@ class NamespaceT
     public ?CompositeSpecMetadata $compositeSpecMetadata = null;
 
     /**
+     *
+     * @var ?RevisionContentsMetadata $latestRevisionMetadata
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('latest_revision_metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\RevisionContentsMetadata|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?RevisionContentsMetadata $latestRevisionMetadata = null;
+
+    /**
      * Indicates whether the namespace is publicly accessible
      *
      * @var ?bool $public
@@ -66,15 +75,17 @@ class NamespaceT
      * @param  string  $name
      * @param  \DateTime  $updatedAt
      * @param  ?CompositeSpecMetadata  $compositeSpecMetadata
+     * @param  ?RevisionContentsMetadata  $latestRevisionMetadata
      * @param  ?bool  $public
      */
-    public function __construct(\DateTime $createdAt, string $id, string $name, \DateTime $updatedAt, ?CompositeSpecMetadata $compositeSpecMetadata = null, ?bool $public = null)
+    public function __construct(\DateTime $createdAt, string $id, string $name, \DateTime $updatedAt, ?CompositeSpecMetadata $compositeSpecMetadata = null, ?RevisionContentsMetadata $latestRevisionMetadata = null, ?bool $public = null)
     {
         $this->createdAt = $createdAt;
         $this->id = $id;
         $this->name = $name;
         $this->updatedAt = $updatedAt;
         $this->compositeSpecMetadata = $compositeSpecMetadata;
+        $this->latestRevisionMetadata = $latestRevisionMetadata;
         $this->public = $public;
     }
 }

@@ -57,14 +57,24 @@ class Revision
     public \DateTime $updatedAt;
 
     /**
+     *
+     * @var ?RevisionContentsMetadata $contentsMetadata
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('contents_metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\RevisionContentsMetadata|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?RevisionContentsMetadata $contentsMetadata = null;
+
+    /**
      * @param  \DateTime  $createdAt
      * @param  string  $digest
      * @param  string  $id
      * @param  string  $namespaceName
      * @param  array<string>  $tags
      * @param  \DateTime  $updatedAt
+     * @param  ?RevisionContentsMetadata  $contentsMetadata
      */
-    public function __construct(\DateTime $createdAt, string $digest, string $id, string $namespaceName, array $tags, \DateTime $updatedAt)
+    public function __construct(\DateTime $createdAt, string $digest, string $id, string $namespaceName, array $tags, \DateTime $updatedAt, ?RevisionContentsMetadata $contentsMetadata = null)
     {
         $this->createdAt = $createdAt;
         $this->digest = $digest;
@@ -72,5 +82,6 @@ class Revision
         $this->namespaceName = $namespaceName;
         $this->tags = $tags;
         $this->updatedAt = $updatedAt;
+        $this->contentsMetadata = $contentsMetadata;
     }
 }
