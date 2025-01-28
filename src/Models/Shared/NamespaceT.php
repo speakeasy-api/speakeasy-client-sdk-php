@@ -44,6 +44,14 @@ class NamespaceT
 
     /**
      *
+     * @var ?\DateTime $archivedAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('archived_at')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $archivedAt = null;
+
+    /**
+     *
      * @var ?CompositeSpecMetadata $compositeSpecMetadata
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('composite_spec_metadata')]
@@ -74,16 +82,18 @@ class NamespaceT
      * @param  string  $id
      * @param  string  $name
      * @param  \DateTime  $updatedAt
+     * @param  ?\DateTime  $archivedAt
      * @param  ?CompositeSpecMetadata  $compositeSpecMetadata
      * @param  ?RevisionContentsMetadata  $latestRevisionMetadata
      * @param  ?bool  $public
      */
-    public function __construct(\DateTime $createdAt, string $id, string $name, \DateTime $updatedAt, ?CompositeSpecMetadata $compositeSpecMetadata = null, ?RevisionContentsMetadata $latestRevisionMetadata = null, ?bool $public = null)
+    public function __construct(\DateTime $createdAt, string $id, string $name, \DateTime $updatedAt, ?\DateTime $archivedAt = null, ?CompositeSpecMetadata $compositeSpecMetadata = null, ?RevisionContentsMetadata $latestRevisionMetadata = null, ?bool $public = null)
     {
         $this->createdAt = $createdAt;
         $this->id = $id;
         $this->name = $name;
         $this->updatedAt = $updatedAt;
+        $this->archivedAt = $archivedAt;
         $this->compositeSpecMetadata = $compositeSpecMetadata;
         $this->latestRevisionMetadata = $latestRevisionMetadata;
         $this->public = $public;

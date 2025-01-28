@@ -5,6 +5,7 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
@@ -15,18 +16,11 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     )
     ->build();
 
-$request = new Shared\RemoteSource(
-    inputs: [
-        new Shared\RemoteDocument(
-            registryUrl: 'https://productive-swine.net',
-        ),
-    ],
-    output: new Shared\RemoteDocument(
-        registryUrl: 'https://spiteful-apricot.info',
-    ),
+$request = new Operations\ArchiveNamespaceRequest(
+    namespaceName: '<value>',
 );
 
-$response = $sdk->artifacts->createRemoteSource(
+$response = $sdk->artifacts->setArchived(
     request: $request
 );
 

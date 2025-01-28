@@ -73,6 +73,7 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
@@ -83,18 +84,11 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     )
     ->build();
 
-$request = new Shared\RemoteSource(
-    inputs: [
-        new Shared\RemoteDocument(
-            registryUrl: 'https://productive-swine.net',
-        ),
-    ],
-    output: new Shared\RemoteDocument(
-        registryUrl: 'https://spiteful-apricot.info',
-    ),
+$request = new Operations\ArchiveNamespaceRequest(
+    namespaceName: '<value>',
 );
 
-$response = $sdk->artifacts->createRemoteSource(
+$response = $sdk->artifacts->setArchived(
     request: $request
 );
 
@@ -112,6 +106,7 @@ if ($response->statusCode === 200) {
 
 ### [artifacts](docs/sdks/artifacts/README.md)
 
+* [setArchived](docs/sdks/artifacts/README.md#setarchived) - Set whether a namespace is archived
 * [createRemoteSource](docs/sdks/artifacts/README.md#createremotesource) - Configure a new remote source
 * [getBlob](docs/sdks/artifacts/README.md#getblob) - Get blob for a particular digest
 * [getManifest](docs/sdks/artifacts/README.md#getmanifest) - Get manifest for a particular reference
@@ -351,7 +346,7 @@ By default an API error will raise a `Errorors\SDKException` exception, which ha
 | `$rawResponse` | *?\Psr\Http\Message\ResponseInterface*  | The raw HTTP response |
 | `$body`        | *string*                                | The response content  |
 
-When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `createRemoteSource` method throws the following exceptions:
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `setArchived` method throws the following exceptions:
 
 | Error Type            | Status Code | Content Type     |
 | --------------------- | ----------- | ---------------- |
@@ -366,6 +361,7 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
@@ -377,18 +373,11 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     ->build();
 
 try {
-    $request = new Shared\RemoteSource(
-        inputs: [
-            new Shared\RemoteDocument(
-                registryUrl: 'https://productive-swine.net',
-            ),
-        ],
-        output: new Shared\RemoteDocument(
-            registryUrl: 'https://spiteful-apricot.info',
-        ),
+    $request = new Operations\ArchiveNamespaceRequest(
+        namespaceName: '<value>',
     );
 
-    $response = $sdk->artifacts->createRemoteSource(
+    $response = $sdk->artifacts->setArchived(
         request: $request
     );
 
@@ -424,6 +413,7 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
@@ -435,18 +425,11 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     )
     ->build();
 
-$request = new Shared\RemoteSource(
-    inputs: [
-        new Shared\RemoteDocument(
-            registryUrl: 'https://productive-swine.net',
-        ),
-    ],
-    output: new Shared\RemoteDocument(
-        registryUrl: 'https://spiteful-apricot.info',
-    ),
+$request = new Operations\ArchiveNamespaceRequest(
+    namespaceName: '<value>',
 );
 
-$response = $sdk->artifacts->createRemoteSource(
+$response = $sdk->artifacts->setArchived(
     request: $request
 );
 
@@ -464,6 +447,7 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
@@ -475,18 +459,11 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     )
     ->build();
 
-$request = new Shared\RemoteSource(
-    inputs: [
-        new Shared\RemoteDocument(
-            registryUrl: 'https://productive-swine.net',
-        ),
-    ],
-    output: new Shared\RemoteDocument(
-        registryUrl: 'https://spiteful-apricot.info',
-    ),
+$request = new Operations\ArchiveNamespaceRequest(
+    namespaceName: '<value>',
 );
 
-$response = $sdk->artifacts->createRemoteSource(
+$response = $sdk->artifacts->setArchived(
     request: $request
 );
 
