@@ -12,12 +12,12 @@ use Speakeasy\SpeakeasyClientSDK\Utils\SpeakeasyMetadata;
 class CodeSampleSchemaInput
 {
     /**
-     * A list of languages to generate code samples for
+     * The language to generate code samples for
      *
-     * @var array<string> $languages
+     * @var string $language
      */
-    #[SpeakeasyMetadata('multipartForm:name=languages')]
-    public array $languages;
+    #[SpeakeasyMetadata('multipartForm:name=language')]
+    public string $language;
 
     /**
      * The OpenAPI file to be uploaded
@@ -26,6 +26,14 @@ class CodeSampleSchemaInput
      */
     #[SpeakeasyMetadata('multipartForm:file=true,name=schema_file')]
     public SchemaFile $schemaFile;
+
+    /**
+     * A list of operations IDs to generate code samples for
+     *
+     * @var ?array<string> $operationIds
+     */
+    #[SpeakeasyMetadata('multipartForm:name=operation_ids')]
+    public ?array $operationIds = null;
 
     /**
      * The name of the package
@@ -44,15 +52,17 @@ class CodeSampleSchemaInput
     public ?string $sdkClassName = null;
 
     /**
-     * @param  array<string>  $languages
+     * @param  string  $language
      * @param  SchemaFile  $schemaFile
+     * @param  ?array<string>  $operationIds
      * @param  ?string  $packageName
      * @param  ?string  $sdkClassName
      */
-    public function __construct(array $languages, SchemaFile $schemaFile, ?string $packageName = null, ?string $sdkClassName = null)
+    public function __construct(string $language, SchemaFile $schemaFile, ?array $operationIds = null, ?string $packageName = null, ?string $sdkClassName = null)
     {
-        $this->languages = $languages;
+        $this->language = $language;
         $this->schemaFile = $schemaFile;
+        $this->operationIds = $operationIds;
         $this->packageName = $packageName;
         $this->sdkClassName = $sdkClassName;
     }

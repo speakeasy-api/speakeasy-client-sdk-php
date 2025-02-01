@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class GenerateCodeSamplePreviewResponse
 {
     /**
@@ -33,32 +33,23 @@ class GenerateCodeSamplePreviewResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
-     * Successfully returned codeSample overlay file
+     * OK
      *
-     * @var ?string $twoHundredApplicationJsonBytes
+     * @var ?Shared\UsageSnippets $usageSnippets
      */
-    public ?string $twoHundredApplicationJsonBytes = null;
-
-    /**
-     * Successfully returned codeSample overlay file
-     *
-     * @var ?string $twoHundredApplicationXYamlBytes
-     */
-    public ?string $twoHundredApplicationXYamlBytes = null;
+    public ?Shared\UsageSnippets $usageSnippets = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?string  $twoHundredApplicationJsonBytes
-     * @param  ?string  $twoHundredApplicationXYamlBytes
+     * @param  ?Shared\UsageSnippets  $usageSnippets
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?string $twoHundredApplicationJsonBytes = null, ?string $twoHundredApplicationXYamlBytes = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\UsageSnippets $usageSnippets = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
-        $this->twoHundredApplicationJsonBytes = $twoHundredApplicationJsonBytes;
-        $this->twoHundredApplicationXYamlBytes = $twoHundredApplicationXYamlBytes;
+        $this->usageSnippets = $usageSnippets;
     }
 }

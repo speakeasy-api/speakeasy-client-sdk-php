@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: af467caf61bea274c32dd872e84f602e
+  docChecksum: a857476fabbb29418727d7b46e390a02
   docVersion: 0.4.0
-  speakeasyVersion: 1.476.2
-  generationVersion: 2.495.1
-  releaseVersion: 0.48.0
-  configChecksum: 5c19f838aa948a74fb271f1bf9e035a8
+  speakeasyVersion: 1.481.1
+  generationVersion: 2.500.5
+  releaseVersion: 0.48.1
+  configChecksum: 5b273ed0d17484d5a3bb78c4778b546c
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -14,7 +14,7 @@ management:
 features:
   php:
     constsAndDefaults: 0.2.0
-    core: 3.7.10
+    core: 3.7.13
     deprecations: 2.81.1
     globalSecurity: 2.81.7
     globalServerURLs: 2.82.1
@@ -213,6 +213,8 @@ generatedFiles:
   - docs/Models/Shared/Tag.md
   - docs/Models/Shared/TargetSDK.md
   - docs/Models/Shared/Type.md
+  - docs/Models/Shared/UsageSnippet.md
+  - docs/Models/Shared/UsageSnippets.md
   - docs/Models/Shared/User.md
   - docs/Models/Shared/V2Descriptor.md
   - docs/Models/Shared/WorkflowDocument.md
@@ -449,6 +451,8 @@ generatedFiles:
   - src/Models/Shared/Tag.php
   - src/Models/Shared/TargetSDK.php
   - src/Models/Shared/Type.php
+  - src/Models/Shared/UsageSnippet.php
+  - src/Models/Shared/UsageSnippets.php
   - src/Models/Shared/User.php
   - src/Models/Shared/V2Descriptor.php
   - src/Models/Shared/WorkflowDocument.php
@@ -640,10 +644,16 @@ examples:
           application/json: {"message": "<value>", "status_code": 396101}
         5XX:
           application/json: {"message": "<value>", "status_code": 950459}
+    default:
+      requestBody:
+        multipart/form-data: {"language": "<value>", "schema_file": {"": "example.file"}}
+      responses:
+        2XX:
+          application/json: {"snippets": [{"code": "import { Petstore } from \"petstore-sdk\";\n\nconst petstore = new Petstore({\n  apiKey: \"<YOUR_API_KEY_HERE>\",\n});\n\nasync function run() {\n  const result = await petstore.pet.getById({\n    id: 137396,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();", "language": "typescript", "method": "get", "operationId": "getPetById", "path": "/pet/{id}"}]}
   generateCodeSamplePreviewAsync:
     speakeasy-default-generate-code-sample-preview-async:
       requestBody:
-        multipart/form-data: {"languages": ["<value>", "<value>", "<value>"], "schema_file": {"": "example.file"}}
+        multipart/form-data: {"language": "<value>", "schema_file": {"": "example.file"}}
       responses:
         "202":
           application/json: {"job_id": "<id>", "status": "pending"}
@@ -666,6 +676,13 @@ examples:
           application/json: {"message": "<value>", "status_code": 462062}
         5XX:
           application/json: {"message": "<value>", "status_code": 388593}
+    default:
+      parameters:
+        path:
+          jobID: "<id>"
+      responses:
+        2XX:
+          application/json: {"snippets": [{"code": "import { Petstore } from \"petstore-sdk\";\n\nconst petstore = new Petstore({\n  apiKey: \"<YOUR_API_KEY_HERE>\",\n});\n\nasync function run() {\n  const result = await petstore.pet.getById({\n    id: 137396,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();", "language": "typescript", "method": "get", "operationId": "getPetById", "path": "/pet/{id}"}]}
   checkGithubAccess:
     speakeasy-default-check-github-access:
       parameters:

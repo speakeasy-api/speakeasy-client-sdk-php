@@ -34,9 +34,7 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     ->build();
 
 $request = new Shared\CodeSampleSchemaInput(
-    languages: [
-        '<value>',
-    ],
+    language: '<value>',
     schemaFile: new Shared\SchemaFile(
         content: '0xc3dD8BfBef',
         fileName: 'example.file',
@@ -47,7 +45,7 @@ $response = $sdk->codeSamples->generateCodeSamplePreview(
     request: $request
 );
 
-if ($response->twoHundredApplicationJsonBytes !== null) {
+if ($response->usageSnippets !== null) {
     // handle response
 }
 ```
@@ -92,9 +90,7 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     ->build();
 
 $request = new Shared\CodeSampleSchemaInput(
-    languages: [
-        '<value>',
-    ],
+    language: '<value>',
     schemaFile: new Shared\SchemaFile(
         content: '0xED5CDd177E',
         fileName: 'example.file',
@@ -158,7 +154,7 @@ $response = $sdk->codeSamples->getCodeSamplePreviewAsync(
     request: $request
 );
 
-if ($response->twoHundredApplicationJsonBytes !== null) {
+if ($response->object !== null) {
     // handle response
 }
 ```

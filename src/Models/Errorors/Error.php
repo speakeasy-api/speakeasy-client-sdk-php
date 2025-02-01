@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Errorors;
 
-
 use Speakeasy\SpeakeasyClientSDK\Utils;
 /** Error - The `Status` type defines a logical error model */
 class Error
