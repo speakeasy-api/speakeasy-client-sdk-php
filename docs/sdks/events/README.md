@@ -201,7 +201,7 @@ $request = new Operations\PostWorkspaceEventsRequest(
             createdAt: Utils\Utils::parseDateTime('2024-05-07T03:24:39.583Z'),
             executionId: '<id>',
             id: '<id>',
-            interactionType: Shared\InteractionType::Quickstart,
+            interactionType: Shared\InteractionType::Run,
             localStartedAt: Utils\Utils::parseDateTime('2024-09-08T05:59:33.876Z'),
             speakeasyApiKeyName: '<value>',
             speakeasyVersion: '<value>',

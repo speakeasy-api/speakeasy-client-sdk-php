@@ -23,4 +23,5 @@ enum InteractionType: string
     case Run = 'RUN';
     case Configure = 'CONFIGURE';
     case Publish = 'PUBLISH';
+    case Test = 'TEST';
 }
