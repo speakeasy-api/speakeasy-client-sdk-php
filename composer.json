@@ -1,5 +1,5 @@
 {
-  "name": "speakeasy-api/speakeasy-client-sdk-php",
+  "name": "ian-speakeasy/speakeasy-client-sdk-php",
   "type": "library",
   "autoload": {
     "psr-4": {
