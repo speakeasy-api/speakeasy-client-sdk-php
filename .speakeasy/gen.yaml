@@ -37,4 +37,4 @@ php:
   methodArguments: infer-optional-args
   namespace: Speakeasy\SpeakeasyClientSDK
   outputModelSuffix: output
-  packageName: speakeasy-api/speakeasy-client-sdk-php
+  packageName: ian-speakeasy/speakeasy-client-sdk-php
