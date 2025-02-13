@@ -44,6 +44,7 @@ class GetChangesReportSignedUrlResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?GetChangesReportSignedUrlSignedAccess  $signedAccess
+     * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?GetChangesReportSignedUrlSignedAccess $signedAccess = null)
     {

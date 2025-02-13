@@ -22,6 +22,7 @@ class ArchiveNamespaceRequestBody
 
     /**
      * @param  ?bool  $archived
+     * @phpstan-pure
      */
     public function __construct(?bool $archived = true)
     {

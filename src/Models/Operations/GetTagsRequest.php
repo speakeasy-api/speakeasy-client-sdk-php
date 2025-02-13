@@ -20,6 +20,7 @@ class GetTagsRequest
 
     /**
      * @param  string  $namespaceName
+     * @phpstan-pure
      */
     public function __construct(string $namespaceName)
     {

@@ -105,6 +105,7 @@ class Organization
      * @param  ?bool  $internal
      * @param  ?\DateTime  $freeTrialExpiry
      * @param  ?string  $ssoConnectionId
+     * @phpstan-pure
      */
     public function __construct(AccountType $accountType, \DateTime $createdAt, string $id, string $name, string $slug, bool $ssoActivated, bool $telemetryDisabled, \DateTime $updatedAt, ?bool $internal = null, ?\DateTime $freeTrialExpiry = null, ?string $ssoConnectionId = null)
     {

@@ -33,6 +33,7 @@ class WorkspaceAndOrganization
     /**
      * @param  Organization  $organization
      * @param  Workspace  $workspace
+     * @phpstan-pure
      */
     public function __construct(Organization $organization, Workspace $workspace)
     {

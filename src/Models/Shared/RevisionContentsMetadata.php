@@ -130,6 +130,7 @@ class RevisionContentsMetadata
      * @param  RevisionContentsMetadataType  $type
      * @param  string  $version
      * @param  string  $workspaceId
+     * @phpstan-pure
      */
     public function __construct(bool $containsCodeSamples, \DateTime $createdAt, string $description, string $hash, string $namespace, int $numOverlayActions, array $operationIds, string $revisionDigest, array $tags, string $title, RevisionContentsMetadataType $type, string $version, string $workspaceId)
     {

@@ -72,6 +72,7 @@ class OASOperation
      * @param  array<string>  $tags
      * @param  ?string  $groupOverride
      * @param  ?string  $methodNameOverride
+     * @phpstan-pure
      */
     public function __construct(string $description, string $method, string $operationId, string $path, array $tags, ?string $groupOverride = null, ?string $methodNameOverride = null)
     {

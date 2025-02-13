@@ -45,6 +45,7 @@ class GetManifestRequest
      * @param  string  $organizationSlug
      * @param  string  $revisionReference
      * @param  string  $workspaceSlug
+     * @phpstan-pure
      */
     public function __construct(string $namespaceName, string $organizationSlug, string $revisionReference, string $workspaceSlug)
     {

@@ -28,6 +28,7 @@ class Secrets
     /**
      * @param  bool  $apiKeyConfigured
      * @param  bool  $publishingSecretsConfigured
+     * @phpstan-pure
      */
     public function __construct(bool $apiKeyConfigured, bool $publishingSecretsConfigured)
     {

@@ -70,6 +70,7 @@ class GithubTriggerActionRequest
      * @param  ?bool  $force
      * @param  ?string  $setVersion
      * @param  ?string  $targetName
+     * @phpstan-pure
      */
     public function __construct(string $genLockId, string $org, string $repoName, ?bool $force = null, ?string $setVersion = null, ?string $targetName = null)
     {

@@ -22,6 +22,7 @@ class UsageSnippets
 
     /**
      * @param  array<UsageSnippet>  $snippets
+     * @phpstan-pure
      */
     public function __construct(array $snippets)
     {

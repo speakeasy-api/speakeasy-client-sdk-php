@@ -44,6 +44,7 @@ class GithubConfigureCodeSamplesResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?Shared\GithubConfigureCodeSamplesResponse  $githubConfigureCodeSamplesResponse
+     * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\GithubConfigureCodeSamplesResponse $githubConfigureCodeSamplesResponse = null)
     {

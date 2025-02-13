@@ -23,6 +23,7 @@ class WorkspaceFeatureFlagRequest
 
     /**
      * @param  array<WorkspaceFeatureFlag>  $featureFlags
+     * @phpstan-pure
      */
     public function __construct(array $featureFlags)
     {

@@ -30,6 +30,7 @@ class RevokeUserAccessToWorkspaceRequest
     /**
      * @param  string  $userId
      * @param  ?string  $workspaceId
+     * @phpstan-pure
      */
     public function __construct(string $userId, ?string $workspaceId = null)
     {

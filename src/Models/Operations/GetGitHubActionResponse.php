@@ -44,6 +44,7 @@ class GetGitHubActionResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?Shared\GithubGetActionResponse  $githubGetActionResponse
+     * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\GithubGetActionResponse $githubGetActionResponse = null)
     {

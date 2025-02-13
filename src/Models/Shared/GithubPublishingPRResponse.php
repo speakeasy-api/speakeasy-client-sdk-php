@@ -42,6 +42,7 @@ class GithubPublishingPRResponse
      * @param  ?string  $pendingVersion
      * @param  ?string  $pullRequest
      * @param  ?PullRequestMetadata  $pullRequestMetadata
+     * @phpstan-pure
      */
     public function __construct(?string $pendingVersion = null, ?string $pullRequest = null, ?PullRequestMetadata $pullRequestMetadata = null)
     {

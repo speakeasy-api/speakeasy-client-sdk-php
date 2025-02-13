@@ -32,6 +32,7 @@ class SuggestOptsOld
     /**
      * @param  SuggestionType  $suggestionType
      * @param  ?array<Diagnostic>  $diagnostics
+     * @phpstan-pure
      */
     public function __construct(SuggestionType $suggestionType, ?array $diagnostics = null)
     {

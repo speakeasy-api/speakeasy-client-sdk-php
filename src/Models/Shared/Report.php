@@ -22,6 +22,7 @@ class Report
 
     /**
      * @param  ?Type  $type
+     * @phpstan-pure
      */
     public function __construct(?Type $type = null)
     {

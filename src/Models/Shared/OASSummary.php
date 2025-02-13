@@ -31,6 +31,7 @@ class OASSummary
     /**
      * @param  OASInfo  $info
      * @param  array<OASOperation>  $operations
+     * @phpstan-pure
      */
     public function __construct(OASInfo $info, array $operations)
     {

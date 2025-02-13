@@ -37,6 +37,7 @@ class GetGitHubActionRequest
      * @param  string  $org
      * @param  string  $repo
      * @param  ?string  $targetName
+     * @phpstan-pure
      */
     public function __construct(string $org, string $repo, ?string $targetName = null)
     {

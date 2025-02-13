@@ -30,6 +30,7 @@ class PostTagsRequest
     /**
      * @param  string  $namespaceName
      * @param  ?Shared\AddTags  $addTags
+     * @phpstan-pure
      */
     public function __construct(string $namespaceName, ?Shared\AddTags $addTags = null)
     {

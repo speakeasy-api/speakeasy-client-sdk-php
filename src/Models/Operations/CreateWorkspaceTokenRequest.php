@@ -30,6 +30,7 @@ class CreateWorkspaceTokenRequest
     /**
      * @param  Shared\WorkspaceToken  $workspaceToken
      * @param  ?string  $workspaceId
+     * @phpstan-pure
      */
     public function __construct(Shared\WorkspaceToken $workspaceToken, ?string $workspaceId = null)
     {

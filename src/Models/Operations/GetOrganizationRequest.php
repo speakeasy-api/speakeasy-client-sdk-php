@@ -21,6 +21,7 @@ class GetOrganizationRequest
 
     /**
      * @param  string  $organizationID
+     * @phpstan-pure
      */
     public function __construct(string $organizationID)
     {

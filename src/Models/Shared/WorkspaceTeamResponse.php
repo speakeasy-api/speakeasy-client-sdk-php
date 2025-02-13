@@ -34,6 +34,7 @@ class WorkspaceTeamResponse
     /**
      * @param  array<User>  $users
      * @param  ?SSOMetadata  $ssoMetadata
+     * @phpstan-pure
      */
     public function __construct(array $users, ?SSOMetadata $ssoMetadata = null)
     {

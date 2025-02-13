@@ -30,6 +30,7 @@ class UploadReportRequestBody
     /**
      * @param  Shared\Report  $data
      * @param  File  $file
+     * @phpstan-pure
      */
     public function __construct(Shared\Report $data, File $file)
     {

@@ -132,6 +132,7 @@ class Annotations
      * @param  ?string  $orgOpencontainersImageUrl
      * @param  ?string  $orgOpencontainersImageVendor
      * @param  ?string  $orgOpencontainersImageVersion
+     * @phpstan-pure
      */
     public function __construct(?string $orgOpencontainersImageAuthors = null, ?string $orgOpencontainersImageCreated = null, ?string $orgOpencontainersImageDescription = null, ?string $orgOpencontainersImageDocumentation = null, ?string $orgOpencontainersImageLicenses = null, ?string $orgOpencontainersImageRefName = null, ?string $orgOpencontainersImageRevision = null, ?string $orgOpencontainersImageSource = null, ?string $orgOpencontainersImageTitle = null, ?string $orgOpencontainersImageUrl = null, ?string $orgOpencontainersImageVendor = null, ?string $orgOpencontainersImageVersion = null)
     {

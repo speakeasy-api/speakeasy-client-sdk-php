@@ -20,6 +20,7 @@ class GithubCheckPublishingSecretsRequest
 
     /**
      * @param  string  $generateGenLockId
+     * @phpstan-pure
      */
     public function __construct(string $generateGenLockId)
     {

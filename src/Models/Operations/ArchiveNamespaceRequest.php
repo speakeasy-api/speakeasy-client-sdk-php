@@ -29,6 +29,7 @@ class ArchiveNamespaceRequest
     /**
      * @param  string  $namespaceName
      * @param  ?ArchiveNamespaceRequestBody  $requestBody
+     * @phpstan-pure
      */
     public function __construct(string $namespaceName, ?ArchiveNamespaceRequestBody $requestBody = null)
     {

@@ -30,6 +30,7 @@ class GrantUserAccessToWorkspaceRequest
     /**
      * @param  string  $email
      * @param  ?string  $workspaceId
+     * @phpstan-pure
      */
     public function __construct(string $email, ?string $workspaceId = null)
     {

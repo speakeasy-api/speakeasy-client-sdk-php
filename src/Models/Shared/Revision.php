@@ -73,6 +73,7 @@ class Revision
      * @param  array<string>  $tags
      * @param  \DateTime  $updatedAt
      * @param  ?RevisionContentsMetadata  $contentsMetadata
+     * @phpstan-pure
      */
     public function __construct(\DateTime $createdAt, string $digest, string $id, string $namespaceName, array $tags, \DateTime $updatedAt, ?RevisionContentsMetadata $contentsMetadata = null)
     {

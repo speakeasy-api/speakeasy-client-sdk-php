@@ -30,6 +30,7 @@ class CompositeSpecMetadata
     /**
      * @param  string  $subscriptionId
      * @param  RemoteSourceSubscriptionSettings  $subscriptionSettings
+     * @phpstan-pure
      */
     public function __construct(string $subscriptionId, RemoteSourceSubscriptionSettings $subscriptionSettings)
     {

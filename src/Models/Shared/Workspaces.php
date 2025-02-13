@@ -49,6 +49,7 @@ class Workspaces
      * @param  ?string  $id
      * @param  ?string  $name
      * @param  ?\DateTime  $updatedAt
+     * @phpstan-pure
      */
     public function __construct(?AccountType $accountType = null, ?string $id = null, ?string $name = null, ?\DateTime $updatedAt = null)
     {

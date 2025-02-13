@@ -32,6 +32,7 @@ class GenerateCodeSamplePreviewAsyncResponseBody
     /**
      * @param  string  $jobId
      * @param  Shared\CodeSamplesJobStatus  $status
+     * @phpstan-pure
      */
     public function __construct(string $jobId, Shared\CodeSamplesJobStatus $status)
     {

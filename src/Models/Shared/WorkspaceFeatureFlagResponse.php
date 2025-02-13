@@ -24,6 +24,7 @@ class WorkspaceFeatureFlagResponse
 
     /**
      * @param  ?array<FeatureFlag>  $featureFlags
+     * @phpstan-pure
      */
     public function __construct(?array $featureFlags = null)
     {

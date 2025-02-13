@@ -28,6 +28,7 @@ class Actions
     /**
      * @param  bool  $generationActionConfigured
      * @param  bool  $publishActionConfigured
+     * @phpstan-pure
      */
     public function __construct(bool $generationActionConfigured, bool $publishActionConfigured)
     {

@@ -99,6 +99,7 @@ class PullRequestMetadata
      * @param  ?array<string>  $requestedReviewers
      * @param  ?string  $status
      * @param  ?string  $title
+     * @phpstan-pure
      */
     public function __construct(?string $baseBranch = null, ?bool $canMerge = null, ?\DateTime $createdAt = null, ?string $description = null, ?string $headBranch = null, ?array $labels = null, ?array $requestedReviewers = null, ?string $status = null, ?string $title = null)
     {

@@ -58,6 +58,7 @@ class UsageSnippet
      * @param  mixed  $method
      * @param  string  $operationId
      * @param  string  $path
+     * @phpstan-pure
      */
     public function __construct(string $code, string $language, mixed $method, string $operationId, string $path)
     {

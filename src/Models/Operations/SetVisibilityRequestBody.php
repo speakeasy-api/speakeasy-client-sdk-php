@@ -21,6 +21,7 @@ class SetVisibilityRequestBody
 
     /**
      * @param  bool  $public
+     * @phpstan-pure
      */
     public function __construct(bool $public)
     {

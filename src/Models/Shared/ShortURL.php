@@ -28,6 +28,7 @@ class ShortURL
     /**
      * @param  string  $fullUrl
      * @param  string  $shortUrl
+     * @phpstan-pure
      */
     public function __construct(string $fullUrl, string $shortUrl)
     {

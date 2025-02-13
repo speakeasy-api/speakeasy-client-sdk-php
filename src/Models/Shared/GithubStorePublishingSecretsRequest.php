@@ -33,6 +33,7 @@ class GithubStorePublishingSecretsRequest
     /**
      * @param  string  $generateGenLockId
      * @param  ?array<string, string>  $secrets
+     * @phpstan-pure
      */
     public function __construct(string $generateGenLockId, ?array $secrets = null)
     {

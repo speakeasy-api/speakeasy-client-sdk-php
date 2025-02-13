@@ -22,6 +22,7 @@ class PreflightToken
 
     /**
      * @param  ?string  $authToken
+     * @phpstan-pure
      */
     public function __construct(?string $authToken = null)
     {

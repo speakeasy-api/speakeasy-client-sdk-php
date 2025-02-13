@@ -86,6 +86,7 @@ class NamespaceT
      * @param  ?CompositeSpecMetadata  $compositeSpecMetadata
      * @param  ?RevisionContentsMetadata  $latestRevisionMetadata
      * @param  ?bool  $public
+     * @phpstan-pure
      */
     public function __construct(\DateTime $createdAt, string $id, string $name, \DateTime $updatedAt, ?\DateTime $archivedAt = null, ?CompositeSpecMetadata $compositeSpecMetadata = null, ?RevisionContentsMetadata $latestRevisionMetadata = null, ?bool $public = null)
     {

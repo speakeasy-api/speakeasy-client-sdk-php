@@ -29,6 +29,7 @@ class GetRevisionsRequest
     /**
      * @param  string  $namespaceName
      * @param  ?string  $nextPageToken
+     * @phpstan-pure
      */
     public function __construct(string $namespaceName, ?string $nextPageToken = null)
     {

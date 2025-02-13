@@ -30,6 +30,7 @@ class SuggestOpenAPIRequestBody
     /**
      * @param  Schema  $schema
      * @param  ?Shared\SuggestOptsOld  $opts
+     * @phpstan-pure
      */
     public function __construct(Schema $schema, ?Shared\SuggestOptsOld $opts = null)
     {

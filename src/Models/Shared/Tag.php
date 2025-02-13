@@ -46,6 +46,7 @@ class Tag
      * @param  string  $name
      * @param  string  $namespaceName
      * @param  string  $revisionDigest
+     * @phpstan-pure
      */
     public function __construct(string $id, string $name, string $namespaceName, string $revisionDigest)
     {

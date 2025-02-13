@@ -39,6 +39,7 @@ class GithubSetupStateResponse
      * @param  Actions  $actions
      * @param  bool  $appInstalled
      * @param  Secrets  $secrets
+     * @phpstan-pure
      */
     public function __construct(Actions $actions, bool $appInstalled, Secrets $secrets)
     {

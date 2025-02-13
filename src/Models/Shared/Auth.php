@@ -28,6 +28,7 @@ class Auth
     /**
      * @param  string  $header
      * @param  string  $secret
+     * @phpstan-pure
      */
     public function __construct(string $header, string $secret)
     {

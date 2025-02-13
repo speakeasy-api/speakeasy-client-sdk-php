@@ -21,6 +21,7 @@ class RemoteDocument
 
     /**
      * @param  string  $registryUrl
+     * @phpstan-pure
      */
     public function __construct(string $registryUrl)
     {

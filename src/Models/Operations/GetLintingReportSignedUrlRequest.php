@@ -21,6 +21,7 @@ class GetLintingReportSignedUrlRequest
 
     /**
      * @param  string  $documentChecksum
+     * @phpstan-pure
      */
     public function __construct(string $documentChecksum)
     {

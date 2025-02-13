@@ -66,6 +66,7 @@ class AccessTokenUser
      * @param  ?string  $email
      * @param  ?bool  $emailVerified
      * @param  ?string  $id
+     * @phpstan-pure
      */
     public function __construct(?bool $admin = null, ?\DateTime $createdAt = null, ?string $displayName = null, ?string $email = null, ?bool $emailVerified = null, ?string $id = null)
     {

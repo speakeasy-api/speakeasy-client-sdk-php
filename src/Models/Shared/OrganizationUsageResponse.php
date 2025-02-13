@@ -52,6 +52,7 @@ class OrganizationUsageResponse
      * @param  int  $totalAllowedLanguages
      * @param  array<OrganizationUsage>  $usage
      * @param  ?\DateTime  $freeTrialExpiry
+     * @phpstan-pure
      */
     public function __construct(array $allowedLanguages, int $totalAllowedLanguages, array $usage, ?\DateTime $freeTrialExpiry = null)
     {

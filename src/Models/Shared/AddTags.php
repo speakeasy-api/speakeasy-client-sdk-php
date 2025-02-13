@@ -32,6 +32,7 @@ class AddTags
     /**
      * @param  string  $revisionDigest
      * @param  array<string>  $tags
+     * @phpstan-pure
      */
     public function __construct(string $revisionDigest, array $tags)
     {

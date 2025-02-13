@@ -36,6 +36,7 @@ class LinkGithubAccessRequest
      * @param  ?string  $githubOidcToken
      * @param  ?string  $githubOrg
      * @param  ?string  $installationId
+     * @phpstan-pure
      */
     public function __construct(?string $githubOidcToken = null, ?string $githubOrg = null, ?string $installationId = null)
     {

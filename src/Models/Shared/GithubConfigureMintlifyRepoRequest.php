@@ -60,6 +60,7 @@ class GithubConfigureMintlifyRepoRequest
      * @param  array<string>  $overlays
      * @param  string  $repo
      * @param  ?string  $subdirectory
+     * @phpstan-pure
      */
     public function __construct(string $input, string $org, array $overlays, string $repo, ?string $subdirectory = null)
     {

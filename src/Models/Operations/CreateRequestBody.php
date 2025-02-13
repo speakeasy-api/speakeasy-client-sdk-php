@@ -21,6 +21,7 @@ class CreateRequestBody
 
     /**
      * @param  string  $url
+     * @phpstan-pure
      */
     public function __construct(string $url)
     {

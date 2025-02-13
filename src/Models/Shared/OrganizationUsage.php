@@ -88,6 +88,7 @@ class OrganizationUsage
      * @param  int  $numberOfOperations
      * @param  array<string>  $usedFeatures
      * @param  array<string>  $workspaces
+     * @phpstan-pure
      */
     public function __construct(bool $accessible, array $accessibleFeatures, array $genLockIds, string $language, int $maxOperations, int $numberOfOperations, array $usedFeatures, array $workspaces)
     {

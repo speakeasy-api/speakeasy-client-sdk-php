@@ -44,6 +44,7 @@ class GetBlobRequest
      * @param  string  $namespaceName
      * @param  string  $organizationSlug
      * @param  string  $workspaceSlug
+     * @phpstan-pure
      */
     public function __construct(string $digest, string $namespaceName, string $organizationSlug, string $workspaceSlug)
     {

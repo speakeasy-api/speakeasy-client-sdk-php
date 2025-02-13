@@ -50,6 +50,7 @@ class Diagnostic
      * @param  array<string>  $path
      * @param  string  $type
      * @param  ?string  $helpMessage
+     * @phpstan-pure
      */
     public function __construct(string $message, array $path, string $type, ?string $helpMessage = null)
     {

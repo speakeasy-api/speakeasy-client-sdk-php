@@ -36,6 +36,7 @@ class Security
      * @param  ?string  $apiKey
      * @param  ?string  $bearer
      * @param  ?string  $workspaceIdentifier
+     * @phpstan-pure
      */
     public function __construct(?string $apiKey = null, ?string $bearer = null, ?string $workspaceIdentifier = null)
     {

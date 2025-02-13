@@ -31,6 +31,7 @@ class Error
     /**
      * @param  string  $message
      * @param  int  $statusCode
+     * @phpstan-pure
      */
     public function __construct(string $message, int $statusCode)
     {

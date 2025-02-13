@@ -54,6 +54,7 @@ class V2Descriptor
      * @param  ?string  $digest
      * @param  ?string  $mediaType
      * @param  ?int  $size
+     * @phpstan-pure
      */
     public function __construct(?Annotations $annotations = null, ?string $digest = null, ?string $mediaType = null, ?int $size = null)
     {

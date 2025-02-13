@@ -23,6 +23,7 @@ class GetCodeSamplePreviewAsyncResponseBody
 
     /**
      * @param  Shared\CodeSamplesJobStatus  $status
+     * @phpstan-pure
      */
     public function __construct(Shared\CodeSamplesJobStatus $status)
     {

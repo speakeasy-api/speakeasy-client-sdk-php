@@ -94,6 +94,7 @@ class SearchWorkspaceEventsRequest
      * @param  ?string  $sourceRevisionDigest
      * @param  ?bool  $success
      * @param  ?string  $workspaceId
+     * @phpstan-pure
      */
     public function __construct(?string $executionId = null, ?string $generateGenLockId = null, ?Shared\InteractionType $interactionType = null, ?int $limit = null, ?string $lintReportDigest = null, ?string $openapiDiffReportDigest = null, ?string $sourceRevisionDigest = null, ?bool $success = null, ?string $workspaceId = null)
     {

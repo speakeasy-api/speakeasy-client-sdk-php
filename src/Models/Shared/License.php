@@ -21,6 +21,7 @@ class License
 
     /**
      * @param  ?string  $identifier
+     * @phpstan-pure
      */
     public function __construct(?string $identifier = null)
     {

@@ -21,6 +21,7 @@ class GetWorkspaceSettingsRequest
 
     /**
      * @param  ?string  $workspaceId
+     * @phpstan-pure
      */
     public function __construct(?string $workspaceId = null)
     {

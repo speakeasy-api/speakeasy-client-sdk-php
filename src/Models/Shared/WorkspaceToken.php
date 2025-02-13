@@ -88,6 +88,7 @@ class WorkspaceToken
      * @param  ?string  $createdBy
      * @param  ?string  $email
      * @param  ?\DateTime  $lastUsed
+     * @phpstan-pure
      */
     public function __construct(string $alg, \DateTime $createdAt, string $id, string $key, string $name, string $workspaceId, ?string $createdBy = null, ?string $email = null, ?\DateTime $lastUsed = null)
     {

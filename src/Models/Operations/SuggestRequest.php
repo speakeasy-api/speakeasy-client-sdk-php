@@ -30,6 +30,7 @@ class SuggestRequest
     /**
      * @param  Shared\SuggestRequestBody  $suggestRequestBody
      * @param  string  $xSessionId
+     * @phpstan-pure
      */
     public function __construct(Shared\SuggestRequestBody $suggestRequestBody, string $xSessionId)
     {

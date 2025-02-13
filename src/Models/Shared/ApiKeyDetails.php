@@ -92,6 +92,7 @@ class ApiKeyDetails
      * @param  string  $workspaceSlug
      * @param  ?array<string>  $featureFlags
      * @param  ?bool  $generationAccessUnlimited
+     * @phpstan-pure
      */
     public function __construct(AccountType $accountTypeV2, array $enabledFeatures, string $orgSlug, bool $telemetryDisabled, \DateTime $workspaceCreatedAt, string $workspaceId, string $workspaceSlug, ?array $featureFlags = null, ?bool $generationAccessUnlimited = null)
     {

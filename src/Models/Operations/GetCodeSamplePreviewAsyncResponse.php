@@ -52,6 +52,7 @@ class GetCodeSamplePreviewAsyncResponse
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?Shared\UsageSnippets  $usageSnippets
      * @param  ?GetCodeSamplePreviewAsyncResponseBody  $object
+     * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\UsageSnippets $usageSnippets = null, ?GetCodeSamplePreviewAsyncResponseBody $object = null)
     {

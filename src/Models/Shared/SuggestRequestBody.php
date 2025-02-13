@@ -40,6 +40,7 @@ class SuggestRequestBody
      * @param  array<Diagnostic>  $diagnostics
      * @param  OASSummary  $oasSummary
      * @param  SuggestRequestBodySuggestionType  $suggestionType
+     * @phpstan-pure
      */
     public function __construct(array $diagnostics, OASSummary $oasSummary, SuggestRequestBodySuggestionType $suggestionType)
     {

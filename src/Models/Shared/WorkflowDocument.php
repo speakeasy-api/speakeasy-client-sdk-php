@@ -31,6 +31,7 @@ class WorkflowDocument
     /**
      * @param  string  $location
      * @param  ?Auth  $auth
+     * @phpstan-pure
      */
     public function __construct(string $location, ?Auth $auth = null)
     {

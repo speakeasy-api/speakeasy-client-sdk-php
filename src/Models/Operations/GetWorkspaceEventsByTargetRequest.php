@@ -39,6 +39,7 @@ class GetWorkspaceEventsByTargetRequest
      * @param  string  $targetId
      * @param  ?\DateTime  $afterCreatedAt
      * @param  ?string  $workspaceId
+     * @phpstan-pure
      */
     public function __construct(string $targetId, ?\DateTime $afterCreatedAt = null, ?string $workspaceId = null)
     {

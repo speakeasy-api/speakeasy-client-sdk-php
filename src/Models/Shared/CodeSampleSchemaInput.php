@@ -57,6 +57,7 @@ class CodeSampleSchemaInput
      * @param  ?array<string>  $operationIds
      * @param  ?string  $packageName
      * @param  ?string  $sdkClassName
+     * @phpstan-pure
      */
     public function __construct(string $language, SchemaFile $schemaFile, ?array $operationIds = null, ?string $packageName = null, ?string $sdkClassName = null)
     {

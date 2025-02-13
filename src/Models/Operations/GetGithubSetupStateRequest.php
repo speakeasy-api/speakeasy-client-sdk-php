@@ -36,6 +36,7 @@ class GetGithubSetupStateRequest
      * @param  string  $generateGenLockId
      * @param  string  $org
      * @param  string  $repo
+     * @phpstan-pure
      */
     public function __construct(string $generateGenLockId, string $org, string $repo)
     {

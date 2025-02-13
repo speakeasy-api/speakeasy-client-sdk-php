@@ -42,6 +42,7 @@ class GithubConfigureCodeSamplesResponse
      * @param  string  $codeSampleOverlayRegistryURL
      * @param  WorkflowDocument  $source
      * @param  ?string  $ghActionID
+     * @phpstan-pure
      */
     public function __construct(string $codeSampleOverlayRegistryURL, WorkflowDocument $source, ?string $ghActionID = null)
     {

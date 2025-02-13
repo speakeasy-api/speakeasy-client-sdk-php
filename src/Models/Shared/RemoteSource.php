@@ -44,6 +44,7 @@ class RemoteSource
      * @param  array<RemoteDocument>  $inputs
      * @param  RemoteDocument  $output
      * @param  ?array<RemoteDocument>  $overlays
+     * @phpstan-pure
      */
     public function __construct(array $inputs, RemoteDocument $output, ?array $overlays = null)
     {

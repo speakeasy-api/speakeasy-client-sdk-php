@@ -51,6 +51,7 @@ class RemoteSourceSubscriptionSettings
      * @param  string  $outputNamespace
      * @param  array<string>  $overlayNamespaces
      * @param  ?array<string>  $ignoredNamespaces
+     * @phpstan-pure
      */
     public function __construct(array $baseSpecNamespaces, string $outputNamespace, array $overlayNamespaces, ?array $ignoredNamespaces = null)
     {

@@ -39,6 +39,7 @@ class GetWorkspaceAccessRequest
      * @param  ?string  $genLockId
      * @param  ?bool  $passive
      * @param  ?string  $targetType
+     * @phpstan-pure
      */
     public function __construct(?string $genLockId = null, ?bool $passive = null, ?string $targetType = null)
     {

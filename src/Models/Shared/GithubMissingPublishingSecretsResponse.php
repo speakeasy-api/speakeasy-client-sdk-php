@@ -24,6 +24,7 @@ class GithubMissingPublishingSecretsResponse
 
     /**
      * @param  ?array<string>  $missingSecrets
+     * @phpstan-pure
      */
     public function __construct(?array $missingSecrets = null)
     {

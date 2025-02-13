@@ -44,6 +44,7 @@ class WorkspaceSettings
      * @param  \DateTime  $updatedAt
      * @param  string  $webhookUrl
      * @param  string  $workspaceId
+     * @phpstan-pure
      */
     public function __construct(\DateTime $createdAt, \DateTime $updatedAt, string $webhookUrl, string $workspaceId)
     {

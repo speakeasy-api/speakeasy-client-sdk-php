@@ -53,6 +53,7 @@ class OASInfo
      * @param  string  $summary
      * @param  string  $title
      * @param  string  $version
+     * @phpstan-pure
      */
     public function __construct(string $description, License $license, string $summary, string $title, string $version)
     {

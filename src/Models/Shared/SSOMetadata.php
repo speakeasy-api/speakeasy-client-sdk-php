@@ -31,6 +31,7 @@ class SSOMetadata
     /**
      * @param  bool  $ssoActivated
      * @param  array<string>  $ssoDomains
+     * @phpstan-pure
      */
     public function __construct(bool $ssoActivated, array $ssoDomains)
     {

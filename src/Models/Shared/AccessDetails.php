@@ -38,6 +38,7 @@ class AccessDetails
      * @param  bool  $generationAllowed
      * @param  string  $message
      * @param  ?Level  $level
+     * @phpstan-pure
      */
     public function __construct(bool $generationAllowed, string $message, ?Level $level = null)
     {

@@ -28,6 +28,7 @@ class SchemaFile
     /**
      * @param  string  $content
      * @param  string  $fileName
+     * @phpstan-pure
      */
     public function __construct(string $content, string $fileName)
     {

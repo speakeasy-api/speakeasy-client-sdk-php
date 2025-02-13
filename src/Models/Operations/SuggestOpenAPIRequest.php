@@ -29,6 +29,7 @@ class SuggestOpenAPIRequest
     /**
      * @param  SuggestOpenAPIRequestBody  $requestBody
      * @param  string  $xSessionId
+     * @phpstan-pure
      */
     public function __construct(SuggestOpenAPIRequestBody $requestBody, string $xSessionId)
     {

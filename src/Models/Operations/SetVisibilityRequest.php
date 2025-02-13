@@ -29,6 +29,7 @@ class SetVisibilityRequest
     /**
      * @param  string  $namespaceName
      * @param  ?SetVisibilityRequestBody  $requestBody
+     * @phpstan-pure
      */
     public function __construct(string $namespaceName, ?SetVisibilityRequestBody $requestBody = null)
     {

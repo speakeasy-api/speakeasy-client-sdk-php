@@ -30,6 +30,7 @@ class GetRevisionsResponse
     /**
      * @param  array<Revision>  $items
      * @param  string  $nextPageToken
+     * @phpstan-pure
      */
     public function __construct(array $items, string $nextPageToken)
     {

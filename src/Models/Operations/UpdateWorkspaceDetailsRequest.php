@@ -31,6 +31,7 @@ class UpdateWorkspaceDetailsRequest
     /**
      * @param  Shared\Workspace  $workspace
      * @param  ?string  $workspaceId
+     * @phpstan-pure
      */
     public function __construct(Shared\Workspace $workspace, ?string $workspaceId = null)
     {

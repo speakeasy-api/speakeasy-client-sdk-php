@@ -47,6 +47,7 @@ class SuggestOpenAPIRegistryRequest
      * @param  string  $revisionReference
      * @param  string  $xSessionId
      * @param  ?Shared\SuggestRequestBody  $suggestRequestBody
+     * @phpstan-pure
      */
     public function __construct(string $namespaceName, string $revisionReference, string $xSessionId, ?Shared\SuggestRequestBody $suggestRequestBody = null)
     {

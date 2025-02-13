@@ -28,6 +28,7 @@ class CheckGithubAccessRequest
     /**
      * @param  string  $org
      * @param  string  $repo
+     * @phpstan-pure
      */
     public function __construct(string $org, string $repo)
     {

@@ -61,6 +61,7 @@ class AccessToken
      * @param  AccessTokenUser  $user
      * @param  ?array<FeatureFlag>  $featureFlags
      * @param  ?array<Workspaces>  $workspaces
+     * @phpstan-pure
      */
     public function __construct(string $accessToken, Claims $claims, AccessTokenUser $user, ?array $featureFlags = null, ?array $workspaces = null)
     {

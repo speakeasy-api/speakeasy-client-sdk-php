@@ -30,6 +30,7 @@ class IgnoreSubscriptionNamespaceRequest
     /**
      * @param  string  $namespaceName
      * @param  string  $subscriptionID
+     * @phpstan-pure
      */
     public function __construct(string $namespaceName, string $subscriptionID)
     {

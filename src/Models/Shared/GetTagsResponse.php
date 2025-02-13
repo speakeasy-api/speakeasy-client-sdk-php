@@ -22,6 +22,7 @@ class GetTagsResponse
 
     /**
      * @param  array<Tag>  $items
+     * @phpstan-pure
      */
     public function __construct(array $items)
     {

@@ -84,6 +84,15 @@ class User
     public bool $whitelisted;
 
     /**
+     * Indicates whether the user has created an API key. Not always populated
+     *
+     * @var ?bool $hasCreatedApiKey
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('has_created_api_key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $hasCreatedApiKey = null;
+
+    /**
      * Indicates whether the user is internal.
      *
      * @var ?bool $internal
@@ -147,14 +156,16 @@ class User
      * @param  string  $id
      * @param  \DateTime  $updatedAt
      * @param  bool  $whitelisted
+     * @param  ?bool  $hasCreatedApiKey
      * @param  ?bool  $internal
      * @param  ?string  $pylonIdentityHash
      * @param  ?string  $defaultWorkspaceId
      * @param  ?string  $githubHandle
      * @param  ?\DateTime  $lastLoginAt
      * @param  ?string  $photoUrl
+     * @phpstan-pure
      */
-    public function __construct(bool $admin, bool $confirmed, \DateTime $createdAt, string $displayName, string $email, bool $emailVerified, string $id, \DateTime $updatedAt, bool $whitelisted, ?bool $internal = null, ?string $pylonIdentityHash = null, ?string $defaultWorkspaceId = null, ?string $githubHandle = null, ?\DateTime $lastLoginAt = null, ?string $photoUrl = null)
+    public function __construct(bool $admin, bool $confirmed, \DateTime $createdAt, string $displayName, string $email, bool $emailVerified, string $id, \DateTime $updatedAt, bool $whitelisted, ?bool $hasCreatedApiKey = null, ?bool $internal = null, ?string $pylonIdentityHash = null, ?string $defaultWorkspaceId = null, ?string $githubHandle = null, ?\DateTime $lastLoginAt = null, ?string $photoUrl = null)
     {
         $this->admin = $admin;
         $this->confirmed = $confirmed;
@@ -165,6 +176,7 @@ class User
         $this->id = $id;
         $this->updatedAt = $updatedAt;
         $this->whitelisted = $whitelisted;
+        $this->hasCreatedApiKey = $hasCreatedApiKey;
         $this->internal = $internal;
         $this->pylonIdentityHash = $pylonIdentityHash;
         $this->defaultWorkspaceId = $defaultWorkspaceId;

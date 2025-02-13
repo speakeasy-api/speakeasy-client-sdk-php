@@ -32,6 +32,7 @@ class FeatureFlag
     /**
      * @param  WorkspaceFeatureFlag  $featureFlag
      * @param  ?\DateTime  $trialEndsAt
+     * @phpstan-pure
      */
     public function __construct(WorkspaceFeatureFlag $featureFlag, ?\DateTime $trialEndsAt = null)
     {

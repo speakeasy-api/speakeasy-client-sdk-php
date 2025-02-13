@@ -41,8 +41,6 @@ class SDKBuilder
      */
     public function setSecurity(Models\Shared\Security $security): SDKBuilder
     {
-        $this->sdkConfig->security = $security;
-
         $this->sdkConfig->securitySource = fn () => $security;
 
         return $this;

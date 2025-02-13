@@ -31,6 +31,7 @@ class SuggestItemsRequestBody
     /**
      * @param  array<string>  $items
      * @param  string  $prompt
+     * @phpstan-pure
      */
     public function __construct(array $items, string $prompt)
     {

@@ -65,6 +65,7 @@ class Manifest
      * @param  ?array<V2Descriptor>  $layers
      * @param  ?string  $mediaType
      * @param  ?int  $schemaVersion
+     * @phpstan-pure
      */
     public function __construct(?Annotations $annotations = null, ?string $artifactType = null, ?array $layers = null, ?string $mediaType = null, ?int $schemaVersion = null)
     {

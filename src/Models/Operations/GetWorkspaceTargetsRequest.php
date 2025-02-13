@@ -21,6 +21,7 @@ class GetWorkspaceTargetsRequest
 
     /**
      * @param  ?\DateTime  $afterLastEventCreatedAt
+     * @phpstan-pure
      */
     public function __construct(?\DateTime $afterLastEventCreatedAt = null)
     {

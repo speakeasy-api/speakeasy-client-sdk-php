@@ -31,6 +31,7 @@ class WorkspaceInviteResponse
     /**
      * @param  Relationship  $relationship
      * @param  ?string  $inviteLink
+     * @phpstan-pure
      */
     public function __construct(Relationship $relationship, ?string $inviteLink = null)
     {

@@ -22,6 +22,7 @@ class GetNamespacesResponse
 
     /**
      * @param  array<NamespaceT>  $items
+     * @phpstan-pure
      */
     public function __construct(array $items)
     {

@@ -30,6 +30,7 @@ class GetWorkspaceTargetsDeprecatedRequest
     /**
      * @param  ?\DateTime  $afterLastEventCreatedAt
      * @param  ?string  $workspaceId
+     * @phpstan-pure
      */
     public function __construct(?\DateTime $afterLastEventCreatedAt = null, ?string $workspaceId = null)
     {

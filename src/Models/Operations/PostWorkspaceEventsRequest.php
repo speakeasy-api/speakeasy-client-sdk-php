@@ -31,6 +31,7 @@ class PostWorkspaceEventsRequest
     /**
      * @param  array<Shared\CliEvent>  $requestBody
      * @param  ?string  $workspaceId
+     * @phpstan-pure
      */
     public function __construct(array $requestBody, ?string $workspaceId = null)
     {

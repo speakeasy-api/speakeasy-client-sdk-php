@@ -31,6 +31,7 @@ class GithubConfigureTargetRequest
     /**
      * @param  string  $org
      * @param  string  $repoName
+     * @phpstan-pure
      */
     public function __construct(string $org, string $repoName)
     {

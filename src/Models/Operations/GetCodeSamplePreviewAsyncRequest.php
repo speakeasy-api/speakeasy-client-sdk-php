@@ -21,6 +21,7 @@ class GetCodeSamplePreviewAsyncRequest
 
     /**
      * @param  string  $jobID
+     * @phpstan-pure
      */
     public function __construct(string $jobID)
     {

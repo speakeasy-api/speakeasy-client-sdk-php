@@ -44,6 +44,7 @@ class GetLintingReportSignedUrlResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?GetLintingReportSignedUrlSignedAccess  $signedAccess
+     * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?GetLintingReportSignedUrlSignedAccess $signedAccess = null)
     {

@@ -89,6 +89,7 @@ class Workspace
      * @param  bool  $verified
      * @param  ?bool  $inactive
      * @param  ?bool  $telemetryDisabled
+     * @phpstan-pure
      */
     public function __construct(\DateTime $createdAt, string $id, string $name, string $organizationId, string $slug, \DateTime $updatedAt, bool $verified, ?bool $inactive = null, ?bool $telemetryDisabled = null)
     {

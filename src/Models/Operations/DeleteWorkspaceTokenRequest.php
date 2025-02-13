@@ -30,6 +30,7 @@ class DeleteWorkspaceTokenRequest
     /**
      * @param  string  $tokenID
      * @param  ?string  $workspaceId
+     * @phpstan-pure
      */
     public function __construct(string $tokenID, ?string $workspaceId = null)
     {

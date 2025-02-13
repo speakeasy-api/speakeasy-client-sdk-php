@@ -33,6 +33,7 @@ class GithubGetActionResponse
     /**
      * @param  ?string  $runStatus
      * @param  ?string  $runUrl
+     * @phpstan-pure
      */
     public function __construct(?string $runStatus = null, ?string $runUrl = null)
     {
