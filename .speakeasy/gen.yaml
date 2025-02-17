@@ -19,7 +19,7 @@ php:
     require: {}
     require-dev: {}
   clientServerStatusCodesAsErrors: true
-  defaultErrorName: SDKException
+  defaultErrorName: SDKExceptioon
   flattenGlobalSecurity: true
   imports:
     option: openapi
