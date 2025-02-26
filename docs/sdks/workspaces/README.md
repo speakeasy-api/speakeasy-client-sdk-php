@@ -77,10 +77,10 @@ if ($response->workspace !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## createToken
 
@@ -139,10 +139,10 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## deleteToken
 
@@ -193,10 +193,10 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## getByID
 
@@ -246,10 +246,10 @@ if ($response->workspace !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## get
 
@@ -290,10 +290,10 @@ if ($response->workspaceAndOrganization !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## getFeatureFlags
 
@@ -343,10 +343,10 @@ if ($response->workspaceFeatureFlagResponse !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 5XX                   | application/json      |
-| Errorors\SDKException | 4XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 5XX                    | application/json       |
+| Errorors\SDKExceptioon | 4XX                    | \*/\*                  |
 
 ## getSettings
 
@@ -396,10 +396,10 @@ if ($response->workspaceSettings !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## getTeam
 
@@ -449,10 +449,10 @@ if ($response->workspaceTeamResponse !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## getTokens
 
@@ -502,10 +502,10 @@ if ($response->classes !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## getAll
 
@@ -546,10 +546,10 @@ if ($response->workspaces !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## grantAccess
 
@@ -600,10 +600,10 @@ if ($response->workspaceInviteResponse !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## revokeAccess
 
@@ -654,10 +654,10 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## setFeatureFlags
 
@@ -708,10 +708,10 @@ if ($response->workspaceFeatureFlagResponse !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 5XX                   | application/json      |
-| Errorors\SDKException | 4XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 5XX                    | application/json       |
+| Errorors\SDKExceptioon | 4XX                    | \*/\*                  |
 
 ## update
 
@@ -771,10 +771,10 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## updateSettings
 
@@ -831,7 +831,7 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |

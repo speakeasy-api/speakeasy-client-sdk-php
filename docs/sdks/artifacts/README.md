@@ -67,10 +67,10 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## createRemoteSource
 
@@ -126,10 +126,10 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## getBlob
 
@@ -182,10 +182,10 @@ if ($response->blob !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## getManifest
 
@@ -238,10 +238,10 @@ if ($response->manifest !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## getNamespaces
 
@@ -282,10 +282,10 @@ if ($response->getNamespacesResponse !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## getRevisions
 
@@ -333,10 +333,10 @@ if ($response->getRevisionsResponse !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## getTags
 
@@ -384,10 +384,10 @@ if ($response->getTagsResponse !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## listRemoteSources
 
@@ -437,10 +437,10 @@ if ($response->remoteSource !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## postTags
 
@@ -490,10 +490,10 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## preflight
 
@@ -542,10 +542,10 @@ if ($response->preflightToken !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## setVisibility
 
@@ -595,7 +595,7 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 4XX                   | application/json      |
-| Errorors\SDKException | 5XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |

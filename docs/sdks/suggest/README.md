@@ -92,9 +92,9 @@ if ($response->schema !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\SDKException | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\SDKExceptioon | 4XX, 5XX               | \*/\*                  |
 
 ## suggestItems
 
@@ -146,9 +146,9 @@ if ($response->strings !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\SDKException | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\SDKExceptioon | 4XX, 5XX               | \*/\*                  |
 
 ## suggestOpenAPI
 
@@ -204,9 +204,9 @@ if ($response->schema !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\SDKException | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\SDKExceptioon | 4XX, 5XX               | \*/\*                  |
 
 ## suggestOpenAPIRegistry
 
@@ -258,6 +258,6 @@ if ($response->schema !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\SDKException | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\SDKExceptioon | 4XX, 5XX               | \*/\*                  |

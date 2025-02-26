@@ -59,9 +59,9 @@ if ($response->signedAccess !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\SDKException | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\SDKExceptioon | 4XX, 5XX               | \*/\*                  |
 
 ## getLintingReportSignedUrl
 
@@ -111,9 +111,9 @@ if ($response->signedAccess !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\SDKException | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\SDKExceptioon | 4XX, 5XX               | \*/\*                  |
 
 ## uploadReport
 
@@ -167,6 +167,6 @@ if ($response->uploadedReport !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\SDKException | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\SDKExceptioon | 4XX, 5XX               | \*/\*                  |

@@ -20,6 +20,15 @@ class ApiKeyDetails
     public AccountType $accountTypeV2;
 
     /**
+     * $billingAddOns
+     *
+     * @var array<BillingAddOn> $billingAddOns
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('billing_add_ons')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Speakeasy\SpeakeasyClientSDK\Models\Shared\BillingAddOn>')]
+    public array $billingAddOns;
+
+    /**
      * $enabledFeatures
      *
      * @var array<string> $enabledFeatures
@@ -84,6 +93,7 @@ class ApiKeyDetails
 
     /**
      * @param  AccountType  $accountTypeV2
+     * @param  array<BillingAddOn>  $billingAddOns
      * @param  array<string>  $enabledFeatures
      * @param  string  $orgSlug
      * @param  bool  $telemetryDisabled
@@ -94,9 +104,10 @@ class ApiKeyDetails
      * @param  ?bool  $generationAccessUnlimited
      * @phpstan-pure
      */
-    public function __construct(AccountType $accountTypeV2, array $enabledFeatures, string $orgSlug, bool $telemetryDisabled, \DateTime $workspaceCreatedAt, string $workspaceId, string $workspaceSlug, ?array $featureFlags = null, ?bool $generationAccessUnlimited = null)
+    public function __construct(AccountType $accountTypeV2, array $billingAddOns, array $enabledFeatures, string $orgSlug, bool $telemetryDisabled, \DateTime $workspaceCreatedAt, string $workspaceId, string $workspaceSlug, ?array $featureFlags = null, ?bool $generationAccessUnlimited = null)
     {
         $this->accountTypeV2 = $accountTypeV2;
+        $this->billingAddOns = $billingAddOns;
         $this->enabledFeatures = $enabledFeatures;
         $this->orgSlug = $orgSlug;
         $this->telemetryDisabled = $telemetryDisabled;

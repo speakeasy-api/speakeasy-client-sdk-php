@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Errorors;
 
-class SDKException extends \Exception
+class SDKExceptioon extends \Exception
 {
     public int $statusCode;
     public string $body;

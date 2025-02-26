@@ -7,7 +7,7 @@ The SDK relies on [Composer](https://getcomposer.org/) to manage its dependencie
 
 To install the SDK and add it as a dependency to an existing `composer.json` file:
 ```bash
-composer require "speakeasy-api/speakeasy-client-sdk-php"
+composer require "ian-speakeasy/speakeasy-client-sdk-php"
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -156,8 +156,11 @@ if ($response->statusCode === 200) {
 
 ### [organizations](docs/sdks/organizations/README.md)
 
+* [createBillingAddOns](docs/sdks/organizations/README.md#createbillingaddons) - Create billing add ons
 * [createFreeTrial](docs/sdks/organizations/README.md#createfreetrial) - Create a free trial for an organization
 * [create](docs/sdks/organizations/README.md#create) - Create an organization
+* [deleteBillingAddOn](docs/sdks/organizations/README.md#deletebillingaddon) - Delete billing add ons
+* [getBillingAddOns](docs/sdks/organizations/README.md#getbillingaddons) - Get billing add ons
 * [get](docs/sdks/organizations/README.md#get) - Get organization
 * [getUsage](docs/sdks/organizations/README.md#getusage) - Get billing usage summary for a particular organization
 * [getAll](docs/sdks/organizations/README.md#getall) - Get organizations for a user
@@ -338,7 +341,7 @@ if ($response->accessDetails !== null) {
 
 Handling errors in this SDK should largely match your expectations. All operations return a response object or throw an exception.
 
-By default an API error will raise a `Errorors\SDKException` exception, which has the following properties:
+By default an API error will raise a `Errorors\SDKExceptioon` exception, which has the following properties:
 
 | Property       | Type                                    | Description           |
 |----------------|-----------------------------------------|-----------------------|
@@ -349,10 +352,10 @@ By default an API error will raise a `Errorors\SDKException` exception, which ha
 
 When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `setArchived` method throws the following exceptions:
 
-| Error Type            | Status Code | Content Type     |
-| --------------------- | ----------- | ---------------- |
-| Errorors\Error        | 4XX         | application/json |
-| Errorors\SDKException | 5XX         | \*/\*            |
+| Error Type             | Status Code | Content Type     |
+| ---------------------- | ----------- | ---------------- |
+| Errorors\Error         | 4XX         | application/json |
+| Errorors\SDKExceptioon | 5XX         | \*/\*            |
 
 ### Example
 
@@ -362,6 +365,7 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Errorors;
 use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
@@ -388,7 +392,7 @@ try {
 } catch (Errorors\ErrorThrowable $e) {
     // handle $e->$container data
     throw $e;
-} catch (Errorors\SDKException $e) {
+} catch (Errorors\SDKExceptioon $e) {
     // handle default exception
     throw $e;
 }
@@ -402,9 +406,9 @@ try {
 
 You can override the default server globally using the `setServer(string $serverName)` builder method when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
-| Name   | Server                              |
-| ------ | ----------------------------------- |
-| `prod` | `https://api.prod.speakeasyapi.dev` |
+| Name   | Server                              | Description |
+| ------ | ----------------------------------- | ----------- |
+| `prod` | `https://api.prod.speakeasyapi.dev` |             |
 
 #### Example
 
@@ -418,7 +422,7 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setServer("prod")
+    ->setServer('prod'
     ->setSecurity(
         new Shared\Security(
             apiKey: '<YOUR_API_KEY_HERE>',

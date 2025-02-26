@@ -62,10 +62,10 @@ if ($response->cliEventBatch !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 5XX                   | application/json      |
-| Errorors\SDKException | 4XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 5XX                    | application/json       |
+| Errorors\SDKExceptioon | 4XX                    | \*/\*                  |
 
 ## getTargets
 
@@ -113,10 +113,10 @@ if ($response->targetSDKList !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 5XX                   | application/json      |
-| Errorors\SDKException | 4XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 5XX                    | application/json       |
+| Errorors\SDKExceptioon | 4XX                    | \*/\*                  |
 
 ## getTargetsDeprecated
 
@@ -166,10 +166,10 @@ if ($response->targetSDKList !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 5XX                   | application/json      |
-| Errorors\SDKException | 4XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 5XX                    | application/json       |
+| Errorors\SDKExceptioon | 4XX                    | \*/\*                  |
 
 ## post
 
@@ -233,10 +233,10 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 5XX                   | application/json      |
-| Errorors\SDKException | 4XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 5XX                    | application/json       |
+| Errorors\SDKExceptioon | 4XX                    | \*/\*                  |
 
 ## search
 
@@ -286,7 +286,7 @@ if ($response->cliEventBatch !== null) {
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| Errorors\Error        | 5XX                   | application/json      |
-| Errorors\SDKException | 4XX                   | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 5XX                    | application/json       |
+| Errorors\SDKExceptioon | 4XX                    | \*/\*                  |

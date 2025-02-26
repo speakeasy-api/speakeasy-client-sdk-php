@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 91d0aeea02ab32b58fdf8e9ef49d1b48
+  docChecksum: d718cd9b92034ef08c52f90bdc73a004
   docVersion: 0.4.0
-  speakeasyVersion: 1.490.0
-  generationVersion: 2.512.0
-  releaseVersion: 0.49.0
-  configChecksum: ec6f42eb3470809c89554fccc7852b37
+  speakeasyVersion: 1.504.1
+  generationVersion: 2.529.2
+  releaseVersion: 0.49.1
+  configChecksum: 9f4e114ba477b90305867fb27e0e6995
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -14,7 +14,7 @@ management:
 features:
   php:
     constsAndDefaults: 0.2.0
-    core: 3.7.13
+    core: 3.7.9
     deepObjectParams: 0.1.0
     deprecations: 2.81.1
     globalSecurity: 2.81.8
@@ -22,7 +22,7 @@ features:
     globals: 2.82.2
     methodArguments: 0.1.0
     nameOverrides: 2.81.2
-    nullables: 1.0.0
+    nullables: 1.0.1
     responseFormat: 0.1.0
     retries: 0.1.0
     serverIDs: 2.81.1
@@ -38,6 +38,7 @@ generatedFiles:
   - docs/Models/Operations/ArchiveNamespaceResponse.md
   - docs/Models/Operations/CheckGithubAccessRequest.md
   - docs/Models/Operations/CheckGithubAccessResponse.md
+  - docs/Models/Operations/CreateBillingAddOnsResponse.md
   - docs/Models/Operations/CreateFreeTrialResponse.md
   - docs/Models/Operations/CreateOrganizationResponse.md
   - docs/Models/Operations/CreateRemoteSourceResponse.md
@@ -46,6 +47,8 @@ generatedFiles:
   - docs/Models/Operations/CreateWorkspaceResponse.md
   - docs/Models/Operations/CreateWorkspaceTokenRequest.md
   - docs/Models/Operations/CreateWorkspaceTokenResponse.md
+  - docs/Models/Operations/DeleteBillingAddOnRequest.md
+  - docs/Models/Operations/DeleteBillingAddOnResponse.md
   - docs/Models/Operations/DeleteWorkspaceTokenRequest.md
   - docs/Models/Operations/DeleteWorkspaceTokenResponse.md
   - docs/Models/Operations/File.md
@@ -54,6 +57,7 @@ generatedFiles:
   - docs/Models/Operations/GenerateCodeSamplePreviewResponse.md
   - docs/Models/Operations/GetAccessTokenRequest.md
   - docs/Models/Operations/GetAccessTokenResponse.md
+  - docs/Models/Operations/GetBillingAddOnsResponse.md
   - docs/Models/Operations/GetBlobRequest.md
   - docs/Models/Operations/GetBlobResponse.md
   - docs/Models/Operations/GetChangesReportSignedUrlRequest.md
@@ -160,6 +164,7 @@ generatedFiles:
   - docs/Models/Shared/Annotations.md
   - docs/Models/Shared/ApiKeyDetails.md
   - docs/Models/Shared/Auth.md
+  - docs/Models/Shared/BillingAddOn.md
   - docs/Models/Shared/Claims.md
   - docs/Models/Shared/CliEvent.md
   - docs/Models/Shared/CodeSampleSchemaInput.md
@@ -192,6 +197,8 @@ generatedFiles:
   - docs/Models/Shared/OASSummary.md
   - docs/Models/Shared/OpenapiDiffBumpType.md
   - docs/Models/Shared/Organization.md
+  - docs/Models/Shared/OrganizationBillingAddOnRequest.md
+  - docs/Models/Shared/OrganizationBillingAddOnResponse.md
   - docs/Models/Shared/OrganizationUsage.md
   - docs/Models/Shared/OrganizationUsageResponse.md
   - docs/Models/Shared/PreflightRequest.md
@@ -272,7 +279,7 @@ generatedFiles:
   - src/Hooks/TokenResponse.php
   - src/Models/Errorors/Error.php
   - src/Models/Errorors/ErrorThrowable.php
-  - src/Models/Errorors/SDKException.php
+  - src/Models/Errorors/SDKExceptioon.php
   - src/Models/Operations/ActivateSubscriptionNamespaceRequest.php
   - src/Models/Operations/ActivateSubscriptionNamespaceResponse.php
   - src/Models/Operations/ArchiveNamespaceRequest.php
@@ -280,6 +287,7 @@ generatedFiles:
   - src/Models/Operations/ArchiveNamespaceResponse.php
   - src/Models/Operations/CheckGithubAccessRequest.php
   - src/Models/Operations/CheckGithubAccessResponse.php
+  - src/Models/Operations/CreateBillingAddOnsResponse.php
   - src/Models/Operations/CreateFreeTrialResponse.php
   - src/Models/Operations/CreateOrganizationResponse.php
   - src/Models/Operations/CreateRemoteSourceResponse.php
@@ -288,6 +296,8 @@ generatedFiles:
   - src/Models/Operations/CreateWorkspaceResponse.php
   - src/Models/Operations/CreateWorkspaceTokenRequest.php
   - src/Models/Operations/CreateWorkspaceTokenResponse.php
+  - src/Models/Operations/DeleteBillingAddOnRequest.php
+  - src/Models/Operations/DeleteBillingAddOnResponse.php
   - src/Models/Operations/DeleteWorkspaceTokenRequest.php
   - src/Models/Operations/DeleteWorkspaceTokenResponse.php
   - src/Models/Operations/File.php
@@ -296,6 +306,7 @@ generatedFiles:
   - src/Models/Operations/GenerateCodeSamplePreviewResponse.php
   - src/Models/Operations/GetAccessTokenRequest.php
   - src/Models/Operations/GetAccessTokenResponse.php
+  - src/Models/Operations/GetBillingAddOnsResponse.php
   - src/Models/Operations/GetBlobRequest.php
   - src/Models/Operations/GetBlobResponse.php
   - src/Models/Operations/GetChangesReportSignedUrlRequest.php
@@ -402,6 +413,7 @@ generatedFiles:
   - src/Models/Shared/Annotations.php
   - src/Models/Shared/ApiKeyDetails.php
   - src/Models/Shared/Auth.php
+  - src/Models/Shared/BillingAddOn.php
   - src/Models/Shared/Claims.php
   - src/Models/Shared/CliEvent.php
   - src/Models/Shared/CodeSampleSchemaInput.php
@@ -434,6 +446,8 @@ generatedFiles:
   - src/Models/Shared/OASSummary.php
   - src/Models/Shared/OpenapiDiffBumpType.php
   - src/Models/Shared/Organization.php
+  - src/Models/Shared/OrganizationBillingAddOnRequest.php
+  - src/Models/Shared/OrganizationBillingAddOnResponse.php
   - src/Models/Shared/OrganizationUsage.php
   - src/Models/Shared/OrganizationUsageResponse.php
   - src/Models/Shared/PreflightRequest.php
@@ -638,7 +652,7 @@ examples:
     speakeasy-default-validate-api-key:
       responses:
         2XX:
-          application/json: {"account_type_v2": "enterprise", "enabled_features": ["<value>", "<value>", "<value>"], "org_slug": "<value>", "telemetry_disabled": true, "workspace_created_at": "2024-02-05T22:57:49.657Z", "workspace_id": "<id>", "workspace_slug": "<value>"}
+          application/json: {"account_type_v2": "enterprise", "billing_add_ons": ["custom_code_regions", "webhooks", "sdk_testing"], "enabled_features": ["<value>", "<value>", "<value>"], "org_slug": "<value>", "telemetry_disabled": true, "workspace_created_at": "2024-02-05T22:57:49.657Z", "workspace_id": "<id>", "workspace_slug": "<value>"}
         4XX:
           application/json: {"message": "<value>", "status_code": 150892}
   generateCodeSamplePreview:
@@ -1130,5 +1144,15 @@ examples:
       responses:
         2XX:
           application/json: {"snippets": [{"code": "import { Petstore } from \"petstore-sdk\";\n\nconst petstore = new Petstore({\n  apiKey: \"<YOUR_API_KEY_HERE>\",\n});\n\nasync function run() {\n  const result = await petstore.pet.getById({\n    id: 137396,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();", "language": "typescript", "method": "get", "operationId": "getPetById", "path": "/pet/{id}"}]}
+  createBillingAddOns:
+    speakeasy-default-create-billing-add-ons:
+      requestBody:
+        application/json: {"add_ons": ["sdk_testing", "sdk_testing", "webhooks"]}
+  deleteBillingAddOn:
+    speakeasy-default-delete-billing-add-on:
+      parameters:
+        path:
+          add_on: "custom_code_regions"
+  getBillingAddOns: {}
 examplesVersion: 1.0.0
 generatedTests: {}
