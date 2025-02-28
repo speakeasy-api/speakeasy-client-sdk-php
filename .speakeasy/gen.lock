@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: d718cd9b92034ef08c52f90bdc73a004
+  docChecksum: 8936bb89055708b0a128b348edfc1f22
   docVersion: 0.4.0
-  speakeasyVersion: 1.504.1
-  generationVersion: 2.529.2
-  releaseVersion: 0.49.1
-  configChecksum: 9f4e114ba477b90305867fb27e0e6995
+  speakeasyVersion: 1.507.0
+  generationVersion: 2.533.0
+  releaseVersion: 0.50.0
+  configChecksum: a03660724a3375b7beb53edbac70a725
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -17,6 +17,7 @@ features:
     core: 3.7.9
     deepObjectParams: 0.1.0
     deprecations: 2.81.1
+    getRequestBodies: 2.81.1
     globalSecurity: 2.81.8
     globalServerURLs: 2.82.1
     globals: 2.82.2
@@ -44,6 +45,8 @@ generatedFiles:
   - docs/Models/Operations/CreateRemoteSourceResponse.md
   - docs/Models/Operations/CreateRequestBody.md
   - docs/Models/Operations/CreateResponse.md
+  - docs/Models/Operations/CreateSchemaStoreItemRequestBody.md
+  - docs/Models/Operations/CreateSchemaStoreItemResponse.md
   - docs/Models/Operations/CreateWorkspaceResponse.md
   - docs/Models/Operations/CreateWorkspaceTokenRequest.md
   - docs/Models/Operations/CreateWorkspaceTokenResponse.md
@@ -52,6 +55,7 @@ generatedFiles:
   - docs/Models/Operations/DeleteWorkspaceTokenRequest.md
   - docs/Models/Operations/DeleteWorkspaceTokenResponse.md
   - docs/Models/Operations/File.md
+  - docs/Models/Operations/Format.md
   - docs/Models/Operations/GenerateCodeSamplePreviewAsyncResponse.md
   - docs/Models/Operations/GenerateCodeSamplePreviewAsyncResponseBody.md
   - docs/Models/Operations/GenerateCodeSamplePreviewResponse.md
@@ -84,6 +88,8 @@ generatedFiles:
   - docs/Models/Operations/GetOrganizationsResponse.md
   - docs/Models/Operations/GetRevisionsRequest.md
   - docs/Models/Operations/GetRevisionsResponse.md
+  - docs/Models/Operations/GetSchemaStoreItemRequestBody.md
+  - docs/Models/Operations/GetSchemaStoreItemResponse.md
   - docs/Models/Operations/GetTagsRequest.md
   - docs/Models/Operations/GetTagsResponse.md
   - docs/Models/Operations/GetUserResponse.md
@@ -172,6 +178,7 @@ generatedFiles:
   - docs/Models/Shared/CompositeSpecMetadata.md
   - docs/Models/Shared/Diagnostic.md
   - docs/Models/Shared/FeatureFlag.md
+  - docs/Models/Shared/Format.md
   - docs/Models/Shared/GenerateBumpType.md
   - docs/Models/Shared/GetNamespacesResponse.md
   - docs/Models/Shared/GetRevisionsResponse.md
@@ -214,6 +221,7 @@ generatedFiles:
   - docs/Models/Shared/RevisionContentsMetadataType.md
   - docs/Models/Shared/SSOMetadata.md
   - docs/Models/Shared/SchemaFile.md
+  - docs/Models/Shared/SchemaStoreItem.md
   - docs/Models/Shared/Secrets.md
   - docs/Models/Shared/Security.md
   - docs/Models/Shared/ShortURL.md
@@ -247,6 +255,7 @@ generatedFiles:
   - docs/sdks/github/README.md
   - docs/sdks/organizations/README.md
   - docs/sdks/reports/README.md
+  - docs/sdks/schemastore/README.md
   - docs/sdks/sdk/README.md
   - docs/sdks/shorturls/README.md
   - docs/sdks/subscriptions/README.md
@@ -293,6 +302,8 @@ generatedFiles:
   - src/Models/Operations/CreateRemoteSourceResponse.php
   - src/Models/Operations/CreateRequestBody.php
   - src/Models/Operations/CreateResponse.php
+  - src/Models/Operations/CreateSchemaStoreItemRequestBody.php
+  - src/Models/Operations/CreateSchemaStoreItemResponse.php
   - src/Models/Operations/CreateWorkspaceResponse.php
   - src/Models/Operations/CreateWorkspaceTokenRequest.php
   - src/Models/Operations/CreateWorkspaceTokenResponse.php
@@ -301,6 +312,7 @@ generatedFiles:
   - src/Models/Operations/DeleteWorkspaceTokenRequest.php
   - src/Models/Operations/DeleteWorkspaceTokenResponse.php
   - src/Models/Operations/File.php
+  - src/Models/Operations/Format.php
   - src/Models/Operations/GenerateCodeSamplePreviewAsyncResponse.php
   - src/Models/Operations/GenerateCodeSamplePreviewAsyncResponseBody.php
   - src/Models/Operations/GenerateCodeSamplePreviewResponse.php
@@ -333,6 +345,8 @@ generatedFiles:
   - src/Models/Operations/GetOrganizationsResponse.php
   - src/Models/Operations/GetRevisionsRequest.php
   - src/Models/Operations/GetRevisionsResponse.php
+  - src/Models/Operations/GetSchemaStoreItemRequestBody.php
+  - src/Models/Operations/GetSchemaStoreItemResponse.php
   - src/Models/Operations/GetTagsRequest.php
   - src/Models/Operations/GetTagsResponse.php
   - src/Models/Operations/GetUserResponse.php
@@ -421,6 +435,7 @@ generatedFiles:
   - src/Models/Shared/CompositeSpecMetadata.php
   - src/Models/Shared/Diagnostic.php
   - src/Models/Shared/FeatureFlag.php
+  - src/Models/Shared/Format.php
   - src/Models/Shared/GenerateBumpType.php
   - src/Models/Shared/GetNamespacesResponse.php
   - src/Models/Shared/GetRevisionsResponse.php
@@ -463,6 +478,7 @@ generatedFiles:
   - src/Models/Shared/RevisionContentsMetadataType.php
   - src/Models/Shared/SSOMetadata.php
   - src/Models/Shared/SchemaFile.php
+  - src/Models/Shared/SchemaStoreItem.php
   - src/Models/Shared/Secrets.php
   - src/Models/Shared/Security.php
   - src/Models/Shared/ShortURL.php
@@ -494,6 +510,7 @@ generatedFiles:
   - src/SDK.php
   - src/SDKBuilder.php
   - src/SDKConfiguration.php
+  - src/SchemaStore.php
   - src/ShortURLs.php
   - src/Subscriptions.php
   - src/Suggest.php
@@ -1134,6 +1151,11 @@ examples:
           operation_ids: ["getPets"]
           method_paths: [{"method": "get", "path": "/pets"}]
           languages: ["python", "javascript"]
+      responses:
+        2XX:
+          application/json: {"snippets": [{"code": "<value>", "language": "<value>", "method": "<value>", "operationId": "<id>", "path": "/sbin"}, {"code": "<value>", "language": "<value>", "method": "<value>", "operationId": "<id>", "path": "/root"}]}
+        4XX:
+          application/json: {"message": "<value>", "status_code": 521235}
     default:
       parameters:
         query:
@@ -1148,11 +1170,39 @@ examples:
     speakeasy-default-create-billing-add-ons:
       requestBody:
         application/json: {"add_ons": ["sdk_testing", "sdk_testing", "webhooks"]}
+      responses:
+        "200":
+          application/json: {"add_ons": ["sdk_testing", "sdk_testing", "webhooks"]}
+        5XX:
+          application/json: {"message": "<value>", "status_code": 822767}
   deleteBillingAddOn:
     speakeasy-default-delete-billing-add-on:
       parameters:
         path:
           add_on: "custom_code_regions"
-  getBillingAddOns: {}
+      responses:
+        5XX:
+          application/json: {"message": "<value>", "status_code": 825779}
+  getBillingAddOns:
+    speakeasy-default-get-billing-add-ons:
+      responses:
+        "200":
+          application/json: {"add_ons": []}
+        5XX:
+          application/json: {"message": "<value>", "status_code": 697034}
+  createSchemaStoreItem:
+    speakeasy-default-create-schema-store-item:
+      requestBody:
+        application/json: {"format": "yaml", "spec": "<value>"}
+      responses:
+        4XX:
+          application/json: {"message": "<value>", "status_code": 532077}
+  getSchemaStoreItem:
+    speakeasy-default-get-schema-store-item:
+      responses:
+        2XX:
+          application/json: {"created_at": "2023-02-14T01:44:55.437Z", "format": "yaml", "id": "<id>", "spec": "<value>"}
+        4XX:
+          application/json: {"message": "<value>", "status_code": 168509}
 examplesVersion: 1.0.0
 generatedTests: {}

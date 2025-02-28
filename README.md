@@ -171,6 +171,11 @@ if ($response->statusCode === 200) {
 * [getLintingReportSignedUrl](docs/sdks/reports/README.md#getlintingreportsignedurl) - Get the signed access url for the linting reports for a particular document.
 * [uploadReport](docs/sdks/reports/README.md#uploadreport) - Upload a report.
 
+### [schemaStore](docs/sdks/schemastore/README.md)
+
+* [createSchemaStoreItem](docs/sdks/schemastore/README.md#createschemastoreitem) - Create a schema in the schema store
+* [getSchemaStoreItem](docs/sdks/schemastore/README.md#getschemastoreitem) - Get a OAS schema from the schema store
+
 
 ### [shortURLs](docs/sdks/shorturls/README.md)
 
@@ -422,7 +427,7 @@ use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setServer('prod'
+    ->setServer('prod')
     ->setSecurity(
         new Shared\Security(
             apiKey: '<YOUR_API_KEY_HERE>',

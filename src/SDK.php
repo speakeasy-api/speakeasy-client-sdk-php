@@ -67,6 +67,8 @@ class SDK
      */
     public Reports $reports;
 
+    public SchemaStore $schemaStore;
+
     /**
      * REST APIs for managing short URLs
      *
@@ -124,6 +126,7 @@ class SDK
         $this->github = new Github($this->sdkConfiguration);
         $this->organizations = new Organizations($this->sdkConfiguration);
         $this->reports = new Reports($this->sdkConfiguration);
+        $this->schemaStore = new SchemaStore($this->sdkConfiguration);
         $this->shortURLs = new ShortURLs($this->sdkConfiguration);
         $this->subscriptions = new Subscriptions($this->sdkConfiguration);
         $this->suggest = new Suggest($this->sdkConfiguration);
