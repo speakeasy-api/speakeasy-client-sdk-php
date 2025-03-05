@@ -40,7 +40,7 @@ $response = $sdk->schemaStore->createSchemaStoreItem(
     request: $request
 );
 
-if ($response->statusCode === 200) {
+if ($response->schemaStoreItem !== null) {
     // handle response
 }
 ```

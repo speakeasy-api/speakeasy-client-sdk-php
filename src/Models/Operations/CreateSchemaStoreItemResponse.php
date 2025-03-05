@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
-
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
 class CreateSchemaStoreItemResponse
 {
     /**
@@ -33,15 +33,24 @@ class CreateSchemaStoreItemResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
+     * OK
+     *
+     * @var ?Shared\SchemaStoreItem $schemaStoreItem
+     */
+    public ?Shared\SchemaStoreItem $schemaStoreItem = null;
+
+    /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  ?Shared\SchemaStoreItem  $schemaStoreItem
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\SchemaStoreItem $schemaStoreItem = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
+        $this->schemaStoreItem = $schemaStoreItem;
     }
 }
