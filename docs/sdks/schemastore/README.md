@@ -33,6 +33,8 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
 
 $request = new Operations\CreateSchemaStoreItemRequestBody(
     format: Operations\Format::Yaml,
+    packageName: '<value>',
+    sdkClassname: '<value>',
     spec: '<value>',
 );
 

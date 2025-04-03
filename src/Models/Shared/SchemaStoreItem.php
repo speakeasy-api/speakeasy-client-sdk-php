@@ -35,6 +35,20 @@ class SchemaStoreItem
 
     /**
      *
+     * @var string $packageName
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('packageName')]
+    public string $packageName;
+
+    /**
+     *
+     * @var string $sdkClassname
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sdkClassname')]
+    public string $sdkClassname;
+
+    /**
+     *
      * @var string $spec
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('spec')]
@@ -44,14 +58,18 @@ class SchemaStoreItem
      * @param  \DateTime  $createdAt
      * @param  Format  $format
      * @param  string  $id
+     * @param  string  $packageName
+     * @param  string  $sdkClassname
      * @param  string  $spec
      * @phpstan-pure
      */
-    public function __construct(\DateTime $createdAt, Format $format, string $id, string $spec)
+    public function __construct(\DateTime $createdAt, Format $format, string $id, string $packageName, string $sdkClassname, string $spec)
     {
         $this->createdAt = $createdAt;
         $this->format = $format;
         $this->id = $id;
+        $this->packageName = $packageName;
+        $this->sdkClassname = $sdkClassname;
         $this->spec = $spec;
     }
 }

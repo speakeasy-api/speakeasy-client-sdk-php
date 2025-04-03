@@ -12,6 +12,7 @@ namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 class CreateSchemaStoreItemRequestBody
 {
     /**
+     * The format of the OpenAPI specification.
      *
      * @var Format $format
      */
@@ -20,6 +21,23 @@ class CreateSchemaStoreItemRequestBody
     public Format $format;
 
     /**
+     * The package name to use in code snippets / quickstart.
+     *
+     * @var string $packageName
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('packageName')]
+    public string $packageName;
+
+    /**
+     * The classname of the SDK to use in code snippets / quickstart.
+     *
+     * @var string $sdkClassname
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sdkClassname')]
+    public string $sdkClassname;
+
+    /**
+     * The OpenAPI specification to store.
      *
      * @var string $spec
      */
@@ -28,12 +46,16 @@ class CreateSchemaStoreItemRequestBody
 
     /**
      * @param  Format  $format
+     * @param  string  $packageName
+     * @param  string  $sdkClassname
      * @param  string  $spec
      * @phpstan-pure
      */
-    public function __construct(Format $format, string $spec)
+    public function __construct(Format $format, string $packageName, string $sdkClassname, string $spec)
     {
         $this->format = $format;
+        $this->packageName = $packageName;
+        $this->sdkClassname = $sdkClassname;
         $this->spec = $spec;
     }
 }

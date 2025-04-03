@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 
+/** The format of the OpenAPI specification. */
 enum Format: string
 {
     case Json = 'json';
