@@ -7,10 +7,60 @@ REST APIs for managing Authentication
 
 ### Available Operations
 
+* [getAccess](#getaccess) - Get access allowances for a particular workspace
 * [getAccessToken](#getaccesstoken) - Get or refresh an access token for the current workspace.
 * [getUser](#getuser) - Get information about the current user.
-* [getAccess](#getaccess) - Get access allowances for a particular workspace
 * [validateApiKey](#validateapikey) - Validate the current api key.
+
+## getAccess
+
+Checks if generation is permitted for a particular run of the CLI
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
+
+$request = new Operations\GetWorkspaceAccessRequest();
+
+$response = $sdk->auth->getAccess(
+    request: $request
+);
+
+if ($response->accessDetails !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `$request`                                                                                   | [Operations\GetWorkspaceAccessRequest](../../Models/Operations/GetWorkspaceAccessRequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+
+### Response
+
+**[?Operations\GetWorkspaceAccessResponse](../../Models/Operations/GetWorkspaceAccessResponse.md)**
+
+### Errors
+
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\SDKExceptioon | 4XX, 5XX               | \*/\*                  |
 
 ## getAccessToken
 
@@ -101,56 +151,6 @@ if ($response->user !== null) {
 | ---------------------- | ---------------------- | ---------------------- |
 | Errorors\Error         | 4XX                    | application/json       |
 | Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
-
-## getAccess
-
-Checks if generation is permitted for a particular run of the CLI
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Operations;
-use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity(
-        new Shared\Security(
-            apiKey: '<YOUR_API_KEY_HERE>',
-        )
-    )
-    ->build();
-
-$request = new Operations\GetWorkspaceAccessRequest();
-
-$response = $sdk->auth->getAccess(
-    request: $request
-);
-
-if ($response->accessDetails !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `$request`                                                                                   | [Operations\GetWorkspaceAccessRequest](../../Models/Operations/GetWorkspaceAccessRequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-
-### Response
-
-**[?Operations\GetWorkspaceAccessResponse](../../Models/Operations/GetWorkspaceAccessResponse.md)**
-
-### Errors
-
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| Errorors\SDKExceptioon | 4XX, 5XX               | \*/\*                  |
 
 ## validateApiKey
 

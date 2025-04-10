@@ -10,13 +10,14 @@ REST APIs for managing Workspaces (speakeasy tenancy)
 * [create](#create) - Create a workspace
 * [createToken](#createtoken) - Create a token for a particular workspace
 * [deleteToken](#deletetoken) - Delete a token for a particular workspace
-* [getByID](#getbyid) - Get workspace
 * [get](#get) - Get workspace by context
+* [getAll](#getall) - Get workspaces for a user
+* [getByID](#getbyid) - Get workspace
 * [getFeatureFlags](#getfeatureflags) - Get workspace feature flags
+* [getPublishingToken](#getpublishingtoken) - Get publishing tokens for a workspace
 * [getSettings](#getsettings) - Get workspace settings
 * [getTeam](#getteam) - Get team members for a particular workspace
 * [getTokens](#gettokens) - Get tokens for a particular workspace
-* [getAll](#getall) - Get workspaces for a user
 * [grantAccess](#grantaccess) - Grant a user access to a particular workspace
 * [revokeAccess](#revokeaccess) - Revoke a user's access to a particular workspace
 * [setFeatureFlags](#setfeatureflags) - Set workspace feature flags
@@ -198,6 +199,94 @@ if ($response->statusCode === 200) {
 | Errorors\Error         | 4XX                    | application/json       |
 | Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
+## get
+
+Get information about a particular workspace by context.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->workspaces->get(
+
+);
+
+if ($response->workspaceAndOrganization !== null) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\GetWorkspaceByContextResponse](../../Models/Operations/GetWorkspaceByContextResponse.md)**
+
+### Errors
+
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
+
+## getAll
+
+Returns a list of workspaces a user has access too
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->workspaces->getAll(
+
+);
+
+if ($response->workspaces !== null) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\GetWorkspacesResponse](../../Models/Operations/GetWorkspacesResponse.md)**
+
+### Errors
+
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
+
 ## getByID
 
 Get information about a particular workspace.
@@ -243,50 +332,6 @@ if ($response->workspace !== null) {
 ### Response
 
 **[?Operations\GetWorkspaceResponse](../../Models/Operations/GetWorkspaceResponse.md)**
-
-### Errors
-
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| Errorors\Error         | 4XX                    | application/json       |
-| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
-
-## get
-
-Get information about a particular workspace by context.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity(
-        new Shared\Security(
-            apiKey: '<YOUR_API_KEY_HERE>',
-        )
-    )
-    ->build();
-
-
-
-$response = $sdk->workspaces->get(
-
-);
-
-if ($response->workspaceAndOrganization !== null) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\GetWorkspaceByContextResponse](../../Models/Operations/GetWorkspaceByContextResponse.md)**
 
 ### Errors
 
@@ -347,6 +392,50 @@ if ($response->workspaceFeatureFlagResponse !== null) {
 | ---------------------- | ---------------------- | ---------------------- |
 | Errorors\Error         | 5XX                    | application/json       |
 | Errorors\SDKExceptioon | 4XX                    | \*/\*                  |
+
+## getPublishingToken
+
+Returns a publishing token for the current workspace
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->workspaces->getPublishingToken(
+
+);
+
+if ($response->classes !== null) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\GetPublishingTokenResponse](../../Models/Operations/GetPublishingTokenResponse.md)**
+
+### Errors
+
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## getSettings
 
@@ -499,50 +588,6 @@ if ($response->classes !== null) {
 ### Response
 
 **[?Operations\GetWorkspaceTokensResponse](../../Models/Operations/GetWorkspaceTokensResponse.md)**
-
-### Errors
-
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| Errorors\Error         | 4XX                    | application/json       |
-| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
-
-## getAll
-
-Returns a list of workspaces a user has access too
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity(
-        new Shared\Security(
-            apiKey: '<YOUR_API_KEY_HERE>',
-        )
-    )
-    ->build();
-
-
-
-$response = $sdk->workspaces->getAll(
-
-);
-
-if ($response->workspaces !== null) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\GetWorkspacesResponse](../../Models/Operations/GetWorkspacesResponse.md)**
 
 ### Errors
 

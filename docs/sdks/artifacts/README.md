@@ -7,7 +7,6 @@ REST APIs for working with Registry artifacts
 
 ### Available Operations
 
-* [setArchived](#setarchived) - Set whether a namespace is archived
 * [createRemoteSource](#createremotesource) - Configure a new remote source
 * [getBlob](#getblob) - Get blob for a particular digest
 * [getManifest](#getmanifest) - Get manifest for a particular reference
@@ -17,60 +16,8 @@ REST APIs for working with Registry artifacts
 * [listRemoteSources](#listremotesources) - Get remote sources attached to a particular namespace
 * [postTags](#posttags) - Add tags to an existing revision
 * [preflight](#preflight) - Get access token for communicating with OCI distribution endpoints
+* [setArchived](#setarchived) - Set whether a namespace is archived
 * [setVisibility](#setvisibility) - Set visibility of a namespace with an existing metadata entry
-
-## setArchived
-
-Set whether a namespace is archived
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Operations;
-use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity(
-        new Shared\Security(
-            apiKey: '<YOUR_API_KEY_HERE>',
-        )
-    )
-    ->build();
-
-$request = new Operations\ArchiveNamespaceRequest(
-    namespaceName: '<value>',
-);
-
-$response = $sdk->artifacts->setArchived(
-    request: $request
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `$request`                                                                               | [Operations\ArchiveNamespaceRequest](../../Models/Operations/ArchiveNamespaceRequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-
-### Response
-
-**[?Operations\ArchiveNamespaceResponse](../../Models/Operations/ArchiveNamespaceResponse.md)**
-
-### Errors
-
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| Errorors\Error         | 4XX                    | application/json       |
-| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## createRemoteSource
 
@@ -539,6 +486,59 @@ if ($response->preflightToken !== null) {
 ### Response
 
 **[?Operations\PreflightResponse](../../Models/Operations/PreflightResponse.md)**
+
+### Errors
+
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
+
+## setArchived
+
+Set whether a namespace is archived
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
+
+$request = new Operations\ArchiveNamespaceRequest(
+    namespaceName: '<value>',
+);
+
+$response = $sdk->artifacts->setArchived(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `$request`                                                                               | [Operations\ArchiveNamespaceRequest](../../Models/Operations/ArchiveNamespaceRequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+
+### Response
+
+**[?Operations\ArchiveNamespaceResponse](../../Models/Operations/ArchiveNamespaceResponse.md)**
 
 ### Errors
 

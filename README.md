@@ -23,6 +23,7 @@ require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use Speakeasy\SpeakeasyClientSDK\Utils;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity(
@@ -32,22 +33,19 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     )
     ->build();
 
-$request = new Shared\RemoteSource(
-    inputs: [
-        new Shared\RemoteDocument(
-            registryUrl: 'https://productive-swine.net',
-        ),
-    ],
-    output: new Shared\RemoteDocument(
-        registryUrl: 'https://spiteful-apricot.info',
-    ),
+$request = new Shared\PublishingToken(
+    createdAt: Utils\Utils::parseDateTime('2025-10-25T02:17:15.413Z'),
+    id: '<id>',
+    targetId: '<id>',
+    targetResource: '<value>',
+    token: '<value>',
 );
 
-$response = $sdk->artifacts->createRemoteSource(
+$response = $sdk->createPublishingToken(
     request: $request
 );
 
-if ($response->statusCode === 200) {
+if ($response->publishingToken !== null) {
     // handle response
 }
 ```
@@ -73,8 +71,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use Speakeasy\SpeakeasyClientSDK\Utils;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity(
@@ -84,15 +82,19 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     )
     ->build();
 
-$request = new Operations\ArchiveNamespaceRequest(
-    namespaceName: '<value>',
+$request = new Shared\PublishingToken(
+    createdAt: Utils\Utils::parseDateTime('2025-10-25T02:17:15.413Z'),
+    id: '<id>',
+    targetId: '<id>',
+    targetResource: '<value>',
+    token: '<value>',
 );
 
-$response = $sdk->artifacts->setArchived(
+$response = $sdk->createPublishingToken(
     request: $request
 );
 
-if ($response->statusCode === 200) {
+if ($response->publishingToken !== null) {
     // handle response
 }
 ```
@@ -106,7 +108,6 @@ if ($response->statusCode === 200) {
 
 ### [artifacts](docs/sdks/artifacts/README.md)
 
-* [setArchived](docs/sdks/artifacts/README.md#setarchived) - Set whether a namespace is archived
 * [createRemoteSource](docs/sdks/artifacts/README.md#createremotesource) - Configure a new remote source
 * [getBlob](docs/sdks/artifacts/README.md#getblob) - Get blob for a particular digest
 * [getManifest](docs/sdks/artifacts/README.md#getmanifest) - Get manifest for a particular reference
@@ -116,21 +117,22 @@ if ($response->statusCode === 200) {
 * [listRemoteSources](docs/sdks/artifacts/README.md#listremotesources) - Get remote sources attached to a particular namespace
 * [postTags](docs/sdks/artifacts/README.md#posttags) - Add tags to an existing revision
 * [preflight](docs/sdks/artifacts/README.md#preflight) - Get access token for communicating with OCI distribution endpoints
+* [setArchived](docs/sdks/artifacts/README.md#setarchived) - Set whether a namespace is archived
 * [setVisibility](docs/sdks/artifacts/README.md#setvisibility) - Set visibility of a namespace with an existing metadata entry
 
 ### [auth](docs/sdks/auth/README.md)
 
+* [getAccess](docs/sdks/auth/README.md#getaccess) - Get access allowances for a particular workspace
 * [getAccessToken](docs/sdks/auth/README.md#getaccesstoken) - Get or refresh an access token for the current workspace.
 * [getUser](docs/sdks/auth/README.md#getuser) - Get information about the current user.
-* [getAccess](docs/sdks/auth/README.md#getaccess) - Get access allowances for a particular workspace
 * [validateApiKey](docs/sdks/auth/README.md#validateapikey) - Validate the current api key.
 
 ### [codeSamples](docs/sdks/codesamples/README.md)
 
 * [generateCodeSamplePreview](docs/sdks/codesamples/README.md#generatecodesamplepreview) - Generate Code Sample previews from a file and configuration parameters.
 * [generateCodeSamplePreviewAsync](docs/sdks/codesamples/README.md#generatecodesamplepreviewasync) - Initiate asynchronous Code Sample preview generation from a file and configuration parameters, receiving an async JobID response for polling.
-* [getCodeSamplePreviewAsync](docs/sdks/codesamples/README.md#getcodesamplepreviewasync) - Poll for the result of an asynchronous Code Sample preview generation.
 * [get](docs/sdks/codesamples/README.md#get) - Retrieve usage snippets
+* [getCodeSamplePreviewAsync](docs/sdks/codesamples/README.md#getcodesamplepreviewasync) - Poll for the result of an asynchronous Code Sample preview generation.
 
 ### [events](docs/sdks/events/README.md)
 
@@ -143,27 +145,27 @@ if ($response->statusCode === 200) {
 ### [github](docs/sdks/github/README.md)
 
 * [checkAccess](docs/sdks/github/README.md#checkaccess)
-* [getAction](docs/sdks/github/README.md#getaction)
-* [getSetup](docs/sdks/github/README.md#getsetup)
 * [checkPublishingPRs](docs/sdks/github/README.md#checkpublishingprs)
 * [checkPublishingSecrets](docs/sdks/github/README.md#checkpublishingsecrets)
 * [configureCodeSamples](docs/sdks/github/README.md#configurecodesamples)
 * [configureMintlifyRepo](docs/sdks/github/README.md#configuremintlifyrepo)
 * [configureTarget](docs/sdks/github/README.md#configuretarget)
+* [getAction](docs/sdks/github/README.md#getaction)
+* [getSetup](docs/sdks/github/README.md#getsetup)
+* [linkGithub](docs/sdks/github/README.md#linkgithub)
 * [storePublishingSecrets](docs/sdks/github/README.md#storepublishingsecrets)
 * [triggerAction](docs/sdks/github/README.md#triggeraction)
-* [linkGithub](docs/sdks/github/README.md#linkgithub)
 
 ### [organizations](docs/sdks/organizations/README.md)
 
+* [create](docs/sdks/organizations/README.md#create) - Create an organization
 * [createBillingAddOns](docs/sdks/organizations/README.md#createbillingaddons) - Create billing add ons
 * [createFreeTrial](docs/sdks/organizations/README.md#createfreetrial) - Create a free trial for an organization
-* [create](docs/sdks/organizations/README.md#create) - Create an organization
 * [deleteBillingAddOn](docs/sdks/organizations/README.md#deletebillingaddon) - Delete billing add ons
-* [getBillingAddOns](docs/sdks/organizations/README.md#getbillingaddons) - Get billing add ons
 * [get](docs/sdks/organizations/README.md#get) - Get organization
-* [getUsage](docs/sdks/organizations/README.md#getusage) - Get billing usage summary for a particular organization
 * [getAll](docs/sdks/organizations/README.md#getall) - Get organizations for a user
+* [getBillingAddOns](docs/sdks/organizations/README.md#getbillingaddons) - Get billing add ons
+* [getUsage](docs/sdks/organizations/README.md#getusage) - Get billing usage summary for a particular organization
 
 ### [reports](docs/sdks/reports/README.md)
 
@@ -176,6 +178,13 @@ if ($response->statusCode === 200) {
 * [createSchemaStoreItem](docs/sdks/schemastore/README.md#createschemastoreitem) - Create a schema in the schema store
 * [getSchemaStoreItem](docs/sdks/schemastore/README.md#getschemastoreitem) - Get a OAS schema from the schema store
 
+### [SDK](docs/sdks/sdk/README.md)
+
+* [createPublishingToken](docs/sdks/sdk/README.md#createpublishingtoken) - Create a publishing token for a workspace
+* [deletePublishingToken](docs/sdks/sdk/README.md#deletepublishingtoken) - Delete a specific publishing token
+* [getPublishingTokenByID](docs/sdks/sdk/README.md#getpublishingtokenbyid) - Get a specific publishing token
+* [getPublishingTokenTargetByID](docs/sdks/sdk/README.md#getpublishingtokentargetbyid) - Get a specific publishing token target
+* [updatePublishingTokenExpiration](docs/sdks/sdk/README.md#updatepublishingtokenexpiration) - Updates the validitity period of a publishing token
 
 ### [shortURLs](docs/sdks/shorturls/README.md)
 
@@ -198,13 +207,14 @@ if ($response->statusCode === 200) {
 * [create](docs/sdks/workspaces/README.md#create) - Create a workspace
 * [createToken](docs/sdks/workspaces/README.md#createtoken) - Create a token for a particular workspace
 * [deleteToken](docs/sdks/workspaces/README.md#deletetoken) - Delete a token for a particular workspace
-* [getByID](docs/sdks/workspaces/README.md#getbyid) - Get workspace
 * [get](docs/sdks/workspaces/README.md#get) - Get workspace by context
+* [getAll](docs/sdks/workspaces/README.md#getall) - Get workspaces for a user
+* [getByID](docs/sdks/workspaces/README.md#getbyid) - Get workspace
 * [getFeatureFlags](docs/sdks/workspaces/README.md#getfeatureflags) - Get workspace feature flags
+* [getPublishingToken](docs/sdks/workspaces/README.md#getpublishingtoken) - Get publishing tokens for a workspace
 * [getSettings](docs/sdks/workspaces/README.md#getsettings) - Get workspace settings
 * [getTeam](docs/sdks/workspaces/README.md#getteam) - Get team members for a particular workspace
 * [getTokens](docs/sdks/workspaces/README.md#gettokens) - Get tokens for a particular workspace
-* [getAll](docs/sdks/workspaces/README.md#getall) - Get workspaces for a user
 * [grantAccess](docs/sdks/workspaces/README.md#grantaccess) - Grant a user access to a particular workspace
 * [revokeAccess](docs/sdks/workspaces/README.md#revokeaccess) - Revoke a user's access to a particular workspace
 * [setFeatureFlags](docs/sdks/workspaces/README.md#setfeatureflags) - Set workspace feature flags
@@ -355,7 +365,7 @@ By default an API error will raise a `Errorors\SDKExceptioon` exception, which h
 | `$rawResponse` | *?\Psr\Http\Message\ResponseInterface*  | The raw HTTP response |
 | `$body`        | *string*                                | The response content  |
 
-When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `setArchived` method throws the following exceptions:
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `createPublishingToken` method throws the following exceptions:
 
 | Error Type             | Status Code | Content Type     |
 | ---------------------- | ----------- | ---------------- |
@@ -371,8 +381,8 @@ require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Errorors;
-use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use Speakeasy\SpeakeasyClientSDK\Utils;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity(
@@ -383,15 +393,19 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     ->build();
 
 try {
-    $request = new Operations\ArchiveNamespaceRequest(
-        namespaceName: '<value>',
+    $request = new Shared\PublishingToken(
+        createdAt: Utils\Utils::parseDateTime('2025-10-25T02:17:15.413Z'),
+        id: '<id>',
+        targetId: '<id>',
+        targetResource: '<value>',
+        token: '<value>',
     );
 
-    $response = $sdk->artifacts->setArchived(
+    $response = $sdk->createPublishingToken(
         request: $request
     );
 
-    if ($response->statusCode === 200) {
+    if ($response->publishingToken !== null) {
         // handle response
     }
 } catch (Errorors\ErrorThrowable $e) {
@@ -423,8 +437,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use Speakeasy\SpeakeasyClientSDK\Utils;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setServer('prod')
@@ -435,15 +449,19 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     )
     ->build();
 
-$request = new Operations\ArchiveNamespaceRequest(
-    namespaceName: '<value>',
+$request = new Shared\PublishingToken(
+    createdAt: Utils\Utils::parseDateTime('2025-10-25T02:17:15.413Z'),
+    id: '<id>',
+    targetId: '<id>',
+    targetResource: '<value>',
+    token: '<value>',
 );
 
-$response = $sdk->artifacts->setArchived(
+$response = $sdk->createPublishingToken(
     request: $request
 );
 
-if ($response->statusCode === 200) {
+if ($response->publishingToken !== null) {
     // handle response
 }
 ```
@@ -457,8 +475,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Operations;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+use Speakeasy\SpeakeasyClientSDK\Utils;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setServerURL('https://api.prod.speakeasyapi.dev')
@@ -469,15 +487,19 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     )
     ->build();
 
-$request = new Operations\ArchiveNamespaceRequest(
-    namespaceName: '<value>',
+$request = new Shared\PublishingToken(
+    createdAt: Utils\Utils::parseDateTime('2025-10-25T02:17:15.413Z'),
+    id: '<id>',
+    targetId: '<id>',
+    targetResource: '<value>',
+    token: '<value>',
 );
 
-$response = $sdk->artifacts->setArchived(
+$response = $sdk->createPublishingToken(
     request: $request
 );
 
-if ($response->statusCode === 200) {
+if ($response->publishingToken !== null) {
     // handle response
 }
 ```
