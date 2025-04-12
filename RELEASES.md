@@ -1715,3 +1715,13 @@ Based on:
 - [php v0.51.2] .
 ### Releases
 - [Composer v0.51.2] https://packagist.org/packages/ian-speakeasy/speakeasy-client-sdk-php#v0.51.2 - .
+
+## 2025-04-12 00:16:44
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.531.3 (2.570.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v0.51.3] .
+### Releases
+- [Composer v0.51.3] https://packagist.org/packages/ian-speakeasy/speakeasy-client-sdk-php#v0.51.3 - .

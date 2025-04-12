@@ -14,4 +14,5 @@ enum BillingAddOn: string
     case Webhooks = 'webhooks';
     case SDKTesting = 'sdk_testing';
     case CustomCodeRegions = 'custom_code_regions';
+    case SnippetAi = 'snippet_ai';
 }

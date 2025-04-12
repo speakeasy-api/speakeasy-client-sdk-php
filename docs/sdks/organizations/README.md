@@ -100,7 +100,7 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
 
 $request = new Shared\OrganizationBillingAddOnRequest(
     addOns: [
-        Shared\BillingAddOn::CustomCodeRegions,
+        Shared\BillingAddOn::SnippetAi,
     ],
 );
 
@@ -198,7 +198,7 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     ->build();
 
 $request = new Operations\DeleteBillingAddOnRequest(
-    addOn: Shared\BillingAddOn::CustomCodeRegions,
+    addOn: Shared\BillingAddOn::SnippetAi,
 );
 
 $response = $sdk->organizations->deleteBillingAddOn(
