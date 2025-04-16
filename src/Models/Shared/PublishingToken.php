@@ -21,10 +21,24 @@ class PublishingToken
 
     /**
      *
+     * @var string $createdBy
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_by')]
+    public string $createdBy;
+
+    /**
+     *
      * @var string $id
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public string $id;
+
+    /**
+     *
+     * @var string $organizationId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('organization_id')]
+    public string $organizationId;
 
     /**
      *
@@ -35,10 +49,11 @@ class PublishingToken
 
     /**
      *
-     * @var string $targetResource
+     * @var TargetResource $targetResource
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('target_resource')]
-    public string $targetResource;
+    #[\Speakeasy\Serializer\Annotation\Type('\Speakeasy\SpeakeasyClientSDK\Models\Shared\TargetResource')]
+    public TargetResource $targetResource;
 
     /**
      *
@@ -49,11 +64,24 @@ class PublishingToken
 
     /**
      *
-     * @var ?string $createdBy
+     * @var string $tokenName
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('created_by')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $createdBy = null;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('token_name')]
+    public string $tokenName;
+
+    /**
+     *
+     * @var \DateTime $validUntil
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('valid_until')]
+    public \DateTime $validUntil;
+
+    /**
+     *
+     * @var string $workspaceId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('workspace_id')]
+    public string $workspaceId;
 
     /**
      *
@@ -72,35 +100,33 @@ class PublishingToken
     public ?string $updatedBy = null;
 
     /**
-     *
-     * @var ?\DateTime $validUntil
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('valid_until')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $validUntil = null;
-
-    /**
      * @param  \DateTime  $createdAt
+     * @param  string  $createdBy
      * @param  string  $id
+     * @param  string  $organizationId
      * @param  string  $targetId
-     * @param  string  $targetResource
+     * @param  TargetResource  $targetResource
      * @param  string  $token
-     * @param  ?string  $createdBy
+     * @param  string  $tokenName
+     * @param  \DateTime  $validUntil
+     * @param  string  $workspaceId
      * @param  ?\DateTime  $updatedAt
      * @param  ?string  $updatedBy
-     * @param  ?\DateTime  $validUntil
      * @phpstan-pure
      */
-    public function __construct(\DateTime $createdAt, string $id, string $targetId, string $targetResource, string $token, ?string $createdBy = null, ?\DateTime $updatedAt = null, ?string $updatedBy = null, ?\DateTime $validUntil = null)
+    public function __construct(\DateTime $createdAt, string $createdBy, string $id, string $organizationId, string $targetId, TargetResource $targetResource, string $token, string $tokenName, \DateTime $validUntil, string $workspaceId, ?\DateTime $updatedAt = null, ?string $updatedBy = null)
     {
         $this->createdAt = $createdAt;
+        $this->createdBy = $createdBy;
         $this->id = $id;
+        $this->organizationId = $organizationId;
         $this->targetId = $targetId;
         $this->targetResource = $targetResource;
         $this->token = $token;
-        $this->createdBy = $createdBy;
+        $this->tokenName = $tokenName;
+        $this->validUntil = $validUntil;
+        $this->workspaceId = $workspaceId;
         $this->updatedAt = $updatedAt;
         $this->updatedBy = $updatedBy;
-        $this->validUntil = $validUntil;
     }
 }

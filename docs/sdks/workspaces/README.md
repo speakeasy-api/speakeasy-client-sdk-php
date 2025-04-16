@@ -14,7 +14,6 @@ REST APIs for managing Workspaces (speakeasy tenancy)
 * [getAll](#getall) - Get workspaces for a user
 * [getByID](#getbyid) - Get workspace
 * [getFeatureFlags](#getfeatureflags) - Get workspace feature flags
-* [getPublishingToken](#getpublishingtoken) - Get publishing tokens for a workspace
 * [getSettings](#getsettings) - Get workspace settings
 * [getTeam](#getteam) - Get team members for a particular workspace
 * [getTokens](#gettokens) - Get tokens for a particular workspace
@@ -392,50 +391,6 @@ if ($response->workspaceFeatureFlagResponse !== null) {
 | ---------------------- | ---------------------- | ---------------------- |
 | Errorors\Error         | 5XX                    | application/json       |
 | Errorors\SDKExceptioon | 4XX                    | \*/\*                  |
-
-## getPublishingToken
-
-Returns a publishing token for the current workspace
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Speakeasy\SpeakeasyClientSDK;
-use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-
-$sdk = SpeakeasyClientSDK\SDK::builder()
-    ->setSecurity(
-        new Shared\Security(
-            apiKey: '<YOUR_API_KEY_HERE>',
-        )
-    )
-    ->build();
-
-
-
-$response = $sdk->workspaces->getPublishingToken(
-
-);
-
-if ($response->classes !== null) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\GetPublishingTokenResponse](../../Models/Operations/GetPublishingTokenResponse.md)**
-
-### Errors
-
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| Errorors\Error         | 4XX                    | application/json       |
-| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
 ## getSettings
 

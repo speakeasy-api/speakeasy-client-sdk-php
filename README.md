@@ -23,7 +23,6 @@ require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use Speakeasy\SpeakeasyClientSDK\Utils;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity(
@@ -33,19 +32,22 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     )
     ->build();
 
-$request = new Shared\PublishingToken(
-    createdAt: Utils\Utils::parseDateTime('2025-10-25T02:17:15.413Z'),
-    id: '<id>',
-    targetId: '<id>',
-    targetResource: '<value>',
-    token: '<value>',
+$request = new Shared\RemoteSource(
+    inputs: [
+        new Shared\RemoteDocument(
+            registryUrl: 'https://productive-swine.net',
+        ),
+    ],
+    output: new Shared\RemoteDocument(
+        registryUrl: 'https://spiteful-apricot.info',
+    ),
 );
 
-$response = $sdk->createPublishingToken(
+$response = $sdk->artifacts->createRemoteSource(
     request: $request
 );
 
-if ($response->publishingToken !== null) {
+if ($response->statusCode === 200) {
     // handle response
 }
 ```
@@ -72,7 +74,6 @@ require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use Speakeasy\SpeakeasyClientSDK\Utils;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity(
@@ -82,19 +83,22 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     )
     ->build();
 
-$request = new Shared\PublishingToken(
-    createdAt: Utils\Utils::parseDateTime('2025-10-25T02:17:15.413Z'),
-    id: '<id>',
-    targetId: '<id>',
-    targetResource: '<value>',
-    token: '<value>',
+$request = new Shared\RemoteSource(
+    inputs: [
+        new Shared\RemoteDocument(
+            registryUrl: 'https://productive-swine.net',
+        ),
+    ],
+    output: new Shared\RemoteDocument(
+        registryUrl: 'https://spiteful-apricot.info',
+    ),
 );
 
-$response = $sdk->createPublishingToken(
+$response = $sdk->artifacts->createRemoteSource(
     request: $request
 );
 
-if ($response->publishingToken !== null) {
+if ($response->statusCode === 200) {
     // handle response
 }
 ```
@@ -167,6 +171,15 @@ if ($response->publishingToken !== null) {
 * [getBillingAddOns](docs/sdks/organizations/README.md#getbillingaddons) - Get billing add ons
 * [getUsage](docs/sdks/organizations/README.md#getusage) - Get billing usage summary for a particular organization
 
+### [publishingTokens](docs/sdks/publishingtokens/README.md)
+
+* [create](docs/sdks/publishingtokens/README.md#create) - Create a publishing token for a workspace
+* [delete](docs/sdks/publishingtokens/README.md#delete) - Delete a specific publishing token
+* [get](docs/sdks/publishingtokens/README.md#get) - Get a specific publishing token
+* [list](docs/sdks/publishingtokens/README.md#list) - Get publishing tokens for a workspace
+* [resolveTarget](docs/sdks/publishingtokens/README.md#resolvetarget) - Get a specific publishing token target
+* [update](docs/sdks/publishingtokens/README.md#update) - Updates the validitity period of a publishing token
+
 ### [reports](docs/sdks/reports/README.md)
 
 * [getChangesReportSignedUrl](docs/sdks/reports/README.md#getchangesreportsignedurl) - Get the signed access url for the change reports for a particular document.
@@ -178,13 +191,6 @@ if ($response->publishingToken !== null) {
 * [createSchemaStoreItem](docs/sdks/schemastore/README.md#createschemastoreitem) - Create a schema in the schema store
 * [getSchemaStoreItem](docs/sdks/schemastore/README.md#getschemastoreitem) - Get a OAS schema from the schema store
 
-### [SDK](docs/sdks/sdk/README.md)
-
-* [createPublishingToken](docs/sdks/sdk/README.md#createpublishingtoken) - Create a publishing token for a workspace
-* [deletePublishingToken](docs/sdks/sdk/README.md#deletepublishingtoken) - Delete a specific publishing token
-* [getPublishingTokenByID](docs/sdks/sdk/README.md#getpublishingtokenbyid) - Get a specific publishing token
-* [getPublishingTokenTargetByID](docs/sdks/sdk/README.md#getpublishingtokentargetbyid) - Get a specific publishing token target
-* [updatePublishingTokenExpiration](docs/sdks/sdk/README.md#updatepublishingtokenexpiration) - Updates the validitity period of a publishing token
 
 ### [shortURLs](docs/sdks/shorturls/README.md)
 
@@ -211,7 +217,6 @@ if ($response->publishingToken !== null) {
 * [getAll](docs/sdks/workspaces/README.md#getall) - Get workspaces for a user
 * [getByID](docs/sdks/workspaces/README.md#getbyid) - Get workspace
 * [getFeatureFlags](docs/sdks/workspaces/README.md#getfeatureflags) - Get workspace feature flags
-* [getPublishingToken](docs/sdks/workspaces/README.md#getpublishingtoken) - Get publishing tokens for a workspace
 * [getSettings](docs/sdks/workspaces/README.md#getsettings) - Get workspace settings
 * [getTeam](docs/sdks/workspaces/README.md#getteam) - Get team members for a particular workspace
 * [getTokens](docs/sdks/workspaces/README.md#gettokens) - Get tokens for a particular workspace
@@ -365,7 +370,7 @@ By default an API error will raise a `Errorors\SDKExceptioon` exception, which h
 | `$rawResponse` | *?\Psr\Http\Message\ResponseInterface*  | The raw HTTP response |
 | `$body`        | *string*                                | The response content  |
 
-When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `createPublishingToken` method throws the following exceptions:
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `createRemoteSource` method throws the following exceptions:
 
 | Error Type             | Status Code | Content Type     |
 | ---------------------- | ----------- | ---------------- |
@@ -382,7 +387,6 @@ require 'vendor/autoload.php';
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Errorors;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use Speakeasy\SpeakeasyClientSDK\Utils;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity(
@@ -393,19 +397,22 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     ->build();
 
 try {
-    $request = new Shared\PublishingToken(
-        createdAt: Utils\Utils::parseDateTime('2025-10-25T02:17:15.413Z'),
-        id: '<id>',
-        targetId: '<id>',
-        targetResource: '<value>',
-        token: '<value>',
+    $request = new Shared\RemoteSource(
+        inputs: [
+            new Shared\RemoteDocument(
+                registryUrl: 'https://productive-swine.net',
+            ),
+        ],
+        output: new Shared\RemoteDocument(
+            registryUrl: 'https://spiteful-apricot.info',
+        ),
     );
 
-    $response = $sdk->createPublishingToken(
+    $response = $sdk->artifacts->createRemoteSource(
         request: $request
     );
 
-    if ($response->publishingToken !== null) {
+    if ($response->statusCode === 200) {
         // handle response
     }
 } catch (Errorors\ErrorThrowable $e) {
@@ -438,7 +445,6 @@ require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use Speakeasy\SpeakeasyClientSDK\Utils;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setServer('prod')
@@ -449,19 +455,22 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     )
     ->build();
 
-$request = new Shared\PublishingToken(
-    createdAt: Utils\Utils::parseDateTime('2025-10-25T02:17:15.413Z'),
-    id: '<id>',
-    targetId: '<id>',
-    targetResource: '<value>',
-    token: '<value>',
+$request = new Shared\RemoteSource(
+    inputs: [
+        new Shared\RemoteDocument(
+            registryUrl: 'https://productive-swine.net',
+        ),
+    ],
+    output: new Shared\RemoteDocument(
+        registryUrl: 'https://spiteful-apricot.info',
+    ),
 );
 
-$response = $sdk->createPublishingToken(
+$response = $sdk->artifacts->createRemoteSource(
     request: $request
 );
 
-if ($response->publishingToken !== null) {
+if ($response->statusCode === 200) {
     // handle response
 }
 ```
@@ -476,7 +485,6 @@ require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use Speakeasy\SpeakeasyClientSDK\Utils;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setServerURL('https://api.prod.speakeasyapi.dev')
@@ -487,19 +495,22 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     )
     ->build();
 
-$request = new Shared\PublishingToken(
-    createdAt: Utils\Utils::parseDateTime('2025-10-25T02:17:15.413Z'),
-    id: '<id>',
-    targetId: '<id>',
-    targetResource: '<value>',
-    token: '<value>',
+$request = new Shared\RemoteSource(
+    inputs: [
+        new Shared\RemoteDocument(
+            registryUrl: 'https://productive-swine.net',
+        ),
+    ],
+    output: new Shared\RemoteDocument(
+        registryUrl: 'https://spiteful-apricot.info',
+    ),
 );
 
-$response = $sdk->createPublishingToken(
+$response = $sdk->artifacts->createRemoteSource(
     request: $request
 );
 
-if ($response->publishingToken !== null) {
+if ($response->statusCode === 200) {
     // handle response
 }
 ```

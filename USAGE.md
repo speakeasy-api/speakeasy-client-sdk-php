@@ -6,7 +6,6 @@ require 'vendor/autoload.php';
 
 use Speakeasy\SpeakeasyClientSDK;
 use Speakeasy\SpeakeasyClientSDK\Models\Shared;
-use Speakeasy\SpeakeasyClientSDK\Utils;
 
 $sdk = SpeakeasyClientSDK\SDK::builder()
     ->setSecurity(
@@ -16,19 +15,22 @@ $sdk = SpeakeasyClientSDK\SDK::builder()
     )
     ->build();
 
-$request = new Shared\PublishingToken(
-    createdAt: Utils\Utils::parseDateTime('2025-10-25T02:17:15.413Z'),
-    id: '<id>',
-    targetId: '<id>',
-    targetResource: '<value>',
-    token: '<value>',
+$request = new Shared\RemoteSource(
+    inputs: [
+        new Shared\RemoteDocument(
+            registryUrl: 'https://productive-swine.net',
+        ),
+    ],
+    output: new Shared\RemoteDocument(
+        registryUrl: 'https://spiteful-apricot.info',
+    ),
 );
 
-$response = $sdk->createPublishingToken(
+$response = $sdk->artifacts->createRemoteSource(
     request: $request
 );
 
-if ($response->publishingToken !== null) {
+if ($response->statusCode === 200) {
     // handle response
 }
 ```

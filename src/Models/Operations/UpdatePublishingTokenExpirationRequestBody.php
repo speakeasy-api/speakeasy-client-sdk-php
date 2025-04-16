@@ -21,11 +21,22 @@ class UpdatePublishingTokenExpirationRequestBody
     public \DateTime $validUntil;
 
     /**
+     * The new name for the publishing token.
+     *
+     * @var ?string $tokenName
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('token_name')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $tokenName = null;
+
+    /**
      * @param  \DateTime  $validUntil
+     * @param  ?string  $tokenName
      * @phpstan-pure
      */
-    public function __construct(\DateTime $validUntil)
+    public function __construct(\DateTime $validUntil, ?string $tokenName = null)
     {
         $this->validUntil = $validUntil;
+        $this->tokenName = $tokenName;
     }
 }
