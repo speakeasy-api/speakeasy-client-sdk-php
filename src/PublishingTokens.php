@@ -319,24 +319,24 @@ class PublishingTokens
     }
 
     /**
-     * Get a specific publishing token target
+     * Get metadata about the token
      *
-     * Get information about a particular publishing token target.
+     * Get information about a particular publishing token.
      *
-     * @param  Operations\GetPublishingTokenTargetByIDRequest  $request
-     * @return Operations\GetPublishingTokenTargetByIDResponse
+     * @param  Operations\GetPublishingTokenPublicMetadataRequest  $request
+     * @return Operations\GetPublishingTokenPublicMetadataResponse
      * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKExceptioon
      */
-    public function resolveTarget(Operations\GetPublishingTokenTargetByIDRequest $request, ?Options $options = null): Operations\GetPublishingTokenTargetByIDResponse
+    public function resolveMetadata(Operations\GetPublishingTokenPublicMetadataRequest $request, ?Options $options = null): Operations\GetPublishingTokenPublicMetadataResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/v1/publishing-tokens/{tokenID}/target', Operations\GetPublishingTokenTargetByIDRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/publishing-tokens/{tokenID}/metadata', Operations\GetPublishingTokenPublicMetadataRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        $hookContext = new HookContext($baseUrl, 'getPublishingTokenTargetByID', [], $this->sdkConfiguration->securitySource);
+        $hookContext = new HookContext($baseUrl, 'getPublishingTokenPublicMetadata', [], $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
@@ -359,14 +359,81 @@ class PublishingTokens
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetPublishingTokenTargetByIDResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\GetPublishingTokenTargetByIDResponse(
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Operations\GetPublishingTokenPublicMetadataResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetPublishingTokenPublicMetadataResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
                     object: $obj);
 
                 return $response;
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKExceptioon('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Speakeasy\SpeakeasyClientSDK\Models\Errorors\Error', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj->toException();
+            } else {
+                throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKExceptioon('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKExceptioon('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKExceptioon('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
+     * Get a specific publishing token target
+     *
+     * Get information about a particular publishing token target.
+     *
+     * @param  Operations\GetPublishingTokenTargetByIDRequest  $request
+     * @return Operations\GetPublishingTokenTargetByIDResponse
+     * @throws \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKExceptioon
+     */
+    public function resolveTarget(Operations\GetPublishingTokenTargetByIDRequest $request, ?Options $options = null): Operations\GetPublishingTokenTargetByIDResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/v1/publishing-tokens/{tokenID}/target', Operations\GetPublishingTokenTargetByIDRequest::class, $request, $this->sdkConfiguration->globals);
+        $urlOverride = null;
+        $httpOptions = ['http_errors' => false];
+        $httpOptions['headers']['Accept'] = 'text/yaml';
+        $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
+        $hookContext = new HookContext($baseUrl, 'getPublishingTokenTargetByID', [], $this->sdkConfiguration->securitySource);
+        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
+        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
+        try {
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
+        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
+            $httpResponse = $res;
+        }
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if (Utils\Utils::matchStatusCodes($statusCode, ['4XX', '5XX'])) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
+            $httpResponse = $res;
+        }
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
+            if (Utils\Utils::matchContentType($contentType, 'text/yaml')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $obj = $httpResponse->getBody()->getContents();
+
+                return new Operations\GetPublishingTokenTargetByIDResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    body: $obj);
             } else {
                 throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKExceptioon('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }

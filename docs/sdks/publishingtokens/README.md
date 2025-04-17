@@ -9,6 +9,7 @@
 * [delete](#delete) - Delete a specific publishing token
 * [get](#get) - Get a specific publishing token
 * [list](#list) - Get publishing tokens for a workspace
+* [resolveMetadata](#resolvemetadata) - Get metadata about the token
 * [resolveTarget](#resolvetarget) - Get a specific publishing token target
 * [update](#update) - Updates the validitity period of a publishing token
 
@@ -219,6 +220,59 @@ if ($response->classes !== null) {
 | Errorors\Error         | 4XX                    | application/json       |
 | Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
 
+## resolveMetadata
+
+Get information about a particular publishing token.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Speakeasy\SpeakeasyClientSDK;
+use Speakeasy\SpeakeasyClientSDK\Models\Operations;
+use Speakeasy\SpeakeasyClientSDK\Models\Shared;
+
+$sdk = SpeakeasyClientSDK\SDK::builder()
+    ->setSecurity(
+        new Shared\Security(
+            apiKey: '<YOUR_API_KEY_HERE>',
+        )
+    )
+    ->build();
+
+$request = new Operations\GetPublishingTokenPublicMetadataRequest(
+    tokenID: '<id>',
+);
+
+$response = $sdk->publishingTokens->resolveMetadata(
+    request: $request
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                                               | [Operations\GetPublishingTokenPublicMetadataRequest](../../Models/Operations/GetPublishingTokenPublicMetadataRequest.md) | :heavy_check_mark:                                                                                                       | The request object to use for the request.                                                                               |
+
+### Response
+
+**[?Operations\GetPublishingTokenPublicMetadataResponse](../../Models/Operations/GetPublishingTokenPublicMetadataResponse.md)**
+
+### Errors
+
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| Errorors\Error         | 4XX                    | application/json       |
+| Errorors\SDKExceptioon | 5XX                    | \*/\*                  |
+
 ## resolveTarget
 
 Get information about a particular publishing token target.
@@ -250,7 +304,7 @@ $response = $sdk->publishingTokens->resolveTarget(
     request: $request
 );
 
-if ($response->object !== null) {
+if ($response->body !== null) {
     // handle response
 }
 ```

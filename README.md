@@ -177,6 +177,7 @@ if ($response->statusCode === 200) {
 * [delete](docs/sdks/publishingtokens/README.md#delete) - Delete a specific publishing token
 * [get](docs/sdks/publishingtokens/README.md#get) - Get a specific publishing token
 * [list](docs/sdks/publishingtokens/README.md#list) - Get publishing tokens for a workspace
+* [resolveMetadata](docs/sdks/publishingtokens/README.md#resolvemetadata) - Get metadata about the token
 * [resolveTarget](docs/sdks/publishingtokens/README.md#resolvetarget) - Get a specific publishing token target
 * [update](docs/sdks/publishingtokens/README.md#update) - Updates the validitity period of a publishing token
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Speakeasy\SpeakeasyClientSDK\Models\Operations;
 
 
-class GetPublishingTokenTargetByIDResponse
+class GetPublishingTokenPublicMetadataResponse
 {
     /**
      * HTTP response content type for this operation
@@ -33,23 +33,24 @@ class GetPublishingTokenTargetByIDResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
+     * OK
      *
-     * @var ?string $body
+     * @var ?GetPublishingTokenPublicMetadataResponseBody $object
      */
-    public ?string $body = null;
+    public ?GetPublishingTokenPublicMetadataResponseBody $object = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?string  $body
+     * @param  ?GetPublishingTokenPublicMetadataResponseBody  $object
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?string $body = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?GetPublishingTokenPublicMetadataResponseBody $object = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
-        $this->body = $body;
+        $this->object = $object;
     }
 }
