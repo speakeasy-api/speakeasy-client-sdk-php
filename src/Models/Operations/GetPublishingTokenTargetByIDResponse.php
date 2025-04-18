@@ -33,23 +33,24 @@ class GetPublishingTokenTargetByIDResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
+     * OK
      *
-     * @var ?string $body
+     * @var ?string $res
      */
-    public ?string $body = null;
+    public ?string $res = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?string  $body
+     * @param  ?string  $res
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?string $body = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?string $res = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
-        $this->body = $body;
+        $this->res = $res;
     }
 }

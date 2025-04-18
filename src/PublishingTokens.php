@@ -403,7 +403,7 @@ class PublishingTokens
         $url = Utils\Utils::generateUrl($baseUrl, '/v1/publishing-tokens/{tokenID}/target', Operations\GetPublishingTokenTargetByIDRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions['headers']['Accept'] = 'text/yaml';
+        $httpOptions['headers']['Accept'] = 'text/plain';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
         $hookContext = new HookContext($baseUrl, 'getPublishingTokenTargetByID', [], $this->sdkConfiguration->securitySource);
@@ -424,7 +424,7 @@ class PublishingTokens
             $httpResponse = $res;
         }
         if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
-            if (Utils\Utils::matchContentType($contentType, 'text/yaml')) {
+            if (Utils\Utils::matchContentType($contentType, 'text/plain')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
                 $obj = $httpResponse->getBody()->getContents();
@@ -433,7 +433,7 @@ class PublishingTokens
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
-                    body: $obj);
+                    res: $obj);
             } else {
                 throw new \Speakeasy\SpeakeasyClientSDK\Models\Errorors\SDKExceptioon('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }

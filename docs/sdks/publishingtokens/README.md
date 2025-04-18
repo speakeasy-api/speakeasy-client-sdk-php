@@ -304,7 +304,7 @@ $response = $sdk->publishingTokens->resolveTarget(
     request: $request
 );
 
-if ($response->body !== null) {
+if ($response->res !== null) {
     // handle response
 }
 ```

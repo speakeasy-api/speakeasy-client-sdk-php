@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db1bb4da-054f-485f-8c6e-d42db3f1da90
 management:
-  docChecksum: 14a9d7c35519d0595938a0a69331e8cc
+  docChecksum: 8e7108c1d91dd68426e05e155eea40e5
   docVersion: 0.4.0
-  speakeasyVersion: 1.533.0
-  generationVersion: 2.578.0
-  releaseVersion: 0.51.5
-  configChecksum: 801b061db8d09910fc4d61fe3dc31500
+  speakeasyVersion: 1.535.1
+  generationVersion: 2.585.2
+  releaseVersion: 0.51.6
+  configChecksum: 3e35c0d374379b47653c4d0c789ac1c8
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-api/speakeasy-client-sdk-php
@@ -98,7 +98,6 @@ generatedFiles:
   - docs/Models/Operations/GetPublishingTokenResponse.md
   - docs/Models/Operations/GetPublishingTokenTargetByIDRequest.md
   - docs/Models/Operations/GetPublishingTokenTargetByIDResponse.md
-  - docs/Models/Operations/GetPublishingTokenTargetByIDResponseBody.md
   - docs/Models/Operations/GetRevisionsRequest.md
   - docs/Models/Operations/GetRevisionsResponse.md
   - docs/Models/Operations/GetSchemaStoreItemRequestBody.md
@@ -374,7 +373,6 @@ generatedFiles:
   - src/Models/Operations/GetPublishingTokenResponse.php
   - src/Models/Operations/GetPublishingTokenTargetByIDRequest.php
   - src/Models/Operations/GetPublishingTokenTargetByIDResponse.php
-  - src/Models/Operations/GetPublishingTokenTargetByIDResponseBody.php
   - src/Models/Operations/GetRevisionsRequest.php
   - src/Models/Operations/GetRevisionsResponse.php
   - src/Models/Operations/GetSchemaStoreItemRequestBody.php
@@ -625,6 +623,7 @@ examples:
         "200":
           application/json: {}
           text/yaml: "0x8608ACc78B"
+          text/plain: "<value>"
         4XX:
           application/json: {"message": "<value>", "status_code": 297644}
   updatePublishingTokenExpiration:
