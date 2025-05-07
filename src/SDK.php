@@ -22,7 +22,7 @@ class SDK
     public const SERVER_PROD = 'prod';
 
     public const SERVERS = [
-        SDK::SERVER_PROD => 'https://api.prod.speakeasyapi.dev',
+        SDK::SERVER_PROD => 'https://api.prod.speakeasy.com',
     ];
 
     /**
